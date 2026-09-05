@@ -402,6 +402,17 @@ DEFAULT_COMMANDS = [
     (10, 'function alfheim:hub/status'),
     (5, 'execute in mythicbotany:alfheim run forceload query'),
 
+    # FTB Chunks claim acceptance needs ownership read-back, not the return value from
+    # `claim_as`. FTB Chunks `info` reports the owning team for the addressed chunk to an
+    # operator/console source. Probe the centre and all four corners of the 192-block square
+    # that 04_spawn_hub.js reconciles so the next headless run records whether the whole
+    # relocation envelope belongs to the `alfheim_hub` server team.
+    (2, 'ftbchunks info 0 0 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 192 192 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -192 192 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 192 -192 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -192 -192 mythicbotany:alfheim'),
+
     (60, 'save-all flush'),
     (20, 'stop'),
 ]
