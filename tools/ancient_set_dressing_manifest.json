@@ -1,0 +1,44 @@
+{
+  "schema": "alfheim:ancient_set_dressing/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "categories": {
+    "stone_debris": {
+      "purpose": "collapsed masonry and structural failure",
+      "variants": ["fallen_column", "rubble_fan", "broken_paving"],
+      "blocks": ["feywild:elven_quartz_cracked_brick", "botania:livingrock_bricks", "minecraft:gravel", "minecraft:calcite"]
+    },
+    "wood_debris": {
+      "purpose": "collapsed roofs, furniture, braces, carts and structural timber",
+      "variants": ["splintered_beam", "collapsed_roof", "broken_furnishing"],
+      "blocks": ["botania:dreamwood_log", "botania:dreamwood_planks", "botania:dreamwood_slab", "minecraft:scaffolding"]
+    },
+    "skeletal_remains": {
+      "purpose": "long-decayed ordinary dead and disturbed burials",
+      "variants": ["single_skeleton", "clustered_bones", "burial_row"],
+      "blocks": ["minecraft:skeleton_skull", "minecraft:bone_block", "minecraft:white_carpet", "minecraft:coarse_dirt"]
+    },
+    "elven_remains": {
+      "purpose": "contextual elven bodies/remains with surviving clothing, jewelry, civic or professional identity",
+      "variants": ["civilian_fall", "warden_fall", "healer_fall"],
+      "blocks": ["minecraft:skeleton_skull", "minecraft:bone_block", "minecraft:green_carpet", "minecraft:purple_carpet", "feywild:elven_quartz_brick_slab"]
+    },
+    "abandoned_objects": {
+      "purpose": "tools, containers, domestic residue and work left in place",
+      "variants": ["workbench_scatter", "ration_scatter", "household_scatter"],
+      "blocks": ["minecraft:barrel", "minecraft:chest", "minecraft:cauldron", "minecraft:flower_pot", "minecraft:lantern"]
+    },
+    "broken_infrastructure": {
+      "purpose": "failed advanced elven civic and magical systems",
+      "variants": ["mana_conduit_break", "runic_waystone_break", "waterworks_break"],
+      "blocks": ["botania:livingrock_bricks", "ars_nouveau:sourcestone", "minecraft:amethyst_block", "minecraft:sea_lantern", "minecraft:water"]
+    }
+  },
+  "placement_rules": {
+    "context_required": true,
+    "no_uniform_bone_carpet": true,
+    "remains_density_tracks_history": true,
+    "debris_follows_collapse_direction": true,
+    "persistent_entities_default": false,
+    "progression_items_forbidden": true
+  }
+}
