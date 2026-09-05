@@ -43,6 +43,12 @@ The live observation that blocks could be destroyed also means the prior `SPAWN_
 
 This is a **static repair**, not runtime acceptance. A zero `claim_as` return can mean that no new chunks needed claiming or that no claim was established, so command return values alone cannot satisfy §4.
 
+### 2.2 Ownership read-back is now machine-checked
+
+`tools/run_server.py` issues `ftbchunks info` at the centre and all four corners of the configured protection envelope. `tools/check_spawn_hub_claim.py` turns those console replies into an acceptance gate instead of leaving them for manual interpretation. The checker reads `HUB_DIMENSION`, `HUB_FTB_TEAM`, and `HUB_RADIUS` directly from the generated shipping script, converts the probe block coordinates to the chunk coordinates FTB Chunks reports, and requires every location to name the expected `alfheim_hub` owner.
+
+The checker fails on a missing probe, an unclaimed probe, or a different owner. Its built-in fault tests cover the complete claim, wrong-owner, missing-corner, and unclaimed-centre cases. This closes the evidence gap between “the claim command ran” and “FTB Chunks reported who owns the protected envelope,” but it still does **not** satisfy the non-op player or restart-persistence requirements in §4.
+
 ---
 
 ## 3. Claim lifecycle must follow the actual Greatbole
@@ -87,7 +93,7 @@ The finished hub must pass all of the following in a fresh test world:
 
 This sits alongside the Greatbole terrain-fit and Greatbole-to-Court circulation defects, but it is not aesthetic work. Protection is a functional prerequisite for using the structure as the persistent campaign hub.
 
-The next protection action is now runtime validation rather than more static implementation: boot a fresh world with the regenerated script, read back the `alfheim_hub` server-team claim in FTB Chunks, test break and placement with a non-op survival player, restart and re-check ownership, then exercise the independent explosion/fire/mob-grief/hostile-spawn gates.
+The next protection action is now runtime validation rather than more static implementation: boot a fresh world with the regenerated script, read back the `alfheim_hub` server-team claim in FTB Chunks, run `python tools/check_spawn_hub_claim.py` against that run's console, test break and placement with a non-op survival player, restart and re-check ownership, then exercise the independent explosion/fire/mob-grief/hostile-spawn gates.
 
 The wider structure repair ordering remains:
 
