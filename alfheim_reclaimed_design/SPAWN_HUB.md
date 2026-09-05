@@ -3,10 +3,13 @@
 **Role:** authoritative design record for the pack's centrepiece: the arrival tree, the portal
 built into its flank, the ruined amphitheatre outside it, and the protected admin zone around
 all three.
-**Status:** `draft` — pass 1 generated, nothing observed in a game.
+**Status:** `runtime observed` 2026-09-04 — the Greatbole now generates with its crown, but the
+first in-world design review exposed two open defects: unacceptable cliff/terrain integration
+and incomplete circulation between the Greatbole interior and the ruined Court circle. The
+repair pass is open.
 **Authority:** subordinate to `INSTRUCTIONS.md`. Extends `SPAWN_ZONE.md`; see §1.2 for the
 boundary between the two records.
-**Asked for by the user, 2026-09-03.**
+**Asked for by the user, 2026-09-03. Runtime refinement added from the user's 2026-09-04 test.**
 
 ---
 
@@ -31,12 +34,12 @@ reason this record exists separately from `SPAWN_ZONE.md`:
 1. **It must survive.** A creeper crater in the amphitheatre on day 40 is not a war story, it is
    a broken quest hub. Hence §4.
 2. **It must stay legible.** The player needs to find Velrous again without a map. A silhouette
-   visible from a kilometre is the cheapest wayfinding in the game — hence a tree of ~190 blocks,
-   not ~60.
+   visible from a kilometre is the cheapest wayfinding in the game — hence a tree that is
+   deliberately enormous even after the jigsaw-height correction.
 3. **It will take many passes.** The user said so explicitly. The build is therefore
    **parametric and regenerable** — `tools/gen_spawn_hub.py` writes every `.nbt` from numbers, so
-   pass 2 is an edit and a re-run, not a rebuild. This is the single most important structural
-   decision in this record.
+   the next pass is an edit and a re-run, not a rebuild. This is the single most important
+   structural decision in this record.
 
 ### 1.1 The fiction it has to carry
 
@@ -71,25 +74,26 @@ it — the gate frame, the stairs, the court.
 
 | Limit | Value | Consequence |
 |---|---|---|
-| Structure block save volume | **48 × 48 × 48** | No piece may exceed it. The tree is four pieces. |
-| Jigsaw `size` (recursion depth) | 0–20 | Ample; the tree uses 4. |
-| Jigsaw `max_distance_from_center` | 1–128 | **The assembled tree must be no taller than this.** Currently 120 blocks against a cap of 128. |
+| Structure block save volume | **48 × 48 × 48** | No piece may exceed it. The tree is an assembly. |
+| Jigsaw `size` (recursion depth) | 0–20 | Ample for the current stack. |
+| Jigsaw `max_distance_from_center` | codec 1–128; **116 practical budget under `beard_thin`** | The assembled tree must fit the structure-plus-terrain-adaptation budget. It is now **112 blocks** tall. |
 
-> **Corrected 2026-09-04 — this table previously said the wrong thing, and the wrong thing shipped.**
+> **Corrected and runtime-proven 2026-09-04.**
 >
-> The old entry read: *"a 190-block tree centred on its base spans ±96 — inside the cap."* That is false. The tree is **not centred on its base** — it grows *upward* from it, so a 190-block tree spans **+190**, not ±95. Jigsaw placement culls any piece whose position falls outside `max_distance_from_center` of the structure start, so the crown — the topmost piece, and the only one a player looks at from a distance — was silently rejected every time. The user reported it as *"the Great tree doesn't seem to actually spawn its canopy."*
+> The old entry read: *"a 190-block tree centred on its base spans ±96 — inside the cap."* That is false. The tree is **not centred on its base** — it grows *upward* from it, so a 190-block tree spans **+190**, not ±95. Jigsaw placement culled the crown, and raising the nominal cap to 128 also failed because `JigsawStructure` validates the structure plus the 12-block terrain-adaptation margin. With `beard_thin`, the real usable budget is 116.
 >
-> The tree is now assembled at **120 blocks** (48 base + 1 × 32 trunk + 40 crown) against a `max_distance_from_center` of 128, and `tools/gen_spawn_hub.py` asserts the relationship at generation time so the arithmetic cannot drift again. The trunk pool is also deterministic at one segment — a rolled second segment would push the crown back over the cap.
+> The tree is now assembled at **112 blocks** (48 base + one 24-block trunk segment + 40 crown). `tools/gen_spawn_hub.py` and the S9 pool-graph check enforce that relationship. A crown probe in the validation world proved that the crown piece now places at runtime.
 
 ### 2.2 The pieces
 
 | Piece | Size | Role |
 |---|---|---|
 | `greatbole/base` | 48³ | Root buttresses, the trunk foot, **the gate chamber cut into the north flank**, and the court jigsaw |
-| `greatbole/trunk` | 32×48×32 | Stackable segment. Two by default. `rollable` joint, so each rotates independently and the trunk does not look extruded |
+| `greatbole/trunk` | 32×24×32 | One current trunk segment. `rollable` joint so the trunk does not read as an extrusion |
 | `greatbole/crown` | 48×40×48 | The canopy and the dead upper boughs |
 
-Total ~186 blocks. Stacking through vertical jigsaws is what gets past the 48-block ceiling.
+Total current vertical assembly: **112 blocks**. Stacking through vertical jigsaws is what gets
+past the 48-block ceiling without violating the real placement budget.
 
 ### 2.3 The Gate
 
@@ -105,6 +109,24 @@ image: you walk *into the tree* to leave the world.
 Era I and cannot finish until Era IV"*, and notes the traversal already exists
 (`botania:alfheim_portal` outward, `mythicbotany:return_portal` home). The gate here is the thing
 seen. Era IV's opening, and whatever block actually carries the player, stay with B-36.
+
+### 2.4 The Greatbole and the Court must be one piece of circulation
+
+**Runtime design defect, observed 2026-09-04:** the Greatbole and the ruined circle are adjacent,
+but they do not yet read or function as one connected place. The finished hub requires a
+**continuous, deliberate, walkable route from inside the Greatbole/gate chamber through the base
+and root mass into the amphitheatre/circle**. Proximity is not connection.
+
+The route should read as the remains of the Court's original processional way: an interior
+landing, threshold or root-vault, broad steps or ramps, broken paving, retaining masonry and
+collapsed side elements that explain how the interior once opened into the circle. Ruin may
+interrupt the edges and ornament, but the primary route cannot require the player to jump down a
+natural slope, climb raw terrain, break blocks, or wander around the outside of the tree to find
+the Court.
+
+**Acceptance:** stand inside the gate chamber and walk into the Court circle without leaving the
+intended architectural route. Looking back from the circle, the path must visibly terminate in
+the Greatbole rather than merely disappearing beside it.
 
 ---
 
@@ -154,8 +176,7 @@ and the distinction matters:
 
 - **The claim** is runtime world data. FTB Chunks stores claims per team, and its config is
   written at first boot (`local/ftbchunks/client-config.snbt` plus a server config). Nothing in
-  a datapack can pre-claim a chunk, so **the hub claim is a one-time admin action in-game**, and
-  it belongs to pass 2 with a world open.
+  a datapack can pre-claim a chunk, so **the hub claim is a one-time admin action in-game**.
 - **The enforcement** — no hostile spawns, no blast damage, no mob griefing — is
   `kubejs/server_scripts/04_spawn_hub.js`, and it is deliberately independent of the claim. It
   works on an unclaimed world, survives a claim being released, and does not depend on a team
@@ -168,11 +189,11 @@ is `claim_as`, `unclaim_as`, `bypass_protection`, `extra_claim_chunks`,
 covering §4.2, issued as an operator standing at the Greatbole.
 
 `claim_as` takes a **team**, so a server/admin team has to exist first — which is the specific
-reason this cannot be scripted blind and is listed as pass-2 work rather than done here.
+reason this cannot be scripted blind.
 
 Settings worth setting once the config file exists at first boot:
 `max_idle_days_before_unclaim = 0` (a hub must never auto-release) and
-`force_load_mode` left at its default — see §4.2 on why the hub is not force-loaded.
+`force_load_mode` left at its default.
 
 | Layer | Needs FTB Chunks? | Status |
 |---|---|---|
@@ -181,15 +202,15 @@ Settings worth setting once the config file exists at first boot:
 | No mob griefing (endermen, etc.) | no | **built** |
 | No fire spread | no | **built** |
 | Block edits restricted to operators | no | **built**, `PROTECT_FROM_PLAYERS` |
-| Visible claim on the FTB map, team semantics | **yes** | jar installed; claim is a pass-2 in-game action |
+| Visible claim on the FTB map, team semantics | **yes** | jar installed; claim remains an in-game admin action |
 
 ### 4.2 Shape
 
 A square region centred on **the origin**, radius **192 blocks**. Alfheim only; Midgard is
 unaffected.
 
-**Centred on the origin, not on the tree**, because no script can know where the tree is. The
-claim therefore has to be big enough to contain the tree wherever placement puts it:
+**Centred on the origin, not on the tree**, because the tree may relocate. The claim therefore
+has to be big enough to contain the tree wherever placement puts it:
 
 |  | blocks | why |
 |---|---|---|
@@ -220,9 +241,9 @@ That made a narrow tag two separate bugs:
 
 `findClosest` returns the **centre** when the centre matches, so the fix for both is the same:
 tag everything buildable. `#alfheim:has_greatbole` now holds **14 of the 16 biomes** in the
-Alfheim layer, which pins the structure to chunk `0,0` and lets
+Alfheim layer, which normally pins the structure to chunk `0,0` and lets
 `project_start_to_heightmap: WORLD_SURFACE_WG` with `terrain_adaptation: beard_thin` do the
-terrain snap.
+final terrain snap.
 
 Two biomes stay out, because the terrain snap cannot rescue either:
 
@@ -232,6 +253,27 @@ Two biomes stay out, because the terrain snap cannot rescue either:
 
 When the origin lands in one of those, the search relocates to the nearest of the other
 fourteen. That is why the claim is still sized for displacement rather than assuming `0,0`.
+
+### 4.3a Terrain suitability is a placement condition, not an aesthetic pass
+
+**Runtime defect, observed 2026-09-04:** the generated hub could jut bodily out of the side of a
+cliff with essentially no terrain incorporation. The structure existing at a legal height is not
+enough. `WORLD_SURFACE_WG` plus `beard_thin` can blend a legal placement; it does not prove that
+the chosen 48×48 base footprint is suitable for a monumental tree and court.
+
+The generator/placement logic must therefore treat **local relief across the entire Greatbole
+footprint as a candidate test**. At minimum it should sample the centre, corners and edge zones of
+the base. A severe cliff or abrupt elevation delta must cause one of two deliberate outcomes:
+
+1. **reject and relocate** to another buildable candidate inside the allowed search envelope; or
+2. **author real terrain incorporation** — root buttresses descending to ground, stepped
+   foundations, terraces, retaining walls, buried/collapsed lower masonry and approach stairs
+   that visibly carry the mass into the slope.
+
+What is forbidden is the current failure mode: a flat or square base visibly cantilevered from a
+cliff because the terrain happened to meet one side of the template. A cliff placement is only
+acceptable when the architecture is visibly designed as a cliff structure and carries its load
+to terrain.
 
 ### 4.4 Chunk loading
 
@@ -250,20 +292,23 @@ chunks for the life of the world.
 
 ## 5. Build passes
 
-Pass 1 is generated. The rest are aesthetic and were anticipated by the user from the start.
+Pass 1 is generated. Runtime has now done its job: it exposed defects that static validation
+could not see. Those defects are now the next work, not optional polish.
 
 | Pass | Work | State |
 |---|---|---|
 | **1** | Parametric generator; base, trunk, crown, amphitheatre; jigsaw wiring; protection; checker | **done (static)** |
-| **2** | Prove it: fresh world, tree generates whole, no floating or buried geometry, gate chamber reachable | **next, needs a boot** |
-| 3 | Silhouette and proportion — trunk taper, root spread, canopy mass | |
-| 4 | The gate chamber interior — the "intricate" pass. Detail work at the frame |
-| 5 | Amphitheatre ruin quality — collapse that reads as causal, not as random block removal |
-| 6 | Court dressing — braziers, banners, scattered apothecaries, the Guard's armoury |
-| 7 | Approach and sightlines — how the tree first reads from 200 blocks out |
-| 8 | Interaction — NPC posts placed against the finished geometry rather than at offsets from spawn |
+| **2** | Runtime proof: whole tree/crown, placement, gate and court inspected in a fresh world | **partial 2026-09-04 — crown proven; terrain and circulation failed acceptance** |
+| **3** | Terrain-fit repair — reject bad cliff candidates or build genuine root/terrace/foundation integration | **open, priority** |
+| **4** | Greatbole-to-Court circulation — continuous interior processional route into the ruined circle (§2.4) | **open, priority** |
+| 5 | Silhouette and proportion — trunk taper, root spread, canopy mass | |
+| 6 | The gate chamber interior — the "intricate" pass. Detail work at the frame |
+| 7 | Amphitheatre ruin quality — collapse that reads as causal, not as random block removal |
+| 8 | Court dressing — braziers, banners, scattered apothecaries, the Guard's armoury |
+| 9 | Approach and sightlines — how the tree first reads from 200 blocks out |
+| 10 | Interaction — NPC posts placed against the finished geometry rather than at offsets from spawn |
 
-Pass 8 is the one that closes the loop with B-57: the court is currently placed by
+Pass 10 is the one that closes the loop with B-57: the court is currently placed by
 `03_hollow_court.js` at offsets from the player's landing spot, because when it was written there
 was no tree. Once the geometry is proven, the posts move into the structure.
 
@@ -278,6 +323,12 @@ spawn", the one strongholds use. It removes any need for spawn-forcing code.
 `continuityworks_spawn_protection:protected`, which enforces a 500-block exclusion around it, so
 nothing else generates through the roots. The Hollow Court's city pieces must stay `ignored`, or
 they will exclude each other.
+
+**Placement acceptance is now explicitly two-stage:** first find a legal biome/position; then
+prove the local terrain is suitable for the complete base footprint. `terrain_adaptation` is a
+finishing operation, not permission to place a monumental structure on any slope the heightmap
+can name. The cliff case observed on 2026-09-04 is a failed placement even though Minecraft
+successfully generated it.
 
 ---
 
