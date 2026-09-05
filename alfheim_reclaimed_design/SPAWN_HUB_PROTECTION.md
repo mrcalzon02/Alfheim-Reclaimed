@@ -1,8 +1,8 @@
 # Spawn Hub Protection — claim and anti-grief acceptance
 
 **Role:** protection subrecord for `SPAWN_HUB.md` §4. It owns the runtime acceptance criteria for the Greatbole/Hollow Court protected zone, its FTB Chunks administrative claim, and player-edit protection.
-**Status:** `static repaired; runtime validation pending` 2026-09-04 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub now attempts a server-team claim and independently rejects non-op breaking and placement, but the claim and player behavior have not yet been observed in a fresh live world.
-**Authority:** subordinate to `INSTRUCTIONS.md`; extends `SPAWN_HUB.md`. Where the older §4 status says player-edit protection is built or treats the FTB claim as a later manual administrative step, this later runtime evidence controls until the two records are reconciled.
+**Status:** `static partially repaired; runtime validation pending` 2026-09-05 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub now attempts a server-team claim and independently rejects non-op breaking and placement. Post-reconciliation review also confirmed that the current shipping script still has **no fire-spread handler**, so fire protection remains an open implementation item rather than an accepted static capability.
+**Authority:** subordinate to `INSTRUCTIONS.md`; extends `SPAWN_HUB.md`. `SPAWN_HUB.md` §4 was reconciled to the automatic FTB claim flow on 2026-09-05; this file remains the authority for protection acceptance. Where the parent record's summary table conflicts with the implementation-specific state here, this record controls until that row is corrected.
 
 ---
 
@@ -41,7 +41,9 @@ The live observation that blocks could be destroyed also means the prior `SPAWN_
 - the existing hostile-spawn and explosion layers remain additive rather than being replaced by the claim;
 - the script logs the FTB command return values but explicitly does **not** treat them as ownership read-back.
 
-This is a **static repair**, not runtime acceptance. A zero `claim_as` return can mean that no new chunks needed claiming or that no claim was established, so command return values alone cannot satisfy §4.
+**Fire spread is not yet implemented in the current generated/shipping script.** The protection contract requires it, but inspection of `04_spawn_hub.js` shows no fire-spread event handler. That is an open implementation defect and must not be described as built merely because the acceptance list contains it.
+
+This is a **partial static repair**, not runtime acceptance. A zero `claim_as` return can mean that no new chunks needed claiming or that no claim was established, so command return values alone cannot satisfy §4.
 
 ### 2.2 Ownership read-back is now machine-checked
 
@@ -83,7 +85,7 @@ The finished hub must pass all of the following in a fresh test world:
 - the protection follows a Greatbole that relocated away from 0,0 rather than protecting empty origin chunks;
 - the claim survives a player relog and server/world restart;
 - protection status can be inspected/read back rather than inferred from a command return code;
-- explosion damage, fire spread, mob griefing and hostile spawning are tested separately and remain prevented as designed.
+- explosion damage, **fire spread**, mob griefing and hostile spawning are tested separately and remain prevented as designed.
 
 **Failure of any one is a failed hub-protection pass.** The Greatbole may not be described as claimed, protected, locked or production-ready until those runtime conditions have been observed.
 
@@ -93,7 +95,7 @@ The finished hub must pass all of the following in a fresh test world:
 
 This sits alongside the Greatbole terrain-fit and Greatbole-to-Court circulation defects, but it is not aesthetic work. Protection is a functional prerequisite for using the structure as the persistent campaign hub.
 
-The next protection action is now runtime validation rather than more static implementation: boot a fresh world with the regenerated script, read back the `alfheim_hub` server-team claim in FTB Chunks, run `python tools/check_spawn_hub_claim.py` against that run's console, test break and placement with a non-op survival player, restart and re-check ownership, then exercise the independent explosion/fire/mob-grief/hostile-spawn gates.
+The next protection implementation action is to add fire-spread prevention at the authoritative `tools/gen_spawn_hub.py` protection generator and regenerate `kubejs/server_scripts/04_spawn_hub.js`, then prove source-to-shipping equality. After that, runtime validation remains: boot a fresh world with the regenerated script, read back the `alfheim_hub` server-team claim in FTB Chunks, run `python tools/check_spawn_hub_claim.py` against that run's console, test break and placement with a non-op survival player, restart and re-check ownership, then exercise the independent explosion/fire/mob-grief/hostile-spawn gates.
 
 The wider structure repair ordering remains:
 
