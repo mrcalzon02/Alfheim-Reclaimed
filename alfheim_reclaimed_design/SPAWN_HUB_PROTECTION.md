@@ -1,7 +1,7 @@
 # Spawn Hub Protection — claim and anti-grief acceptance
 
 **Role:** protection subrecord for `SPAWN_HUB.md` §4. It owns the runtime acceptance criteria for the Greatbole/Hollow Court protected zone, its FTB Chunks administrative claim, and player-edit protection.
-**Status:** `static partially repaired; runtime validation pending` 2026-09-05 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub now attempts a server-team claim and independently rejects non-op breaking and placement. Post-reconciliation review also confirmed that the current shipping script still has **no fire-spread handler**, so fire protection remains an open implementation item rather than an accepted static capability.
+**Status:** `static claim/edit repair implemented; runtime validation pending; fire-spread hook open` 2026-09-05 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub attempts a server-team claim and independently rejects non-op breaking and placement. Post-reconciliation review confirmed that the current shipping script has **no fire-spread handler**, and the installed KubeJS event surface does not expose a cancellable regional fire-spread event. Fire protection therefore remains an open implementation item rather than an accepted capability.
 **Authority:** subordinate to `INSTRUCTIONS.md`; extends `SPAWN_HUB.md`. `SPAWN_HUB.md` §4 was reconciled to the automatic FTB claim flow on 2026-09-05; this file remains the authority for protection acceptance. Where the parent record's summary table conflicts with the implementation-specific state here, this record controls until that row is corrected.
 
 ---
@@ -25,7 +25,7 @@ The hub deliberately has two independent protection mechanisms and both must pas
 | Layer | Responsibility | Runtime requirement |
 |---|---|---|
 | **FTB Chunks admin-team claim** | Player block-edit ownership, team semantics, visible claimed territory, normal survival protection | The full hub footprint is actually claimed by the intended administrative/server team. |
-| **KubeJS/server enforcement** | Hostile-spawn suppression, explosion damage, fire spread, mob griefing and other world-event protections | Each prevention rule works independently even if a claim is temporarily absent. |
+| **Pack-owned enforcement** | Hostile-spawn suppression, explosion damage, fire spread, mob griefing and other world-event protections | Each prevention rule works independently where the available hook can provide that guarantee. |
 
 The KubeJS protections do **not** prove the FTB claim exists. Conversely, an FTB claim does not by itself prove creepers, fire or other scripted hazards are handled exactly as designed.
 
@@ -41,11 +41,19 @@ The live observation that blocks could be destroyed also means the prior `SPAWN_
 - the existing hostile-spawn and explosion layers remain additive rather than being replaced by the claim;
 - the script logs the FTB command return values but explicitly does **not** treat them as ownership read-back.
 
-**Fire spread is not yet implemented in the current generated/shipping script.** The protection contract requires it, but inspection of `04_spawn_hub.js` shows no fire-spread event handler. That is an open implementation defect and must not be described as built merely because the acceptance list contains it.
-
 This is a **partial static repair**, not runtime acceptance. A zero `claim_as` return can mean that no new chunks needed claiming or that no claim was established, so command return values alone cannot satisfy §4.
 
-### 2.2 Ownership read-back is now machine-checked
+### 2.2 Fire spread — required, but not currently implemented
+
+The current generated/shipping `04_spawn_hub.js` has no fire-spread handler. Inspection of the KubeJS 1.20.1 server event surface shows block break/place/interact/modification events and level tick/explosion events, but no cancellable fire-spread event. Inventing a handler name would create another silent protection failure.
+
+FTB Chunks 2001.3.8 does provide `fire_spread_protection`, but its own `FireSpreadHelper` only intervenes when fire crosses a **chunk boundary** into a claimed chunk whose owner differs from the source claim. It returns false for spread inside one chunk and for spread between chunks owned by the same team. Because the entire hub is intentionally one `alfheim_hub` claim, enabling that setting cannot satisfy “no fire spread within the protected hub.”
+
+A global `doFireTick=false` is also rejected: it would change fire behavior for the whole world/server rather than protecting this bounded hub.
+
+The remaining correct implementation path is therefore a **pack-owned Java/Forge hook** that can cancel ignition/spread by target position inside the hub envelope, or an equally local mechanism that can prove the same behavior without changing fire globally. Continuity Works is first-party and is the existing Java-side home for pack-owned Forge hooks, but under `INSTRUCTIONS.md` §5.1 an Alfheim-local jar patch would only be a stopgap; the real fix belongs in the authoritative Continuity Works source. Until such a hook exists and is observed, fire-spread protection is **open**.
+
+### 2.3 Ownership read-back is machine-checked
 
 `tools/run_server.py` issues `ftbchunks info` at the centre and all four corners of the configured protection envelope. `tools/check_spawn_hub_claim.py` turns those console replies into an acceptance gate instead of leaving them for manual interpretation. The checker reads `HUB_DIMENSION`, `HUB_FTB_TEAM`, and `HUB_RADIUS` directly from the generated shipping script, converts the probe block coordinates to the chunk coordinates FTB Chunks reports, and requires every location to name the expected `alfheim_hub` owner.
 
@@ -67,7 +75,7 @@ The desired lifecycle is:
 4. Observe that the required chunks are claimed before reporting the hub as protection-ready.
 5. Re-check or reconcile protection on subsequent server/world loads so a missing, released or stale claim cannot silently persist.
 
-If the installed FTB Chunks version or available scripting APIs make automatic claim reconciliation impossible, the fallback is **not** silent manual debt. The pack must expose a loud, specific readiness failure/instruction until an operator completes the claim, and validation must remain failed until read-back confirms it.
+If automatic claim reconciliation fails, the fallback is **not** silent manual debt. The pack must expose a loud, specific readiness failure/instruction until an operator completes the claim, and validation must remain failed until read-back confirms it.
 
 A message such as "claim this later" is not completion evidence.
 
@@ -95,13 +103,13 @@ The finished hub must pass all of the following in a fresh test world:
 
 This sits alongside the Greatbole terrain-fit and Greatbole-to-Court circulation defects, but it is not aesthetic work. Protection is a functional prerequisite for using the structure as the persistent campaign hub.
 
-The next protection implementation action is to add fire-spread prevention at the authoritative `tools/gen_spawn_hub.py` protection generator and regenerate `kubejs/server_scripts/04_spawn_hub.js`, then prove source-to-shipping equality. After that, runtime validation remains: boot a fresh world with the regenerated script, read back the `alfheim_hub` server-team claim in FTB Chunks, run `python tools/check_spawn_hub_claim.py` against that run's console, test break and placement with a non-op survival player, restart and re-check ownership, then exercise the independent explosion/fire/mob-grief/hostile-spawn gates.
+For the layers already implemented, the next action is runtime validation: boot a fresh world, read back the `alfheim_hub` server-team claim in FTB Chunks, run `python tools/check_spawn_hub_claim.py` against that run's console, test break and placement with a non-op survival player, restart and re-check ownership, then exercise explosion/mob-grief/hostile-spawn suppression. Fire spread remains excluded from acceptance until the first-party regional cancellation hook in §2.2 exists; it is a blocker, not a deferred pass.
 
 The wider structure repair ordering remains:
 
 1. **placement:** the Greatbole belongs in and is supported by its terrain;
 2. **circulation:** the interior connects deliberately to the Court;
-3. **protection:** the actual generated hub is claimed and ordinary players cannot damage it;
+3. **protection:** the actual generated hub is claimed and ordinary players cannot damage it, with a regional fire-spread solution in place;
 4. **aesthetic refinement:** silhouette, ruin quality, dressing and detail follow once the first three are reliable.
 
 That ordering prevents another visually improved hub from shipping while remaining mechanically destructible.
