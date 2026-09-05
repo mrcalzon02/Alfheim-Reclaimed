@@ -255,6 +255,7 @@ def run(seed, level_name, heap, commands, timeout):
     stamp = time.strftime('%Y%m%d-%H%M%S')
     console = os.path.join(SERVER, f'console-{stamp}.log')
     started = time.time()
+    harness_exit = 0
     with open(console, 'w', encoding='utf-8', errors='replace') as log:
         p = subprocess.Popen(cmd, cwd=SERVER, stdin=subprocess.PIPE, stdout=log,
                              stderr=subprocess.STDOUT, text=True, bufsize=1)
@@ -265,26 +266,35 @@ def run(seed, level_name, heap, commands, timeout):
                 time.sleep(delay)
                 if p.poll() is not None:
                     print(f'server exited early with {p.returncode} before: {line}')
+                    harness_exit = 3
                     break
                 p.stdin.write(line + '\n')
                 p.stdin.flush()
                 print(f'  -> {line}')
             p.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
+            harness_exit = 124
             print(f'!! still running after {timeout}s; terminating')
             p.terminate()
             try:
                 p.wait(timeout=60)
             except subprocess.TimeoutExpired:
                 p.kill()
+                p.wait()
         except Exception as e:
+            harness_exit = 2
             print(f'!! {e}')
             p.kill()
+            p.wait()
+
+    if harness_exit == 0 and p.returncode not in (None, 0):
+        harness_exit = 1
 
     elapsed = round(time.time() - started, 1)
     manifest = {
         'minecraft': MC, 'forge': FORGE, 'seed': seed, 'level_name': level_name,
         'heap_gib': heap, 'elapsed_s': elapsed, 'exit_code': p.returncode,
+        'harness_exit_code': harness_exit,
         'properties': props, 'omitted_mods': SERVER_MOD_OMIT,
         'mods_jars': len(glob.glob(os.path.join(SERVER, 'mods', '*.jar'))),
         'commands': [c for _, c in commands],
@@ -292,8 +302,8 @@ def run(seed, level_name, heap, commands, timeout):
     }
     with open(os.path.join(SERVER, f'manifest-{stamp}.json'), 'w', encoding='utf-8') as f:
         json.dump(manifest, f, indent=2)
-    print(f'\nexit {p.returncode} after {elapsed}s; console -> {console}')
-    return 0
+    print(f'\nexit {p.returncode} after {elapsed}s; harness exit {harness_exit}; console -> {console}')
+    return harness_exit
 
 
 DEFAULT_COMMANDS = [
