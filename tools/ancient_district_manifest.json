@@ -10,6 +10,22 @@
     "minimum_decline_stages_hero": 3,
     "minimum_decline_stages_member": 2
   },
+  "generation_evidence": {
+    "evidence_scope": "retained_generation_artifact_integrity_only",
+    "generator_git_blob_sha1": "04e3aba82df7ea48df47a0400fac7df9190a58e9",
+    "retained_output_roots_observed": 2,
+    "declared_shipping_corpus_files": 24,
+    "retained_roots_byte_identical": true,
+    "nbt_piece_types_observed": 12,
+    "nbt_roundtrip_and_bounds": "pass",
+    "jigsaw_blocks_observed": 35,
+    "template_pools_observed": 9,
+    "jigsaw_pool_resolution": "pass",
+    "worldgen_anchor_contract": "pass",
+    "source_to_shipping_equality": "not_established",
+    "shipping_state": "not_committed",
+    "runtime_state": "not_validated"
+  },
   "families": [
     {
       "id": "common_residential_quarter",
