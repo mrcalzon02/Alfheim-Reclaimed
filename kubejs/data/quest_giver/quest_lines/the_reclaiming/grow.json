@@ -1,0 +1,38 @@
+{
+  "icon": "ars_nouveau:blue_archwood_sapling",
+  "start": {
+    "title": {
+      "translate": "Plant Something"
+    },
+    "description": {
+      "translate": "The Court has mourned for a long time and planted almost nothing.\n\nPut an archwood in the ground. Watch it take. That is the entire argument for staying."
+    }
+  },
+  "parent": "quest_giver:apothecary",
+  "complete": {
+    "title": {
+      "translate": "Plant Something"
+    },
+    "description": {
+      "translate": "It took. Good.\n\nThat is one tree against a dead city, and it is still one more than yesterday."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:item_stack",
+      "amount": 4,
+      "item": {
+        "item": "ars_nouveau:blue_archwood_log"
+      }
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "ars_nouveau:blue_archwood_sapling",
+        "count": 2
+      }
+    }
+  ]
+}

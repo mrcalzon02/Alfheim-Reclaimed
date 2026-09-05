@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "mythicbotany:alfheim_lakes",
+    "alfheim:mana_fen",
+    "alfheim:hollow_marches",
+    "alfheim:void_verge",
+    "alfheim:bloomfall_vale"
+  ],
+  "features": "alfheim:liquid_bifrost_pool",
+  "step": "lakes"
+}

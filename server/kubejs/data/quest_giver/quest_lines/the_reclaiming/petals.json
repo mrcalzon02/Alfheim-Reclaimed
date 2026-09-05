@@ -1,0 +1,38 @@
+{
+  "icon": "botania:pink_petal",
+  "start": {
+    "title": {
+      "translate": "Where Petals Come From"
+    },
+    "description": {
+      "translate": "Every elven working begins with petals, and every newcomer assumes they come from flowers.\n\nThey come from *leaves*. Strip a canopy and you will have colour enough. The archive trees remember which."
+    }
+  },
+  "parent": "quest_giver:where_you_are",
+  "complete": {
+    "title": {
+      "translate": "Where Petals Come From"
+    },
+    "description": {
+      "translate": "Sixteen colours grow in this forest if you know which branch to pull. That is the whole of the Spine of Leaf in one sentence."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:item_stack",
+      "amount": 8,
+      "item": {
+        "item": "botania:white_petal"
+      }
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "botania:pink_petal",
+        "count": 4
+      }
+    }
+  ]
+}

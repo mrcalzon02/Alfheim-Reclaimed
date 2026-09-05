@@ -1,0 +1,4 @@
+#How much FE is needed to be converted in 1 BuildCraft Joule
+#Range: 1.0 ~ 2.147483647E9
+fe_to_mj = 15.0
+

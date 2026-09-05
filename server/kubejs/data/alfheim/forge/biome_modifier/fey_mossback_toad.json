@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:infested_warren",
+    "mythicbotany:dreamwood_forest"
+  ],
+  "spawners": {
+    "type": "alfheim:mossback_toad",
+    "weight": 3,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

@@ -1,0 +1,325 @@
+[
+  {
+    "id": "alfheim:whitetail_doe",
+    "name": "Whitetail Doe",
+    "family": "deer",
+    "width": 0.8,
+    "height": 1.75,
+    "health": 16,
+    "speed": 0.28,
+    "scale": 1,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:silverbark_wood",
+      "alfheim:bloomfall_vale",
+      "mythicbotany:dreamwood_forest",
+      "mythicbotany:alfheim_plains",
+      "mythicbotany:golden_fields"
+    ],
+    "weight": 10
+  },
+  {
+    "id": "alfheim:celestial_doe",
+    "name": "Celestial Doe",
+    "family": "deer",
+    "width": 0.8,
+    "height": 1.75,
+    "health": 28,
+    "speed": 0.32,
+    "scale": 1,
+    "damage": 0,
+    "celestial": true,
+    "biomes": [
+      "alfheim:silverbark_wood",
+      "alfheim:bloomfall_vale",
+      "mythicbotany:dreamwood_forest",
+      "mythicbotany:alfheim_plains",
+      "mythicbotany:golden_fields",
+      "alfheim:void_verge"
+    ],
+    "weight": 1
+  },
+  {
+    "id": "alfheim:whitetail_buck",
+    "name": "Whitetail Buck",
+    "family": "deer",
+    "width": 0.8,
+    "height": 1.75,
+    "health": 16,
+    "speed": 0.28,
+    "scale": 1,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:silverbark_wood",
+      "alfheim:bloomfall_vale",
+      "mythicbotany:dreamwood_forest",
+      "mythicbotany:alfheim_plains",
+      "mythicbotany:golden_fields"
+    ],
+    "weight": 6
+  },
+  {
+    "id": "alfheim:celestial_buck",
+    "name": "Celestial Buck",
+    "family": "deer",
+    "width": 0.8,
+    "height": 1.75,
+    "health": 28,
+    "speed": 0.32,
+    "scale": 1,
+    "damage": 0,
+    "celestial": true,
+    "biomes": [
+      "alfheim:silverbark_wood",
+      "alfheim:bloomfall_vale",
+      "mythicbotany:dreamwood_forest",
+      "mythicbotany:alfheim_plains",
+      "mythicbotany:golden_fields",
+      "alfheim:void_verge"
+    ],
+    "weight": 1
+  },
+  {
+    "id": "alfheim:moss_small_frog",
+    "name": "Moss Small Frog",
+    "family": "frog",
+    "width": 0.48125000000000007,
+    "height": 0.309375,
+    "health": 6,
+    "speed": 0.18,
+    "scale": 0.55,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:mana_fen",
+      "alfheim:decayed_mire"
+    ],
+    "weight": 8
+  },
+  {
+    "id": "alfheim:moss_large_frog",
+    "name": "Moss Large Frog",
+    "family": "frog",
+    "width": 0.875,
+    "height": 0.5625,
+    "health": 10,
+    "speed": 0.18,
+    "scale": 1,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:mana_fen",
+      "alfheim:decayed_mire"
+    ],
+    "weight": 4
+  },
+  {
+    "id": "alfheim:azure_small_frog",
+    "name": "Azure Small Frog",
+    "family": "frog",
+    "width": 0.48125000000000007,
+    "height": 0.309375,
+    "health": 6,
+    "speed": 0.18,
+    "scale": 0.55,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:silverbark_wood",
+      "mythicbotany:alfheim_lakes"
+    ],
+    "weight": 8
+  },
+  {
+    "id": "alfheim:azure_large_frog",
+    "name": "Azure Large Frog",
+    "family": "frog",
+    "width": 0.875,
+    "height": 0.5625,
+    "health": 10,
+    "speed": 0.18,
+    "scale": 1,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:silverbark_wood",
+      "mythicbotany:alfheim_lakes"
+    ],
+    "weight": 4
+  },
+  {
+    "id": "alfheim:amber_small_frog",
+    "name": "Amber Small Frog",
+    "family": "frog",
+    "width": 0.48125000000000007,
+    "height": 0.309375,
+    "health": 6,
+    "speed": 0.18,
+    "scale": 0.55,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:bloomfall_vale",
+      "mythicbotany:golden_fields"
+    ],
+    "weight": 8
+  },
+  {
+    "id": "alfheim:amber_large_frog",
+    "name": "Amber Large Frog",
+    "family": "frog",
+    "width": 0.875,
+    "height": 0.5625,
+    "health": 10,
+    "speed": 0.18,
+    "scale": 1,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:bloomfall_vale",
+      "mythicbotany:golden_fields"
+    ],
+    "weight": 4
+  },
+  {
+    "id": "alfheim:bog_toad",
+    "name": "Bog Toad",
+    "family": "toad",
+    "width": 0.9,
+    "height": 0.9,
+    "health": 16,
+    "speed": 0.14,
+    "scale": 1.45,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:mana_fen",
+      "alfheim:decayed_mire"
+    ],
+    "weight": 3
+  },
+  {
+    "id": "alfheim:mossback_toad",
+    "name": "Mossback Toad",
+    "family": "toad",
+    "width": 0.9,
+    "height": 0.9,
+    "health": 16,
+    "speed": 0.14,
+    "scale": 1.45,
+    "damage": 0,
+    "celestial": false,
+    "biomes": [
+      "alfheim:infested_warren",
+      "mythicbotany:dreamwood_forest"
+    ],
+    "weight": 3
+  },
+  {
+    "id": "alfheim:abyssal_watcher",
+    "name": "Abyssal Watcher",
+    "family": "sea",
+    "width": 1,
+    "height": 1.5,
+    "health": 26,
+    "speed": 0.22,
+    "scale": 1,
+    "damage": 4,
+    "celestial": false,
+    "biomes": [
+      "mythicbotany:alfheim_lakes",
+      "alfheim:void_verge"
+    ],
+    "weight": 2
+  },
+  {
+    "id": "alfheim:mire_tentacle",
+    "name": "Mire Tentacle",
+    "family": "sea",
+    "width": 1,
+    "height": 0.9,
+    "health": 20,
+    "speed": 0.22,
+    "scale": 1,
+    "damage": 3,
+    "celestial": false,
+    "biomes": [
+      "alfheim:mana_fen",
+      "alfheim:decayed_mire"
+    ],
+    "weight": 3
+  },
+  {
+    "id": "alfheim:drowned_maw",
+    "name": "Drowned Maw",
+    "family": "sea",
+    "width": 1.1,
+    "height": 0.85,
+    "health": 36,
+    "speed": 0.22,
+    "scale": 1,
+    "damage": 6,
+    "celestial": false,
+    "biomes": [
+      "mythicbotany:alfheim_lakes",
+      "alfheim:mana_fen"
+    ],
+    "weight": 1
+  },
+  {
+    "id": "alfheim:wild_elf",
+    "name": "Wild Elf",
+    "family": "elf",
+    "width": 0.65,
+    "height": 1.9,
+    "health": 20,
+    "speed": 0.25,
+    "scale": 1,
+    "damage": 3,
+    "celestial": false,
+    "biomes": [
+      "alfheim:ashen_grove",
+      "alfheim:silverbark_wood",
+      "alfheim:sundered_highlands"
+    ],
+    "weight": 5
+  },
+  {
+    "id": "alfheim:savage_elf",
+    "name": "Savage Elf",
+    "family": "elf",
+    "width": 0.65,
+    "height": 1.9,
+    "health": 28,
+    "speed": 0.25,
+    "scale": 1,
+    "damage": 5,
+    "celestial": false,
+    "biomes": [
+      "alfheim:infested_warren",
+      "alfheim:decayed_mire",
+      "alfheim:hollow_marches"
+    ],
+    "weight": 5
+  },
+  {
+    "id": "alfheim:demonic_elf",
+    "name": "Demonic Elf",
+    "family": "elf",
+    "width": 0.65,
+    "height": 1.9,
+    "health": 36,
+    "speed": 0.25,
+    "scale": 1,
+    "damage": 7,
+    "celestial": false,
+    "biomes": [
+      "alfheim:scorchfell",
+      "alfheim:void_verge",
+      "alfheim:starved_reach"
+    ],
+    "weight": 5
+  }
+]

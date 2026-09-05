@@ -1,0 +1,742 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_8"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:rimebound_lattice"
+	id: "74A205CFD3602E13"
+	order_index: 7
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"We wrote things down before it happened. Most of it is under ice."
+				""
+				"This era is not about power. It is about recovering what we knew, and finding out how much of it we would rather we had not."
+			]
+			id: "4BC76864EEBF7453"
+			rewards: [{
+				id: "3C7BF1F009AD699B"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "5B1C08085863275E"
+				title: "Era 8"
+				type: "checkmark"
+			}]
+			title: "Era 8"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The press. Flattening, precisely, the same way every time."
+				""
+				"The dead world's whole genius was repetition without attention. Use it."
+			]
+			id: "6A12D2FA180357FD"
+			rewards: [{
+				id: "0947CA432896160C"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "6E681DAC5B1EA0B3"
+				item: "create:mechanical_press"
+				type: "item"
+			}]
+			title: "The Mechanical Press"
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["6A12D2FA180357FD"]
+			description: ["A sacrificial bowl and a closed circle. Let the spirits grind it."]
+			id: "10991B1121827735"
+			rewards: [{
+				id: "0BD79509553E29C7"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "0370C7F8A6DAD2E6"
+				item: "occultism:sacrificial_bowl"
+				type: "item"
+			}]
+			title: "The Sacrificial Bowl"
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["10991B1121827735"]
+			description: [
+				"A depot, and the beginning of assembly in sequence."
+				""
+				"Several operations in a fixed order on one moving item. It is the most un-elven thing in this pack and by Era VIII you will not manage without it."
+			]
+			id: "550B31983949F959"
+			rewards: [{
+				id: "24FD5C3E03EDA8E9"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "6E58FE1CEE326C2D"
+				item: "create:depot"
+				type: "item"
+			}]
+			title: "The Depot"
+			x: 4.5d
+			y: -1.5d
+		}
+		{
+			description: [
+				"The agglomeration plate. A quarter of a million mana, and it wants three things from the far side of the gate."
+				""
+				"Build it now. Use it much later. Let it sit there and be a reminder."
+			]
+			id: "6063FFE067543CAE"
+			rewards: [{
+				id: "5D14C2AADF9FDE87"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "0C316442FC81EFAE"
+				item: "botania:terra_plate"
+				type: "item"
+			}]
+			title: "The Terra Plate"
+			x: 6.0d
+			y: -1.5d
+		}
+		{
+			description: [
+				"Pressed flat. Crude, effective, unglamorous."
+				""
+				"Step 1 of 13."
+			]
+			id: "1694638E4111F005"
+			rewards: [{
+				id: "46DA56BCD2268C6A"
+				item: "alfheim:frost_shard"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/13"
+			tasks: [{
+				id: "4ED5141E40D23EFC"
+				item: "alfheim:frost_shard"
+				type: "item"
+			}]
+			title: "Frost Shard"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Crushed down. Sometimes progress is subtraction."
+				""
+				"Step 2 of 13."
+			]
+			id: "10A5C90B0628ADB2"
+			rewards: [{
+				id: "2E5E74FE7B508147"
+				item: "alfheim:silvered_flake"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/13"
+			tasks: [{
+				id: "10046943112DCFD1"
+				item: "alfheim:silvered_flake"
+				type: "item"
+			}]
+			title: "Silvered Flake"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 3 of 13."
+			]
+			id: "0FB86EA0D56CD7A3"
+			rewards: [{
+				id: "462028F396165650"
+				item: "alfheim:archive_leaf"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/13"
+			tasks: [{
+				id: "6928E29E68571936"
+				item: "alfheim:archive_leaf"
+				type: "item"
+			}]
+			title: "Archive Leaf"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0FB86EA0D56CD7A3"]
+			description: [
+				"The Imbuement Chamber. Slow, and it does not care that you are in a hurry."
+				""
+				"Step 4 of 13."
+			]
+			id: "7B010F9E5796497B"
+			rewards: [{
+				id: "5F307920E444724B"
+				item: "alfheim:rime_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/13"
+			tasks: [{
+				id: "7A744A2B14071C1E"
+				item: "alfheim:rime_cord"
+				type: "item"
+			}]
+			title: "Rime Cord"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 5 of 13."
+			]
+			id: "66EE72C6166ED273"
+			rewards: [{
+				id: "69A67AECB30E8488"
+				item: "alfheim:lattice_blank"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/13"
+			tasks: [{
+				id: "0BBF80A0A5BB89DC"
+				item: "alfheim:lattice_blank"
+				type: "item"
+			}]
+			title: "Lattice Blank"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Natural Altar. It draws on the aura of the land — thin here, so be patient."
+				""
+				"Step 6 of 13."
+			]
+			id: "027BBC471EB45D89"
+			rewards: [{
+				id: "5305908E287AC9EB"
+				item: "alfheim:sealed_lattice"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 6/13"
+			tasks: [{
+				id: "64BD066B9C0A81A9"
+				item: "alfheim:sealed_lattice"
+				type: "item"
+			}]
+			title: "Sealed Lattice"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Let the spirits grind it. Do not watch too closely."
+				""
+				"Step 7 of 13."
+			]
+			id: "1B886C27F4181F18"
+			rewards: [{
+				id: "48AB0F5B07FE7A43"
+				item: "alfheim:rimebound_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 7/13"
+			tasks: [{
+				id: "7728890520FE127D"
+				item: "alfheim:rimebound_drawn"
+				type: "item"
+			}]
+			title: "Rimebound Drawn"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1B886C27F4181F18"]
+			description: [
+				"Through the gate and back. What returns is not what you sent."
+				""
+				"Step 8 of 13."
+			]
+			id: "20279F04E6A950C4"
+			rewards: [{
+				id: "50F6F26B82DFC6C9"
+				item: "alfheim:rimebound_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 8/13"
+			tasks: [{
+				id: "2A7840AB118F9520"
+				item: "alfheim:rimebound_folded"
+				type: "item"
+			}]
+			title: "Rimebound Folded"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["20279F04E6A950C4"]
+			description: [
+				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				""
+				"Step 9 of 13."
+			]
+			id: "25285F69FD3047DF"
+			rewards: [{
+				id: "3EC581C1F390F283"
+				item: "alfheim:rimebound_stilled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 9/13"
+			tasks: [{
+				id: "7643460D464E28F6"
+				item: "alfheim:rimebound_stilled"
+				type: "item"
+			}]
+			title: "Rimebound Stilled"
+			x: 13.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["25285F69FD3047DF"]
+			description: [
+				"A sequenced assembly. By this depth you cannot do it by hand and should not try."
+				""
+				"Step 10 of 13."
+			]
+			id: "6A91C5FEA52980BC"
+			rewards: [{
+				id: "47D2D8ACF09EE036"
+				item: "alfheim:rimebound_rebound"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 10/13"
+			tasks: [{
+				id: "026289754760EDB9"
+				item: "alfheim:rimebound_rebound"
+				type: "item"
+			}]
+			title: "Rimebound Rebound"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				""
+				"Step 11 of 13."
+			]
+			id: "2256F466652E8127"
+			rewards: [{
+				id: "249C3543E2A3838F"
+				item: "alfheim:rimebound_quenched"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 11/13"
+			tasks: [{
+				id: "234B6DFA29AF6EC4"
+				item: "alfheim:rimebound_quenched"
+				type: "item"
+			}]
+			title: "Rimebound Quenched"
+			x: 16.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2256F466652E8127"]
+			description: [
+				"The agglomeration plate. This one takes a quarter million mana. Plan for it."
+				""
+				"Step 12 of 13."
+			]
+			id: "0F6FE673537D192C"
+			rewards: [{
+				id: "71F4DB2BBBF5DC72"
+				item: "alfheim:rimebound_layered"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 12/13"
+			tasks: [{
+				id: "20A9E03B1BB30E86"
+				item: "alfheim:rimebound_layered"
+				type: "item"
+			}]
+			title: "Rimebound Layered"
+			x: 18.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The last step. Rimebound Lattice."
+				""
+				"Era VIII. Cold enough to keep a memory intact."
+				""
+				"13 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "7ED501645D71D9BA"
+			rewards: [{
+				id: "0885A5FDA51E47C4"
+				item: "alfheim:rimebound_lattice"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 13/13"
+			tasks: [{
+				id: "23579F1FF4729F27"
+				item: "alfheim:rimebound_lattice"
+				type: "item"
+			}]
+			title: "Rimebound Lattice"
+			x: 19.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "3D3503A12A38A4E0"
+			rewards: [{
+				count: 8
+				id: "0C6885E35688D15A"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "5298B2903AB7C5F4"
+				item: "ars_nouveau:caster_tome"
+				type: "item"
+			}]
+			title: "Caster Tome"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "786ADAD2109B1326"
+			rewards: [{
+				count: 8
+				id: "051231897A49FCA2"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "302AEE9958ED7E44"
+				item: "ars_nouveau:scryers_crystal"
+				type: "item"
+			}]
+			title: "Scryers Crystal"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "6CF8AC3FE5C4E6E8"
+			rewards: [{
+				count: 8
+				id: "5F59AA64F051404B"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "3BAD5D4603C29F48"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["6CF8AC3FE5C4E6E8"]
+			description: ["The other tradition, keeping pace."]
+			id: "3E22C1F07840B795"
+			rewards: [{
+				count: 8
+				id: "2724CE4130134AF8"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "1CB8E3D5F13D7BF7"
+				item: "ars_nouveau:caster_tome"
+				type: "item"
+			}]
+			title: "Caster Tome"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["3E22C1F07840B795"]
+			description: ["The other tradition, keeping pace."]
+			id: "3341073AC91C5B84"
+			rewards: [{
+				count: 8
+				id: "5C11ADFD643B850E"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "216DBF00DEEB4503"
+				item: "ars_nouveau:scryers_crystal"
+				type: "item"
+			}]
+			title: "Scryers Crystal"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "199E6321CB6F25FF"
+			rewards: [{
+				count: 8
+				id: "527F04CE119794E2"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "0EBB355E00D207A2"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "159A1C4503CCF980"
+			rewards: [{
+				count: 8
+				id: "7967115E0194B47F"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "589FFE67FFBA1832"
+				item: "ars_nouveau:caster_tome"
+				type: "item"
+			}]
+			title: "Caster Tome"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "4AF26F9F7A67E48E"
+			rewards: [{
+				count: 4
+				id: "2715981B5095E31E"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "32460875BB51AD76"
+				item: "minecolonies:blockhutlibrary"
+				type: "item"
+			}]
+			title: "Blockhutlibrary"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "1E5BA70CB92AF33A"
+			rewards: [{
+				count: 4
+				id: "1030DECED9EAE3DD"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "0CE70FD90681884A"
+				item: "minecolonies:blockhutschool"
+				type: "item"
+			}]
+			title: "Blockhutschool"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "6E9BDBD63B4864E6"
+			rewards: [{
+				count: 4
+				id: "40B062D4A5C9359E"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "05BCB8B8038CF652"
+				item: "minecolonies:blockhutlibrary"
+				type: "item"
+			}]
+			title: "Blockhutlibrary"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "57863CCB5C497531"
+			rewards: [{
+				count: 4
+				id: "0CC166F6032F8DD3"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "5CF159070146CEA7"
+				item: "minecolonies:blockhutschool"
+				type: "item"
+			}]
+			title: "Blockhutschool"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "573628F162DA66DB"
+			rewards: [{
+				count: 8
+				id: "6CD38AA6253132ED"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "0FDE3ED0D177705B"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "7FBB259C6275B02B"
+			rewards: [{
+				count: 8
+				id: "0A444098DBACCB46"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "33EF426A7EFE4408"
+				item: "mmorpg:currency/orb_of_relief"
+				type: "item"
+			}]
+			title: "Currency/orb Of Relief"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["7FBB259C6275B02B"]
+			description: ["Deeper than last time. It always is."]
+			id: "04D0872945E40285"
+			rewards: [{
+				count: 8
+				id: "1EF3B5CFFE74ACAF"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "3712E05652B5E42B"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"The Rune of Niflheim, realm of mist and cold and the things kept in them."
+				""
+				"You have read the archive now. You know what the elves were doing in the last century before the devastation."
+				""
+				"I taught some of it. I am not going to pretend otherwise."
+			]
+			id: "7BF79B853F226BAF"
+			rewards: [{
+				count: 2
+				id: "3EB4981E5F97F544"
+				item: "alfheim:rimebound_lattice"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "204DF560EFA482DD"
+				item: "mythicbotany:niflheim_rune"
+				type: "item"
+			}]
+			title: "The Rune of Niflheim"
+			x: 6.0d
+			y: 4.5d
+		}
+	]
+	subtitle: ["What did we forget?"]
+	title: "VIII — The Frozen Archive"
+}

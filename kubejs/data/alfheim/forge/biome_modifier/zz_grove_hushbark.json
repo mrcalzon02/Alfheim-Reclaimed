@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:silverbark_wood",
+    "alfheim:bloomfall_vale",
+    "mythicbotany:dreamwood_forest"
+  ],
+  "features": "alfheim:tree_hushbark",
+  "step": "vegetal_decoration"
+}

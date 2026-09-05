@@ -1,0 +1,705 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_9"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:gravegilt_thread"
+	id: "75E2F9D6CB142F43"
+	order_index: 8
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"I have been putting this era off."
+				""
+				"You have the archive. You know roughly what happened and roughly whose fault it was. Now we go and look at the part of Alfheim where it started."
+				""
+				"Bring the colony. They should see it too."
+			]
+			id: "062824AAEB36EF43"
+			rewards: [{
+				id: "01CCDD4CD11A7123"
+				item: "alfheim:rimebound_lattice"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "676B0B38C8A8CE44"
+				title: "Era 9"
+				type: "checkmark"
+			}]
+			title: "Era 9"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["062824AAEB36EF43"]
+			description: [
+				"Spirit fire. It burns what should not burn and leaves what should not remain."
+				""
+				"Step 1 of 15."
+			]
+			id: "546AC6E0548E8315"
+			rewards: [{
+				id: "4B4246E7E6B3A18C"
+				item: "alfheim:ash_of_names"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/15"
+			tasks: [{
+				id: "71A8079625933708"
+				item: "alfheim:ash_of_names"
+				type: "item"
+			}]
+			title: "Ash Of Names"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Let the spirits grind it. Do not watch too closely."
+				""
+				"Step 2 of 15."
+			]
+			id: "6A91EFF4D1F4B789"
+			rewards: [{
+				id: "6D50AC14949E3B5C"
+				item: "alfheim:mourning_dust"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/15"
+			tasks: [{
+				id: "1DF3DA549DEE3479"
+				item: "alfheim:mourning_dust"
+				type: "item"
+			}]
+			title: "Mourning Dust"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Natural Altar. It draws on the aura of the land — thin here, so be patient."
+				""
+				"Step 3 of 15."
+			]
+			id: "266897310CBA9E28"
+			rewards: [{
+				id: "19381D22F25C3995"
+				item: "alfheim:gilded_ash"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/15"
+			tasks: [{
+				id: "18DAD76858473D2B"
+				item: "alfheim:gilded_ash"
+				type: "item"
+			}]
+			title: "Gilded Ash"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["266897310CBA9E28"]
+			description: [
+				"The brewery. Not everything worth making is solid."
+				""
+				"Step 4 of 15."
+			]
+			id: "050D4C23BBBF29B4"
+			rewards: [{
+				id: "35DCE7E29C073373"
+				item: "alfheim:debt_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/15"
+			tasks: [{
+				id: "5FC0A7296D37CFE5"
+				item: "alfheim:debt_cord"
+				type: "item"
+			}]
+			title: "Debt Cord"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 5 of 15."
+			]
+			id: "4775282415B706F2"
+			rewards: [{
+				id: "5B56A4CDA007EBA4"
+				item: "alfheim:reckoned_thread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/15"
+			tasks: [{
+				id: "1134C12F9C937493"
+				item: "alfheim:reckoned_thread"
+				type: "item"
+			}]
+			title: "Reckoned Thread"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4775282415B706F2"]
+			description: [
+				"Petals in the basin. You have done this a thousand times; do it again."
+				""
+				"Step 6 of 15."
+			]
+			id: "061E27F4BDFC339F"
+			rewards: [{
+				id: "61A1F52A7B2FDAA9"
+				item: "alfheim:grave_braid"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 6/15"
+			tasks: [{
+				id: "51693F8B97E0AAE3"
+				item: "alfheim:grave_braid"
+				type: "item"
+			}]
+			title: "Grave Braid"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["061E27F4BDFC339F"]
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 7 of 15."
+			]
+			id: "0DC700CE8939B2FA"
+			rewards: [{
+				id: "71548DF083DA0E55"
+				item: "alfheim:settled_thread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 7/15"
+			tasks: [{
+				id: "2AB72E3037677868"
+				item: "alfheim:settled_thread"
+				type: "item"
+			}]
+			title: "Settled Thread"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Imbuement Chamber. Slow, and it does not care that you are in a hurry."
+				""
+				"Step 8 of 15."
+			]
+			id: "4F656F9BDB258634"
+			rewards: [{
+				id: "486097B2424A0A0B"
+				item: "alfheim:gravegilt_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 8/15"
+			tasks: [{
+				id: "40AFB568BAA094CC"
+				item: "alfheim:gravegilt_drawn"
+				type: "item"
+			}]
+			title: "Gravegilt Drawn"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4F656F9BDB258634"]
+			description: [
+				"Through the gate and back. What returns is not what you sent."
+				""
+				"Step 9 of 15."
+			]
+			id: "6D44A63B74CBE85B"
+			rewards: [{
+				id: "2C09B14026983CA0"
+				item: "alfheim:gravegilt_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 9/15"
+			tasks: [{
+				id: "40B291706F957F92"
+				item: "alfheim:gravegilt_folded"
+				type: "item"
+			}]
+			title: "Gravegilt Folded"
+			x: 13.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6D44A63B74CBE85B"]
+			description: [
+				"A sequenced assembly. By this depth you cannot do it by hand and should not try."
+				""
+				"Step 10 of 15."
+			]
+			id: "2BDE8B607B4DCC98"
+			rewards: [{
+				id: "7E14B766117856F2"
+				item: "alfheim:gravegilt_stilled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 10/15"
+			tasks: [{
+				id: "6081D8EDCFF22151"
+				item: "alfheim:gravegilt_stilled"
+				type: "item"
+			}]
+			title: "Gravegilt Stilled"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				""
+				"Step 11 of 15."
+			]
+			id: "190DB162C1CF9FAE"
+			rewards: [{
+				id: "730116F8BD7F5632"
+				item: "alfheim:gravegilt_rebound"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 11/15"
+			tasks: [{
+				id: "27CDE93F2B4B874F"
+				item: "alfheim:gravegilt_rebound"
+				type: "item"
+			}]
+			title: "Gravegilt Rebound"
+			x: 16.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				""
+				"Step 12 of 15."
+			]
+			id: "7239C92E65CCD9FA"
+			rewards: [{
+				id: "1E49C9F876338E29"
+				item: "alfheim:gravegilt_quenched"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 12/15"
+			tasks: [{
+				id: "59347AD3001A7891"
+				item: "alfheim:gravegilt_quenched"
+				type: "item"
+			}]
+			title: "Gravegilt Quenched"
+			x: 18.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The agglomeration plate. This one takes a quarter million mana. Plan for it."
+				""
+				"Step 13 of 15."
+			]
+			id: "06DB23CC32412EBD"
+			rewards: [{
+				id: "78FE0B8CB7E9751A"
+				item: "alfheim:gravegilt_layered"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 13/15"
+			tasks: [{
+				id: "2D9C6A427DBD7DD8"
+				item: "alfheim:gravegilt_layered"
+				type: "item"
+			}]
+			title: "Gravegilt Layered"
+			x: 19.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["06DB23CC32412EBD"]
+			description: [
+				"A Ritual of the Forest. Multi-block, slow, and worth it."
+				""
+				"Step 14 of 15."
+			]
+			id: "64C62F99EA5BFD17"
+			rewards: [{
+				id: "1679BF8CC1196B61"
+				item: "alfheim:gravegilt_proofed"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 14/15"
+			tasks: [{
+				id: "353211AE4A48B226"
+				item: "alfheim:gravegilt_proofed"
+				type: "item"
+			}]
+			title: "Gravegilt Proofed"
+			x: 21.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The last step. Gravegilt Thread."
+				""
+				"Era IX. Spun from what it cost. Do not wear it lightly."
+				""
+				"15 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "2163CA0387B04294"
+			rewards: [{
+				id: "04A374F405DEC3C0"
+				item: "alfheim:gravegilt_thread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 15/15"
+			tasks: [{
+				id: "665983711D5EFAD7"
+				item: "alfheim:gravegilt_thread"
+				type: "item"
+			}]
+			title: "Gravegilt Thread"
+			x: 22.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "2D858FFB84853975"
+			rewards: [{
+				count: 8
+				id: "3BB6AC736A23BBD7"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "48B4780DCE59C3FE"
+				item: "occultism:book_of_binding_foliot"
+				type: "item"
+			}]
+			title: "Book Of Binding Foliot"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "1C81F9D788C27CD3"
+			rewards: [{
+				count: 8
+				id: "358F766936F995D6"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "65600E19DB7C65E8"
+				item: "ars_nouveau:ritual_brazier"
+				type: "item"
+			}]
+			title: "Ritual Brazier"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "183831D61FBE487A"
+			rewards: [{
+				count: 8
+				id: "0CD113F18ABF65AF"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "17FA04F23959AE46"
+				item: "mythicbotany:fimbultyr_tablet"
+				type: "item"
+			}]
+			title: "Fimbultyr Tablet"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["183831D61FBE487A"]
+			description: ["The other tradition, keeping pace."]
+			id: "1CBB0EB673D88283"
+			rewards: [{
+				count: 8
+				id: "0CC24A2DE40A1195"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "228C04A2EEA4630E"
+				item: "occultism:book_of_binding_foliot"
+				type: "item"
+			}]
+			title: "Book Of Binding Foliot"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "3675B13B9C437E99"
+			rewards: [{
+				count: 8
+				id: "3B1CDC856BB24524"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "7A8FBFC10EC983BB"
+				item: "ars_nouveau:ritual_brazier"
+				type: "item"
+			}]
+			title: "Ritual Brazier"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "5A8B16F1DC22BEF5"
+			rewards: [{
+				count: 8
+				id: "79125B09F65D7752"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "31A6D7B6D30BFA02"
+				item: "mythicbotany:fimbultyr_tablet"
+				type: "item"
+			}]
+			title: "Fimbultyr Tablet"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["5A8B16F1DC22BEF5"]
+			description: ["The other tradition, keeping pace."]
+			id: "14EF0E92C3FE7187"
+			rewards: [{
+				count: 8
+				id: "4134BDDE8BEF13DB"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "72048E0A15D354CD"
+				item: "occultism:book_of_binding_foliot"
+				type: "item"
+			}]
+			title: "Book Of Binding Foliot"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "3C0E74222E7ACE89"
+			rewards: [{
+				count: 4
+				id: "101A5B25BA68F545"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "4FF01CCE2A5641AA"
+				item: "minecolonies:blockhutgraveyard"
+				type: "item"
+			}]
+			title: "Blockhutgraveyard"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["3C0E74222E7ACE89"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "4E915B64749AE591"
+			rewards: [{
+				count: 4
+				id: "39324AD3F11119EA"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "7534A4F9EA891A39"
+				item: "minecolonies:blockhutmysticalsite"
+				type: "item"
+			}]
+			title: "Blockhutmysticalsite"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "1A7B0712563B2C7A"
+			rewards: [{
+				count: 4
+				id: "29FFA9A393D63E91"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "72297DD890D90D7B"
+				item: "minecolonies:blockhutgraveyard"
+				type: "item"
+			}]
+			title: "Blockhutgraveyard"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "61965154E04BFD0A"
+			rewards: [{
+				count: 4
+				id: "6B1DC966363A74F9"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "776F71615B6F2870"
+				item: "minecolonies:blockhutmysticalsite"
+				type: "item"
+			}]
+			title: "Blockhutmysticalsite"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "644B46A01FDBC309"
+			rewards: [{
+				count: 8
+				id: "184BCF41A940CB3F"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "1471996872AC2513"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["644B46A01FDBC309"]
+			description: ["Deeper than last time. It always is."]
+			id: "1F923F5BE59FD6D3"
+			rewards: [{
+				count: 8
+				id: "52721C3DC7E34C8A"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "087323E71857409F"
+				item: "mmorpg:currency/mirror"
+				type: "item"
+			}]
+			title: "Currency/mirror"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["1F923F5BE59FD6D3"]
+			description: ["Deeper than last time. It always is."]
+			id: "4764ECF586087BE5"
+			rewards: [{
+				count: 8
+				id: "24ED5473D31D92FE"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "7426D289EE9ECDC7"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["4764ECF586087BE5"]
+			description: [
+				"The Rune of Helheim."
+				""
+				"Not a punishment. A ledger."
+				""
+				"Everything the elves took out of this world is written down somewhere, and we have spent nine eras putting a little of it back. That is not absolution and I will not offer you any. It is simply the work, continued."
+			]
+			id: "0FAC870A0C416B75"
+			rewards: [{
+				count: 2
+				id: "1479BB05A5613201"
+				item: "alfheim:gravegilt_thread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "07381D8D656F98CE"
+				item: "mythicbotany:helheim_rune"
+				type: "item"
+			}]
+			title: "The Rune of Helheim"
+			x: 6.0d
+			y: 4.5d
+		}
+	]
+	subtitle: ["What did it cost?"]
+	title: "IX — The Debt"
+}

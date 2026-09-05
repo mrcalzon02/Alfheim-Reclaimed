@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 6.0,
+      "min": 2.0,
+      "stat": "weapon_damage"
+    }
+  ],
+  "gear_slot": "crossbow",
+  "guid": "alfheim_minstrel_crossbow",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/crossbow/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "dexterity": 0.5
+    }
+  },
+  "style": "DEX",
+  "tags": {
+    "tags": [
+      "dexterity",
+      "ranger_casting_weapon",
+      "crossbow",
+      "ranged_weapon",
+      "weapon_family"
+    ]
+  },
+  "weapon_type": "crossbow",
+  "weight": 0
+}

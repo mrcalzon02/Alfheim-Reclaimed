@@ -1,0 +1,6 @@
+{
+  "id": "alfheim_warlock_chest_era_02",
+  "weight": 1000,
+  "item_id": "alfheim:armory/warlock/chest/era_02",
+  "custom_item_generation": "alfheim_warlock_chest_era_02"
+}

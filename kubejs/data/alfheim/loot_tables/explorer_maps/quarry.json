@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:explorer_maps/quarry",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "alfheim:quarry",
+              "decoration": "target_x",
+              "zoom": 3,
+              "search_radius": 150,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Survey Chart \u2014 The Quarries",
+                "italic": false,
+                "color": "aqua"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "An open cut, stepped in benches, abandoned with the face still fresh.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ],
+              "replace": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

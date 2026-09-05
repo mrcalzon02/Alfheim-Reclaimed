@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:zombie_habitats/eggszombies_add_military_zombie",
+  "spawners": {
+    "type": "eggszombies:military_zombie",
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 20
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "icon": "minecraft:iron_sword",
+  "start": {
+    "title": {
+      "translate": "What Is Left Of The Guard"
+    },
+    "description": {
+      "translate": "Captain Orenvel. Royal Elven Guard.\n\nYou are looking for the rest of it. There is no rest of it.\n\nI still hold the roster and the armoury key, so I still hold the rank. If you want the ruins opened, you go through me."
+    }
+  }
+}

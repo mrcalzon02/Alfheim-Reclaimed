@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:zombie_habitats/infectious_mummy_biome_modifier",
+  "spawners": {
+    "type": "infectious:mummy",
+    "weight": 15,
+    "minCount": 2,
+    "maxCount": 4
+  }
+}

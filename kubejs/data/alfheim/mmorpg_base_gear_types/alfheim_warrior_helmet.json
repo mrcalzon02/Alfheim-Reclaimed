@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 7.5,
+      "min": 5.0,
+      "stat": "armor"
+    }
+  ],
+  "gear_slot": "helmet",
+  "guid": "alfheim_warrior_helmet",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/helmet/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "strength": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "armor_family",
+      "strength",
+      "helmet",
+      "plate_helmet",
+      "armor_stat"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

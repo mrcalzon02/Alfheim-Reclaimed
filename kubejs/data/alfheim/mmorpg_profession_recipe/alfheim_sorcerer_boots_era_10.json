@@ -1,0 +1,32 @@
+{
+  "exp": 350,
+  "id": "alfheim_sorcerer_boots_era_10",
+  "mats": [
+    {
+      "type": "ITEM",
+      "id": "alfheim:crown_filament",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:material/mining/5",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:stone/5",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "alfheim:emberglass_shard",
+      "num": 1
+    }
+  ],
+  "profession": "gear_crafting",
+  "requires_pinnacle_unlock": true,
+  "result": "alfheim:armory/sorcerer/boots/era_10",
+  "result_num": 1,
+  "set_tier_nbt": false,
+  "tier": 5
+}

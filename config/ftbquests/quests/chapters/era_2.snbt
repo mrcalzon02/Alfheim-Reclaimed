@@ -1,0 +1,1764 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_2"
+	group: "105F9E401CD6F0BC"
+	icon: "mythicbotany:alfheim_rune"
+	id: "1DB8ADA1DA6EE37A"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Set the daisy beside plain stone this time, not wood."
+				""
+				"Livingrock is the material every elven workshop is built from. It is not stronger than stone. It simply holds a charge, the way a good student holds an idea."
+			]
+			id: "2BB873E5C40AD505"
+			rewards: [{
+				count: 8
+				id: "174CEE130F38FDB3"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 16L
+				id: "08F05AB7BB10FE27"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			title: "Stone That Remembers"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2BB873E5C40AD505"]
+			description: [
+				"The Diluted Pool taught you the shape. This is the real one."
+				""
+				"Everything you build for the next nine eras draws from a pool like this. Put it somewhere you are willing to walk to a thousand times."
+			]
+			id: "5AF1BF292F695BFC"
+			rewards: [{
+				count: 16
+				id: "0897253DF478E30C"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Somewhere it gathers"
+			tasks: [{
+				id: "6DC1CE2382FF128B"
+				item: "botania:mana_pool"
+				type: "item"
+			}]
+			title: "The Pool"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Now put the three together and stand back."
+				""
+				"A flower that burns, a spreader that throws, a pool that holds. That is the whole of our industry in miniature, and every factory you build hereafter is this repeated until it is embarrassing."
+			]
+			id: "7A4284C3A8388274"
+			rewards: [{
+				id: "650638860960FD1E"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Flower, spreader, pool"
+			tasks: [{
+				id: "22064939498B15A9"
+				title: "A Circuit"
+				type: "checkmark"
+			}]
+			title: "A Circuit"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Mana in a pool is mana that stays where you left it."
+				""
+				"Take some with you. You will need it far from home more often than you expect."
+			]
+			id: "1B7AF8E6D86B17CC"
+			rewards: [{
+				id: "3D52703597840AFF"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A mana tablet"
+			tasks: [{
+				id: "3241FAC3E09FAD45"
+				item: "botania:mana_tablet"
+				type: "item"
+			}]
+			title: "Carry It With You"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"This is where our craft stops being gardening and starts being language."
+				""
+				"You lay materials around it, pour mana in, and it gives back a rune: a fixed idea, reusable. Every serious thing you make from here needs one."
+			]
+			id: "62CAC52551F5CB5E"
+			rewards: [{
+				count: 16
+				id: "75EAE9CA3804982C"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Where words are made"
+			tasks: [{
+				id: "7D4FD728715D9F47"
+				item: "botania:runic_altar"
+				type: "item"
+			}]
+			title: "The Runic Altar"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["62CAC52551F5CB5E"]
+			description: [
+				"Begin with Earth. It is the patient one and it forgives a clumsy altar."
+				""
+				"When you hold it, look at it properly. Somebody made the first of these once, in a world that had not yet broken, and we have been copying them ever since."
+			]
+			id: "0D8E987616B24E59"
+			rewards: [{
+				id: "6A30ECA924BF5CF4"
+				item: "botania:rune_water"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Earth"
+			tasks: [{
+				id: "28F42DC623745C37"
+				item: "botania:rune_earth"
+				type: "item"
+			}]
+			title: "The First Rune"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Here is a thing I want you to find out for yourself, so I will only point."
+				""
+				"Go underground. Look for a green-white ore in the livingrock. When you find it, remember every book that told you Elementium comes through the gate."
+				""
+				"It does not. It is ours. It was always under our feet. They had the gate and we had the mine, and we let them tell the story."
+			]
+			id: "3DF099AA2941DC13"
+			rewards: [{
+				count: 2
+				id: "259B502F6D1068AD"
+				item: "botania:elementium_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Dig"
+			tasks: [{
+				id: "77AF8793C28D5ED0"
+				item: "botania:elementium_ingot"
+				type: "item"
+			}]
+			title: "What The Ground Keeps"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The other tradition needs its own timber."
+				""
+				"Archwood grows in the quieter valleys. You will hear it before you see it. Do not ask me how it does that; it is not my art."
+			]
+			id: "246E3A3BE1AD435A"
+			rewards: [{
+				count: 2
+				id: "78D4F8961C9E23C3"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				count: 8L
+				id: "7251464F1F44F449"
+				item: "ars_nouveau:archwood_planks"
+				type: "item"
+			}]
+			title: "Wood That Hums"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Archwood and gold. The gold you will dig for; Alfheim keeps a great deal of it, which tells you something about what the elves valued."
+				""
+				"This chamber turns very little into Source, slowly. Let it be slow."
+			]
+			id: "42409CA8805764D7"
+			rewards: [{
+				count: 4
+				id: "36344F8189D558BF"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Source begins"
+			tasks: [{
+				id: "34C0AA16C40931A1"
+				item: "ars_nouveau:imbuement_chamber"
+				type: "item"
+			}]
+			title: "The Imbuement Chamber"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["42409CA8805764D7"]
+			description: [
+				"Mana comes out of living things that are willing. Source comes out of events: growth, burning, dying, being."
+				""
+				"They are not the same, and you should stop trying to make them the same. I did, for two hundred years, and I was wrong."
+			]
+			id: "15ACECB4F4282936"
+			rewards: [{
+				count: 4
+				id: "60506E392E7F2A18"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The other current"
+			tasks: [{
+				count: 8L
+				id: "10A3ED0EBE5DD00E"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			title: "Source"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			description: ["Source will not hang in the air waiting for you. Put it somewhere."]
+			id: "7B56C3985D44B723"
+			rewards: [{
+				count: 4
+				id: "199CEF0716611A1E"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Storage"
+			tasks: [{
+				id: "5798462494ECBE2B"
+				item: "ars_nouveau:source_jar"
+				type: "item"
+			}]
+			title: "A Jar of Source"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["7B56C3985D44B723"]
+			description: [
+				"The Agronomic Sourcelink turns the fact of a plant growing into Source."
+				""
+				"Note what it stands on: our livingrock, their gold, their gems. Neither tradition made this alone. That is not an accident of the recipe. That is the point."
+				""
+				"Song cannot begin without Leaf. Remember that when one of you decides to specialise."
+			]
+			id: "016FA6CA17B9E3C2"
+			rewards: [{
+				count: 8
+				id: "4A546D21E5FA338E"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The interlock"
+			tasks: [{
+				id: "177F804C89730717"
+				item: "ars_nouveau:agronomic_sourcelink"
+				type: "item"
+			}]
+			title: "Growth Into Source"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"The grove is very dark, and torches are an insult to it."
+				""
+				"Make light that burns nothing. You will sleep better and so will the trees."
+			]
+			id: "2CF86CC7243567EF"
+			rewards: [{
+				count: 8
+				id: "27B96D97175412B2"
+				item: "minecraft:glowstone_dust"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A small mercy"
+			tasks: [{
+				count: 4L
+				id: "24B6A0F15D262C1D"
+				item: "ars_nouveau:magelight_torch"
+				type: "item"
+			}]
+			title: "Light Without Fire"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			description: [
+				"It will carry things for you and steal things from you, and both are affection."
+				""
+				"Be kind to it. There is not much left in Alfheim that is glad to see anyone."
+			]
+			id: "269B29C231DF96AE"
+			rewards: [{
+				count: 8
+				id: "35C684680BE3DA39"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Your first familiar"
+			tasks: [{
+				id: "7DFCC733903346DA"
+				item: "ars_nouveau:starbuncle_charm"
+				type: "item"
+			}]
+			title: "A Starbuncle"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"I said others would come when the way was clear. It is not clear. But it is clearer, and some of them would rather risk it than keep waiting."
+				""
+				"Set down a supply camp. Whoever arrives will need somewhere to put their hands."
+			]
+			id: "492F944FA116A358"
+			rewards: [{
+				count: 32
+				id: "3882A6ACD0CBB7E8"
+				item: "minecraft:oak_log"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "13A69870A6B677AE"
+				item: "minecolonies:supplychestdeployer"
+				type: "item"
+			}]
+			title: "The First To Follow"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["492F944FA116A358"]
+			description: [
+				"You cannot rebuild a civilisation by hand. That is not humility, it is arithmetic."
+				""
+				"Give the first of them a hut and a purpose. Watch what happens when an elf who is not you decides where a wall goes."
+			]
+			id: "33720A1BDC148172"
+			rewards: [{
+				count: 8
+				id: "3C77EBAB14F9731D"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Somebody else does the work"
+			tasks: [{
+				id: "221E8C7B4B453DD1"
+				item: "minecolonies:blockhutbuilder"
+				type: "item"
+			}]
+			title: "A Builders Hut"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			description: [
+				"A colony that eats badly does not build well."
+				""
+				"This is not a small quest. Every settlement in the old records failed at the larder before it failed at the wall."
+			]
+			id: "71B3750C62ED73BB"
+			rewards: [{
+				count: 8
+				id: "641DB5AAEABA1421"
+				item: "minecraft:bread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feed them"
+			tasks: [{
+				id: "72F4335B47D7D709"
+				item: "farmersdelight:cooking_pot"
+				type: "item"
+			}]
+			title: "A Kitchen"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["71B3750C62ED73BB"]
+			description: [
+				"Find one of the broken shrines and make it whole. Not useful. Whole."
+				""
+				"You will want to argue that this is a waste of stone. Do it anyway. The others are coming home to a graveyard, and it would be good if one thing in it were standing."
+			]
+			id: "2AB24DEC10C97E00"
+			rewards: [{
+				id: "3101F4E5E0F7D0F1"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "One small thing put right"
+			tasks: [{
+				id: "43EB2B6C2E00C423"
+				title: "Restore a Shrine"
+				type: "checkmark"
+			}]
+			title: "Restore a Shrine"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: [
+				"The ruins go deeper than they look, and something has been living down there."
+				""
+				"Take a map. Do not take it alone."
+			]
+			id: "5C63FA3CEA208F48"
+			rewards: [{
+				id: "5EDB66AAECB811D2"
+				item: "minecraft:golden_apple"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "2C39EE0D012916AC"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "An Adventure Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["5C63FA3CEA208F48"]
+			description: ["Once you can draw your own maps you stop being a scavenger and start being an expedition."]
+			id: "7C18A1AB23587B93"
+			rewards: [{
+				count: 8
+				id: "0FE9984C72142E11"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Make your own"
+			tasks: [{
+				id: "7455D9035C1439D6"
+				item: "mmorpg:map_creator"
+				type: "item"
+			}]
+			title: "Chart the Ruins"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["7C18A1AB23587B93"]
+			description: [
+				"Down there is something the ruin has been feeding. It has a name now, which means it has been alive long enough to earn one."
+				""
+				"Take that away from it."
+			]
+			id: "78876B85B49C2784"
+			rewards: [{
+				id: "6CF1C3642A866C1C"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Kill it"
+			tasks: [{
+				id: "283D6FDADF8445AC"
+				title: "Something With A Name"
+				type: "checkmark"
+			}]
+			title: "Something With A Name"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: [
+				"3DF099AA2941DC13"
+				"269B29C231DF96AE"
+			]
+			description: [
+				"Elementium from your own mine. Runes from your own altar. Leaves from six trees that should not still be alive."
+				""
+				"Lay them out and make the Rune of Alfheim."
+				""
+				"Understand what you are holding. It is not a key and it is not a trophy. It is a claim. It says the ground under you is Alfheim, and that it answers to elves again."
+				""
+				"It is the smallest possible version of that claim. There are eight more."
+			]
+			id: "766576851952ABAD"
+			rewards: [{
+				count: 4
+				id: "7BFA8F8117D1874B"
+				item: "botania:elementium_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "493F9742B27BDD14"
+				item: "mythicbotany:alfheim_rune"
+				type: "item"
+			}]
+			title: "The Rune of Alfheim"
+			x: 6.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"A Mana Pool holds what your spreaders throw at it. Simple enough."
+				""
+				"But there is a second recipe for a smaller pool, and it looks like a saving. It is not. The Diluted Pool holds a tenth as much and every guide that ever ruined a beginner recommended it as a starter."
+				""
+				"Build the full pool. You will fill it slowly and then never think about it again."
+			]
+			id: "111EF5AD35A22349"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "1984079630670D8B"
+				title: "The Pool, And The Diluted Trap"
+				type: "checkmark"
+			}]
+			title: "The Pool, And The Diluted Trap"
+			x: 0.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"A spreader throws a physical burst. The burst travels, and anything in the way stops it."
+				""
+				"A leaf. A fence. Your own scaffolding. If a spreader is not filling a pool, the answer is almost never mana and almost always a block you forgot you placed."
+				""
+				"Stand where the spreader stands and look. If you cannot see the pool, neither can it."
+			]
+			id: "6F090ACC10977D48"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "1BBFFB1E282EF09A"
+				title: "Line Of Sight, Not Distance"
+				type: "checkmark"
+			}]
+			title: "Line Of Sight, Not Distance"
+			x: 1.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"A burst loses mana as it flies. Not much over a short hop; a great deal over a long one."
+				""
+				"Two short throws beat one long one, which is why our workshops are cramped and full of relays rather than elegant and spread out. Efficiency here looks like clutter."
+			]
+			id: "513E628B69F47DF2"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "10D13B5CCCE5147F"
+				title: "Distance Costs"
+				type: "checkmark"
+			}]
+			title: "Distance Costs"
+			x: 3.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"The pool does not travel. The tablet does."
+				""
+				"Fill it at the pool, carry it to the work, and it will feed a rod or a tool in the field. It is the difference between a workshop and an expedition."
+			]
+			id: "755D79EB820165D3"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "791C1B152FE01346"
+				title: "Mana You Can Carry"
+				type: "checkmark"
+			}]
+			title: "Mana You Can Carry"
+			x: 4.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"This one costs people whole afternoons, so read it twice."
+				""
+				"A rune is placed on the altar and it is NOT consumed. It sits there, it makes the working possible, and you take it back afterwards."
+				""
+				"You need one of each rune, once, forever. Not one per craft. Anyone who tells you to mass-produce runes has misread the altar."
+			]
+			id: "119812B93E756451"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "4281803779164359"
+				title: "Runes Are Catalysts"
+				type: "checkmark"
+			}]
+			title: "Runes Are Catalysts"
+			x: 6.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"The Steeping wakes a bloom. The Quickening opens it."
+				""
+				"Where Rite I was water and patience, this one is mana and a ring of petals on the Runic Altar, and it returns far more than steeping alone. It is the first working that pays for the infrastructure you have been building."
+			]
+			id: "082B516C4A2C5081"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "2CF806EF52388792"
+				title: "Rite II - The Quickening"
+				type: "checkmark"
+			}]
+			title: "Rite II - The Quickening"
+			x: 7.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"From here you stop burning things."
+				""
+				"Mana infusion replaces smelting for everything that matters, and it is not a substitution of convenience - it yields what fire cannot. Keep a furnace for bread. Everything else goes in the pool."
+			]
+			id: "09D4B63FA604CCEC"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "01A552C71A35B9A4"
+				title: "Mana Is Now Your Furnace"
+				type: "checkmark"
+			}]
+			title: "Mana Is Now Your Furnace"
+			x: 9.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"The commonest Song mistake, and it looks like a bug when it happens to you."
+				""
+				"A Sourcelink generates Source. It does not store it. Without a Jar in range the Source is made and immediately lost, and your Agronomic link will look broken while it is working perfectly."
+				""
+				"Generation, storage and delivery are three separate blocks. Build all three."
+			]
+			id: "2248588C84C4BF0E"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "6620DC6D8A29E610"
+				title: "Sourcelinks Make, They Do Not Keep"
+				type: "checkmark"
+			}]
+			title: "Sourcelinks Make, They Do Not Keep"
+			x: 0.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Source moves by relay, within a radius, and it does not care what is between them."
+				""
+				"This is the opposite of a mana spreader in every respect, which is exactly why people who learn Leaf first keep building the Song wrong. No line of sight. No bursts. Just range."
+			]
+			id: "3118DFF53DB85E19"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "4EC993E45E0AC934"
+				title: "Jars Hold, Relays Carry"
+				type: "checkmark"
+			}]
+			title: "Jars Hold, Relays Carry"
+			x: 1.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"A spell is read left to right and it is strict."
+				""
+				"The Form comes first and decides the shape - touch, projectile, self. Then the Effects, in order. Then Augments, which modify the effect immediately before them, not the whole spell."
+				""
+				"An Amplify in the wrong slot amplifies the wrong thing. The Scribe's Table will let you do it, too."
+			]
+			id: "679BABEB09D97FEC"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "22C0C682B782F36C"
+				title: "Form, Then Effect, Then Augment"
+				type: "checkmark"
+			}]
+			title: "Form, Then Effect, Then Augment"
+			x: 3.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"The book has a mana bar of its own and each glyph you add makes the spell dearer."
+				""
+				"A three-glyph spell you can cast eight times is worth more than a six-glyph spell you can cast twice. Restraint is a mechanic here, not a virtue."
+			]
+			id: "434945AA4A45BDA8"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "69E914F20F62321B"
+				title: "Every Glyph Costs"
+				type: "checkmark"
+			}]
+			title: "Every Glyph Costs"
+			x: 4.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Glyphs are not found. They are written, from experience and reagents, at the table."
+				""
+				"Unlock them deliberately. The book will only hold what you have scribed, and the reagent for a glyph is usually a hint about what it does."
+			]
+			id: "18CA7FFBED0425CB"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "4674181C7BC6FCBA"
+				title: "The Scribe's Table"
+				type: "checkmark"
+			}]
+			title: "The Scribe's Table"
+			x: 6.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"You have an altar now, so here is the bill."
+				""
+				"Every infusion takes aura from the chunk it happens in. The chunk does not refill on a timer and there is no reservoir underneath. Work in one place long enough and the land there will stop working at all - and it will show, visibly, in the world."
+				""
+				"Move your altar. Or plant. Those are the two answers and there is not a third."
+			]
+			id: "497CF83575982643"
+			optional: true
+			shape: "gear"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "751573121A73D451"
+				title: "What You Draw Down Stays Down"
+				type: "checkmark"
+			}]
+			title: "What You Draw Down Stays Down"
+			x: 7.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Before the ground fails it warns you."
+				""
+				"Colour goes out of the grass. The aura blooms stop appearing. Read the warning and move; ignore it and you will be standing in a second Ashen Grove of your own making."
+				""
+				"That is not a metaphor I am reaching for. It is the mechanic, and it is what happened here."
+			]
+			id: "3FAB1DBB2124415F"
+			optional: true
+			shape: "gear"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "5B335EAD25424A5D"
+				title: "The Land Tells You First"
+				type: "checkmark"
+			}]
+			title: "The Land Tells You First"
+			x: 9.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Chalk on stone, candles at the points, and the shape must close."
+				""
+				"A pentacle with a gap is not a weaker pentacle, it is nothing at all. Count your glyphs before you light anything."
+				""
+				"What you call is bound by the circle, and the circle is only as good as its worst line."
+			]
+			id: "1962108635B9D8A0"
+			optional: true
+			shape: "gear"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "10AFD030D72200D3"
+				title: "A Closed Circle"
+				type: "checkmark"
+			}]
+			title: "A Closed Circle"
+			x: 0.0d
+			y: -3.0d
+		}
+		{
+			description: [
+				"It is the lowest thing you can bind and it is still a someone."
+				""
+				"Give it a job and it does the job, indefinitely, without power or fuel or a mana line. That is the appeal, and it is why this tradition keeps being rediscovered by people who swore they would not."
+				""
+				"I am not going to moralise. I will only note that nothing else in this pack works for free, and that should tell you the cost is somewhere you have not looked."
+			]
+			id: "2AC494369DEC6EF1"
+			optional: true
+			shape: "gear"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "1BD3C9E1AC500985"
+				title: "A Foliot Is Not A Machine"
+				type: "checkmark"
+			}]
+			title: "A Foliot Is Not A Machine"
+			x: 1.5d
+			y: -3.0d
+		}
+		{
+			description: [
+				"The Fey Altar takes five offerings. Not four, not six."
+				""
+				"Every recipe in their tradition is built on five, and a short offering simply does not resolve. If an altar is refusing you, count again before you blame the recipe."
+			]
+			id: "4739028CDCCDFCE2"
+			optional: true
+			shape: "gear"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "3EA29979F28E1C50"
+				title: "Always Five"
+				type: "checkmark"
+			}]
+			title: "Always Five"
+			x: 3.0d
+			y: -3.0d
+		}
+		{
+			description: [
+				"Human magic sorts itself into schools, and a book is loyal to one of them."
+				""
+				"A copper book holds little and casts slowly. What it teaches you is the shape of the system: schools, cooldowns, and a mana bar that is not Botania's and not Ars Nouveau's."
+				""
+				"Four energy systems now, if you are counting. I did warn you."
+			]
+			id: "622D471E0C821D02"
+			optional: true
+			shape: "gear"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "1EEDB7A49292EDBC"
+				title: "Schools And Cooldowns"
+				type: "checkmark"
+			}]
+			title: "Schools And Cooldowns"
+			x: 4.5d
+			y: -3.0d
+		}
+		{
+			description: [
+				"Here is the join, and it is the most important thing in this era."
+				""
+				"Mana can be bottled. Once it is a fluid in a container it is a fluid Create can pump, measure and pipe - and the moment that is true, the industry of the dead world runs on elven power."
+				""
+				"That is the whole design of this pack in one item. Nothing in Create will be allowed to matter unless it drinks from a spine first."
+			]
+			id: "0F8E86EAF2CFA9EE"
+			optional: true
+			shape: "gear"
+			subtitle: "Create: Wizardry"
+			tasks: [{
+				id: "7BCC556BDEB4CED2"
+				title: "Mana In A Bottle"
+				type: "checkmark"
+			}]
+			title: "Mana In A Bottle"
+			x: 6.0d
+			y: -3.0d
+		}
+		{
+			dependencies: ["2BB873E5C40AD505"]
+			description: [
+				"Gold drawn out until it will carry aura the way a wick carries oil."
+				""
+				"Everything in this tradition is built on it. Make a great deal more than you think you need."
+			]
+			id: "5100C1674B42F997"
+			rewards: [{
+				count: 4
+				id: "4B075B770DFF34D5"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				count: 8L
+				id: "0D70E53D8A99D7FE"
+				item: "naturesaura:gold_fiber"
+				type: "item"
+			}]
+			title: "Gold Fibre"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["5100C1674B42F997"]
+			description: [
+				"Set it on the altar and let the sky pay for it."
+				""
+				"Watch the Eye while it works. That falling number is the chunk you are standing in, and it is the first honest price anything in this pack has quoted you."
+			]
+			id: "135F27C16D7589DF"
+			rewards: [{
+				count: 8
+				id: "0C1254D60B34B4D7"
+				item: "naturesaura:gold_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "786C9B93994B9438"
+				item: "naturesaura:infused_iron"
+				type: "item"
+			}]
+			title: "The First Infusion"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["135F27C16D7589DF"]
+			description: [
+				"A cache holds aura outside the ground, which means you can carry a good chunk's worth into a poor one."
+				""
+				"It does not create anything. It moves the debt. Remember that when you are tempted to call it a solution."
+			]
+			id: "6767CA192741A8F3"
+			rewards: [{
+				count: 2
+				id: "2856430E2DA1CC4B"
+				item: "naturesaura:token_joy"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "4EB88733499235EB"
+				item: "naturesaura:aura_cache"
+				type: "item"
+			}]
+			title: "Somewhere To Put It"
+			x: 4.5d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Mana-worked metal, ground to dust and bound. Even this tradition has to come through the Pool to start."
+				""
+				"Draw with it on stone. The glyph stays until something scuffs it, so pick your floor."
+			]
+			id: "07CE76DE6C0CEB4F"
+			rewards: [{
+				count: 4
+				id: "430B792A2A9BF6A7"
+				item: "occultism:candle_white"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "6C0667235B6C8B8A"
+				item: {
+					Count: 1
+					id: "occultism:chalk_white"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "White Chalk"
+			x: 1.5d
+			y: 7.5d
+		}
+		{
+			dependencies: ["07CE76DE6C0CEB4F"]
+			description: [
+				"The bowl is where the offering goes and where the circle is anchored."
+				""
+				"Set one at the centre. Candles at the points. Then read the book again, properly, before you light anything."
+			]
+			id: "076BFBF148530E41"
+			rewards: [{
+				id: "432AE76271534B51"
+				item: {
+					Count: 1
+					id: "occultism:chalk_white"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "7C2E01DCACEEAE9D"
+				item: "occultism:sacrificial_bowl"
+				type: "item"
+			}]
+			title: "The Sacrificial Bowl"
+			x: 3.0d
+			y: 7.5d
+		}
+		{
+			description: [
+				"The terms, written down, for the smallest thing that will come."
+				""
+				"A Foliot. It will fetch, or it will crush, or it will trade - one task, forever, without a mana line or a millstone. Decide which before you call it."
+			]
+			id: "72BEF3064A5EE5CD"
+			rewards: [{
+				count: 6
+				id: "0A8279306DE70BE8"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "51B2DC798716BD19"
+				item: "occultism:book_of_binding_foliot"
+				type: "item"
+			}]
+			title: "A Book Of Binding"
+			x: 4.5d
+			y: 7.5d
+		}
+		{
+			description: [
+				"Five offerings, arranged, and something on the other side decides whether it likes them."
+				""
+				"It is the only station in the pack that can refuse you for reasons of taste. Petals help. They always help."
+			]
+			id: "266A36B93DF28B95"
+			rewards: [{
+				count: 4
+				id: "0DC5C89DACFAA85E"
+				item: "feywild:fey_dust"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "03A017FC61CEF2FD"
+				item: "feywild:fey_altar"
+				type: "item"
+			}]
+			title: "The Fey Altar"
+			x: 1.5d
+			y: 9.0d
+		}
+		{
+			dependencies: ["266A36B93DF28B95"]
+			description: [
+				"Dust compressed until it holds its shape, or torn out of a scarred log by a very annoyed tree."
+				""
+				"Either way it is the currency of every bargain worth making with them. MythicBotany wants one too, for a flower you will meet in the next era."
+			]
+			id: "5C47CF44AFD4396F"
+			rewards: [{
+				count: 6
+				id: "685D97FA5008F417"
+				item: "feywild:fey_dust"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "3C633AEDAD1F1686"
+				item: "feywild:fey_gem"
+				type: "item"
+			}]
+			title: "A Fey Gem"
+			x: 3.0d
+			y: 9.0d
+		}
+		{
+			dependencies: ["5C47CF44AFD4396F"]
+			description: [
+				"Blank, and waiting for a name."
+				""
+				"A summoning scroll is a written invitation, and the courts hold you to what it says. Fill one in when you know which court you would rather owe."
+			]
+			id: "1C57ADF4A13D48A5"
+			rewards: [{
+				id: "2DAAE6E14F5FDD5C"
+				item: "feywild:fey_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "6530C28986CBF75D"
+				item: "feywild:empty_summoning_scroll"
+				type: "item"
+			}]
+			title: "An Empty Scroll"
+			x: 4.5d
+			y: 9.0d
+		}
+		{
+			description: [
+				"Thin, slow, and it holds almost nothing."
+				""
+				"It is also the first time in your life something has cast a spell for you because you read it correctly rather than because you grew it. Sit with that."
+			]
+			id: "62DC7E1C588FF6FB"
+			rewards: [{
+				count: 4
+				id: "6BC1D84F7A732526"
+				item: "irons_spellbooks:common_ink"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "281DF538985E370F"
+				item: "irons_spellbooks:copper_spell_book"
+				type: "item"
+			}]
+			title: "A Copper Book"
+			x: 1.5d
+			y: 10.5d
+		}
+		{
+			description: [
+				"Ink, a blank, and a school to commit to."
+				""
+				"Their magic does not grow and cannot be tended. It is copied. That is its weakness and the reason it spread across a whole world while ours stayed in one forest."
+			]
+			id: "48010C6C705A7C01"
+			rewards: [{
+				count: 4
+				id: "699AA520B52ADF13"
+				item: "irons_spellbooks:arcane_essence"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "62452D0AD31592ED"
+				item: "irons_spellbooks:scroll"
+				type: "item"
+			}]
+			title: "One Spell, Written Down"
+			x: 3.0d
+			y: 10.5d
+		}
+		{
+			dependencies: ["48010C6C705A7C01"]
+			description: [
+				"Where their runes go onto their gear."
+				""
+				"Crude beside an Enchanting Apparatus and considerably faster. Midgard was always in a hurry."
+			]
+			id: "28BF25492654F4D9"
+			rewards: [{
+				count: 2
+				id: "3E937B62EFB1E952"
+				item: "irons_spellbooks:arcane_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "0C298F684FDF0793"
+				item: "irons_spellbooks:arcane_anvil"
+				type: "item"
+			}]
+			title: "The Arcane Anvil"
+			x: 4.5d
+			y: 10.5d
+		}
+		{
+			description: [
+				"Draw from a full pool into glass."
+				""
+				"It is a small thing to hold and it is the hinge of the entire pack: from here, elven power is a fluid, and a fluid is something the dead world's machinery already knows how to move."
+			]
+			id: "47D0377E07C31C9A"
+			rewards: [{
+				id: "1F9E703B7CEECD65"
+				item: "botania:mana_tablet"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Create: Wizardry"
+			tasks: [{
+				id: "5FD1F75D2B3E2B83"
+				item: "create_wizardry:mana_bucket"
+				type: "item"
+			}]
+			title: "Mana In A Bottle"
+			x: 1.5d
+			y: 12.0d
+		}
+		{
+			description: [
+				"Their metal, our power."
+				""
+				"You will need a mill and you will need mana, and the fact that both are required is the point rather than an inconvenience."
+			]
+			id: "610E7647175947E7"
+			rewards: [{
+				id: "4756AB0DBE9A03E2"
+				item: "create_wizardry:mana_bucket"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Create: Wizardry"
+			tasks: [{
+				id: "5F6092A7FDAC9846"
+				item: "create_wizardry:mithril_nugget"
+				type: "item"
+			}]
+			title: "Crushed Mithril"
+			x: 3.0d
+			y: 12.0d
+		}
+		{
+			dependencies: ["2BB873E5C40AD505"]
+			description: [
+				"Not the diluted one. I have said why."
+				""
+				"Livingrock, and a great deal of it. This is the single most important block you will place this era and it should feel expensive."
+			]
+			id: "561185DF8A54EAFD"
+			rewards: [{
+				count: 16
+				id: "1AA44B66B42762E9"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "3F1743C4095BE747"
+				item: "botania:mana_pool"
+				type: "item"
+			}]
+			title: "Build The Full Pool"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["62CAC52551F5CB5E"]
+			description: [
+				"One rune, made once, kept forever."
+				""
+				"Put it on the altar when a working calls for it and take it back when the working is done. If you find yourself making a second one, re-read the guide."
+			]
+			id: "08D63A22F119E6F5"
+			rewards: [{
+				count: 2
+				id: "466621B510DCBD31"
+				item: "botania:manasteel_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "56BCF143EF73684B"
+				item: "botania:rune_earth"
+				type: "item"
+			}]
+			title: "The First Rune"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Petals, mana, and a bloom that has already been steeped."
+				""
+				"The yield is several times what the Steeping alone gave you. This is the era where the grove starts paying you back."
+			]
+			id: "15036A9FF00FA2AD"
+			rewards: [{
+				count: 8
+				id: "57981D55EFCD712C"
+				item: "minecraft:copper_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 8L
+				id: "22A2B69D78D50B8E"
+				item: "alfheim:quickened_verdigris"
+				type: "item"
+			}]
+			title: "Rite II - The Quickening"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"A blast furnace does the same work in half the time and wastes nothing."
+				""
+				"Palebloom renders to iron. Verdigris to copper. Cinderbloom to coal, which is what feeds the furnace that renders the other two - the grove pays for its own fire."
+				""
+				"You are no longer scraping a living out of this forest. You are running it."
+			]
+			id: "3968C80283A050D7"
+			rewards: [{
+				count: 8
+				id: "2435FEE481D69935"
+				item: "alfheim:raw_palebloom"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 16L
+				id: "6B1436A73309E42B"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			title: "Rendering, Faster"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["561185DF8A54EAFD"]
+			description: [
+				"An import in this world, and now you can make it."
+				""
+				"Drop iron into a full pool and wait. It is the first time the reversal cuts in your favour rather than against you."
+			]
+			id: "2AA1BAB29EEC49EE"
+			rewards: [{
+				id: "64FB07238C5A9806"
+				item: "botania:mana_tablet"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 8L
+				id: "0D040690EEA02678"
+				item: "botania:manasteel_ingot"
+				type: "item"
+			}]
+			title: "Manasteel At Last"
+			x: 7.5d
+			y: 1.5d
+		}
+		{
+			description: [
+				"MythicBotany's own station, and the one that will carry the next four eras."
+				""
+				"It wants colours as well as materials - it will ask you what shade the working starts and ends in. Do not skip those; the mod means them."
+			]
+			id: "52B43C1E1BD2EFA0"
+			rewards: [{
+				count: 2
+				id: "58730B7CF91C2096"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "06F35735155A6EE7"
+				item: "mythicbotany:mana_infuser"
+				type: "item"
+			}]
+			title: "The Mana Infuser"
+			x: 9.0d
+			y: 1.5d
+		}
+		{
+			description: [
+				"Build the jar before the link, or you will spend an afternoon watching nothing happen."
+				""
+				"Storage first, generation second, delivery third. That order is the whole of the Song's infrastructure."
+			]
+			id: "7D3FB2410B6201CD"
+			rewards: [{
+				count: 8
+				id: "16F7FBC80D57A3E2"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "170F711FB2CDE6C4"
+				item: "ars_nouveau:source_jar"
+				type: "item"
+			}]
+			title: "Somewhere For Source To Go"
+			x: 7.5d
+			y: 3.0d
+		}
+		{
+			description: [
+				"A relay moves Source within its radius and does not care about walls."
+				""
+				"Chain them. It is the cheapest infrastructure in the pack and the reason a Song workshop can be spread out where a Leaf one cannot."
+			]
+			id: "0CB04F31374A4765"
+			rewards: [{
+				count: 8
+				id: "49040F7D13EF97C5"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "0580AEFFD02F7CFA"
+				item: "ars_nouveau:relay"
+				type: "item"
+			}]
+			title: "Carry It"
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["0CB04F31374A4765"]
+			description: [
+				"The table, and then the first glyph you choose for yourself."
+				""
+				"Whatever you scribe first, you will use for a hundred hours. Choose a Form, not an Effect - Forms are what make the rest possible."
+			]
+			id: "5ADCA1C9D696BC80"
+			rewards: [{
+				count: 8
+				id: "35C4FDCAA72B4342"
+				item: "ars_nouveau:magebloom_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "64AD44DA32DABE90"
+				item: "ars_nouveau:scribes_table"
+				type: "item"
+			}]
+			title: "Write A Glyph"
+			x: 10.5d
+			y: 3.0d
+		}
+		{
+			description: [
+				"Pedestals in a ring, a reagent at the centre, and Source in range."
+				""
+				"Placement is part of the recipe here. The Song asks you to build the working, not to type it into a grid."
+			]
+			id: "37C14771DDB1B54A"
+			rewards: [{
+				count: 4
+				id: "3011FB0F4AE5F6B2"
+				item: "ars_nouveau:arcane_pedestal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "30AA0E3D7F8ABFBF"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "The Enchanting Apparatus"
+			x: 12.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["5C63FA3CEA208F48"]
+			description: [
+				"The tree will let you dabble and dabbling is how people end up level thirty and useless."
+				""
+				"Pick a direction and spend into it. You can respec, at a price, and the price exists precisely so that the choice means something."
+			]
+			id: "4B260B8FEC249A71"
+			rewards: [{
+				count: 6
+				id: "4C55DFB0F8186F6A"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "1B6A24C2E356E3BB"
+				title: "Commit To Something"
+				type: "checkmark"
+			}]
+			title: "Commit To Something"
+			x: 7.5d
+			y: 4.5d
+		}
+		{
+			description: [
+				"A rare item has more affixes. It does not have better ones."
+				""
+				"Read the rolls. A common piece that rolled high on the stat you actually use will beat a rare one that rolled low on three you do not."
+			]
+			id: "0CC726B01DB6AED1"
+			rewards: [{
+				count: 2
+				id: "27BB8C48A97E6FEB"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "570DE167FFA7F39F"
+				title: "Rarity Is Not Quality"
+				type: "checkmark"
+			}]
+			title: "Rarity Is Not Quality"
+			x: 9.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["0CC726B01DB6AED1"]
+			description: [
+				"An Adventure Map is a place that does not exist until you open it."
+				""
+				"Check its level against yours before you step through. The map does not care that you were brave."
+			]
+			id: "09FF644153EB960F"
+			rewards: [{
+				count: 2
+				id: "04154D6205F71E2C"
+				item: "minecraft:golden_apple"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "3DC82D13B979CB7F"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Your First Map"
+			x: 10.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["09FF644153EB960F"]
+			description: [
+				"You have been hoarding them since Era I because I told you to. Here is the payoff."
+				""
+				"Orbs reroll. They change an affix, or its tier, or the whole set - and each kind does exactly one thing, so read before you use."
+				""
+				"Spend them on a piece you intend to keep, not on the best thing you happen to be holding this week."
+			]
+			id: "48E101AE79E6730F"
+			rewards: [{
+				count: 3
+				id: "76EC51C8D3B5339A"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "33A9366988F9C055"
+				title: "What The Orbs Are For"
+				type: "checkmark"
+			}]
+			title: "What The Orbs Are For"
+			x: 12.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"You have a pool, a rune and something that passes for a workshop."
+				""
+				"Orenvel will want to know. He will not say well done - he will say what is next, which from him is the same thing."
+			]
+			id: "5A6295C9B02F5F1A"
+			rewards: [{
+				count: 8
+				id: "6EA8F40B276C8D8B"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Hollow Court"
+			tasks: [{
+				id: "797806AEBF3474B7"
+				title: "Report To The Captain"
+				type: "checkmark"
+			}]
+			title: "Report To The Captain"
+			x: 12.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["5A6295C9B02F5F1A"]
+			description: [
+				"Two of the ambient court will walk out past the ring this era."
+				""
+				"Not far. Far enough that the Hollow Court is a place people leave from again, rather than a place eight elves are waiting to die in."
+			]
+			id: "039D2D6C0DD28C2F"
+			rewards: [{
+				count: 16
+				id: "14C76B73476AB04F"
+				item: "botania:white_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Hollow Court"
+			tasks: [{
+				id: "1B69D57D94607EF4"
+				title: "The Court Sends Word"
+				type: "checkmark"
+			}]
+			title: "The Court Sends Word"
+			x: 13.5d
+			y: 4.5d
+		}
+		{
+			description: [
+				"There is a thing on the lakes you will not have seen anywhere else, and I want you to bring me a bucket of it before you ask what it is for."
+				""
+				"Bifrost is the bridge-stuff. Solid, it is the rainbow the Aesir walked on. What is lying in the shallows of Alfheim is the same substance with the bridge taken out of it -- what was left when the roads between the realms stopped being roads."
+				""
+				"It glows. Look for that at dusk. It is not common and it is not supposed to be."
+			]
+			id: "181BB28DD044DFFA"
+			rewards: [{
+				count: 16
+				id: "4A349AE4194F6245"
+				item: "botania:livingrock"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Liquid Bifrost"
+			tasks: [{
+				id: "00F4D42BC14B4701"
+				item: "alfheim:liquid_bifrost_bucket"
+				type: "item"
+			}]
+			title: "The Bridge, Poured Out"
+			x: 0.0d
+			y: 13.5d
+		}
+		{
+			description: [
+				"Into the apothecary. Bucket and all -- you will not get the iron back, and I am not going to pretend otherwise."
+				""
+				"A liquid cannot be worked. Crystallised, it can. This is the same lesson the petals taught you and it will be the same lesson at every tier: the material does not become more powerful, it becomes more *handleable*."
+				""
+				"Four to a bucket. Do not be precious with them."
+			]
+			id: "25701C306A160BC5"
+			rewards: [{
+				count: 2
+				id: "7C31A7BD534C79AA"
+				item: "minecraft:bucket"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Crystallized Bifrost"
+			tasks: [{
+				count: 4L
+				id: "3912AB0A70A635DE"
+				item: "alfheim:crystallized_bifrost"
+				type: "item"
+			}]
+			title: "Give It A Shape"
+			x: 1.5d
+			y: 13.5d
+		}
+		{
+			description: [
+				"Now the pool. Mana in, crystals in, and wait."
+				""
+				"Four shards go in and one stone comes out, and the stone is not four times anything. You are paying for density, not for power. Everything after this needs the material small enough to work with and stubborn enough to survive being worked."
+				""
+				"This is as far as it goes on this side of the gate."
+			]
+			id: "665DC5DBE5F48654"
+			rewards: [{
+				count: 8
+				id: "6555105A8557352C"
+				item: "botania:mana_powder"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Condensed Bifrost"
+			tasks: [{
+				id: "2513553C15FAB833"
+				item: "alfheim:condensed_bifrost"
+				type: "item"
+			}]
+			title: "Press Them Together"
+			x: 3.0d
+			y: 13.5d
+		}
+	]
+	subtitle: ["Can we hold ground?"]
+	title: "II — The First Light"
+}

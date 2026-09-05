@@ -1,0 +1,35 @@
+{
+  "icon": "minecraft:compass",
+  "start": {
+    "title": {
+      "translate": "Know The Ground"
+    },
+    "description": {
+      "translate": "Before anything else: walk. Alfheim is not the world you half-remember from stories, and it is certainly not Midgard.\n\nGo and stand somewhere that is still alive."
+    }
+  },
+  "parent": "quest_giver:root",
+  "complete": {
+    "title": {
+      "translate": "Know The Ground"
+    },
+    "description": {
+      "translate": "You have seen it. Then you know what we lost, and roughly how much of it is still worth saving."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:biome",
+      "biome": "alfheim:bloomfall_vale"
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "botania:fertilizer",
+        "count": 2
+      }
+    }
+  ]
+}

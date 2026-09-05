@@ -1,0 +1,87 @@
+{
+  "carvers": {
+    "air": [
+      "mythicbotany:cave",
+      "mythicbotany:canyon"
+    ]
+  },
+  "creature_spawn_probability": 0.2,
+  "downfall": 0.2,
+  "temperature": 0.3,
+  "has_precipitation": false,
+  "effects": {
+    "fog_color": 5130837,
+    "sky_color": 6051686,
+    "water_color": 3354683,
+    "water_fog_color": 1446938
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "mythicbotany:abandoned_apothecaries"
+    ],
+    [],
+    [
+      "mythicbotany:metamorphic_forest_stone",
+      "mythicbotany:metamorphic_mountain_stone",
+      "mythicbotany:metamorphic_fungal_stone",
+      "mythicbotany:metamorphic_swamp_stone",
+      "mythicbotany:metamorphic_desert_stone",
+      "mythicbotany:metamorphic_taiga_stone",
+      "mythicbotany:metamorphic_mesa_stone",
+      "mythicbotany:elementium_ore",
+      "mythicbotany:dragonstone_ore",
+      "mythicbotany:gold_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "feywild:winter_pixie",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 8
+      },
+      {
+        "type": "feywild:bellsnickel",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 3
+      },
+      {
+        "type": "minecraft:frog",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 5
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:spider",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "richs_races_wood_elves:wood_elf",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 12
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  }
+}

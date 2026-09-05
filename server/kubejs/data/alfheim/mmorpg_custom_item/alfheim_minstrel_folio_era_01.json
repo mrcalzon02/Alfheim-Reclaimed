@@ -1,0 +1,11 @@
+{
+  "id": "alfheim_minstrel_folio_era_01",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "common"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_minstrel_folio",
+  "disable_salvaging": false
+}

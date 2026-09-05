@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_minstrel_crossbow_era_02",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "common",
+    "uncommon"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_minstrel_crossbow",
+  "disable_salvaging": false
+}

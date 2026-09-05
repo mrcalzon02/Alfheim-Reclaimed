@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:budding_emberglass",
+    "alfheim:budding_tidewake",
+    "alfheim:budding_rootglass",
+    "alfheim:budding_galeglass",
+    "alfheim:budding_duskglass",
+    "alfheim:budding_dawnglass"
+  ]
+}

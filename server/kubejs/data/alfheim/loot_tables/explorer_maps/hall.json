@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:explorer_maps/hall",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "alfheim:hall",
+              "decoration": "banner_yellow",
+              "zoom": 2,
+              "search_radius": 100,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Survey Chart \u2014 The Moot Halls",
+                "italic": false,
+                "color": "aqua"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "One long room where the elves argued. The roof is usually the first thing gone.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ],
+              "replace": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

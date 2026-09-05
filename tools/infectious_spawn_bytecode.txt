@@ -1,0 +1,1857 @@
+Compiled from "AcidZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.AcidZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.AcidZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_3
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "AncientZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.AncientZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.AncientZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #19                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #39                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #43                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     220
+        21: aload_0
+        22: instanceof    #45                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #45                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #49                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     220
+        51: aload_0
+        52: ldc           #57                 // class net/mcreator/infectious/entity/AncientZombieEntity
+        54: new           #59                 // class net/minecraft/world/phys/Vec3
+        57: dup
+        58: dload_1
+        59: dload_3
+        60: dload         5
+        62: invokespecial #62                 // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+        65: ldc2_w        #63                 // double 9999.0d
+        68: ldc2_w        #63                 // double 9999.0d
+        71: ldc2_w        #63                 // double 9999.0d
+        74: invokestatic  #70                 // Method net/minecraft/world/phys/AABB.m_165882_:(Lnet/minecraft/world/phys/Vec3;DDD)Lnet/minecraft/world/phys/AABB;
+        77: invokedynamic #89,  0             // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+        82: invokeinterface #93,  4           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+        87: invokeinterface #99,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+        92: ifeq          220
+        95: aload_0
+        96: ldc           #101                // class net/mcreator/infectious/entity/AncientZombieBossEntity
+        98: new           #59                 // class net/minecraft/world/phys/Vec3
+       101: dup
+       102: dload_1
+       103: dload_3
+       104: dload         5
+       106: invokespecial #62                 // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+       109: ldc2_w        #63                 // double 9999.0d
+       112: ldc2_w        #63                 // double 9999.0d
+       115: ldc2_w        #63                 // double 9999.0d
+       118: invokestatic  #70                 // Method net/minecraft/world/phys/AABB.m_165882_:(Lnet/minecraft/world/phys/Vec3;DDD)Lnet/minecraft/world/phys/AABB;
+       121: invokedynamic #108,  0            // InvokeDynamic #1:test:()Ljava/util/function/Predicate;
+       126: invokeinterface #93,  4           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+       131: invokeinterface #99,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+       136: ifeq          220
+       139: aload_0
+       140: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+       145: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+       150: getstatic     #113                // Field net/mcreator/infectious/init/InfectiousModGameRules.ENABLE_ANCIENT_ZOMBIE:Lnet/minecraft/world/level/GameRules$Key;
+       153: invokevirtual #43                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+       156: iconst_1
+       157: if_icmpne     220
+       160: aload_0
+       161: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+       166: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+       171: getstatic     #116                // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+       174: invokevirtual #120                // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+       177: iconst_4
+       178: if_icmplt     220
+       181: aload_0
+       182: instanceof    #45                 // class net/minecraft/world/level/Level
+       185: ifeq          202
+       188: aload_0
+       189: checkcast     #45                 // class net/minecraft/world/level/Level
+       192: astore        8
+       194: aload         8
+       196: invokevirtual #123                // Method net/minecraft/world/level/Level.m_46461_:()Z
+       199: ifne          220
+       202: aload_0
+       203: dload_1
+       204: dload_3
+       205: dload         5
+       207: invokestatic  #129                // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       210: invokeinterface #133,  2          // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       215: ifeq          220
+       218: iconst_1
+       219: ireturn
+       220: iconst_0
+       221: ireturn
+
+  private static boolean lambda$execute$1(net.mcreator.infectious.entity.AncientZombieBossEntity);
+    Code:
+         0: iconst_1
+         1: ireturn
+
+  private static boolean lambda$execute$0(net.mcreator.infectious.entity.AncientZombieEntity);
+    Code:
+         0: iconst_1
+         1: ireturn
+}
+Compiled from "AngryZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.AngryZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.AngryZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     111
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     111
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_1
+        69: if_icmplt     111
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: iconst_0
+       112: ireturn
+}
+Compiled from "BalloonZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.BalloonZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.BalloonZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     111
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     111
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     111
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: iconst_0
+       112: ireturn
+}
+Compiled from "BigZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.BigZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.BigZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "BurnedZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.BurnedZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.BurnedZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     175
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpeq     81
+        51: aload_0
+        52: instanceof    #40                 // class net/minecraft/world/level/Level
+        55: ifeq          72
+        58: aload_0
+        59: checkcast     #40                 // class net/minecraft/world/level/Level
+        62: astore        8
+        64: aload         8
+        66: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        69: goto          75
+        72: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        75: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46429_:Lnet/minecraft/resources/ResourceKey;
+        78: if_acmpne     175
+        81: aload_0
+        82: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        87: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        92: getstatic     #58                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        95: invokevirtual #62                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        98: iconst_1
+        99: if_icmplt     175
+       102: aload_0
+       103: dload_1
+       104: dload_3
+       105: dload         5
+       107: invokestatic  #68                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       110: invokeinterface #72,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       115: ifne          136
+       118: aload_0
+       119: dload_1
+       120: dload_3
+       121: dload         5
+       123: invokestatic  #68                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       126: invokeinterface #76,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       131: ifne          136
+       134: iconst_1
+       135: ireturn
+       136: aload_0
+       137: instanceof    #40                 // class net/minecraft/world/level/Level
+       140: ifeq          157
+       143: aload_0
+       144: checkcast     #40                 // class net/minecraft/world/level/Level
+       147: astore        9
+       149: aload         9
+       151: invokevirtual #80                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       154: ifne          175
+       157: aload_0
+       158: dload_1
+       159: dload_3
+       160: dload         5
+       162: invokestatic  #68                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       165: invokeinterface #72,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       170: ifeq          175
+       173: iconst_1
+       174: ireturn
+       175: iconst_0
+       176: ireturn
+}
+Compiled from "BurningZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.BurningZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.BurningZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "DeepSeaDiverZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.DeepSeaDiverZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.DeepSeaDiverZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     72
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          40
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore_1
+        33: aload_1
+        34: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        37: goto          43
+        40: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        43: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        46: if_acmpne     72
+        49: aload_0
+        50: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        55: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        60: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        63: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        66: iconst_2
+        67: if_icmplt     72
+        70: iconst_1
+        71: ireturn
+        72: iconst_0
+        73: ireturn
+}
+Compiled from "FranklinZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.FranklinZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.FranklinZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #19                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #39                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #43                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     189
+        21: aload_0
+        22: instanceof    #45                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #45                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #49                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     189
+        51: aload_0
+        52: ldc           #57                 // class net/mcreator/infectious/entity/FranklinZombieEntity
+        54: new           #59                 // class net/minecraft/world/phys/Vec3
+        57: dup
+        58: dload_1
+        59: dload_3
+        60: dload         5
+        62: invokespecial #62                 // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+        65: ldc2_w        #63                 // double 9999.0d
+        68: ldc2_w        #63                 // double 9999.0d
+        71: ldc2_w        #63                 // double 9999.0d
+        74: invokestatic  #70                 // Method net/minecraft/world/phys/AABB.m_165882_:(Lnet/minecraft/world/phys/Vec3;DDD)Lnet/minecraft/world/phys/AABB;
+        77: invokedynamic #89,  0             // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+        82: invokeinterface #93,  4           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+        87: invokeinterface #99,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+        92: ifeq          189
+        95: aload_0
+        96: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+       101: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+       106: getstatic     #104                // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+       109: invokevirtual #108                // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+       112: iconst_2
+       113: if_icmplt     189
+       116: aload_0
+       117: dload_1
+       118: dload_3
+       119: dload         5
+       121: invokestatic  #114                // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       124: invokeinterface #118,  2          // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       129: ifne          150
+       132: aload_0
+       133: dload_1
+       134: dload_3
+       135: dload         5
+       137: invokestatic  #114                // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       140: invokeinterface #122,  2          // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       145: ifne          150
+       148: iconst_1
+       149: ireturn
+       150: aload_0
+       151: instanceof    #45                 // class net/minecraft/world/level/Level
+       154: ifeq          171
+       157: aload_0
+       158: checkcast     #45                 // class net/minecraft/world/level/Level
+       161: astore        8
+       163: aload         8
+       165: invokevirtual #125                // Method net/minecraft/world/level/Level.m_46461_:()Z
+       168: ifne          189
+       171: aload_0
+       172: dload_1
+       173: dload_3
+       174: dload         5
+       176: invokestatic  #114                // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       179: invokeinterface #118,  2          // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       184: ifeq          189
+       187: iconst_1
+       188: ireturn
+       189: iconst_0
+       190: ireturn
+
+  private static boolean lambda$execute$0(net.mcreator.infectious.entity.FranklinZombieEntity);
+    Code:
+         0: iconst_1
+         1: ireturn
+}
+Compiled from "GiantZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.GiantZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.GiantZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     111
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     111
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_4
+        69: if_icmplt     111
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: iconst_0
+       112: ireturn
+}
+Compiled from "GlitchedZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.GlitchedZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.GlitchedZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_4
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "GoldenZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.GoldenZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.GoldenZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_3
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "IronDoorZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.IronDoorZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.IronDoorZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "LootdropNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.LootdropNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.LootdropNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     111
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     111
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_1
+        69: if_icmplt     111
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: iconst_0
+       112: ireturn
+}
+Compiled from "MummyNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.MummyNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.MummyNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     132
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     132
+        51: dload_3
+        52: ldc2_w        #51                 // double 50.0d
+        55: dcmpl
+        56: ifle          132
+        59: aload_0
+        60: dload_1
+        61: dload_3
+        62: dload         5
+        64: invokestatic  #58                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        67: invokeinterface #62,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        72: ifne          93
+        75: aload_0
+        76: dload_1
+        77: dload_3
+        78: dload         5
+        80: invokestatic  #58                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        83: invokeinterface #66,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+        88: ifne          93
+        91: iconst_1
+        92: ireturn
+        93: aload_0
+        94: instanceof    #40                 // class net/minecraft/world/level/Level
+        97: ifeq          114
+       100: aload_0
+       101: checkcast     #40                 // class net/minecraft/world/level/Level
+       104: astore        8
+       106: aload         8
+       108: invokevirtual #70                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       111: ifne          132
+       114: aload_0
+       115: dload_1
+       116: dload_3
+       117: dload         5
+       119: invokestatic  #58                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       122: invokeinterface #62,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       127: ifeq          132
+       130: iconst_1
+       131: ireturn
+       132: iconst_0
+       133: ireturn
+}
+Compiled from "MutationTriggerNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.MutationTriggerNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.MutationTriggerNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     57
+        21: aload_0
+        22: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        27: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        32: getstatic     #43                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        35: invokevirtual #47                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        38: iconst_4
+        39: if_icmpge     57
+        42: aload_0
+        43: invokeinterface #51,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_8044_:()J
+        48: ldc2_w        #52                 // long 120000l
+        51: lcmp
+        52: iflt          57
+        55: iconst_1
+        56: ireturn
+        57: iconst_0
+        58: ireturn
+}
+Compiled from "OldZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.OldZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.OldZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_1
+        69: if_icmplt     145
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: aload_0
+       107: instanceof    #40                 // class net/minecraft/world/level/Level
+       110: ifeq          127
+       113: aload_0
+       114: checkcast     #40                 // class net/minecraft/world/level/Level
+       117: astore        8
+       119: aload         8
+       121: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       140: ifeq          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "TowerZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.TowerZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.TowerZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     106
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     106
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     106
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: iconst_0
+       107: ireturn
+}
+Compiled from "WitheredZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.WitheredZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.WitheredZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     106
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     106
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     106
+        72: aload_0
+        73: dload_1
+        74: dload_3
+        75: dload         5
+        77: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        80: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        85: ifne          106
+        88: aload_0
+        89: dload_1
+        90: dload_3
+        91: dload         5
+        93: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        96: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       101: ifne          106
+       104: iconst_1
+       105: ireturn
+       106: iconst_0
+       107: ireturn
+}
+Compiled from "ZombieBatmanNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombieBatmanNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombieBatmanNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #19                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #39                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #43                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     155
+        21: aload_0
+        22: instanceof    #45                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #45                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #49                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #53                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     155
+        51: aload_0
+        52: invokeinterface #29,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #35,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #60                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #64                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_3
+        69: if_icmplt     155
+        72: aload_0
+        73: ldc           #66                 // class net/mcreator/infectious/entity/ZombieBatmanEntity
+        75: new           #68                 // class net/minecraft/world/phys/Vec3
+        78: dup
+        79: dload_1
+        80: dload_3
+        81: dload         5
+        83: invokespecial #71                 // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+        86: ldc2_w        #72                 // double 9999.0d
+        89: ldc2_w        #72                 // double 9999.0d
+        92: ldc2_w        #72                 // double 9999.0d
+        95: invokestatic  #79                 // Method net/minecraft/world/phys/AABB.m_165882_:(Lnet/minecraft/world/phys/Vec3;DDD)Lnet/minecraft/world/phys/AABB;
+        98: invokedynamic #98,  0             // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+       103: invokeinterface #102,  4          // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+       108: invokeinterface #108,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       113: ifeq          155
+       116: aload_0
+       117: instanceof    #45                 // class net/minecraft/world/level/Level
+       120: ifeq          137
+       123: aload_0
+       124: checkcast     #45                 // class net/minecraft/world/level/Level
+       127: astore        8
+       129: aload         8
+       131: invokevirtual #111                // Method net/minecraft/world/level/Level.m_46461_:()Z
+       134: ifne          155
+       137: aload_0
+       138: dload_1
+       139: dload_3
+       140: dload         5
+       142: invokestatic  #117                // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       145: invokeinterface #121,  2          // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       150: ifeq          155
+       153: iconst_1
+       154: ireturn
+       155: iconst_0
+       156: ireturn
+
+  private static boolean lambda$execute$0(net.mcreator.infectious.entity.ZombieBatmanEntity);
+    Code:
+         0: iconst_1
+         1: ireturn
+}
+Compiled from "ZombieDiverNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombieDiverNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombieDiverNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     72
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          40
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore_1
+        33: aload_1
+        34: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        37: goto          43
+        40: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        43: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        46: if_acmpne     72
+        49: aload_0
+        50: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        55: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        60: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        63: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        66: iconst_1
+        67: if_icmplt     72
+        70: iconst_1
+        71: ireturn
+        72: iconst_0
+        73: ireturn
+}
+Compiled from "ZombieHordeNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombieHordeNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombieHordeNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     166
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     166
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ENABLE_HORDES:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        68: iconst_1
+        69: if_icmpne     166
+        72: aload_0
+        73: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        78: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        83: getstatic     #58                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        86: invokevirtual #62                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        89: iconst_2
+        90: if_icmplt     166
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #68                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #72,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifne          127
+       109: aload_0
+       110: dload_1
+       111: dload_3
+       112: dload         5
+       114: invokestatic  #68                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       117: invokeinterface #76,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       122: ifne          127
+       125: iconst_1
+       126: ireturn
+       127: aload_0
+       128: instanceof    #40                 // class net/minecraft/world/level/Level
+       131: ifeq          148
+       134: aload_0
+       135: checkcast     #40                 // class net/minecraft/world/level/Level
+       138: astore        8
+       140: aload         8
+       142: invokevirtual #80                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       145: ifne          166
+       148: aload_0
+       149: dload_1
+       150: dload_3
+       151: dload         5
+       153: invokestatic  #68                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       156: invokeinterface #72,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       161: ifeq          166
+       164: iconst_1
+       165: ireturn
+       166: iconst_0
+       167: ireturn
+}
+Compiled from "ZombieHorsemanNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombieHorsemanNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombieHorsemanNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     111
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     111
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_3
+        69: if_icmplt     111
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: iconst_0
+       112: ireturn
+}
+Compiled from "ZombieNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombieNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombieNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     144
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     144
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iflt          144
+        71: aload_0
+        72: dload_1
+        73: dload_3
+        74: dload         5
+        76: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        79: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+        84: ifne          105
+        87: aload_0
+        88: dload_1
+        89: dload_3
+        90: dload         5
+        92: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+        95: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       100: ifne          105
+       103: iconst_1
+       104: ireturn
+       105: aload_0
+       106: instanceof    #40                 // class net/minecraft/world/level/Level
+       109: ifeq          126
+       112: aload_0
+       113: checkcast     #40                 // class net/minecraft/world/level/Level
+       116: astore        8
+       118: aload         8
+       120: invokevirtual #77                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       123: ifne          144
+       126: aload_0
+       127: dload_1
+       128: dload_3
+       129: dload         5
+       131: invokestatic  #65                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       134: invokeinterface #69,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       139: ifeq          144
+       142: iconst_1
+       143: ireturn
+       144: iconst_0
+       145: ireturn
+}
+Compiled from "ZombieSpiterNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombieSpiterNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombieSpiterNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     145
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     145
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     145
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: aload_0
+       112: dload_1
+       113: dload_3
+       114: dload         5
+       116: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       119: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       124: ifne          145
+       127: aload_0
+       128: dload_1
+       129: dload_3
+       130: dload         5
+       132: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       135: invokeinterface #77,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46803_:(Lnet/minecraft/core/BlockPos;)I
+       140: ifne          145
+       143: iconst_1
+       144: ireturn
+       145: iconst_0
+       146: ireturn
+}
+Compiled from "ZombifiedBearNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombifiedBearNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombifiedBearNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     111
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     111
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iconst_2
+        69: if_icmplt     111
+        72: aload_0
+        73: instanceof    #40                 // class net/minecraft/world/level/Level
+        76: ifeq          93
+        79: aload_0
+        80: checkcast     #40                 // class net/minecraft/world/level/Level
+        83: astore        8
+        85: aload         8
+        87: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        90: ifne          111
+        93: aload_0
+        94: dload_1
+        95: dload_3
+        96: dload         5
+        98: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       101: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       106: ifeq          111
+       109: iconst_1
+       110: ireturn
+       111: iconst_0
+       112: ireturn
+}
+Compiled from "ZombifiedChickenNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombifiedChickenNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombifiedChickenNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     132
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     132
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ENABLE_ZOMBIFIED_CHICKEN:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        68: iconst_1
+        69: if_icmpne     132
+        72: aload_0
+        73: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        78: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        83: getstatic     #58                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        86: invokevirtual #62                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        89: iconst_3
+        90: if_icmplt     132
+        93: aload_0
+        94: instanceof    #40                 // class net/minecraft/world/level/Level
+        97: ifeq          114
+       100: aload_0
+       101: checkcast     #40                 // class net/minecraft/world/level/Level
+       104: astore        8
+       106: aload         8
+       108: invokevirtual #66                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+       111: ifne          132
+       114: aload_0
+       115: dload_1
+       116: dload_3
+       117: dload         5
+       119: invokestatic  #72                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       122: invokeinterface #76,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       127: ifeq          132
+       130: iconst_1
+       131: ireturn
+       132: iconst_0
+       133: ireturn
+}
+Compiled from "ZombifiedWolfNaturalEntitySpawningConditionProcedure.java"
+public class net.mcreator.infectious.procedures.ZombifiedWolfNaturalEntitySpawningConditionProcedure {
+  public net.mcreator.infectious.procedures.ZombifiedWolfNaturalEntitySpawningConditionProcedure();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static boolean execute(net.minecraft.world.level.LevelAccessor, double, double, double);
+    Code:
+         0: aload_0
+         1: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+         6: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        11: getstatic     #34                 // Field net/minecraft/world/level/GameRules.f_46134_:Lnet/minecraft/world/level/GameRules$Key;
+        14: invokevirtual #38                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+        17: iconst_1
+        18: if_icmpne     110
+        21: aload_0
+        22: instanceof    #40                 // class net/minecraft/world/level/Level
+        25: ifeq          42
+        28: aload_0
+        29: checkcast     #40                 // class net/minecraft/world/level/Level
+        32: astore        7
+        34: aload         7
+        36: invokevirtual #44                 // Method net/minecraft/world/level/Level.m_46472_:()Lnet/minecraft/resources/ResourceKey;
+        39: goto          45
+        42: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        45: getstatic     #48                 // Field net/minecraft/world/level/Level.f_46428_:Lnet/minecraft/resources/ResourceKey;
+        48: if_acmpne     110
+        51: aload_0
+        52: invokeinterface #24,  1           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_6106_:()Lnet/minecraft/world/level/storage/LevelData;
+        57: invokeinterface #30,  1           // InterfaceMethod net/minecraft/world/level/storage/LevelData.m_5470_:()Lnet/minecraft/world/level/GameRules;
+        62: getstatic     #55                 // Field net/mcreator/infectious/init/InfectiousModGameRules.ZOMBIE_MUTATION_LEVEL:Lnet/minecraft/world/level/GameRules$Key;
+        65: invokevirtual #59                 // Method net/minecraft/world/level/GameRules.m_46215_:(Lnet/minecraft/world/level/GameRules$Key;)I
+        68: iflt          110
+        71: aload_0
+        72: instanceof    #40                 // class net/minecraft/world/level/Level
+        75: ifeq          92
+        78: aload_0
+        79: checkcast     #40                 // class net/minecraft/world/level/Level
+        82: astore        8
+        84: aload         8
+        86: invokevirtual #63                 // Method net/minecraft/world/level/Level.m_46461_:()Z
+        89: ifne          110
+        92: aload_0
+        93: dload_1
+        94: dload_3
+        95: dload         5
+        97: invokestatic  #69                 // Method net/minecraft/core/BlockPos.m_274561_:(DDD)Lnet/minecraft/core/BlockPos;
+       100: invokeinterface #73,  2           // InterfaceMethod net/minecraft/world/level/LevelAccessor.m_46861_:(Lnet/minecraft/core/BlockPos;)Z
+       105: ifeq          110
+       108: iconst_1
+       109: ireturn
+       110: iconst_0
+       111: ireturn
+}

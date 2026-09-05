@@ -1,0 +1,202 @@
+{
+	default_hide_dependency_lines: true
+	default_quest_shape: "gear"
+	filename: "ref_groves"
+	group: ""
+	icon: "alfheim:hushbark_sapling"
+	id: "4A6664F7E704AF2A"
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Breaking these leaves drops white and light gray petals, at about 9% per leaf before Fortune."
+				""
+				"Shears and Silk Touch give you the leaf block instead, so break them bare-handed or with anything else when you want petals."
+				""
+				"Fortune raises the rate substantially. A Fortune III axe is a reasonable petal farm."
+			]
+			icon: "mythicbotany:dreamwood_leaves"
+			id: "0DB2F7DF5FC1A053"
+			optional: true
+			shape: "gear"
+			subtitle: "Petal source"
+			tasks: [{
+				id: "05BF71E7535E360C"
+				title: "Dreamwood Leaves"
+				type: "checkmark"
+			}]
+			title: "Dreamwood Leaves"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Breaking these leaves drops blue and light blue petals, at about 9% per leaf before Fortune."
+				""
+				"Shears and Silk Touch give you the leaf block instead, so break them bare-handed or with anything else when you want petals."
+				""
+				"Fortune raises the rate substantially. A Fortune III axe is a reasonable petal farm."
+			]
+			icon: "ars_nouveau:blue_archwood_leaves"
+			id: "0E843ADDEF4C84D6"
+			optional: true
+			shape: "gear"
+			subtitle: "Petal source"
+			tasks: [{
+				id: "2F3A4D4539C28044"
+				title: "Blue Archwood Leaves"
+				type: "checkmark"
+			}]
+			title: "Blue Archwood Leaves"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Breaking these leaves drops red and pink petals, at about 9% per leaf before Fortune."
+				""
+				"Shears and Silk Touch give you the leaf block instead, so break them bare-handed or with anything else when you want petals."
+				""
+				"Fortune raises the rate substantially. A Fortune III axe is a reasonable petal farm."
+			]
+			icon: "ars_nouveau:red_archwood_leaves"
+			id: "709F4FA655AB9CC7"
+			optional: true
+			shape: "gear"
+			subtitle: "Petal source"
+			tasks: [{
+				id: "5AEBF320EBB14ED9"
+				title: "Red Archwood Leaves"
+				type: "checkmark"
+			}]
+			title: "Red Archwood Leaves"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Breaking these leaves drops green and lime petals, at about 9% per leaf before Fortune."
+				""
+				"Shears and Silk Touch give you the leaf block instead, so break them bare-handed or with anything else when you want petals."
+				""
+				"Fortune raises the rate substantially. A Fortune III axe is a reasonable petal farm."
+			]
+			icon: "ars_nouveau:green_archwood_leaves"
+			id: "795B273952819F09"
+			optional: true
+			shape: "gear"
+			subtitle: "Petal source"
+			tasks: [{
+				id: "0F3A6FAF91A37584"
+				title: "Green Archwood Leaves"
+				type: "checkmark"
+			}]
+			title: "Green Archwood Leaves"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Breaking these leaves drops purple and magenta petals, at about 9% per leaf before Fortune."
+				""
+				"Shears and Silk Touch give you the leaf block instead, so break them bare-handed or with anything else when you want petals."
+				""
+				"Fortune raises the rate substantially. A Fortune III axe is a reasonable petal farm."
+			]
+			icon: "ars_nouveau:purple_archwood_leaves"
+			id: "68E0A4098B02D8A2"
+			optional: true
+			shape: "gear"
+			subtitle: "Petal source"
+			tasks: [{
+				id: "3BDDD6B0826392DF"
+				title: "Purple Archwood Leaves"
+				type: "checkmark"
+			}]
+			title: "Purple Archwood Leaves"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"It holds the seeds of forests that burned."
+				""
+				"Before the devastation the elves kept a seed-archive of every forest in the Nine Realms. Three trees are what survived of it, and their leaves still carry other forests' seeds."
+				""
+				"PETALS: orange and yellow, about 10% per leaf."
+				"FOREIGN SEEDS: acacia, jungle, oak — about 5.5% per leaf. These are ordinary saplings and they grow normally, which is how Alfheim gets oak, apples and plank variety at all."
+				"ITS OWN SAPLING: about 3% per leaf, so a grove can be replanted."
+				""
+				"FOUND IN: sundered highlands, ashen grove, alfheim hills."
+			]
+			icon: "alfheim:emberbark_sapling"
+			id: "1DC5039E0658661D"
+			optional: true
+			shape: "gear"
+			subtitle: "Archive tree"
+			tasks: [{
+				id: "1980303EC68999ED"
+				title: "Emberbark"
+				type: "checkmark"
+			}]
+			title: "Emberbark"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Dark wood, and the archive kept longest in it."
+				""
+				"Before the devastation the elves kept a seed-archive of every forest in the Nine Realms. Three trees are what survived of it, and their leaves still carry other forests' seeds."
+				""
+				"PETALS: black and brown, about 10% per leaf."
+				"FOREIGN SEEDS: dark oak, spruce, oak — about 5.5% per leaf. These are ordinary saplings and they grow normally, which is how Alfheim gets oak, apples and plank variety at all."
+				"ITS OWN SAPLING: about 3% per leaf, so a grove can be replanted."
+				""
+				"FOUND IN: hollow marches, mana fen, alfheim lakes."
+			]
+			icon: "alfheim:gloambark_sapling"
+			id: "2E709B2BF785CC5E"
+			optional: true
+			shape: "gear"
+			subtitle: "Archive tree"
+			tasks: [{
+				id: "34F2BA3B7F09CEE1"
+				title: "Gloambark"
+				type: "checkmark"
+			}]
+			title: "Gloambark"
+			x: 2.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Nothing sounds right under it. The seeds keep anyway."
+				""
+				"Before the devastation the elves kept a seed-archive of every forest in the Nine Realms. Three trees are what survived of it, and their leaves still carry other forests' seeds."
+				""
+				"PETALS: gray and cyan, about 10% per leaf."
+				"FOREIGN SEEDS: birch, cherry, spruce — about 5.5% per leaf. These are ordinary saplings and they grow normally, which is how Alfheim gets oak, apples and plank variety at all."
+				"ITS OWN SAPLING: about 3% per leaf, so a grove can be replanted."
+				""
+				"FOUND IN: silverbark wood, bloomfall vale, dreamwood forest."
+			]
+			icon: "alfheim:hushbark_sapling"
+			id: "4EF69EC85002F4EE"
+			optional: true
+			shape: "gear"
+			subtitle: "Archive tree"
+			tasks: [{
+				id: "4E1097CC82B8B3E1"
+				title: "Hushbark"
+				type: "checkmark"
+			}]
+			title: "Hushbark"
+			x: 4.0d
+			y: 4.0d
+		}
+	]
+	subtitle: ["Petals, and the seeds of other forests"]
+	title: "The Archive Groves"
+}

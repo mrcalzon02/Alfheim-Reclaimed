@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_shaman_chest_era_07",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "epic",
+    "legendary"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_shaman_chest",
+  "disable_salvaging": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_sorcerer_pants_era_02",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "common",
+    "uncommon"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_sorcerer_pants",
+  "disable_salvaging": false
+}

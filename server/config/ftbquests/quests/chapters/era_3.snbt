@@ -1,0 +1,1760 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_3"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:verdant_filament"
+	id: "563188EF5791A045"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"A flower that tends other flowers."
+				""
+				"This is the first machine you will build that does work you would otherwise do with your hands. Notice how little it looks like a machine."
+			]
+			id: "78F97F7EF2C895F1"
+			rewards: [{
+				count: 16
+				id: "696CBB344FB465E7"
+				item: "minecraft:bone_meal"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "5F247A108C2CD5D9"
+				item: "botania:agricarnation"
+				type: "item"
+			}]
+			title: "The Agricarnation"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"It drinks water and gives mana, slowly, forever, asking nothing."
+				""
+				"Build several. A garden that only works when you are watching it is not a garden, it is a hobby."
+			]
+			id: "224D9FD3B9E64E61"
+			rewards: [{
+				id: "0036913AE5604896"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Passive mana"
+			tasks: [{
+				count: 4L
+				id: "08AFA88385DDDA6B"
+				item: "botania:hydroangeas"
+				type: "item"
+			}]
+			title: "Hydroangeas"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Now we begin the work properly."
+				""
+				"Petals and Dreamwood in the basin, and what comes out is a thread that is still, faintly, alive. Make a great many. Everything above this rests on it."
+				""
+				"From here each era asks two more steps than the last. Three now. Five in the next. Seventeen by the end. I am telling you so that you can build for it rather than be surprised by it."
+			]
+			id: "150F2BE3592ED1B9"
+			rewards: [{
+				count: 8
+				id: "3CD4F7864C210A6D"
+				item: "botania:green_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step one of three"
+			tasks: [{
+				count: 8L
+				id: "711393C7237654DC"
+				item: "alfheim:living_fibre"
+				type: "item"
+			}]
+			title: "Living Fibre"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["150F2BE3592ED1B9"]
+			description: [
+				"Drop the fibre in the pool and let it drink."
+				""
+				"Two thousand mana per thread. You will want the Hydroangeas now, and you will understand why I made you build several."
+			]
+			id: "570BB53A21ECDD37"
+			rewards: [{
+				count: 8
+				id: "281E075F12682F98"
+				item: "botania:mana_powder"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step two"
+			tasks: [{
+				count: 4L
+				id: "06BFB023A3AF6DF7"
+				item: "alfheim:charged_fibre"
+				type: "item"
+			}]
+			title: "Charged Fibre"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Two charged threads, two runes, and a measure of mana dust on the altar."
+				""
+				"Hold it when it is done. This is the first thing the elves of this age have made that they did not first dig up or find in a ruin. Everything before it was recovery. This is manufacture."
+				""
+				"It is a small green filament and it is worth more than the city you found it in."
+			]
+			id: "1BADE59C43D15D7F"
+			rewards: [{
+				id: "0119F19E93D8A905"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step three"
+			tasks: [{
+				id: "2FD7213DA3CDF06F"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			title: "Verdant Filament"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1BADE59C43D15D7F"]
+			description: [
+				"Quartz, in the pool, with enough mana behind it."
+				""
+				"Another material every account says comes through the gate. Another one that does not. I am beginning to think the histories were written by whoever owned the gate."
+			]
+			id: "42DFCC2040D82ECB"
+			rewards: [{
+				count: 8
+				id: "0C78307E16A8D6B5"
+				item: "minecraft:quartz"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Another thing they told us we could not make"
+			tasks: [{
+				count: 4L
+				id: "2FD9B7F0C0F98CFD"
+				item: "botania:quartz_elven"
+				type: "item"
+			}]
+			title: "Elven Quartz"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Enough flowers, feeding enough spreaders, filling enough pools that you can walk away."
+				""
+				"This is the quest I care most about in this era. Not because it is hard, but because everything after Era Five assumes you did it and will punish you if you did not."
+			]
+			id: "505CE75FD7D19DE5"
+			rewards: [{
+				id: "085563D65095602C"
+				item: "botania:mana_tablet"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Automation"
+			tasks: [{
+				id: "1B8CBE0F424439A7"
+				title: "A Garden That Works"
+				type: "checkmark"
+			}]
+			title: "A Garden That Works"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"It tends growing things and asks for nothing but somewhere pleasant to be."
+				""
+				"The other tradition is better at this than we are. I have made my peace with it."
+			]
+			id: "4A24D92FE1EE5B5E"
+			rewards: [{
+				count: 8
+				id: "708350408FF23A75"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "585B94133901E3CF"
+				item: "ars_nouveau:whirlisprig_charm"
+				type: "item"
+			}]
+			title: "The Whirlisprig"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["4A24D92FE1EE5B5E"]
+			description: [
+				"A henge that persuades animals to give up what you would otherwise take from them dead."
+				""
+				"We have killed enough in this world. Build it."
+			]
+			id: "08FB18EFD4C4309F"
+			rewards: [{
+				id: "4D3EF33DBE66B6E3"
+				item: "ars_nouveau:drygmy_charm"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Harvest without killing"
+			tasks: [{
+				id: "342B0C9E8C8B894A"
+				item: "ars_nouveau:drygmy_stone"
+				type: "item"
+			}]
+			title: "The Drygmy Henge"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["08FB18EFD4C4309F"]
+			description: [
+				"Decay is not the opposite of growth. It is the other half of it."
+				""
+				"This grove is full of dead matter. Put it to work."
+			]
+			id: "780941DDF146B973"
+			rewards: [{
+				count: 8
+				id: "510DA36FD5545E9B"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Rot into source"
+			tasks: [{
+				id: "4766726DAA769656"
+				item: "ars_nouveau:mycelial_sourcelink"
+				type: "item"
+			}]
+			title: "The Mycelial Sourcelink"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"The counterpart. One takes from what is ending, one from what is beginning."
+				""
+				"Run both. The tradition is built on the pair, not on either."
+			]
+			id: "3054DCB999BA9784"
+			rewards: [{
+				count: 8
+				id: "035E108D5AF47E4A"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Life into source"
+			tasks: [{
+				id: "41B4E54FA65DB1BF"
+				item: "ars_nouveau:vitalic_sourcelink"
+				type: "item"
+			}]
+			title: "The Vitalic Sourcelink"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Source will cross distance if you give it somewhere to stand."
+				""
+				"Build the network before you need it. You will not want to be laying relays in an emergency."
+			]
+			id: "077A23AECFAF1DB2"
+			rewards: [{
+				count: 8
+				id: "2370CA8F250166E0"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Move it"
+			tasks: [{
+				count: 2L
+				id: "18EF3E66C30A2467"
+				item: "ars_nouveau:relay"
+				type: "item"
+			}]
+			title: "A Source Relay"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["077A23AECFAF1DB2"]
+			description: [
+				"Remember this one."
+				""
+				"Rituals are how the other tradition does the things our altar does. In two eras you will find that our highest metal will not form without one of these burning beside it."
+				""
+				"Neither of us finishes alone. I have said it before; the recipes will say it for me soon enough."
+			]
+			id: "626D71C6A0B81722"
+			rewards: [{
+				count: 16
+				id: "67C82B9F16DC1579"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The interlock, again"
+			tasks: [{
+				id: "67705607A115D2E9"
+				item: "ars_nouveau:ritual_brazier"
+				type: "item"
+			}]
+			title: "The Ritual Brazier"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["626D71C6A0B81722"]
+			description: [
+				"Set the brazier, place the tablet, and let it run."
+				""
+				"Watch what it does to the ground. Then go and look at ground you have not treated, and understand exactly how much of Alfheim is still waiting."
+			]
+			id: "6E3BB67864DE9F2C"
+			rewards: [{
+				count: 16
+				id: "357C9ED13972E415"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "First working"
+			tasks: [{
+				id: "2047299676BA3317"
+				title: "A Ritual of Growth"
+				type: "checkmark"
+			}]
+			title: "A Ritual of Growth"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Somebody who is not you, growing food you did not plant."
+				""
+				"This is what we are for. Not the flowers, not the runes. This."
+			]
+			id: "2E72250C7463A6A9"
+			rewards: [{
+				count: 32
+				id: "62BD42B2F6428708"
+				item: "minecraft:wheat"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "0C84E9357E45BCD4"
+				item: "minecolonies:blockhutfarmer"
+				type: "item"
+			}]
+			title: "A Farmer"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: ["Dreamwood by hand is a hobby. Dreamwood by forester is an economy."]
+			id: "6A3420EA155131D8"
+			rewards: [{
+				count: 32
+				id: "17B56C683561E8A3"
+				item: "botania:dreamwood"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Wood at scale"
+			tasks: [{
+				id: "13C47EF6BA3DB0D1"
+				item: "minecolonies:blockhutlumberjack"
+				type: "item"
+			}]
+			title: "A Forester"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			dependencies: ["6A3420EA155131D8"]
+			description: [
+				"The colony will want ore and the ore is not near the surface any more."
+				""
+				"Something drank the shallow seams. I do not know what. Neither does anyone else."
+			]
+			id: "02AF645D61CD4565"
+			rewards: [{
+				count: 16
+				id: "4E2FD0C38AB7DF2B"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Harvest and the mines"
+			tasks: [{
+				id: "4D6A38F1C10F23C2"
+				item: "minecolonies:blockhutminer"
+				type: "item"
+			}]
+			title: "Deeper Digging"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Not a wall. Not a store. A square — the place a settlement decides things in."
+				""
+				"Build it before you need it, because the day you need it you will not have time."
+			]
+			id: "7DCCF222C9E3D7DC"
+			rewards: [{
+				id: "4EA83FA1E8D7955E"
+				item: "minecraft:bell"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Somewhere to stand together"
+			tasks: [{
+				id: "38403D0E7FC1D866"
+				title: "A Village Square"
+				type: "checkmark"
+			}]
+			title: "A Village Square"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: [
+				"The first maps were the shallow ruins. These go under them."
+				""
+				"Take the Drygmy henge seriously first. You will want the health."
+			]
+			id: "0351090BAC13EE37"
+			rewards: [{
+				count: 8
+				id: "2DE1FA12F796A493"
+				item: "minecraft:golden_carrot"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				count: 3L
+				id: "3BF709607F7B3490"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Deeper Maps"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["0351090BAC13EE37"]
+			description: ["You have been wearing whatever the dead left. Make something that fits."]
+			id: "55B40753A1C3AA60"
+			rewards: [{
+				count: 2
+				id: "20D1AE140B37C31D"
+				item: "mmorpg:currency/gear_rarity_upgrade"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Stop dying"
+			tasks: [{
+				id: "101A385DFD8988B0"
+				title: "A Full Set"
+				type: "checkmark"
+			}]
+			title: "A Full Set"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["55B40753A1C3AA60"]
+			description: [
+				"Pick a path and put points in it. Properly. Not a little of everything."
+				""
+				"There are four of you and one of Alfheim. Specialise, and cover each other."
+			]
+			id: "3E54ABBCF1342815"
+			rewards: [{
+				count: 16
+				id: "7D3994481E82C517"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Commit"
+			tasks: [{
+				id: "1136B15F37A8D7AE"
+				title: "Choose What You Are"
+				type: "checkmark"
+			}]
+			title: "Choose What You Are"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["505CE75FD7D19DE5"]
+			description: [
+				"Vanaheim is the realm of growing things, and of the gods who were traded away as hostages and chose to stay."
+				""
+				"There is a lesson in that which I will let you find on your own."
+				""
+				"Make the rune. The grove is feeding itself now, and that is the first thing in this world that has been true for a very long time."
+			]
+			id: "2CB41D423EC9284D"
+			rewards: [{
+				count: 2
+				id: "3A57D76CCF1C1DE2"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "496980E539FD3C91"
+				item: "mythicbotany:vanaheim_rune"
+				type: "item"
+			}]
+			title: "The Rune of Vanaheim"
+			x: 6.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"Until now every flower you own has needed you standing next to it."
+				""
+				"The Agricarnation ends that. It hurries what grows around it and asks only for mana, and mana is something you now make while asleep."
+				""
+				"This is the era where the grove starts working without you. Notice the date. It matters more than any rune."
+			]
+			id: "31EE23F22CCB80F2"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "0D1B461E8F4CD968"
+				title: "Growth You Do Not Watch"
+				type: "checkmark"
+			}]
+			title: "Growth You Do Not Watch"
+			x: 0.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"The Hydroangeas makes mana out of water. It is early, it is cheap, and every new player builds a wall of them."
+				""
+				"It is a dead end on purpose. The rate is poor, it consumes the water, and the hours you spend scaling it are hours not spent on a generating flower that would have paid ten times over."
+				""
+				"Build one to see it work. Then build something else."
+			]
+			id: "513441D8D9FE2BB4"
+			optional: true
+			shape: "gear"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "645ECAEB4A689735"
+				title: "The Trap That Looks Like A Gift"
+				type: "checkmark"
+			}]
+			title: "The Trap That Looks Like A Gift"
+			x: 1.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"You will be offered a choice between a working that is fast and one that returns more."
+				""
+				"Take the return, almost always. Time is the resource this grove has most of; materials are the resource it has least of. That asymmetry does not change until Era VII."
+			]
+			id: "7C4924AB425E53F7"
+			optional: true
+			shape: "gear"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "38C351795B220FF6"
+				title: "Yield Beats Speed"
+				type: "checkmark"
+			}]
+			title: "Yield Beats Speed"
+			x: 3.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"Two blooms and an altar, and what comes out is not either of them."
+				""
+				"The Grafting is the first working that makes a material the world does not contain. Everything above Era III is built on things that did not exist until an elf made them."
+			]
+			id: "171C1DBA624A1EC7"
+			optional: true
+			shape: "gear"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "2679C58AA182C70B"
+				title: "Rite III - The Grafting"
+				type: "checkmark"
+			}]
+			title: "Rite III - The Grafting"
+			x: 4.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"MythicBotany's Infuser asks for a starting colour and an ending one, and it means it."
+				""
+				"They are not decoration. A recipe without both is rejected outright and never appears in the book - which is a failure you cannot see, because a recipe that did not load leaves no trace."
+				""
+				"If something you are certain exists is not in the index, this is usually why."
+			]
+			id: "7D867BD6423EE1EB"
+			optional: true
+			shape: "gear"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "29C9CF852131E1F2"
+				title: "The Infuser Wants Colours"
+				type: "checkmark"
+			}]
+			title: "The Infuser Wants Colours"
+			x: 6.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"In every other telling, Elementium is what you trade for."
+				""
+				"Here it is in the ground. You will mine it, and the elves you read about in Midgard's books would have considered that obscene wealth."
+				""
+				"What you cannot get is Manasteel without work, and Mana Diamonds at all until the gate opens. Remember which way round this world runs."
+			]
+			id: "73408A0583744FA4"
+			optional: true
+			shape: "gear"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "00B9CCB51527CFFA"
+				title: "Elementium Is An Ore Here"
+				type: "checkmark"
+			}]
+			title: "Elementium Is An Ore Here"
+			x: 7.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"A Starbuncle will carry things between chests all day and never ask for anything."
+				""
+				"A Whirlisprig tends crops. A Drygmy farms mobs without killing them. Each is a whole automation the Leaf would need a room of machinery to match, and each is one creature you bound once."
+				""
+				"The Song's automation is small, alive, and slightly embarrassing to explain."
+			]
+			id: "2A6BF06E35AF9125"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "41384203F81B4C9A"
+				title: "A Familiar Is Not A Pet"
+				type: "checkmark"
+			}]
+			title: "A Familiar Is Not A Pet"
+			x: 9.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"A spell is cast and finishes. A ritual runs."
+				""
+				"You lay the brazier, you feed it the reagent, and it changes something about the place you are standing until it is done. Some take minutes. Some change the weather."
+				""
+				"Do not stand a ritual next to anything you would mind it affecting."
+			]
+			id: "50F5EC139B0CD2E3"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "1C1B1C2A9E2B928C"
+				title: "Rituals Are Not Spells"
+				type: "checkmark"
+			}]
+			title: "Rituals Are Not Spells"
+			x: 10.5d
+			y: -6.0d
+		}
+		{
+			description: [
+				"The Enchanting Apparatus reads the pedestals around it, and their arrangement is part of what you are making."
+				""
+				"This is the Song's whole character in one block: you build the working in the world rather than typing it into a grid. It is slower and it is why the tradition feels like a craft."
+			]
+			id: "43CE4DFB221298BA"
+			optional: true
+			shape: "gear"
+			subtitle: "Song"
+			tasks: [{
+				id: "3E98646ED07AD5BE"
+				title: "Placement Is The Recipe"
+				type: "checkmark"
+			}]
+			title: "Placement Is The Recipe"
+			x: 12.0d
+			y: -6.0d
+		}
+		{
+			description: [
+				"You have drawn on this land for two eras. Here is how you give it back."
+				""
+				"Ancient trees restore aura to the chunk they grow in, slowly, and they are the only thing in this pack that does."
+				""
+				"The Ashen Grove is what happens when nobody plants for three hundred years. You are standing in the argument."
+			]
+			id: "753573370987806B"
+			optional: true
+			shape: "gear"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "5536F10F07BC44FB"
+				title: "Planting Is The Only Repayment"
+				type: "checkmark"
+			}]
+			title: "Planting Is The Only Repayment"
+			x: 0.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"A Foliot will carry, crush or trade, forever, with no power and no upkeep."
+				""
+				"Every other automation in this pack has a running cost. This one does not, and that is the whole reason the tradition exists and the whole reason the Court disapproves of it."
+				""
+				"I have taught you how. I have not told you to."
+			]
+			id: "1A45E53BFEDEEF8D"
+			optional: true
+			shape: "gear"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "300CE1DB49CD558B"
+				title: "Bound Labour"
+				type: "checkmark"
+			}]
+			title: "Bound Labour"
+			x: 1.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"A Foliot needs a small pentacle. A Djinni needs a larger one, and a Marid one larger still."
+				""
+				"The shape is the specification. Get one glyph wrong on a large circle and you have spent a great deal of chalk on nothing."
+			]
+			id: "21DEB2BD488C70D0"
+			optional: true
+			shape: "gear"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "1BF9E5D5F352A351"
+				title: "Bigger Circles, Bigger Things"
+				type: "checkmark"
+			}]
+			title: "Bigger Circles, Bigger Things"
+			x: 3.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Spring, Summer, Autumn, Winter. Four courts, and they are not four flavours of the same thing."
+				""
+				"Bargain with one and the others notice. Choose the court whose gifts you actually want, because switching later costs more than starting over."
+			]
+			id: "14D999AF8D54DE99"
+			optional: true
+			shape: "gear"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "4E052B5760801962"
+				title: "The Courts Do Not Agree"
+				type: "checkmark"
+			}]
+			title: "The Courts Do Not Agree"
+			x: 4.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Feysythia is MythicBotany's flower and it will not grow without a Fey Gem."
+				""
+				"That is the first time in this pack that one magic system is simply unable to proceed without another. It is not the last."
+				""
+				"The shipped recipe asks for a gem Feywild stopped making years ago; ours does not. If you read about a Lesser Fey Gem somewhere, it does not exist."
+			]
+			id: "6CF83A9251608548"
+			optional: true
+			shape: "gear"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "17C99B171313A782"
+				title: "Where Two Traditions Meet"
+				type: "checkmark"
+			}]
+			title: "Where Two Traditions Meet"
+			x: 6.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Human runes go on human gear at a human anvil, and none of it talks to the Song."
+				""
+				"Two enchanting systems that cannot read each other. Choose per item, not per character - there is no rule against carrying one of each."
+			]
+			id: "51AA1C61C6080FA3"
+			optional: true
+			shape: "gear"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "5631443418BADCE1"
+				title: "Their Runes, Their Anvil"
+				type: "checkmark"
+			}]
+			title: "Their Runes, Their Anvil"
+			x: 7.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"A bottle was a curiosity. A bucket is infrastructure."
+				""
+				"The Channeler turns a mana pool into a tank Create can draw from, and from that moment every pump, pipe and basin in the dead world's machinery runs on elven power."
+				""
+				"This is the join the whole pack is built around. Everything Create does from here is downstream of a flower."
+			]
+			id: "39DA76100525FA0E"
+			optional: true
+			shape: "gear"
+			subtitle: "Create: Wizardry"
+			tasks: [{
+				id: "380902BC90477431"
+				title: "Mana As A Fluid"
+				type: "checkmark"
+			}]
+			title: "Mana As A Fluid"
+			x: 9.0d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Someone looked at a pentacle and asked whether the chalk could be laid by machine."
+				""
+				"It can. The Pentacle Altar builds the circle for you, and the Otherworld Detector finds what is worth calling. It is the second bridge in this pack, and it only works because you already learned both halves separately."
+			]
+			id: "3B09EF8E223117B3"
+			optional: true
+			shape: "gear"
+			subtitle: "Occult Engineering"
+			tasks: [{
+				id: "27B3F152A0BA72A9"
+				title: "Rituals, Mechanised"
+				type: "checkmark"
+			}]
+			title: "Rituals, Mechanised"
+			x: 10.5d
+			y: -4.5d
+		}
+		{
+			description: [
+				"Put it in the poorest ground you own."
+				""
+				"It will take a long time and it will give the chunk back what you took out of it. That is the only restoration mechanic in this pack, and it is deliberately slower than the damage was."
+			]
+			id: "6D876D933F0F074A"
+			rewards: [{
+				count: 8
+				id: "31B02B82F3403123"
+				item: "naturesaura:gold_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "46B5D8127BB69EE2"
+				item: "naturesaura:ancient_sapling"
+				type: "item"
+			}]
+			title: "Plant An Ancient"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			description: [
+				"The wood of a tree that has been paying a debt down for a century."
+				""
+				"It is worth more than its plank value suggests. Do not build a fence out of it."
+			]
+			id: "68E13A6B8807FAE5"
+			rewards: [{
+				count: 4
+				id: "2588981B1A4CDC4B"
+				item: "naturesaura:gold_powder"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				count: 4L
+				id: "1B091270C794D682"
+				item: "naturesaura:ancient_bark"
+				type: "item"
+			}]
+			title: "Ancient Bark"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Give something up and the land notices."
+				""
+				"It is a crude exchange and an honest one, and it is the closest this tradition comes to asking politely."
+			]
+			id: "06F52F1EA253FC48"
+			rewards: [{
+				count: 4
+				id: "1A2C645004C29395"
+				item: "naturesaura:token_joy"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "7B10EFCFAC7B3808"
+				item: "naturesaura:offering_table"
+				type: "item"
+			}]
+			title: "The Offering Table"
+			x: 4.5d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Circle drawn, candles lit, terms written. Say the word."
+				""
+				"What arrives is small, tired and entirely willing. It will do one job forever. Choose the job carefully - it is not a conversation you get to reopen."
+			]
+			id: "27FAD66EB5EB566D"
+			rewards: [{
+				count: 2
+				id: "7592C69EDCFE1F8D"
+				item: {
+					Count: 1
+					id: "occultism:chalk_white"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "412EAD4DA29A5AE9"
+				item: "occultism:spirit_attuned_gem"
+				type: "item"
+			}]
+			title: "Call The First One"
+			x: 1.5d
+			y: 7.5d
+		}
+		{
+			description: [
+				"Otherworld Goggles show you what is there and was always there."
+				""
+				"Ores that read as stone. Things standing in the room with you. It is not a comfortable item and it is the only way to find several materials this tradition needs."
+			]
+			id: "77ECD5DA8E5C8B56"
+			rewards: [{
+				count: 4
+				id: "1D2E3E812B1A22EA"
+				item: "occultism:datura"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "00776FA475046BFE"
+				item: {
+					Count: 1
+					id: "occultism:otherworld_goggles"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Seeing The Other Side"
+			x: 3.0d
+			y: 7.5d
+		}
+		{
+			dependencies: ["77ECD5DA8E5C8B56"]
+			description: [
+				"The dimensional matrix stores more than the space it occupies, because the space it occupies is not where the things are."
+				""
+				"Every other storage solution in this pack is a chest with extra steps. This one is a hole in the world with a spirit minding it."
+			]
+			id: "7958B2CDE073CEBB"
+			rewards: [{
+				count: 3
+				id: "764ADC756448A042"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "671878FE61126F92"
+				item: "occultism:storage_controller"
+				type: "item"
+			}]
+			title: "A Room That Is Not There"
+			x: 4.5d
+			y: 7.5d
+		}
+		{
+			description: [
+				"Fill in the scroll. Spring is the kindest and gives the least."
+				""
+				"Whichever you write, the others will remember that you did not write them."
+			]
+			id: "20090D1906BAA05B"
+			rewards: [{
+				count: 2
+				id: "7D3A4207B29B654D"
+				item: "feywild:fey_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "1E88FC345BB2A8E4"
+				item: "feywild:summoning_scroll_spring_pixie"
+				type: "item"
+			}]
+			title: "Name A Court"
+			x: 1.5d
+			y: 9.0d
+		}
+		{
+			dependencies: ["20090D1906BAA05B"]
+			description: [
+				"It is not tamed and it is not owned. It has agreed to stay."
+				""
+				"Feed it. Genuinely - the arrangement lapses if you stop, and a lapsed pixie does not come back."
+			]
+			id: "30CE9B870FEDF91B"
+			rewards: [{
+				count: 16
+				id: "2A27493C7638ACD9"
+				item: "minecraft:cookie"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "24B15F984F097121"
+				item: "feywild:pixie_orb"
+				type: "item"
+			}]
+			title: "A Pixie Of Your Own"
+			x: 3.0d
+			y: 9.0d
+		}
+		{
+			dependencies: ["30CE9B870FEDF91B"]
+			description: [
+				"The flower that needs both traditions. Yellow petals, purple, and a Fey Gem in the basin."
+				""
+				"It is a small thing and it is the proof of the design: from here, no single system finishes on its own."
+			]
+			id: "0BDC4A3F0204CA85"
+			rewards: [{
+				id: "6A0E7D86FCE8AA04"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "2AA9CA918115527C"
+				item: "mythicbotany:feysythia"
+				type: "item"
+			}]
+			title: "Feysythia"
+			x: 4.5d
+			y: 9.0d
+		}
+		{
+			dependencies: ["077A23AECFAF1DB2"]
+			description: [
+				"Their runes are stamped, not grown, and a blank one is just a slug of arcane metal."
+				""
+				"What it becomes depends on the anvil and what you feed it."
+			]
+			id: "517BE8A46A3BF000"
+			rewards: [{
+				count: 2
+				id: "15E73832F47B1086"
+				item: "irons_spellbooks:arcane_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "6F0B9EBFB7FDC70B"
+				item: "irons_spellbooks:blank_rune"
+				type: "item"
+			}]
+			title: "A Blank Rune"
+			x: 1.5d
+			y: 10.5d
+		}
+		{
+			description: [
+				"A cooldown rune is the first upgrade that makes their magic feel usable."
+				""
+				"That it exists at all tells you their casting was too slow to fight with. Ours never needed the fix."
+			]
+			id: "370FBA8A30DDB964"
+			rewards: [{
+				count: 8
+				id: "0C7D29B75B523F5A"
+				item: "irons_spellbooks:arcane_essence"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "13083B0DC528901D"
+				item: "irons_spellbooks:cooldown_rune"
+				type: "item"
+			}]
+			title: "Cut The Wait"
+			x: 3.0d
+			y: 10.5d
+		}
+		{
+			description: [
+				"Debris, refined, until it is a metal rather than a scar."
+				""
+				"Everything above this in their tradition is made of it, and there is a finite amount in this world because nobody is making any more."
+			]
+			id: "49E440099A8D556D"
+			rewards: [{
+				count: 2
+				id: "36A9D3D1E851F779"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				count: 4L
+				id: "0241B08FD85B6467"
+				item: "irons_spellbooks:arcane_ingot"
+				type: "item"
+			}]
+			title: "Arcane Ingots"
+			x: 4.5d
+			y: 10.5d
+		}
+		{
+			dependencies: ["505CE75FD7D19DE5"]
+			description: [
+				"Set it on a full pool and it becomes a tank."
+				""
+				"From here Create can draw mana directly, and every machine downstream is running on something a flower made. That is the sentence this whole pack is built to earn."
+			]
+			id: "7DE787870224675A"
+			rewards: [{
+				id: "273EBED3AC734196"
+				item: "create_wizardry:mana_bucket"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Create: Wizardry"
+			tasks: [{
+				id: "41D28CBF1161B90E"
+				item: "create_wizardry:channeler"
+				type: "item"
+			}]
+			title: "The Channeler"
+			x: 1.5d
+			y: 12.0d
+		}
+		{
+			description: [
+				"Portable, pumpable, and measurable in millibuckets like anything else."
+				""
+				"The indignity of it would have started a war three hundred years ago. Now it is how we get the lights on."
+			]
+			id: "068382710D0A6506"
+			rewards: [{
+				count: 2
+				id: "6CF8B65CBEA261B6"
+				item: "create_wizardry:crushed_mithril"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Create: Wizardry"
+			tasks: [{
+				id: "785E33A62BA4EC4E"
+				item: "create_wizardry:mana_bucket"
+				type: "item"
+			}]
+			title: "A Bucket Of It"
+			x: 3.0d
+			y: 12.0d
+		}
+		{
+			dependencies: ["7958B2CDE073CEBB"]
+			description: [
+				"It points at what is worth calling."
+				""
+				"Built by a ritual, used by a machine. The two halves of this pack shaking hands."
+			]
+			id: "74075A8FB22EC1AE"
+			rewards: [{
+				count: 2
+				id: "63B906F936EF8C5F"
+				item: {
+					Count: 1
+					id: "occultism:chalk_white"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occult Engineering"
+			tasks: [{
+				id: "2AFDD8CD217E42E2"
+				item: "occultengineering:otherworld_detector"
+				type: "item"
+			}]
+			title: "The Otherworld Detector"
+			x: 6.0d
+			y: 7.5d
+		}
+		{
+			dependencies: ["74075A8FB22EC1AE"]
+			description: [
+				"Chalk laid by machine, exactly, every time."
+				""
+				"It removes the one part of Occultism that was genuinely tedious and leaves the part that was genuinely questionable. Make of that what you like."
+			]
+			id: "1997C86DDC964E77"
+			rewards: [{
+				id: "32973919447DD824"
+				item: {
+					Count: 1
+					id: "occultengineering:chalk_copper"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occult Engineering"
+			tasks: [{
+				id: "39CF170D9CC75EF2"
+				item: "occultengineering:pentacle_altar"
+				type: "item"
+			}]
+			title: "The Pentacle Altar"
+			x: 7.5d
+			y: 7.5d
+		}
+		{
+			dependencies: ["1BADE59C43D15D7F"]
+			description: [
+				"Mana in, growth out, and you do not have to be there."
+				""
+				"The first flower that gives you back time rather than material."
+			]
+			id: "466AA13EB9333234"
+			rewards: [{
+				id: "6C0426DCC22EED83"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "674E87E7BC74A959"
+				item: "botania:agricarnation"
+				type: "item"
+			}]
+			title: "The Agricarnation"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["466AA13EB9333234"]
+			description: [
+				"Two quickened blooms on the altar, and something neither of them was."
+				""
+				"This is where Alfheim stops being a place that has materials and starts being a place that makes them."
+			]
+			id: "23E553C86D6D94CF"
+			rewards: [{
+				count: 2
+				id: "204CB61CF638898F"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 2L
+				id: "3BA1A56D9F860799"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			title: "Rite III - The Grafting"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["23E553C86D6D94CF"]
+			description: [
+				"Diamond, in a pool, patient."
+				""
+				"Cheap in Midgard and precious here, which is the reversal stated in a single item."
+			]
+			id: "16F6EB765D44BC21"
+			rewards: [{
+				count: 8
+				id: "56AC6D693A7C682F"
+				item: "botania:manasteel_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 4L
+				id: "35A9CCE63102E36A"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			title: "Mana Diamonds"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["16F6EB765D44BC21"]
+			description: [
+				"Build it now. You will not be able to use it for three eras."
+				""
+				"It wants three things the gate has not opened for yet. Let it sit in your workshop as a reminder of which way the trade route runs."
+			]
+			id: "615DFF24DC475C30"
+			rewards: [{
+				count: 2
+				id: "7C21309D9FAAE858"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "23A728E31B503E46"
+				item: "botania:terra_plate"
+				type: "item"
+			}]
+			title: "The Terra Plate"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Mine it. Smelt it. Try not to think about what a Midgard merchant would have paid."
+				""
+				"This is the single clearest proof of the premise, and it is worth stopping for a moment to appreciate before it becomes routine."
+			]
+			id: "47D7656EE54F329A"
+			rewards: [{
+				id: "1DD683DDF92D1FED"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 8L
+				id: "36B1333B4A573C3C"
+				item: "botania:elementium_ingot"
+				type: "item"
+			}]
+			title: "Elementium From The Ground"
+			x: 13.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["626D71C6A0B81722"]
+			description: [
+				"The ritual runs in the world, not in your hand."
+				""
+				"Choose where. A ritual of growth in the middle of your workshop will grow your workshop."
+			]
+			id: "276C73E35582C49A"
+			rewards: [{
+				count: 12
+				id: "60E5192FE78055B1"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "515D7BA54FC3C7AC"
+				item: "ars_nouveau:ritual_brazier"
+				type: "item"
+			}]
+			title: "Lay A Brazier"
+			x: 7.5d
+			y: 3.0d
+		}
+		{
+			description: [
+				"Pedestals, reagent, Source. The arrangement is half the recipe."
+				""
+				"What comes out is better than an enchanting table could manage and you will have understood every step of why."
+			]
+			id: "7414D896422A5131"
+			rewards: [{
+				count: 12
+				id: "29808C3AAE33120B"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "15A53A68FC7BC220"
+				item: "ars_nouveau:dominion_wand"
+				type: "item"
+			}]
+			title: "Enchant Something Properly"
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			description: [
+				"It crafts. On its own. Because you asked a small creature nicely and it agreed."
+				""
+				"The Leaf would need a room of machinery. The Song needed a hat."
+			]
+			id: "2CD01EAAA4B13121"
+			rewards: [{
+				count: 16
+				id: "07B04ED012540FFD"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "62CAB8EFE0E6460A"
+				item: "ars_nouveau:wixie_hat"
+				type: "item"
+			}]
+			title: "The Wixie Cauldron"
+			x: 10.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["0351090BAC13EE37"]
+			description: [
+				"Orenvel can commission you one, or you can lay it on the Runic Altar yourself."
+				""
+				"It used to be a diamond on a stone. We changed that - expedition access is capability, and capability comes through a spine in this pack or it does not come at all."
+			]
+			id: "2AD6AC2F1917205C"
+			rewards: [{
+				id: "29A7CA8BDC46AE7E"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "761EC755DA03281E"
+				item: "dungeon_realm:map_device"
+				type: "item"
+			}]
+			title: "The Map Device"
+			x: 7.5d
+			y: 4.5d
+		}
+		{
+			description: [
+				"A map, a device, and somewhere that did not exist this morning."
+				""
+				"Carry a Home Pearl. The Guard lost more people to not being able to leave than to anything they met inside."
+			]
+			id: "56D3ECF65248AD83"
+			rewards: [{
+				count: 4
+				id: "040F424F8803ABCD"
+				item: "minecraft:golden_apple"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "1004E51821C0A0D0"
+				item: "dungeon_realm:home_pearl"
+				type: "item"
+			}]
+			title: "Step Through"
+			x: 9.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"Not every expedition is a dungeon. The Harvest is its own thing and it is worse."
+				""
+				"Read what a map is before you open it. They are not interchangeable and the level ranges are not comparable."
+			]
+			id: "121E21AE1E9C3470"
+			rewards: [{
+				count: 3
+				id: "0D65352FB316BB5F"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "736FDAC636A22B60"
+				item: "the_harvest:harvest_map"
+				type: "item"
+			}]
+			title: "A Different Kind Of Ground"
+			x: 10.5d
+			y: 4.5d
+		}
+		{
+			description: [
+				"Something stands in the wild and calls waves at whoever touches it."
+				""
+				"It is the only expedition you can attempt without a map, which makes it the one you will attempt underlevelled. Do not."
+			]
+			id: "29DC35A8A34D5A73"
+			rewards: [{
+				count: 3
+				id: "4F9F0CEA537F0470"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "6373B03C7F077819"
+				item: "ancient_obelisks:obelisk_map"
+				type: "item"
+			}]
+			title: "Obelisks"
+			x: 12.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"Two went out in Era II. Both are back, which is better than the Court expected."
+				""
+				"They have found ruins we did not know were standing. Orenvel has stopped calling this a holding action."
+			]
+			id: "433DCEDA6D8E3DF7"
+			rewards: [{
+				id: "1B3F57F218DD82D3"
+				item: "botania:mana_diamond"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Hollow Court"
+			tasks: [{
+				id: "65307C9656615C32"
+				title: "The Scouts Come Back"
+				type: "checkmark"
+			}]
+			title: "The Scouts Come Back"
+			x: 13.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["433DCEDA6D8E3DF7"]
+			description: [
+				"Velrous asked for one tree in Era I and you gave him one tree."
+				""
+				"Bring him a grove. He will pretend it is not what he wanted all along, and he will be lying."
+			]
+			id: "4E051DC2171440F9"
+			rewards: [{
+				id: "7EDB9EA8EF3F4F05"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Hollow Court"
+			tasks: [{
+				count: 4L
+				id: "40EB7BC7E51671E9"
+				item: "naturesaura:ancient_sapling"
+				type: "item"
+			}]
+			title: "Something Planted"
+			x: 15.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"The infuser, and no, you could not have done this before. It does not exist on the other side of the gate."
+				""
+				"Everything you have made so far still has Alfheim in it -- silt, ley-residue, the ordinary dirt of a broken world. That is what makes it *ours*, and it is also what makes it useless to anyone else's magic."
+				""
+				"Take it out. What is left will not look like much."
+			]
+			id: "2C4971B3AC935AD3"
+			rewards: [{
+				count: 8
+				id: "1DFA581156E189AE"
+				item: "botania:elf_glass"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Refined Bifrost"
+			tasks: [{
+				id: "29556F7B3B84DCC9"
+				item: "alfheim:refined_bifrost"
+				type: "item"
+			}]
+			title: "Take The Rest Out"
+			x: 0.0d
+			y: 13.5d
+		}
+		{
+			dependencies: ["2C4971B3AC935AD3"]
+			description: [
+				"Two refined, a pearl, and elf glass, on the runic altar."
+				""
+				"This is the finished thing, and I want to be exact about what you have made. It is not a power source. It holds nothing. Set it on a table and it will sit there for a thousand years being violet."
+				""
+				"What it is, is *unattached*. Every other material in this world already belongs to a system -- mana is Botania's, source is the Ars-wrights', essence belongs to whatever answers when the Occultists knock. This belongs to none of them, which means it can become any of them."
+			]
+			id: "7A781FCD2D1F9D95"
+			rewards: [{
+				count: 2
+				id: "3566DE5258AC894B"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Distilled Bifrost"
+			tasks: [{
+				id: "778871A66FB14B16"
+				item: "alfheim:distilled_bifrost"
+				type: "item"
+			}]
+			title: "The Last Step"
+			x: 1.5d
+			y: 13.5d
+		}
+		{
+			description: [
+				"Now spend it, and spend it badly."
+				""
+				"You will notice the rates are poor. That is deliberate and I will not apologise for it. Distilled bifrost is a *foothold* in a discipline you have not studied, not a way to skip studying it. Six of these into mana powder is an insult to the powder and a bargain to you, because the alternative was starting that system from nothing."
+				""
+				"Bring me one of each. I want to see that you have walked all six roads at least once before you decide which one is yours."
+				""
+				"The Court spent four hundred years being certain that our way was the way. Look where the Court is."
+			]
+			id: "08CA55285940A02B"
+			rewards: [{
+				count: 2
+				id: "4DF04527CBF8E2EC"
+				item: "alfheim:distilled_bifrost"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The exchange"
+			tasks: [
+				{
+					id: "0F5378FFD998C8A8"
+					item: "botania:mana_powder"
+					type: "item"
+				}
+				{
+					id: "5FF58BBEAFAF918D"
+					item: "ars_nouveau:source_gem"
+					type: "item"
+				}
+				{
+					id: "528B1B789DD4B117"
+					item: "occultism:otherworld_essence"
+					type: "item"
+				}
+				{
+					id: "7B5BFA9DC94635ED"
+					item: "irons_spellbooks:arcane_essence"
+					type: "item"
+				}
+				{
+					id: "45DA0FED9D566CF3"
+					item: "naturesaura:gold_leaf"
+					type: "item"
+				}
+				{
+					id: "7CEDB3CF9EBEB987"
+					item: "botania:mana_pearl"
+					type: "item"
+				}
+			]
+			title: "One Material, Every Road"
+			x: 3.0d
+			y: 13.5d
+		}
+	]
+	subtitle: ["Can we feed ourselves?"]
+	title: "III — The Green Return"
+}

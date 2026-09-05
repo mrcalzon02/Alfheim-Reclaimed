@@ -1,0 +1,629 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_6"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:wildmarch_sinew"
+	id: "5695A063E9D501FD"
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Outward. The grove is safe and the grove is small."
+				""
+				"What is past the treeline has had an age to get comfortable, and it is not going to stand aside because we have runes now."
+			]
+			id: "37826E2AB2321C44"
+			rewards: [{
+				id: "6C5AB2BA102F569A"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "05CB40BBB085EB74"
+				title: "Era 6"
+				type: "checkmark"
+			}]
+			title: "Era 6"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: ["The Fey Altar. Five offerings, always five. Ask politely."]
+			id: "7B7EDF88AEB6D16D"
+			rewards: [{
+				id: "0AE3C80FFACCC4D2"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "15D5C313AA93A067"
+				item: "feywild:fey_altar"
+				type: "item"
+			}]
+			title: "The Fey Altar"
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			description: ["The Natural Altar. It draws on the aura of the land, which is thin here."]
+			id: "08C34CFD4AADEC99"
+			rewards: [{
+				id: "17857455F3083245"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "40E32F72D7C2815B"
+				item: "naturesaura:nature_altar"
+				type: "item"
+			}]
+			title: "The Natural Altar"
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["08C34CFD4AADEC99"]
+			description: [
+				"Crush is a glyph, not a machine, which is why you will not find a block for it."
+				""
+				"Scribe it at the table and it lives in your book. The Song does not build stations for things a spell can already do."
+			]
+			id: "3D62531BDB4CEE3E"
+			rewards: [{
+				id: "11629694BCBBDF9D"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "4AC243E9374A7617"
+				item: "ars_nouveau:scribes_table"
+				type: "item"
+			}]
+			title: "The Crush Glyph"
+			x: 4.5d
+			y: -1.5d
+		}
+		{
+			description: [
+				"The Fey Altar. Ask politely. They remember being asked rudely."
+				""
+				"Step 1 of 9."
+			]
+			id: "2DF66908E570A63B"
+			rewards: [{
+				id: "58803A8465DEDF99"
+				item: "alfheim:march_hide"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/9"
+			tasks: [{
+				id: "18CC204B1DF65562"
+				item: "alfheim:march_hide"
+				type: "item"
+			}]
+			title: "March Hide"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2DF66908E570A63B"]
+			description: [
+				"The Natural Altar. It draws on the aura of the land — thin here, so be patient."
+				""
+				"Step 2 of 9."
+			]
+			id: "3F0898AEAE1AAC21"
+			rewards: [{
+				id: "5F06E2590AB35D2B"
+				item: "alfheim:fey_bound_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/9"
+			tasks: [{
+				id: "51EA16FF56ABA268"
+				item: "alfheim:fey_bound_cord"
+				type: "item"
+			}]
+			title: "Fey Bound Cord"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3F0898AEAE1AAC21"]
+			description: [
+				"Petals in the basin. You have done this a thousand times; do it again."
+				""
+				"Step 3 of 9."
+			]
+			id: "1F8A3B823619AB77"
+			rewards: [{
+				id: "66D3661C454C37CA"
+				item: "alfheim:sinew_braid"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/9"
+			tasks: [{
+				id: "6129C266C842C2CB"
+				item: "alfheim:sinew_braid"
+				type: "item"
+			}]
+			title: "Sinew Braid"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1F8A3B823619AB77"]
+			description: [
+				"Through the gate and back. What returns is not what you sent."
+				""
+				"Step 4 of 9."
+			]
+			id: "65FADEDDAFDE90CE"
+			rewards: [{
+				id: "5F573A955CBFFB76"
+				item: "alfheim:warded_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/9"
+			tasks: [{
+				id: "7DE2C742BCDC27E5"
+				item: "alfheim:warded_sinew"
+				type: "item"
+			}]
+			title: "Warded Sinew"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["65FADEDDAFDE90CE"]
+			description: [
+				"Crushed down. Sometimes progress is subtraction."
+				""
+				"Step 5 of 9."
+			]
+			id: "0F7226CE2785DB25"
+			rewards: [{
+				id: "426E84C120E7D03B"
+				item: "alfheim:wildmarch_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/9"
+			tasks: [{
+				id: "4568937AB91E6CF8"
+				item: "alfheim:wildmarch_drawn"
+				type: "item"
+			}]
+			title: "Wildmarch Drawn"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0F7226CE2785DB25"]
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 6 of 9."
+			]
+			id: "30F4E89D348D9DAE"
+			rewards: [{
+				id: "4202EB511D20EF03"
+				item: "alfheim:wildmarch_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 6/9"
+			tasks: [{
+				id: "7D3615329748DC15"
+				item: "alfheim:wildmarch_folded"
+				type: "item"
+			}]
+			title: "Wildmarch Folded"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["30F4E89D348D9DAE"]
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 7 of 9."
+			]
+			id: "691E9A1DB1AE2F7F"
+			rewards: [{
+				id: "1A2E50E5F046D844"
+				item: "alfheim:wildmarch_stilled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 7/9"
+			tasks: [{
+				id: "76171EA97D5481F6"
+				item: "alfheim:wildmarch_stilled"
+				type: "item"
+			}]
+			title: "Wildmarch Stilled"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				""
+				"Step 8 of 9."
+			]
+			id: "2974C8621131741B"
+			rewards: [{
+				id: "7973366C5B77AC86"
+				item: "alfheim:wildmarch_rebound"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 8/9"
+			tasks: [{
+				id: "755D8D6AEFBD835E"
+				item: "alfheim:wildmarch_rebound"
+				type: "item"
+			}]
+			title: "Wildmarch Rebound"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2974C8621131741B"]
+			description: [
+				"The last step. Wildmarch Sinew."
+				""
+				"Era VI. Taken from the frontier, and it has not forgiven you."
+				""
+				"9 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "664BFD8D2F5D582B"
+			rewards: [{
+				id: "453437FD1FF78652"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 9/9"
+			tasks: [{
+				id: "3CB7F228A2173BD4"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			title: "Wildmarch Sinew"
+			x: 13.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "2C91E75939C080D5"
+			rewards: [{
+				count: 8
+				id: "0793D832E5CBBC19"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "437C9E649CABAA18"
+				item: "ars_nouveau:drygmy_stone"
+				type: "item"
+			}]
+			title: "Drygmy Stone"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["2C91E75939C080D5"]
+			description: ["The other tradition, keeping pace."]
+			id: "78CA3DCD43C8C71E"
+			rewards: [{
+				count: 8
+				id: "4569E9AE3607D7B0"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "49FE0D8059944948"
+				item: "ars_nouveau:ritual_wilden_summon"
+				type: "item"
+			}]
+			title: "Ritual Wilden Summon"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "2392C327FFB06C90"
+			rewards: [{
+				count: 8
+				id: "58EDA52E091F2150"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "6CA208A9EACA867C"
+				item: "ars_nouveau:relay_warp"
+				type: "item"
+			}]
+			title: "Relay Warp"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["2392C327FFB06C90"]
+			description: ["The other tradition, keeping pace."]
+			id: "5A3333F8F5ED5799"
+			rewards: [{
+				count: 8
+				id: "63E62CF5937197E8"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "19232527BD2FAB72"
+				item: "ars_nouveau:drygmy_stone"
+				type: "item"
+			}]
+			title: "Drygmy Stone"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "0001A9FECD0854F4"
+			rewards: [{
+				count: 8
+				id: "1B2C673F50324487"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "0BF75822AA9D42B9"
+				item: "ars_nouveau:ritual_wilden_summon"
+				type: "item"
+			}]
+			title: "Ritual Wilden Summon"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["0001A9FECD0854F4"]
+			description: ["The other tradition, keeping pace."]
+			id: "1F24DA5CA4DDEDAC"
+			rewards: [{
+				count: 8
+				id: "1F34F7C4FF62B321"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "7083DB8230D110BF"
+				item: "ars_nouveau:relay_warp"
+				type: "item"
+			}]
+			title: "Relay Warp"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "7092DFDDCB37CFD4"
+			rewards: [{
+				count: 8
+				id: "0346962FC1E80288"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "0FE254D38EA592CE"
+				item: "ars_nouveau:drygmy_stone"
+				type: "item"
+			}]
+			title: "Drygmy Stone"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "1E17001231624D1F"
+			rewards: [{
+				count: 4
+				id: "3DD8CC4AF427D71B"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "70B469F71841FE16"
+				item: "minecolonies:blockhutguardtower"
+				type: "item"
+			}]
+			title: "Blockhutguardtower"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["1E17001231624D1F"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "1B9B7D45C4FCFE69"
+			rewards: [{
+				count: 4
+				id: "0BA78F2296F57B38"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "36DD74563C725EAD"
+				item: "minecolonies:blockhutbarracks"
+				type: "item"
+			}]
+			title: "Blockhutbarracks"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "6BAE949411EF138B"
+			rewards: [{
+				count: 4
+				id: "4845EF3B4C4F16A1"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "59AFC62DFB6890EA"
+				item: "minecolonies:blockhutguardtower"
+				type: "item"
+			}]
+			title: "Blockhutguardtower"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "2C1EECC726EFD4FD"
+			rewards: [{
+				count: 4
+				id: "5A8A6B1F4FC91471"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "7DC79BCF4A0658AC"
+				item: "minecolonies:blockhutbarracks"
+				type: "item"
+			}]
+			title: "Blockhutbarracks"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "2D236F402937F737"
+			rewards: [{
+				count: 8
+				id: "0E1716C69D818477"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "612AA8967130A39A"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "51120D0509924E18"
+			rewards: [{
+				count: 8
+				id: "47CF62DCA411743B"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "3B3270EB9B4E4696"
+				item: "mmorpg:currency/orb_of_quality"
+				type: "item"
+			}]
+			title: "Currency/orb Of Quality"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "0A7758CEE61B22DC"
+			rewards: [{
+				count: 8
+				id: "5AECCBE34899E626"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "30491AD7617275FB"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: [
+				"664BFD8D2F5D582B"
+				"7092DFDDCB37CFD4"
+			]
+			description: [
+				"The Rune of Jötunheim."
+				""
+				"The giants were not monsters. They were older than us and they were here first, and we called them monsters because it was convenient."
+				""
+				"Hold the rune and think about who else we might have been convenient about."
+			]
+			id: "26E0DDE3E19C1B18"
+			rewards: [{
+				count: 2
+				id: "049B7C27450D7D01"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "15674B6A1DB0B23B"
+				item: "mythicbotany:joetunheim_rune"
+				type: "item"
+			}]
+			title: "The Rune of Joetunheim"
+			x: 6.0d
+			y: 4.5d
+		}
+	]
+	subtitle: ["Can we take back the frontier?"]
+	title: "VI — The Wild Marches"
+}

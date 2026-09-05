@@ -1,0 +1,110 @@
+{
+	default_hide_dependency_lines: true
+	default_quest_shape: "gear"
+	filename: "ref_rites"
+	group: ""
+	icon: "botania:apothecary_livingrock"
+	id: "2015FAC11F38124C"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"The first Rite, and the only one that needs no mana. Put a raw bloom in a Petal Apothecary with two petals and one growing thing, and the water does the rest. Slow, cheap, and available the day you wake up."
+				""
+				"STATION: petal apothecary"
+				"MANA: none"
+				"RETURN: 1x per raw bloom"
+				""
+				"Later Rites do not replace earlier ones. The same raw bloom is valid input to every Rite you have unlocked — they simply pay better. Use whichever you can afford to run."
+			]
+			icon: "botania:apothecary_livingrock"
+			id: "33F7BD91AA042617"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 1 · 1x return"
+			tasks: [{
+				id: "54EDA1DF686BAC58"
+				title: "Rite I — The Steeping"
+				type: "checkmark"
+			}]
+			title: "Rite I — The Steeping"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Mana Pool infusion. The same raw bloom, twice the return. This is the era where mana stops being a curiosity and becomes your smelter."
+				""
+				"STATION: mana infusion"
+				"MANA: 3,000 x era"
+				"RETURN: 2x per raw bloom"
+				""
+				"Later Rites do not replace earlier ones. The same raw bloom is valid input to every Rite you have unlocked — they simply pay better. Use whichever you can afford to run."
+			]
+			icon: "botania:mana_pool"
+			id: "3DD6B4FCF5331963"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 2 · 2x return"
+			tasks: [{
+				id: "21B69F30DB75CA8E"
+				title: "Rite II — The Quickening"
+				type: "checkmark"
+			}]
+			title: "Rite II — The Quickening"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Runic Altar, three plant reagents and a rune. Three times the return, and a byproduct the earlier Rites cannot produce at all — this is where quartz, ghast tear, glowstone and magma cream come from."
+				""
+				"STATION: runic altar"
+				"MANA: 8,000 x era"
+				"RETURN: 3x per raw bloom"
+				""
+				"Later Rites do not replace earlier ones. The same raw bloom is valid input to every Rite you have unlocked — they simply pay better. Use whichever you can afford to run."
+			]
+			icon: "botania:mana_pool"
+			id: "0A1F4B5D9E5A53D1"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 3 · 3x return"
+			tasks: [{
+				id: "7C2B4DE6BE7408BF"
+				title: "Rite III — The Grafting"
+				type: "checkmark"
+			}]
+			title: "Rite III — The Grafting"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Mana Infuser. Four times the return on four blooms at once. Expensive to run and worth it once your mana economy is real."
+				""
+				"STATION: infuser"
+				"MANA: 60,000 x era"
+				"RETURN: 4x per raw bloom"
+				""
+				"Later Rites do not replace earlier ones. The same raw bloom is valid input to every Rite you have unlocked — they simply pay better. Use whichever you can afford to run."
+			]
+			icon: "botania:mana_pool"
+			id: "4BD3B77A2043B428"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 5 · 4x return"
+			tasks: [{
+				id: "72EBB37A7E816D58"
+				title: "Rite IV — The Deepening"
+				type: "checkmark"
+			}]
+			title: "Rite IV — The Deepening"
+			x: 6.0d
+			y: 0.0d
+		}
+	]
+	subtitle: ["How a bloom becomes a metal"]
+	title: "The Four Rites"
+}

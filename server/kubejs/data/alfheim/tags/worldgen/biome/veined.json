@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:alfheim_lakes",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:golden_fields",
+    "alfheim:bloomfall_vale",
+    "alfheim:silverbark_wood",
+    "alfheim:mana_fen"
+  ]
+}

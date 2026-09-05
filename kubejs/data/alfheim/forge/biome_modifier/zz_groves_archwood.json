@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:bloomfall_vale"
+  ],
+  "features": "ars_nouveau:placed_mixed_archwoods",
+  "step": "vegetal_decoration"
+}

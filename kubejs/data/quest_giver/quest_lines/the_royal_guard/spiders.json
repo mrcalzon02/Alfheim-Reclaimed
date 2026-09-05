@@ -1,0 +1,36 @@
+{
+  "icon": "minecraft:cobweb",
+  "start": {
+    "title": {
+      "translate": "Clear The Understory"
+    },
+    "description": {
+      "translate": "The Court is not haunted. It is infested, which is worse, because haunting does not lay eggs.\n\nStart under the boughs."
+    }
+  },
+  "parent": "quest_giver:root",
+  "complete": {
+    "title": {
+      "translate": "Clear The Understory"
+    },
+    "description": {
+      "translate": "Cleaner. Not clean.\n\nYou did not flinch at the second one. I noticed."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:kill",
+      "entity": "minecraft:spider",
+      "times": 8
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "minecraft:string",
+        "count": 8
+      }
+    }
+  ]
+}

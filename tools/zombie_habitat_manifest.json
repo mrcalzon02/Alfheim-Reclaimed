@@ -1,0 +1,1993 @@
+{
+  "biomes": [
+    "alfheim:ashen_grove",
+    "alfheim:bloomfall_vale",
+    "alfheim:decayed_mire",
+    "alfheim:hollow_marches",
+    "alfheim:infested_warren",
+    "alfheim:mana_fen",
+    "alfheim:scorchfell",
+    "alfheim:silverbark_wood",
+    "alfheim:starved_reach",
+    "alfheim:sundered_highlands",
+    "alfheim:void_verge",
+    "continuityworks_biomes:academy_grove",
+    "continuityworks_biomes:airship_moorings",
+    "continuityworks_biomes:alpine_holdfast",
+    "continuityworks_biomes:amber_forest",
+    "continuityworks_biomes:ancient_harbor_coast",
+    "continuityworks_biomes:antimatter_research_wastes",
+    "continuityworks_biomes:arcology_basin",
+    "continuityworks_biomes:ash_wastes",
+    "continuityworks_biomes:ashen_suburbs",
+    "continuityworks_biomes:baroque_estates",
+    "continuityworks_biomes:basalt_cave_uplands",
+    "continuityworks_biomes:battlefield_heath",
+    "continuityworks_biomes:bioengineered_forest",
+    "continuityworks_biomes:black_rain_forest",
+    "continuityworks_biomes:blacklight_badlands",
+    "continuityworks_biomes:blast_crater_expanse",
+    "continuityworks_biomes:bonefield_flats",
+    "continuityworks_biomes:bronze_quarrylands",
+    "continuityworks_biomes:bunker_steppe",
+    "continuityworks_biomes:canal_freightlands",
+    "continuityworks_biomes:canal_republic",
+    "continuityworks_biomes:castle_highlands",
+    "continuityworks_biomes:chromatic_glass_desert",
+    "continuityworks_biomes:cinder_forest",
+    "continuityworks_biomes:circuit_forest",
+    "continuityworks_biomes:clockwork_garden",
+    "continuityworks_biomes:coal_basin",
+    "continuityworks_biomes:coastal_fishing_shires",
+    "continuityworks_biomes:collapsed_dam_valley",
+    "continuityworks_biomes:copper_wadi",
+    "continuityworks_biomes:copperwork_hills",
+    "continuityworks_biomes:crystal_reactor_highlands",
+    "continuityworks_biomes:cyber_shrine_highlands",
+    "continuityworks_biomes:cycad_lowlands",
+    "continuityworks_biomes:cypress_necropolis",
+    "continuityworks_biomes:data_spire_basin",
+    "continuityworks_biomes:dead_transmission_hills",
+    "continuityworks_biomes:dry_scrubland",
+    "continuityworks_biomes:dynamo_ridge",
+    "continuityworks_biomes:eastern_abyssal_ocean",
+    "continuityworks_biomes:eastern_abyssal_plain",
+    "continuityworks_biomes:eastern_continental_slope",
+    "continuityworks_biomes:eastern_fracture_field",
+    "continuityworks_biomes:eastern_hadal_trench",
+    "continuityworks_biomes:emergency_habitat_zone",
+    "continuityworks_biomes:factory_coast",
+    "continuityworks_biomes:fallout_pine_barrens",
+    "continuityworks_biomes:fenland_causeways",
+    "continuityworks_biomes:feudal_farmlands",
+    "continuityworks_biomes:firebreak_scrub",
+    "continuityworks_biomes:flintgrass_steppe",
+    "continuityworks_biomes:flooded_metro_basin",
+    "continuityworks_biomes:flowering_meadow",
+    "continuityworks_biomes:fogbound_moor",
+    "continuityworks_biomes:foundry_canal_district",
+    "continuityworks_biomes:frosted_taiga",
+    "continuityworks_biomes:fusion_desert",
+    "continuityworks_biomes:giant_fern_basin",
+    "continuityworks_biomes:glacial_hunter_coast",
+    "continuityworks_biomes:glassed_desert",
+    "continuityworks_biomes:glassmaker_dunes",
+    "continuityworks_biomes:gravity_quarry",
+    "continuityworks_biomes:greenwood_march",
+    "continuityworks_biomes:grid_core_metropolis",
+    "continuityworks_biomes:gunpowder_quarrylands",
+    "continuityworks_biomes:heathland_commons",
+    "continuityworks_biomes:helium_3_mining_plateau",
+    "continuityworks_biomes:hologram_gardens",
+    "continuityworks_biomes:hydraulic_gardens",
+    "continuityworks_biomes:hydroponic_megafarm",
+    "continuityworks_biomes:imperial_steppe",
+    "continuityworks_biomes:iron_mine_hills",
+    "continuityworks_biomes:ironworks_valley",
+    "continuityworks_biomes:karst_hunterlands",
+    "continuityworks_biomes:luminous_canal_district",
+    "continuityworks_biomes:mammoth_tundra",
+    "continuityworks_biomes:marble_coast",
+    "continuityworks_biomes:marshland",
+    "continuityworks_biomes:mechanist_citadel",
+    "continuityworks_biomes:megafauna_marsh",
+    "continuityworks_biomes:merchant_coast",
+    "continuityworks_biomes:misty_highlands",
+    "continuityworks_biomes:monastery_vale",
+    "continuityworks_biomes:mutant_orchard",
+    "continuityworks_biomes:nanite_flats",
+    "continuityworks_biomes:neon_city_grid",
+    "continuityworks_biomes:null_sector",
+    "continuityworks_biomes:oasis_caravan_basin",
+    "continuityworks_biomes:observatory_highlands",
+    "continuityworks_biomes:obsidian_ridge",
+    "continuityworks_biomes:old_growth_hunting_forest",
+    "continuityworks_biomes:olive_hills",
+    "continuityworks_biomes:orbital_elevator_exclusion_zone",
+    "continuityworks_biomes:petroleum_marsh",
+    "continuityworks_biomes:photon_marsh",
+    "continuityworks_biomes:pixelated_mesa",
+    "continuityworks_biomes:plaguewood_ruins",
+    "continuityworks_biomes:printing_city_hinterland",
+    "continuityworks_biomes:pulseway_corridor",
+    "continuityworks_biomes:quantum_geode_valley",
+    "continuityworks_biomes:quarry_megaplex",
+    "continuityworks_biomes:radstorm_badlands",
+    "continuityworks_biomes:railcut_highlands",
+    "continuityworks_biomes:reactor_marsh",
+    "continuityworks_biomes:recursive_ruins",
+    "continuityworks_biomes:red_clay_delta",
+    "continuityworks_biomes:redwood_primeval",
+    "continuityworks_biomes:reed_kingdom_floodplain",
+    "continuityworks_biomes:river_mill_country",
+    "continuityworks_biomes:riverstone_valley",
+    "continuityworks_biomes:rocky_badlands",
+    "continuityworks_biomes:rustbelt_ruins",
+    "continuityworks_biomes:sacred_cedar_highlands",
+    "continuityworks_biomes:salt_road_flats",
+    "continuityworks_biomes:shepherd_downs",
+    "continuityworks_biomes:shielded_habitat_ridge",
+    "continuityworks_biomes:slag_heath",
+    "continuityworks_biomes:smog_city_fringe",
+    "continuityworks_biomes:solar_mirror_desert",
+    "continuityworks_biomes:spaceport_barrens",
+    "continuityworks_biomes:steamworks_plateau",
+    "continuityworks_biomes:steel_river",
+    "continuityworks_biomes:sunstone_desert",
+    "continuityworks_biomes:synthetic_wetlands",
+    "continuityworks_biomes:synthwave_coast",
+    "continuityworks_biomes:tar_pit_savanna",
+    "continuityworks_biomes:telegraph_plains",
+    "continuityworks_biomes:temperate_grove",
+    "continuityworks_biomes:temple_karst",
+    "continuityworks_biomes:terraced_river_valley",
+    "continuityworks_biomes:terraced_vineyard",
+    "continuityworks_biomes:terraforming_prairie",
+    "continuityworks_biomes:textile_mill_country",
+    "continuityworks_biomes:thunder_plateau",
+    "continuityworks_biomes:trench_scar_plains",
+    "continuityworks_biomes:vector_plains",
+    "continuityworks_biomes:volcanic_polis_slopes",
+    "continuityworks_biomes:walled_market_plain",
+    "continuityworks_biomes:western_abyssal_ocean",
+    "continuityworks_biomes:western_abyssal_plain",
+    "continuityworks_biomes:western_continental_slope",
+    "continuityworks_biomes:western_fracture_field",
+    "continuityworks_biomes:western_hadal_trench",
+    "continuityworks_biomes:windmill_polders",
+    "continuityworks_biomes:workers_row_district",
+    "continuityworks_biomes:wreckage_coast",
+    "mythicbotany:alfheim_hills",
+    "mythicbotany:alfheim_lakes",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:golden_fields"
+  ],
+  "natural": [
+    {
+      "type": "eggszombies:bulldog_zombie",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 20,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_bulldog_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:crawler_zombie",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 25,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_crawler_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:firefighter_zombie",
+      "maxCount": 3,
+      "minCount": 1,
+      "weight": 30,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_firefighter_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:flayed_zombie",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 18,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_flayed_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:hazmat_zombie",
+      "maxCount": 3,
+      "minCount": 1,
+      "weight": 30,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_hazmat_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:military_zombie",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 20,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_military_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:puker_zombie",
+      "maxCount": 1,
+      "minCount": 1,
+      "weight": 18,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_puker_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:riot_zombie",
+      "maxCount": 3,
+      "minCount": 1,
+      "weight": 25,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_riot_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "eggszombies:rusher_zombie",
+      "maxCount": 1,
+      "minCount": 1,
+      "weight": 15,
+      "source": "mods\\EggsZombies-1.20.1-1.0.jar",
+      "modifier": "data/eggszombies/forge/biome_modifier/add_rusher_zombie.json",
+      "original_selector": "#minecraft:is_overworld"
+    },
+    {
+      "type": "infectious:acid_zombie",
+      "weight": 6,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/acid_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:ancient_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/ancient_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:angry_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/angry_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:armless_zombie",
+      "weight": 30,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/armless_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:balloon_zombie",
+      "weight": 13,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/balloon_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:barrel_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/barrel_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:baseball_bat_zombie",
+      "weight": 9,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/baseball_bat_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:beehive_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/beehive_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:beekeeper_zombie",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/beekeeper_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:big_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/big_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:blind_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/blind_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:bodyless_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/bodyless_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:bouncer_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/bouncer_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:brain_zombie",
+      "weight": 30,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/brain_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:bucket_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/bucket_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:burned_zombie",
+      "weight": 13,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/burned_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:burning_zombie",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/burning_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:chained_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/chained_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:claw_zombie",
+      "weight": 13,
+      "minCount": 2,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/claw_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:construction_worker_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/construction_worker_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:crawling_zombie",
+      "weight": 30,
+      "minCount": 1,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/crawling_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:deep_sea_diver_zombie",
+      "weight": 1,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/deep_sea_diver_zombie_biome_modifier.json",
+      "original_selector": [
+        "deep_cold_ocean",
+        "deep_frozen_ocean",
+        "deep_lukewarm_ocean",
+        "deep_ocean"
+      ]
+    },
+    {
+      "type": "infectious:disco_zombie",
+      "weight": 10,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/disco_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:doom_zombie",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/doom_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:door_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/door_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:enchanted_zombie",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/enchanted_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:fat_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/fat_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:fire_fighter_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 7,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/fire_fighter_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:firework_zombie",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/firework_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:football_player_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/football_player_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:franklin_zombie",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/franklin_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:frozen_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/frozen_zombie_biome_modifier.json",
+      "original_selector": [
+        "frozen_peaks",
+        "snowy_slopes",
+        "snowy_beach",
+        "snowy_plains",
+        "snowy_taiga",
+        "ice_spikes"
+      ]
+    },
+    {
+      "type": "infectious:fungal_zombie",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/fungal_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:giant_zombie",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 2,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/giant_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:glitched_zombie",
+      "weight": 2,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/glitched_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:golden_zombie",
+      "weight": 1,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/golden_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:hazmat_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/hazmat_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:headless_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/headless_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:infectious_zombie",
+      "weight": 30,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/infectious_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:iron_door_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/iron_door_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:maggot_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/maggot_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:mc_donalds_worker_zombie",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/mc_donalds_worker_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:mecha_zombie",
+      "weight": 6,
+      "minCount": 1,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/mecha_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:muddy_zombie",
+      "weight": 20,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/muddy_zombie_biome_modifier.json",
+      "original_selector": [
+        "mangrove_swamp",
+        "swamp"
+      ]
+    },
+    {
+      "type": "infectious:mummy",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/mummy_biome_modifier.json",
+      "original_selector": [
+        "desert",
+        "badlands",
+        "eroded_badlands",
+        "wooded_badlands"
+      ]
+    },
+    {
+      "type": "infectious:muscular_zombie",
+      "weight": 13,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/muscular_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:mutant_zombie",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/mutant_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:old_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/old_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:pool_tube_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/pool_tube_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:psycho_zombie",
+      "weight": 9,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/psycho_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:pumpkin_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/pumpkin_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:pylon_zombie",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/pylon_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:radioactive_zombie",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/radioactive_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:robotic_zombie",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/robotic_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:screamer",
+      "weight": 8,
+      "minCount": 1,
+      "maxCount": 14,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/screamer_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:security_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 7,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/security_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:sleepy_zombie",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/sleepy_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:spore_zombie",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/spore_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:swat_zombie",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 6,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/swat_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:tower_zombie_1",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/tower_zombie_1_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:tower_zombie",
+      "weight": 6,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/tower_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:withered_zombie",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/withered_zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_agent",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_agent_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_archer",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_archer_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_astronaut",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_astronaut_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_batman",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_batman_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie",
+      "weight": 50,
+      "minCount": 2,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_bomber",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_bomber_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_boxer",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_boxer_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_breeder",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_breeder_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_climber",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_climber_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_clown",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_clown_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_cook",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_cook_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_diver",
+      "weight": 2,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_diver_biome_modifier.json",
+      "original_selector": [
+        "cold_ocean",
+        "frozen_ocean",
+        "lukewarm_ocean",
+        "ocean",
+        "warm_ocean"
+      ]
+    },
+    {
+      "type": "infectious:zombie_doctor",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_doctor_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_farmer",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_farmer_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_fisherman",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_fisherman_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_girl",
+      "weight": 30,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_girl_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_head",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_head_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_hitler",
+      "weight": 1,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_hitler_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_horde",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_horde_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_horseman",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_horseman_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_lumberjack",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_lumberjack_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_miner_spawn",
+      "weight": 20,
+      "minCount": 1,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_miner_spawn_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_on_stelts",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_on_stelts_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_painter",
+      "weight": 13,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_painter_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_police",
+      "weight": 12,
+      "minCount": 2,
+      "maxCount": 7,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_police_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_prisoner",
+      "weight": 13,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_prisoner_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_runner",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_runner_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_scientist",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_scientist_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_soldier",
+      "weight": 3,
+      "minCount": 2,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_soldier_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_spiter",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_spiter_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombie_warrior",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 6,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombie_warrior_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombified_bear",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 4,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombified_bear_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombified_bird",
+      "weight": 12,
+      "minCount": 3,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombified_bird_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombified_boar",
+      "weight": 13,
+      "minCount": 3,
+      "maxCount": 6,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombified_boar_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombified_chicken",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombified_chicken_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombified_spider",
+      "weight": 15,
+      "minCount": 2,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombified_spider_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    },
+    {
+      "type": "infectious:zombified_wolf",
+      "weight": 15,
+      "minCount": 4,
+      "maxCount": 8,
+      "source": "mods\\Infectious-forge-1.20.1-1.7.jar",
+      "modifier": "data/infectious/forge/biome_modifier/zombified_wolf_biome_modifier.json",
+      "original_selector": {
+        "type": "forge:any"
+      }
+    }
+  ],
+  "variants": [
+    "zombie_variants:badlands_zombie",
+    "zombie_variants:bamboo_zombie",
+    "zombie_variants:cave_zombie",
+    "zombie_variants:cherry_zombie",
+    "zombie_variants:deep_dark_zombie",
+    "zombie_variants:desert_zombie",
+    "zombie_variants:dripstone_zombie",
+    "zombie_variants:frozen_zombie",
+    "zombie_variants:jungle_zombie",
+    "zombie_variants:lush_zombie",
+    "zombie_variants:mangrove_zombie",
+    "zombie_variants:mushroom_zombie",
+    "zombie_variants:pale_garden_zombie",
+    "zombie_variants:savanna_zombie",
+    "zombie_variants:swamp_zombie"
+  ],
+  "extended_modifiers": [
+    "data/eggszombies/forge/biome_modifier/add_bulldog_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_crawler_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_firefighter_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_flayed_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_hazmat_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_military_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_puker_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_riot_zombie.json",
+    "data/eggszombies/forge/biome_modifier/add_rusher_zombie.json",
+    "data/infectious/forge/biome_modifier/deep_sea_diver_zombie_biome_modifier.json",
+    "data/infectious/forge/biome_modifier/frozen_zombie_biome_modifier.json",
+    "data/infectious/forge/biome_modifier/muddy_zombie_biome_modifier.json",
+    "data/infectious/forge/biome_modifier/mummy_biome_modifier.json",
+    "data/infectious/forge/biome_modifier/zombie_diver_biome_modifier.json"
+  ],
+  "placement_gates": [
+    {
+      "id": "infectious:acid_zombie",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:ancient_zombie",
+      "procedure": "AncientZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 4,
+      "switches": [
+        "ENABLE_ANCIENT_ZOMBIE"
+      ]
+    },
+    {
+      "id": "infectious:angry_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:armless_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:balloon_zombie",
+      "procedure": "BalloonZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:barrel_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:baseball_bat_zombie",
+      "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:beehive_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:beekeeper_zombie",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:big_zombie",
+      "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:blind_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:bodyless_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:bouncer_zombie",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:brain_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:bucket_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:burned_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:burning_zombie",
+      "procedure": "BurningZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:chained_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:claw_zombie",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:construction_worker_zombie",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:crawling_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:deep_sea_diver_zombie",
+      "procedure": "DeepSeaDiverZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:disco_zombie",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:doom_zombie",
+      "procedure": "GiantZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 4,
+      "switches": []
+    },
+    {
+      "id": "infectious:door_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:enchanted_zombie",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:fat_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:fire_fighter_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:firework_zombie",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:football_player_zombie",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:franklin_zombie",
+      "procedure": "FranklinZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:frozen_zombie",
+      "procedure": "ZombifiedWolfNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:fungal_zombie",
+      "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:giant_zombie",
+      "procedure": "GiantZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 4,
+      "switches": []
+    },
+    {
+      "id": "infectious:glitched_zombie",
+      "procedure": "GlitchedZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 4,
+      "switches": []
+    },
+    {
+      "id": "infectious:golden_zombie",
+      "procedure": "GoldenZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:hazmat_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:headless_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:infectious_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:iron_door_zombie",
+      "procedure": "IronDoorZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:maggot_zombie",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:mc_donalds_worker_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:mecha_zombie",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:muddy_zombie",
+      "procedure": "ZombifiedWolfNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:mummy",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:muscular_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:mutant_zombie",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:old_zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:pool_tube_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:psycho_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:pumpkin_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:pylon_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:radioactive_zombie",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:robotic_zombie",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:screamer",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:security_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:sleepy_zombie",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:spore_zombie",
+      "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:swat_zombie",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:tower_zombie",
+      "procedure": "TowerZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:tower_zombie_1",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:withered_zombie",
+      "procedure": "WitheredZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_agent",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_archer",
+      "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_astronaut",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_batman",
+      "procedure": "ZombieBatmanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_bomber",
+      "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_boxer",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_breeder",
+      "procedure": "GlitchedZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 4,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_climber",
+      "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_clown",
+      "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_cook",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_diver",
+      "procedure": "ZombieDiverNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_doctor",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_farmer",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_fisherman",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_girl",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_head",
+      "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_hitler",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_horde",
+      "procedure": "ZombieHordeNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": [
+        "ENABLE_HORDES"
+      ]
+    },
+    {
+      "id": "infectious:zombie_horseman",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_lumberjack",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_miner_spawn",
+      "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_on_stelts",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_painter",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_police",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_prisoner",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_runner",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_scientist",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_soldier",
+      "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_spiter",
+      "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombie_warrior",
+      "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombified_bear",
+      "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+      "mutation": 2,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombified_bird",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombified_boar",
+      "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombified_chicken",
+      "procedure": "ZombifiedChickenNaturalEntitySpawningConditionProcedure",
+      "mutation": 3,
+      "switches": [
+        "ENABLE_ZOMBIFIED_CHICKEN"
+      ]
+    },
+    {
+      "id": "infectious:zombified_spider",
+      "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+      "mutation": 1,
+      "switches": []
+    },
+    {
+      "id": "infectious:zombified_wolf",
+      "procedure": "ZombifiedWolfNaturalEntitySpawningConditionProcedure",
+      "mutation": 0,
+      "switches": []
+    }
+  ],
+  "excluded": [
+    "infectious:lootdrop",
+    "infectious:mutation_trigger"
+  ]
+}

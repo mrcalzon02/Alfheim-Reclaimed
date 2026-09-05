@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:mana_fen",
+    "alfheim:decayed_mire"
+  ],
+  "spawners": {
+    "type": "alfheim:mire_tentacle",
+    "weight": 3,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

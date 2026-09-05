@@ -1,0 +1,602 @@
+[
+  {
+    "id": "infectious:acid_zombie",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:ancient_zombie",
+    "procedure": "AncientZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 4,
+    "switches": [
+      "ENABLE_ANCIENT_ZOMBIE"
+    ]
+  },
+  {
+    "id": "infectious:angry_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:armless_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:balloon_zombie",
+    "procedure": "BalloonZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:barrel_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:baseball_bat_zombie",
+    "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:beehive_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:beekeeper_zombie",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:big_zombie",
+    "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:blind_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:bodyless_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:bouncer_zombie",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:brain_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:bucket_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:burned_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:burning_zombie",
+    "procedure": "BurningZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:chained_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:claw_zombie",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:construction_worker_zombie",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:crawling_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:deep_sea_diver_zombie",
+    "procedure": "DeepSeaDiverZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:disco_zombie",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:doom_zombie",
+    "procedure": "GiantZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 4,
+    "switches": []
+  },
+  {
+    "id": "infectious:door_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:enchanted_zombie",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:fat_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:fire_fighter_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:firework_zombie",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:football_player_zombie",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:franklin_zombie",
+    "procedure": "FranklinZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:frozen_zombie",
+    "procedure": "ZombifiedWolfNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:fungal_zombie",
+    "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:giant_zombie",
+    "procedure": "GiantZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 4,
+    "switches": []
+  },
+  {
+    "id": "infectious:glitched_zombie",
+    "procedure": "GlitchedZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 4,
+    "switches": []
+  },
+  {
+    "id": "infectious:golden_zombie",
+    "procedure": "GoldenZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:hazmat_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:headless_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:infectious_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:iron_door_zombie",
+    "procedure": "IronDoorZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:maggot_zombie",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:mc_donalds_worker_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:mecha_zombie",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:muddy_zombie",
+    "procedure": "ZombifiedWolfNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:mummy",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:muscular_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:mutant_zombie",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:old_zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:pool_tube_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:psycho_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:pumpkin_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:pylon_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:radioactive_zombie",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:robotic_zombie",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:screamer",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:security_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:sleepy_zombie",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:spore_zombie",
+    "procedure": "AcidZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:swat_zombie",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:tower_zombie",
+    "procedure": "TowerZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:tower_zombie_1",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:withered_zombie",
+    "procedure": "WitheredZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_agent",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_archer",
+    "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_astronaut",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_batman",
+    "procedure": "ZombieBatmanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_bomber",
+    "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_boxer",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_breeder",
+    "procedure": "GlitchedZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 4,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_climber",
+    "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_clown",
+    "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_cook",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_diver",
+    "procedure": "ZombieDiverNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_doctor",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_farmer",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_fisherman",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_girl",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_head",
+    "procedure": "ZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_hitler",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_horde",
+    "procedure": "ZombieHordeNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": [
+      "ENABLE_HORDES"
+    ]
+  },
+  {
+    "id": "infectious:zombie_horseman",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_lumberjack",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_miner_spawn",
+    "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_on_stelts",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_painter",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_police",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_prisoner",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_runner",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_scientist",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_soldier",
+    "procedure": "ZombieHorsemanNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_spiter",
+    "procedure": "ZombieSpiterNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombie_warrior",
+    "procedure": "BigZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombified_bear",
+    "procedure": "ZombifiedBearNaturalEntitySpawningConditionProcedure",
+    "mutation": 2,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombified_bird",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombified_boar",
+    "procedure": "AngryZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombified_chicken",
+    "procedure": "ZombifiedChickenNaturalEntitySpawningConditionProcedure",
+    "mutation": 3,
+    "switches": [
+      "ENABLE_ZOMBIFIED_CHICKEN"
+    ]
+  },
+  {
+    "id": "infectious:zombified_spider",
+    "procedure": "OldZombieNaturalEntitySpawningConditionProcedure",
+    "mutation": 1,
+    "switches": []
+  },
+  {
+    "id": "infectious:zombified_wolf",
+    "procedure": "ZombifiedWolfNaturalEntitySpawningConditionProcedure",
+    "mutation": 0,
+    "switches": []
+  }
+]

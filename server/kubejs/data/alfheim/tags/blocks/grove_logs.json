@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:emberbark_log",
+    "alfheim:gloambark_log",
+    "alfheim:hushbark_log"
+  ]
+}

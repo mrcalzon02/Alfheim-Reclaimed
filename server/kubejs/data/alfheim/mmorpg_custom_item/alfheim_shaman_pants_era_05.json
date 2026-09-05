@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_shaman_pants_era_05",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "rare",
+    "epic"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_shaman_pants",
+  "disable_salvaging": false
+}

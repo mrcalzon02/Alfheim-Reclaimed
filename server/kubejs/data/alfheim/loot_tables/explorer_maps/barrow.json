@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:explorer_maps/barrow",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "alfheim:barrow",
+              "decoration": "banner_gray",
+              "zoom": 2,
+              "search_radius": 100,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Survey Chart \u2014 The Waystones",
+                "italic": false,
+                "color": "aqua"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Standing stones round a mound. Some of them still have a door.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ],
+              "replace": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

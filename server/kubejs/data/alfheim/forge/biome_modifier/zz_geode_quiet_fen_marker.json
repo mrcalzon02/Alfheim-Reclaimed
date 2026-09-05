@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:silverbark_wood",
+    "mythicbotany:dreamwood_forest",
+    "alfheim:infested_warren"
+  ],
+  "features": "alfheim:geode_quiet_fen_marker",
+  "step": "top_layer_modification"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "alfheim_shaman_chest_era_08",
+  "weight": 1000,
+  "item_id": "alfheim:armory/shaman/chest/era_08",
+  "custom_item_generation": "alfheim_shaman_chest_era_08"
+}

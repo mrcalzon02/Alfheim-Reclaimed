@@ -1,0 +1,13 @@
+{
+  "_comment": "B-24 / SPAWN_ZONE.md §7.1. The Greatbole is exactly what Continuity Works' spawn-protection contract is for: keep the arrival zone clean so no stray village, abyssal vent complex or dungeon punches through the roots of the pack's centrepiece. Format copied from the mod's own abyssal_vents profile. CORRECTED 2026-09-04 after a dedicated-server boot: jigsaw_piece_exclusion_radius was 96, and the mod rejected the whole profile with 'attempts to lower the hard 500-block minimum' -- so the Greatbole had NO protection at all while a static check showed the file present and well-formed. 500 is the floor the mod enforces; both radii sit on it. Per-piece protection stays true: the tree is four pieces stacked vertically with the amphitheatre alongside, so without it something can generate between trunk segments. That is the opposite of the Hollow Court CITY, whose 40-80 pieces must crowd and therefore belong in the `ignored` tag, never here.",
+  "selectors": {
+    "structures": [
+      "alfheim:greatbole"
+    ]
+  },
+  "family": "alfheim:spawn_hub",
+  "exclusion_radius": 500,
+  "jigsaw_piece_exclusion_radius": 500,
+  "protect_jigsaw_pieces": true,
+  "priority": 200
+}

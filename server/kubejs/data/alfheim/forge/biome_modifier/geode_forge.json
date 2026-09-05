@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "mythicbotany:alfheim_hills",
+    "alfheim:starved_reach"
+  ],
+  "features": "alfheim:geode_forge",
+  "step": "local_modifications"
+}

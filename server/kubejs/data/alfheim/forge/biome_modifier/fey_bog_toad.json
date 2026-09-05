@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:mana_fen",
+    "alfheim:decayed_mire"
+  ],
+  "spawners": {
+    "type": "alfheim:bog_toad",
+    "weight": 3,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

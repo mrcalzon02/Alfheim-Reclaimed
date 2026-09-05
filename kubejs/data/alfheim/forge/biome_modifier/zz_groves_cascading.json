@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:silverbark_wood"
+  ],
+  "features": "ars_nouveau:placed_cascading_tree",
+  "step": "vegetal_decoration"
+}

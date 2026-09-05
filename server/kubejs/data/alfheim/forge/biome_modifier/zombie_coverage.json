@@ -1,0 +1,36 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "mythicbotany:alfheim_hills",
+    "mythicbotany:alfheim_lakes",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:golden_fields",
+    "continuityworks_biomes:eastern_abyssal_ocean",
+    "continuityworks_biomes:eastern_abyssal_plain",
+    "continuityworks_biomes:eastern_continental_slope",
+    "continuityworks_biomes:eastern_fracture_field",
+    "continuityworks_biomes:eastern_hadal_trench",
+    "continuityworks_biomes:western_abyssal_ocean",
+    "continuityworks_biomes:western_abyssal_plain",
+    "continuityworks_biomes:western_continental_slope",
+    "continuityworks_biomes:western_fracture_field",
+    "continuityworks_biomes:western_hadal_trench",
+    "alfheim:ashen_grove",
+    "alfheim:bloomfall_vale",
+    "alfheim:hollow_marches",
+    "alfheim:infested_warren",
+    "alfheim:mana_fen",
+    "alfheim:scorchfell",
+    "alfheim:silverbark_wood",
+    "alfheim:starved_reach",
+    "alfheim:sundered_highlands",
+    "alfheim:void_verge"
+  ],
+  "spawners": {
+    "type": "minecraft:zombie",
+    "weight": 12,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

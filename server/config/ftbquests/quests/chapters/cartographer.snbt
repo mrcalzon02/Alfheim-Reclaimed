@@ -1,0 +1,515 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "cartographer"
+	group: "105F9E401CD6F0BC"
+	icon: "minecraft:filled_map"
+	id: "309FFB8CAAF34968"
+	order_index: 10
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Loremistress Anwe keeps what is left of the Royal Survey."
+				""
+				"It is not much. The Survey mapped every road, hall and holding in Alfheim, and most of that is ash — but the elves who drew it were thorough, and a chart drawn from memory of a thorough survey is still better than walking in a straight line and hoping."
+				""
+				"Bring her pigment and she will draw you one. She works in petals, because that is what there is, and because a map of a dead country ought to be made of something that grew."
+				""
+				"SHE WILL DRAW THE SAME CHART AS OFTEN AS YOU CAN PAY FOR IT. Each of these is a purchase, not an achievement — click the payment to hand it over, and the chart is yours. Then do it again."
+			]
+			icon: "minecraft:filled_map"
+			id: "4F552307DE13DA19"
+			optional: true
+			shape: "gear"
+			subtitle: "Loremistress Anwe"
+			tasks: [{
+				id: "47B2227E0C587257"
+				title: "The Royal Survey"
+				type: "checkmark"
+			}]
+			title: "The Royal Survey"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"Anwe will tell you this herself, so hear it before you spend anything."
+				""
+				"A CHART FINDS THE NEAREST ONE. It does not find a good one, or a safe one, or a close one. If the nearest Keep is four thousand blocks away through the Hollow Marches, that is the Keep you have bought directions to."
+				""
+				"IF THERE IS NOTHING WITHIN RANGE, THE PAPER COMES BACK BLANK. The Survey only recorded what it could reach. Every chart below says which country its subject stands in — if you have never been anywhere near that country, walk first and buy second."
+				""
+				"AND A CHART IS NOT A GUARD. Knowing where the Marches bastion is has never once made it survivable. That is the Captain's department, and he charges more."
+			]
+			icon: "minecraft:paper"
+			id: "13C5D4F1CDC6AA02"
+			optional: true
+			shape: "gear"
+			subtitle: "Read this before you pay"
+			tasks: [{
+				id: "2B10464E9071532A"
+				title: "What A Chart Will Not Do"
+				type: "checkmark"
+			}]
+			title: "What A Chart Will Not Do"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"Small, domed, and put here by somebody who expected to come back."
+				""
+				"PRICE: 6 white petals, each time."
+				"FOUND IN: Alfheim Lakes, Bloomfall Vale, Mana Fen."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "feywild:elven_quartz_pillar"
+			id: "66E4EEA267E87521"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/shrine"
+				elevate_perms: true
+				id: "692DA4D2D2145114"
+				silent: true
+				title: "Survey Chart — The Wayshrines"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "6 white petals"
+			tasks: [{
+				consume_items: true
+				count: 6L
+				id: "681DB5B20A6C7201"
+				item: "botania:white_petal"
+				type: "item"
+			}]
+			title: "Chart: The Wayshrines"
+			x: -4.0d
+			y: 3.0d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"Standing stones round a mound. Some of them still have a door."
+				""
+				"PRICE: 6 light gray petals, each time."
+				"FOUND IN: Alfheim Plains, Ashen Grove, Bloomfall Vale, Decayed Mire."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "minecraft:bone_block"
+			id: "5B59E2E25565C251"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/barrow"
+				elevate_perms: true
+				id: "14D93E45332250C0"
+				silent: true
+				title: "Survey Chart — The Waystones"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "6 light gray petals"
+			tasks: [{
+				consume_items: true
+				count: 6L
+				id: "157B431F0D7EC0EF"
+				item: "botania:light_gray_petal"
+				type: "item"
+			}]
+			title: "Chart: The Waystones"
+			x: -2.0d
+			y: 3.0d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"One long room where the elves argued. The roof is usually the first thing gone."
+				""
+				"PRICE: 8 yellow petals and 2 dreamwood, each time."
+				"FOUND IN: Alfheim Plains, Golden Fields, Scorchfell, Silverbark Wood."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "botania:livingrock_bricks"
+			id: "0E70ECCD1B0B6710"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/hall"
+				elevate_perms: true
+				id: "104F27D95C37DA9A"
+				silent: true
+				title: "Survey Chart — The Moot Halls"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "8 yellow petals and 2 dreamwood"
+			tasks: [
+				{
+					consume_items: true
+					count: 8L
+					id: "54B8FAF5DB30CED8"
+					item: "botania:yellow_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 2L
+					id: "1453049C033C3263"
+					item: "botania:dreamwood"
+					type: "item"
+				}
+			]
+			title: "Chart: The Moot Halls"
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"One spire, one stair, and a view of something nobody is watching for any more."
+				""
+				"PRICE: 8 cyan petals and 4 livingrock, each time."
+				"FOUND IN: Dreamwood Forest, Silverbark Wood, Void Verge."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "feywild:elven_quartz_brick"
+			id: "17EACE35CAA884F4"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/tower"
+				elevate_perms: true
+				id: "39F00003F50C5B37"
+				silent: true
+				title: "Survey Chart — The Watchtowers"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "8 cyan petals and 4 livingrock"
+			tasks: [
+				{
+					consume_items: true
+					count: 8L
+					id: "60F2AA1B10F733F1"
+					item: "botania:cyan_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "32A3DD3CEF48673D"
+					item: "botania:livingrock"
+					type: "item"
+				}
+			]
+			title: "Chart: The Watchtowers"
+			x: 2.0d
+			y: 3.0d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"The water ran overhead once. This is the reason the fens are fens."
+				""
+				"PRICE: 8 blue petals and 4 livingrock, each time."
+				"FOUND IN: Alfheim Lakes, Mana Fen."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "minecraft:prismarine_bricks"
+			id: "5CD9CC814BB23B9C"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/aqueduct"
+				elevate_perms: true
+				id: "3A3D0B86D3F176C2"
+				silent: true
+				title: "Survey Chart — The Aqueducts"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "8 blue petals and 4 livingrock"
+			tasks: [
+				{
+					consume_items: true
+					count: 8L
+					id: "404E131AF6A66405"
+					item: "botania:blue_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "4FFDAF6216E69828"
+					item: "botania:livingrock"
+					type: "item"
+				}
+			]
+			title: "Chart: The Aqueducts"
+			x: 4.0d
+			y: 3.0d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"A road that stops. Somebody was crossing this when it went."
+				""
+				"PRICE: 8 brown petals and 4 livingrock, each time."
+				"FOUND IN: Dreamwood Forest, Infested Warren, Void Verge."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "botania:livingrock_bricks_stairs"
+			id: "4AD86EE301B9F482"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/span"
+				elevate_perms: true
+				id: "1B91F54B56E60346"
+				silent: true
+				title: "Survey Chart — The Broken Spans"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "8 brown petals and 4 livingrock"
+			tasks: [
+				{
+					consume_items: true
+					count: 8L
+					id: "1D38F795C9AFC2A5"
+					item: "botania:brown_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "36317084008DA906"
+					item: "botania:livingrock"
+					type: "item"
+				}
+			]
+			title: "Chart: The Broken Spans"
+			x: -4.0d
+			y: 5.5d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"An elven barge, aground. It was in the air when the mana went out of it."
+				""
+				"PRICE: 10 purple petals and 4 dreamwood, each time."
+				"FOUND IN: Decayed Mire, Starved Reach."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "botania:dreamwood_planks"
+			id: "00C97D12532C7527"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/wreck"
+				elevate_perms: true
+				id: "1D8523E619657B28"
+				silent: true
+				title: "Survey Chart — The Wrecks"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "10 purple petals and 4 dreamwood"
+			tasks: [
+				{
+					consume_items: true
+					count: 10L
+					id: "57AD16C86802AFE6"
+					item: "botania:purple_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "3C420B4B0999F4D2"
+					item: "botania:dreamwood"
+					type: "item"
+				}
+			]
+			title: "Chart: The Wrecks"
+			x: -2.0d
+			y: 5.5d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"An open cut, stepped in benches, abandoned with the face still fresh."
+				""
+				"PRICE: 12 orange petals and 8 livingrock, each time."
+				"FOUND IN: Alfheim Hills, Starved Reach, Sundered Highlands."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "minecraft:rail"
+			id: "7A2FB9AFF5E07880"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/quarry"
+				elevate_perms: true
+				id: "24BCB0E40DE769C7"
+				silent: true
+				title: "Survey Chart — The Quarries"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "12 orange petals and 8 livingrock"
+			tasks: [
+				{
+					consume_items: true
+					count: 12L
+					id: "16D133C57A722CD4"
+					item: "botania:orange_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 8L
+					id: "0C9D608801B8A9F8"
+					item: "botania:livingrock"
+					type: "item"
+				}
+			]
+			title: "Chart: The Quarries"
+			x: 0.0d
+			y: 5.5d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"Where a working let go. The floor is glass and the rim is what used to be here."
+				""
+				"PRICE: 12 red petals and 8 livingrock, each time."
+				"FOUND IN: Golden Fields, Hollow Marches, Scorchfell."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "minecraft:magma_block"
+			id: "42A1C1D1E07483EE"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/crater"
+				elevate_perms: true
+				id: "367A5E1DA6DFB2C8"
+				silent: true
+				title: "Survey Chart — The Craters"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "12 red petals and 8 livingrock"
+			tasks: [
+				{
+					consume_items: true
+					count: 12L
+					id: "1E68137BA15BCD21"
+					item: "botania:red_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 8L
+					id: "4358C7ADD46AB0EE"
+					item: "botania:livingrock"
+					type: "item"
+				}
+			]
+			title: "Chart: The Craters"
+			x: 2.0d
+			y: 5.5d
+		}
+		{
+			can_repeat: true
+			dependencies: ["4F552307DE13DA19"]
+			description: [
+				"A curtain wall, four corners and a keep. The elves fortified against something."
+				""
+				"PRICE: 16 magenta petals and 12 livingrock, each time."
+				"FOUND IN: Alfheim Hills, Ashen Grove, Hollow Marches, Infested Warren, Sundered Highlands."
+				""
+				"The chart points at the nearest one of ANY kind — the Survey filed all of them under the same heading, and so does this."
+				""
+				"Repeatable. Buy another whenever you have wandered far enough for the old one to be useless."
+			]
+			icon: "minecraft:polished_blackstone_bricks"
+			id: "0C48C0AC1E26AB36"
+			optional: true
+			rewards: [{
+				auto: "enabled"
+				command: "/loot give {p} loot alfheim:explorer_maps/castle"
+				elevate_perms: true
+				id: "47AF74D82CA9E872"
+				silent: true
+				title: "Survey Chart — The Keeps"
+				type: "command"
+			}]
+			shape: "rsquare"
+			subtitle: "16 magenta petals and 12 livingrock"
+			tasks: [
+				{
+					consume_items: true
+					count: 16L
+					id: "5AD8F7177DB19C84"
+					item: "botania:magenta_petal"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 12L
+					id: "26DBFE0699094241"
+					item: "botania:livingrock"
+					type: "item"
+				}
+			]
+			title: "Chart: The Keeps"
+			x: 4.0d
+			y: 5.5d
+		}
+	]
+	subtitle: ["What the Royal Survey still remembers"]
+	title: "The Cartographer"
+}

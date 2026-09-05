@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 7.5,
+      "min": 5.0,
+      "stat": "dodge"
+    }
+  ],
+  "gear_slot": "helmet",
+  "guid": "alfheim_hunter_helmet",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/helmet/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "dexterity": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "dexterity",
+      "dodge_stat",
+      "armor_family",
+      "helmet",
+      "leather_helmet"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

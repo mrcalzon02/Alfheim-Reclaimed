@@ -1,0 +1,8 @@
+
+["Configs for Jaffabricate"]
+	#OFF - Chocolate blocks will not melt
+	#BIOME - Chocolate blocks will melt in hot biomes during the day
+	#HEAT - Chocolate blocks will melt when near heat sources such as fire and in hot biomes
+	#LIGHT - Chocolate blocks will melt when near any light source
+	"Chocolate Melting" = "BIOME"
+

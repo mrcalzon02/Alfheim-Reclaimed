@@ -1,0 +1,81 @@
+{
+  "carvers": {
+    "air": [
+      "mythicbotany:cave",
+      "mythicbotany:canyon"
+    ]
+  },
+  "creature_spawn_probability": 0.2,
+  "downfall": 0.6,
+  "temperature": 0.7,
+  "has_precipitation": true,
+  "effects": {
+    "fog_color": 5925690,
+    "sky_color": 8030794,
+    "water_color": 3824170,
+    "water_fog_color": 1714706
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "mythicbotany:metamorphic_forest_stone",
+      "mythicbotany:metamorphic_mountain_stone",
+      "mythicbotany:metamorphic_fungal_stone",
+      "mythicbotany:metamorphic_swamp_stone",
+      "mythicbotany:metamorphic_desert_stone",
+      "mythicbotany:metamorphic_taiga_stone",
+      "mythicbotany:metamorphic_mesa_stone",
+      "mythicbotany:elementium_ore",
+      "mythicbotany:dragonstone_ore",
+      "mythicbotany:gold_ore"
+    ],
+    [],
+    [],
+    [
+      "mythicbotany:alfheim_grass"
+    ],
+    []
+  ],
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "feywild:shroomling",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 5
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:cave_spider",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 20
+      },
+      {
+        "type": "minecraft:silverfish",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 14
+      },
+      {
+        "type": "minecraft:spider",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 8
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  }
+}

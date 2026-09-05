@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:fen_shrine",
+    "alfheim:bloomfall_shrine",
+    "alfheim:lake_shrine"
+  ]
+}

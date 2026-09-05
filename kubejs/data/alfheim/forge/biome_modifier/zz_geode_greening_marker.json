@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:bloomfall_vale",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:golden_fields"
+  ],
+  "features": "alfheim:geode_greening_marker",
+  "step": "top_layer_modification"
+}

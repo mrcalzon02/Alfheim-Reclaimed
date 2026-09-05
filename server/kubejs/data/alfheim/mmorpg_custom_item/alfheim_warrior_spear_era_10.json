@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_warrior_spear_era_10",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "legendary",
+    "mythic"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_warrior_spear",
+  "disable_salvaging": false
+}

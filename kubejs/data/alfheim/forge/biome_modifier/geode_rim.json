@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:void_verge"
+  ],
+  "features": "alfheim:geode_rim",
+  "step": "local_modifications"
+}

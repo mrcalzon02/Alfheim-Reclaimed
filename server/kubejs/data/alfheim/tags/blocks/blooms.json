@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:cinderbloom_ore",
+    "alfheim:verdigris_ore",
+    "alfheim:palebloom_ore",
+    "alfheim:sparkroot_ore",
+    "alfheim:duskbloom_ore",
+    "alfheim:sunbloom_ore",
+    "alfheim:cloudglass_ore",
+    "alfheim:silverthorn_ore",
+    "alfheim:grievebloom_ore",
+    "alfheim:rimebloom_ore",
+    "alfheim:emberwake_ore",
+    "alfheim:farbloom_ore"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:explorer_maps/crater",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "alfheim:crater",
+              "decoration": "red_x",
+              "zoom": 3,
+              "search_radius": 150,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Survey Chart \u2014 The Craters",
+                "italic": false,
+                "color": "aqua"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Where a working let go. The floor is glass and the rim is what used to be here.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ],
+              "replace": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

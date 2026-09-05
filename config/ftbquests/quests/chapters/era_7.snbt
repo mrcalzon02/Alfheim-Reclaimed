@@ -1,0 +1,791 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_7"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:emberbound_weave"
+	id: "40E8BD29DBB52D02"
+	order_index: 6
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Fire now. Both kinds — the Nether, and the memory."
+				""
+				"Something burned Alfheim. We are about to spend an era learning to hold fire safely, which is either wisdom or irony and I have stopped deciding."
+			]
+			id: "2EB160E50542C131"
+			rewards: [{
+				id: "5DFE27C87B2258BD"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "696116A65FBD8FBD"
+				title: "Era 7"
+				type: "checkmark"
+			}]
+			title: "Era 7"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: ["Spirit fire. It burns what should not burn and leaves what should not remain."]
+			id: "37368026B60E0AC2"
+			rewards: [{
+				id: "3B4C135B6AE1C11C"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "3767647B13CF18E1"
+				item: "occultism:sacrificial_bowl"
+				type: "item"
+			}]
+			title: "Spirit Fire"
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["37368026B60E0AC2"]
+			description: [
+				"A basin, and something to stir it."
+				""
+				"Mixing under heat does what no flower will. You are not abandoning the Song by owning one; you are admitting that some problems are chemistry."
+			]
+			id: "725CD604F1544297"
+			rewards: [{
+				id: "0BE8C4B2A6FC83FA"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "447CDBABADC69B97"
+				item: "create:basin"
+				type: "item"
+			}]
+			title: "The Basin"
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			description: ["The brewery. Not everything worth making is solid."]
+			id: "4A94411362347051"
+			rewards: [{
+				id: "403A948DDC5DD951"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "1D5B51356202E78A"
+				item: "botania:brewery"
+				type: "item"
+			}]
+			title: "The Brewery"
+			x: 4.5d
+			y: -1.5d
+		}
+		{
+			description: ["A Ritual of the Forest. Multi-block, slow, and worth it."]
+			id: "007307DECA4773B7"
+			rewards: [{
+				id: "3A1278F079CEA56B"
+				item: "alfheim:wildmarch_sinew"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "0C569B0C5807C0FE"
+				item: "naturesaura:gold_powder"
+				type: "item"
+			}]
+			title: "The Tree Ritual"
+			x: 6.0d
+			y: -1.5d
+		}
+		{
+			description: [
+				"Spirit fire. It burns what should not burn and leaves what should not remain."
+				""
+				"Step 1 of 11."
+			]
+			id: "0A54ECC2FF3D7B3D"
+			rewards: [{
+				id: "2B4A7E07F1226CEF"
+				item: "alfheim:scorched_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/11"
+			tasks: [{
+				id: "60A7B054073DEDD6"
+				item: "alfheim:scorched_filament"
+				type: "item"
+			}]
+			title: "Scorched Filament"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0A54ECC2FF3D7B3D"]
+			description: [
+				"Mixed under heat. Elven work still needs a stirring rod sometimes."
+				""
+				"Step 2 of 11."
+			]
+			id: "5E7E9CD9B45B4AC4"
+			rewards: [{
+				id: "3069913FBCFC8A0E"
+				item: "alfheim:quenched_thread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/11"
+			tasks: [{
+				id: "1E325CF47D5C0C0D"
+				item: "alfheim:quenched_thread"
+				type: "item"
+			}]
+			title: "Quenched Thread"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Into the furnace. The oldest process we have and still the honest one."
+				""
+				"Step 3 of 11."
+			]
+			id: "0834DFF10D7AD68F"
+			rewards: [{
+				id: "630C6CC30C2E25FE"
+				item: "alfheim:ember_lattice"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/11"
+			tasks: [{
+				id: "18CCABA4932EFCE7"
+				item: "alfheim:ember_lattice"
+				type: "item"
+			}]
+			title: "Ember Lattice"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0834DFF10D7AD68F"]
+			description: [
+				"The brewery. Not everything worth making is solid."
+				""
+				"Step 4 of 11."
+			]
+			id: "7E982FA701A73AF5"
+			rewards: [{
+				id: "57AB6F03032C4C97"
+				item: "alfheim:bound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/11"
+			tasks: [{
+				id: "037E1C2582874ED4"
+				item: "alfheim:bound_weave"
+				type: "item"
+			}]
+			title: "Bound Weave"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 5 of 11."
+			]
+			id: "5A8A81F6CDDD2277"
+			rewards: [{
+				id: "077289B9EA54EBB6"
+				item: "alfheim:tempered_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/11"
+			tasks: [{
+				id: "54155C8A2217EA46"
+				item: "alfheim:tempered_weave"
+				type: "item"
+			}]
+			title: "Tempered Weave"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A8A81F6CDDD2277"]
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 6 of 11."
+			]
+			id: "11DE7CEA786DC321"
+			rewards: [{
+				id: "7A92C20DE7A0046C"
+				item: "alfheim:emberbound_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 6/11"
+			tasks: [{
+				id: "41F26296EC8A4151"
+				item: "alfheim:emberbound_drawn"
+				type: "item"
+			}]
+			title: "Emberbound Drawn"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["11DE7CEA786DC321"]
+			description: [
+				"A Ritual of the Forest. Multi-block, slow, and worth it."
+				""
+				"Step 7 of 11."
+			]
+			id: "15F396DD700ACDF1"
+			rewards: [{
+				id: "30CD33199F3554D2"
+				item: "alfheim:emberbound_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 7/11"
+			tasks: [{
+				id: "38A0970A4A336FEA"
+				item: "alfheim:emberbound_folded"
+				type: "item"
+			}]
+			title: "Emberbound Folded"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Through the gate and back. What returns is not what you sent."
+				""
+				"Step 8 of 11."
+			]
+			id: "1BB89C94FDAC9F68"
+			rewards: [{
+				id: "1E4534DAB2369078"
+				item: "alfheim:emberbound_stilled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 8/11"
+			tasks: [{
+				id: "35B66200FEDBD884"
+				item: "alfheim:emberbound_stilled"
+				type: "item"
+			}]
+			title: "Emberbound Stilled"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				""
+				"Step 9 of 11."
+			]
+			id: "660809BD09E0EA38"
+			rewards: [{
+				id: "2C12B4F3C52BBCD8"
+				item: "alfheim:emberbound_rebound"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 9/11"
+			tasks: [{
+				id: "6E98A66956B68A2D"
+				item: "alfheim:emberbound_rebound"
+				type: "item"
+			}]
+			title: "Emberbound Rebound"
+			x: 13.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["660809BD09E0EA38"]
+			description: [
+				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				""
+				"Step 10 of 11."
+			]
+			id: "1DD37453086905AB"
+			rewards: [{
+				id: "11E4E52A7AD08D58"
+				item: "alfheim:emberbound_quenched"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 10/11"
+			tasks: [{
+				id: "52A9E13417E0E7A1"
+				item: "alfheim:emberbound_quenched"
+				type: "item"
+			}]
+			title: "Emberbound Quenched"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The last step. Emberbound Weave."
+				""
+				"Era VII. It remembers the fire and has agreed to hold it."
+				""
+				"11 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "1D48466AEA563A9F"
+			rewards: [{
+				id: "07A2E7090D21B01B"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 11/11"
+			tasks: [{
+				id: "45B04FAF1311DAF8"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			title: "Emberbound Weave"
+			x: 16.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "3DA64EC0F9AF648B"
+			rewards: [{
+				count: 8
+				id: "6CB3697EDA75A12C"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "08726311A3D782EE"
+				item: "ars_nouveau:volcanic_sourcelink"
+				type: "item"
+			}]
+			title: "Volcanic Sourcelink"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["3DA64EC0F9AF648B"]
+			description: ["The other tradition, keeping pace."]
+			id: "05D189CD1E2A16F0"
+			rewards: [{
+				count: 8
+				id: "2C312C2EC8789DCC"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "63897E59799E1EDA"
+				item: "ars_nouveau:spell_turret"
+				type: "item"
+			}]
+			title: "Spell Turret"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "56375028FE2BDEC3"
+			rewards: [{
+				count: 8
+				id: "41FD63793B29FF19"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "2E773FE28DF24B9A"
+				item: {
+					Count: 1
+					id: "ars_nouveau:potion_flask"
+					tag: {
+						Damage: 8
+					}
+				}
+				type: "item"
+			}]
+			title: "Potion Flask"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["56375028FE2BDEC3"]
+			description: ["The other tradition, keeping pace."]
+			id: "216CA196DC2DE831"
+			rewards: [{
+				count: 8
+				id: "04F72C45C3A78B8F"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "0AE40B6271BDAAC9"
+				item: "ars_nouveau:volcanic_sourcelink"
+				type: "item"
+			}]
+			title: "Volcanic Sourcelink"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "60AD8254849BD427"
+			rewards: [{
+				count: 8
+				id: "071D9FFF7F4A3AED"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "12D8392E7002DE3A"
+				item: "ars_nouveau:spell_turret"
+				type: "item"
+			}]
+			title: "Spell Turret"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "3F7E7B24797BD6C7"
+			rewards: [{
+				count: 8
+				id: "112E4CD542558127"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "33D36D816269B41D"
+				item: {
+					Count: 1
+					id: "ars_nouveau:potion_flask"
+					tag: {
+						Damage: 8
+					}
+				}
+				type: "item"
+			}]
+			title: "Potion Flask"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "10219CE8006E8C95"
+			rewards: [{
+				count: 8
+				id: "684AD30A4EC45FDD"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "6F519C689A6C053D"
+				item: "ars_nouveau:volcanic_sourcelink"
+				type: "item"
+			}]
+			title: "Volcanic Sourcelink"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "622F25DEC9D84194"
+			rewards: [{
+				count: 4
+				id: "5D49124CAC898913"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "695ADC7923E4CB81"
+				item: "minecolonies:blockhutbaker"
+				type: "item"
+			}]
+			title: "Blockhutbaker"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "7792D7CFAC01DDDA"
+			rewards: [{
+				count: 4
+				id: "0A324897470346C8"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "5CB9142EEA7D05D5"
+				item: "minecraft:blast_furnace"
+				type: "item"
+			}]
+			title: "Blast Furnace"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "2F279C26DC940B23"
+			rewards: [{
+				count: 4
+				id: "2A27131203791243"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "099B128C16D9FF46"
+				item: "minecolonies:blockhutbaker"
+				type: "item"
+			}]
+			title: "Blockhutbaker"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["2F279C26DC940B23"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "6ACBBFADF63E55F0"
+			rewards: [{
+				count: 4
+				id: "0577F6AC392130B3"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "7F338ECC1A1D9B67"
+				item: "minecraft:blast_furnace"
+				type: "item"
+			}]
+			title: "Blast Furnace"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "75180F611DDB8C84"
+			rewards: [{
+				count: 8
+				id: "3FE08AD3A13C3884"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "728EAFE9E59E7534"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["75180F611DDB8C84"]
+			description: ["Deeper than last time. It always is."]
+			id: "1D503E3D227386E8"
+			rewards: [{
+				count: 8
+				id: "0EE1EFD4C7949891"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "59BB12AD7773FC98"
+				item: "mmorpg:currency/sharpening_stone_3"
+				type: "item"
+			}]
+			title: "Currency/sharpening Stone 3"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "0ECD4A974B737059"
+			rewards: [{
+				count: 8
+				id: "42D62A61EA75516D"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "78B1BED00FFCC97D"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: [
+				"1D48466AEA563A9F"
+				"10219CE8006E8C95"
+				"6ACBBFADF63E55F0"
+				"0ECD4A974B737059"
+			]
+			description: [
+				"The Rune of Muspelheim."
+				""
+				"The realm of fire, which in every account is the thing that ends the world."
+				""
+				"We have just spent an era making it work for us. Do not let that make you comfortable."
+			]
+			id: "65BB6FE12A6A2B5E"
+			rewards: [{
+				count: 2
+				id: "309B6C9BE298EA3E"
+				item: "alfheim:emberbound_weave"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "3105C2A6F3FC2C45"
+				item: "mythicbotany:muspelheim_rune"
+				type: "item"
+			}]
+			title: "The Rune of Muspelheim"
+			x: 6.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"Before I show you the trick, I want you standing in front of a budding crystal with a silk-touch pick you are not going to use."
+				""
+				"Six of the seven crystals in this world bud. Break the cluster and the block grows another, forever, the way vanilla amethyst does -- that is not an accident of the geodes, it is the only reason the next quest is possible at all."
+				""
+				"The seventh, frost, does not bud. That is why it is not in the shard tag and why nothing renewable will ever be built on it. Learn to tell them apart by which one is still there tomorrow."
+			]
+			id: "30F6899808B75B19"
+			rewards: [{
+				count: 2
+				id: "1D888DB5036B24F6"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Budding crystal"
+			tasks: [{
+				id: "535F1DDB08D47DDD"
+				title: "A Crystal That Grows Back"
+				type: "checkmark"
+			}]
+			title: "A Crystal That Grows Back"
+			x: 0.0d
+			y: 8.0d
+		}
+		{
+			description: [
+				"Basin, mixer, fire under it. Two shards, a mana powder, half a bucket of water."
+				""
+				"You have been spending Liquid Bifrost since Era Two and you have never once made any. The pools are one in forty chunks and they do not come back -- which means every conversion you have run has been drawn against a balance that only goes down. I have watched apprentices spend their last bucket on the wrong system and lose that road permanently."
+				""
+				"This is the answer, and note what it is made of: water, which is everywhere; mana powder, which is a flower; and crystal, which grows back. Nothing in it is finite. That is the whole design."
+				""
+				"It is not cheaper than finding a pool. It was never supposed to be. It is only *endless*, which is a different and better thing."
+			]
+			id: "3776B6265542681C"
+			rewards: [{
+				id: "43F497FE1569982B"
+				item: "alfheim:distilled_bifrost"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Liquid Bifrost, made"
+			tasks: [
+				{
+					id: "0B8AA7E83DE54641"
+					item: "create:basin"
+					type: "item"
+				}
+				{
+					id: "6C8595EBE2AA3819"
+					item: "alfheim:liquid_bifrost_bucket"
+					type: "item"
+				}
+			]
+			title: "Stop Going To The Lakes"
+			x: 1.5d
+			y: 8.0d
+		}
+		{
+			description: [
+				"Go back to the exchange and run it again, and this time do not think about it."
+				""
+				"That is the point of the mixer. Not that the rate improved -- it did not, and it will not -- but that the rate is now the only thing standing between you and another system. Cost you can pay. Scarcity you cannot."
+			]
+			id: "103D228AACA5BDE1"
+			rewards: [{
+				count: 4
+				id: "041AC58890AE0B74"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The exchange, reopened"
+			tasks: [{
+				count: 4L
+				id: "5B8B9FFF52A44C7E"
+				item: "alfheim:distilled_bifrost"
+				type: "item"
+			}]
+			title: "Spend It Freely Now"
+			x: 3.0d
+			y: 8.0d
+		}
+	]
+	subtitle: ["Can we survive our own fire?"]
+	title: "VII — The Burning Cradle"
+}

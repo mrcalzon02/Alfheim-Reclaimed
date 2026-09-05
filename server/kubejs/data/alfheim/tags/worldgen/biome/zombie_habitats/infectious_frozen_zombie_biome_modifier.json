@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "frozen_peaks",
+    "snowy_slopes",
+    "snowy_beach",
+    "snowy_plains",
+    "snowy_taiga",
+    "ice_spikes",
+    "#alfheim:populated_biomes"
+  ]
+}

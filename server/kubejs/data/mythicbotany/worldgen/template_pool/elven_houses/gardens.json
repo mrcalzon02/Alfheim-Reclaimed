@@ -1,0 +1,47 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "mythicbotany:elven_houses/gardens/flower_garden",
+        "processors": "alfheim:elven_ruin",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "mythicbotany:elven_houses/gardens/crop_garden",
+        "processors": "alfheim:elven_ruin",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "mythicbotany:elven_houses/buildings/house",
+        "processors": "alfheim:elven_ruin",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "mythicbotany:elven_houses/buildings/tower",
+        "processors": "alfheim:elven_ruin",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

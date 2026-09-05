@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:explorer_maps/aqueduct",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "alfheim:aqueduct",
+              "decoration": "monument",
+              "zoom": 2,
+              "search_radius": 100,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Survey Chart \u2014 The Aqueducts",
+                "italic": false,
+                "color": "aqua"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "The water ran overhead once. This is the reason the fens are fens.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ],
+              "replace": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#alfheim:veined",
+  "features": [
+    "alfheim:bloom_sparkroot",
+    "alfheim:bloom_duskbloom",
+    "alfheim:bloom_sunbloom",
+    "alfheim:bloom_cloudglass"
+  ],
+  "step": "underground_ores"
+}

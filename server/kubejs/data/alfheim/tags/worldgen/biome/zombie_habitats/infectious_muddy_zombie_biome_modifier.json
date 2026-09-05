@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mangrove_swamp",
+    "swamp",
+    "#alfheim:populated_biomes"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 7.5,
+      "min": 5.0,
+      "stat": "armor"
+    }
+  ],
+  "gear_slot": "boots",
+  "guid": "alfheim_warrior_boots",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/boots/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "strength": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "armor_family",
+      "plate_boots",
+      "strength",
+      "boots",
+      "armor_stat"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

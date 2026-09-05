@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:zombie_habitats/infectious_zombie_diver_biome_modifier",
+  "spawners": {
+    "type": "infectious:zombie_diver",
+    "weight": 2,
+    "minCount": 2,
+    "maxCount": 4
+  }
+}

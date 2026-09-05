@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:zombie_habitats/infectious_frozen_zombie_biome_modifier",
+  "spawners": {
+    "type": "infectious:frozen_zombie",
+    "weight": 15,
+    "minCount": 2,
+    "maxCount": 4
+  }
+}

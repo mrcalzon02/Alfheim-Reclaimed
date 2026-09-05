@@ -1,0 +1,38 @@
+{
+  "icon": "botania:dreamwood",
+  "start": {
+    "title": {
+      "translate": "A Length Of Dreamwood"
+    },
+    "description": {
+      "translate": "One last thing, and it is for me rather than for you.\n\nBring me dreamwood. My staff is livingwood, and livingwood does not grow here any more. I have been leaning on a memory for eleven years."
+    }
+  },
+  "parent": "quest_giver:grow",
+  "complete": {
+    "title": {
+      "translate": "A Length Of Dreamwood"
+    },
+    "description": {
+      "translate": "That will hold. Thank you.\n\nGo and speak to Orenvel when you can carry a blade. He has been waiting longer than I have, and he is worse at it."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:gift",
+      "entity": "richs_races_wood_elves:wood_elf",
+      "item": {
+        "item": "botania:dreamwood"
+      }
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "botania:mana_spreader",
+        "count": 1
+      }
+    }
+  ]
+}

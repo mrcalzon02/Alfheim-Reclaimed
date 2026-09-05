@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "idle": {
+      "loop": true,
+      "animation_length": 4,
+      "bones": {
+        "head": {
+          "rotation": [
+            0,
+            "math.sin(query.anim_time * 35) * 4",
+            0
+          ]
+        }
+      }
+    },
+    "move": {
+      "loop": true,
+      "animation_length": 1,
+      "bones": {
+        "leg0": {
+          "rotation": [
+            "math.sin(query.anim_time * 360 + 0) * 25",
+            0,
+            0
+          ]
+        },
+        "leg1": {
+          "rotation": [
+            "math.sin(query.anim_time * 360 + 180) * 25",
+            0,
+            0
+          ]
+        },
+        "arm0": {
+          "rotation": [
+            "math.sin(query.anim_time * 360 + 0) * 25",
+            0,
+            0
+          ]
+        },
+        "arm1": {
+          "rotation": [
+            "math.sin(query.anim_time * 360 + 180) * 25",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

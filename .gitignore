@@ -1,0 +1,43 @@
+# Minecraft runtime/generated data
+logs/
+crash-reports/
+screenshots/
+saves/
+downloads/
+local/
+.mixin.out/
+journeymap/
+
+# Local/user-specific state
+usercache.json
+usernamecache.json
+rhino.local.properties
+
+# Temporary/runtime files
+*.log
+*.tmp
+*.bak
+*.old
+
+# OS/editor files
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Third-party dependencies/source mirrors
+mods/
+tools/vendor/
+
+# Generated build output
+.gradle/
+**/.gradle/
+**/build/
+**/run/
+
+# CurseForge / player-local state
+.curseclient
+options.txt
+quarantine/
+

@@ -1,0 +1,16 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:silverbark_wood",
+    "alfheim:bloomfall_vale",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:golden_fields"
+  ],
+  "spawners": {
+    "type": "alfheim:whitetail_doe",
+    "weight": 10,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

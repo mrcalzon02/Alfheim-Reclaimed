@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "desert",
+    "badlands",
+    "eroded_badlands",
+    "wooded_badlands",
+    "#alfheim:populated_biomes"
+  ]
+}

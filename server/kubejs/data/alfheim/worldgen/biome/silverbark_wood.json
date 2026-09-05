@@ -1,0 +1,105 @@
+{
+  "carvers": {
+    "air": [
+      "mythicbotany:cave",
+      "mythicbotany:canyon"
+    ]
+  },
+  "creature_spawn_probability": 0.2,
+  "downfall": 0.6,
+  "temperature": 0.35,
+  "has_precipitation": true,
+  "effects": {
+    "fog_color": 12175308,
+    "sky_color": 10467012,
+    "water_color": 5470348,
+    "water_fog_color": 1979712
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "mythicbotany:metamorphic_forest_stone",
+      "mythicbotany:metamorphic_mountain_stone",
+      "mythicbotany:metamorphic_fungal_stone",
+      "mythicbotany:metamorphic_swamp_stone",
+      "mythicbotany:metamorphic_desert_stone",
+      "mythicbotany:metamorphic_taiga_stone",
+      "mythicbotany:metamorphic_mesa_stone",
+      "mythicbotany:elementium_ore",
+      "mythicbotany:dragonstone_ore",
+      "mythicbotany:gold_ore"
+    ],
+    [],
+    [],
+    [
+      "mythicbotany:alfheim_grass",
+      "mythicbotany:loose_dreamwood_trees"
+    ],
+    []
+  ],
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "minecraft:sheep",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 12
+      },
+      {
+        "type": "minecraft:pig",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:chicken",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:cow",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 8
+      },
+      {
+        "type": "mythicbotany:alf_pixie",
+        "maxCount": 10,
+        "minCount": 4,
+        "weight": 5
+      },
+      {
+        "type": "feywild:spring_pixie",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 14
+      },
+      {
+        "type": "feywild:sprite",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "feywild:spring_tree_ent",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 2
+      }
+    ],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:emberglass_cluster",
+    "alfheim:tidewake_cluster",
+    "alfheim:rootglass_cluster",
+    "alfheim:galeglass_cluster",
+    "alfheim:duskglass_cluster",
+    "alfheim:dawnglass_cluster"
+  ]
+}

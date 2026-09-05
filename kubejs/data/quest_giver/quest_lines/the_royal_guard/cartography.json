@@ -1,0 +1,37 @@
+{
+  "icon": "mmorpg:map_creator",
+  "start": {
+    "title": {
+      "translate": "Draw Your Own Ground"
+    },
+    "description": {
+      "translate": "The Guard surveyed everything it could reach and the surveys burned with the archive.\n\nSo you will draw them again. Make the device. I will tell you what it is for once it is in your hand."
+    }
+  },
+  "parent": "quest_giver:provision",
+  "complete": {
+    "title": {
+      "translate": "Draw Your Own Ground"
+    },
+    "description": {
+      "translate": "That is a map creator. It writes ground you have not walked yet."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:craft",
+      "item": {
+        "item": "mmorpg:map_creator"
+      }
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "dungeon_realm:dungeon_map",
+        "count": 1
+      }
+    }
+  ]
+}

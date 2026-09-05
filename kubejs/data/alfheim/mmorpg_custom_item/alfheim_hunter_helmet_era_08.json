@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_hunter_helmet_era_08",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "epic",
+    "legendary"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_hunter_helmet",
+  "disable_salvaging": false
+}

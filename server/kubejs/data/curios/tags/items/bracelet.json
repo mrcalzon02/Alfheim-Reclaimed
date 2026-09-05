@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:curio/profession/alchemy/apprentice",
+    "alfheim:curio/profession/alchemy/guild",
+    "alfheim:curio/profession/alchemy/master",
+    "alfheim:curio/profession/cooking/apprentice",
+    "alfheim:curio/profession/cooking/guild",
+    "alfheim:curio/profession/cooking/master",
+    "alfheim:curio/profession/enchanting/apprentice",
+    "alfheim:curio/profession/enchanting/guild",
+    "alfheim:curio/profession/enchanting/master",
+    "alfheim:curio/profession/farming/apprentice",
+    "alfheim:curio/profession/farming/guild",
+    "alfheim:curio/profession/farming/master",
+    "alfheim:curio/profession/fishing/apprentice",
+    "alfheim:curio/profession/fishing/guild",
+    "alfheim:curio/profession/fishing/master",
+    "alfheim:curio/profession/gear_crafting/apprentice",
+    "alfheim:curio/profession/gear_crafting/guild",
+    "alfheim:curio/profession/gear_crafting/master",
+    "alfheim:curio/profession/husbandry/apprentice",
+    "alfheim:curio/profession/husbandry/guild",
+    "alfheim:curio/profession/husbandry/master",
+    "alfheim:curio/profession/mining/apprentice",
+    "alfheim:curio/profession/mining/guild",
+    "alfheim:curio/profession/mining/master",
+    "alfheim:curio/profession/salvaging/apprentice",
+    "alfheim:curio/profession/salvaging/guild",
+    "alfheim:curio/profession/salvaging/master"
+  ]
+}

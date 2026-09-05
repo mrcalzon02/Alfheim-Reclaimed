@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:ashen_grove",
+    "alfheim:silverbark_wood",
+    "alfheim:mana_fen",
+    "alfheim:sundered_highlands",
+    "alfheim:bloomfall_vale",
+    "alfheim:hollow_marches",
+    "alfheim:starved_reach",
+    "alfheim:scorchfell",
+    "alfheim:infested_warren",
+    "alfheim:decayed_mire",
+    "alfheim:void_verge"
+  ]
+}

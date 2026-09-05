@@ -1,0 +1,192 @@
+
+#Continuity Works Biome Templates
+#All biome templates are enabled by default.
+#Set a biome to false to remove it from NEW natural Overworld generation.
+#The biome registry entry remains available so existing worlds stay readable.
+#Restart Minecraft/server after changing these values.
+[biomes]
+	temperateGrove = true
+	floweringMeadow = true
+	mistyHighlands = true
+	marshland = true
+	frostedTaiga = true
+	dryScrubland = true
+	rockyBadlands = true
+	ashWastes = true
+
+#Infinite Domain Abyssal biome family.
+#The family switch and each member switch affect natural generation only.
+#Registry definitions stay loaded so saved chunks remain readable.
+[abyssal]
+	enabled = true
+	westernContinentalSlope = true
+	westernAbyssalPlain = true
+	westernFractureField = true
+	westernHadalTrench = true
+	easternContinentalSlope = true
+	easternAbyssalPlain = true
+	easternFractureField = true
+	easternHadalTrench = true
+
+#128-biome anthology.
+#Each family has a master switch and every anthology biome has an individual natural-generation switch.
+#Definitions remain registered even when natural placement is disabled.
+[anthology]
+
+	[anthology.primordial]
+		enabled = true
+		flintgrass_steppe = true
+		mammoth_tundra = true
+		giant_fern_basin = true
+		cycad_lowlands = true
+		tar_pit_savanna = true
+		obsidian_ridge = true
+		karst_hunterlands = true
+		redwood_primeval = true
+		riverstone_valley = true
+		bonefield_flats = true
+		firebreak_scrub = true
+		megafauna_marsh = true
+		basalt_cave_uplands = true
+		amber_forest = true
+		glacial_hunter_coast = true
+		thunder_plateau = true
+
+	[anthology.ancient]
+		enabled = true
+		reed_kingdom_floodplain = true
+		sunstone_desert = true
+		marble_coast = true
+		olive_hills = true
+		imperial_steppe = true
+		sacred_cedar_highlands = true
+		terraced_river_valley = true
+		bronze_quarrylands = true
+		oasis_caravan_basin = true
+		red_clay_delta = true
+		temple_karst = true
+		salt_road_flats = true
+		volcanic_polis_slopes = true
+		cypress_necropolis = true
+		copper_wadi = true
+		ancient_harbor_coast = true
+
+	[anthology.medieval]
+		enabled = true
+		feudal_farmlands = true
+		greenwood_march = true
+		castle_highlands = true
+		monastery_vale = true
+		heathland_commons = true
+		fogbound_moor = true
+		alpine_holdfast = true
+		river_mill_country = true
+		walled_market_plain = true
+		old_growth_hunting_forest = true
+		iron_mine_hills = true
+		fenland_causeways = true
+		shepherd_downs = true
+		battlefield_heath = true
+		coastal_fishing_shires = true
+		plaguewood_ruins = true
+
+	[anthology.renaissance_clockwork]
+		enabled = true
+		terraced_vineyard = true
+		canal_republic = true
+		windmill_polders = true
+		clockwork_garden = true
+		observatory_highlands = true
+		gunpowder_quarrylands = true
+		merchant_coast = true
+		printing_city_hinterland = true
+		glassmaker_dunes = true
+		hydraulic_gardens = true
+		copperwork_hills = true
+		academy_grove = true
+		foundry_canal_district = true
+		baroque_estates = true
+		airship_moorings = true
+		mechanist_citadel = true
+
+	[anthology.industrial]
+		enabled = true
+		coal_basin = true
+		ironworks_valley = true
+		railcut_highlands = true
+		textile_mill_country = true
+		smog_city_fringe = true
+		slag_heath = true
+		quarry_megaplex = true
+		petroleum_marsh = true
+		steel_river = true
+		factory_coast = true
+		workers_row_district = true
+		steamworks_plateau = true
+		telegraph_plains = true
+		cinder_forest = true
+		canal_freightlands = true
+		dynamo_ridge = true
+
+	[anthology.atomic_post_collapse]
+		enabled = true
+		blast_crater_expanse = true
+		glassed_desert = true
+		fallout_pine_barrens = true
+		flooded_metro_basin = true
+		bunker_steppe = true
+		reactor_marsh = true
+		rustbelt_ruins = true
+		mutant_orchard = true
+		trench_scar_plains = true
+		ashen_suburbs = true
+		collapsed_dam_valley = true
+		radstorm_badlands = true
+		wreckage_coast = true
+		black_rain_forest = true
+		emergency_habitat_zone = true
+		dead_transmission_hills = true
+
+	[anthology.advanced_scifi]
+		enabled = true
+		terraforming_prairie = true
+		crystal_reactor_highlands = true
+		arcology_basin = true
+		fusion_desert = true
+		orbital_elevator_exclusion_zone = true
+		bioengineered_forest = true
+		nanite_flats = true
+		gravity_quarry = true
+		quantum_geode_valley = true
+		spaceport_barrens = true
+		hydroponic_megafarm = true
+		shielded_habitat_ridge = true
+		solar_mirror_desert = true
+		antimatter_research_wastes = true
+		helium_3_mining_plateau = true
+		synthetic_wetlands = true
+
+	[anthology.neon_virtual]
+		enabled = true
+		neon_city_grid = true
+		grid_core_metropolis = true
+		circuit_forest = true
+		hologram_gardens = true
+		data_spire_basin = true
+		chromatic_glass_desert = true
+		pulseway_corridor = true
+		synthwave_coast = true
+		luminous_canal_district = true
+		blacklight_badlands = true
+		pixelated_mesa = true
+		photon_marsh = true
+		cyber_shrine_highlands = true
+		vector_plains = true
+		recursive_ruins = true
+		null_sector = true
+
+[worldgen]
+	#Relative TerraBlender region weight. Higher values make Continuity Works biomes more common.
+	#Range: 1 ~ 20
+	regionWeight = 20
+

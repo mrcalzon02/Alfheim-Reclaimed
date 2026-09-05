@@ -1,0 +1,5 @@
+{
+  "_comment": "B-43, CORRECTED 2026-09-04 after a dedicated-server boot. jaffabricate ships data/minecraft/tags/items/leaves.json pointing at #jaffabricate:orange_leaves and ships only the BLOCK version of that tag, so the item tag minecraft:leaves fails to load and takes minecraft:completes_find_tree_tutorial, minecolonies:fletcher_ingredient and minecolonies:compostables with it. The first fix supplied this tag with the eight values copied from the block tag -- and that was WRONG: none of those eight blocks has an item form at all, so the tag then failed on 'missing following references: jaffabricate:orange_leaves_one' and minecraft:leaves stayed broken. Verified against the jar: zero items match orange_leaves. The tag therefore has to be EMPTY. An empty tag is legal, it resolves the reference, and it is honest -- there are no orange leaf items to put in it. This one could only be found by loading it; the static form parsed perfectly both times.",
+  "replace": false,
+  "values": []
+}

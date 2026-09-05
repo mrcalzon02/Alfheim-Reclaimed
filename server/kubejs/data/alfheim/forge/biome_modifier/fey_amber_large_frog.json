@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:bloomfall_vale",
+    "mythicbotany:golden_fields"
+  ],
+  "spawners": {
+    "type": "alfheim:amber_large_frog",
+    "weight": 4,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

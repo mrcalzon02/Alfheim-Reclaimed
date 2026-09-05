@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 6.0,
+      "min": 2.0,
+      "stat": "weapon_damage"
+    }
+  ],
+  "gear_slot": "staff",
+  "guid": "alfheim_shaman_focus",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/focus/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "intelligence": 0.5
+    }
+  },
+  "style": "INT",
+  "tags": {
+    "tags": [
+      "mage_weapon",
+      "staff",
+      "weapon_family",
+      "melee_weapon",
+      "intelligence"
+    ]
+  },
+  "weapon_type": "staff",
+  "weight": 0
+}

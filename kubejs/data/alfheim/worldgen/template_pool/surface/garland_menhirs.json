@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:surface/garland_menhirs",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:surface/garland_menhirs",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

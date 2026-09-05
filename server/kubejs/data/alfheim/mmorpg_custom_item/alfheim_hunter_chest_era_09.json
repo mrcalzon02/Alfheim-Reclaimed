@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_hunter_chest_era_09",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "legendary",
+    "mythic"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_hunter_chest",
+  "disable_salvaging": false
+}

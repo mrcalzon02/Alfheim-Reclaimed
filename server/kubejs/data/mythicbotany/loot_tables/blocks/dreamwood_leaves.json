@@ -1,0 +1,211 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "mythicbotany:dreamwood_leaves"
+            },
+            {
+              "type": "minecraft:alternatives",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:any_of",
+                      "terms": [
+                        {
+                          "condition": "minecraft:match_tool",
+                          "predicate": {
+                            "enchantments": [
+                              {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                  "min": 1
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "condition": "minecraft:match_tool",
+                          "predicate": {
+                            "tag": "forge:shears"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "mythicbotany:dreamwood_leaves"
+                },
+                {
+                  "type": "libx:all",
+                  "children": [
+                    {
+                      "type": "minecraft:item",
+                      "conditions": [
+                        {
+                          "chances": [
+                            0.06,
+                            0.06666667,
+                            0.074999996,
+                            0.099999994,
+                            0.29999998
+                          ],
+                          "condition": "minecraft:table_bonus",
+                          "enchantment": "minecraft:fortune"
+                        }
+                      ],
+                      "functions": [
+                        {
+                          "add": false,
+                          "count": {
+                            "type": "minecraft:uniform",
+                            "max": 2.0,
+                            "min": 1.0
+                          },
+                          "function": "minecraft:set_count"
+                        }
+                      ],
+                      "name": "botania:dreamwood_twig"
+                    },
+                    {
+                      "type": "minecraft:item",
+                      "conditions": [
+                        {
+                          "chances": [
+                            0.015,
+                            0.016666668,
+                            0.018749999,
+                            0.024999999,
+                            0.074999996
+                          ],
+                          "condition": "minecraft:table_bonus",
+                          "enchantment": "minecraft:fortune"
+                        }
+                      ],
+                      "name": "mythicbotany:dream_cherry"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:any_of",
+            "terms": [
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "items": [
+                    "minecraft:shears"
+                  ]
+                }
+              },
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "botania:white_petal",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:survives_explosion"
+            },
+            {
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune",
+              "chances": [
+                0.09,
+                0.1035,
+                0.117,
+                0.144,
+                0.216
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "botania:light_gray_petal",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:survives_explosion"
+            },
+            {
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune",
+              "chances": [
+                0.09,
+                0.1035,
+                0.117,
+                0.144,
+                0.216
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "__alfheim": {
+    "generated_by": "tools/gen_groves.py",
+    "source_jar": "MythicBotany-1.20.1-4.0.4.jar",
+    "source_sha1_12": "f26d2f595ef5",
+    "original_pools": 1,
+    "added": "petal pool (white, light_gray) at 0.09"
+  }
+}

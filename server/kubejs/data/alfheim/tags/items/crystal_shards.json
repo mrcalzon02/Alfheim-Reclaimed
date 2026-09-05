@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:emberglass_shard",
+    "alfheim:tidewake_shard",
+    "alfheim:rootglass_shard",
+    "alfheim:galeglass_shard",
+    "alfheim:duskglass_shard",
+    "alfheim:dawnglass_shard"
+  ]
+}

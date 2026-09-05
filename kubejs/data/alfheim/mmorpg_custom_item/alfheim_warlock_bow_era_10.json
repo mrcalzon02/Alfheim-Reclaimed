@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_warlock_bow_era_10",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "legendary",
+    "mythic"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_warlock_bow",
+  "disable_salvaging": false
+}

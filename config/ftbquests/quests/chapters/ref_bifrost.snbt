@@ -1,0 +1,191 @@
+{
+	default_hide_dependency_lines: true
+	default_quest_shape: "gear"
+	filename: "ref_bifrost"
+	group: ""
+	icon: "alfheim:distilled_bifrost"
+	id: "17138429960F09AD"
+	order_index: 6
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Bifrost is bridge-stuff. Solid, it is the rainbow road the Aesir walked between the realms. What lies in Alfheim's shallows is the same substance with the bridge taken out of it -- what was left when the roads stopped being roads."
+				""
+				"FOUND: pools on the surface, 1 chunk in 40, in the lake biomes, the Mana Fen, the Hollow Marches, the Bloomfall Vale and the Void Verge."
+				""
+				"It glows faintly. Look for that at dusk."
+				""
+				"IT IS FINITE. Pools do not refill and do not regenerate. Until Era VII teaches you to make it, every drop you spend is gone. See THE RENEWABLE ROUTE."
+				""
+				"WHAT IT IS FOR: it is the only material in this world that belongs to no magical tradition, which is exactly why every tradition will accept it."
+			]
+			icon: "alfheim:liquid_bifrost_bucket"
+			id: "4B6A8844D60F2C28"
+			optional: true
+			shape: "gear"
+			subtitle: "The pools, and what they are"
+			tasks: [{
+				id: "60B926E54F52972A"
+				title: "Liquid Bifrost"
+				type: "checkmark"
+			}]
+			title: "Liquid Bifrost"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The pool, given a shape. It still hums."
+				""
+				"STATION: Petal Apothecary"
+				"ERA: 2"
+				""
+				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
+				""
+				"The material does not become more powerful as it refines. It becomes less attached -- and the final tier is attached to nothing at all, which is what lets it become anything."
+			]
+			icon: "alfheim:crystallized_bifrost"
+			id: "35A907FD3B11DEA8"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 2 · tier 1 of 4"
+			tasks: [{
+				id: "45846C2CB38A916A"
+				title: "Crystallized Bifrost"
+				type: "checkmark"
+			}]
+			title: "Crystallized Bifrost"
+			x: 0.0d
+			y: 2.5d
+		}
+		{
+			description: [
+				"Four crystals pressed into one. The hum is lower now."
+				""
+				"STATION: Mana Pool infusion"
+				"ERA: 2"
+				""
+				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
+				""
+				"The material does not become more powerful as it refines. It becomes less attached -- and the final tier is attached to nothing at all, which is what lets it become anything."
+			]
+			icon: "alfheim:condensed_bifrost"
+			id: "61F60CDE9425CC62"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 2 · tier 2 of 4"
+			tasks: [{
+				id: "1394B21547AC83FA"
+				title: "Condensed Bifrost"
+				type: "checkmark"
+			}]
+			title: "Condensed Bifrost"
+			x: 2.0d
+			y: 2.5d
+		}
+		{
+			description: [
+				"The impurities are gone. What is left is only the bridge."
+				""
+				"STATION: Alfheim Mana Infuser"
+				"ERA: 3"
+				""
+				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
+				""
+				"The material does not become more powerful as it refines. It becomes less attached -- and the final tier is attached to nothing at all, which is what lets it become anything."
+			]
+			icon: "alfheim:refined_bifrost"
+			id: "22A9170FBC793C26"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 3 · tier 3 of 4"
+			tasks: [{
+				id: "58E05D4D649879F8"
+				title: "Refined Bifrost"
+				type: "checkmark"
+			}]
+			title: "Refined Bifrost"
+			x: 4.0d
+			y: 2.5d
+		}
+		{
+			description: [
+				"The final form. It will become whatever magic you ask it to."
+				""
+				"STATION: Runic Altar"
+				"ERA: 3"
+				""
+				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
+				""
+				"The material does not become more powerful as it refines. It becomes less attached -- and the final tier is attached to nothing at all, which is what lets it become anything."
+			]
+			icon: "alfheim:distilled_bifrost"
+			id: "7582E7A5E8A753B9"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 3 · tier 4 of 4"
+			tasks: [{
+				id: "06837214ED297FDA"
+				title: "Distilled Bifrost"
+				type: "checkmark"
+			}]
+			title: "Distilled Bifrost"
+			x: 6.0d
+			y: 2.5d
+		}
+		{
+			description: [
+				"Distilled Bifrost converts into the entry currency of five other magical traditions."
+				""
+				"YIELDS: 6x mana powder, 3x source gem, 2x otherworld essence, 4x arcane essence, 4x gold leaf, 1x mana pearl."
+				""
+				"THE RATES ARE POOR AND THAT IS DELIBERATE. This is a foothold in a discipline you have not studied, not a way to skip studying it. What it buys you is the chance to begin somewhere new without beginning from nothing."
+				""
+				"Only one conversion reaches past a system's entry tier, and it costs four."
+			]
+			icon: "botania:mana_powder"
+			id: "6CA5D7B61FA3C498"
+			optional: true
+			shape: "gear"
+			subtitle: "One material, every road"
+			tasks: [{
+				id: "06431F061B92D647"
+				title: "The Exchange"
+				type: "checkmark"
+			}]
+			title: "The Exchange"
+			x: 6.0d
+			y: 2.5d
+		}
+		{
+			description: [
+				"A heated Create mixer will make Liquid Bifrost from things that grow back."
+				""
+				"RECIPE: 2 crystal shards + 1 mana powder + 500mB water -> 250mB Liquid Bifrost."
+				"STATION: Basin with a Mechanical Mixer, heated."
+				""
+				"WHY IT IS RENEWABLE: six of the seven crystals have a budding block and regrow forever. The shard tag holds exactly those six -- frost does not bud and is not in it. Water is water. Mana powder is a flower."
+				""
+				"It is NOT cheaper than finding a pool and was never meant to be. Four mixes to the bucket. It is only endless, which is a different and better property."
+				""
+				"Era VII because that is the first era that teaches the mixer."
+			]
+			icon: "create:basin"
+			id: "6D8BF07463970EE4"
+			optional: true
+			shape: "gear"
+			subtitle: "Era VII · make it, stop finding it"
+			tasks: [{
+				id: "5D6F6C9A9D0016E6"
+				title: "The Renewable Route"
+				type: "checkmark"
+			}]
+			title: "The Renewable Route"
+			x: 6.0d
+			y: 0.0d
+		}
+	]
+	subtitle: ["The bridge between the traditions"]
+	title: "Liquid Bifrost"
+}

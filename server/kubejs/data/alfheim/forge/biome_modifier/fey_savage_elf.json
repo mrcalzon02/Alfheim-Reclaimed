@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:infested_warren",
+    "alfheim:decayed_mire",
+    "alfheim:hollow_marches"
+  ],
+  "spawners": {
+    "type": "alfheim:savage_elf",
+    "weight": 5,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

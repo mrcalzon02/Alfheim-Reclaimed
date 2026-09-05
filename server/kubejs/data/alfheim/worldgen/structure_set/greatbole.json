@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:greatbole",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:concentric_rings",
+    "distance": 0,
+    "spread": 0,
+    "count": 1,
+    "salt": 40092026,
+    "preferred_biomes": "#alfheim:has_greatbole"
+  }
+}

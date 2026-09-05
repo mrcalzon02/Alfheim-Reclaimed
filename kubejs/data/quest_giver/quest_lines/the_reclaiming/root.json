@@ -1,0 +1,11 @@
+{
+  "icon": "botania:white_petal",
+  "start": {
+    "title": {
+      "translate": "The Court Still Stands"
+    },
+    "description": {
+      "translate": "You are awake. Good. Most are not.\n\nI am Velrous, and this was a city. Look up before you look down -- the boughs held nine hundred of us. Now they hold cobwebs.\n\nWe will not rebuild it with iron. There is no iron here worth the name. We rebuild it the way it was built."
+    }
+  }
+}

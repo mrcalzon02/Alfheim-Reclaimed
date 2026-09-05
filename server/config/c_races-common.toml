@@ -1,0 +1,10 @@
+
+[races]
+	#Identifiants des races a desactiver : les joueurs ne pourront plus les choisir
+	#(ni depuis l'ecran de choix, ni via /race changer). Un joueur qui a deja cette
+	#race la garde sans rien perdre - seul /race admin peut encore l'assigner.
+	#Identifiants valides : humain, elfe, elfe_noir, nain, orc, halfelin, gnome,
+	#revenant, alfiq, gobelin.
+	#Exemple : ["gobelin", "alfiq"]
+	disabledRaces = []
+

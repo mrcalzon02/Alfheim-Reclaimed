@@ -1,0 +1,295 @@
+# The Spawn Hub — the Greatbole, the Gate, and the Court
+
+**Role:** authoritative design record for the pack's centrepiece: the arrival tree, the portal
+built into its flank, the ruined amphitheatre outside it, and the protected admin zone around
+all three.
+**Status:** `draft` — pass 1 generated, nothing observed in a game.
+**Authority:** subordinate to `INSTRUCTIONS.md`. Extends `SPAWN_ZONE.md`; see §1.2 for the
+boundary between the two records.
+**Asked for by the user, 2026-09-03.**
+
+---
+
+## 1. What is being built, and why it is the most important thing in the pack
+
+> *"An absolutely massive oak tree with a huge intricate portal structure built into the side of
+> the tree ... the ruins of a wide amphitheater of marble and stone immediately outside that
+> portal ... a large protected area claimed by admins as a spawn hub."*
+
+This is not a set piece the player walks past once. The user's own reasoning is the design
+constraint, and it is worth quoting because it determines everything below:
+
+> *"I can definitely anticipate the player setting up a base somewhere nearby, exploring the
+> nearby abandoned elven ruins and village pieces, setting up their own base, but needing to
+> return here on a number of occasions — for various reasons such as interacting with the wizard
+> or the captain or the other court members and scouts."*
+
+So the hub is a **destination the player returns to for the length of the campaign**, not a
+spawn point they leave behind in the first hour. Three consequences follow, and they are the
+reason this record exists separately from `SPAWN_ZONE.md`:
+
+1. **It must survive.** A creeper crater in the amphitheatre on day 40 is not a war story, it is
+   a broken quest hub. Hence §4.
+2. **It must stay legible.** The player needs to find Velrous again without a map. A silhouette
+   visible from a kilometre is the cheapest wayfinding in the game — hence a tree of ~190 blocks,
+   not ~60.
+3. **It will take many passes.** The user said so explicitly. The build is therefore
+   **parametric and regenerable** — `tools/gen_spawn_hub.py` writes every `.nbt` from numbers, so
+   pass 2 is an edit and a re-run, not a rebuild. This is the single most important structural
+   decision in this record.
+
+### 1.1 The fiction it has to carry
+
+Alfheim is a wasteland of collapsed tree-cities. The hub is the one place that is *not quite*
+collapsed: the tree still stands, the gate is still there but sealed, and the court that used to
+fill the amphitheatre is down to a magister, a captain, and six survivors. It should read as
+**the last lit room in a dark house** — enough grandeur to say what was lost, enough ruin to say
+it is gone.
+
+### 1.2 Boundary with `SPAWN_ZONE.md`
+
+| Record | Owns |
+|---|---|
+| **This file** | The Greatbole, the Gate, the amphitheatre, the protected hub, the court's placement |
+| `SPAWN_ZONE.md` | The Hollow Court **city** — the ~1000-block ruin field, its 40–80 pieces, the decay processors, the Drained Grove biome |
+
+They meet at the hub's edge. `SPAWN_ZONE.md` §3.1's `concentric_rings` mechanism and its §7.1
+Continuity Works spawn-protection analysis both still govern; nothing here supersedes them.
+
+---
+
+## 2. The Greatbole
+
+An oak, deliberately. The pack's own material is Dreamwood, and the arrival tree being **common
+oak** is the point: it is the tree that was already here before the elves made anything, and it
+outlived everything they made. Dreamwood and livingrock appear only as elven *work* applied to
+it — the gate frame, the stairs, the court.
+
+### 2.1 Why it is an assembly and not one structure
+
+`SPAWN_ZONE.md` §2 established the three hard limits; they bind here too.
+
+| Limit | Value | Consequence |
+|---|---|---|
+| Structure block save volume | **48 × 48 × 48** | No piece may exceed it. The tree is four pieces. |
+| Jigsaw `size` (recursion depth) | 0–20 | Ample; the tree uses 4. |
+| Jigsaw `max_distance_from_center` | 1–128 | **The assembled tree must be no taller than this.** Currently 120 blocks against a cap of 128. |
+
+> **Corrected 2026-09-04 — this table previously said the wrong thing, and the wrong thing shipped.**
+>
+> The old entry read: *"a 190-block tree centred on its base spans ±96 — inside the cap."* That is false. The tree is **not centred on its base** — it grows *upward* from it, so a 190-block tree spans **+190**, not ±95. Jigsaw placement culls any piece whose position falls outside `max_distance_from_center` of the structure start, so the crown — the topmost piece, and the only one a player looks at from a distance — was silently rejected every time. The user reported it as *"the Great tree doesn't seem to actually spawn its canopy."*
+>
+> The tree is now assembled at **120 blocks** (48 base + 1 × 32 trunk + 40 crown) against a `max_distance_from_center` of 128, and `tools/gen_spawn_hub.py` asserts the relationship at generation time so the arithmetic cannot drift again. The trunk pool is also deterministic at one segment — a rolled second segment would push the crown back over the cap.
+
+### 2.2 The pieces
+
+| Piece | Size | Role |
+|---|---|---|
+| `greatbole/base` | 48³ | Root buttresses, the trunk foot, **the gate chamber cut into the north flank**, and the court jigsaw |
+| `greatbole/trunk` | 32×48×32 | Stackable segment. Two by default. `rollable` joint, so each rotates independently and the trunk does not look extruded |
+| `greatbole/crown` | 48×40×48 | The canopy and the dead upper boughs |
+
+Total ~186 blocks. Stacking through vertical jigsaws is what gets past the 48-block ceiling.
+
+### 2.3 The Gate
+
+Built **into the north flank**, not standing free — the user was specific, and it is the better
+image: you walk *into the tree* to leave the world.
+
+- Chamber roughly 12 wide × 13 tall × 12 deep, hollowed out of the trunk mass.
+- The gate face itself is **8 × 10 of `alfheim:sealed_gate`** — the animated dormant block built
+  for B-57. It is scenery: no teleport, no state change.
+- Framed in livingrock bricks, chiseled quartz and gold, with elf glass in the arch.
+
+**This is the seeing half of B-36.** That item asks for *"a multiblock the player can see from
+Era I and cannot finish until Era IV"*, and notes the traversal already exists
+(`botania:alfheim_portal` outward, `mythicbotany:return_portal` home). The gate here is the thing
+seen. Era IV's opening, and whatever block actually carries the player, stay with B-36.
+
+---
+
+## 3. The Amphitheatre
+
+Immediately outside the gate, to the north. Marble and stone, and thoroughly ruined.
+
+**There is no marble block in the load path, and there is no longer one on disk.** Conquest
+Reforged — 227 MB of exactly this material — was deleted with the rest of `quarantine/` on
+2026-09-03, and Quark is not installed. The substitute palette is therefore the palette, not a
+placeholder:
+
+| Reads as | Block |
+|---|---|
+| White marble | `minecraft:calcite`, `minecraft:smooth_quartz` |
+| Veined / cut marble | `minecraft:quartz_block`, `minecraft:chiseled_quartz_block` |
+| Columns | `minecraft:quartz_pillar` |
+| Elven marble | `feywild:elven_quartz_block` |
+| The ruin | `minecraft:cracked_stone_bricks`, `minecraft:mossy_stone_bricks`, `minecraft:mossy_cobblestone` |
+
+Restoring Conquest Reforged would improve this more than any other single change, but it is now
+a fresh CurseForge install rather than a file move, and it is a 227 MB pack-weight decision. The
+aesthetic passes proceed on calcite and quartz unless that is revisited.
+
+Form: concentric seating tiers around a sunken circular stage, opening toward the gate. Broken
+column stumps around the rim, tiers collapsed in places, the stage cracked. The court's NPCs
+stand on it — Velrous and Orenvel flanking the gate mouth, the six ambient elves scattered
+through the tiers.
+
+**The NPCs stay fixed.** Confirmed by the user, and it is the better call: `NoAI` already removes
+targeting, wandering and despawn in one flag, and a frozen court cannot drift out of the
+protected zone or path itself into the stage wall. Roaming would have needed a tether loop and a
+`follow_range` of 0 to stop them shooting the player, for no gain.
+
+---
+
+## 4. The protected hub
+
+> *"claimed preserved and protected, to have no mobs spawn within the area, to have no damage
+> occur, so that if somehow a creeper does spawn it's not able to destroy anything."*
+
+### 4.1 Two layers: the claim, and the enforcement
+
+**`ftb-chunks-forge-2001.3.8` is installed** (added by the user 2026-09-03; dependency check
+clean at 82 jars). That settles the claim layer, but it does not replace the enforcement layer,
+and the distinction matters:
+
+- **The claim** is runtime world data. FTB Chunks stores claims per team, and its config is
+  written at first boot (`local/ftbchunks/client-config.snbt` plus a server config). Nothing in
+  a datapack can pre-claim a chunk, so **the hub claim is a one-time admin action in-game**, and
+  it belongs to pass 2 with a world open.
+- **The enforcement** — no hostile spawns, no blast damage, no mob griefing — is
+  `kubejs/server_scripts/04_spawn_hub.js`, and it is deliberately independent of the claim. It
+  works on an unclaimed world, survives a claim being released, and does not depend on a team
+  existing.
+
+**The commands, read off `FTBChunksCommands.class` rather than from memory.** The admin subtree
+is `claim_as`, `unclaim_as`, `bypass_protection`, `extra_claim_chunks`,
+`extra_force_load_chunks`, `unclaim_everything`, `unload_everything`, and `claim` accepts a
+`radius_in_blocks` argument. So the hub claim is one `admin claim_as` at the tree with a radius
+covering §4.2, issued as an operator standing at the Greatbole.
+
+`claim_as` takes a **team**, so a server/admin team has to exist first — which is the specific
+reason this cannot be scripted blind and is listed as pass-2 work rather than done here.
+
+Settings worth setting once the config file exists at first boot:
+`max_idle_days_before_unclaim = 0` (a hub must never auto-release) and
+`force_load_mode` left at its default — see §4.2 on why the hub is not force-loaded.
+
+| Layer | Needs FTB Chunks? | Status |
+|---|---|---|
+| No hostile spawns in the hub | no | **built** |
+| No explosion damage to blocks | no | **built** |
+| No mob griefing (endermen, etc.) | no | **built** |
+| No fire spread | no | **built** |
+| Block edits restricted to operators | no | **built**, `PROTECT_FROM_PLAYERS` |
+| Visible claim on the FTB map, team semantics | **yes** | jar installed; claim is a pass-2 in-game action |
+
+### 4.2 Shape
+
+A square region centred on **the origin**, radius **192 blocks**. Alfheim only; Midgard is
+unaffected.
+
+**Centred on the origin, not on the tree**, because no script can know where the tree is. The
+claim therefore has to be big enough to contain the tree wherever placement puts it:
+
+|  | blocks | why |
+|---|---|---|
+| biome-search displacement | 112 | worst case `findBiomeHorizontal` relocation (see §4.3) |
+| half the base piece | 48 | so the claim reaches the far side of the trunk |
+| amphitheatre apron | 32 | the court sits outside the trunk |
+| **total** | **192** | |
+
+> **Corrected 2026-09-04.** This was **96 blocks centred on the origin**, on the false premise
+> — recorded in `gen_spawn_hub.py` — that `concentric_rings` with `distance: 0` pins the
+> structure to `0,0`. It does not; see §4.3. The user reported the consequence directly: *"the
+> spawn area around the Great Tree was never claimed and we didn't spawn inside it."*
+
+### 4.3 Why the tree moves, and what pins it
+
+`concentric_rings` computes the ring-0 position — which for `distance: 0, spread: 0` really is
+chunk `0,0` — and then **snaps it to a `preferred_biomes` match** via
+`findBiomeHorizontal(..., radius 112, findClosest = true)`. The same tag is read a second time,
+as the structure's own `biomes` field, where it is a **validity** test rather than a position
+one.
+
+That made a narrow tag two separate bugs:
+
+| Field | Effect of a narrow tag |
+|---|---|
+| `structure.biomes` | The Greatbole **does not generate at all** unless the chosen chunk's biome is tagged. With 3 of 16 layer biomes tagged, most worlds had no tree anywhere — the user's *"No spawn structure on Fresh World."* |
+| `structure_set.preferred_biomes` | The search is forced outward, **moving the tree up to 112 blocks** from the origin — away from the claim and away from the spawn anchor. |
+
+`findClosest` returns the **centre** when the centre matches, so the fix for both is the same:
+tag everything buildable. `#alfheim:has_greatbole` now holds **14 of the 16 biomes** in the
+Alfheim layer, which pins the structure to chunk `0,0` and lets
+`project_start_to_heightmap: WORLD_SURFACE_WG` with `terrain_adaptation: beard_thin` do the
+terrain snap.
+
+Two biomes stay out, because the terrain snap cannot rescue either:
+
+- **`alfheim:void_verge`** — floating islands over nothing; there is no ground for the roots.
+- **`mythicbotany:alfheim_lakes`** — `WORLD_SURFACE_WG` counts fluids, so the trunk would
+  stand on the water surface.
+
+When the origin lands in one of those, the search relocates to the nearest of the other
+fourteen. That is why the claim is still sized for displacement rather than assuming `0,0`.
+
+### 4.4 Chunk loading
+
+**The hub keeps a 13 × 13 chunk region loaded** (`KEEP = 6`). This reverses an earlier
+"deliberately not force-loaded" decision, which was right about the cost and wrong about the
+requirement: `@e` selectors only see **loaded** chunks, so with the hub unloaded
+`hub/send` finds no anchor and silently teleports the player nowhere, and `hub/status` reports
+the anchor as missing. The NPCs are still `NoAI` and still simulate nothing; what is being
+bought is selector reachability, not AI.
+
+Generation uses a much larger 33 × 33 region, and `hub/anchor` **releases it** once the
+anchor resolves. Leaving it in place would have cost the server 1,089 permanently ticking
+chunks for the life of the world.
+
+---
+
+## 5. Build passes
+
+Pass 1 is generated. The rest are aesthetic and were anticipated by the user from the start.
+
+| Pass | Work | State |
+|---|---|---|
+| **1** | Parametric generator; base, trunk, crown, amphitheatre; jigsaw wiring; protection; checker | **done (static)** |
+| **2** | Prove it: fresh world, tree generates whole, no floating or buried geometry, gate chamber reachable | **next, needs a boot** |
+| 3 | Silhouette and proportion — trunk taper, root spread, canopy mass | |
+| 4 | The gate chamber interior — the "intricate" pass. Detail work at the frame |
+| 5 | Amphitheatre ruin quality — collapse that reads as causal, not as random block removal |
+| 6 | Court dressing — braziers, banners, scattered apothecaries, the Guard's armoury |
+| 7 | Approach and sightlines — how the tree first reads from 200 blocks out |
+| 8 | Interaction — NPC posts placed against the finished geometry rather than at offsets from spawn |
+
+Pass 8 is the one that closes the loop with B-57: the court is currently placed by
+`03_hollow_court.js` at offsets from the player's landing spot, because when it was written there
+was no tree. Once the geometry is proven, the posts move into the structure.
+
+---
+
+## 6. Placement
+
+`concentric_rings`, `distance: 0`, `spread: 0`, `count: 1` — the vanilla mechanism for "at world
+spawn", the one strongholds use. It removes any need for spawn-forcing code.
+
+`SPAWN_ZONE.md` §7.1 applies directly: the Greatbole should be tagged
+`continuityworks_spawn_protection:protected`, which enforces a 500-block exclusion around it, so
+nothing else generates through the roots. The Hollow Court's city pieces must stay `ignored`, or
+they will exclude each other.
+
+---
+
+## 7. What is not decided
+
+- ~~**Conquest Reforged**~~ — **settled 2026-09-03: gone.** The user cleared `quarantine/`, so
+  the 227 MB block set is no longer on disk and the calcite/quartz palette in §3 is the palette.
+  Restoring it would now mean a fresh CurseForge install, not a file move.
+- ~~**FTB Chunks**~~ — **settled 2026-09-03, installed.** The remaining work is the one-time
+  admin claim in-game (§4.1), not a decision.
+- **Where the player actually arrives.** Inside the gate chamber, or at the amphitheatre mouth
+  looking at the tree? The second is the better first sixty seconds and needs the spawn handler
+  in `02_spawn_dimension.js` to place them against the structure rather than by `spreadplayers`.
+- **Whether the tree is climbable** at all, or scenery from the ground up. Boughs and canopy
+  platforms are in `SPAWN_ZONE.md`'s inventory but are not built.

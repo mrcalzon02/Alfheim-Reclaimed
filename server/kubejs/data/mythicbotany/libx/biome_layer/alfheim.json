@@ -1,0 +1,842 @@
+{
+  "biomes": [
+    {
+      "biome": "alfheim:starved_reach",
+      "parameters": {
+        "continentalness": [
+          0.45,
+          1.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          -0.45
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:scorchfell",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          0.32,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:infested_warren",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.15
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          0.45,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:decayed_mire",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          0.32
+        ],
+        "humidity": [
+          0.5,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:void_verge",
+      "parameters": {
+        "continentalness": [
+          -1.0,
+          -0.8
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:silverbark_wood",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          -0.3
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:silverbark_wood",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          -0.3
+        ],
+        "humidity": [
+          -1.0,
+          0.5
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:ashen_grove",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -0.3,
+          0.32
+        ],
+        "humidity": [
+          -1.0,
+          -0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:bloomfall_vale",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          0.2,
+          0.32
+        ],
+        "humidity": [
+          -0.4,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:bloomfall_vale",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          0.2,
+          0.32
+        ],
+        "humidity": [
+          -0.4,
+          0.5
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:mana_fen",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.15
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          0.35,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:mana_fen",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.15
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          0.35,
+          0.45
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:sundered_highlands",
+      "parameters": {
+        "continentalness": [
+          0.45,
+          1.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          0.3,
+          1.0
+        ],
+        "temperature": [
+          -0.45,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:hollow_marches",
+      "parameters": {
+        "continentalness": [
+          0.45,
+          1.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          0.3
+        ],
+        "temperature": [
+          -0.45,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          -0.3
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_lakes",
+      "parameters": {
+        "continentalness": [
+          -0.8,
+          0.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_lakes",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.1
+        ],
+        "erosion": [
+          -1.0,
+          0.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.35
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_lakes",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.1
+        ],
+        "erosion": [
+          -1.0,
+          0.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.35
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_plains",
+      "parameters": {
+        "continentalness": [
+          0.1,
+          0.15
+        ],
+        "erosion": [
+          -1.0,
+          0.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.35
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_plains",
+      "parameters": {
+        "continentalness": [
+          0.1,
+          0.15
+        ],
+        "erosion": [
+          -1.0,
+          0.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.35
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_plains",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.15
+        ],
+        "erosion": [
+          0.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.35
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_plains",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.15
+        ],
+        "erosion": [
+          0.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.35
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:dreamwood_forest",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.4
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          0.0
+        ],
+        "temperature": [
+          -0.3,
+          0.2
+        ],
+        "humidity": [
+          -0.4,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:dreamwood_forest",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.4
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -0.3,
+          0.2
+        ],
+        "humidity": [
+          -0.4,
+          0.5
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:golden_fields",
+      "parameters": {
+        "continentalness": [
+          0.15,
+          0.4
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          0.0,
+          1.0
+        ],
+        "temperature": [
+          -0.3,
+          0.2
+        ],
+        "humidity": [
+          -0.4,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_hills",
+      "parameters": {
+        "continentalness": [
+          0.4,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -0.3,
+          0.2
+        ],
+        "humidity": [
+          -0.4,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_hills",
+      "parameters": {
+        "continentalness": [
+          0.4,
+          0.45
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -0.3,
+          0.2
+        ],
+        "humidity": [
+          -0.4,
+          0.5
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "mythicbotany:alfheim_hills",
+      "parameters": {
+        "continentalness": [
+          0.45,
+          1.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          0.3
+        ],
+        "temperature": [
+          -0.45,
+          1.0
+        ],
+        "humidity": [
+          -0.3,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    }
+  ],
+  "density": 0.0,
+  "range": {
+    "continentalness": [
+      -1.0,
+      1.0
+    ],
+    "erosion": [
+      -1.0,
+      1.0
+    ],
+    "weirdness": [
+      -1.0,
+      1.0
+    ],
+    "temperature": [
+      -1.0,
+      1.0
+    ],
+    "humidity": [
+      -1.0,
+      1.0
+    ],
+    "depth": [
+      -1.0,
+      1.0
+    ],
+    "offset": 0.0
+  }
+}

@@ -1,0 +1,28 @@
+Planned KubeJS integration, disabled by design until first boot.
+
+Specifications now exist. Do not implement from this file — implement from the design records:
+
+  ../../alfheim_reclaimed_design/GATE_REVERSAL.md    the recipe inversion and the early-game fix
+  ../../alfheim_reclaimed_design/TWIN_SPINES.md      the four cross-spine dependencies
+  ../../alfheim_reclaimed_design/CAMPAIGN_ERAS.md    what each era expects to exist
+  ../../BACKLOG.md                                   sequencing and acceptance conditions
+
+Planned scripts, in mandatory order:
+
+  21_elven_early_game.js    Pure Daisy -> Dreamwood; dreamwood twig / elven spreader / apothecary
+                            chain. Backlog B-06.
+
+  20_gate_reversal.js       Remove Botania's 9 elven trade conversions, add the 9 inversions.
+                            Backlog B-07. MUST NOT be enabled before 21 reaches level 11 —
+                            reversing the gate without the Dreamwood early game produces a pack
+                            that passes every static check and cannot be played.
+
+  22_native_elven_goods.js  Native routes for Elven Quartz, Elf Glass, Pixie Dust, Dragonstone.
+                            Backlog B-08.
+
+  23_spine_interlock.js     Sourcelinks require Livingrock/Elementium; Alfsteel and Terrasteel
+                            infusions require an active Ritual Brazier. Backlog B-10.
+                            Verify era ordering in-game first — TWIN_SPINES.md §5 names a
+                            near-circular dependency no static check will catch.
+
+The numbering is load order, not build order. 21 is written and verified before 20 is enabled.

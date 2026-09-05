@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:boughwatch_tower",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 28,
+    "separation": 9,
+    "spread_type": "linear",
+    "salt": 17474066
+  }
+}

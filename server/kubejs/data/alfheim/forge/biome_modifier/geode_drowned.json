@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:hollow_marches",
+    "alfheim:decayed_mire"
+  ],
+  "features": "alfheim:geode_drowned",
+  "step": "local_modifications"
+}

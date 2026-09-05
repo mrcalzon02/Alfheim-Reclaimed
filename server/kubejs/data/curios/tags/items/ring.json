@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:curio/class/hunter/signet_apprentice",
+    "alfheim:curio/class/hunter/signet_guild",
+    "alfheim:curio/class/hunter/signet_master",
+    "alfheim:curio/class/minstrel/signet_apprentice",
+    "alfheim:curio/class/minstrel/signet_guild",
+    "alfheim:curio/class/minstrel/signet_master",
+    "alfheim:curio/class/shaman/signet_apprentice",
+    "alfheim:curio/class/shaman/signet_guild",
+    "alfheim:curio/class/shaman/signet_master",
+    "alfheim:curio/class/sorcerer/signet_apprentice",
+    "alfheim:curio/class/sorcerer/signet_guild",
+    "alfheim:curio/class/sorcerer/signet_master",
+    "alfheim:curio/class/warlock/signet_apprentice",
+    "alfheim:curio/class/warlock/signet_guild",
+    "alfheim:curio/class/warlock/signet_master",
+    "alfheim:curio/class/warrior/signet_apprentice",
+    "alfheim:curio/class/warrior/signet_guild",
+    "alfheim:curio/class/warrior/signet_master"
+  ]
+}

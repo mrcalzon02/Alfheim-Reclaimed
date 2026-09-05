@@ -1,0 +1,81 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 12.0,
+      "min": 6.0,
+      "stat": "armor"
+    }
+  ],
+  "gear_slot": "shield",
+  "guid": "alfheim_warrior_ward",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/ward/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "strength": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "shield",
+      "strength",
+      "offhand_family",
+      "armor_stat"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

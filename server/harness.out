@@ -1,0 +1,32 @@
+mirroring instance into server runtime
+  mirrored mods                84 files
+  mirrored config             212 files
+  mirrored defaultconfigs       5 files
+  mirrored kubejs             479 files
+  mirrored datapacks            0 files
+  omitted  continuity-3.0.0+1.20.1.forge.jar
+  omitted  entity_texture_features_1.20.1-forge-7.1.jar
+  omitted  entity_model_features-3.2.4-1.20.1-forge.jar
+  omitted  BetterGrassify-1.4.4+forge.1.20.1.jar
+  omitted  forgeskyboxes-0.0.2-1.20.2-new.jar
+launching: C:\Users\Admin\curseforge\minecraft\Install\java\java-runtime-gamma\bin\java.exe -Xmx8G -Xms4G @libraries\net\minecraftforge\forge\1.20.1-47.4.10\win_args.txt nogui
+  -> say alfheim validation: startup reached
+  -> function alfheim:hub/status
+  -> execute in mythicbotany:alfheim run forceload query
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:ashen_grove
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:silverbark_wood
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:bloomfall_vale
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:mana_fen
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:sundered_highlands
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:hollow_marches
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:starved_reach
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:scorchfell
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:infested_warren
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:decayed_mire
+  -> execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:void_verge
+  -> forceload add -16 -16 16 16
+  -> execute in mythicbotany:alfheim run forceload add -16 -16 16 16
+  -> save-all flush
+  -> stop
+
+exit 0 after 240.5s; console -> server\console-20260904-071846.log

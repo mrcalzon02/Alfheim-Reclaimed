@@ -1,0 +1,12 @@
+{
+  "pack": "Alfheim Reclaimed",
+  "version": "0.2.0-design",
+  "minecraft": "1.20.1",
+  "forge": "47.4.10",
+  "manifest_mod_entries": 96,
+  "all_entries_required": true,
+  "contains_mod_jars": false,
+  "notes": "CurseForge-hosted mod files are referenced by projectID/fileID only. 26 core mods are pinned in PINNED_MOD_MATRIX.md; the remaining 70 installed mods are not yet documented there (backlog B-03). Two NeoForge/unsatisfied jars were moved to quarantine/ on 2026-09-02.",
+  "pinned_core_entries": 26,
+  "quarantined_entries": 2
+}

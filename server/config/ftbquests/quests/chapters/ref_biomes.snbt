@@ -1,0 +1,325 @@
+{
+	default_hide_dependency_lines: true
+	default_quest_shape: "gear"
+	filename: "ref_biomes"
+	group: ""
+	icon: "minecraft:filled_map"
+	id: "40EAD9FD6C09788F"
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Used up. Not poisoned and not burned — simply spent. Nothing grows here at all, which is rarer and worse than it sounds."
+				""
+				"SPAWNS: spider, winter pixie, winter tree ent, wood elf."
+				"RAIN: none."
+			]
+			icon: "minecraft:grass_block"
+			id: "6BDF84417A8214A7"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "4BEB817A949F839E"
+				title: "Starved Reach"
+				type: "checkmark"
+			}]
+			title: "Starved Reach"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"It burned, and then it kept burning. Ash still hangs in the air. The dead wood standing here is the only thing the fire left."
+				""
+				"SPAWNS: autumn pixie, spider, summer tree ent."
+				"RAIN: none."
+			]
+			icon: "minecraft:grass_block"
+			id: "73BD8E55FC15651B"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "43768B6C02341F0D"
+				title: "Scorchfell"
+				type: "checkmark"
+			}]
+			title: "Scorchfell"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Something moved into the roots of the old city and never left. Bring light and something with reach."
+				""
+				"SPAWNS: cave spider, shroomling, silverfish, spider."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "428127281B777EBF"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "2DA5C343706EE875"
+				title: "Infested Warren"
+				type: "checkmark"
+			}]
+			title: "Infested Warren"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Rot, standing water, and whatever is still moving in it."
+				""
+				"SPAWNS: frog, husk, mandragora, shroomling, wood elf, zombie."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "5D14DF8AF94A3A37"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "46FF7235E1182F88"
+				title: "Decayed Mire"
+				type: "checkmark"
+			}]
+			title: "Decayed Mire"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The rim of the world. The ground thins, breaks into a ragged cliff, and stops. What is left floats: islands of living rock that never fell. They are the richest ground in Alfheim and the hardest to stand on."
+				""
+				"SPAWNS: enderman, winter pixie."
+				"RAIN: none."
+			]
+			icon: "minecraft:grass_block"
+			id: "3AD2199B52E2AB06"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "0A3FE0535F01976B"
+				title: "Void Verge"
+				type: "checkmark"
+			}]
+			title: "Void Verge"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Pale, cold and quiet. Dreamwood that survived by going dormant. Cascading archwood grows here and nowhere else nearby."
+				""
+				"SPAWNS: alf pixie, chicken, cow, pig, sheep, spring pixie, spring tree ent, sprite."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "2CFEF4216D7F0E5D"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "203B9DB728F2C6BA"
+				title: "Silverbark Wood"
+				type: "checkmark"
+			}]
+			title: "Silverbark Wood"
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Where you woke. Drained, spider-ridden and flowerless — the absence of mystical flowers here is the strongest single signal that the grove is dead. Standing dead dreamwood is the only timber."
+				""
+				"SPAWNS: autumn pixie, bellsnickel, spider, wood elf."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "066100B89C6957DD"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "6FAE1FCEAD0C98A7"
+				title: "Ashen Grove"
+				type: "checkmark"
+			}]
+			title: "Ashen Grove"
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Still alive. This is what the elves are trying to get the rest of the world back to — and it is the only place mixed archwood grows."
+				""
+				"SPAWNS: alf pixie, bee knight, chicken, cow, frog, moo shroom cow, pig, sheep, summer pixie, summer tree ent."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "0054C4ED3FD920CC"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "2CB39A0030DE022A"
+				title: "Bloomfall Vale"
+				type: "checkmark"
+			}]
+			title: "Bloomfall Vale"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"The aqueducts broke and the water stayed. Mana crystals still surface in the shallows."
+				""
+				"SPAWNS: alf pixie, chicken, cow, frog, mandragora, pig, sheep, shroomling, sprite."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "4C1090097CC31340"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "5EDE9D1B6FF81EC6"
+				title: "Mana Fen"
+				type: "checkmark"
+			}]
+			title: "Mana Fen"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Where the devastation tore the ground open. Broken uplands, and the richest ordinary stone left in Alfheim."
+				""
+				"SPAWNS: autumn pixie, autumn tree ent, spider, wood elf."
+				"RAIN: yes."
+			]
+			icon: "minecraft:grass_block"
+			id: "57A5E255895308F9"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "188711A7B98D4081"
+				title: "Sundered Highlands"
+				type: "checkmark"
+			}]
+			title: "Sundered Highlands"
+			x: 2.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Where it went worst. Era IX territory, and it feels like it."
+				""
+				"SPAWNS: bellsnickel, frog, spider, winter pixie, wood elf."
+				"RAIN: none."
+			]
+			icon: "minecraft:grass_block"
+			id: "69801A5468610946"
+			optional: true
+			shape: "gear"
+			subtitle: "Alfheim"
+			tasks: [{
+				id: "036B0F63A744E7F2"
+				title: "Hollow Marches"
+				type: "checkmark"
+			}]
+			title: "Hollow Marches"
+			x: 4.0d
+			y: 4.0d
+		}
+		{
+			description: ["MythicBotany's own. Water, and the biome the Void Verge was carved from."]
+			icon: "minecraft:grass_block"
+			id: "6C0F6B98F2D72583"
+			optional: true
+			shape: "gear"
+			subtitle: "MythicBotany"
+			tasks: [{
+				id: "782B7E3E5BA3D913"
+				title: "Alfheim Lakes"
+				type: "checkmark"
+			}]
+			title: "Alfheim Lakes"
+			x: 6.0d
+			y: 4.0d
+		}
+		{
+			description: ["MythicBotany's own. Open, gentle, and where most colonies start."]
+			icon: "minecraft:grass_block"
+			id: "726215E45D80E4DE"
+			optional: true
+			shape: "gear"
+			subtitle: "MythicBotany"
+			tasks: [{
+				id: "0779682D9AC36162"
+				title: "Alfheim Plains"
+				type: "checkmark"
+			}]
+			title: "Alfheim Plains"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			description: ["MythicBotany's own. Dense dreamwood — the pack's primary timber."]
+			icon: "minecraft:grass_block"
+			id: "269E55E6B4F19734"
+			optional: true
+			shape: "gear"
+			subtitle: "MythicBotany"
+			tasks: [{
+				id: "29602F0172A23644"
+				title: "Dreamwood Forest"
+				type: "checkmark"
+			}]
+			title: "Dreamwood Forest"
+			x: 2.0d
+			y: 6.0d
+		}
+		{
+			description: ["MythicBotany's own. Wheat grows here without being planted."]
+			icon: "minecraft:grass_block"
+			id: "35DD46BE02AC091D"
+			optional: true
+			shape: "gear"
+			subtitle: "MythicBotany"
+			tasks: [{
+				id: "37D6F615B03AFDE2"
+				title: "Golden Fields"
+				type: "checkmark"
+			}]
+			title: "Golden Fields"
+			x: 4.0d
+			y: 6.0d
+		}
+		{
+			description: ["MythicBotany's own. Higher ground, deeper stone."]
+			icon: "minecraft:grass_block"
+			id: "1358BCB1F033DCE2"
+			optional: true
+			shape: "gear"
+			subtitle: "MythicBotany"
+			tasks: [{
+				id: "4D5EE639AE7DEC3D"
+				title: "Alfheim Hills"
+				type: "checkmark"
+			}]
+			title: "Alfheim Hills"
+			x: 6.0d
+			y: 6.0d
+		}
+	]
+	subtitle: ["Where you are, and what lives there"]
+	title: "The Sixteen Biomes"
+}

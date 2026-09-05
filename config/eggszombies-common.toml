@@ -1,0 +1,223 @@
+
+[global_settings]
+	#Allow zombies to spawn during daytime
+	allow_daylight_spawn = false
+	#Allow common zombies to spawn underground
+	common_underground_spawn = true
+	#Allow special zombies to spawn underground
+	special_underground_spawn = true
+
+[zombie_abilities]
+
+	[zombie_abilities.Chances]
+		#Adjust the probability of specific zombie behaviors
+		#Range: 0.0 ~ 1.0
+		firefighter_axe_spawn_chance = 0.8
+		#Range: 0.0 ~ 1.0
+		hazmat_poison_attack_chance = 0.25
+		#Range: 0.0 ~ 1.0
+		military_pierce_attack_chance = 0.25
+		#Range: 0.0 ~ 1.0
+		military_armor_reduction_chance = 0.5
+		#Range: 0.0 ~ 1.0
+		riot_shield_knock-up_chance = 0.5
+		#Range: 0.0 ~ 1.0
+		riot_armor_reduction_chance = 0.25
+		#Range: 0.0 ~ 1.0
+		crawler_bone_attack_chance = 0.25
+
+	[zombie_abilities.Cooldowns]
+		#Control the frequency of special attacks. Note: 20 ticks = 1 second
+		#Cooldown between Bulldog leap attacks
+		#Range: 20 ~ 1200
+		bulldog_leap_cooldown = 80
+		#Cooldown between Puker vomit projectiles
+		#Range: 20 ~ 1200
+		puker_puke_cooldown = 200
+		#Cooldown between Rusher charge attacks
+		#Range: 40 ~ 1200
+		rusher_rush_cooldown = 280
+
+[Zombies_Attributes]
+
+	#Individual base statistics for every zombie variant
+	[Zombies_Attributes.firefighter]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 25.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.23
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 3.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 5.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.4
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 35.0
+
+	[Zombies_Attributes.hazmat]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 20.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.23
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 3.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 5.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.3
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 35.0
+
+	[Zombies_Attributes.military]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 50.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.25
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 5.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 10.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.8
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 40.0
+
+	[Zombies_Attributes.riot]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 30.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.25
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 5.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 12.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.6
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 40.0
+
+	[Zombies_Attributes.bulldog]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 30.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.3
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 3.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 3.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.5
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 40.0
+
+	[Zombies_Attributes.crawler]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 15.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.23
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 1.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 0.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.0
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 20.0
+
+	[Zombies_Attributes.flayed]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 15.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.4
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 3.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 1.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.0
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 50.0
+
+	[Zombies_Attributes.puker]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 30.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.2
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 3.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 2.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.75
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 25.0
+
+	[Zombies_Attributes.rusher]
+		#Maximum Health
+		#Range: 1.0 ~ 1000.0
+		max_health = 50.0
+		#Movement Speed
+		#Range: 0.0 ~ 1.0
+		movement_speed = 0.3
+		#Base Attack Damage
+		#Range: 0.0 ~ 100.0
+		attack_damage = 6.0
+		#Base Armor Points
+		#Range: 0.0 ~ 30.0
+		armor = 6.0
+		#Resistance to knockback
+		#Range: 0.0 ~ 1.0
+		knockback_resistance = 0.75
+		#Distance in blocks the zombie will track targets
+		#Range: 0.0 ~ 128.0
+		follow_range = 40.0
+

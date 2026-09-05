@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 10.0,
+      "min": 5.0,
+      "stat": "magic_shield"
+    }
+  ],
+  "gear_slot": "chest",
+  "guid": "alfheim_minstrel_chest",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/minstrel/chest/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "intelligence": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "chest",
+      "armor_family",
+      "cloth_chest",
+      "magic_shield_stat",
+      "intelligence"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

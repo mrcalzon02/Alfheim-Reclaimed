@@ -1,0 +1,7 @@
+{
+  "_comment": "SPAWN_ZONE.md §7.1. replace:false, so this ADDS to Continuity Works' own list rather than displacing its abyssal vents. Only the Greatbole belongs here. The Hollow Court's city pieces are deliberately absent -- they are dense by design and would exclude each other, generating the city as a scattering of isolated buildings or not at all; when they exist they go in `ignored`.",
+  "replace": false,
+  "values": [
+    "alfheim:greatbole"
+  ]
+}

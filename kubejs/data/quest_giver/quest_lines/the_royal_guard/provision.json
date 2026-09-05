@@ -1,0 +1,38 @@
+{
+  "icon": "botania:livingrock",
+  "start": {
+    "title": {
+      "translate": "Provision Yourself"
+    },
+    "description": {
+      "translate": "I do not equip volunteers. I have nothing to equip them with.\n\nBring your own stone and I will tell you where the maps are kept."
+    }
+  },
+  "parent": "quest_giver:spiders",
+  "complete": {
+    "title": {
+      "translate": "Provision Yourself"
+    },
+    "description": {
+      "translate": "Good. A guard who waits to be supplied is a guard who waits."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:item_stack",
+      "amount": 16,
+      "item": {
+        "item": "botania:livingrock"
+      }
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "mmorpg:map_creator",
+        "count": 1
+      }
+    }
+  ]
+}

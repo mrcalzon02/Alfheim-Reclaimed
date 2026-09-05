@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_warrior_boots_era_08",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "epic",
+    "legendary"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_warrior_boots",
+  "disable_salvaging": false
+}

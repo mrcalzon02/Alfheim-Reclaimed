@@ -1,0 +1,45 @@
+{
+  "icon": "dungeon_realm:map_device",
+  "start": {
+    "title": {
+      "translate": "The Armoury Key"
+    },
+    "description": {
+      "translate": "Here is what the key opens.\n\nA Map Device. The Guard used them to step into ground we had surveyed but could not march to. There are four left and I am not sentimental about the other three.\n\nYou are not being rewarded. You are being *dispatched*. Bring back what the ruins are holding."
+    }
+  },
+  "parent": "quest_giver:cartography",
+  "complete": {
+    "title": {
+      "translate": "The Armoury Key"
+    },
+    "description": {
+      "translate": "Commissioned, then. The roster has two names on it again.\n\nGo carefully. Everything out there was killed once already and did not take it well."
+    }
+  },
+  "tasks": [
+    {
+      "id": "quest_giver:item_stack",
+      "amount": 1,
+      "item": {
+        "item": "dungeon_realm:dungeon_map"
+      }
+    }
+  ],
+  "rewards": [
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "dungeon_realm:map_device",
+        "count": 1
+      }
+    },
+    {
+      "id": "quest_giver:item",
+      "item": {
+        "item": "mmorpg:master_bag",
+        "count": 1
+      }
+    }
+  ]
+}

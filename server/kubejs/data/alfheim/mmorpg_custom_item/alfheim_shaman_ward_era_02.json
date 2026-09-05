@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_shaman_ward_era_02",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "common",
+    "uncommon"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_shaman_ward",
+  "disable_salvaging": false
+}

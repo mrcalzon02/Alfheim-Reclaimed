@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:zombie_habitats/eggszombies_add_riot_zombie",
+  "spawners": {
+    "type": "eggszombies:riot_zombie",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 25
+  }
+}

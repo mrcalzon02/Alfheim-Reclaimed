@@ -1,0 +1,17 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:silverbark_wood",
+    "alfheim:bloomfall_vale",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:golden_fields",
+    "alfheim:void_verge"
+  ],
+  "spawners": {
+    "type": "alfheim:celestial_buck",
+    "weight": 1,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

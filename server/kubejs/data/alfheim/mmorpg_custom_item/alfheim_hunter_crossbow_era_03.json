@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_hunter_crossbow_era_03",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "uncommon",
+    "rare"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_hunter_crossbow",
+  "disable_salvaging": false
+}

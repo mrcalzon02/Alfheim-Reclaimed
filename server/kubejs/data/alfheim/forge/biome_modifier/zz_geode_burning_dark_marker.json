@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:sundered_highlands",
+    "alfheim:ashen_grove",
+    "alfheim:scorchfell"
+  ],
+  "features": "alfheim:geode_burning_dark_marker",
+  "step": "top_layer_modification"
+}

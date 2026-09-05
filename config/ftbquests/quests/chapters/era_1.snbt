@@ -1,0 +1,1519 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_1"
+	group: "105F9E401CD6F0BC"
+	icon: "botania:pure_daisy"
+	id: "5959F8289B48AE39"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"I did not think any of you would wake."
+				""
+				"Look around before you speak. That grey is not morning fog; it is what is left of the grove when the mana went out of it. The trees you see standing are dead and have been dead a long time."
+				""
+				"You are the first elves to stand in Alfheim since. Others will follow — but only when the way is clear, and it is not clear. That is the work."
+				""
+				"Take the books. Begin."
+			]
+			id: "3E90DC7744B08AAB"
+			rewards: [
+				{
+					id: "7A6C7B9F2FDF8B9C"
+					item: "botania:lexicon"
+					type: "item"
+				}
+				{
+					id: "4FEF02850C31C9A8"
+					item: "ftbquests:book"
+					type: "item"
+				}
+			]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "03E6466814CC394B"
+				title: "You Are Awake"
+				type: "checkmark"
+			}]
+			title: "You Are Awake"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Cut yourself a shelter. Not a home — a place the spiders cannot reach tonight."
+				""
+				"There is no shame in this. Every restoration begins with someone deciding not to die in the first week."
+			]
+			id: "29569136F0E03D89"
+			rewards: [{
+				count: 16
+				id: "2446B4A1379093B3"
+				item: "minecraft:torch"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Before anything else"
+			tasks: [{
+				id: "4923CAEF21340B18"
+				item: "minecraft:crafting_table"
+				type: "item"
+			}]
+			title: "Somewhere To Stand"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["29569136F0E03D89"]
+			description: [
+				"The dark here is not the dark you remember. Things live in the ruins now that did not ask permission."
+				""
+				"Survive until morning. That is the whole lesson."
+			]
+			id: "2AE8C3E08A66EBE4"
+			rewards: [{
+				count: 6
+				id: "5FA913045F06A7D1"
+				item: "minecraft:cooked_beef"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Survive it"
+			tasks: [{
+				id: "4D57B8606F65B018"
+				title: "The First Night"
+				type: "checkmark"
+			}]
+			title: "The First Night"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2AE8C3E08A66EBE4"]
+			description: [
+				"The webs are not decoration. Something has been breeding in the roots of our cities for a very long time."
+				""
+				"Kill ten of them. Then look at what you killed — they are fat, and they are not hungry. Ask yourself what they have been eating."
+			]
+			id: "556BFB3FE39BB2E2"
+			rewards: [{
+				count: 8
+				id: "3B2BA11F3BDE5650"
+				item: "minecraft:string"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Clear ten"
+			tasks: [{
+				entity: "minecraft:spider"
+				id: "5877BEC973773EAE"
+				type: "kill"
+				value: 10L
+			}]
+			title: "The Infestation"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["29569136F0E03D89"]
+			description: [
+				"Find seed. Any seed. Put it in ground you have turned with your own hands and watch whether it comes up."
+				""
+				"You will spend ten eras learning to make plants do industrial work. It begins with proving that a plant will still grow here at all."
+			]
+			id: "5CC8CDC741532039"
+			rewards: [{
+				count: 8
+				id: "5D540444B5B4CD04"
+				item: "minecraft:bone_meal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Horticulture"
+			tasks: [{
+				id: "190C62BD1AE16AC8"
+				item: "minecraft:wheat_seeds"
+				type: "item"
+			}]
+			title: "Something That Grows"
+			x: 1.5d
+			y: 1.5d
+		}
+		{
+			description: [
+				"Find one of the collapsed houses and go through it properly."
+				""
+				"You are not looting. You are reading. The way a building failed tells you what killed it."
+			]
+			id: "6A28C9B99843D341"
+			rewards: [{
+				count: 3
+				id: "755415ED85251E68"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Clear a ruin"
+			tasks: [{
+				id: "685DC3D6CA1E2367"
+				title: "What Fell Here"
+				type: "checkmark"
+			}]
+			title: "What Fell Here"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6A28C9B99843D341"]
+			description: [
+				"You will find these scattered through the grove — stone basins with the petals still in them, dry as paper."
+				""
+				"Somebody was working when it happened. They did not finish. You will."
+			]
+			id: "75AC0D4BE70DDCCF"
+			rewards: [{
+				count: 8
+				id: "340D6CE69ABE0870"
+				item: "botania:white_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Recover one"
+			tasks: [{
+				id: "3AE6BBED464FFBA5"
+				item: "botania:apothecary_default"
+				type: "item"
+			}]
+			title: "An Abandoned Apothecary"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Here is the first thing I will teach you that matters."
+				""
+				"The Pure Daisy does not fight, does not harvest, does not produce. It simply insists — quietly, over hours — that the world nearby should be clean. Set it beside dead wood and wait."
+				""
+				"Do not stand over it. It will not work faster because you are impatient."
+			]
+			id: "4E443E17B39C4FF1"
+			rewards: [{
+				id: "245511970DD444B5"
+				item: "botania:apothecary_default"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The first flower"
+			tasks: [{
+				id: "055C23524F8687B3"
+				item: "botania:pure_daisy"
+				type: "item"
+			}]
+			title: "The Pure Daisy"
+			x: 1.5d
+			y: 3.0d
+		}
+		{
+			description: [
+				"Your daisy will give you Dreamwood."
+				""
+				"I want you to understand why that is strange. In every account you were ever taught, an elf trades *for* Dreamwood — it is the far material, the one that comes through the gate. Here it grows out of dead logs in your own hands."
+				""
+				"We are on the other side of the gate now. What was exotic is native. What was ordinary is gone. Livingwood — plain, human Livingwood — you will not see again until you can trade for it."
+			]
+			id: "6C3C69F4EDB35C64"
+			rewards: [{
+				count: 8
+				id: "63F0CA0716C598AB"
+				item: "botania:dreamwood"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Not Livingwood"
+			tasks: [{
+				id: "5BB5CA476A27710D"
+				item: "botania:dreamwood_log"
+				type: "item"
+			}]
+			title: "Dreamwood"
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["6C3C69F4EDB35C64"]
+			description: [
+				"Two pieces of Dreamwood, laid across each other."
+				""
+				"Small things first. You cannot hold a wand you have not made."
+			]
+			id: "7E0585FFA89CAB1F"
+			rewards: [{
+				count: 4
+				id: "1F05261B489C0215"
+				item: "botania:dreamwood"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Your first tool"
+			tasks: [{
+				id: "7EC84125235487B6"
+				item: "botania:dreamwood_twig"
+				type: "item"
+			}]
+			title: "A Dreamwood Twig"
+			x: 4.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["7E0585FFA89CAB1F"]
+			description: [
+				"This is not a weapon and it is not a tool. It is a way of looking."
+				""
+				"Point it at anything botanical and it will tell you what that thing is doing. Most of what you need to learn in the next ten eras, you will learn by pointing this at something and paying attention."
+			]
+			id: "143A8FA512B4B987"
+			rewards: [{
+				id: "4C7EAF86DC9F8106"
+				item: "botania:manasteel_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "How elves see"
+			tasks: [{
+				id: "33FB2F640F5DA90D"
+				item: "botania:twig_wand"
+				type: "item"
+			}]
+			title: "The Wand of the Forest"
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["75AC0D4BE70DDCCF"]
+			description: [
+				"Fill the basin. Put petals in it. Take out a living thing."
+				""
+				"You will do this ten thousand times before you are finished. Learn to enjoy it."
+			]
+			id: "458A891D7E568404"
+			rewards: [{
+				count: 8
+				id: "78167DF97F379674"
+				item: "botania:yellow_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Make a flower"
+			tasks: [{
+				id: "6E5FE5E3AB00A960"
+				item: "botania:endoflame"
+				type: "item"
+			}]
+			title: "Petals and Water"
+			x: 7.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["143A8FA512B4B987"]
+			description: [
+				"Mana does not travel on its own. Something must throw it."
+				""
+				"Build the frame from Dreamwood. It will want a little copper too — we are not so proud that we refuse a good conductor."
+				""
+				"There is a finer pattern, worked in Elementium, that throws further and truer. You cannot make it yet. Elementium is a thing you dig out of Alfheim, and you have not learned where to dig."
+			]
+			id: "2CF07512DAB3AAF3"
+			rewards: [{
+				count: 8
+				id: "7C3DA65C266BD2E0"
+				item: "botania:dreamwood"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Move the mana"
+			tasks: [{
+				id: "1AF1465691C9E3EF"
+				item: "botania:mana_spreader"
+				type: "item"
+			}]
+			title: "A Spreader of Dreamwood"
+			x: 7.5d
+			y: 3.0d
+		}
+		{
+			description: [
+				"A pool to catch what the spreader throws. Small. It will not hold much."
+				""
+				"When you see mana move from a flower, through the air, and settle into stone you shaped — that is the moment you stop being a refugee and start being an engineer."
+				""
+				"That is Era One. Everything after this is the same lesson, larger."
+			]
+			id: "34A16A0A8BCA70E3"
+			rewards: [{
+				id: "5724D3E0E4AB97A6"
+				item: "botania:mana_pearl"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Somewhere to put it"
+			tasks: [{
+				id: "7CD58E2FE04C21C0"
+				item: "botania:diluted_pool"
+				type: "item"
+			}]
+			title: "The Diluted Pool"
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			description: [
+				"This is not mine and it is not new. Somebody kept notes while the world was ending, and the notes are better than the ones I could give you."
+				""
+				"Read it. It teaches a different craft to mine — theirs works on *source*, not mana. Two traditions. You will need both, and I will not pretend I understand the second as well as I understand the first."
+			]
+			id: "069CAEB6440B20D9"
+			rewards: [{
+				count: 4
+				id: "110B95B4D1805326"
+				item: "ars_nouveau:magebloom_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Someone left it"
+			tasks: [{
+				id: "55514AFD0596AFA8"
+				item: "ars_nouveau:worn_notebook"
+				type: "item"
+			}]
+			title: "A Worn Notebook"
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["069CAEB6440B20D9"]
+			description: [
+				"Bind yourself a book and write one glyph in it."
+				""
+				"I am a botanist. This is not my art, and I have watched enough students hurt themselves with it to be honest about that. Go slowly. It answers faster than a flower does, and that is exactly the danger."
+			]
+			id: "7CE20EF56A24AEFF"
+			rewards: [{
+				count: 4
+				id: "2171D50DEF7386B8"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The other tradition"
+			tasks: [{
+				id: "7122C5004403663A"
+				item: "ars_nouveau:novice_spell_book"
+				type: "item"
+			}]
+			title: "The Novice Book"
+			x: 0.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["6A28C9B99843D341"]
+			description: [
+				"Somewhere out there is the first thing worth wearing."
+				""
+				"Take it. They do not need it. And do not let sentiment slow you down — the fastest way to honour the dead of Alfheim is to not join them."
+			]
+			id: "66EDFBDE2090DB42"
+			rewards: [{
+				count: 5
+				id: "51F1A8F61778430F"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "First equipment"
+			tasks: [{
+				id: "3C80E7B40B22E762"
+				title: "What The Dead Left"
+				type: "checkmark"
+			}]
+			title: "What The Dead Left"
+			x: 6.0d
+			y: 1.5d
+		}
+		{
+			description: [
+				"You will dig, and you will find nothing, and you will assume I have sent you to a poor place. I have not. I have sent you to a place that was rich in a way that ruined it."
+				""
+				"When the ley-lines died, the mana in the bedrock did not drain away. It set. And it took the metal with it."
+				""
+				"What is down there now are BLOOMS — growths that hold the pattern of a metal without being one. Cinderbloom where coal should be. Palebloom where iron should be. Verdigris, green as a drowned coin, where copper should be."
+				""
+				"You cannot smelt them. Put one in a furnace and nothing happens, and you will think it a bug. It is not. The pattern is magical, not chemical, and heat has no argument with it."
+				""
+				"To open a bloom you give it living things. That is the next lesson."
+			]
+			id: "3A0640F078D9A642"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "69C7698A0F7A8C22"
+				title: "Why There Is No Metal"
+				type: "checkmark"
+			}]
+			title: "Why There Is No Metal"
+			x: 0.0d
+			y: -5.0d
+		}
+		{
+			dependencies: ["3A0640F078D9A642"]
+			description: [
+				"Life completes the pattern. That is the whole of it, and it took us an age to learn."
+				""
+				"Put a raw bloom in a Petal Apothecary with two petals and one growing thing — grain, seed, a sapling. The water does the rest. What comes out is QUICKENED, and a quickened bloom will take heat."
+				""
+				"Bloom, into Rite, into metal. Three steps where the humans of Midgard have one. They would call that inefficient. They also cannot make iron out of a flower pot."
+				""
+				"There are three more Rites after this one, and each pays better than the last. You will not need them yet. The Steeping asks for no mana at all, which is the only reason you can perform it on your first morning."
+			]
+			id: "2A50275C1536068C"
+			optional: true
+			shape: "gear"
+			subtitle: "The first Rite"
+			tasks: [{
+				id: "48EB526AB609E843"
+				title: "The Steeping"
+				type: "checkmark"
+			}]
+			title: "The Steeping"
+			x: 2.0d
+			y: -5.0d
+		}
+		{
+			description: [
+				"Petals gate the daisy, the wand, the spreader, the apothecary and every Rite. If you run out you stop, so learn all three sources now rather than the hard way."
+				""
+				"FIRST, LEAVES. Every tree in Alfheim drops petals of its own colour when you break its leaves. Dreamwood gives white and pale grey. The archwoods give their own colours. This is the reliable one, and it works from the first tree you find."
+				""
+				"SECOND, THE FLOWERS THEMSELVES, which still grow wild in the living places."
+				""
+				"THIRD, and remember this one — FLORAL FERTILIZER. Bone meal and four dyes. No petals in the recipe, which is the point: four white dyes will do, and bone meal comes from a composter, so you can make it out of nothing but weeds. Scatter it on grass and fresh mystical flowers come up."
+				""
+				"You cannot be stranded. Make sure you understand why."
+			]
+			id: "45446EF35986AD2F"
+			optional: true
+			rewards: [{
+				count: 2
+				id: "5508772F57ECC85B"
+				item: "botania:fertilizer"
+				type: "item"
+			}]
+			shape: "gear"
+			subtitle: "The thing everything needs"
+			tasks: [{
+				id: "266D69C5D1CACE03"
+				title: "Where Petals Come From"
+				type: "checkmark"
+			}]
+			title: "Where Petals Come From"
+			x: 4.0d
+			y: -5.0d
+		}
+		{
+			dependencies: ["45446EF35986AD2F"]
+			description: [
+				"Three powers run through this world and they look alike to a beginner. Confusing them will cost you a season."
+				""
+				"MANA is Botania's. Flowers make it. Spreaders throw it in straight lines that need clear sight — if your spreader will not fire, something is in the way of it. Pools and tablets hold it."
+				""
+				"SOURCE is the Song's. Sourcelinks make it, jars hold it, relays move it through the air without caring what stands between. It does not need a line."
+				""
+				"AURA belongs to the land, not to you. It sits in the chunk you are standing in. Draw too much and the ground itself degrades — and this grove is already drawn down, which is part of why nothing grows."
+				""
+				"Mana and Source you build. Aura you spend, and it does not forgive."
+			]
+			id: "51755E1F5AC47936"
+			optional: true
+			shape: "gear"
+			subtitle: "And they are not alike"
+			tasks: [{
+				id: "07A4CE3608D9169A"
+				title: "Three Energies"
+				type: "checkmark"
+			}]
+			title: "Three Energies"
+			x: 6.0d
+			y: -5.0d
+		}
+		{
+			description: [
+				"Some of you will have read of Botania as the humans practise it. Set that down."
+				""
+				"In their telling, a human feeds ordinary goods into the Alfheim Portal and receives elven goods back. We are on the other side of that gate. The trade runs the other way."
+				""
+				"Dreamwood grows in our forests. Elementium is an ore we mine. What we cannot easily get is Livingwood, Manasteel, Mana Diamonds — the work of a Midgard we no longer reach freely."
+				""
+				"So the gate is not a prize at the end of your road. It is a trade route, it opens in the fourth era, and it leads OUT. Everything you build until then, you build alone."
+			]
+			id: "6BC497EE329F3CC8"
+			optional: true
+			shape: "gear"
+			subtitle: "If you have done this before"
+			tasks: [{
+				id: "77A789DCAC354027"
+				title: "The Gate Runs Outward"
+				type: "checkmark"
+			}]
+			title: "The Gate Runs Outward"
+			x: 8.0d
+			y: -5.0d
+		}
+		{
+			description: [
+				"Where the ley-lines ran hardest the mana did not merely set into stone. It separated by alignment, and it set as gem."
+				""
+				"So a geode is never one crystal. It is the seam between two — Emberglass against Duskglass, Tidewake against Galeglass — half and half, with a visible join. Which pair you find depends on where you are standing."
+				""
+				"Now the part worth walking for. LOOK AT THE GROUND. A small geode on the surface means a full one lies directly beneath it, within thirty-odd blocks. Those small ones never appear over empty stone. If you see the crystals, dig."
+				""
+				"The budding stone grows fresh clusters if you leave it be. Take the clusters and leave the bed, and it will keep paying you."
+			]
+			id: "1BE4D21394D2D176"
+			optional: true
+			shape: "gear"
+			subtitle: "And the sign on the surface"
+			tasks: [{
+				id: "79912C54ED2CF409"
+				title: "Reading a Geode"
+				type: "checkmark"
+			}]
+			title: "Reading a Geode"
+			x: 10.0d
+			y: -5.0d
+		}
+		{
+			description: [
+				"Livingrock, and water in the basin. That is all it is, and it will carry you for two eras."
+				""
+				"Fill it with water first — it does nothing dry, and half of everyone forgets. Then throw the ingredients in, one at a time, and strike the basin with your wand when the set is complete."
+				""
+				"Order does not matter. Quantity does. Two petals means two petals, not one used twice."
+				""
+				"It makes flowers, and it performs the Steeping. Those are the two jobs that begin everything else."
+			]
+			id: "7B625A14AC56034F"
+			optional: true
+			shape: "gear"
+			subtitle: "Your first station"
+			tasks: [{
+				id: "3F611A16E9356BA9"
+				title: "Reading the Apothecary"
+				type: "checkmark"
+			}]
+			title: "Reading the Apothecary"
+			x: 2.0d
+			y: -3.5d
+		}
+		{
+			description: [
+				"A Mana Spreader is a thrower, not a pipe. It needs to SEE what it is feeding."
+				""
+				"Bind it with your wand: strike the spreader, then strike the pool. If the burst has anything in its way — a block, a fence, a torch you forgot — it will not connect, and the spreader will sit there looking healthy and doing nothing."
+				""
+				"Distance costs you. A burst loses mana over a long throw, so short lines beat clever ones."
+				""
+				"And a spreader will not pull from a flower it cannot see either. Build the flower, the spreader and the pool in a straight open line, and only make it elegant once it works."
+			]
+			id: "5D189F4F932F3925"
+			optional: true
+			shape: "gear"
+			subtitle: "Line of sight"
+			tasks: [{
+				id: "42B9F769EBFAAA30"
+				title: "Why Your Spreader Will Not Fire"
+				type: "checkmark"
+			}]
+			title: "Why Your Spreader Will Not Fire"
+			x: 6.0d
+			y: -3.5d
+		}
+		{
+			dependencies: ["5D189F4F932F3925"]
+			description: [
+				"Botania's flowers come in two sorts and they do opposite jobs. Nothing in the book labels them clearly, so I will."
+				""
+				"GENERATING flowers make mana. They eat something — fuel, food, an event — and produce mana for a spreader to collect. The Endoflame burns coal. That is your first one."
+				""
+				"FUNCTIONAL flowers spend mana. They sit near a pool, draw from it, and do work: growing crops, moving items, killing things."
+				""
+				"A functional flower with nothing feeding it does nothing at all, and looks exactly like one that is working. Before you conclude a flower is broken, ask whether anything is filling it."
+			]
+			id: "2A9D4CD35B6D2018"
+			optional: true
+			shape: "gear"
+			subtitle: "The distinction that defeats everyone"
+			tasks: [{
+				id: "58003997CBDB6633"
+				title: "Two Kinds of Flower"
+				type: "checkmark"
+			}]
+			title: "Two Kinds of Flower"
+			x: 8.0d
+			y: -3.5d
+		}
+		{
+			dependencies: ["45446EF35986AD2F"]
+			description: [
+				"You will notice there are no oaks here. No birch, no apple. Alfheim grew dreamwood and archwood and nothing else, and after the devastation it grew very little of either."
+				""
+				"But before the end, we kept a seed-archive — every forest of the Nine Realms, held in trust. Three trees survived it. Emberbark on the high dry ground. Gloambark in the wet dark. Hushbark where it is pale and quiet."
+				""
+				"Break their leaves and you will sometimes find a seed that is not theirs: oak, birch, spruce, cherry. Those grow normally. Plant them and you have wood, and apples, and a world that looks a little less like a graveyard."
+				""
+				"Rarely the tree gives up its own sapling too. Take that one and plant it somewhere safe. There are not many left."
+			]
+			id: "0612A6103D9FFB21"
+			optional: true
+			shape: "gear"
+			subtitle: "Other forests, kept"
+			tasks: [{
+				id: "21E4358DC0B5C386"
+				title: "The Archive Groves"
+				type: "checkmark"
+			}]
+			title: "The Archive Groves"
+			x: 4.0d
+			y: -3.5d
+		}
+		{
+			description: [
+				"Not everywhere here is merely damaged. Some ground is done."
+				""
+				"The STARVED REACH grows nothing at all — not poisoned, not burned, just spent. The SCORCHFELL burned and is somehow still burning; there is ash in the air. The INFESTED WARREN has things living in the old roots that did not ask. The DECAYED MIRE is rot and standing water and whatever moves in it."
+				""
+				"And at the edge of everything is the VOID VERGE, where the ground thins, breaks into a cliff, and stops. What is left out there floats."
+				""
+				"I am not telling you to avoid them. The Verge holds the richest stone in Alfheim. I am telling you to know which one you are standing in before it matters."
+			]
+			id: "668ACF8F47931FB0"
+			optional: true
+			shape: "gear"
+			subtitle: "Know them before you walk in"
+			tasks: [{
+				id: "29DB2D97885D30C1"
+				title: "The Places That Finished Dying"
+				type: "checkmark"
+			}]
+			title: "The Places That Finished Dying"
+			x: 10.0d
+			y: -3.5d
+		}
+		{
+			description: [
+				"The things in the ruins are not simply hostile. They have LEVELS, and so do you."
+				""
+				"A creature two levels above you does not fight harder. It fights on a different scale, and your good sword becomes a stick. Check what you are walking toward."
+				""
+				"Your gear has levels too, and rolled qualities that vary between two of the same item. A common blade with good rolls will outlast a rare one with poor ones."
+				""
+				"You will find orbs. Do not spend them the day you find them — some are worth far more later, and there is no way to get one back once it is used."
+			]
+			id: "265EAF0033242719"
+			optional: true
+			shape: "gear"
+			subtitle: "Levels, and why they matter"
+			tasks: [{
+				id: "517E1437400BFAF3"
+				title: "What The Ruins Became"
+				type: "checkmark"
+			}]
+			title: "What The Ruins Became"
+			x: 0.0d
+			y: -3.5d
+		}
+		{
+			description: [
+				"Forget every tally you have kept in your life. Mana is not a score."
+				""
+				"It is a fluid. It sits in a pool, it is thrown through the air in bursts, and every burst that misses is simply gone. You do not spend mana; you move it, and you lose some in the moving."
+				""
+				"This is why our workshops look like plumbing and not like arithmetic."
+			]
+			id: "2A829B5EADFB5370"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "66701E01B3F94D8C"
+				title: "Mana Is Not A Number"
+				type: "checkmark"
+			}]
+			title: "Mana Is Not A Number"
+			x: 0.0d
+			y: -6.5d
+		}
+		{
+			description: [
+				"The Pure Daisy transmutes. It does not craft."
+				""
+				"Put it in the world, put the material beside it, and wait. It changes the block where the block lies. No basin, no table, no fuel - only patience, which is the one resource this grove still has in quantity."
+				""
+				"Wood becomes Dreamwood. Stone becomes Livingrock. Both take their time about it."
+			]
+			id: "1C4446342775A7EA"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "1613D6C1863CC598"
+				title: "The Daisy Works Where It Stands"
+				type: "checkmark"
+			}]
+			title: "The Daisy Works Where It Stands"
+			x: 1.5d
+			y: -6.5d
+		}
+		{
+			description: [
+				"You will try to smelt a bloom. Everyone does. It will not work."
+				""
+				"A bloom is not ore and a furnace is not a rite. Fire opens metal; it does not open a living thing. What a bloom wants is time in water and a ring of petals - the Steeping."
+				""
+				"Once it is quickened, then heat has something to bite on. Order matters here more than temperature."
+			]
+			id: "483D5DB4A767127A"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "46B4BF270F78A41E"
+				title: "Heat Does Nothing"
+				type: "checkmark"
+			}]
+			title: "Heat Does Nothing"
+			x: 3.0d
+			y: -6.5d
+		}
+		{
+			description: [
+				"There is a third power here, and it is the only one that can be owed."
+				""
+				"Aura is not carried and not thrown. It sits in the ground itself, chunk by chunk, and when you draw on it the land holds less than it did. It does not refill on its own."
+				""
+				"Make an Environmental Eye and look through it before you build anything. You will find that where you are standing is already poor - that is not an accident of terrain. Something drew this grove down and never paid it back."
+			]
+			id: "51A222A14D2BEDBC"
+			optional: true
+			shape: "gear"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "531FF9D3EB82F709"
+				title: "The Land Keeps Accounts"
+				type: "checkmark"
+			}]
+			title: "The Land Keeps Accounts"
+			x: 4.5d
+			y: -6.5d
+		}
+		{
+			description: [
+				"You will find stone that is the wrong colour and was never quarried."
+				""
+				"Otherstone is what is left where something was called across and did not go quietly. It predates the collapse. Whoever drew those circles is not here to explain them."
+				""
+				"Chalk, candles, a closed shape on the floor. The work is not difficult. Deciding to do it is the difficult part, and I will not decide for you."
+			]
+			id: "718C0A4041DD5567"
+			optional: true
+			shape: "gear"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "0600AB597C98EE8E"
+				title: "Someone Was Here Before Us"
+				type: "checkmark"
+			}]
+			title: "Someone Was Here Before Us"
+			x: 6.0d
+			y: -6.5d
+		}
+		{
+			description: [
+				"The pixies survived. Of course they did."
+				""
+				"They will not be farmed, trapped or reasoned with, and they cannot be robbed - try it and you will find nothing in your hand. But they will trade, and their price is absurd and non-negotiable: sweets."
+				""
+				"Offer a cookie. Receive Fey Dust. This is the cheapest magic in Alfheim and the best lesson in it - everything here is a bargain, and the ones who forget that end up owing."
+			]
+			id: "51CAC6059A79124F"
+			optional: true
+			shape: "gear"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "21D02C8151805911"
+				title: "Ask, Do Not Take"
+				type: "checkmark"
+			}]
+			title: "Ask, Do Not Take"
+			x: 7.5d
+			y: -6.5d
+		}
+		{
+			description: [
+				"There is debris in the stone that is not ours."
+				""
+				"Humans made a magic of books and syllables - schools, cooldowns, ink. It was clumsy beside the Song and it worked anyway, and their world is the one that ended."
+				""
+				"You will find it here as wreckage, because Alfheim traded with Midgard for a long time before the gate closed. Learn it if you like. It is a dead craft, and it is still the fastest way to put fire in your hand."
+			]
+			id: "52D5981D7DA4674F"
+			optional: true
+			shape: "gear"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "5EB4F9236F3DB844"
+				title: "The Magic Of The World That Died"
+				type: "checkmark"
+			}]
+			title: "The Magic Of The World That Died"
+			x: 9.0d
+			y: -6.5d
+		}
+		{
+			description: [
+				"Two kinds of entry, and you can tell them apart at a glance."
+				""
+				"The gear-shaped ones are me talking. They cost nothing, unlock nothing, and can be ignored entirely. Read them anyway - nothing else in this pack will explain why a spreader refuses to fire."
+				""
+				"The rest are work. Those chain, and the chains are what carry you between eras."
+			]
+			id: "011D328273F0FE98"
+			optional: true
+			shape: "gear"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "5F9E7EAD48B29174"
+				title: "How This Book Works"
+				type: "checkmark"
+			}]
+			title: "How This Book Works"
+			x: 10.5d
+			y: -6.5d
+		}
+		{
+			description: [
+				"Before you take anything out of this grove, measure what is in it."
+				""
+				"The Eye is glass and gold fibre and it shows you the aura of the chunk you stand in. Carry it. Look often. You are about to learn that the Ashen Grove is not poor by metaphor."
+			]
+			id: "72D6866D212442BD"
+			rewards: [{
+				count: 4
+				id: "04247C7B2D242671"
+				item: "naturesaura:gold_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "2A58B9FED71A05F1"
+				item: "naturesaura:eye"
+				type: "item"
+			}]
+			title: "Look At The Ground"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Now you have seen the number."
+				""
+				"Low. Lower than any forest has business being. Something stood here and pulled until there was nothing left to pull, and then the trees died standing up."
+				""
+				"Remember it, because you are about to start drawing on it yourself."
+			]
+			id: "5DCB13A67C7F02CD"
+			rewards: [{
+				count: 8
+				id: "7880068C7D82B15B"
+				item: "naturesaura:gold_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "2643479E3267A51B"
+				title: "A Grove Drawn Down"
+				type: "checkmark"
+			}]
+			title: "A Grove Drawn Down"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"A flat stone under open sky, and the air does the rest."
+				""
+				"This is the crudest of the three energies and the only honest one: it takes from the place you are standing, visibly, and it tells you what it took."
+			]
+			id: "4DB46C006347CCC1"
+			rewards: [{
+				count: 8
+				id: "0A8A64C3D03D8377"
+				item: "botania:white_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Nature's Aura"
+			tasks: [{
+				id: "3D4126379D2BFB23"
+				item: "naturesaura:nature_altar"
+				type: "item"
+			}]
+			title: "The Natural Altar"
+			x: 4.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["6A28C9B99843D341"]
+			description: [
+				"Bring me a piece of it."
+				""
+				"You will know it when you see it - it belongs to no layer, and it is burnt in a way stone does not burn. Someone opened a door here. The door is shut. The frame is not."
+			]
+			id: "11171A075A2F5898"
+			rewards: [{
+				id: "72CCB3995A4A8864"
+				item: {
+					Count: 1
+					id: "occultism:chalk_white"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "2B3C747DD9BB35DC"
+				item: "occultism:burnt_otherstone"
+				type: "item"
+			}]
+			title: "Stone Of The Wrong Colour"
+			x: 1.5d
+			y: 7.5d
+		}
+		{
+			dependencies: ["11171A075A2F5898"]
+			description: [
+				"Read it. I am not going to pretend I approve."
+				""
+				"It is a catalogue of things that can be called and what each of them will accept as payment. The elves who wrote our histories left this out on purpose, which tells you either that it is beneath us or that it worked."
+			]
+			id: "2315ABBA15522DAB"
+			rewards: [{
+				count: 3
+				id: "4D24482D5C52EF99"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Occultism"
+			tasks: [{
+				id: "1DD3E20E47D3A62B"
+				item: "occultism:taboo_book"
+				type: "item"
+			}]
+			title: "The Taboo Book"
+			x: 3.0d
+			y: 7.5d
+		}
+		{
+			description: [
+				"I am entirely serious."
+				""
+				"Bake it, carry it, and find something small and bright that watches you from the leaves. Hold it out. Do not grab."
+			]
+			id: "60035A11558E3929"
+			rewards: [{
+				count: 8
+				id: "3E11D19CBEC2D5B4"
+				item: "minecraft:sugar"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				count: 4L
+				id: "46DFEAEA700E68A5"
+				item: "minecraft:cookie"
+				type: "item"
+			}]
+			title: "Bring A Cookie"
+			x: 1.5d
+			y: 9.0d
+		}
+		{
+			description: [
+				"There. That is a fair trade, and you are now on speaking terms with a species that outlived the collapse without lifting a finger."
+				""
+				"The dust is in everything they touch. Keep it - the Court will want it long before you understand why."
+			]
+			id: "1EE47AA8A186670A"
+			rewards: [{
+				id: "576A6CEB7700F26D"
+				item: "feywild:feywild_lexicon"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "023429A0BAE795DE"
+				item: "feywild:fey_dust"
+				type: "item"
+			}]
+			title: "Fey Dust"
+			x: 3.0d
+			y: 9.0d
+		}
+		{
+			description: [
+				"The pixies keep a book, after a fashion, and it is more reliable than ours on the subject of pixies."
+				""
+				"Read the parts about the courts. You will meet them, and they do not all like each other."
+			]
+			id: "646BEB2746F7957E"
+			rewards: [{
+				count: 2
+				id: "6778830D0A3E6F98"
+				item: "feywild:fey_dust"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Feywild"
+			tasks: [{
+				id: "15B16147491FD61F"
+				title: "Their Own Account"
+				type: "checkmark"
+			}]
+			title: "Their Own Account"
+			x: 4.5d
+			y: 9.0d
+		}
+		{
+			dependencies: ["6A28C9B99843D341"]
+			description: [
+				"Dig down and you will strike something black and glassy that no elf put there."
+				""
+				"Arcane Debris. It came through the gate as trade goods, or as weapons, and then the gate shut with it still in the ground."
+			]
+			id: "68C0705B57FDA248"
+			rewards: [{
+				count: 4
+				id: "70A634D580BDBE86"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "715B8953544D871A"
+				item: "irons_spellbooks:arcane_debris"
+				type: "item"
+			}]
+			title: "Wreckage In The Stone"
+			x: 1.5d
+			y: 10.5d
+		}
+		{
+			dependencies: ["68C0705B57FDA248"]
+			description: [
+				"Break the debris down and the magic is still in there, thin but awake."
+				""
+				"Human magic keeps. That is the frightening thing about it - ours needs a living flower and theirs needs a jar."
+			]
+			id: "2E55AB8B792814D9"
+			rewards: [{
+				count: 8
+				id: "591BACD9E3DDBEBF"
+				item: "minecraft:lapis_lazuli"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "1709F493EFBAE4E6"
+				item: "irons_spellbooks:arcane_essence"
+				type: "item"
+			}]
+			title: "What Is Left In It"
+			x: 3.0d
+			y: 10.5d
+		}
+		{
+			dependencies: ["2E55AB8B792814D9"]
+			description: [
+				"Ink, and something to write on."
+				""
+				"You are about to learn the magic of the world that died. Learn it well enough to know why it died, and you will have got more out of it than they did."
+			]
+			id: "4505D5AD98926739"
+			rewards: [{
+				count: 2
+				id: "0221E199154DF393"
+				item: "irons_spellbooks:arcane_essence"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Iron's Spells"
+			tasks: [{
+				id: "5448700BBB275007"
+				item: "irons_spellbooks:common_ink"
+				type: "item"
+			}]
+			title: "A Dead Craft, Learned"
+			x: 4.5d
+			y: 10.5d
+		}
+		{
+			description: [
+				"You have been working alone long enough that I am beginning to take it personally."
+				""
+				"Come to the amphitheatre. Carry a Petition Scroll - the Court is reduced, not informal, and I am still owed the courtesy."
+			]
+			id: "4F1002750B92ADA7"
+			rewards: [{
+				count: 16
+				id: "6F58987D40AB88F8"
+				item: "botania:white_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Hollow Court"
+			tasks: [{
+				id: "736613E9B60D4AF8"
+				item: "quest_giver:quest_scroll"
+				type: "item"
+			}]
+			title: "Present Yourself"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["4F1002750B92ADA7"]
+			description: [
+				"Orenvel holds the roster and the armoury key, and there is nobody left on the roster."
+				""
+				"He will not say so, but he has been waiting eleven years for someone to report. Do not make a speech. He will hate that."
+			]
+			id: "7AD0AA7A12603533"
+			rewards: [{
+				count: 4
+				id: "4284755C1D575BCE"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Hollow Court"
+			tasks: [{
+				id: "3D746E9EBF58EB00"
+				title: "The Captain Is Waiting"
+				type: "checkmark"
+			}]
+			title: "The Captain Is Waiting"
+			x: 10.5d
+			y: 2.0d
+		}
+		{
+			description: [
+				"One colour is an accident. Four is a supply."
+				""
+				"The leaves of this forest drop by species, so four colours means four kinds of tree found and stripped. Go and find them."
+			]
+			id: "1BB75EE83C250A8B"
+			rewards: [{
+				count: 2
+				id: "415344AFF9E4BA8E"
+				item: "botania:fertilizer"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [
+				{
+					count: 8L
+					id: "5EF08AF3019890B1"
+					item: "botania:white_petal"
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "0A556AAFEA81C7B9"
+					item: "botania:pink_petal"
+					type: "item"
+				}
+			]
+			title: "Four Colours"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1BB75EE83C250A8B"]
+			description: [
+				"Bone meal and four dyes, and the ground answers with flowers you did not plant."
+				""
+				"It is not elegant. It is the fastest way from an empty grove to sixteen colours, and elegance is a later era's problem."
+			]
+			id: "783312EDCA5CF894"
+			rewards: [{
+				count: 8
+				id: "3FACB4B886722E64"
+				item: "botania:pink_petal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "632636849E762D2B"
+				item: "botania:fertilizer"
+				type: "item"
+			}]
+			title: "Floral Fertilizer"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6C3C69F4EDB35C64"]
+			description: [
+				"Blooms grow in stone, and stone tells you which one before you break it."
+				""
+				"The sign is on the surface - a colour in the rock that has no business being there. Learn the signs and you will stop mining hopefully."
+			]
+			id: "7DB32F2E8CD6DE82"
+			rewards: [{
+				count: 16
+				id: "201D248110B59E6F"
+				item: "minecraft:torch"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "5F43C41B33DAFFB2"
+				item: "alfheim:raw_cinderbloom"
+				type: "item"
+			}]
+			title: "Read The Surface"
+			x: 10.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["7DB32F2E8CD6DE82"]
+			description: [
+				"Water, petals, patience. No fire."
+				""
+				"The bloom comes out quickened, and a quickened bloom will give up its metal to a furnace the way ore never did. This is how Alfheim has metal at all."
+			]
+			id: "27B2EFD03B55EF67"
+			rewards: [{
+				count: 8
+				id: "4D85528FC81AD055"
+				item: "minecraft:coal"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				id: "10C3BE0EED24F28C"
+				item: "alfheim:quickened_cinderbloom"
+				type: "item"
+			}]
+			title: "Rite I - The Steeping"
+			x: 12.0d
+			y: 1.5d
+		}
+		{
+			description: [
+				"Now put it in the fire."
+				""
+				"Not before. A raw bloom in a furnace gives you nothing and teaches you nothing; a quickened one gives up what it has been holding."
+				""
+				"There is no coal seam in Alfheim. There is no iron vein. Every scrap of metal on this side of the gate came out of a flower that someone steeped first - and now you have done the whole of it yourself, from a coloured stain in the rock to a useful thing in your hand."
+			]
+			id: "3995CA3F93EDAC19"
+			rewards: [{
+				count: 4
+				id: "33E0102E08C25EFF"
+				item: "alfheim:raw_palebloom"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Leaf"
+			tasks: [{
+				count: 8L
+				id: "239E0D515104CE6E"
+				item: "minecraft:coal"
+				type: "item"
+			}]
+			title: "Rite I Concluded - The Rendering"
+			x: 13.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["7CE20EF56A24AEFF"]
+			description: [
+				"Do not let the glow fool you. Source and mana share nothing but a colour."
+				""
+				"Source is generated by Sourcelinks and carried by relays, within range, without line of sight. It will not fill a mana pool and a mana pool will not fill it."
+			]
+			id: "1207FD593CE49786"
+			rewards: [{
+				count: 4
+				id: "3D32161F3EC3C48C"
+				item: "ars_nouveau:magebloom_fiber"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				count: 4L
+				id: "377778E2C82A3C90"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			title: "Source Is Not Mana"
+			x: 1.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["1207FD593CE49786"]
+			description: [
+				"Every spell in the Song is three questions in order. What shape does it take? What does it do? And how hard?"
+				""
+				"Get the order wrong and the spell simply will not assemble. That is the Song being strict, not broken."
+			]
+			id: "2B0F6368AA5465E4"
+			rewards: [{
+				count: 4
+				id: "068598C53D8BF2DE"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "38F6678F3926CACD"
+				title: "Form, Effect, Augment"
+				type: "checkmark"
+			}]
+			title: "Form, Effect, Augment"
+			x: 3.0d
+			y: 4.5d
+		}
+		{
+			description: [
+				"Whatever you were before you slept, you are level one now."
+				""
+				"So is almost everything in this grove, which is the only reason you are still standing. Kill things near your own level until that stops being true."
+			]
+			id: "4C5C45EA3928FB45"
+			rewards: [{
+				count: 8
+				id: "45C951B46E51DB33"
+				item: "minecraft:cooked_beef"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				entity: "minecraft:zombie"
+				id: "2BA5961B2DFDA2E0"
+				type: "kill"
+				value: 8L
+			}]
+			title: "You Are Level One"
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			description: [
+				"You will find orbs. They are currency, and they are the only currency here that cannot be remade."
+				""
+				"A common orb spent on a common blade in your first week is an orb you will want back in your fifth. Hold them. Boredom is cheaper than regret."
+			]
+			id: "35F4C390CB3C0326"
+			rewards: [{
+				count: 3
+				id: "3B0D856ED1561C11"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "62BF9B55F4304A72"
+				title: "Do Not Spend It"
+				type: "checkmark"
+			}]
+			title: "Do Not Spend It"
+			x: 7.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["35F4C390CB3C0326"]
+			description: [
+				"Orenvel will ask you for this whether you take it from me or not."
+				""
+				"The Court is not haunted. It is infested. Clear far enough out that the amphitheatre is quiet, and he will start talking to you like a soldier."
+			]
+			id: "4F89B008AB8700C2"
+			rewards: [{
+				count: 16
+				id: "4640D16464DF69C4"
+				item: "minecraft:string"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				entity: "minecraft:spider"
+				id: "7464556287631D6E"
+				type: "kill"
+				value: 20L
+			}]
+			title: "The Understory"
+			x: 9.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["4F89B008AB8700C2"]
+			description: [
+				"Pick up two blades of the same name and compare them properly."
+				""
+				"They are not the same blade. The rolls differ, and a common weapon that rolled well will outlast a rare one that did not. Read before you equip."
+			]
+			id: "216B17CF4E740E1B"
+			rewards: [{
+				count: 6
+				id: "29F7998AEAEA0B1F"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "555A1DBD30677A36"
+				title: "Two Of The Same Sword"
+				type: "checkmark"
+			}]
+			title: "Two Of The Same Sword"
+			x: 10.5d
+			y: 3.0d
+		}
+	]
+	subtitle: ["Can anything still grow here?"]
+	title: "I — The Ashen Grove"
+}

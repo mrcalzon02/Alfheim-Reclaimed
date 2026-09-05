@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alfheim:block/hushbark_sapling"
+  }
+}

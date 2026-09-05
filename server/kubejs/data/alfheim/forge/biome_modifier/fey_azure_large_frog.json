@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "alfheim:silverbark_wood",
+    "mythicbotany:alfheim_lakes"
+  ],
+  "spawners": {
+    "type": "alfheim:azure_large_frog",
+    "weight": 4,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

@@ -1,0 +1,566 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_5"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:elementium_core"
+	id: "012048A3C92C349A"
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Down, now. The ore you found in Era Two was the surface of it."
+				""
+				"Elementium, Alfsteel, and the pylons that make them. This is the era where we stop scavenging metal and start producing it."
+			]
+			id: "534D1DF9DC2C53AE"
+			rewards: [{
+				id: "71DC2685D6EA10E1"
+				item: "alfheim:gatewrought_cord"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "79C6D82AA5BF7459"
+				title: "Era 5"
+				type: "checkmark"
+			}]
+			title: "Era 5"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"A millstone. Yes, really."
+				""
+				"Machinery is not beneath us and it is not the point either. It is a faster way to break a thing into smaller things, and from here the ladder uses it."
+				""
+				"Build it before the era asks. Nothing downstream of this works without it."
+			]
+			id: "3FF508AE6741ADEB"
+			rewards: [{
+				id: "5D6B8B77456D60E7"
+				item: "alfheim:gatewrought_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "29180E176660A810"
+				item: "create:millstone"
+				type: "item"
+			}]
+			title: "The Millstone"
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["3FF508AE6741ADEB"]
+			description: [
+				"MythicBotany's Infuser. Deeper than a pool and considerably hungrier."
+				""
+				"It asks what colour the working starts and ends in, and it means it. A recipe without both is refused at load and leaves no trace that it existed."
+			]
+			id: "5701B3721B2E437C"
+			rewards: [{
+				id: "5B00E49E62CA3E9B"
+				item: "alfheim:gatewrought_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "1979CDF2CF4C23B0"
+				item: "mythicbotany:mana_infuser"
+				type: "item"
+			}]
+			title: "The Mana Infuser"
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["5701B3721B2E437C"]
+			description: [
+				"Into the furnace. The oldest process we have and still the honest one."
+				""
+				"Step 1 of 7."
+			]
+			id: "562015337EE31210"
+			rewards: [{
+				id: "5C8090A45CF30FE1"
+				item: "alfheim:raw_alloy_grit"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/7"
+			tasks: [{
+				id: "51C7039922F3F130"
+				item: "alfheim:raw_alloy_grit"
+				type: "item"
+			}]
+			title: "Raw Alloy Grit"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["562015337EE31210"]
+			description: [
+				"Milled. Machinery is not beneath us; it is simply not the point."
+				""
+				"Step 2 of 7."
+			]
+			id: "14226DF95618C8F5"
+			rewards: [{
+				id: "570E0E7771123ACA"
+				item: "alfheim:annealed_plate"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/7"
+			tasks: [{
+				id: "5F7B30558FD3FB58"
+				item: "alfheim:annealed_plate"
+				type: "item"
+			}]
+			title: "Annealed Plate"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["14226DF95618C8F5"]
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 3 of 7."
+			]
+			id: "544520D9A347FC63"
+			rewards: [{
+				id: "1CF4952109A2C6FA"
+				item: "alfheim:core_blank"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/7"
+			tasks: [{
+				id: "12E5DB8C0379FF33"
+				item: "alfheim:core_blank"
+				type: "item"
+			}]
+			title: "Core Blank"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				""
+				"Step 4 of 7."
+			]
+			id: "763ABA7A3BAAB26A"
+			rewards: [{
+				id: "5471EF21E2BE744A"
+				item: "alfheim:elementium_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/7"
+			tasks: [{
+				id: "2D288DE533AA8FE5"
+				item: "alfheim:elementium_drawn"
+				type: "item"
+			}]
+			title: "Elementium Drawn"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["763ABA7A3BAAB26A"]
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 5 of 7."
+			]
+			id: "7208B9CBBC9B8C40"
+			rewards: [{
+				id: "104C0945EF18A9BA"
+				item: "alfheim:elementium_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/7"
+			tasks: [{
+				id: "3385923391273227"
+				item: "alfheim:elementium_folded"
+				type: "item"
+			}]
+			title: "Elementium Folded"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7208B9CBBC9B8C40"]
+			description: [
+				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				""
+				"Step 6 of 7."
+			]
+			id: "503A6000948DB56F"
+			rewards: [{
+				id: "6F9651BE472E934A"
+				item: "alfheim:elementium_stilled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 6/7"
+			tasks: [{
+				id: "11A52C6612AE89A5"
+				item: "alfheim:elementium_stilled"
+				type: "item"
+			}]
+			title: "Elementium Stilled"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The last step. Elementium Core."
+				""
+				"Era V. Mined, smelted and sung to. Ours from the ground up."
+				""
+				"7 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "3DCFC17FB1603613"
+			rewards: [{
+				id: "21972BB8C101D6B2"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 7/7"
+			tasks: [{
+				id: "0752EA66A524EF9F"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			title: "Elementium Core"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "3241BF8764E49DA9"
+			rewards: [{
+				count: 8
+				id: "3FB9BD159B2C26BA"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "592E486F3D036712"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "04518FA92091442F"
+			rewards: [{
+				count: 8
+				id: "49578D1A3601592A"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "5749F866BDEBA966"
+				item: "ars_nouveau:alchemical_sourcelink"
+				type: "item"
+			}]
+			title: "Alchemical Sourcelink"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "47D3D3A778085EAE"
+			rewards: [{
+				count: 8
+				id: "01A82F3A399F93C0"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "798EAFCD7AB6D7DD"
+				item: "ars_nouveau:volcanic_sourcelink"
+				type: "item"
+			}]
+			title: "Volcanic Sourcelink"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "449FC17F1264C429"
+			rewards: [{
+				count: 8
+				id: "642477E52806F0E2"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "6B645F0B8120A664"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "66A461C65798D4C9"
+			rewards: [{
+				count: 8
+				id: "671123A3FB2F36BE"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "66F2950B7C0B950B"
+				item: "ars_nouveau:alchemical_sourcelink"
+				type: "item"
+			}]
+			title: "Alchemical Sourcelink"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["66A461C65798D4C9"]
+			description: ["The other tradition, keeping pace."]
+			id: "2208060FAB6189E6"
+			rewards: [{
+				count: 8
+				id: "23094DA3B967B73B"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "44FD4DA1E7784F2B"
+				item: "ars_nouveau:volcanic_sourcelink"
+				type: "item"
+			}]
+			title: "Volcanic Sourcelink"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["2208060FAB6189E6"]
+			description: ["The other tradition, keeping pace."]
+			id: "22FF12F9CA2ED6B3"
+			rewards: [{
+				count: 8
+				id: "3445270503950397"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "29729541C812F484"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "24723DA82B20A8BC"
+			rewards: [{
+				count: 4
+				id: "791EB48735CAEBB1"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "15226D8AE016D7C8"
+				item: "minecolonies:blockhutsmeltery"
+				type: "item"
+			}]
+			title: "Blockhutsmeltery"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["24723DA82B20A8BC"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "42E6E780FDED3582"
+			rewards: [{
+				count: 4
+				id: "0BC244236F23F11B"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "4ADFF977C7B356E8"
+				item: "minecolonies:blockhutstonemason"
+				type: "item"
+			}]
+			title: "Blockhutstonemason"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			dependencies: ["42E6E780FDED3582"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "0D18FD1B82643467"
+			rewards: [{
+				count: 4
+				id: "74F3EE8E708826A4"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "06EF725800952C02"
+				item: "minecolonies:blockhutsmeltery"
+				type: "item"
+			}]
+			title: "Blockhutsmeltery"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["0D18FD1B82643467"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "45EDF7477FE4BA14"
+			rewards: [{
+				count: 4
+				id: "12294C9328CA7E4B"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "58EE1CFA5642BCDB"
+				item: "minecolonies:blockhutstonemason"
+				type: "item"
+			}]
+			title: "Blockhutstonemason"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "36B6DCDC5C126B91"
+			rewards: [{
+				count: 8
+				id: "7DB35C6C7214B217"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "507A3E26896F473D"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["36B6DCDC5C126B91"]
+			description: ["Deeper than last time. It always is."]
+			id: "58F4CFA91A9149F2"
+			rewards: [{
+				count: 8
+				id: "22B61CD532A2CDE9"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "358925184B231120"
+				item: "mmorpg:currency/socket_adder"
+				type: "item"
+			}]
+			title: "Currency/socket Adder"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["58F4CFA91A9149F2"]
+			description: ["Deeper than last time. It always is."]
+			id: "0E4528AA94776D39"
+			rewards: [{
+				count: 8
+				id: "0CFBB15DE3C98750"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "4E2BE991AF10B2B5"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["0E4528AA94776D39"]
+			description: [
+				"The Rune of Nidavellir, realm of the smiths."
+				""
+				"They were never the grandest of the nine and they made everything the grand ones used. Remember that when someone calls your workshop unglamorous."
+			]
+			id: "6DD3CC65BA84F769"
+			rewards: [{
+				count: 2
+				id: "67E590314059A5AD"
+				item: "alfheim:elementium_core"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "081FADC034959CB4"
+				item: "mythicbotany:nidavellir_rune"
+				type: "item"
+			}]
+			title: "The Rune of Nidavellir"
+			x: 6.0d
+			y: 4.5d
+		}
+	]
+	subtitle: ["Can we make our own metal?"]
+	title: "V — The Deep Forges"
+}

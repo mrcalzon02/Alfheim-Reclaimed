@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:ashwatch_keep",
+    "alfheim:riven_hold",
+    "alfheim:hollow_bastion",
+    "alfheim:warren_gate",
+    "alfheim:hillcrown_keep"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "mythicbotany:alfheim_lakes",
+    "alfheim:mana_fen"
+  ],
+  "features": "alfheim:geode_storm_marker",
+  "step": "top_layer_modification"
+}

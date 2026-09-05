@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#mythicbotany:alfheim",
+  "features": [
+    "alfheim:bloom_cinderbloom",
+    "alfheim:bloom_verdigris",
+    "alfheim:bloom_palebloom"
+  ],
+  "step": "underground_ores"
+}

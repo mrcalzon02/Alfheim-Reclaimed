@@ -1,0 +1,333 @@
+{
+	default_hide_dependency_lines: true
+	default_quest_shape: "gear"
+	filename: "ref_crystals"
+	group: ""
+	icon: "alfheim:dawnglass_cluster"
+	id: "02A787FE60E6036E"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Mana that set while it was still burning."
+				""
+				"Found in geodes, never alone — every geode is the seam between two alignments."
+				""
+				"BUDDING EMBERGLASS grows fresh clusters over time, so a geode is a renewable deposit rather than a finite one. It drops nothing without Silk Touch, so you cannot move it."
+				""
+				"A cluster gives 4 Emberglass Shards."
+			]
+			icon: "alfheim:emberglass_cluster"
+			id: "616B56CBC35889FB"
+			optional: true
+			shape: "gear"
+			subtitle: "Fire alignment"
+			tasks: [{
+				id: "436A17E38C187FA8"
+				title: "Emberglass"
+				type: "checkmark"
+			}]
+			title: "Emberglass"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Cold, and it rings when struck."
+				""
+				"Found in geodes, never alone — every geode is the seam between two alignments."
+				""
+				"BUDDING TIDEWAKE grows fresh clusters over time, so a geode is a renewable deposit rather than a finite one. It drops nothing without Silk Touch, so you cannot move it."
+				""
+				"A cluster gives 4 Tidewake Shards."
+			]
+			icon: "alfheim:tidewake_cluster"
+			id: "3EEFC684A1D29CE0"
+			optional: true
+			shape: "gear"
+			subtitle: "Water alignment"
+			tasks: [{
+				id: "66F5D0D9F081E56A"
+				title: "Tidewake"
+				type: "checkmark"
+			}]
+			title: "Tidewake"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"It grew downward, the way roots do."
+				""
+				"Found in geodes, never alone — every geode is the seam between two alignments."
+				""
+				"BUDDING ROOTGLASS grows fresh clusters over time, so a geode is a renewable deposit rather than a finite one. It drops nothing without Silk Touch, so you cannot move it."
+				""
+				"A cluster gives 4 Rootglass Shards."
+			]
+			icon: "alfheim:rootglass_cluster"
+			id: "7698599AF6E5C9AB"
+			optional: true
+			shape: "gear"
+			subtitle: "Earth alignment"
+			tasks: [{
+				id: "0C91B8B4D0350727"
+				title: "Rootglass"
+				type: "checkmark"
+			}]
+			title: "Rootglass"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Almost not there. Lighter than it looks."
+				""
+				"Found in geodes, never alone — every geode is the seam between two alignments."
+				""
+				"BUDDING GALEGLASS grows fresh clusters over time, so a geode is a renewable deposit rather than a finite one. It drops nothing without Silk Touch, so you cannot move it."
+				""
+				"A cluster gives 4 Galeglass Shards."
+			]
+			icon: "alfheim:galeglass_cluster"
+			id: "6682B15D9122C81F"
+			optional: true
+			shape: "gear"
+			subtitle: "Air alignment"
+			tasks: [{
+				id: "4642A8E62191BFD5"
+				title: "Galeglass"
+				type: "checkmark"
+			}]
+			title: "Galeglass"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"It takes light in and does not give it back."
+				""
+				"Found in geodes, never alone — every geode is the seam between two alignments."
+				""
+				"BUDDING DUSKGLASS grows fresh clusters over time, so a geode is a renewable deposit rather than a finite one. It drops nothing without Silk Touch, so you cannot move it."
+				""
+				"A cluster gives 4 Duskglass Shards."
+			]
+			icon: "alfheim:duskglass_cluster"
+			id: "52DAC32718ED2D10"
+			optional: true
+			shape: "gear"
+			subtitle: "Shadow alignment"
+			tasks: [{
+				id: "01A0076A6A4103E4"
+				title: "Duskglass"
+				type: "checkmark"
+			}]
+			title: "Duskglass"
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"The last of the ley-light, kept whole."
+				""
+				"Found in geodes, never alone — every geode is the seam between two alignments."
+				""
+				"BUDDING DAWNGLASS grows fresh clusters over time, so a geode is a renewable deposit rather than a finite one. It drops nothing without Silk Touch, so you cannot move it."
+				""
+				"A cluster gives 4 Dawnglass Shards."
+			]
+			icon: "alfheim:dawnglass_cluster"
+			id: "6E98DBFAFC0112C7"
+			optional: true
+			shape: "gear"
+			subtitle: "Light alignment"
+			tasks: [{
+				id: "42C894B9C6FDBBAF"
+				title: "Dawnglass"
+				type: "checkmark"
+			}]
+			title: "Dawnglass"
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Emberglass on one side, Duskglass on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 15 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: sundered highlands, ashen grove, scorchfell."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:emberglass_block"
+			id: "2489207D56D2D949"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 15 chunks"
+			tasks: [{
+				id: "5DFF6F9421CB01D2"
+				title: "Geode: the Burning Dark"
+				type: "checkmark"
+			}]
+			title: "Geode: the Burning Dark"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Tidewake on one side, Galeglass on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 15 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: alfheim lakes, mana fen."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:tidewake_block"
+			id: "52D49D0BB0AAFA92"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 15 chunks"
+			tasks: [{
+				id: "7ADDD22FAFEF5CD3"
+				title: "Geode: the Storm"
+				type: "checkmark"
+			}]
+			title: "Geode: the Storm"
+			x: 2.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Rootglass on one side, Dawnglass on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 13 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: bloomfall vale, alfheim plains, golden fields."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:rootglass_block"
+			id: "7FD75F146668EABA"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 13 chunks"
+			tasks: [{
+				id: "2DAFF09DFDEEA715"
+				title: "Geode: the Greening"
+				type: "checkmark"
+			}]
+			title: "Geode: the Greening"
+			x: 4.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Emberglass on one side, Galeglass on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 15 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: alfheim hills, starved reach."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:emberglass_block"
+			id: "2AA0C6287D9AFAA4"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 15 chunks"
+			tasks: [{
+				id: "154EE325D2AA3C52"
+				title: "Geode: the Forge"
+				type: "checkmark"
+			}]
+			title: "Geode: the Forge"
+			x: 6.0d
+			y: 6.0d
+		}
+		{
+			description: [
+				"Tidewake on one side, Duskglass on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 13 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: hollow marches, decayed mire."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:tidewake_block"
+			id: "5D8999118333FAA7"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 13 chunks"
+			tasks: [{
+				id: "10ECECA9FF2EE0D0"
+				title: "Geode: the Drowned"
+				type: "checkmark"
+			}]
+			title: "Geode: the Drowned"
+			x: 0.0d
+			y: 8.0d
+		}
+		{
+			description: [
+				"Duskglass on one side, Galeglass on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 8 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: void verge."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:duskglass_block"
+			id: "20D7357D605CF411"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 8 chunks"
+			tasks: [{
+				id: "572E3F281B182DCF"
+				title: "Geode: the Rim"
+				type: "checkmark"
+			}]
+			title: "Geode: the Rim"
+			x: 2.0d
+			y: 8.0d
+		}
+		{
+			description: [
+				"Rootglass on one side, Tidewake on the other, with a visible seam between them."
+				""
+				"FREQUENCY: about 1 in 15 eligible chunks. Vanilla amethyst is 1 in 24, for comparison."
+				"BIOMES: silverbark wood, dreamwood forest, infested warren."
+				""
+				"These sit 14 to 28 blocks below the surface you are standing on, not at a fixed depth."
+				""
+				"LOOK FOR THE SMALL ONES. A miniature geode on the surface means a full geode is directly below it, within about 32 blocks. Surface geodes never appear without one — if you see the crystals, dig."
+			]
+			icon: "alfheim:rootglass_block"
+			id: "48BC99C794565654"
+			optional: true
+			shape: "gear"
+			subtitle: "1 in 15 chunks"
+			tasks: [{
+				id: "66A15DB3A77C5E73"
+				title: "Geode: the Quiet Fen"
+				type: "checkmark"
+			}]
+			title: "Geode: the Quiet Fen"
+			x: 4.0d
+			y: 8.0d
+		}
+	]
+	subtitle: ["Six alignments, and the seams between them"]
+	title: "Crystallised Mana"
+}

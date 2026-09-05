@@ -1,0 +1,20 @@
+
+#Continuity Works Structure Spawn Protection.
+#The 500-block minimum is intentionally not configurable downward.
+[protection]
+	#Default horizontal exclusion radius for enrolled structures.
+	#Range: 500 ~ 32768
+	defaultExclusionRadius = 500
+	#Default horizontal exclusion radius emitted by every accepted jigsaw piece.
+	#Range: 500 ~ 32768
+	defaultJigsawPieceRadius = 500
+	#Automatically enroll every active structure registry entry unless explicitly ignored.
+	#Disable only when intentionally operating in tag/profile-only mode.
+	autoIncludeRegisteredStructures = true
+	#Index valid structure starts when already-generated chunks are loaded.
+	indexExistingChunkStarts = true
+	#Optional extra block padding used only for same-assembly jigsaw self-collision tests.
+	#0 permits normal face-adjacent connected pieces.
+	#Range: 0 ~ 64
+	selfCollisionPadding = 0
+

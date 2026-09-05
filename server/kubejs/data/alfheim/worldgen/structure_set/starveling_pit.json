@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:starveling_pit",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 13,
+    "spread_type": "linear",
+    "salt": 268280561
+  }
+}

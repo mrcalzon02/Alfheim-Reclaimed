@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 15.0,
+      "min": 10.0,
+      "stat": "armor"
+    }
+  ],
+  "gear_slot": "chest",
+  "guid": "alfheim_warrior_chest",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/warrior/chest/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "strength": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "chest",
+      "armor_family",
+      "strength",
+      "plate_chest",
+      "armor_stat"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:grey_barrow",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 20,
+    "separation": 6,
+    "spread_type": "linear",
+    "salt": 109478491
+  }
+}

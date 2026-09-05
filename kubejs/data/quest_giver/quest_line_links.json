@@ -1,0 +1,16 @@
+[
+  {
+    "quest_line_id": "the_reclaiming",
+    "entity_id": "richs_races_wood_elves:wood_elf",
+    "name": "Magister Velrous",
+    "scale": 1.0,
+    "interaction_item": "quest_giver:quest_scroll"
+  },
+  {
+    "quest_line_id": "the_royal_guard",
+    "entity_id": "richs_races_wood_elves:wood_elf",
+    "name": "Captain Orenvel",
+    "scale": 1.0,
+    "interaction_item": "quest_giver:quest_scroll"
+  }
+]

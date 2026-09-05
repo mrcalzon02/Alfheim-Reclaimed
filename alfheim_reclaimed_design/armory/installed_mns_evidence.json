@@ -1,0 +1,3072 @@
+{
+  "status": "read-only inspection; no gameplay validation",
+  "jar": "mods\\Mine_and_Slash-1.20.1-6.4.7.jar",
+  "sha256": "f97a91db0ae360e50ab1f976c152b79078255bc3cea5152032b80a6385870dc0",
+  "spell_schools": {
+    "hunter": {
+      "id": "hunter",
+      "lvl_reqs": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "perks": {
+        "arrow_barrage": {
+          "x": 1,
+          "y": 0
+        },
+        "arrow_storm": {
+          "x": 1,
+          "y": 6
+        },
+        "arrow_totem": {
+          "x": 2,
+          "y": 3
+        },
+        "charged_bolt": {
+          "x": 1,
+          "y": 1
+        },
+        "dash": {
+          "x": 5,
+          "y": 1
+        },
+        "explosive_arrow": {
+          "x": 1,
+          "y": 3
+        },
+        "fire_trap": {
+          "x": 3,
+          "y": 0
+        },
+        "frost_trap": {
+          "x": 3,
+          "y": 2
+        },
+        "gale_wind": {
+          "x": 6,
+          "y": 4
+        },
+        "hunter_potion": {
+          "x": 5,
+          "y": 3
+        },
+        "meteor_arrow": {
+          "x": 1,
+          "y": 5
+        },
+        "p_crit_dmg": {
+          "x": 8,
+          "y": 5
+        },
+        "p_dodge": {
+          "x": 9,
+          "y": 2
+        },
+        "p_ene_regen": {
+          "x": 9,
+          "y": 1
+        },
+        "p_proj_dmg": {
+          "x": 8,
+          "y": 1
+        },
+        "p_proj_spd": {
+          "x": 8,
+          "y": 3
+        },
+        "p_summon_health": {
+          "x": 9,
+          "y": 4
+        },
+        "p_trap_cdr": {
+          "x": 8,
+          "y": 4
+        },
+        "p_trap_dmg": {
+          "x": 8,
+          "y": 2
+        },
+        "poison_trap": {
+          "x": 3,
+          "y": 5
+        },
+        "quickdraw": {
+          "x": 1,
+          "y": 2
+        },
+        "recoil_shot": {
+          "x": 1,
+          "y": 4
+        },
+        "smoke_bomb": {
+          "x": 5,
+          "y": 4
+        },
+        "summon_spirit_wolf": {
+          "x": 6,
+          "y": 1
+        }
+      }
+    },
+    "minstrel": {
+      "id": "minstrel",
+      "lvl_reqs": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "perks": {
+        "awaken_mana": {
+          "x": 5,
+          "y": 4
+        },
+        "healing_aura": {
+          "x": 5,
+          "y": 1
+        },
+        "p_cdr": {
+          "x": 8,
+          "y": 6
+        },
+        "p_heal_str": {
+          "x": 9,
+          "y": 1
+        },
+        "p_heal_to_spell": {
+          "x": 9,
+          "y": 2
+        },
+        "p_health_mins": {
+          "x": 8,
+          "y": 2
+        },
+        "p_inc_aoe": {
+          "x": 8,
+          "y": 3
+        },
+        "p_low_hp_heal": {
+          "x": 8,
+          "y": 4
+        },
+        "p_mana_cost": {
+          "x": 8,
+          "y": 5
+        },
+        "p_song_duration": {
+          "x": 8,
+          "y": 1
+        },
+        "power_chord": {
+          "x": 1,
+          "y": 0
+        },
+        "resonance": {
+          "x": 1,
+          "y": 5
+        },
+        "ritardando": {
+          "x": 1,
+          "y": 3
+        },
+        "shooting_star": {
+          "x": 5,
+          "y": 2
+        },
+        "song_of_perseverance": {
+          "x": 3,
+          "y": 2
+        },
+        "song_of_valor": {
+          "x": 3,
+          "y": 4
+        },
+        "song_of_vigor": {
+          "x": 3,
+          "y": 0
+        },
+        "wish": {
+          "x": 5,
+          "y": 6
+        }
+      }
+    },
+    "shaman": {
+      "id": "shaman",
+      "lvl_reqs": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "perks": {
+        "astral_totem": {
+          "x": 3,
+          "y": 3
+        },
+        "chain_lightning": {
+          "x": 1,
+          "y": 3
+        },
+        "chaos_totem": {
+          "x": 3,
+          "y": 5
+        },
+        "circle_of_healing": {
+          "x": 5,
+          "y": 1
+        },
+        "entangling_seed": {
+          "x": 5,
+          "y": 2
+        },
+        "frost_flower": {
+          "x": 5,
+          "y": 5
+        },
+        "garden_of_thorns": {
+          "x": 5,
+          "y": 3
+        },
+        "lightning_nova": {
+          "x": 1,
+          "y": 2
+        },
+        "lightning_spear": {
+          "x": 1,
+          "y": 0
+        },
+        "lightning_totem": {
+          "x": 3,
+          "y": 2
+        },
+        "magma_flower": {
+          "x": 3,
+          "y": 4
+        },
+        "p_armor_per_mana": {
+          "x": 8,
+          "y": 5
+        },
+        "p_ele_pen": {
+          "x": 8,
+          "y": 6
+        },
+        "p_electrify_chance": {
+          "x": 8,
+          "y": 1
+        },
+        "p_health_sha": {
+          "x": 8,
+          "y": 2
+        },
+        "p_lightning_ele": {
+          "x": 8,
+          "y": 4
+        },
+        "p_mana_sha": {
+          "x": 9,
+          "y": 2
+        },
+        "p_totem_cdr": {
+          "x": 9,
+          "y": 4
+        },
+        "p_totem_dmg": {
+          "x": 9,
+          "y": 1
+        },
+        "rejuv_totem": {
+          "x": 3,
+          "y": 1
+        },
+        "rejuvenation": {
+          "x": 5,
+          "y": 0
+        },
+        "thorn_bush": {
+          "x": 3,
+          "y": 0
+        }
+      }
+    },
+    "sorcerer": {
+      "id": "sorcerer",
+      "lvl_reqs": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "perks": {
+        "blizzard": {
+          "x": 3,
+          "y": 6
+        },
+        "chilling_field": {
+          "x": 3,
+          "y": 2
+        },
+        "fire_nova": {
+          "x": 1,
+          "y": 1
+        },
+        "fireball": {
+          "x": 1,
+          "y": 0
+        },
+        "frost_lich_armor": {
+          "x": 5,
+          "y": 0
+        },
+        "frost_nova": {
+          "x": 3,
+          "y": 1
+        },
+        "frostball": {
+          "x": 3,
+          "y": 0
+        },
+        "frozen_orb": {
+          "x": 3,
+          "y": 4
+        },
+        "heart_of_ice": {
+          "x": 5,
+          "y": 2
+        },
+        "ice_comet": {
+          "x": 3,
+          "y": 3
+        },
+        "mage_circle": {
+          "x": 5,
+          "y": 4
+        },
+        "meteor": {
+          "x": 1,
+          "y": 2
+        },
+        "p_burn_chance": {
+          "x": 8,
+          "y": 2
+        },
+        "p_cast_speed_sorc": {
+          "x": 8,
+          "y": 5
+        },
+        "p_ele_res": {
+          "x": 8,
+          "y": 4
+        },
+        "p_freeze_chance": {
+          "x": 9,
+          "y": 2
+        },
+        "p_golem_chance": {
+          "x": 8,
+          "y": 6
+        },
+        "p_magic_shield_regen": {
+          "x": 8,
+          "y": 3
+        },
+        "p_mana_regen": {
+          "x": 8,
+          "y": 1
+        },
+        "p_spell_dmg": {
+          "x": 9,
+          "y": 1
+        },
+        "refresh": {
+          "x": 5,
+          "y": 5
+        },
+        "summon_cold_golem": {
+          "x": 3,
+          "y": 5
+        },
+        "summon_fire_golem": {
+          "x": 1,
+          "y": 5
+        },
+        "teleport": {
+          "x": 5,
+          "y": 3
+        }
+      }
+    },
+    "warlock": {
+      "id": "warlock",
+      "lvl_reqs": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "perks": {
+        "black_hole": {
+          "x": 1,
+          "y": 6
+        },
+        "chilling_touch": {
+          "x": 3,
+          "y": 1
+        },
+        "curse_of_agony": {
+          "x": 5,
+          "y": 1
+        },
+        "curse_of_despair": {
+          "x": 5,
+          "y": 5
+        },
+        "curse_of_weak": {
+          "x": 5,
+          "y": 3
+        },
+        "draconic_blood": {
+          "x": 5,
+          "y": 4
+        },
+        "explode_minions": {
+          "x": 5,
+          "y": 2
+        },
+        "p_cast_speed_wl": {
+          "x": 9,
+          "y": 4
+        },
+        "p_dmg_to_cursed": {
+          "x": 8,
+          "y": 5
+        },
+        "p_dot_dmg": {
+          "x": 8,
+          "y": 3
+        },
+        "p_dot_lifesteal": {
+          "x": 8,
+          "y": 6
+        },
+        "p_poison_chance": {
+          "x": 8,
+          "y": 1
+        },
+        "p_poison_duration": {
+          "x": 8,
+          "y": 4
+        },
+        "p_spell_lifesteal": {
+          "x": 8,
+          "y": 2
+        },
+        "p_summon_dmg": {
+          "x": 9,
+          "y": 2
+        },
+        "poison_ball": {
+          "x": 1,
+          "y": 0
+        },
+        "poison_cloud": {
+          "x": 1,
+          "y": 4
+        },
+        "return_summons": {
+          "x": 3,
+          "y": 2
+        },
+        "summon_skeleton_army": {
+          "x": 3,
+          "y": 3
+        },
+        "summon_spider": {
+          "x": 1,
+          "y": 3
+        },
+        "summon_zombie": {
+          "x": 3,
+          "y": 0
+        }
+      }
+    },
+    "warrior": {
+      "id": "warrior",
+      "lvl_reqs": [
+        1,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "perks": {
+        "boomerang": {
+          "x": 5,
+          "y": 1
+        },
+        "charge": {
+          "x": 2,
+          "y": 4
+        },
+        "execute": {
+          "x": 1,
+          "y": 5
+        },
+        "flame_strike": {
+          "x": 1,
+          "y": 3
+        },
+        "gong_strike": {
+          "x": 1,
+          "y": 0
+        },
+        "p_armor_pen": {
+          "x": 8,
+          "y": 2
+        },
+        "p_aura_effect": {
+          "x": 8,
+          "y": 5
+        },
+        "p_block_chance": {
+          "x": 9,
+          "y": 3
+        },
+        "p_crit_hit": {
+          "x": 8,
+          "y": 4
+        },
+        "p_damage_received": {
+          "x": 8,
+          "y": 6
+        },
+        "p_health_regen": {
+          "x": 8,
+          "y": 3
+        },
+        "p_health_war": {
+          "x": 8,
+          "y": 1
+        },
+        "p_lifesteal": {
+          "x": 9,
+          "y": 4
+        },
+        "pull": {
+          "x": 4,
+          "y": 2
+        },
+        "shred": {
+          "x": 1,
+          "y": 2
+        },
+        "taunt": {
+          "x": 4,
+          "y": 1
+        },
+        "tidal_strike": {
+          "x": 2,
+          "y": 3
+        },
+        "undying_will": {
+          "x": 4,
+          "y": 6
+        },
+        "vamp_blood": {
+          "x": 4,
+          "y": 4
+        },
+        "whirlwind": {
+          "x": 1,
+          "y": 4
+        }
+      }
+    }
+  },
+  "professions": {
+    "alchemy": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "alchemy",
+      "misc_chance": 5.0,
+      "tiered_drops": {},
+      "tool_tag": ""
+    },
+    "cooking": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "cooking",
+      "misc_chance": 5.0,
+      "tiered_drops": {},
+      "tool_tag": ""
+    },
+    "enchanting": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "enchanting",
+      "misc_chance": 5.0,
+      "tiered_drops": {},
+      "tool_tag": ""
+    },
+    "farming": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {
+          "0": [
+            {
+              "type": "FARM_ITEM",
+              "exp": 30,
+              "id": "minecraft:wheat",
+              "req": [
+                "req_growth_stage"
+              ]
+            },
+            {
+              "type": "FARM_ITEM",
+              "exp": 30,
+              "id": "minecraft:potato",
+              "req": [
+                "req_growth_stage"
+              ]
+            }
+          ],
+          "1": [
+            {
+              "type": "FARM_ITEM",
+              "exp": 30,
+              "id": "minecraft:melon_slice",
+              "req": []
+            }
+          ],
+          "2": [
+            {
+              "type": "FARM_ITEM",
+              "exp": 50,
+              "id": "minecraft:beetroot",
+              "req": [
+                "req_growth_stage"
+              ]
+            }
+          ],
+          "3": [
+            {
+              "type": "FARM_ITEM",
+              "exp": 60,
+              "id": "minecraft:carrot",
+              "req": [
+                "req_growth_stage"
+              ]
+            }
+          ],
+          "4": [
+            {
+              "type": "FARM_ITEM",
+              "exp": 75,
+              "id": "minecraft:nether_wart",
+              "req": [
+                "req_growth_stage"
+              ]
+            }
+          ],
+          "5": [
+            {
+              "type": "FARM_ITEM",
+              "exp": 100,
+              "id": "minecraft:cocoa_beans",
+              "req": [
+                "req_growth_stage"
+              ]
+            }
+          ]
+        }
+      },
+      "id": "farming",
+      "misc_chance": 5.0,
+      "tiered_drops": {
+        "TIER0": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/farming/0",
+                "min_lvl": 0.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER1": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/farming/1",
+                "min_lvl": 0.2,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER2": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/farming/2",
+                "min_lvl": 0.4,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER3": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/farming/3",
+                "min_lvl": 0.6,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER4": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/farming/4",
+                "min_lvl": 0.8,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER5": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/farming/5",
+                "min_lvl": 1.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ]
+      },
+      "tool_tag": "farming_tool"
+    },
+    "fishing": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "fishing",
+      "misc_chance": 5.0,
+      "tiered_drops": {
+        "TIER0": [
+          {
+            "type": "MAIN",
+            "chance": 20.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/fishing/0",
+                "min_lvl": 0.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER1": [
+          {
+            "type": "MAIN",
+            "chance": 20.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/fishing/1",
+                "min_lvl": 0.2,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER2": [
+          {
+            "type": "MAIN",
+            "chance": 20.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/fishing/2",
+                "min_lvl": 0.4,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER3": [
+          {
+            "type": "MAIN",
+            "chance": 20.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/fishing/3",
+                "min_lvl": 0.6,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER4": [
+          {
+            "type": "MAIN",
+            "chance": 20.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/fishing/4",
+                "min_lvl": 0.8,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER5": [
+          {
+            "type": "MAIN",
+            "chance": 20.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/fishing/5",
+                "min_lvl": 1.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ]
+      },
+      "tool_tag": "fishing_tool"
+    },
+    "gear_crafting": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "gear_crafting",
+      "misc_chance": 5.0,
+      "tiered_drops": {},
+      "tool_tag": ""
+    },
+    "husbandry": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "husbandry",
+      "misc_chance": 5.0,
+      "tiered_drops": {
+        "TIER0": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/meat/0",
+                "min_lvl": 0.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER1": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/meat/1",
+                "min_lvl": 0.2,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER2": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/meat/2",
+                "min_lvl": 0.4,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER3": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/meat/3",
+                "min_lvl": 0.6,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER4": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/meat/4",
+                "min_lvl": 0.8,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER5": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/meat/5",
+                "min_lvl": 1.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ]
+      },
+      "tool_tag": "husbandry_tool"
+    },
+    "mining": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {
+          "0": [
+            {
+              "type": "BLOCK_TAG",
+              "exp": 15,
+              "id": "minecraft:coal_ores",
+              "req": []
+            }
+          ],
+          "1": [
+            {
+              "type": "BLOCK_TAG",
+              "exp": 20,
+              "id": "minecraft:copper_ores",
+              "req": []
+            },
+            {
+              "type": "BLOCK_TAG",
+              "exp": 15,
+              "id": "minecraft:redstone_ores",
+              "req": []
+            },
+            {
+              "type": "BLOCK_TAG",
+              "exp": 25,
+              "id": "minecraft:lapis_ores",
+              "req": []
+            }
+          ],
+          "2": [
+            {
+              "type": "BLOCK_TAG",
+              "exp": 50,
+              "id": "minecraft:iron_ores",
+              "req": []
+            }
+          ],
+          "3": [
+            {
+              "type": "BLOCK_TAG",
+              "exp": 75,
+              "id": "minecraft:gold_ores",
+              "req": []
+            }
+          ],
+          "4": [
+            {
+              "type": "BLOCK_TAG",
+              "exp": 100,
+              "id": "minecraft:emerald_ores",
+              "req": []
+            }
+          ],
+          "5": [
+            {
+              "type": "BLOCK_TAG",
+              "exp": 200,
+              "id": "minecraft:diamond_ores",
+              "req": []
+            }
+          ]
+        }
+      },
+      "id": "mining",
+      "misc_chance": 5.0,
+      "tiered_drops": {
+        "TIER0": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/mining/0",
+                "min_lvl": 0.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER1": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/mining/1",
+                "min_lvl": 0.2,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER2": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/mining/2",
+                "min_lvl": 0.4,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER3": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/mining/3",
+                "min_lvl": 0.6,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER4": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/mining/4",
+                "min_lvl": 0.8,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ],
+        "TIER5": [
+          {
+            "type": "MAIN",
+            "chance": 10.0,
+            "drops": [
+              {
+                "item_id": "mmorpg:material/mining/5",
+                "min_lvl": 1.0,
+                "num": 1,
+                "weight": 1000
+              }
+            ]
+          }
+        ]
+      },
+      "tool_tag": "mining_tool"
+    },
+    "salvaging": {
+      "chance_drops": [],
+      "exp_sources": {
+        "default_xp": {
+          "exp": 50,
+          "req": [],
+          "tier": 0
+        },
+        "map": {}
+      },
+      "id": "salvaging",
+      "misc_chance": 5.0,
+      "tiered_drops": {},
+      "tool_tag": ""
+    }
+  },
+  "profession_recipe_counts": {
+    "alchemy": 288,
+    "cooking": 216,
+    "enchanting": 145,
+    "farming": 0,
+    "fishing": 0,
+    "gear_crafting": 150,
+    "husbandry": 0,
+    "mining": 0,
+    "salvaging": 0
+  },
+  "base_gear_types": {
+    "bow": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 6.0,
+          "min": 2.0,
+          "stat": "weapon_damage"
+        }
+      ],
+      "gear_slot": "bow",
+      "guid": "bow",
+      "possible_items": [
+        {
+          "item_id": "minecraft:bow",
+          "min_rar": "common",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "DEX",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "ranged_weapon",
+          "weapon_family",
+          "bow"
+        ]
+      },
+      "weapon_type": "bow",
+      "weight": 1000
+    },
+    "cloth_boots": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 5.0,
+          "min": 2.5,
+          "stat": "magic_shield"
+        }
+      ],
+      "gear_slot": "boots",
+      "guid": "cloth_boots",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_boots",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_boots",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_boots",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "intelligence": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "cloth_boots",
+          "armor_family",
+          "magic_shield_stat",
+          "boots",
+          "intelligence"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "cloth_chest": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 10.0,
+          "min": 5.0,
+          "stat": "magic_shield"
+        }
+      ],
+      "gear_slot": "chest",
+      "guid": "cloth_chest",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_chestplate",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_chestplate",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_chestplate",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "intelligence": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "chest",
+          "armor_family",
+          "cloth_chest",
+          "magic_shield_stat",
+          "intelligence"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "cloth_helmet": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 5.0,
+          "min": 2.5,
+          "stat": "magic_shield"
+        }
+      ],
+      "gear_slot": "helmet",
+      "guid": "cloth_helmet",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_helmet",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_helmet",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_helmet",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "intelligence": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "armor_family",
+          "helmet",
+          "magic_shield_stat",
+          "cloth_helmet",
+          "intelligence"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "cloth_pants": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 8.0,
+          "min": 4.0,
+          "stat": "magic_shield"
+        }
+      ],
+      "gear_slot": "pants",
+      "guid": "cloth_pants",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_leggings",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_leggings",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_leggings",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "intelligence": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "armor_family",
+          "pants",
+          "magic_shield_stat",
+          "cloth_pants",
+          "intelligence"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "crossbow": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 6.0,
+          "min": 2.0,
+          "stat": "weapon_damage"
+        }
+      ],
+      "gear_slot": "crossbow",
+      "guid": "crossbow",
+      "possible_items": [
+        {
+          "item_id": "minecraft:crossbow",
+          "min_rar": "common",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "DEX",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "ranger_casting_weapon",
+          "crossbow",
+          "ranged_weapon",
+          "weapon_family"
+        ]
+      },
+      "weapon_type": "crossbow",
+      "weight": 1000
+    },
+    "leather_boots": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 5.0,
+          "stat": "dodge"
+        }
+      ],
+      "gear_slot": "boots",
+      "guid": "leather_boots",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_boots",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_boots",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_boots",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "leather_boots",
+          "dexterity",
+          "dodge_stat",
+          "armor_family",
+          "boots"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "leather_chest": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 15.0,
+          "min": 10.0,
+          "stat": "dodge"
+        }
+      ],
+      "gear_slot": "chest",
+      "guid": "leather_chest",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_chestplate",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_chestplate",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_chestplate",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "dodge_stat",
+          "chest",
+          "armor_family",
+          "leather_chest"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "leather_helmet": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 5.0,
+          "stat": "dodge"
+        }
+      ],
+      "gear_slot": "helmet",
+      "guid": "leather_helmet",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_helmet",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_helmet",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_helmet",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "dodge_stat",
+          "armor_family",
+          "helmet",
+          "leather_helmet"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "leather_pants": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 12.0,
+          "min": 8.0,
+          "stat": "dodge"
+        }
+      ],
+      "gear_slot": "pants",
+      "guid": "leather_pants",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_leggings",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_leggings",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_leggings",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "dodge_stat",
+          "armor_family",
+          "pants",
+          "leather_pants"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "necklace": {
+      "base_stats": [],
+      "gear_slot": "necklace",
+      "guid": "necklace",
+      "possible_items": [
+        {
+          "item_id": "mmorpg:jewelry/necklace/iron",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:jewelry/necklace/gold",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:jewelry/necklace/diamond",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {}
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "jewelry_family",
+          "necklace"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "plate_boots": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 5.0,
+          "stat": "armor"
+        }
+      ],
+      "gear_slot": "boots",
+      "guid": "plate_boots",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_boots",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_boots",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_boots",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "armor_family",
+          "plate_boots",
+          "strength",
+          "boots",
+          "armor_stat"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "plate_chest": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 15.0,
+          "min": 10.0,
+          "stat": "armor"
+        }
+      ],
+      "gear_slot": "chest",
+      "guid": "plate_chest",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_chestplate",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_chestplate",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_chestplate",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "chest",
+          "armor_family",
+          "strength",
+          "plate_chest",
+          "armor_stat"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "plate_helmet": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 5.0,
+          "stat": "armor"
+        }
+      ],
+      "gear_slot": "helmet",
+      "guid": "plate_helmet",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_helmet",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_helmet",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_helmet",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "armor_family",
+          "strength",
+          "helmet",
+          "plate_helmet",
+          "armor_stat"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "plate_pants": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 12.0,
+          "min": 8.0,
+          "stat": "armor"
+        }
+      ],
+      "gear_slot": "pants",
+      "guid": "plate_pants",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_leggings",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_leggings",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_leggings",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "armor_family",
+          "pants",
+          "strength",
+          "plate_pants",
+          "armor_stat"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "ring": {
+      "base_stats": [],
+      "gear_slot": "ring",
+      "guid": "ring",
+      "possible_items": [
+        {
+          "item_id": "mmorpg:jewelry/ring/iron",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:jewelry/ring/gold",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:jewelry/ring/diamond",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {}
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "ring",
+          "jewelry_family"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "shield": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 12.0,
+          "min": 6.0,
+          "stat": "armor"
+        }
+      ],
+      "gear_slot": "shield",
+      "guid": "shield",
+      "possible_items": [
+        {
+          "item_id": "minecraft:shield",
+          "min_rar": "common",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "shield",
+          "strength",
+          "offhand_family",
+          "armor_stat"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "staff": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 6.0,
+          "min": 2.0,
+          "stat": "weapon_damage"
+        }
+      ],
+      "gear_slot": "staff",
+      "guid": "staff",
+      "possible_items": [
+        {
+          "item_id": "mmorpg:weapon/staff/wood",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:weapon/staff/iron",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:weapon/staff/diamond",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "intelligence": 0.5
+        }
+      },
+      "style": "INT",
+      "tags": {
+        "tags": [
+          "mage_weapon",
+          "staff",
+          "weapon_family",
+          "melee_weapon",
+          "intelligence"
+        ]
+      },
+      "weapon_type": "staff",
+      "weight": 1000
+    },
+    "sword": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 6.0,
+          "min": 2.0,
+          "stat": "weapon_damage"
+        }
+      ],
+      "gear_slot": "sword",
+      "guid": "sword",
+      "possible_items": [
+        {
+          "item_id": "minecraft:iron_sword",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:diamond_sword",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "minecraft:netherite_sword",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "sword",
+          "strength",
+          "melee_weapon",
+          "weapon_family"
+        ]
+      },
+      "weapon_type": "sword",
+      "weight": 1000
+    },
+    "tome": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 6.0,
+          "min": 3.0,
+          "stat": "magic_shield"
+        }
+      ],
+      "gear_slot": "tome",
+      "guid": "tome",
+      "possible_items": [
+        {
+          "item_id": "mmorpg:offhand/tome/iron",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:offhand/tome/iron",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:offhand/tome/diamond",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "intelligence": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "tome",
+          "magic_shield_stat",
+          "offhand_family",
+          "intelligence"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "totem": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 12.0,
+          "min": 6.0,
+          "stat": "dodge"
+        }
+      ],
+      "gear_slot": "totem",
+      "guid": "totem",
+      "possible_items": [
+        {
+          "item_id": "mmorpg:offhand/dodge/iron",
+          "min_rar": "common",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:offhand/dodge/iron",
+          "min_rar": "rare",
+          "weight": 1000
+        },
+        {
+          "item_id": "mmorpg:offhand/dodge/diamond",
+          "min_rar": "legendary",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "dexterity": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "dodge_stat",
+          "totem",
+          "offhand_family"
+        ]
+      },
+      "weapon_type": "none",
+      "weight": 1000
+    },
+    "trident": {
+      "base_stats": [
+        {
+          "type": "FLAT",
+          "max": 6.0,
+          "min": 2.0,
+          "stat": "weapon_damage"
+        }
+      ],
+      "gear_slot": "trident",
+      "guid": "trident",
+      "possible_items": [
+        {
+          "item_id": "minecraft:trident",
+          "min_rar": "common",
+          "weight": 1000
+        }
+      ],
+      "req": {
+        "base_req": {},
+        "scaling_req": {
+          "strength": 0.5
+        }
+      },
+      "style": "STR",
+      "tags": {
+        "tags": [
+          "dexterity",
+          "trident",
+          "strength",
+          "melee_weapon",
+          "weapon_family"
+        ]
+      },
+      "weapon_type": "trident",
+      "weight": 1000
+    }
+  },
+  "weapon_types": {
+    "axe": {
+      "can_dual_wield": false,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [],
+        "source_check": "DIRECT_ATTACK",
+        "tag_and_id_check": "ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "axe",
+      "isProjectile": false,
+      "range": "MELEE",
+      "style": "STR"
+    },
+    "bow": {
+      "can_dual_wield": false,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [
+          "arrow",
+          "bolt",
+          "ammo",
+          "bullet",
+          "dart",
+          "missile"
+        ],
+        "source_check": "RANGED_PROJECTILE",
+        "tag_and_id_check": "MATCH_ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "bow",
+      "isProjectile": true,
+      "range": "RANGED",
+      "style": "DEX"
+    },
+    "crossbow": {
+      "can_dual_wield": false,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [
+          "arrow",
+          "bolt",
+          "ammo",
+          "bullet",
+          "dart",
+          "missile"
+        ],
+        "source_check": "RANGED_PROJECTILE",
+        "tag_and_id_check": "MATCH_ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "crossbow",
+      "isProjectile": true,
+      "range": "RANGED",
+      "style": "DEX"
+    },
+    "none": {
+      "can_dual_wield": false,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [],
+        "source_check": "DIRECT_ATTACK",
+        "tag_and_id_check": "ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "none",
+      "isProjectile": false,
+      "range": "MELEE",
+      "style": "STR"
+    },
+    "staff": {
+      "can_dual_wield": false,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [],
+        "source_check": "DIRECT_ATTACK",
+        "tag_and_id_check": "ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "staff",
+      "isProjectile": false,
+      "range": "MELEE",
+      "style": "INT"
+    },
+    "sword": {
+      "can_dual_wield": true,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [],
+        "source_check": "DIRECT_ATTACK",
+        "tag_and_id_check": "ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "sword",
+      "isProjectile": false,
+      "range": "MELEE",
+      "style": "STR"
+    },
+    "trident": {
+      "can_dual_wield": false,
+      "damage_validity_check": {
+        "contains_in_dmg_id": [
+          "trident",
+          "player"
+        ],
+        "source_check": "ANY",
+        "tag_and_id_check": "MATCH_ANY",
+        "valid_proj_dmg_id": []
+      },
+      "id": "trident",
+      "isProjectile": false,
+      "range": "OPTIONALLY_RANGED",
+      "style": "STR"
+    }
+  },
+  "representative_spell_requirements": {
+    "gong_strike": {
+      "name": "Gong Strike",
+      "min_level": 1,
+      "casting_weapon": "MELEE_WEAPON"
+    },
+    "taunt": {
+      "name": "Taunt",
+      "min_level": 10,
+      "casting_weapon": "MELEE_WEAPON"
+    },
+    "arrow_barrage": {
+      "name": "Arrow Barrage",
+      "min_level": 1,
+      "casting_weapon": "RANGED"
+    },
+    "fireball": {
+      "name": "Fire Ball",
+      "min_level": 1,
+      "casting_weapon": "MAGE_WEAPON"
+    },
+    "lightning_spear": {
+      "name": "Lightning Spear",
+      "min_level": 1,
+      "casting_weapon": "MAGE_WEAPON"
+    },
+    "poison_ball": {
+      "name": "Acid Blast",
+      "min_level": 10,
+      "casting_weapon": "MAGE_WEAPON"
+    },
+    "power_chord": {
+      "name": "Power Chord",
+      "min_level": 1,
+      "casting_weapon": "MAGE_WEAPON"
+    },
+    "healing_aura": {
+      "name": "Healing Aria",
+      "min_level": 1,
+      "casting_weapon": "ANY_WEAPON"
+    }
+  },
+  "profession_recipe_examples": {
+    "gear_crafting": {
+      "exp": 100,
+      "id": "currency_sharpening_stone_00",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:coal",
+          "num": 1
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "mmorpg:currency/sharpening_stone_0",
+      "result_num": 1,
+      "set_tier_nbt": true,
+      "tier": 0
+    },
+    "alchemy": {
+      "exp": 100,
+      "id": "buff_potion_common_arcane0",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/farming/0",
+          "num": 5
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:stone/0",
+          "num": 10
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:beetroot",
+          "num": 1
+        }
+      ],
+      "profession": "alchemy",
+      "requires_pinnacle_unlock": false,
+      "result": "mmorpg:buff_potion/common_arcane",
+      "result_num": 1,
+      "set_tier_nbt": true,
+      "tier": 0
+    },
+    "cooking": {
+      "exp": 100,
+      "id": "food_common_energy0",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/meat/0",
+          "num": 5
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:stone/0",
+          "num": 10
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:cooked_rabbit",
+          "num": 1
+        }
+      ],
+      "profession": "cooking",
+      "requires_pinnacle_unlock": false,
+      "result": "mmorpg:food/common_energy",
+      "result_num": 1,
+      "set_tier_nbt": true,
+      "tier": 0
+    },
+    "enchanting": {
+      "exp": 100,
+      "id": "enchantment_family_armor_common0",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:stone/0",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:paper",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:iron_boots",
+          "num": 1
+        }
+      ],
+      "profession": "enchanting",
+      "requires_pinnacle_unlock": false,
+      "result": "mmorpg:enchantment/family/armor/common",
+      "result_num": 3,
+      "set_tier_nbt": true,
+      "tier": 0
+    }
+  },
+  "gear_rarities": {
+    "common": {
+      "type": "NORMAL",
+      "affix_rarity_weight": 1000,
+      "announce_in_chat": false,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": false,
+      "favor_loot_multi": 1.0,
+      "favor_needed": 0,
+      "favor_per_hour": 60,
+      "guid": "common",
+      "higher_rar": "uncommon",
+      "is_unique_item": false,
+      "item_model_data_num": 1,
+      "item_tier": 0,
+      "item_tier_power": 1.0,
+      "item_value_multi": 1.0,
+      "lootable_gear_tier": "LOW",
+      "map_lives": 5,
+      "map_resist_req": 0,
+      "map_tiers": {
+        "max": 10,
+        "min": 0
+      },
+      "map_xp_multi": 0.75,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 1,
+      "min_lvl": 0,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 1,
+          "min": 1
+        },
+        "normal": {
+          "max": 1,
+          "min": 1
+        },
+        "runed": {
+          "max": 1,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 0,
+          "min": 0
+        },
+        "stat_multi": 0.3,
+        "unique": {
+          "max": 1,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 5
+      },
+      "sockets": {
+        "max": 0,
+        "min": 0
+      },
+      "stat_percents": {
+        "max": 10,
+        "min": 0
+      },
+      "text_format": "GRAY",
+      "weight": 5000
+    },
+    "epic": {
+      "type": "NORMAL",
+      "affix_rarity_weight": 500,
+      "announce_in_chat": false,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": false,
+      "favor_loot_multi": 1.15,
+      "favor_needed": 250,
+      "favor_per_hour": 0,
+      "guid": "epic",
+      "higher_rar": "legendary",
+      "is_unique_item": false,
+      "item_model_data_num": 4,
+      "item_tier": 3,
+      "item_tier_power": 1.7,
+      "item_value_multi": 1.7,
+      "lootable_gear_tier": "MID",
+      "map_lives": 4,
+      "map_resist_req": 30,
+      "map_tiers": {
+        "max": 60,
+        "min": 40
+      },
+      "map_xp_multi": 1.05,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 4,
+      "min_lvl": 25,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 2,
+          "min": 1
+        },
+        "normal": {
+          "max": 2,
+          "min": 1
+        },
+        "runed": {
+          "max": 2,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 1,
+          "min": 1
+        },
+        "stat_multi": 1.0,
+        "unique": {
+          "max": 2,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 50
+      },
+      "sockets": {
+        "max": 2,
+        "min": 0
+      },
+      "stat_percents": {
+        "max": 60,
+        "min": 40
+      },
+      "text_format": "LIGHT_PURPLE",
+      "weight": 100
+    },
+    "legendary": {
+      "type": "NORMAL",
+      "affix_rarity_weight": 200,
+      "announce_in_chat": true,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": true,
+      "favor_loot_multi": 1.2,
+      "favor_needed": 500,
+      "favor_per_hour": 0,
+      "guid": "legendary",
+      "higher_rar": "mythic",
+      "is_unique_item": false,
+      "item_model_data_num": 5,
+      "item_tier": 4,
+      "item_tier_power": 2.0,
+      "item_value_multi": 2.0,
+      "lootable_gear_tier": "HIGH",
+      "map_lives": 3,
+      "map_resist_req": 40,
+      "map_tiers": {
+        "max": 80,
+        "min": 60
+      },
+      "map_xp_multi": 1.1,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 5,
+      "min_lvl": 40,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 3,
+          "min": 2
+        },
+        "normal": {
+          "max": 2,
+          "min": 1
+        },
+        "runed": {
+          "max": 3,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 3,
+          "min": 2
+        },
+        "stat_multi": 1.25,
+        "unique": {
+          "max": 2,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 75
+      },
+      "sockets": {
+        "max": 2,
+        "min": 1
+      },
+      "stat_percents": {
+        "max": 80,
+        "min": 60
+      },
+      "text_format": "GOLD",
+      "weight": 50
+    },
+    "mythic": {
+      "type": "NORMAL",
+      "affix_rarity_weight": 100,
+      "announce_in_chat": true,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": true,
+      "favor_loot_multi": 1.25,
+      "favor_needed": 1000,
+      "favor_per_hour": 0,
+      "guid": "mythic",
+      "higher_rar": "",
+      "is_unique_item": false,
+      "item_model_data_num": 6,
+      "item_tier": 5,
+      "item_tier_power": 3.0,
+      "item_value_multi": 3.0,
+      "lootable_gear_tier": "HIGH",
+      "map_lives": 3,
+      "map_resist_req": 50,
+      "map_tiers": {
+        "max": 100,
+        "min": 80
+      },
+      "map_xp_multi": 1.25,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 6,
+      "min_lvl": 50,
+      "min_map_rarity_to_drop": "epic",
+      "omens": {
+        "affixes": {
+          "max": 3,
+          "min": 2
+        },
+        "normal": {
+          "max": 2,
+          "min": 1
+        },
+        "runed": {
+          "max": 3,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 3,
+          "min": 2
+        },
+        "stat_multi": 1.5,
+        "unique": {
+          "max": 2,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 100
+      },
+      "sockets": {
+        "max": 2,
+        "min": 2
+      },
+      "stat_percents": {
+        "max": 100,
+        "min": 80
+      },
+      "text_format": "DARK_PURPLE",
+      "weight": 25
+    },
+    "rare": {
+      "type": "NORMAL",
+      "affix_rarity_weight": 750,
+      "announce_in_chat": false,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": false,
+      "favor_loot_multi": 1.1,
+      "favor_needed": 100,
+      "favor_per_hour": 0,
+      "guid": "rare",
+      "higher_rar": "epic",
+      "is_unique_item": false,
+      "item_model_data_num": 3,
+      "item_tier": 2,
+      "item_tier_power": 1.5,
+      "item_value_multi": 1.5,
+      "lootable_gear_tier": "MID",
+      "map_lives": 5,
+      "map_resist_req": 20,
+      "map_tiers": {
+        "max": 40,
+        "min": 20
+      },
+      "map_xp_multi": 1.0,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 3,
+      "min_lvl": 10,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 2,
+          "min": 1
+        },
+        "normal": {
+          "max": 2,
+          "min": 1
+        },
+        "runed": {
+          "max": 2,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 1,
+          "min": 1
+        },
+        "stat_multi": 0.6,
+        "unique": {
+          "max": 2,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 25
+      },
+      "sockets": {
+        "max": 1,
+        "min": 0
+      },
+      "stat_percents": {
+        "max": 40,
+        "min": 20
+      },
+      "text_format": "AQUA",
+      "weight": 500
+    },
+    "runeword": {
+      "type": "RUNED",
+      "affix_rarity_weight": 1000,
+      "announce_in_chat": false,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": true,
+      "drops_uber_frags": false,
+      "favor_loot_multi": 1.0,
+      "favor_needed": 0,
+      "favor_per_hour": 0,
+      "guid": "runeword",
+      "higher_rar": "",
+      "is_unique_item": false,
+      "item_model_data_num": -1,
+      "item_tier": 10,
+      "item_tier_power": 2.0,
+      "item_value_multi": 2.0,
+      "lootable_gear_tier": "HIGH",
+      "map_lives": 5,
+      "map_resist_req": 50,
+      "map_tiers": {
+        "max": 100,
+        "min": 0
+      },
+      "map_xp_multi": 1.0,
+      "max_gems": 0,
+      "max_runes": 10,
+      "min_affixes": 0,
+      "min_lvl": 15,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 3,
+          "min": 2
+        },
+        "normal": {
+          "max": 2,
+          "min": 1
+        },
+        "runed": {
+          "max": 3,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 3,
+          "min": 2
+        },
+        "stat_multi": 1.0,
+        "unique": {
+          "max": 2,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 30
+      },
+      "sockets": {
+        "max": 6,
+        "min": 2
+      },
+      "stat_percents": {
+        "max": 0,
+        "min": 0
+      },
+      "text_format": "YELLOW",
+      "weight": 150
+    },
+    "uncommon": {
+      "type": "NORMAL",
+      "affix_rarity_weight": 1000,
+      "announce_in_chat": false,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": false,
+      "favor_loot_multi": 1.05,
+      "favor_needed": 50,
+      "favor_per_hour": 60,
+      "guid": "uncommon",
+      "higher_rar": "rare",
+      "is_unique_item": false,
+      "item_model_data_num": 2,
+      "item_tier": 1,
+      "item_tier_power": 1.25,
+      "item_value_multi": 1.25,
+      "lootable_gear_tier": "LOW",
+      "map_lives": 5,
+      "map_resist_req": 10,
+      "map_tiers": {
+        "max": 20,
+        "min": 10
+      },
+      "map_xp_multi": 0.9,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 2,
+      "min_lvl": 0,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 1,
+          "min": 1
+        },
+        "normal": {
+          "max": 1,
+          "min": 1
+        },
+        "runed": {
+          "max": 1,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 0,
+          "min": 0
+        },
+        "stat_multi": 0.4,
+        "unique": {
+          "max": 1,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 10
+      },
+      "sockets": {
+        "max": 1,
+        "min": 0
+      },
+      "stat_percents": {
+        "max": 20,
+        "min": 10
+      },
+      "text_format": "GREEN",
+      "weight": 2000
+    },
+    "unique": {
+      "type": "UNIQUE",
+      "affix_rarity_weight": 1000,
+      "announce_in_chat": true,
+      "base_stat_percents": {
+        "max": 100,
+        "min": 0
+      },
+      "can_have_runewords": false,
+      "drops_uber_frags": false,
+      "favor_loot_multi": 1.0,
+      "favor_needed": 0,
+      "favor_per_hour": 0,
+      "guid": "unique",
+      "higher_rar": "",
+      "is_unique_item": true,
+      "item_model_data_num": -1,
+      "item_tier": 5,
+      "item_tier_power": 2.0,
+      "item_value_multi": 2.0,
+      "lootable_gear_tier": "HIGH",
+      "map_lives": 5,
+      "map_resist_req": 50,
+      "map_tiers": {
+        "max": 100,
+        "min": 0
+      },
+      "map_xp_multi": 1.0,
+      "max_gems": 10,
+      "max_runes": 1,
+      "min_affixes": 0,
+      "min_lvl": 0,
+      "min_map_rarity_to_drop": "common",
+      "omens": {
+        "affixes": {
+          "max": 3,
+          "min": 2
+        },
+        "normal": {
+          "max": 2,
+          "min": 1
+        },
+        "runed": {
+          "max": 3,
+          "min": 1
+        },
+        "specific_slots": {
+          "max": 3,
+          "min": 2
+        },
+        "stat_multi": 1.0,
+        "unique": {
+          "max": 2,
+          "min": 1
+        }
+      },
+      "pot": {
+        "total": 50
+      },
+      "sockets": {
+        "max": 2,
+        "min": 1
+      },
+      "stat_percents": {
+        "max": 100,
+        "min": 50
+      },
+      "text_format": "RED",
+      "weight": 25
+    }
+  },
+  "profession_display_names": {
+    "alchemy": "Alchemy",
+    "cooking": "Cooking",
+    "enchanting": "Infusing",
+    "farming": "Farming",
+    "fishing": "Fishing",
+    "gear_crafting": "Gear Crafting",
+    "husbandry": "Animal Breeding",
+    "mining": "Mining",
+    "salvaging": "Salvaging"
+  },
+  "inspected_world_settings": {
+    "server\\validation\\serverconfig\\mine_and_slash_compatibility-server.toml": {
+      "preset": "ORIGINAL_MODE",
+      "active_preset_values": {
+        "DAMAGE_SYSTEM": "DAMAGE_OVERRIDE",
+        "HEALTH_SYSTEM": "IMAGINARY_MINE_AND_SLASH_HEALTH",
+        "DISABLE_VANILLA_HEALTH_REGEN": true,
+        "ENERGY_PENALTY": true,
+        "IGNORE_WEAPON_REQUIREMENTS_FOR_SPELLS": false,
+        "BALANCE_DATAPACK": "ORIGINAL_BALANCE",
+        "BASE_STATS_DATAPACK": "ORIGINAL_BALANCE",
+        "ITEM_DAMAGE_CAP_PER_HIT": 25,
+        "CAP_ITEM_DAMAGE": false,
+        "ENABLE_MINUS_RESISTS_PER_LEVEL": true,
+        "MOB_FLAT_DAMAGE_BONUS": 6.0,
+        "MOB_PERCENT_DAMAGE_AS_BONUS": 0.33000001311302185,
+        "STAT_REQUIREMENTS_MULTIPLIER": 1.0,
+        "SPELL_BASE_DAMAGE_MULTIPLIER": 1.0,
+        "DISABLE_MOB_IFRAMES": true,
+        "DAMAGE_CONVERSION_LOSS": 100,
+        "VANILLA_TO_WEAPON_DAMAGE_PERCENT": 0.0
+      }
+    },
+    "saves\\New World\\serverconfig\\mine_and_slash_compatibility-server.toml": {
+      "preset": "ORIGINAL_MODE",
+      "active_preset_values": {
+        "DAMAGE_SYSTEM": "DAMAGE_OVERRIDE",
+        "HEALTH_SYSTEM": "IMAGINARY_MINE_AND_SLASH_HEALTH",
+        "DISABLE_VANILLA_HEALTH_REGEN": true,
+        "ENERGY_PENALTY": true,
+        "IGNORE_WEAPON_REQUIREMENTS_FOR_SPELLS": false,
+        "BALANCE_DATAPACK": "ORIGINAL_BALANCE",
+        "BASE_STATS_DATAPACK": "ORIGINAL_BALANCE",
+        "ITEM_DAMAGE_CAP_PER_HIT": 25,
+        "CAP_ITEM_DAMAGE": false,
+        "ENABLE_MINUS_RESISTS_PER_LEVEL": true,
+        "MOB_FLAT_DAMAGE_BONUS": 6.0,
+        "MOB_PERCENT_DAMAGE_AS_BONUS": 0.33000001311302185,
+        "STAT_REQUIREMENTS_MULTIPLIER": 1.0,
+        "SPELL_BASE_DAMAGE_MULTIPLIER": 1.0,
+        "DISABLE_MOB_IFRAMES": true,
+        "DAMAGE_CONVERSION_LOSS": 100,
+        "VANILLA_TO_WEAPON_DAMAGE_PERCENT": 0.0
+      }
+    }
+  }
+}

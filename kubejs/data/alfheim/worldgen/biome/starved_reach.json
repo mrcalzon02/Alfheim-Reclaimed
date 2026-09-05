@@ -1,0 +1,79 @@
+{
+  "carvers": {
+    "air": [
+      "mythicbotany:cave",
+      "mythicbotany:canyon"
+    ]
+  },
+  "creature_spawn_probability": 0.2,
+  "downfall": 0.0,
+  "temperature": 0.4,
+  "has_precipitation": false,
+  "effects": {
+    "fog_color": 9078136,
+    "sky_color": 10130308,
+    "water_color": 4868674,
+    "water_fog_color": 2236958
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "mythicbotany:metamorphic_forest_stone",
+      "mythicbotany:metamorphic_mountain_stone",
+      "mythicbotany:metamorphic_fungal_stone",
+      "mythicbotany:metamorphic_swamp_stone",
+      "mythicbotany:metamorphic_desert_stone",
+      "mythicbotany:metamorphic_taiga_stone",
+      "mythicbotany:metamorphic_mesa_stone",
+      "mythicbotany:elementium_ore",
+      "mythicbotany:dragonstone_ore",
+      "mythicbotany:gold_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "feywild:winter_pixie",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 6
+      },
+      {
+        "type": "feywild:winter_tree_ent",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 2
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:spider",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "richs_races_wood_elves:wood_elf",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 12
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  }
+}

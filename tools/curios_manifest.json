@@ -1,0 +1,672 @@
+{
+  "status": "registered and slotted; no effect, no recipe",
+  "source_catalog": "alfheim_reclaimed_design/curios/curio_suite_catalog.json",
+  "counts": {
+    "items": 63,
+    "class_items": 36,
+    "profession_items": 27,
+    "textures": 63,
+    "models": 63,
+    "slot_tags": 4,
+    "by_slot": {
+      "bracelet": 27,
+      "charm": 9,
+      "necklace": 9,
+      "ring": 18
+    }
+  },
+  "forms": {
+    "signet": "ender_eye.png",
+    "emblem": "amethyst_shard.png",
+    "cuff": "lead.png"
+  },
+  "hues": {
+    "warrior": 100,
+    "hunter": 42,
+    "sorcerer": 278,
+    "shaman": 158,
+    "warlock": 315,
+    "minstrel": 8,
+    "mining": 218,
+    "farming": 95,
+    "fishing": 186,
+    "husbandry": 54,
+    "salvaging": 22,
+    "gear_crafting": 246,
+    "enchanting": 288,
+    "cooking": 353,
+    "alchemy": 132
+  },
+  "items": [
+    {
+      "id": "curio/class/warrior/signet_apprentice",
+      "kind": "class",
+      "owner": "warrior",
+      "family": "signet",
+      "rank": "apprentice",
+      "slot": "ring",
+      "era": 2,
+      "name": "Apprentice Thornwarden Signet"
+    },
+    {
+      "id": "curio/class/warrior/signet_guild",
+      "kind": "class",
+      "owner": "warrior",
+      "family": "signet",
+      "rank": "guild",
+      "slot": "ring",
+      "era": 5,
+      "name": "Guild Thornwarden Signet"
+    },
+    {
+      "id": "curio/class/warrior/signet_master",
+      "kind": "class",
+      "owner": "warrior",
+      "family": "signet",
+      "rank": "master",
+      "slot": "ring",
+      "era": 8,
+      "name": "Master Thornwarden Signet"
+    },
+    {
+      "id": "curio/class/warrior/emblem_apprentice",
+      "kind": "class",
+      "owner": "warrior",
+      "family": "emblem",
+      "rank": "apprentice",
+      "slot": "necklace",
+      "era": 2,
+      "name": "Apprentice Greatbole Torque"
+    },
+    {
+      "id": "curio/class/warrior/emblem_guild",
+      "kind": "class",
+      "owner": "warrior",
+      "family": "emblem",
+      "rank": "guild",
+      "slot": "necklace",
+      "era": 5,
+      "name": "Guild Greatbole Torque"
+    },
+    {
+      "id": "curio/class/warrior/emblem_master",
+      "kind": "class",
+      "owner": "warrior",
+      "family": "emblem",
+      "rank": "master",
+      "slot": "necklace",
+      "era": 8,
+      "name": "Master Greatbole Torque"
+    },
+    {
+      "id": "curio/class/hunter/signet_apprentice",
+      "kind": "class",
+      "owner": "hunter",
+      "family": "signet",
+      "rank": "apprentice",
+      "slot": "ring",
+      "era": 2,
+      "name": "Apprentice Waywatcher Signet"
+    },
+    {
+      "id": "curio/class/hunter/signet_guild",
+      "kind": "class",
+      "owner": "hunter",
+      "family": "signet",
+      "rank": "guild",
+      "slot": "ring",
+      "era": 5,
+      "name": "Guild Waywatcher Signet"
+    },
+    {
+      "id": "curio/class/hunter/signet_master",
+      "kind": "class",
+      "owner": "hunter",
+      "family": "signet",
+      "rank": "master",
+      "slot": "ring",
+      "era": 8,
+      "name": "Master Waywatcher Signet"
+    },
+    {
+      "id": "curio/class/hunter/emblem_apprentice",
+      "kind": "class",
+      "owner": "hunter",
+      "family": "emblem",
+      "rank": "apprentice",
+      "slot": "charm",
+      "era": 2,
+      "name": "Apprentice Wolfleaf Token"
+    },
+    {
+      "id": "curio/class/hunter/emblem_guild",
+      "kind": "class",
+      "owner": "hunter",
+      "family": "emblem",
+      "rank": "guild",
+      "slot": "charm",
+      "era": 5,
+      "name": "Guild Wolfleaf Token"
+    },
+    {
+      "id": "curio/class/hunter/emblem_master",
+      "kind": "class",
+      "owner": "hunter",
+      "family": "emblem",
+      "rank": "master",
+      "slot": "charm",
+      "era": 8,
+      "name": "Master Wolfleaf Token"
+    },
+    {
+      "id": "curio/class/sorcerer/signet_apprentice",
+      "kind": "class",
+      "owner": "sorcerer",
+      "family": "signet",
+      "rank": "apprentice",
+      "slot": "ring",
+      "era": 2,
+      "name": "Apprentice Leyweaver Signet"
+    },
+    {
+      "id": "curio/class/sorcerer/signet_guild",
+      "kind": "class",
+      "owner": "sorcerer",
+      "family": "signet",
+      "rank": "guild",
+      "slot": "ring",
+      "era": 5,
+      "name": "Guild Leyweaver Signet"
+    },
+    {
+      "id": "curio/class/sorcerer/signet_master",
+      "kind": "class",
+      "owner": "sorcerer",
+      "family": "signet",
+      "rank": "master",
+      "slot": "ring",
+      "era": 8,
+      "name": "Master Leyweaver Signet"
+    },
+    {
+      "id": "curio/class/sorcerer/emblem_apprentice",
+      "kind": "class",
+      "owner": "sorcerer",
+      "family": "emblem",
+      "rank": "apprentice",
+      "slot": "charm",
+      "era": 2,
+      "name": "Apprentice Leyglass Prism"
+    },
+    {
+      "id": "curio/class/sorcerer/emblem_guild",
+      "kind": "class",
+      "owner": "sorcerer",
+      "family": "emblem",
+      "rank": "guild",
+      "slot": "charm",
+      "era": 5,
+      "name": "Guild Leyglass Prism"
+    },
+    {
+      "id": "curio/class/sorcerer/emblem_master",
+      "kind": "class",
+      "owner": "sorcerer",
+      "family": "emblem",
+      "rank": "master",
+      "slot": "charm",
+      "era": 8,
+      "name": "Master Leyglass Prism"
+    },
+    {
+      "id": "curio/class/shaman/signet_apprentice",
+      "kind": "class",
+      "owner": "shaman",
+      "family": "signet",
+      "rank": "apprentice",
+      "slot": "ring",
+      "era": 2,
+      "name": "Apprentice Rootspeaker Signet"
+    },
+    {
+      "id": "curio/class/shaman/signet_guild",
+      "kind": "class",
+      "owner": "shaman",
+      "family": "signet",
+      "rank": "guild",
+      "slot": "ring",
+      "era": 5,
+      "name": "Guild Rootspeaker Signet"
+    },
+    {
+      "id": "curio/class/shaman/signet_master",
+      "kind": "class",
+      "owner": "shaman",
+      "family": "signet",
+      "rank": "master",
+      "slot": "ring",
+      "era": 8,
+      "name": "Master Rootspeaker Signet"
+    },
+    {
+      "id": "curio/class/shaman/emblem_apprentice",
+      "kind": "class",
+      "owner": "shaman",
+      "family": "emblem",
+      "rank": "apprentice",
+      "slot": "necklace",
+      "era": 2,
+      "name": "Apprentice Rainseed Torque"
+    },
+    {
+      "id": "curio/class/shaman/emblem_guild",
+      "kind": "class",
+      "owner": "shaman",
+      "family": "emblem",
+      "rank": "guild",
+      "slot": "necklace",
+      "era": 5,
+      "name": "Guild Rainseed Torque"
+    },
+    {
+      "id": "curio/class/shaman/emblem_master",
+      "kind": "class",
+      "owner": "shaman",
+      "family": "emblem",
+      "rank": "master",
+      "slot": "necklace",
+      "era": 8,
+      "name": "Master Rainseed Torque"
+    },
+    {
+      "id": "curio/class/warlock/signet_apprentice",
+      "kind": "class",
+      "owner": "warlock",
+      "family": "signet",
+      "rank": "apprentice",
+      "slot": "ring",
+      "era": 2,
+      "name": "Apprentice Duskkeeper Signet"
+    },
+    {
+      "id": "curio/class/warlock/signet_guild",
+      "kind": "class",
+      "owner": "warlock",
+      "family": "signet",
+      "rank": "guild",
+      "slot": "ring",
+      "era": 5,
+      "name": "Guild Duskkeeper Signet"
+    },
+    {
+      "id": "curio/class/warlock/signet_master",
+      "kind": "class",
+      "owner": "warlock",
+      "family": "signet",
+      "rank": "master",
+      "slot": "ring",
+      "era": 8,
+      "name": "Master Duskkeeper Signet"
+    },
+    {
+      "id": "curio/class/warlock/emblem_apprentice",
+      "kind": "class",
+      "owner": "warlock",
+      "family": "emblem",
+      "rank": "apprentice",
+      "slot": "charm",
+      "era": 2,
+      "name": "Apprentice Mourning Nameleaf"
+    },
+    {
+      "id": "curio/class/warlock/emblem_guild",
+      "kind": "class",
+      "owner": "warlock",
+      "family": "emblem",
+      "rank": "guild",
+      "slot": "charm",
+      "era": 5,
+      "name": "Guild Mourning Nameleaf"
+    },
+    {
+      "id": "curio/class/warlock/emblem_master",
+      "kind": "class",
+      "owner": "warlock",
+      "family": "emblem",
+      "rank": "master",
+      "slot": "charm",
+      "era": 8,
+      "name": "Master Mourning Nameleaf"
+    },
+    {
+      "id": "curio/class/minstrel/signet_apprentice",
+      "kind": "class",
+      "owner": "minstrel",
+      "family": "signet",
+      "rank": "apprentice",
+      "slot": "ring",
+      "era": 2,
+      "name": "Apprentice Dawnsinger Signet"
+    },
+    {
+      "id": "curio/class/minstrel/signet_guild",
+      "kind": "class",
+      "owner": "minstrel",
+      "family": "signet",
+      "rank": "guild",
+      "slot": "ring",
+      "era": 5,
+      "name": "Guild Dawnsinger Signet"
+    },
+    {
+      "id": "curio/class/minstrel/signet_master",
+      "kind": "class",
+      "owner": "minstrel",
+      "family": "signet",
+      "rank": "master",
+      "slot": "ring",
+      "era": 8,
+      "name": "Master Dawnsinger Signet"
+    },
+    {
+      "id": "curio/class/minstrel/emblem_apprentice",
+      "kind": "class",
+      "owner": "minstrel",
+      "family": "emblem",
+      "rank": "apprentice",
+      "slot": "necklace",
+      "era": 2,
+      "name": "Apprentice Dawncourt Brooch"
+    },
+    {
+      "id": "curio/class/minstrel/emblem_guild",
+      "kind": "class",
+      "owner": "minstrel",
+      "family": "emblem",
+      "rank": "guild",
+      "slot": "necklace",
+      "era": 5,
+      "name": "Guild Dawncourt Brooch"
+    },
+    {
+      "id": "curio/class/minstrel/emblem_master",
+      "kind": "class",
+      "owner": "minstrel",
+      "family": "emblem",
+      "rank": "master",
+      "slot": "necklace",
+      "era": 8,
+      "name": "Master Dawncourt Brooch"
+    },
+    {
+      "id": "curio/profession/mining/apprentice",
+      "kind": "profession",
+      "owner": "mining",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Strata Cuff"
+    },
+    {
+      "id": "curio/profession/mining/guild",
+      "kind": "profession",
+      "owner": "mining",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Strata Cuff"
+    },
+    {
+      "id": "curio/profession/mining/master",
+      "kind": "profession",
+      "owner": "mining",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Strata Cuff"
+    },
+    {
+      "id": "curio/profession/farming/apprentice",
+      "kind": "profession",
+      "owner": "farming",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Seedkeeper Cuff"
+    },
+    {
+      "id": "curio/profession/farming/guild",
+      "kind": "profession",
+      "owner": "farming",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Seedkeeper Cuff"
+    },
+    {
+      "id": "curio/profession/farming/master",
+      "kind": "profession",
+      "owner": "farming",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Seedkeeper Cuff"
+    },
+    {
+      "id": "curio/profession/fishing/apprentice",
+      "kind": "profession",
+      "owner": "fishing",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Tideledger Cuff"
+    },
+    {
+      "id": "curio/profession/fishing/guild",
+      "kind": "profession",
+      "owner": "fishing",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Tideledger Cuff"
+    },
+    {
+      "id": "curio/profession/fishing/master",
+      "kind": "profession",
+      "owner": "fishing",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Tideledger Cuff"
+    },
+    {
+      "id": "curio/profession/husbandry/apprentice",
+      "kind": "profession",
+      "owner": "husbandry",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Herdsong Cuff"
+    },
+    {
+      "id": "curio/profession/husbandry/guild",
+      "kind": "profession",
+      "owner": "husbandry",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Herdsong Cuff"
+    },
+    {
+      "id": "curio/profession/husbandry/master",
+      "kind": "profession",
+      "owner": "husbandry",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Herdsong Cuff"
+    },
+    {
+      "id": "curio/profession/salvaging/apprentice",
+      "kind": "profession",
+      "owner": "salvaging",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Reclaimer Cuff"
+    },
+    {
+      "id": "curio/profession/salvaging/guild",
+      "kind": "profession",
+      "owner": "salvaging",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Reclaimer Cuff"
+    },
+    {
+      "id": "curio/profession/salvaging/master",
+      "kind": "profession",
+      "owner": "salvaging",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Reclaimer Cuff"
+    },
+    {
+      "id": "curio/profession/gear_crafting/apprentice",
+      "kind": "profession",
+      "owner": "gear_crafting",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Forge-Measure Cuff"
+    },
+    {
+      "id": "curio/profession/gear_crafting/guild",
+      "kind": "profession",
+      "owner": "gear_crafting",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Forge-Measure Cuff"
+    },
+    {
+      "id": "curio/profession/gear_crafting/master",
+      "kind": "profession",
+      "owner": "gear_crafting",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Forge-Measure Cuff"
+    },
+    {
+      "id": "curio/profession/enchanting/apprentice",
+      "kind": "profession",
+      "owner": "enchanting",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Infuser Cuff"
+    },
+    {
+      "id": "curio/profession/enchanting/guild",
+      "kind": "profession",
+      "owner": "enchanting",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Infuser Cuff"
+    },
+    {
+      "id": "curio/profession/enchanting/master",
+      "kind": "profession",
+      "owner": "enchanting",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Infuser Cuff"
+    },
+    {
+      "id": "curio/profession/cooking/apprentice",
+      "kind": "profession",
+      "owner": "cooking",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Hearthcord Cuff"
+    },
+    {
+      "id": "curio/profession/cooking/guild",
+      "kind": "profession",
+      "owner": "cooking",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Hearthcord Cuff"
+    },
+    {
+      "id": "curio/profession/cooking/master",
+      "kind": "profession",
+      "owner": "cooking",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Hearthcord Cuff"
+    },
+    {
+      "id": "curio/profession/alchemy/apprentice",
+      "kind": "profession",
+      "owner": "alchemy",
+      "family": "cuff",
+      "rank": "apprentice",
+      "slot": "bracelet",
+      "era": 2,
+      "name": "Apprentice Dewglass Cuff"
+    },
+    {
+      "id": "curio/profession/alchemy/guild",
+      "kind": "profession",
+      "owner": "alchemy",
+      "family": "cuff",
+      "rank": "guild",
+      "slot": "bracelet",
+      "era": 5,
+      "name": "Guild Dewglass Cuff"
+    },
+    {
+      "id": "curio/profession/alchemy/master",
+      "kind": "profession",
+      "owner": "alchemy",
+      "family": "cuff",
+      "rank": "master",
+      "slot": "bracelet",
+      "era": 8,
+      "name": "Master Dewglass Cuff"
+    }
+  ]
+}

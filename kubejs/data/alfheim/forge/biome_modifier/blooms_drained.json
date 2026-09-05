@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#alfheim:drained",
+  "features": [
+    "alfheim:bloom_silverthorn"
+  ],
+  "step": "underground_ores"
+}

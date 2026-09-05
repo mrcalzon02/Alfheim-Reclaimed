@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_warlock_pants_era_06",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "rare",
+    "epic"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_warlock_pants",
+  "disable_salvaging": false
+}

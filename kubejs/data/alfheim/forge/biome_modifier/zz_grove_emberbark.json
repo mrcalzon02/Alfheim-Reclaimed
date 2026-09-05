@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:sundered_highlands",
+    "alfheim:ashen_grove",
+    "mythicbotany:alfheim_hills"
+  ],
+  "features": "alfheim:tree_emberbark",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "mythicbotany:alfheim_lakes",
+    "alfheim:void_verge"
+  ],
+  "spawners": {
+    "type": "alfheim:abyssal_watcher",
+    "weight": 2,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

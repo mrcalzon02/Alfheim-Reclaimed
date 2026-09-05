@@ -1,0 +1,524 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_4"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:gatewrought_cord"
+	id: "0599FFDDC74EFD05"
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"You have built enough that the grove feeds itself. Now we find out whether anything else survived."
+				""
+				"The gate is not a reward. It is a door, and doors go both ways."
+			]
+			id: "7EC38E9B7E36689E"
+			rewards: [{
+				id: "27AE2EAC8536B01A"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "356BDB0E5FD5F1AB"
+				title: "Era 4"
+				type: "checkmark"
+			}]
+			title: "Era 4"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7EC38E9B7E36689E"]
+			description: [
+				"The gate itself, and it is not what Botania's own books describe."
+				""
+				"Their recipe wants livingwood and terrasteel. We have neither -- livingwood is a gate-import, which is the joke, and terrasteel is six eras away."
+				""
+				"So we build it from dreamwood around the cord you have just finished. Read that tooltip again: Elven work, finished on the far side of the gate. It has been pointing here since the roster was written."
+			]
+			id: "222EB85E68D864E2"
+			rewards: [{
+				id: "47D1FA259B68EBDF"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "579D8DDE1292ECBE"
+				item: "botania:alfheim_portal"
+				type: "item"
+			}]
+			title: "The Alfheim Gate"
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["222EB85E68D864E2"]
+			description: [
+				"Pedestals in a ring and a reagent at the centre."
+				""
+				"Placement is part of the recipe here. The Song asks you to build the working rather than type it into a grid."
+			]
+			id: "598B548BA330E199"
+			rewards: [{
+				id: "499782347A2B526E"
+				item: "alfheim:verdant_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "A new method"
+			tasks: [{
+				id: "4493C5326A16D94E"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "The Enchanting Apparatus"
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["598B548BA330E199"]
+			description: [
+				"Petals in the basin. You have done this a thousand times; do it again."
+				""
+				"Step 1 of 5."
+			]
+			id: "42E63E4DC8323F43"
+			rewards: [{
+				id: "5B5ADC64DA7BDC29"
+				item: "alfheim:sunbleached_floss"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/5"
+			tasks: [{
+				id: "04C5C5F87BEDA21F"
+				item: "alfheim:sunbleached_floss"
+				type: "item"
+			}]
+			title: "Sunbleached Floss"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 2 of 5."
+			]
+			id: "33C30FB050A01619"
+			rewards: [{
+				id: "2F6E021308829E0B"
+				item: "alfheim:traded_skein"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/5"
+			tasks: [{
+				id: "3C4BEC43EC88FE95"
+				item: "alfheim:traded_skein"
+				type: "item"
+			}]
+			title: "Traded Skein"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["33C30FB050A01619"]
+			description: [
+				"Through the gate and back. What returns is not what you sent."
+				""
+				"Step 3 of 5."
+			]
+			id: "371580F0221FDC54"
+			rewards: [{
+				id: "1789D7961CB432D8"
+				item: "alfheim:gatewrought_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/5"
+			tasks: [{
+				id: "6FAC53531DC251F1"
+				item: "alfheim:gatewrought_drawn"
+				type: "item"
+			}]
+			title: "Gatewrought Drawn"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["371580F0221FDC54"]
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 4 of 5."
+			]
+			id: "56124BF3C5DB9D68"
+			rewards: [{
+				id: "14646967CE57A5A6"
+				item: "alfheim:gatewrought_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/5"
+			tasks: [{
+				id: "76B24EF6ED7C1EB3"
+				item: "alfheim:gatewrought_folded"
+				type: "item"
+			}]
+			title: "Gatewrought Folded"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["56124BF3C5DB9D68"]
+			description: [
+				"The last step. Gatewrought Cord."
+				""
+				"Era IV. Elven work, finished on the far side of the gate."
+				""
+				"5 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "7433BE95155A730C"
+			rewards: [{
+				id: "37159C49E67956BB"
+				item: "alfheim:gatewrought_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/5"
+			tasks: [{
+				id: "71FE5AED48E0A6BD"
+				item: "alfheim:gatewrought_cord"
+				type: "item"
+			}]
+			title: "Gatewrought Cord"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "256CF542BFE934B6"
+			rewards: [{
+				count: 8
+				id: "4BC3DBB68EB2D624"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "5703069DEF21CD8C"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "Enchanting Apparatus"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["256CF542BFE934B6"]
+			description: ["The other tradition, keeping pace."]
+			id: "2309AC9FC76433C6"
+			rewards: [{
+				count: 8
+				id: "61CA3CD54D7D1E47"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "318E5B708BCDDE8F"
+				item: "ars_nouveau:arcane_core"
+				type: "item"
+			}]
+			title: "Arcane Core"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["2309AC9FC76433C6"]
+			description: ["The other tradition, keeping pace."]
+			id: "3616BEB69FDF06E0"
+			rewards: [{
+				count: 8
+				id: "284AD401260AA7E5"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "51F3B0240C0533DE"
+				item: "ars_nouveau:wixie_charm"
+				type: "item"
+			}]
+			title: "Wixie Charm"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["3616BEB69FDF06E0"]
+			description: ["The other tradition, keeping pace."]
+			id: "579711CDF8A8621A"
+			rewards: [{
+				count: 8
+				id: "1F133F823401DEC7"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "04C638C93641693E"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "Enchanting Apparatus"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["579711CDF8A8621A"]
+			description: ["The other tradition, keeping pace."]
+			id: "1311C7045DE8C2BE"
+			rewards: [{
+				count: 8
+				id: "3F2F8A8169CCDDDC"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "6D0075A580E2BDE4"
+				item: "ars_nouveau:arcane_core"
+				type: "item"
+			}]
+			title: "Arcane Core"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "2304A69E009A3FAF"
+			rewards: [{
+				count: 8
+				id: "5D814955BADB76FA"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "7E37EE5A1E043E2A"
+				item: "ars_nouveau:wixie_charm"
+				type: "item"
+			}]
+			title: "Wixie Charm"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "6510E8130F49F529"
+			rewards: [{
+				count: 8
+				id: "0C499CA6E84B4F89"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "55A0366B847A37B8"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "Enchanting Apparatus"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "3AD9BAB7F0956F2F"
+			rewards: [{
+				count: 4
+				id: "63392BD243A0F3FF"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "79E4C16BC453E270"
+				item: "minecolonies:blockhutbuilder"
+				type: "item"
+			}]
+			title: "Blockhutbuilder"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "62B2191CFE88A8AA"
+			rewards: [{
+				count: 4
+				id: "3B83BE8C6F3D1392"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "4907BE36D9CDAE41"
+				item: "minecraft:lantern"
+				type: "item"
+			}]
+			title: "Lantern"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			dependencies: ["62B2191CFE88A8AA"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "681D5873305F3D3E"
+			rewards: [{
+				count: 4
+				id: "76F6529D225D4746"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "3C6A8A518DD8F936"
+				item: "minecolonies:blockhutbuilder"
+				type: "item"
+			}]
+			title: "Blockhutbuilder"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["681D5873305F3D3E"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "6B018639EEB8773E"
+			rewards: [{
+				count: 4
+				id: "5A3B95DCA8577335"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "0A6495B9DE9392DF"
+				item: "minecraft:lantern"
+				type: "item"
+			}]
+			title: "Lantern"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "290789CD42276FE6"
+			rewards: [{
+				count: 8
+				id: "333DFB620F06CFDB"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "4FB88B5DB0F855B5"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "7F20B8780D6C7FFE"
+			rewards: [{
+				count: 8
+				id: "622634F9E02F79F4"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "437F307BC1303FF7"
+				item: "mmorpg:currency/gear_rarity_upgrade"
+				type: "item"
+			}]
+			title: "Currency/gear Rarity Upgrade"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "2BB0870E79A9A28B"
+			rewards: [{
+				count: 8
+				id: "672B08161D4B41CA"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "7EB5E849CB0BD6F3"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: [
+				"6B018639EEB8773E"
+				"2BB0870E79A9A28B"
+			]
+			description: [
+				"The Rune of Midgard."
+				""
+				"You have touched the other side. Whatever is over there heard you."
+				""
+				"I do not know yet whether that is good news. Neither do you. We proceed anyway."
+			]
+			id: "26720A0C58359828"
+			rewards: [{
+				count: 2
+				id: "40885D63912DF673"
+				item: "alfheim:gatewrought_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "7B977DA31AECEBEC"
+				item: "mythicbotany:midgard_rune"
+				type: "item"
+			}]
+			title: "The Rune of Midgard"
+			x: 6.0d
+			y: 4.5d
+		}
+	]
+	subtitle: ["Is anyone still out there?"]
+	title: "IV — The Long Silence"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:zombie_habitats/eggszombies_add_hazmat_zombie",
+  "spawners": {
+    "type": "eggszombies:hazmat_zombie",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 30
+  }
+}

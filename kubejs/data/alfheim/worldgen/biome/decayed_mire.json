@@ -1,0 +1,101 @@
+{
+  "carvers": {
+    "air": [
+      "mythicbotany:cave",
+      "mythicbotany:canyon"
+    ]
+  },
+  "creature_spawn_probability": 0.2,
+  "downfall": 0.9,
+  "temperature": 0.6,
+  "has_precipitation": true,
+  "effects": {
+    "fog_color": 4864586,
+    "sky_color": 5917274,
+    "water_color": 3811898,
+    "water_fog_color": 1708570,
+    "particle": {
+      "options": {
+        "type": "minecraft:ash"
+      },
+      "probability": 0.008
+    }
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "mythicbotany:abandoned_apothecaries"
+    ],
+    [],
+    [
+      "mythicbotany:metamorphic_forest_stone",
+      "mythicbotany:metamorphic_mountain_stone",
+      "mythicbotany:metamorphic_fungal_stone",
+      "mythicbotany:metamorphic_swamp_stone",
+      "mythicbotany:metamorphic_desert_stone",
+      "mythicbotany:metamorphic_taiga_stone",
+      "mythicbotany:metamorphic_mesa_stone",
+      "mythicbotany:elementium_ore",
+      "mythicbotany:dragonstone_ore",
+      "mythicbotany:gold_ore"
+    ],
+    [],
+    [],
+    [
+      "mythicbotany:alfheim_grass"
+    ],
+    []
+  ],
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "feywild:mandragora",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "feywild:shroomling",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 8
+      },
+      {
+        "type": "minecraft:frog",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 10
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:zombie",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 20
+      },
+      {
+        "type": "minecraft:husk",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "richs_races_wood_elves:wood_elf",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 12
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  }
+}

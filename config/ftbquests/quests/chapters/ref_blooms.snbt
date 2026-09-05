@@ -1,0 +1,326 @@
+{
+	default_hide_dependency_lines: true
+	default_quest_shape: "gear"
+	filename: "ref_blooms"
+	group: ""
+	icon: "alfheim:palebloom_ore"
+	id: "31964481B5CE86C6"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Burnt through, and still warm where you break it."
+				""
+				"FOUND: y 0 to 96, in the common spread."
+				"NEEDS: a stone pickaxe or better."
+				""
+				"MINED it gives Raw Cinderbloom, which is inert. A Rite turns that into Quickened Cinderbloom, which will take heat."
+				""
+				"RITE I REAGENTS: two black petals, one sapling."
+				"RENDERS INTO: coal x1."
+			]
+			icon: "alfheim:cinderbloom_ore"
+			id: "5D40BF010D345EA5"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 1 · stone tools"
+			tasks: [{
+				id: "086EEBF720F41A47"
+				title: "Cinderbloom"
+				type: "checkmark"
+			}]
+			title: "Cinderbloom"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Green as a drowned coin. It was copper once."
+				""
+				"FOUND: y 8 to 112, in the common spread."
+				"NEEDS: a stone pickaxe or better."
+				""
+				"MINED it gives Raw Verdigris Bloom, which is inert. A Rite turns that into Quickened Verdigris Bloom, which will take heat."
+				""
+				"RITE I REAGENTS: two green petals, one wheat."
+				"RENDERS INTO: copper ingot x1."
+			]
+			icon: "alfheim:verdigris_ore"
+			id: "7225CC195F9FE3A9"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 1 · stone tools"
+			tasks: [{
+				id: "4407D597ED826B90"
+				title: "Verdigris Bloom"
+				type: "checkmark"
+			}]
+			title: "Verdigris Bloom"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The plainest of them, and the one you will want most."
+				""
+				"FOUND: y -16 to 80, in the common spread."
+				"NEEDS: a stone pickaxe or better."
+				""
+				"MINED it gives Raw Palebloom, which is inert. A Rite turns that into Quickened Palebloom, which will take heat."
+				""
+				"RITE I REAGENTS: two white petals, one wheat."
+				"RENDERS INTO: iron ingot x1."
+			]
+			icon: "alfheim:palebloom_ore"
+			id: "7A7B5AB550F42312"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 1 · stone tools"
+			tasks: [{
+				id: "1A452AEC7898B10E"
+				title: "Palebloom"
+				type: "checkmark"
+			}]
+			title: "Palebloom"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"It runs a current through the stone it grew in."
+				""
+				"FOUND: y -48 to 24, in the veined spread."
+				"NEEDS: an iron pickaxe or better."
+				""
+				"MINED it gives Raw Sparkroot, which is inert. A Rite turns that into Quickened Sparkroot, which will take heat."
+				""
+				"RITE I REAGENTS: two red petals, one wheat seeds."
+				"RENDERS INTO: redstone x2, plus glowstone dust from Rite III."
+			]
+			icon: "alfheim:sparkroot_ore"
+			id: "2247A22AD7B73CD7"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 2 · iron tools"
+			tasks: [{
+				id: "7B2F0519AF721B8B"
+				title: "Sparkroot"
+				type: "checkmark"
+			}]
+			title: "Sparkroot"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The colour of the hour the lights went out."
+				""
+				"FOUND: y -32 to 40, in the veined spread."
+				"NEEDS: an iron pickaxe or better."
+				""
+				"MINED it gives Raw Duskbloom, which is inert. A Rite turns that into Quickened Duskbloom, which will take heat."
+				""
+				"RITE I REAGENTS: two blue petals, one sapling."
+				"RENDERS INTO: lapis lazuli x2, plus source gem from Rite III."
+			]
+			icon: "alfheim:duskbloom_ore"
+			id: "0307D6A2EEAFC6EA"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 2 · iron tools"
+			tasks: [{
+				id: "4B182C2458C04FBC"
+				title: "Duskbloom"
+				type: "checkmark"
+			}]
+			title: "Duskbloom"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"It grew toward a sun that stopped reaching it."
+				""
+				"FOUND: y -32 to 32, in the veined spread."
+				"NEEDS: an iron pickaxe or better."
+				""
+				"MINED it gives Raw Sunbloom, which is inert. A Rite turns that into Quickened Sunbloom, which will take heat."
+				""
+				"RITE I REAGENTS: two yellow petals, one wheat."
+				"RENDERS INTO: gold ingot x1, plus gold leaf from Rite III."
+			]
+			icon: "alfheim:sunbloom_ore"
+			id: "6955FB24CDE5DE5D"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 3 · iron tools"
+			tasks: [{
+				id: "674DCBC654806753"
+				title: "Sunbloom"
+				type: "checkmark"
+			}]
+			title: "Sunbloom"
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Clear all the way through, and cold to hold."
+				""
+				"FOUND: y 16 to 96, in the veined spread."
+				"NEEDS: an iron pickaxe or better."
+				""
+				"MINED it gives Raw Cloudglass Bloom, which is inert. A Rite turns that into Quickened Cloudglass Bloom, which will take heat."
+				""
+				"RITE I REAGENTS: two light blue petals, one bone meal."
+				"RENDERS INTO: quartz x2, plus amethyst shard from Rite III."
+			]
+			icon: "alfheim:cloudglass_ore"
+			id: "4800962C86AA5E61"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 3 · iron tools"
+			tasks: [{
+				id: "0A744B33B00D731B"
+				title: "Cloudglass Bloom"
+				type: "checkmark"
+			}]
+			title: "Cloudglass Bloom"
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"Handle it by the flat. The edges are not decorative."
+				""
+				"FOUND: y -24 to 56, in the drained spread."
+				"NEEDS: an iron pickaxe or better."
+				""
+				"MINED it gives Raw Silverthorn, which is inert. A Rite turns that into Quickened Silverthorn, which will take heat."
+				""
+				"RITE I REAGENTS: two light gray petals, one sapling."
+				"RENDERS INTO: raw silver x1."
+			]
+			icon: "alfheim:silverthorn_ore"
+			id: "623145DC0CD5B1A3"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 4 · iron tools"
+			tasks: [{
+				id: "64E1A0CF9F43E700"
+				title: "Silverthorn"
+				type: "checkmark"
+			}]
+			title: "Silverthorn"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: [
+				"It only grows where something finished dying."
+				""
+				"FOUND: y -64 to -8, in the deep spread."
+				"NEEDS: a diamond pickaxe or better."
+				""
+				"MINED it gives Raw Grievebloom, which is inert. A Rite turns that into Quickened Grievebloom, which will take heat."
+				""
+				"RITE I REAGENTS: two black petals, one wheat seeds."
+				"RENDERS INTO: gunpowder x2, plus ghast tear from Rite III."
+			]
+			icon: "alfheim:grievebloom_ore"
+			id: "2FCBAB33566A4B0C"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 4 · diamond tools"
+			tasks: [{
+				id: "246A8F62568EDAF1"
+				title: "Grievebloom"
+				type: "checkmark"
+			}]
+			title: "Grievebloom"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Frost that never learned to melt."
+				""
+				"FOUND: y -64 to 8, in the deep spread."
+				"NEEDS: a diamond pickaxe or better."
+				""
+				"MINED it gives Raw Rimebloom, which is inert. A Rite turns that into Quickened Rimebloom, which will take heat."
+				""
+				"RITE I REAGENTS: one white petal, one cyan petal, one sapling."
+				"RENDERS INTO: diamond x1."
+			]
+			icon: "alfheim:rimebloom_ore"
+			id: "4837F0CDEFBEF9A9"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 5 · diamond tools"
+			tasks: [{
+				id: "1B72F9196A1099E3"
+				title: "Rimebloom"
+				type: "checkmark"
+			}]
+			title: "Rimebloom"
+			x: 2.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"Something in it is still burning, and has been for an age."
+				""
+				"FOUND: y -64 to -16, in the deep spread."
+				"NEEDS: a diamond pickaxe or better."
+				""
+				"MINED it gives Raw Emberwake, which is inert. A Rite turns that into Quickened Emberwake, which will take heat."
+				""
+				"RITE I REAGENTS: two orange petals, one sapling."
+				"RENDERS INTO: blaze powder x2, plus magma cream from Rite III."
+			]
+			icon: "alfheim:emberwake_ore"
+			id: "47A0402FBCB41DCE"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 7 · diamond tools"
+			tasks: [{
+				id: "1406BFF0A13EE96D"
+				title: "Emberwake"
+				type: "checkmark"
+			}]
+			title: "Emberwake"
+			x: 4.0d
+			y: 4.0d
+		}
+		{
+			description: [
+				"It is not entirely here, and it never has been."
+				""
+				"FOUND: y -64 to 0, in the deep spread."
+				"NEEDS: a diamond pickaxe or better."
+				""
+				"MINED it gives Raw Farbloom, which is inert. A Rite turns that into Quickened Farbloom, which will take heat."
+				""
+				"RITE I REAGENTS: two purple petals, one bone meal."
+				"RENDERS INTO: ender pearl x1, plus chorus fruit from Rite III."
+			]
+			icon: "alfheim:farbloom_ore"
+			id: "5FBAFA3B2CEBBB35"
+			optional: true
+			shape: "gear"
+			subtitle: "Era 8 · diamond tools"
+			tasks: [{
+				id: "0675EFB885C2FB1C"
+				title: "Farbloom"
+				type: "checkmark"
+			}]
+			title: "Farbloom"
+			x: 6.0d
+			y: 4.0d
+		}
+	]
+	subtitle: ["Alfheim's ore, and where it hides"]
+	title: "The Twelve Blooms"
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:emberglass_block",
+    "alfheim:tidewake_block",
+    "alfheim:rootglass_block",
+    "alfheim:galeglass_block",
+    "alfheim:duskglass_block",
+    "alfheim:dawnglass_block"
+  ]
+}

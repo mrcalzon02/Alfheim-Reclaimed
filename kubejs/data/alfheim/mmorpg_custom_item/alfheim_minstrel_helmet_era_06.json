@@ -1,0 +1,12 @@
+{
+  "id": "alfheim_minstrel_helmet_era_06",
+  "min_lvl": 1,
+  "max_lvl": 100,
+  "possible_rar": [
+    "rare",
+    "epic"
+  ],
+  "uniq_id": "",
+  "gear_type": "alfheim_minstrel_helmet",
+  "disable_salvaging": false
+}

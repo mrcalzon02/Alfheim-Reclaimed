@@ -1,0 +1,123 @@
+{
+  "_comment": [
+    "The Archive Groves — petals from leaves, and Alfheim's own trees.",
+    "tools/gen_groves.py turns this into loot tables, blocks, textures and worldgen.",
+    "Design record: alfheim_reclaimed_design/ORE_SUPPLEMENTATION.md §9",
+    "",
+    "TWO JOBS, one file:",
+    "",
+    "1. leaf_petals — every tree that grows in Alfheim drops petals of its own colour.",
+    "   This is the renewable answer to B-46 (there were no petals in Alfheim at all).",
+    "   The generator COPIES the mod's existing loot pools verbatim out of its jar and",
+    "   appends one petal pool, so sapling and stick drops cannot be silently lost —",
+    "   archwood saplings in particular are a Rite I reagent. Re-running after a mod",
+    "   update re-reads the jar, so the override self-heals rather than drifting.",
+    "",
+    "2. trees — three trees of our own that carry other forests' seeds. Their leaves drop",
+    "   randomized VANILLA saplings, which is how Alfheim gets oak, birch, spruce and the",
+    "   rest: no vanilla tree generates here, so without this there is no apple, no oak",
+    "   plank, and no tree variety of any kind.",
+    "",
+    "   They are replantable as of 2026-09-03. KubeJS 2001.6.5 has no SaplingBlock builder",
+    "   and no TreeGrower binding, so growth is done in the sapling's randomTick callback,",
+    "   placing trunk and canopy through BlockContainerJS.offset(Direction, int) -- the one",
+    "   overload confirmed present in the jar. Leaves drop their own sapling at 0.03, rarer",
+    "   than the foreign vanilla seeds at 0.055. Closed B-49.",
+    "",
+    "Between them the two lists cover all 16 petal colours.",
+    "",
+    "'chance' is the base drop rate before Fortune, applied on the vanilla apple-pool",
+    "pattern: not on shears, not on silk touch, survives explosion, scales with Fortune."
+  ],
+
+  "leaf_petals": [
+    {
+      "leaf": "mythicbotany:dreamwood_leaves",
+      "jar": "MythicBotany-1.20.1-4.0.4.jar",
+      "petals": ["white", "light_gray"],
+      "chance": 0.09,
+      "note": "Pale and silver. Grows in almost every Alfheim biome, so this is the workhorse."
+    },
+    {
+      "leaf": "ars_nouveau:blue_archwood_leaves",
+      "jar": "ars_nouveau-1.20.1-4.12.7-all.jar",
+      "petals": ["blue", "light_blue"],
+      "chance": 0.09
+    },
+    {
+      "leaf": "ars_nouveau:red_archwood_leaves",
+      "jar": "ars_nouveau-1.20.1-4.12.7-all.jar",
+      "petals": ["red", "pink"],
+      "chance": 0.09
+    },
+    {
+      "leaf": "ars_nouveau:green_archwood_leaves",
+      "jar": "ars_nouveau-1.20.1-4.12.7-all.jar",
+      "petals": ["green", "lime"],
+      "chance": 0.09
+    },
+    {
+      "leaf": "ars_nouveau:purple_archwood_leaves",
+      "jar": "ars_nouveau-1.20.1-4.12.7-all.jar",
+      "petals": ["purple", "magenta"],
+      "chance": 0.09
+    }
+  ],
+
+  "trees": [
+    {
+      "id": "emberbark",
+      "name": "Emberbark",
+      "tooltip": "It holds the seeds of forests that burned.",
+      "log": {
+        "base": "block/acacia_log.png", "top": "block/acacia_log_top.png",
+        "hue": 22, "sat": 0.72, "val": 0.74
+      },
+      "leaves": { "base": "block/oak_leaves.png", "hue": 18, "sat": 1.70, "val": 0.92 },
+      "petals": ["orange", "yellow"],
+      "petal_chance": 0.10,
+      "saplings": ["minecraft:acacia_sapling", "minecraft:jungle_sapling", "minecraft:oak_sapling"],
+      "sapling_chance": 0.055,
+      "biomes": ["alfheim:sundered_highlands", "alfheim:ashen_grove",
+                 "mythicbotany:alfheim_hills"],
+      "count": 1, "rarity": 5,
+      "trunk": [5, 2, 0], "foliage": [2, 0, 3]
+    },
+    {
+      "id": "gloambark",
+      "name": "Gloambark",
+      "tooltip": "Dark wood, and the archive kept longest in it.",
+      "log": {
+        "base": "block/dark_oak_log.png", "top": "block/dark_oak_log_top.png",
+        "hue": 300, "sat": 0.55, "val": 0.55
+      },
+      "leaves": { "base": "block/dark_oak_leaves.png", "hue": 285, "sat": 0.75, "val": 0.62 },
+      "petals": ["black", "brown"],
+      "petal_chance": 0.10,
+      "saplings": ["minecraft:dark_oak_sapling", "minecraft:spruce_sapling", "minecraft:oak_sapling"],
+      "sapling_chance": 0.055,
+      "biomes": ["alfheim:hollow_marches", "alfheim:mana_fen",
+                 "mythicbotany:alfheim_lakes"],
+      "count": 1, "rarity": 5,
+      "trunk": [6, 3, 0], "foliage": [3, 0, 3]
+    },
+    {
+      "id": "hushbark",
+      "name": "Hushbark",
+      "tooltip": "Nothing sounds right under it. The seeds keep anyway.",
+      "log": {
+        "base": "block/birch_log.png", "top": "block/birch_log_top.png",
+        "hue": 195, "sat": 0.28, "val": 1.05
+      },
+      "leaves": { "base": "block/birch_leaves.png", "hue": 190, "sat": 0.55, "val": 0.95 },
+      "petals": ["gray", "cyan"],
+      "petal_chance": 0.10,
+      "saplings": ["minecraft:birch_sapling", "minecraft:cherry_sapling", "minecraft:spruce_sapling"],
+      "sapling_chance": 0.055,
+      "biomes": ["alfheim:silverbark_wood", "alfheim:bloomfall_vale",
+                 "mythicbotany:dreamwood_forest"],
+      "count": 1, "rarity": 4,
+      "trunk": [5, 3, 0], "foliage": [2, 0, 2]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "alfheim:greatbole/trunk_or_crown",
+  "fallback": "alfheim:greatbole/crown_only",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:greatbole/trunk",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:greatbole/crown",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

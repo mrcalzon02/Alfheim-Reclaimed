@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "libx:clamp",
+    "density": {
+      "type": "minecraft:mul",
+      "argument1": 1.8,
+      "argument2": {
+        "type": "minecraft:shifted_noise",
+        "noise": "minecraft:temperature",
+        "shift_x": {
+          "type": "minecraft:cache_once",
+          "argument": {
+            "type": "minecraft:shift_a",
+            "argument": "minecraft:offset"
+          }
+        },
+        "shift_y": 0.0,
+        "shift_z": {
+          "type": "minecraft:cache_once",
+          "argument": {
+            "type": "minecraft:shift_b",
+            "argument": "minecraft:offset"
+          }
+        },
+        "xz_scale": 0.0625,
+        "y_scale": 0.0
+      }
+    },
+    "max": 1.0,
+    "min": -1.0
+  }
+}

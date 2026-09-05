@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 5.0,
+      "min": 2.5,
+      "stat": "magic_shield"
+    }
+  ],
+  "gear_slot": "boots",
+  "guid": "alfheim_shaman_boots",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/shaman/boots/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "intelligence": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "cloth_boots",
+      "armor_family",
+      "magic_shield_stat",
+      "boots",
+      "intelligence"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

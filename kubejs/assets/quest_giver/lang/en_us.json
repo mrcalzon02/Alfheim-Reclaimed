@@ -1,0 +1,4 @@
+{
+  "_comment": "quest_giver 1.5.2 ships quest_scroll with a model, a texture and a recipe but NO lang entry, so the interaction item every quest giver in the pack requires is nameless in-game. One line fixes it. Named for the fiction rather than the mod: it is what you carry to be heard at court.",
+  "item.quest_giver.quest_scroll": "Petition Scroll"
+}

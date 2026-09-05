@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:hollow_marches",
+    "alfheim:mana_fen",
+    "mythicbotany:alfheim_lakes"
+  ],
+  "features": "alfheim:tree_gloambark",
+  "step": "vegetal_decoration"
+}

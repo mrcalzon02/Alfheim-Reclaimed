@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:curio/class/minstrel/emblem_apprentice",
+    "alfheim:curio/class/minstrel/emblem_guild",
+    "alfheim:curio/class/minstrel/emblem_master",
+    "alfheim:curio/class/shaman/emblem_apprentice",
+    "alfheim:curio/class/shaman/emblem_guild",
+    "alfheim:curio/class/shaman/emblem_master",
+    "alfheim:curio/class/warrior/emblem_apprentice",
+    "alfheim:curio/class/warrior/emblem_guild",
+    "alfheim:curio/class/warrior/emblem_master"
+  ]
+}

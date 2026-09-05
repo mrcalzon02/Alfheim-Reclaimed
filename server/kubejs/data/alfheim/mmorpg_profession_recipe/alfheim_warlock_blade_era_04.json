@@ -1,0 +1,32 @@
+{
+  "exp": 150,
+  "id": "alfheim_warlock_blade_era_04",
+  "mats": [
+    {
+      "type": "ITEM",
+      "id": "alfheim:gatewrought_cord",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:material/mining/1",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:stone/1",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "alfheim:duskglass_shard",
+      "num": 1
+    }
+  ],
+  "profession": "gear_crafting",
+  "requires_pinnacle_unlock": false,
+  "result": "alfheim:armory/warlock/blade/era_04",
+  "result_num": 1,
+  "set_tier_nbt": false,
+  "tier": 1
+}

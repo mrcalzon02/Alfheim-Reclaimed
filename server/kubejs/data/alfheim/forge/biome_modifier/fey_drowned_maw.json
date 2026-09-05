@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "mythicbotany:alfheim_lakes",
+    "alfheim:mana_fen"
+  ],
+  "spawners": {
+    "type": "alfheim:drowned_maw",
+    "weight": 1,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 8.0,
+      "min": 4.0,
+      "stat": "magic_shield"
+    }
+  ],
+  "gear_slot": "pants",
+  "guid": "alfheim_sorcerer_pants",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/sorcerer/pants/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "intelligence": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "armor_family",
+      "pants",
+      "magic_shield_stat",
+      "cloth_pants",
+      "intelligence"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

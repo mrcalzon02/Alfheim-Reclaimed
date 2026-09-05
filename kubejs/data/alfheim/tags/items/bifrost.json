@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:crystallized_bifrost",
+    "alfheim:condensed_bifrost",
+    "alfheim:refined_bifrost",
+    "alfheim:distilled_bifrost"
+  ]
+}

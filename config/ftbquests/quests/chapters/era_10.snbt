@@ -1,0 +1,765 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "era_10"
+	group: "105F9E401CD6F0BC"
+	icon: "alfheim:crown_filament"
+	id: "47C4EE6777892737"
+	order_index: 9
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Last era."
+				""
+				"Terrasteel — which needs Midgard's metals and our mana both, and which you could not have made in Era One if you had wanted to. The Gjallarhorn. The branch of the world tree."
+				""
+				"And the colony, at full size, with the gates open."
+			]
+			id: "2F7E9FFE2D6C5F9D"
+			rewards: [{
+				id: "0C92681DD2F3866A"
+				item: "alfheim:gravegilt_thread"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Magister Velrous"
+			tasks: [{
+				id: "7E298319554D8EA5"
+				title: "Era 10"
+				type: "checkmark"
+			}]
+			title: "Era 10"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Petals in the basin. You have done this a thousand times; do it again."
+				""
+				"Step 1 of 17."
+			]
+			id: "7DBFC0BBB2D95AE8"
+			rewards: [{
+				id: "046972C6C76EFC7E"
+				item: "alfheim:heartwood_strand"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 1/17"
+			tasks: [{
+				id: "47A6F89D24270501"
+				item: "alfheim:heartwood_strand"
+				type: "item"
+			}]
+			title: "Heartwood Strand"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Into the pool. Watch the level drop and understand what it cost."
+				""
+				"Step 2 of 17."
+			]
+			id: "185EEF8CAE2D0BFE"
+			rewards: [{
+				id: "607CACE3DCFAB5EF"
+				item: "alfheim:crowned_fibre"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 2/17"
+			tasks: [{
+				id: "1A97A0621E1BE993"
+				item: "alfheim:crowned_fibre"
+				type: "item"
+			}]
+			title: "Crowned Fibre"
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["185EEF8CAE2D0BFE"]
+			description: [
+				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				""
+				"Step 3 of 17."
+			]
+			id: "37037EA3744B39CC"
+			rewards: [{
+				id: "76FCC13F066A4581"
+				item: "alfheim:yggdrasil_floss"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 3/17"
+			tasks: [{
+				id: "38D3D2D9313E1ACA"
+				item: "alfheim:yggdrasil_floss"
+				type: "item"
+			}]
+			title: "Yggdrasil Floss"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["37037EA3744B39CC"]
+			description: [
+				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				""
+				"Step 4 of 17."
+			]
+			id: "65D92FBD3FB94A03"
+			rewards: [{
+				id: "2B96AC519CDAA76E"
+				item: "alfheim:branch_cord"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 4/17"
+			tasks: [{
+				id: "4C00139935609B01"
+				item: "alfheim:branch_cord"
+				type: "item"
+			}]
+			title: "Branch Cord"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["65D92FBD3FB94A03"]
+			description: [
+				"The agglomeration plate. This one takes a quarter million mana. Plan for it."
+				""
+				"Step 5 of 17."
+			]
+			id: "0DBC88D92A7B076F"
+			rewards: [{
+				id: "458E6464DDAC0FE2"
+				item: "alfheim:living_crown"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 5/17"
+			tasks: [{
+				id: "2F98D64DA22B3659"
+				item: "alfheim:living_crown"
+				type: "item"
+			}]
+			title: "Living Crown"
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0DBC88D92A7B076F"]
+			description: [
+				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				""
+				"Step 6 of 17."
+			]
+			id: "35E60973F17F18BD"
+			rewards: [{
+				id: "110F05FC52F38904"
+				item: "alfheim:woven_crown"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 6/17"
+			tasks: [{
+				id: "122D24EF8A27D788"
+				item: "alfheim:woven_crown"
+				type: "item"
+			}]
+			title: "Woven Crown"
+			x: 9.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["35E60973F17F18BD"]
+			description: [
+				"The Imbuement Chamber. Slow, and it does not care that you are in a hurry."
+				""
+				"Step 7 of 17."
+			]
+			id: "4CD639878AB6EF05"
+			rewards: [{
+				id: "5B150313E6255100"
+				item: "alfheim:ninefold_thread"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 7/17"
+			tasks: [{
+				id: "7E056D8D2B935D9D"
+				item: "alfheim:ninefold_thread"
+				type: "item"
+			}]
+			title: "Ninefold Thread"
+			x: 10.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["4CD639878AB6EF05"]
+			description: [
+				"A Ritual of the Forest. Multi-block, slow, and worth it."
+				""
+				"Step 8 of 17."
+			]
+			id: "16B7AD2AD8EB32DE"
+			rewards: [{
+				id: "7871C40BA84C5634"
+				item: "alfheim:crown_blank"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 8/17"
+			tasks: [{
+				id: "1E86B03BC727FF60"
+				item: "alfheim:crown_blank"
+				type: "item"
+			}]
+			title: "Crown Blank"
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["16B7AD2AD8EB32DE"]
+			description: [
+				"The Fey Altar. Ask politely. They remember being asked rudely."
+				""
+				"Step 9 of 17."
+			]
+			id: "158E18204A3A839B"
+			rewards: [{
+				id: "093D1C8848504C13"
+				item: "alfheim:crown_drawn"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 9/17"
+			tasks: [{
+				id: "3B32D189FCD95F51"
+				item: "alfheim:crown_drawn"
+				type: "item"
+			}]
+			title: "Crown Drawn"
+			x: 13.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["158E18204A3A839B"]
+			description: [
+				"Spirit fire. It burns what should not burn and leaves what should not remain."
+				""
+				"Step 10 of 17."
+			]
+			id: "4E1840E1ED302E83"
+			rewards: [{
+				id: "04706E66B078304D"
+				item: "alfheim:crown_folded"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 10/17"
+			tasks: [{
+				id: "5BD29804C8CD28B3"
+				item: "alfheim:crown_folded"
+				type: "item"
+			}]
+			title: "Crown Folded"
+			x: 15.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Through the gate and back. What returns is not what you sent."
+				""
+				"Step 11 of 17."
+			]
+			id: "591C55274B5727B9"
+			rewards: [{
+				id: "53F029CC2ADC4A4B"
+				item: "alfheim:crown_stilled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 11/17"
+			tasks: [{
+				id: "5CC44C92C8D57BDA"
+				item: "alfheim:crown_stilled"
+				type: "item"
+			}]
+			title: "Crown Stilled"
+			x: 16.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["591C55274B5727B9"]
+			description: [
+				"A sequenced assembly. By this depth you cannot do it by hand and should not try."
+				""
+				"Step 12 of 17."
+			]
+			id: "29F4473107AE81F5"
+			rewards: [{
+				id: "54EB06B06F03D65A"
+				item: "alfheim:crown_rebound"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 12/17"
+			tasks: [{
+				id: "62465223C0009896"
+				item: "alfheim:crown_rebound"
+				type: "item"
+			}]
+			title: "Crown Rebound"
+			x: 18.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["29F4473107AE81F5"]
+			description: [
+				"Mixed under heat. Elven work still needs a stirring rod sometimes."
+				""
+				"Step 13 of 17."
+			]
+			id: "24799459B6705390"
+			rewards: [{
+				id: "25037B0D83ABF57B"
+				item: "alfheim:crown_quenched"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 13/17"
+			tasks: [{
+				id: "589DD0566C8DDEF3"
+				item: "alfheim:crown_quenched"
+				type: "item"
+			}]
+			title: "Crown Quenched"
+			x: 19.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"Crushed down. Sometimes progress is subtraction."
+				""
+				"Step 14 of 17."
+			]
+			id: "3B5D7833B201DCD4"
+			rewards: [{
+				id: "342C2C36C59DB901"
+				item: "alfheim:crown_layered"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 14/17"
+			tasks: [{
+				id: "302B034EEA9B6AFF"
+				item: "alfheim:crown_layered"
+				type: "item"
+			}]
+			title: "Crown Layered"
+			x: 21.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3B5D7833B201DCD4"]
+			description: [
+				"The brewery. Not everything worth making is solid."
+				""
+				"Step 15 of 17."
+			]
+			id: "4DDC2C9771D5B021"
+			rewards: [{
+				id: "2C2B9B5AB01ED9EE"
+				item: "alfheim:crown_proofed"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 15/17"
+			tasks: [{
+				id: "09ACB1B6B5A1E91A"
+				item: "alfheim:crown_proofed"
+				type: "item"
+			}]
+			title: "Crown Proofed"
+			x: 22.5d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The Natural Altar. It draws on the aura of the land — thin here, so be patient."
+				""
+				"Step 16 of 17."
+			]
+			id: "27369051534F02BE"
+			rewards: [{
+				id: "1327D9CC35B4C65E"
+				item: "alfheim:crown_settled"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 16/17"
+			tasks: [{
+				id: "71AC9106AD4EF67D"
+				item: "alfheim:crown_settled"
+				type: "item"
+			}]
+			title: "Crown Settled"
+			x: 24.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"The last step. Crown Filament."
+				""
+				"Era X. The crown of the world tree, drawn out to a thread."
+				""
+				"17 steps, and every one of them rests on the era before it. That is what the ladder is."
+			]
+			id: "42225AA34B407687"
+			rewards: [{
+				id: "74C2038AEEB99D76"
+				item: "alfheim:crown_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Step 17/17"
+			tasks: [{
+				id: "693DE87339D70544"
+				item: "alfheim:crown_filament"
+				type: "item"
+			}]
+			title: "Crown Filament"
+			x: 25.5d
+			y: 0.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "5E00294DB1874FCB"
+			rewards: [{
+				count: 8
+				id: "3FA616F6275A12C5"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Song"
+			tasks: [{
+				id: "3A3D68C498F856DB"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["5E00294DB1874FCB"]
+			description: ["The other tradition, keeping pace."]
+			id: "422B68C4180FBEA5"
+			rewards: [{
+				count: 8
+				id: "3E8E625AB0AE614B"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "36BBC2BC4373775D"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "Enchanting Apparatus"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["422B68C4180FBEA5"]
+			description: ["The other tradition, keeping pace."]
+			id: "351A4B70B1C164C6"
+			rewards: [{
+				count: 8
+				id: "150178498F263E28"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "4135F0DBA6B76678"
+				item: "ars_nouveau:ritual_brazier"
+				type: "item"
+			}]
+			title: "Ritual Brazier"
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["351A4B70B1C164C6"]
+			description: ["The other tradition, keeping pace."]
+			id: "4669ADBEC9350AF1"
+			rewards: [{
+				count: 8
+				id: "613E2EC3958170BB"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "666432E88676DF36"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 4.5d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "359EFC30EE263B42"
+			rewards: [{
+				count: 8
+				id: "543755601E4BD4A9"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "52EFA22E02706687"
+				item: "ars_nouveau:enchanting_apparatus"
+				type: "item"
+			}]
+			title: "Enchanting Apparatus"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			description: ["The other tradition, keeping pace."]
+			id: "1E553D34D6FF0B35"
+			rewards: [{
+				count: 8
+				id: "1156191C951A63B7"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "75DC0E16BF32723B"
+				item: "ars_nouveau:ritual_brazier"
+				type: "item"
+			}]
+			title: "Ritual Brazier"
+			x: 7.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1E553D34D6FF0B35"]
+			description: ["The other tradition, keeping pace."]
+			id: "317F998F30ED3F44"
+			rewards: [{
+				count: 8
+				id: "421DE3D18F73EE73"
+				item: "ars_nouveau:source_gem"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Song"
+			tasks: [{
+				id: "06B599A4F332DBD1"
+				item: "ars_nouveau:archmage_spell_book"
+				type: "item"
+			}]
+			title: "Archmage Spell Book"
+			x: 9.0d
+			y: 2.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "4AE3D8C36760750B"
+			rewards: [{
+				count: 4
+				id: "5F4D1D720C3DC712"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "Support"
+			tasks: [{
+				id: "0346CEFB0E53D15A"
+				item: "minecolonies:blockhuttownhall"
+				type: "item"
+			}]
+			title: "Blockhuttownhall"
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["4AE3D8C36760750B"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "3C4641C6DFCE22DA"
+			rewards: [{
+				count: 4
+				id: "53B2BB2F605B5E88"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "1C9C0D627DDE7E5D"
+				item: "minecolonies:blockhutcitizen"
+				type: "item"
+			}]
+			title: "Blockhutcitizen"
+			x: 1.5d
+			y: 4.0d
+		}
+		{
+			dependencies: ["3C4641C6DFCE22DA"]
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "527D72006912396C"
+			rewards: [{
+				count: 4
+				id: "49C9B7EE180AF484"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "7ECA65557AB15827"
+				item: "minecolonies:blockhuttownhall"
+				type: "item"
+			}]
+			title: "Blockhuttownhall"
+			x: 3.0d
+			y: 4.0d
+		}
+		{
+			description: ["The colony grows, or it does not. There is no third option."]
+			id: "4C953982095F7BA8"
+			rewards: [{
+				count: 4
+				id: "1B9901FB7E585620"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Support"
+			tasks: [{
+				id: "38DE5C45BB49C075"
+				item: "minecolonies:blockhutcitizen"
+				type: "item"
+			}]
+			title: "Blockhutcitizen"
+			x: 4.5d
+			y: 4.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "501662FE5E2041FA"
+			rewards: [{
+				count: 8
+				id: "13737534A4D4E1B8"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "circle"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "046A098F6BF2D277"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["501662FE5E2041FA"]
+			description: ["Deeper than last time. It always is."]
+			id: "39B6AD6F63475960"
+			rewards: [{
+				count: 8
+				id: "644706B097AC765F"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "2C47B379036FF883"
+				item: "mmorpg:currency/perfected_soul_seed"
+				type: "item"
+			}]
+			title: "Currency/perfected Soul Seed"
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			description: ["Deeper than last time. It always is."]
+			id: "229F72090A57DBDE"
+			rewards: [{
+				count: 8
+				id: "2FB5B7EAE18EB4C1"
+				item: "minecraft:experience_bottle"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "The Wound"
+			tasks: [{
+				id: "45E9AFC7AB52C605"
+				item: "dungeon_realm:dungeon_map"
+				type: "item"
+			}]
+			title: "Dungeon Map"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: [
+				"317F998F30ED3F44"
+				"4C953982095F7BA8"
+				"229F72090A57DBDE"
+			]
+			description: [
+				"The Rune of Asgard. The ninth."
+				""
+				"The way is clear."
+				""
+				"I sent word three eras ago, when the aura first held steady. They have been coming since. You have been too busy to notice, which is exactly right."
+				""
+				"Alfheim is not restored. It will not be restored in your lifetime or mine. But it is *inhabited*, and it is defended, and the gate is open in both directions, and there are elves being born here who will never know what it looked like when you found it."
+				""
+				"That was the assignment. You may consider it complete."
+			]
+			id: "0E5CF71C82DCF6BD"
+			rewards: [{
+				count: 2
+				id: "6315442EB0F57B71"
+				item: "alfheim:crown_filament"
+				type: "item"
+			}]
+			shape: "rsquare"
+			subtitle: "Capstone"
+			tasks: [{
+				id: "36F92F12F7B33832"
+				item: "mythicbotany:asgard_rune"
+				type: "item"
+			}]
+			title: "The Rune of Asgard"
+			x: 6.0d
+			y: 4.5d
+		}
+	]
+	subtitle: ["What do we become?"]
+	title: "X — The Crown of Branches"
+}

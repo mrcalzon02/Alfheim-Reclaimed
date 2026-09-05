@@ -1,0 +1,35 @@
+{
+  "minecraft": "1.20.1",
+  "forge": "47.4.10",
+  "seed": "alfheim-fey-20260904",
+  "level_name": "fey-validation",
+  "heap_gib": 6,
+  "elapsed_s": 200.8,
+  "exit_code": 4294967295,
+  "properties": {
+    "level-name": "fey-validation",
+    "level-seed": "alfheim-fey-20260904",
+    "online-mode": "false",
+    "gamemode": "creative",
+    "max-tick-time": "-1",
+    "view-distance": "8",
+    "simulation-distance": "6",
+    "spawn-protection": "0",
+    "sync-chunk-writes": "false",
+    "motd": "Alfheim Reclaimed - headless validation"
+  },
+  "omitted_mods": [
+    "continuity-3.0.0+1.20.1.forge.jar",
+    "entity_texture_features_1.20.1-forge-7.1.jar",
+    "entity_model_features-3.2.4-1.20.1-forge.jar",
+    "BetterGrassify-1.4.4+forge.1.20.1.jar",
+    "forgeskyboxes-0.0.2-1.20.2-new.jar"
+  ],
+  "mods_jars": 79,
+  "commands": [
+    "difficulty normal",
+    "save-all flush",
+    "stop"
+  ],
+  "console": "console-20260904-164814.log"
+}

@@ -1,0 +1,82 @@
+{
+  "base_stats": [
+    {
+      "type": "FLAT",
+      "max": 7.5,
+      "min": 5.0,
+      "stat": "dodge"
+    }
+  ],
+  "gear_slot": "boots",
+  "guid": "alfheim_hunter_boots",
+  "possible_items": [
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_01",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_02",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_03",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_04",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_05",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_06",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_07",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_08",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_09",
+      "min_rar": "common",
+      "weight": 1000
+    },
+    {
+      "item_id": "alfheim:armory/hunter/boots/era_10",
+      "min_rar": "common",
+      "weight": 1000
+    }
+  ],
+  "req": {
+    "base_req": {},
+    "scaling_req": {
+      "dexterity": 0.5
+    }
+  },
+  "style": "STR",
+  "tags": {
+    "tags": [
+      "leather_boots",
+      "dexterity",
+      "dodge_stat",
+      "armor_family",
+      "boots"
+    ]
+  },
+  "weapon_type": "none",
+  "weight": 0
+}

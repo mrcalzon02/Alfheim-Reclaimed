@@ -1,0 +1,8 @@
+{
+  "plant_slowness": true,
+  "plant_breaking": true,
+  "pass_through_leaves": true,
+  "ignore_intro": true,
+  "ignore_dependencies": false,
+  "using_modpack": false
+}

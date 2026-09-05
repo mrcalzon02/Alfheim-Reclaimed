@@ -1,0 +1,129 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "idle": {
+      "loop": true,
+      "animation_length": 4,
+      "bones": {
+        "tendril0": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 0) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril1": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 45) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril2": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 90) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril3": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 135) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril4": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 180) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril5": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 225) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril6": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 270) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril7": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 315) * 18",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "move": {
+      "loop": true,
+      "animation_length": 1,
+      "bones": {
+        "tendril0": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 0) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril1": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 45) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril2": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 90) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril3": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 135) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril4": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 180) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril5": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 225) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril6": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 270) * 18",
+            0,
+            0
+          ]
+        },
+        "tendril7": {
+          "rotation": [
+            "math.sin(query.anim_time * 160 + 315) * 18",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

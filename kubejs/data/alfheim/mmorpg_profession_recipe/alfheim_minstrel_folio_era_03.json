@@ -1,0 +1,32 @@
+{
+  "exp": 150,
+  "id": "alfheim_minstrel_folio_era_03",
+  "mats": [
+    {
+      "type": "ITEM",
+      "id": "alfheim:verdant_filament",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:material/mining/1",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:stone/1",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "alfheim:dawnglass_shard",
+      "num": 1
+    }
+  ],
+  "profession": "gear_crafting",
+  "requires_pinnacle_unlock": false,
+  "result": "alfheim:armory/minstrel/folio/era_03",
+  "result_num": 1,
+  "set_tier_nbt": false,
+  "tier": 1
+}

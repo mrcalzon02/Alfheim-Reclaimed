@@ -1,0 +1,96 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim:populated_biomes",
+  "spawners": [
+    {
+      "type": "zombie_variants:badlands_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:bamboo_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:cave_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:cherry_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:deep_dark_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:desert_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:dripstone_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:frozen_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:jungle_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:lush_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:mangrove_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:mushroom_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:pale_garden_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:savanna_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "zombie_variants:swamp_zombie",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 2
+    }
+  ]
+}

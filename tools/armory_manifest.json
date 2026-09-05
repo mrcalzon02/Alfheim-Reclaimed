@@ -1,0 +1,134 @@
+{
+  "status": "runtime validated on dedicated Forge server",
+  "sources": {
+    "warrior": {
+      "source": "thornwarden-atlas-source-v1.png",
+      "source_sha256": "ebea67361ab923e3c42e587f1d54a7461c730977db873bf87792416d3a63760c",
+      "cleaned": "thornwarden-atlas-clean.png",
+      "transparent_fraction": 0.6756
+    },
+    "hunter": {
+      "source": "waywatcher-atlas-source-v2.png",
+      "source_sha256": "e436e1f40000e56c18b0342901cdc3ca2fe94b6cd2e9a930bfdd88d8ab9dccd0",
+      "cleaned": "waywatcher-atlas-clean.png",
+      "transparent_fraction": 0.6944
+    },
+    "sorcerer": {
+      "source": "leyweaver-atlas-source-v1.png",
+      "source_sha256": "0a859a56d33d092ab9d453a6a79f058d11579c2b396d23414ea6e174cf488162",
+      "cleaned": "leyweaver-atlas-clean.png",
+      "transparent_fraction": 0.641
+    },
+    "shaman": {
+      "source": "rootspeaker-atlas-source-v1.png",
+      "source_sha256": "b319da239a479d39a520daa09b9ad98314340bd345b50d9c2e178902d73fa658",
+      "cleaned": "rootspeaker-atlas-clean.png",
+      "transparent_fraction": 0.6926
+    },
+    "warlock": {
+      "source": "duskkeeper-atlas-source-v1.png",
+      "source_sha256": "0629809e549491d567bc7175a6384af6f0d8d19d396dfc8bb31edc0dd67f4d2e",
+      "cleaned": "duskkeeper-atlas-clean.png",
+      "transparent_fraction": 0.7207
+    },
+    "minstrel": {
+      "source": "dawnsinger-atlas-source-v1.png",
+      "source_sha256": "c794c2b4c8ee2f1639f7ce9c16d174078b8d609d5e7925052621ca6c3b0f3180",
+      "cleaned": "dawnsinger-atlas-clean.png",
+      "transparent_fraction": 0.7177
+    }
+  },
+  "alpha_method": "Pillow edge-connected background flood fill; post-quantization alpha haze <=16 is written as literal RGBA 0,0,0,0",
+  "alpha_audit": {
+    "warrior": {
+      "textures": 80,
+      "literal_alpha_zero_min": 0.3691,
+      "literal_alpha_zero_max": 0.8164,
+      "corners_alpha_zero": true
+    },
+    "hunter": {
+      "textures": 80,
+      "literal_alpha_zero_min": 0.4346,
+      "literal_alpha_zero_max": 0.8438,
+      "corners_alpha_zero": true
+    },
+    "sorcerer": {
+      "textures": 80,
+      "literal_alpha_zero_min": 0.4277,
+      "literal_alpha_zero_max": 0.8125,
+      "corners_alpha_zero": true
+    },
+    "shaman": {
+      "textures": 80,
+      "literal_alpha_zero_min": 0.4199,
+      "literal_alpha_zero_max": 0.7812,
+      "corners_alpha_zero": true
+    },
+    "warlock": {
+      "textures": 80,
+      "literal_alpha_zero_min": 0.3818,
+      "literal_alpha_zero_max": 0.8252,
+      "corners_alpha_zero": true
+    },
+    "minstrel": {
+      "textures": 80,
+      "literal_alpha_zero_min": 0.4746,
+      "literal_alpha_zero_max": 0.7979,
+      "corners_alpha_zero": true
+    }
+  },
+  "bow_interior_alpha": {
+    "textures": 20,
+    "all_have_enclosed_alpha_zero_region": true,
+    "enclosed_region_pixels_min": 26,
+    "enclosed_region_pixels_max": 59
+  },
+  "crossbow_interior_alpha": {
+    "textures": 20,
+    "all_have_enclosed_alpha_zero_region": true,
+    "enclosed_region_pixels_min": 11,
+    "enclosed_region_pixels_max": 65
+  },
+  "waywatcher_necklace_alpha": {
+    "textures": 10,
+    "all_have_enclosed_alpha_zero_region": true,
+    "enclosed_region_pixels_min": 11,
+    "enclosed_region_pixels_max": 15,
+    "detached_atlas_spill_removed": true
+  },
+  "worn_armor_alpha": {
+    "textures": 120,
+    "literal_alpha_zero_min": 0.6777,
+    "literal_alpha_zero_max": 0.8633,
+    "binary_alpha_only": true
+  },
+  "counts": {
+    "items": 480,
+    "weapon_or_offhand": 240,
+    "armor": 240,
+    "item_textures": 480,
+    "worn_armor_textures": 120,
+    "mmo_base_types": 48,
+    "mmo_auto_items": 480,
+    "mmo_custom_items": 480,
+    "profession_recipes": 480
+  },
+  "generator": "tools/gen_armory.py",
+  "runtime_validation": {
+    "date": "2026-09-04",
+    "minecraft": "1.20.1",
+    "forge": "47.4.10",
+    "log": "server/console-20260904-102701.log",
+    "log_sha256": "8bcb038cd211dc81ff2f33bddf049349c84411ff7f00a8624e6ccbc167f45962",
+    "generated_payload_sha256": "205c95146f2572e741d157f2a84da8136c8cacfa0e5fba901dcece441b8ed564",
+    "startup_scripts": "9/9 loaded, 0 errors, 0 warnings",
+    "live_mns_registry_counts": {
+      "gear_types": 48,
+      "auto_items": 480,
+      "custom_items": 480,
+      "profession_recipes": 480
+    },
+    "representative_entries_resolved": true,
+    "server_exit_code": 0
+  }
+}
