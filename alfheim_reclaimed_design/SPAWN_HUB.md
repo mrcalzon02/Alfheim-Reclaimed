@@ -195,7 +195,7 @@ Settings worth setting once the FTB Chunks server config exists:
 | No hostile spawns in the hub | no | built; runtime acceptance pending |
 | No explosion damage to blocks | no | built; runtime acceptance pending |
 | No mob/mechanism block griefing | no | built; runtime acceptance pending |
-| No fire spread | no | built; runtime acceptance pending |
+| No fire spread | no | **open — no bounded regional cancellation hook exists in the current KubeJS/FTB claim implementation; see `SPAWN_HUB_PROTECTION.md` §2.2** |
 | Non-op block breaking/placement rejected | no | built; ordinary-player acceptance pending |
 | Visible claim on the FTB map, team semantics | **yes** | automated statically; ownership/restart read-back pending |
 
