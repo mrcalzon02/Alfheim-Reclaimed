@@ -1,8 +1,9 @@
 """Static acceptance for the generated Alfheim fey-wildlife set.
 
 This checker deliberately stops at the static boundary. It proves that the 18-entry manifest,
-shipping roster, EntityJS registration source, biome modifiers, geometry, animations and loot stay
-synchronized. Natural spawning and entity instantiation remain the job of run_fey_validation.py.
+shipping roster, EntityJS registration source, biome modifiers, geometry, animations, loot and
+runtime-validation contract stay synchronized. Natural spawning and entity instantiation remain
+the job of run_fey_validation.py.
 """
 from __future__ import annotations
 
@@ -17,6 +18,11 @@ REQUIRED_KEYS = {
     'damage', 'celestial', 'biomes', 'weight',
 }
 VALID_FAMILIES = {'deer', 'frog', 'toad', 'sea', 'elf'}
+RUNTIME_MARKERS = (
+    '[FEY AUDIT] Habitat coverage:',
+    '[FEY AUDIT] Creature construction:',
+    '[FEY AUDIT] COMPLETE habitat_missing=',
+)
 
 
 def load_json(path: Path):
@@ -28,8 +34,10 @@ def check(root: Path = ROOT):
     manifest_path = root / 'tools/fey_manifest.json'
     roster_path = root / 'kubejs/fey_roster.json'
     startup_path = root / 'kubejs/startup_scripts/08_fey_wildlife.js'
+    probe_path = root / 'tools/fey_validation_probe.js'
+    runner_path = root / 'tools/run_fey_validation.py'
 
-    for path in (manifest_path, roster_path, startup_path):
+    for path in (manifest_path, roster_path, startup_path, probe_path, runner_path):
         if not path.is_file():
             problems.append(f'missing required file: {path.relative_to(root)}')
     if problems:
@@ -57,6 +65,25 @@ def check(root: Path = ROOT):
         problems.append('08_fey_wildlife.js no longer registers entity types')
     if '.spawnPlacement(' not in startup:
         problems.append('08_fey_wildlife.js no longer declares spawn placement')
+
+    probe = probe_path.read_text(encoding='utf-8')
+    if "JsonIO.readJson('kubejs/fey_roster.json')" not in probe:
+        problems.append('fey runtime probe no longer reads the shipping fey roster')
+    if 'r.biomes.forEach' not in probe:
+        problems.append('fey runtime probe no longer checks every declared habitat')
+    for marker in RUNTIME_MARKERS:
+        if marker not in probe:
+            problems.append(f'fey runtime probe missing acceptance marker {marker!r}')
+    if 'zombie_habitat_manifest' in probe:
+        problems.append('fey runtime probe is coupled to the unrelated zombie habitat manifest')
+
+    runner = runner_path.read_text(encoding='utf-8')
+    if 'zombie_habitat_manifest' in runner:
+        problems.append('run_fey_validation.py is coupled to the unrelated zombie habitat manifest')
+    if 'created=18 expected=18 mismatches=0' not in runner:
+        problems.append('run_fey_validation.py does not require all 18 fey entities to instantiate')
+    if 'COMPLETE habitat_missing=0 creature_mismatches=0' not in runner:
+        problems.append('run_fey_validation.py does not require zero runtime habitat/creature defects')
 
     for index, entry in enumerate(manifest):
         if not isinstance(entry, dict):
@@ -121,11 +148,11 @@ def check(root: Path = ROOT):
 
 
 def self_test():
-    # Contract-level checks that do not need a repository fixture.
     assert EXPECTED_COUNT == 4 + 6 + 2 + 3 + 3
     assert VALID_FAMILIES == {'deer', 'frog', 'toad', 'sea', 'elf'}
     assert 'biomes' in REQUIRED_KEYS and 'weight' in REQUIRED_KEYS
-    print('self-test: roster cardinality and required contract PASS')
+    assert len(RUNTIME_MARKERS) == 3
+    print('self-test: roster cardinality and runtime acceptance contract PASS')
     return 0
 
 
