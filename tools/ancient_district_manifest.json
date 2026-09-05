@@ -1,0 +1,66 @@
+{
+  "schema": "alfheim:ancient_districts/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "generation_policy": {
+    "placement_model": "district_anchor_family",
+    "forbid_independent_member_random_spread": true,
+    "max_piece_axis": 48,
+    "max_distance_from_center": 116,
+    "terrain_fit_required": true,
+    "minimum_decline_stages_hero": 3,
+    "minimum_decline_stages_member": 2
+  },
+  "families": [
+    {
+      "id": "common_residential_quarter",
+      "wave": 1,
+      "status": "source_contract",
+      "settlement_class": "great_city_district",
+      "intended_extent": [192, 48, 192],
+      "anchor": "neighborhood_common_hall",
+      "palette_families": ["elven_marble", "livingrock", "sourcestone"],
+      "biome_policy": "temperate_or_decayed_alfheim_surface",
+      "decline_stages": [1, 2, 3, 4, 5],
+      "mortuary_density": "localized_to_heavy",
+      "advanced_systems": ["district_water_cistern", "runic_wayfinding", "mana_lighting_conduit", "storm_drainage"],
+      "circulation": {
+        "primary_avenue_width": 7,
+        "secondary_lane_width": 3,
+        "must_connect_every_inhabited_member": true,
+        "must_connect_burial_edge": true,
+        "must_show_blocked_or_failed_routes": true
+      },
+      "terrain": {
+        "strategy": "stepped_terraces_and_retaining_walls",
+        "reject_naked_cantilever": true,
+        "mild_relief_max": 5,
+        "severe_relief_requires_authored_substructure": true
+      },
+      "members": [
+        {"id":"neighborhood_common_hall","role":"hero_anchor","archetype":"Neighborhood Common Hall","scale":"S2","piece_size":[48,28,40],"count":[1,1],"decline_stages":[1,3,4,5],"evidence":["public_kitchen","ration_queue","barricades","civilian_remains"]},
+        {"id":"common_row_house","role":"residential_member","archetype":"Common Row Houses","scale":"S1","piece_size":[32,24,24],"count":[6,12],"decline_stages":[2,4,5],"evidence":["shared_walls","patched_roofs","family_shelters","household_remains"]},
+        {"id":"courtyard_home","role":"residential_member","archetype":"Courtyard Home","scale":"S1-S2","piece_size":[40,24,40],"count":[2,4],"decline_stages":[1,2,4,5],"evidence":["food_garden_conversion","water_storage","sealed_sick_room","courtyard_burials"]},
+        {"id":"artisan_house_shop","role":"economic_member","archetype":"Artisan House-Shop","scale":"S1-S2","piece_size":[32,24,32],"count":[2,5],"decline_stages":[1,3,4,5],"evidence":["unfinished_work","abandoned_tools","ration_exchange_conversion","workbench_remains"]},
+        {"id":"extended_kin_hall","role":"residential_member","archetype":"Extended Kin Hall","scale":"S2","piece_size":[48,28,36],"count":[1,2],"decline_stages":[1,3,4,5],"evidence":["sleeping_galleries","refuge_crowding","family_workrooms","multi_generation_possessions"]},
+        {"id":"district_cistern","role":"infrastructure_member","archetype":"District Cistern","scale":"S1-S2","piece_size":[32,20,32],"count":[1,2],"decline_stages":[1,2,3,5],"evidence":["filter_beds","broken_runic_valves","emergency_water_queue","silted_basin"]},
+        {"id":"avenue_segment","role":"circulation_member","archetype":"Great Avenue / Processional Road","scale":"S0-S1","piece_size":[48,12,16],"count":[4,10],"decline_stages":[1,2,3,5],"evidence":["durable_paving","runic_wayfinding","barricade_scars","root_buckling"]},
+        {"id":"district_mass_grave","role":"mortuary_edge_member","archetype":"Mass Grave of the Last Order","scale":"S2","piece_size":[48,20,48],"count":[1,1],"decline_stages":[3,4,5],"evidence":["ordered_early_trenches","crowded_late_trenches","unfinished_pits","corpse_cart_approach","digger_camp"]},
+        {"id":"collapsed_trace_field","role":"trace_member","archetype":"Fragment / Trace Field","scale":"S0","piece_size":[24,12,24],"count":[3,8],"decline_stages":[4,5],"evidence":["foundation_lines","debris","drain_fragments","secondary_collapse"]}
+      ],
+      "acceptance": {
+        "minimum_members_per_site": 20,
+        "minimum_inhabited_members": 10,
+        "minimum_distinct_archetypes": 6,
+        "minimum_decline_stages_visible": 4,
+        "must_show_original_function": true,
+        "must_show_emergency_conversion": true,
+        "must_show_terminal_collapse": true,
+        "must_show_long_decay": true,
+        "must_include_mortuary_edge": true,
+        "must_include_advanced_infrastructure": true,
+        "must_include_connected_route_from_anchor_to_burial_edge": true,
+        "must_not_bypass_progression": true
+      }
+    }
+  ]
+}
