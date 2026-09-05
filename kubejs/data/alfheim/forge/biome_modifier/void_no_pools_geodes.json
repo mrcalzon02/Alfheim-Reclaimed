@@ -2,9 +2,7 @@
   "type": "forge:remove_features",
   "biomes": "#alfheim:void_margins",
   "features": [
-    "alfheim:liquid_bifrost_pool",
-    "alfheim:geode_rim",
-    "alfheim:geode_rim_marker"
+    "alfheim:liquid_bifrost_pool"
   ],
   "steps": [
     "lakes",
