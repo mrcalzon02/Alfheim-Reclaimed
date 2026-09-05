@@ -1,12 +1,18 @@
 # The Five Deficiencies — Alfheim's damaged ground, and the rim of the world
 
 **Role:** authoritative design record for the five negative biomes and the void terrain.
-**Status:** `draft` — statically validated, never generated in a running game.
+**Status:** `runtime rejected — repair designed` — the game boots and the Void Verge generates, but the generated rim is not accepted.
 **Authority:** subordinate to `INSTRUCTIONS.md` and `WORLD_STRUCTURE.md`.
 **User instruction, 2026-09-03:** *"we need to add a number of negative biomes — Starved, Burned,
 Infested, Decayed, and Void… Void biomes should just be small chunks of mana and mineral rich stone
 floating in the void… random noise edge blending to just have the world come to an end in a
 vaguely noisy cliff."*
+
+**Runtime correction, 2026-09-04:** the first successful game run proved the current Void Verge
+terrain wrong. The empty-density region is being occupied by water, with lava and obsidian pockets,
+and the edge reads as a slow descent into an ocean rather than the end of the world. The intended
+shape is now explicit: **a dry plains-like verge, then an abrupt broken rim, then open empty space,
+with only diminishing fragments of stone beyond the cliff. No ocean. No lake floor. No lava sea.**
 
 ---
 
@@ -27,116 +33,219 @@ cross. The fifth is the edge of the world.
 | **Scorchfell** | It burned, and kept burning. Standing dead wood, ash in the air. | mid continentalness, low erosion, hot and dry | spiders |
 | **Infested Warren** | Something moved into the roots and never left. | low continentalness, low weirdness, warm and wet | cave spiders, silverfish, spiders |
 | **Decayed Mire** | Rot, standing water, and what is still in it. | mid continentalness, low weirdness, cool and wet | zombies, husks |
-| **Void Verge** | The world runs out. | the outer fifth of continentalness | endermen |
+| **Void Verge** | The world runs out. | the outer continentalness band | endermen, sparse winter fey |
 
 Scorchfell and Decayed Mire carry ambient particles (`white_ash`, `ash`) so the damage reads
 before the block palette does.
 
 ---
 
-## 2. The Void Verge
+## 2. The Void Verge — corrected target
 
-### 2.1 The problem the vanilla toolkit does not solve
+### 2.1 It is a rim biome, not an ocean biome
 
-A biome cannot change terrain. Density functions are dimension-wide and **cannot read biomes** —
-there is no `if (biome == void) return air`. So a "void biome" is not one thing; it is two things
-that have to be made to agree:
+The Void Verge must be readable while the player is still standing safely on it. It is a **dry,
+open, plains-like margin** where vegetation thins, the sky and fog darken, and the terrain becomes
+unnaturally level before it simply stops.
 
-- a **biome** that says *this is the rim*, chosen by the LibX biome layer from climate parameters;
-- **terrain** that actually stops, produced by a density function that knows nothing about biomes.
+The player experience is:
 
-The only way to make them agree is to drive both from the **same signal**.
-`mythicbotany:alfheim_continentalness` is what the biome layer already selects on, so the terrain
-mask reads that same function. Continentalness is, definitionally, *how much continent is here* —
-so the world ending where it runs out of continent is the honest reading of the parameter, not a
-trick played on it.
+1. ordinary Alfheim terrain;
+2. a visibly different but still walkable Verge plain;
+3. a short fractured transition where the ground breaks into shelves and detached slabs;
+4. a near-vertical drop into open space;
+5. sparse mana-rich stone fragments that become smaller and rarer with distance;
+6. finally, nothing at all except the world void below.
 
-### 2.2 Two numbers, and the order that matters
+There is **no gradual bathymetric slope**. The edge must not resemble a coast. A player approaching
+it should read "the world has been cut away", not "the land is descending into deep water".
 
+### 2.2 One signal still owns both biome and terrain
+
+A biome cannot directly choose a density function. The biome layer and the terrain therefore still
+need a shared signal, and `mythicbotany:alfheim_continentalness` remains the correct one.
+
+The previous design used one terrain threshold and then replaced everything outside it with floating
+`cave_cheese` blobs. That solved the biome/terrain alignment problem but not the *shape* problem.
+The corrected design uses **four bands driven by the same masked continentalness signal**:
+
+| Band | Initial tuning target | Terrain role |
+|---|---:|---|
+| **Verge biome starts** | `< -0.80` | biome visuals change; terrain remains safe |
+| **Verge plain** | `-0.86 .. -0.80` | low-relief, dry plateau with only small surface noise |
+| **Breakline / debris** | `-0.94 .. -0.86` | hard cliff plus shelves, detached slabs and rubble |
+| **Open void** | `< -0.94` | guaranteed empty air; no continuous terrain |
+
+These are tuning values, not sacred constants. What is sacred is the ordering and the visual result:
+**plain -> break -> fragments -> nothing**.
+
+The mask keeps the existing small 2D perturbation so the rim is irregular in plan view rather than
+a mathematically smooth contour. The important change is that the perturbation no longer drives a
+whole field of cave-shaped islands. It perturbs the **breakline**.
+
+### 2.3 The Verge plain is intentionally flat
+
+The current implementation leaves ordinary terrain in the safety strip. That can still produce
+hills, basins and coast-like descent immediately before the void, which undermines the silhouette.
+The repaired Verge must instead suppress most large-scale relief inside the safety band.
+
+Implementation target: construct a dedicated low-relief density branch for the Verge plain,
+anchored around the normal Alfheim surface height and modulated only by low-amplitude 2D noise.
+It should feel like a broad final shelf of land, not a copied Overworld plains biome and not a
+perfect superflat plate.
+
+Acceptance silhouette from a side view:
+
+```text
+ordinary land        verge plain            broken rim                open void
+______/\____        _____________        ___      _
+           \_______/             \______|   \__ _| \_       .   .
+                                               \       .
+                                                \
+                                                 \
+                                                  [void]
 ```
-VOID_BIOME_MAX   = -0.80     the biome claims continentalness below this
-VOID_TERRAIN_MAX = -0.86     the floor disappears below this
-```
 
-**The terrain band is deliberately narrower than the biome band.** Every piece of void terrain then
-falls inside the void biome, and the 0.06 strip between them is void *biome* with ordinary
-ground — a shore, where the sky goes black and the fog closes in before the floor runs out.
+The cliff itself is produced by a **2D mask independent of Y**, so when the threshold is crossed the
+terrain is removed through the full vertical column. That is what gives a hard wall instead of a
+slow descent.
 
-Reversed, the floor would vanish under a forest. That reads as corruption, not as the edge of the
-world, and it is invisible until someone walks into it. **`check_worldgen.py` W7 asserts the
-ordering** and fails on reversal; verified against a synthetic flip.
+### 2.4 Debris must fade outward
 
-### 2.3 The density function
+The fragments beyond the rim are not a second floating-island biome. They are pieces of the edge
+that have broken away.
 
-`mythicbotany:alfheim_final` ships as `min(alfheim_initial, alfheim_caves)`. The datapack
-overrides that one file — not the whole noise settings — and wraps it:
+Use the continentalness distance from the breakline as a probability envelope:
 
-```
-range_choice(
-  input:             cache_2d( alfheim_continentalness + 0.035 * noise(surface) )
-  [-2.0 .. -0.86):   min( islands, y_window )        ← the void
-  otherwise:         min( alfheim_initial, alfheim_caves )   ← untouched
-)
+- nearest the cliff: attached shelves, long ledges, bridge-like remnants and large slabs;
+- middle band: detached chunks large enough to land on and mine;
+- outer band: isolated blocks, tiny clusters and occasional narrow pillars;
+- beyond the debris band: no terrain at all.
 
-islands   = 2.0 * noise(cave_cheese, xz 1.0, y 0.8) - 1.35
-y_window  = min( gradient(y20→50: -1→1), gradient(y110→150: 1→-1) )
-```
+`minecraft:cave_cheese` can still contribute **local fragment shape**, but it must not own fragment
+frequency. Frequency is controlled by the edge-distance band, so material visibly fades away as the
+player looks outward.
 
-- **The cliff is ragged** because the mask is continentalness *plus a small high-frequency
-  perturbation*. Continentalness alone contours too smoothly to read as a broken edge. `cache_2d`
-  keeps the mask a 2D lookup rather than a per-block 3D sample.
-- **Islands are sparse** because only the top slice of `cave_cheese` clears zero after the −1.35
-  offset.
-- **They float in a band**, y 50–110, because a single `y_clamped_gradient` is monotonic; two of
-  them under a `min` make a window. Below the band is open air to the world floor.
-- **Islands are livingrock**, the dimension's own `default_block` — so they are mana-bearing by
-  construction, and every ore and geode feature that targets `#mythicbotany:base_stone_alfheim`
-  works on them unchanged. That is the "mana and mineral rich stone" the instruction asked for,
-  obtained by not fighting the dimension.
+The fragments remain the dimension's base livingrock so the existing Alfheim ore/bloom/crystal
+tags continue to work. Their value is the reason to risk the rim.
 
-### 2.4 Crystals in the void
+### 2.5 Why the current void fills with water
 
-A seventh geode, **the Rim** (Duskglass ∣ Galeglass), generates only in the Void Verge at
-**1 in 3 chunks** — the most common of the seven. The rim is the richest ground in Alfheim and the
-hardest to stand on, which is the trade the biome exists to offer.
+The successful run answered the open question from the previous version of this document.
+`alfheim_final` can make density negative, but negative terrain density does **not** by itself mean
+"air" below sea level. Alfheim's aquifer system still evaluates those empty cells and is free to
+place its default fluid. That is why the current void becomes water and why lava/obsidian pockets
+appear inside it.
+
+This is not a cosmetic surface-rule defect. It is a **noise-router/aquifer defect**: the terrain
+mask and the fluid decision are using different rules.
+
+The repair therefore must make the aquifer router consume the **same void mask** as the terrain.
+A post-generation water deletion pass is rejected: it would be a cleanup layer over the wrong
+source behaviour and would leave fluid-update and chunk-boundary hazards.
+
+### 2.6 Dry-void aquifer contract
+
+The data-driven repair is to override the Alfheim noise settings/router narrowly enough that the
+following channels share the rim mask:
+
+- `final_density` — chooses Verge plain, debris branch, or empty void;
+- `fluid_level_floodedness` — forced decisively into the **empty** state in the debris/open-void bands;
+- `preliminary_surface_level` — masked with the same region so aquifer surface heuristics do not
+  reinterpret the removed terrain as ocean floor;
+- `fluid_level_spread` — retained outside the void and made inert inside it;
+- `lava` — retained outside the void and made inert inside it.
+
+Outside the Void Verge mask, every original MythicBotany value must be byte-for-byte or
+structurally equivalent to the shipped setting. The correction is regional, not a global drying of
+Alfheim.
+
+If a pure datapack router cannot guarantee the empty state after runtime proof, the next step is a
+small first-party worldgen hook that uses the same 2D mask to return air for aquifer fluid selection
+inside the void region. That is the only acceptable code fallback because it repairs the source
+fluid decision directly; it is not permission for a post-process scrubber.
+
+### 2.7 No void sea
+
+The former "maybe add a void-sea mod" branch is closed. The runtime result demonstrated exactly why
+that visual language is wrong for this world edge. The design target is **open empty space**.
+Falling past the fragments means falling into the dimension void.
 
 ---
 
-## 3. The void sea — not built, and why
+## 3. Void resources and encounter grammar
 
-The instruction asked whether a void-sea mod could give the empty biomes a bottom.
+The Void Verge is dangerous because footing disappears, not because it becomes another combat
+biome. Resource density can therefore be somewhat higher than elsewhere without turning the area
+into a dungeon.
 
-**DNS resolves from this machine** (an earlier project note saying the sandbox had no network is
-stale). So fetching a mod is not blocked by the environment. It is blocked by process, and
-deliberately:
+The existing **Rim geode** remains Duskglass | Galeglass and is currently authored at **1 in 8
+chunks** in `tools/crystals_manifest.json`. That value supersedes the older 1-in-3 prose that used
+to be in this document.
 
-1. Installing a jar is a **pack composition change**, not a datapack change. It touches
-   `minecraftinstance.json`, the pinned mod matrix, and the dependency graph.
-2. The project has its own intake protocol — `tools/check_incoming_mod.py` must run on any jar
-   before it goes near `mods/` (loader format, mod-ID collisions, dependency resolution,
-   Overworld-generator ownership, convention tags).
-3. It needs the pack owner's explicit say-so on *which* mod, since this is a distributed pack.
+Ore and bloom generation on detached fragments should be allowed only where the fragment has enough
+solid volume to contain the feature. A geode intersecting a three-block shard would look like a
+worldgen error. The implementation therefore needs either minimum-solid-volume placement checks or
+an inner debris band reserved for full geodes, with only smaller ore/bloom features allowed farther
+out.
 
-**What exists without a new mod:** the Void Verge already has no floor — below the islands is open
-air to y −64 and then the world's bottom, which is the vanilla void. What a void-sea mod would add
-is a *surface* down there to fall onto or swim in. That is a genuine gap and it is a reasonable
-thing to want; it is simply not something to install unilaterally.
-
-**If it is wanted:** name the mod, and the intake check runs first.
+No generated water source, lava source, obsidian patch or conventional shoreline feature is valid
+inside the open-void band.
 
 ---
 
-## 4. Open
+## 4. Implementation sequence
 
-1. **Nothing here has generated.** The void density function is the single riskiest file in the
-   datapack: a malformed density function fails world creation outright, and no static check can
-   prove the terrain it produces is *playable* rather than merely legal.
-2. **Surface rules still apply in the void.** Alfheim's surface rule will cap the floating islands
-   with whatever it caps ordinary ground with, probably grass. Cosmetic, and fixable with a
-   surface-rule override — a larger and riskier change than this one, so deliberately deferred.
-3. **Aquifers are enabled dimension-wide** (`aquifers_enabled: true`). Whether they produce
-   floating water in the void band is unknown until it generates.
-4. **Void structures** were asked for and are not built. Structures need an NBT pipeline
-   (`SPAWN_ZONE.md`, B-19 territory) and belong in their own unit of work.
-5. **The four deficient biomes are untuned.** Their climate corners were chosen to be narrow; if
-   they turn out too rare to ever meet, widen the bands rather than adding more of them.
+### Pass V1 — reproduce and instrument
+
+Use the already successful fresh-world path and record the first Void Verge coordinates that show
+the failure. Add a small debug sampler to `tools/gen_alfheim_biomes.py` or a sibling validation tool
+that prints the continentalness/mask band expected at those coordinates. This gives the repair a
+known runtime target rather than tuning blind.
+
+### Pass V2 — plains rim and hard cut
+
+Replace the current single `VOID_TERRAIN_MAX` branch with the four-band terrain contract. Preserve
+normal terrain outside the biome, flatten only the Verge safety shelf, then remove the terrain as a
+vertical cut at the breakline.
+
+### Pass V3 — dry the void at the source
+
+Override the aquifer-related noise-router channels with the same mask. Validate that chunks below sea
+level inside the void contain air, not water or lava, before touching debris density.
+
+### Pass V4 — debris falloff
+
+Add the edge-weighted shelves/slabs/rubble field. Start with coarse fragments; tune frequency before
+texture/detail. The outer band must converge to literal zero terrain.
+
+### Pass V5 — resource compatibility
+
+Re-enable/validate blooms, Rim geodes and mineral features on sufficiently large fragments. Verify
+that no feature constructs a fake floor or bridges the open void unintentionally.
+
+### Pass V6 — runtime acceptance
+
+Fresh world only. Walk from ordinary Alfheim across the Verge and over the edge in spectator and
+survival. Inspect at least three separated rim segments so one lucky contour cannot pass the test.
+
+---
+
+## 5. Acceptance criteria
+
+The Void Verge remains **rejected** until all of these are seen in a fresh world:
+
+1. the approach is dry, walkable and plains-like rather than descending toward water;
+2. the land terminates in a visually abrupt cliff/breakline;
+3. the void below and beyond the rim contains no generated water body;
+4. no lava sea or routine lava/obsidian pockets occupy the void volume;
+5. debris is densest near the rim and visibly fades to isolated pieces and then nothing;
+6. the far field is genuinely empty space down to the world floor;
+7. resources occur on substantial fragments without creating impossible hanging geodes;
+8. ordinary Alfheim terrain and aquifers outside the Void Verge are unchanged;
+9. the player can identify the world edge before accidentally walking off it;
+10. all static worldgen/feature-order checks still pass before runtime admission.
+
+The failure observed on 2026-09-04 is therefore useful evidence: the biome now exists and the game
+can reach it, which means the remaining problem is no longer "does the system load?" It is the
+specific terrain-and-fluid contract above.
