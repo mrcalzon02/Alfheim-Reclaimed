@@ -1,14 +1,14 @@
 # Spawn Hub Protection — claim and anti-grief acceptance
 
 **Role:** protection subrecord for `SPAWN_HUB.md` §4. It owns the runtime acceptance criteria for the Greatbole/Hollow Court protected zone, its FTB Chunks administrative claim, and player-edit protection.
-**Status:** `runtime failed` 2026-09-04 — the Greatbole and spawn structure were again observed without the intended admin-team claim, and blocks could be destroyed. The hub is **not protection-complete**.
+**Status:** `static repaired; runtime validation pending` 2026-09-04 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub now attempts a server-team claim and independently rejects non-op breaking and placement, but the claim and player behavior have not yet been observed in a fresh live world.
 **Authority:** subordinate to `INSTRUCTIONS.md`; extends `SPAWN_HUB.md`. Where the older §4 status says player-edit protection is built or treats the FTB claim as a later manual administrative step, this later runtime evidence controls until the two records are reconciled.
 
 ---
 
 ## 1. The failure
 
-The Greatbole can generate, the hub can anchor to it, and the anti-explosion / anti-mob-grief scripts can exist while the actual spawn hub is still **unclaimed and player-destructible**. The latest runtime test demonstrated exactly that failure again.
+The Greatbole can generate, the hub can anchor to it, and the anti-explosion / anti-mob-grief scripts can exist while the actual spawn hub is still **unclaimed and player-destructible**. The 2026-09-04 runtime test demonstrated exactly that failure.
 
 This matters because the protected hub is not decorative scenery. It is a persistent campaign location containing the Greatbole, gate, Court and recurring NPC interactions. A player being able to remove its blocks means the core quest hub can be permanently damaged through ordinary play.
 
@@ -31,11 +31,25 @@ The KubeJS protections do **not** prove the FTB claim exists. Conversely, an FTB
 
 The live observation that blocks could be destroyed also means the prior `SPAWN_HUB.md` table entry stating that player edits were already restricted must be treated as **failed/unproven**, regardless of what the script intended to do.
 
+### 2.1 Static repair now implemented
+
+`tools/gen_spawn_hub.py` remains the authority for `kubejs/server_scripts/04_spawn_hub.js`. Its protection generator now reflects the installed pack rather than the stale assumption that FTB Chunks was absent:
+
+- FTB Chunks 2001.3.6 is treated as installed and the generated script creates/reuses the server team `alfheim_hub` and invokes `ftbchunks admin claim_as` for the hub envelope on server load;
+- `PROTECT_FROM_PLAYERS` defaults to `true`;
+- both `BlockEvents.broken` and `BlockEvents.placed` reject non-op edits in the protected zone;
+- the existing hostile-spawn and explosion layers remain additive rather than being replaced by the claim;
+- the script logs the FTB command return values but explicitly does **not** treat them as ownership read-back.
+
+This is a **static repair**, not runtime acceptance. A zero `claim_as` return can mean that no new chunks needed claiming or that no claim was established, so command return values alone cannot satisfy §4.
+
 ---
 
 ## 3. Claim lifecycle must follow the actual Greatbole
 
 The Greatbole may relocate from the origin when the origin biome is unsuitable. Protection therefore cannot be based on a hard-coded assumption that the structure sits at 0,0.
+
+The current static repair claims the complete 192-block relocation envelope already used by the hub protection logic. That envelope deliberately contains every allowed Greatbole relocation plus the structure footprint, so it does not leave a relocated hub outside protection. This is broader than resolving and claiming only the final marker-relative footprint; runtime validation must confirm that the resulting FTB claim is acceptable and persists correctly.
 
 The desired lifecycle is:
 
@@ -73,7 +87,9 @@ The finished hub must pass all of the following in a fresh test world:
 
 This sits alongside the Greatbole terrain-fit and Greatbole-to-Court circulation defects, but it is not aesthetic work. Protection is a functional prerequisite for using the structure as the persistent campaign hub.
 
-The next repair pass should therefore treat these as separate gates:
+The next protection action is now runtime validation rather than more static implementation: boot a fresh world with the regenerated script, read back the `alfheim_hub` server-team claim in FTB Chunks, test break and placement with a non-op survival player, restart and re-check ownership, then exercise the independent explosion/fire/mob-grief/hostile-spawn gates.
+
+The wider structure repair ordering remains:
 
 1. **placement:** the Greatbole belongs in and is supported by its terrain;
 2. **circulation:** the interior connects deliberately to the Court;
