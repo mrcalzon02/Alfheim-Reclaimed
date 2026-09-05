@@ -8,7 +8,8 @@ first in-world design review exposed two open defects: unacceptable cliff/terrai
 and incomplete circulation between the Greatbole interior and the ruined Court circle. The
 repair pass is open.
 **Authority:** subordinate to `INSTRUCTIONS.md`. Extends `SPAWN_ZONE.md`; see §1.2 for the
-boundary between the two records.
+boundary between the two records. `SPAWN_HUB_PROTECTION.md` owns protection acceptance and
+runtime claim proof.
 **Asked for by the user, 2026-09-03. Runtime refinement added from the user's 2026-09-04 test.**
 
 ---
@@ -170,39 +171,33 @@ protected zone or path itself into the stage wall. Roaming would have needed a t
 
 ### 4.1 Two layers: the claim, and the enforcement
 
-**`ftb-chunks-forge-2001.3.8` is installed** (added by the user 2026-09-03; dependency check
-clean at 82 jars). That settles the claim layer, but it does not replace the enforcement layer,
-and the distinction matters:
+**`ftb-chunks-forge-2001.3.8` is installed.** The claim and the KubeJS enforcement are separate
+layers, and both are required. `SPAWN_HUB_PROTECTION.md` owns the detailed acceptance gate.
 
-- **The claim** is runtime world data. FTB Chunks stores claims per team, and its config is
-  written at first boot (`local/ftbchunks/client-config.snbt` plus a server config). Nothing in
-  a datapack can pre-claim a chunk, so **the hub claim is a one-time admin action in-game**.
-- **The enforcement** — no hostile spawns, no blast damage, no mob griefing — is
-  `kubejs/server_scripts/04_spawn_hub.js`, and it is deliberately independent of the claim. It
-  works on an unclaimed world, survives a claim being released, and does not depend on a team
-  existing.
+- **The claim** is runtime world data, but it is no longer a deferred manual setup step. The
+  generated `kubejs/server_scripts/04_spawn_hub.js` creates/reuses the `alfheim_hub` server team
+  and runs `ftbchunks admin claim_as` for the full §4.2 envelope on server load. Reconciliation
+  is therefore automatic and idempotent from the pack's point of view.
+- **Claim command return values are not proof of ownership.** `tools/run_server.py` probes the
+  centre and all four corners with `ftbchunks info`; `tools/check_spawn_hub_claim.py` requires
+  each read-back to name `alfheim_hub`. Runtime acceptance remains pending until that read-back,
+  ordinary-player edit tests, and restart persistence are observed.
+- **The enforcement** — hostile-spawn suppression, explosion protection, mob/mechanism block
+  protection, and explicit non-op break/place rejection — stays in `04_spawn_hub.js` even when
+  the FTB claim is healthy. The layers are additive rather than substitutes for one another.
 
-**The commands, read off `FTBChunksCommands.class` rather than from memory.** The admin subtree
-is `claim_as`, `unclaim_as`, `bypass_protection`, `extra_claim_chunks`,
-`extra_force_load_chunks`, `unclaim_everything`, `unload_everything`, and `claim` accepts a
-`radius_in_blocks` argument. So the hub claim is one `admin claim_as` at the tree with a radius
-covering §4.2, issued as an operator standing at the Greatbole.
-
-`claim_as` takes a **team**, so a server/admin team has to exist first — which is the specific
-reason this cannot be scripted blind.
-
-Settings worth setting once the config file exists at first boot:
+Settings worth setting once the FTB Chunks server config exists:
 `max_idle_days_before_unclaim = 0` (a hub must never auto-release) and
 `force_load_mode` left at its default.
 
 | Layer | Needs FTB Chunks? | Status |
 |---|---|---|
-| No hostile spawns in the hub | no | **built** |
-| No explosion damage to blocks | no | **built** |
-| No mob griefing (endermen, etc.) | no | **built** |
-| No fire spread | no | **built** |
-| Block edits restricted to operators | no | **built**, `PROTECT_FROM_PLAYERS` |
-| Visible claim on the FTB map, team semantics | **yes** | jar installed; claim remains an in-game admin action |
+| No hostile spawns in the hub | no | built; runtime acceptance pending |
+| No explosion damage to blocks | no | built; runtime acceptance pending |
+| No mob/mechanism block griefing | no | built; runtime acceptance pending |
+| No fire spread | no | built; runtime acceptance pending |
+| Non-op block breaking/placement rejected | no | built; ordinary-player acceptance pending |
+| Visible claim on the FTB map, team semantics | **yes** | automated statically; ownership/restart read-back pending |
 
 ### 4.2 Shape
 
@@ -306,11 +301,13 @@ could not see. Those defects are now the next work, not optional polish.
 | 7 | Amphitheatre ruin quality — collapse that reads as causal, not as random block removal |
 | 8 | Court dressing — braziers, banners, scattered apothecaries, the Guard's armoury |
 | 9 | Approach and sightlines — how the tree first reads from 200 blocks out |
-| 10 | Interaction — NPC posts placed against the finished geometry rather than at offsets from spawn |
+| 10 | Interaction — final NPC post positions against the finished geometry rather than temporary offsets | **structure-baked now; final geometry-relative refinement open** |
 
-Pass 10 is the one that closes the loop with B-57: the court is currently placed by
-`03_hollow_court.js` at offsets from the player's landing spot, because when it was written there
-was no tree. Once the geometry is proven, the posts move into the structure.
+The Court no longer depends on a player-relative summon path. Its eight elves are baked into
+`court/amphitheatre.nbt` by `tools/gen_spawn_hub.py`, with names sourced from the shared manifest;
+that branch has already been observed in the runtime hub. Pass 10 now means moving those baked
+post coordinates as the finished circulation and amphitheatre geometry change, not migrating
+ownership from `03_hollow_court.js`.
 
 ---
 
@@ -337,10 +334,13 @@ successfully generated it.
 - ~~**Conquest Reforged**~~ — **settled 2026-09-03: gone.** The user cleared `quarantine/`, so
   the 227 MB block set is no longer on disk and the calcite/quartz palette in §3 is the palette.
   Restoring it would now mean a fresh CurseForge install, not a file move.
-- ~~**FTB Chunks**~~ — **settled 2026-09-03, installed.** The remaining work is the one-time
-  admin claim in-game (§4.1), not a decision.
-- **Where the player actually arrives.** Inside the gate chamber, or at the amphitheatre mouth
-  looking at the tree? The second is the better first sixty seconds and needs the spawn handler
-  in `02_spawn_dimension.js` to place them against the structure rather than by `spreadplayers`.
+- ~~**FTB Chunks**~~ — **settled 2026-09-03, installed; automatic reconciliation implemented.**
+  The remaining work is runtime ownership read-back, non-op break/place proof, and restart
+  persistence under `SPAWN_HUB_PROTECTION.md`, not a one-time manual claim.
+- ~~**Where the player actually arrives**~~ — **implemented: the gate chamber.** A fast first join
+  crosses into Alfheim without waiting for the tree; when the baked hub anchor resolves,
+  `hub/anchor` collects awaiting players into the gate chamber and anchors their respawn there.
+  Runtime acceptance of a joining client on the current flow remains separate from this design
+  state.
 - **Whether the tree is climbable** at all, or scenery from the ground up. Boughs and canopy
   platforms are in `SPAWN_ZONE.md`'s inventory but are not built.
