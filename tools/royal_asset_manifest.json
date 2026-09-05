@@ -1,0 +1,49 @@
+{
+  "schema": "alfheim:royal_cultural_assets/v1",
+  "design_authority": "alfheim_reclaimed_design/CULTURAL_ASSET_LIBRARY.md",
+  "source_record": "Alfheim_Reclaimed_Noble_Houses_and_Cultural_Generation_Conversation_Summary_2026-09-05_CORRECTED.docx",
+  "library": "royal",
+  "rules": {
+    "family_not_singleton": true,
+    "progression_object_in_asset_templates": false,
+    "required_reliquary_socket": "alfheim:fey_stone_socket",
+    "max_piece_axis": 48,
+    "condition_floor": ["intact", "damaged"],
+    "worldgen_enabled": false
+  },
+  "materials": {
+    "structural": "feywild:elven_quartz_brick",
+    "cracked": "feywild:elven_quartz_cracked_brick",
+    "mossy": "feywild:elven_quartz_mossy_brick",
+    "polished": "feywild:elven_quartz_polished",
+    "pillar": "feywild:elven_quartz_pillar",
+    "stairs": "feywild:elven_quartz_brick_stairs",
+    "slab": "feywild:elven_quartz_brick_slab",
+    "timber": "botania:dreamwood_log",
+    "plank": "botania:dreamwood_planks",
+    "fence": "botania:dreamwood_fence",
+    "glass": "botania:elf_glass",
+    "mana": "ars_nouveau:sourcestone",
+    "accent": "minecraft:chiseled_quartz_block",
+    "light": "minecraft:sea_lantern"
+  },
+  "assets": [
+    {"id":"reliquary_pedestal_intact","family":"reliquary_pedestal","tier":1,"purpose":"Sacred support and visual focus for a house-specific Fey Stone.","size":[11,11,11],"condition":"intact","scale":"medium","room_compatibility":["reliquary"],"house_affinity":["royal"],"placement_rules":"floor; 5x5 clear center; sacred rooms only","storytelling_tags":["sacred","lineage","progression_center"],"generator_weight":1.0,"min_blocks":120,"builder":"reliquary_pedestal"},
+    {"id":"reliquary_pedestal_damaged","family":"reliquary_pedestal","tier":1,"purpose":"Damaged sacred support whose center remains protected and legible.","size":[11,11,11],"condition":"damaged","scale":"medium","room_compatibility":["reliquary"],"house_affinity":["royal"],"placement_rules":"floor; preserve central socket clearance","storytelling_tags":["sacred","decline","protected_core"],"generator_weight":0.55,"min_blocks":90,"builder":"reliquary_pedestal"},
+    {"id":"oath_memorial_intact","family":"oath_memorial","tier":1,"purpose":"House oath memorial used for lineage identity and ceremony.","size":[9,10,5],"condition":"intact","scale":"medium","room_compatibility":["reliquary","oath_hall","gallery"],"house_affinity":["royal"],"placement_rules":"wall or freestanding axial placement","storytelling_tags":["lineage","oath","memorial"],"generator_weight":0.65,"min_blocks":90,"builder":"oath_memorial"},
+    {"id":"oath_memorial_damaged","family":"oath_memorial","tier":1,"purpose":"Weathered oath memorial retaining enough carving to identify the institution.","size":[9,10,5],"condition":"damaged","scale":"medium","room_compatibility":["reliquary","oath_hall","gallery"],"house_affinity":["royal"],"placement_rules":"wall or freestanding; debris on failure side","storytelling_tags":["lineage","decline","memorial"],"generator_weight":0.45,"min_blocks":65,"builder":"oath_memorial"},
+    {"id":"monumental_arch_intact","family":"monumental_arch","tier":2,"purpose":"Primary royal threshold expressing monumental elven structural grammar.","size":[17,15,7],"condition":"intact","scale":"large","room_compatibility":["processional_hall","gallery","audience_hall","reliquary_antechamber"],"house_affinity":["royal"],"placement_rules":"floor; axial threshold; 7x7 passage clearance","storytelling_tags":["royal","procession","monumental"],"generator_weight":0.9,"min_blocks":260,"builder":"monumental_arch"},
+    {"id":"monumental_arch_damaged","family":"monumental_arch","tier":2,"purpose":"Partially failed royal threshold with directional collapse rather than random erosion.","size":[17,15,7],"condition":"damaged","scale":"large","room_compatibility":["processional_hall","gallery","audience_hall","reliquary_antechamber"],"house_affinity":["royal"],"placement_rules":"floor; keep passage traversable; debris on failed side","storytelling_tags":["royal","collapse","traversal"],"generator_weight":0.65,"min_blocks":190,"builder":"monumental_arch"},
+    {"id":"grand_column_intact","family":"grand_column","tier":2,"purpose":"Load-bearing ceremonial column with readable base, shaft and capital.","size":[9,18,9],"condition":"intact","scale":"large","room_compatibility":["gallery","audience_hall","processional_hall","courtyard"],"house_affinity":["royal"],"placement_rules":"floor; pair or colonnade; structural support implied","storytelling_tags":["royal","structural","verticality"],"generator_weight":0.8,"min_blocks":190,"builder":"grand_column"},
+    {"id":"grand_column_damaged","family":"grand_column","tier":2,"purpose":"Broken ceremonial column with fallen capital and causal masonry debris.","size":[13,10,9],"condition":"damaged","scale":"large","room_compatibility":["gallery","audience_hall","courtyard"],"house_affinity":["royal"],"placement_rules":"floor; fallen direction must have clearance","storytelling_tags":["royal","collapse","structural_failure"],"generator_weight":0.5,"min_blocks":145,"builder":"grand_column"},
+    {"id":"procession_stair_intact","family":"procession_stair","tier":2,"purpose":"Broad ceremonial stair for axial movement between royal levels.","size":[19,10,21],"condition":"intact","scale":"large","room_compatibility":["reliquary_antechamber","audience_hall","courtyard","gallery"],"house_affinity":["royal"],"placement_rules":"floor; 5-wide center route remains clear","storytelling_tags":["royal","procession","circulation"],"generator_weight":0.75,"min_blocks":260,"builder":"procession_stair"},
+    {"id":"procession_stair_damaged","family":"procession_stair","tier":2,"purpose":"Broken ceremonial stair with a surviving traversable route and fallen balustrade.","size":[19,10,21],"condition":"damaged","scale":"large","room_compatibility":["reliquary_antechamber","audience_hall","courtyard","gallery"],"house_affinity":["royal"],"placement_rules":"floor; retain at least 3-wide climb path","storytelling_tags":["royal","decline","circulation"],"generator_weight":0.55,"min_blocks":220,"builder":"procession_stair"},
+    {"id":"balcony_bay_intact","family":"balcony_bay","tier":2,"purpose":"Royal gallery/balcony bay combining arch, rail, window and overlook.","size":[17,13,9],"condition":"intact","scale":"large","room_compatibility":["gallery","audience_hall","salon","courtyard"],"house_affinity":["royal"],"placement_rules":"wall edge; upper-floor support required","storytelling_tags":["royal","gallery","overlook"],"generator_weight":0.7,"min_blocks":250,"builder":"balcony_bay"},
+    {"id":"balcony_bay_damaged","family":"balcony_bay","tier":2,"purpose":"Collapsed balcony bay showing progressive floor and railing failure.","size":[17,13,9],"condition":"damaged","scale":"large","room_compatibility":["gallery","audience_hall","salon","courtyard"],"house_affinity":["royal"],"placement_rules":"wall edge; failed outer edge; interior connection retained","storytelling_tags":["royal","collapse","water_ingress"],"generator_weight":0.5,"min_blocks":175,"builder":"balcony_bay"},
+    {"id":"royal_bench_intact","family":"royal_bench","tier":3,"purpose":"Matched high-status seating for waiting, audience and gallery spaces.","size":[9,4,5],"condition":"intact","scale":"small","room_compatibility":["gallery","salon","audience_hall","reliquary_antechamber"],"house_affinity":["royal"],"placement_rules":"floor against wall or paired in waiting zone","storytelling_tags":["domestic","status","waiting"],"generator_weight":0.8,"min_blocks":15,"builder":"royal_bench"},
+    {"id":"royal_bench_damaged","family":"royal_bench","tier":3,"purpose":"Broken noble seating retaining enough form to identify the room's social function.","size":[9,4,5],"condition":"damaged","scale":"small","room_compatibility":["gallery","salon","audience_hall"],"house_affinity":["royal"],"placement_rules":"floor; one broken end and local debris","storytelling_tags":["domestic","decline","abandonment"],"generator_weight":0.55,"min_blocks":12,"builder":"royal_bench"},
+    {"id":"ceremonial_brazier_intact","family":"ceremonial_brazier","tier":4,"purpose":"Ceremonial light fixture marking processional and oath spaces.","size":[5,7,5],"condition":"intact","scale":"small","room_compatibility":["reliquary","oath_hall","processional_hall","audience_hall"],"house_affinity":["royal"],"placement_rules":"floor; symmetric pairs preferred","storytelling_tags":["ceremony","light","ritual"],"generator_weight":0.55,"min_blocks":15,"builder":"ceremonial_brazier"},
+    {"id":"ceremonial_brazier_damaged","family":"ceremonial_brazier","tier":4,"purpose":"Extinguished and partially broken ceremonial light fixture.","size":[5,7,5],"condition":"damaged","scale":"small","room_compatibility":["reliquary","oath_hall","processional_hall","audience_hall"],"house_affinity":["royal"],"placement_rules":"floor; scatter local fragments only","storytelling_tags":["ceremony","decline","abandonment"],"generator_weight":0.4,"min_blocks":14,"builder":"ceremonial_brazier"},
+    {"id":"reliquary_core_prototype","family":"reliquary_core","tier":1,"purpose":"Development-only ruined reliquary core proving sacred architecture, circulation and deterministic Fey-Stone socket.","size":[41,27,41],"condition":"damaged","scale":"hero","room_compatibility":["reliquary"],"house_affinity":["royal"],"placement_rules":"development template only; no random-spread placement","storytelling_tags":["sacred","hero","prototype","progression_center"],"generator_weight":1.0,"min_blocks":1800,"builder":"reliquary_core"}
+  ]
+}
