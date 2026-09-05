@@ -1,5 +1,13 @@
 # The Deep — what is worth finding underground
 
+**Terrain implementation:** see `DEEP_TERRAIN.md` for natural stone masses, the composed cavern
+density field, initial lava basins, native ore compatibility and same-seed world measurement.
+
+**2026-09-05 continuation:** the material foundation has expanded to 24 Livingrock families,
+including 19 non-volcanic families, with seven building forms each plus six mana-glasses and slag.
+See `LIVINGROCK_LIBRARY.md` for the implemented scope, broad architectural palettes and updated
+cavern/ore/structure intent. The old four-material table below is the historical starting point.
+
 **Role:** design record for Alfheim's underground content: the quarries the elves cut, the tombs
 they left, and the reason to dig at all.
 **Status:** `draft` — designed, nothing built.

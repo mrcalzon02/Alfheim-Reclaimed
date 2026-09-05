@@ -5,6 +5,7 @@ Run from the instance root. Runtime code lives in the two fey scripts, not here.
 """
 import json
 from pathlib import Path
+from fey_drops import drops, loot_table, generate as generate_drops
 
 DATA = Path('kubejs/data')
 ASSETS = Path('kubejs/assets/alfheim')
@@ -19,8 +20,13 @@ def write(path, data):
 def cube(origin, size, material):
     # Per-face UVs sample inside the atlas cell, avoiding seams at cell boundaries.
     u, v = (material % 4) * 256 + 16, (material // 4) * 256 + 16
-    return dict(origin=origin, size=size, uv={face: dict(uv=[u, v], uv_size=[224, 224])
-                for face in ['north', 'south', 'east', 'west', 'up', 'down']})
+    # Fixed world-space texel density. Mapping the entire swatch onto every face made
+    # thin arms/horns noisy and stretched small details across broad torsos.
+    x,y,z=size
+    dimensions={'north':(x,y),'south':(x,y),'east':(z,y),'west':(z,y),'up':(x,z),'down':(x,z)}
+    return dict(origin=origin, size=size, uv={face: dict(uv=[u, v],
+        uv_size=[224,224] if material==11 else [min(224,max(1,w*8)),min(224,max(1,h*8))])
+        for face,(w,h) in dimensions.items()})
 
 
 def bone(name, cubes, pivot=None, parent='root', rotation=None):
@@ -148,13 +154,7 @@ def add(name, family, bones, biomes, weight, width, height, health, speed,
           {'type':'forge:add_spawns','biomes':biomes,'spawners':{'type':ident,'weight':weight,
            'minCount':1 if celestial or family=='sea' else 2,
            'maxCount':1 if celestial or family=='sea' else 3}})
-    # Modest existing loot, no custom progression shortcut or ritual-boss drops.
-    drop = {'deer':'minecraft:leather','frog':'minecraft:slime_ball',
-            'toad':'minecraft:slime_ball','sea':'minecraft:ink_sac','elf':'minecraft:stick'}[family]
-    write(DATA/f'alfheim/loot_tables/entities/{name}.json', {'type':'minecraft:entity','pools':[
-        {'rolls':1,'entries':[{'type':'minecraft:item','name':drop}],
-         'conditions':[{'condition':'minecraft:killed_by_player'},
-                       {'condition':'minecraft:random_chance','chance':0.35}]}]})
+    write(DATA/f'alfheim/loot_tables/entities/{name}.json', loot_table(drops(name,family,celestial)))
 
 
 def main():
@@ -183,7 +183,7 @@ def main():
         ('wild_elf',12,['alfheim:ashen_grove','alfheim:silverbark_wood','alfheim:sundered_highlands'],20,3),
         ('savage_elf',13,['alfheim:infested_warren','alfheim:decayed_mire','alfheim:hollow_marches'],28,5),
         ('demonic_elf',14,['alfheim:scorchfell','alfheim:void_verge','alfheim:starved_reach'],36,7)]:
-        add(name,'elf',elf(mat),biomes,5,.65,1.9,hp,.25,damage=damage)
+        add(name,'elf',elf(mat),biomes,5,.65,1.9,hp,.30 if name=='wild_elf' else .24,damage=damage)
     write(Path('kubejs/fey_roster.json'),ROSTER)
     write(Path('tools/fey_manifest.json'),ROSTER)
     lang_path=ASSETS/'lang/en_us.json'
@@ -192,6 +192,7 @@ def main():
         lang['entity.'+r['id'].replace(':','.')]=r['name']
         lang['item.'+r['id'].replace(':','.')+'_spawn_egg']=r['name']+' Spawn Egg'
     write(lang_path,lang)
+    generate_drops(Path('.'),ASSETS,DATA,ROSTER,write)
     print(f'{len(ROSTER)} creatures: models, animations, spawn modifiers, loot and names generated')
 
 

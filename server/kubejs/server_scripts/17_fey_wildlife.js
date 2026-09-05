@@ -7,7 +7,10 @@ global.ALFHEIM_FEY.forEach(r => {
             goals.randomSwimming(4, 0.8, 40)
         } else {
             goals.floatSwim(0)
-            if (r.family === 'elf') goals.meleeAttack(1, 1.1, false)
+            if (r.family === 'elf') {
+                if (r.id === 'alfheim:savage_elf') goals.leapAtTarget(1, 0.25)
+                goals.meleeAttack(2, r.id === 'alfheim:wild_elf' ? 1.2 : 1.0, false)
+            }
             else {
                 goals.panic(1, 1.4)
                 if (r.family === 'deer') goals.avoidEntity(2, FeyPlayer, e => true, 7, 1, 1.4, e => true)

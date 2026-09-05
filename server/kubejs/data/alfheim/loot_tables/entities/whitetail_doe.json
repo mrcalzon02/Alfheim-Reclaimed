@@ -3,19 +3,46 @@
   "pools": [
     {
       "rolls": 1,
+      "conditions": [],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:leather"
+          "name": "alfheim:raw_venison",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
         }
-      ],
+      ]
+    },
+    {
+      "rolls": 1,
       "conditions": [
         {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
           "condition": "minecraft:random_chance",
-          "chance": 0.35
+          "chance": 0.8
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:whitetail_hide",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
         }
       ]
     }

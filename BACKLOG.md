@@ -1,5 +1,37 @@
 # Backlog
 
+### B-79 — Void Margins definition and dedicated stone classes — **DRAFT DESIGN 2026-09-05**
+
+Requested examples/extended definition are recorded in `alfheim_reclaimed_design/VOID_MARGINS.md`:
+six environments including the existing Verge, 18 proposed stone families, 126 planned block
+forms, concrete building/exploration examples and a generated concept board. The companion JSON
+catalog is valid and its proposed stone IDs do not collide with live content.
+
+Implementation depends on B-51's still-rejected dry-rim repair: safe plain, hard cliff, consistent
+fluid mask, fragment falloff and terminal zero terrain. Prototype materials independently, then
+use one shared void-biome membership tag across Deep exclusions, resources and structures.
+No new blocks/biomes or repaired void terrain are claimed by this design deliverable.
+
+### B-78 — The Deep: expanded Livingrock library and colossal cavern province — 2026-09-05
+
+User priority: resume the Deep and grow the former small stone set into a broad Alfheim building
+library, including many non-magmatic varieties. Design: `alfheim_reclaimed_design/LIVINGROCK_LIBRARY.md`.
+
+Material foundation implemented: 24 families with seven forms each, plus six mana-glasses and
+slag; 175 blocks and 174 decorative stonecutting recipes. **Material contract runtime validated**:
+175 placements, 174 recipes, 374 loot checks, zero audit errors. See `EXECUTION_STATE.md` for
+evidence. Visual review remains a client gate.
+
+D3/D4 and initial D5 are now **runtime validated for sampled terrain**: natural geological masses,
+masked colossal cave volumes, basal lava and four richer native bloom features. Paired fresh worlds
+show 216-block open spans, 164-block lava spans and roughly twice the ore density in sampled solid
+rock. See `DEEP_TERRAIN.md` and `EXECUTION_STATE.md` for exact evidence and limits.
+
+Continuation: client terrain review; soften the y=23 geological contact and refine material shores;
+D6 crystal chandeliers, ley scars and mineral columns; D7 anchored quarries, tombs and faultworks.
+Quarry-specific exposed ore seams and world-wide density tuning remain. Existing native ore routes
+and processing are preserved; Midgard ore replacement tags remain untouched.
+
 **Role:** intent and sequencing. A backlog item is not evidence that work began.
 **Live state:** `EXECUTION_STATE.md`. **Doctrine:** `INSTRUCTIONS.md`.
 
@@ -9,7 +41,19 @@ Eligibility is strict: an item is eligible only when every dependency listed is 
 
 ## Now eligible
 
-### B-76 — Infectious zombies cannot reach Alfheim; the placement gate crashed the boot — **UNBLOCKED, GAP OPEN 2026-09-04**
+### B-77 — Fey wildlife, elf variants and useful drops — **RUNTIME VALIDATED 2026-09-05**
+
+User priority: Fey creatures and the elf variants/drops; zombie work parked. Details and sources:
+`alfheim_reclaimed_design/FEY_WILDLIFE.md`. 18 registered species, 53 habitat assignments,
+13 new items, 14 recipes and one optional bestiary chapter. Wild/savage/demonic elves now have
+distinct stats/traits and trophies; every trophy has an existing-supply use.
+
+`tools/run_fey_validation.py`: exit 0, `server/fey-console-20260905-064250.log`, zero habitat,
+entity or loot errors. 4,608 engine loot evaluations cover player-kill restrictions and counts.
+Static and regeneration checks pass. Next: client visual/combat/recipe acceptance. No native
+Husbandry XP or new breeding mechanics were added. B-70's old deer/toad blockers are superseded.
+
+### B-76 — Infectious zombies cannot reach Alfheim; the placement gate crashed the boot — **PARKED BY USER 2026-09-05; GAP OPEN**
 User: *"A previous generation run has introduced a new spawn bug. It crashes on boot."*
 
 `09_zombie_habitats.js` gated 99 `infectious:*` entities with `event.or(id, predicate)`. It threw
@@ -353,14 +397,9 @@ From the user's roster: **hostile elves** (`richs_races_wood_elves:wood_elf` alr
 where the fall went worst, and **frogs**, whose temperate/warm/cold variants come free from our
 own climate work.
 
-**Not built, and why** — recorded in `FEY_BACKLOG` in the generator rather than faked:
-- **Deer with antlers** needs a new entity type. KubeJS 2001.6.5 has no entity registry builder
-  on Forge 1.20.1, and of 691 registered entities the only candidate is
-  `occultism:deer_familiar` — a summoned familiar with no spawn placement.
-- **Toads as larger frogs** — 1.20.1 has no scale attribute; `minecraft:generic.scale` arrives
-  in 1.20.5.
-
-Both need either a mod that ships them or a small Java entity. **User decision.**
+The original deer/toad blockers are **superseded by B-77 (2026-09-05)**. EntityJS now supplies
+proper custom animal types, antler geometry, separate collision dimensions and model scaling.
+Four deer forms and two toads are registered and runtime-tested; no familiar is being repurposed.
 
 ---
 

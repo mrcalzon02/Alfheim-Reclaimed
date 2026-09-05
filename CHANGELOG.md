@@ -4,6 +4,78 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.16.0-design — 2026-09-05 — Natural Deep terrain, lava and ore-rich stone
+
+Added a dedicated deep cavern field to Alfheim's existing land density branch, natural masses
+from all 24 Livingrock families, low heated floors and initial basal lava basins. Preserved the
+Void Verge density and aquifers, the upper terrain expression, original bedrock and unrelated
+noise/surface settings. Four native deep-bloom supplements enrich the new host rock. Extending
+MythicBotany's narrow native stone tag preserves existing Elementium, Dragonstone and bloom routes.
+
+Paired same-seed fresh-world tests sampled 112,230 blocks each at three separated sites. Open
+spans reached about 216 blocks; lava spans 164. Sampled solid-rock ore density rose 6.94 → 14.60
+per thousand, cave-air samples 2,085 → 29,848 and lava 279 → 1,179. Upper density samples match;
+bottom-block differences are zero. Three heightmap differences came from Gloambark canopy leaves.
+`tools/deep_terrain_sections.png` is the actual generated before/after comparison.
+
+Acceptance: **runtime validated for the sampled terrain contract**. Final treatment console:
+`server/deep-terrain-treatment-20260905-130352.log`; baseline:
+`server/deep-terrain-baseline-20260905-130620.log`. Both exit 0/audit=True; no KubeJS startup/server
+errors. All 19 terrain files reproduce and feature ordering passes. A test-probe chunk-loading
+deadlock was diagnosed and fixed by requesting generation outside the scripting lock.
+
+This is the first terrain pass. Client traversal/visual review, the sharp upper geological contact,
+detailed lava shores, crystal/ley formations and supported underground archaeology remain.
+Changes apply to newly generated chunks; player saves were not modified.
+
+## 0.15.0-design — 2026-09-05 — Expanded Livingrock foundation for the Deep
+
+Added 24 stone families with natural, polished, brick, carved, slab, stair and wall forms,
+plus six aligned mana-glasses and Livingrock Slag: **175 registered blocks**. Nineteen families
+are non-volcanic. Court, Grove, Water/Sky and Ley palettes support structures beyond the lava caves.
+The library has 103 generated textures and 174 decorative stonecutting recipes. Stone drops itself,
+double slabs drop two, glass requires Silk Touch, and slag has no drop or resource conversion.
+
+`tools/deepworks_manifest.json` and `tools/gen_deepworks.py` own the output. A labelled review atlas
+and source texture hash accompany it. `tools/check_deepworks.py` checks 764 byte-identical files,
+registration uniqueness, recipe closure and texture/model contracts. Feature ordering passes with
+zero cycles across 303 loaded biomes. The runtime probe caught and prompted a correction for
+KubeJS's float-to-integer light truncation. Material contract **runtime validated**:
+`server/deepworks-console-20260905-071446.log` reports 175 placements, 174 verified recipes,
+374 loot checks and zero audit errors. KubeJS startup/server logs have zero errors; pre-existing
+third-party console diagnostics remain, as recorded in `EXECUTION_STATE.md`.
+
+Updated the Deep design for the expanded material library, coherent geological zones, native ore
+concentration, tall cavern roof clearance and structure palettes. This is the material foundation;
+natural deposits, colossal caves, lava formations and the three archaeological families remain
+later passes. Client visual acceptance of the new materials remains outstanding.
+
+## 0.14.0-design — 2026-09-05 — Fey wildlife, elf variants and field supplies
+
+The 18-species wildlife set now has verified habitat assignments and useful drops. Wild elves
+are fast fighters, savage elves leap and knock back, and demonic elves have armor and fire
+immunity. Their trophies are barkcloth scraps, bone fetishes and scorched sigils respectively.
+Whitetail deer supply venison/hide and buck antlers; celestial deer supply optional motes;
+frogs/toads supply gel/glands; each aquatic predator has a distinct material.
+
+Added 13 supply/food items, 14 processing/cooking recipes and one optional 18-page Fey Bestiary
+chapter. Material refinement routes through Mana Pools where magical processing is involved;
+rare trophies never replace class, profession or era gates. Existing global loot additions,
+including Knightlib essence, remain. Entity UVs now sample according to face dimensions instead
+of stretching a whole material swatch over every limb.
+
+Validation: `tools/run_fey_validation.py` exited 0, audit=True, with
+`server/fey-console-20260905-064250.log`: 18/18 constructions with correct health/dimensions,
+53/53 final habitat assignments, 13/13 registered items, 14/14 recipes and 4,608 engine loot
+evaluations with zero trophy/count/condition errors. Zero KubeJS startup/server errors.
+Static wildlife, drop, syntax, dependency and feature-order checks pass. Regeneration changed
+none of 3,551 checked shipping files. Inventory icons reuse installed vanilla textures.
+
+Acceptance: **runtime validated for registration, habitat tables and loot**. Natural encounter
+frequency, model appearance in motion, client combat and actually making the recipes still need
+client acceptance. Source/design: `alfheim_reclaimed_design/FEY_WILDLIFE.md`, B-77.
+The zombie work is parked at the user's request; its existing boot repair is unchanged.
+
 ## 0.13.1-design — 2026-09-04 — the boot crash in the zombie habitat gate
 
 Every boot since the habitat pass died in FML:

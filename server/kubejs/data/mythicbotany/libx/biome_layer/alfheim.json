@@ -121,10 +121,160 @@
       }
     },
     {
+      "biome": "alfheim:starless_reach",
+      "parameters": {
+        "continentalness": [
+          -1,
+          -0.925
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:shatterfields",
+      "parameters": {
+        "continentalness": [
+          -0.925,
+          -0.86
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1,
+          0
+        ],
+        "humidity": [
+          -1,
+          0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:prism_drift",
+      "parameters": {
+        "continentalness": [
+          -0.925,
+          -0.86
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1,
+          0
+        ],
+        "humidity": [
+          0,
+          1
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:rootfall",
+      "parameters": {
+        "continentalness": [
+          -0.925,
+          -0.86
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          0,
+          1
+        ],
+        "humidity": [
+          -1,
+          0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:sepulchral_reach",
+      "parameters": {
+        "continentalness": [
+          -0.925,
+          -0.86
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          0,
+          1
+        ],
+        "humidity": [
+          0,
+          1
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
       "biome": "alfheim:void_verge",
       "parameters": {
         "continentalness": [
-          -1.0,
+          -0.86,
           -0.8
         ],
         "erosion": [

@@ -2,6 +2,9 @@
 
 **Role:** authoritative design record for the five negative biomes and the void terrain.
 **Status:** `runtime rejected — repair designed` — the game boots and the Void Verge generates, but the generated rim is not accepted.
+**Expanded definition, 2026-09-05:** `VOID_MARGINS.md` adds six environmental variants including
+the existing Verge, 18 proposed stone families and concrete structure/traversal examples.
+It preserves the dry-rim and terminal-empty-space contract below; it does not close this rejection.
 **Authority:** subordinate to `INSTRUCTIONS.md` and `WORLD_STRUCTURE.md`.
 **User instruction, 2026-09-03:** *"we need to add a number of negative biomes — Starved, Burned,
 Infested, Decayed, and Void… Void biomes should just be small chunks of mana and mineral rich stone

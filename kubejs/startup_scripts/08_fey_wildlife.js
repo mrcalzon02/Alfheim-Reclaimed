@@ -39,6 +39,11 @@ StartupEvents.registry('entity_type', event => {
                 a.add('minecraft:generic.movement_speed', r.speed)
                 a.add('minecraft:generic.follow_range', hostile ? 20 : 12)
                 a.add('minecraft:generic.attack_damage', r.damage)
+                if (name === 'savage_elf' || name === 'demonic_elf') {
+                    a.add('minecraft:generic.armor', name === 'demonic_elf' ? 4 : 2)
+                    a.add('minecraft:generic.knockback_resistance', name === 'demonic_elf' ? 0.3 : 0.15)
+                    a.add('minecraft:generic.attack_knockback', name === 'savage_elf' ? 0.6 : 0.2)
+                }
             })
             .addAnimationController('movement', 4, state => {
                 state.thenLoop(state.isMoving() ? 'move' : 'idle')
@@ -66,6 +71,7 @@ StartupEvents.registry('entity_type', event => {
             // This callback runs in the client renderer only; no client class loads on server.
             b.renderType(e => Java.loadClass('net.minecraft.client.renderer.RenderType').endPortal())
         }
+        if (name === 'demonic_elf') b.fireImmune(true)
         if (hostile) b.shouldDespawnInPeaceful(true).removeWhenFarAway(ctx => true)
         else b.canBreed(e => false) // Wild populations; no accidental same-sex breeding or familiar AI.
         if (water) {

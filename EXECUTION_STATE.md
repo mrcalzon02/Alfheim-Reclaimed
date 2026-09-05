@@ -1,13 +1,136 @@
 # Execution State
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
-**Updated:** 2026-09-04, after repairing the boot crash in the zombie habitat spawn gate — the
+
+## Latest design request — expanded Void Margins — 2026-09-05
+
+The user requested examples and an extended definition of the Void Verge/void biomes with their
+own stone classes. Delivered `alfheim_reclaimed_design/VOID_MARGINS.md`, a six-environment concept
+board under `alfheim_reclaimed_design/void/`, and `void_catalog.json` with 18 proposed stone
+families and seven forms each (126 planned blocks). Acceptance: **draft design**. The catalog
+parses, its counts/IDs are consistent and its proposed stone IDs do not collide with live IDs.
+No new block or biome registration or worldgen change was made for this design request.
+
+The environments are Void Verge, Shatterfields, Prism Drift, Rootfall, Sepulchral Reach and
+Starless Reach. They are lateral variants of the same rim, not additional endless island rings.
+The Starless far field remains empty. The earlier Void terrain is still **runtime rejected**
+under `DEFICIENT_BIOMES.md`; the Deep pass preserved that branch rather than repairing it.
+
+Next void implementation: prototype the proposed stones, repair the dry plain/hard cut/aquifer
+and debris-falloff contract, introduce shared void-biome exclusions for the Deep, then add
+variants and volume-checked resources/structures. The verified Deep terrain work below remains.
+
+## Current priority — the Deep terrain — 2026-09-05
+
+The next development pass is implemented: natural Livingrock masses, a dedicated deep cavern
+field, initial basal lava basins and richer native deep-bloom deposits. `DEEP_TERRAIN.md` is the
+design record; `tools/gen_deep_terrain.py` and `tools/deepworks_terrain.json` own this work.
+The existing biome generator now composes the Deep only into its non-Void density branch.
+The original Void density/aquifer branches, upper density, bedrock rule and unrelated settings
+are preserved. New natural stone stops at y=23 and is excluded from the Void Verge biome.
+
+Acceptance: **runtime validated for terrain generation and sampled geometry/ore contracts**.
+Two isolated fresh worlds, same seed and sites, each sampled 112,230 actual blocks across six
+sections. Both harness runs exited 0 with audit=True:
+
+- Treatment: `server/deep-terrain-treatment-20260905-130352.log`.
+- Baseline: `server/deep-terrain-baseline-20260905-130620.log`.
+- Evidence: `tools/deep_terrain_summary.json`, complete treatment/baseline sample JSONs,
+  and `tools/deep_terrain_sections.png`.
+
+Measured open spans reach approximately 216 blocks, heights 68–84 blocks and lava spans 164 blocks.
+Cave-air samples increased 2,085 → 29,848; lava 279 → 1,179; ore samples 476 → 586 despite much
+less solid rock. Ore density in sampled solids increased 6.94 → 14.60 per thousand. Fifteen
+natural library stones appeared in these sections. Upper density samples match; bottom-block
+differences are zero; no sampled library stone appears above y=23. Three heightmap differences
+are Gloambark leaves at y=72..75, not changed ground. These are targeted-site measurements, not
+an unbiased census of world-wide cavern frequency or proof of a whole 3D complex's dimensions.
+
+All 19 terrain files reproduce; feature ordering reports zero cycles; material checks still pass.
+KubeJS startup/server logs have zero errors in the final two runs. Existing third-party console
+diagnostics remain. The temporary baseline overrides and test probe were removed from the server
+mirror after measurement; it again matches the authoritative treatment worldgen.
+
+The probe initially deadlocked while generating chunks inside Rhino's lock and waiting for EntityJS
+wildlife callbacks. The repaired harness requests chunks through console commands outside JS and
+samples only loaded chunks. `tools/deep_terrain_threads.txt` retains the diagnostic evidence.
+
+**Next exact action:** inspect/traverse the three sites in a client, then refine the sharp upper
+geological contact and lava shores; build crystal chandeliers, ley scars and mineral columns;
+finally add supported Quarries, Tombs and Faultworks. Review sites (x,z): (-864,-576),
+(1824,-1632), (-2016,-960), around y=-20 in the retained treatment test world. Terrain affects
+new chunks only. No player save was modified. No archaeology or bespoke formation generator is
+claimed by this pass, and full client/gameplay acceptance remains pending.
+
+## Livingrock material foundation — 2026-09-05
+
+The user resumed the Deep and requested substantially more stones, including non-magmatic
+palettes useful throughout Alfheim. This takes priority over the historical next actions below.
+Design: `alfheim_reclaimed_design/LIVINGROCK_LIBRARY.md`; backlog B-78.
+
+Implemented: 24 Livingrock families × 7 forms = 168 blocks, six aligned mana-glasses and slag;
+175 blocks total, 103 textures and 174 decorative stonecutting recipes. Nineteen families are
+non-volcanic. Natural, polished, brick, carved, slab, stair and wall forms all exist.
+Authoritative generator: `tools/gen_deepworks.py`; source: `tools/deepworks_manifest.json`.
+Generated startup: `kubejs/startup_scripts/20_deepworks.js`. The review atlas is
+`tools/deepworks_review.png`.
+
+Static validation passes: `tools/check_deepworks.py` verifies all 764 generated files byte-for-byte,
+unique registration, texture/model contracts and recipe closure. `tools/check_feature_order.py`
+reports 303 biomes and zero cycles. No density function, natural deposit feature, broad vanilla
+replacement tag, player save or existing structure template was changed by this pass.
+
+Acceptance: **runtime validated for the material contract; client visual acceptance pending**.
+Evidence: `server/deepworks-console-20260905-071446.log`, with
+`[DEEP AUDIT] COMPLETE blocks=175 recipes=174 loot=374 errors=0`.
+All blocks and items exist, all blocks place, intended light levels and shape properties match,
+all 174 recipes have correct inputs/results/counts, and all 374 loaded loot evaluations pass.
+The generator compensates for the float-truncation defect found in the preceding run.
+KubeJS startup and server logs have zero errors. The overall console still contains pre-existing
+Moonlight/Connector, client-dist and Iron's Spellbooks loot diagnostics; the missing Feywild
+Feysythia ingredient warning also predates this work, confirmed in the prior Fey validation log.
+This is not a claim that the entire pack's console is clean.
+
+**Next exact action:** client review of the 175-block library (restart required), especially
+transparent glass adjacent to lava, stair/wall connections and hand-mining. Then D3/D4: controlled
+natural stone deposits and the masked colossal-cavern volume. Lava basins, ore concentration,
+crystal formations and supported Quarries/Tombs/Faultworks remain subsequent implementation.
+The revised design carries the full cave objective; these terrain features are not yet built.
+
+The following dated sections record earlier work and remain valid for their own scopes.
+**Updated:** 2026-09-05. The Fey wildlife, elf variants and drops are runtime validated as
+specified below. The zombie work is parked at the user's request. The preceding state was
+2026-09-04, after repairing the boot crash in the zombie habitat spawn gate — the
 pack boots again, verified by a full headless server run. The Guild Regalia asset build below is
 unchanged by that repair. All 63 items now have generated
 textures, models, startup registrations and slot tags. Acceptance: **static validated**.
 Effects, recipes, profession proof, class gating and per-player slot behavior remain pending.
 The six-class Reclaimed Armory remains runtime validated. Earlier session entries below are
 historical; their claims that the Regalia has no registrations are superseded by this build.
+
+## Fey wildlife and useful drops — 2026-09-05
+
+User priority: continue the Fey creatures, especially the elf variants and creature drops;
+leave the zombie work alone. B-77, design: `alfheim_reclaimed_design/FEY_WILDLIFE.md`.
+
+- 18 creatures: whitetail and celestial does/bucks, six frogs, two pig-sized toads, three
+  aquatic predators and three hostile elf variants. All 53 intended habitats resolve at runtime.
+- Wild elves are fast melee fighters; savage elves have a leap and stronger knockback;
+  demonic elves have fire immunity, armor and knockback resistance. Court elves are unchanged.
+- 13 new supply/food items, 18 individual loot tables, 14 useful processing/cooking recipes,
+  and one 18-page optional Fey Bestiary chapter. Rare trophies are not progression gates.
+- Cube UVs now scale with face dimensions to reduce inconsistent texture density.
+
+Evidence: `python tools/run_fey_validation.py` exited 0 with audit=True;
+`server/fey-console-20260905-064250.log`. 18/18 entity constructions and dimensions/health,
+53/53 habitats, 13/13 items, 14/14 recipes, 4,608 loot evaluations; zero audit errors.
+Knightlib small/great essence additions remain active. KubeJS startup/server logs: zero errors.
+Static checks pass; all 3,551 shipping files checked stayed byte-identical after regeneration.
+
+Acceptance is runtime validation of registration, habitat tables and loot, not client visual or
+combat acceptance. **Next exact action:** restart the client, inspect the three elf attack styles
+and celestial portal rendering, sample natural encounters and make the Mana Pool and venison
+recipes. Native Husbandry breeding and the Guild Regalia effect slice remain separate work.
 
 ## Boot restored — the zombie habitat spawn gate — 2026-09-04
 

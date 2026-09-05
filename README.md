@@ -9,8 +9,8 @@ Alfheim is **`mythicbotany:alfheim`**, the dimension MythicBotany ships; **`mine
 Midgard**, left vanilla and populated by Continuity Works. The world-preset override was struck on
 2026-09-02 — `INSTRUCTIONS.md` §1 records why.
 
-**Version** 0.13.0-design · **Forge** 47.4.10 · **Mods** 83 jars in `mods/` · **Status** boots and
-generates headlessly (levels 8–9); the newest work is `static validated`, not runtime
+**Version** 0.16.0-design · **Forge** 47.4.10 · **Mods** 84 jars in `mods/` · **Status** boots and
+generates headlessly. Fey registration, habitats and drops are runtime validated; client acceptance remains.
 
 ## Start here
 
@@ -42,6 +42,20 @@ The three that carry the design:
 
 ## The next thing to do
 
+**Deep terrain continuation:** natural stone masses, colossal caves and initial lava basins now
+generate. Paired fresh-world sections show open spans up to roughly 216 blocks and twice the ore
+density in sampled solid rock. [See the actual before/after terrain](tools/deep_terrain_sections.png)
+and [implementation record](alfheim_reclaimed_design/DEEP_TERRAIN.md). Client traversal and
+formation/structure authoring remain; new terrain appears in new chunks. The material foundation
+below remains the library these environments use.
+
+**Current priority, 2026-09-05:** the Deep and its expanded
+[Livingrock library](alfheim_reclaimed_design/LIVINGROCK_LIBRARY.md). The material foundation now
+contains 24 stone families, 175 blocks and 174 decorative stonecutting recipes. Nineteen families
+are non-volcanic. [Review the palette atlas](tools/deepworks_review.png), restart the client and
+inspect the new materials in JEI. See `EXECUTION_STATE.md` for runtime evidence and the remaining
+cavern, lava, ore and archaeology passes. Earlier priorities follow for historical context.
+
 The pack **boots and generates**, headlessly — level 8 and level 9 both passed on 2026-09-04, and
 the Greatbole spawn hub is runtime-proven. Since then three passes landed `static validated` and
 have never been seen in a world: thirty-two surface structures and the Cartographer (B-73), the
@@ -52,9 +66,10 @@ Next: restart the client, verify the Regalia items in JEI and probe Curios slot 
 implement the Warrior/Mining effect slice (B-74). The wider quest-coverage backlog and a client
 playtest of the surface structures also remain. Preview the [63-item review sheet](tools/curios_review.png).
 
-Two items are **blocked on a user decision** — deer and toads both need an entity type that neither
-KubeJS 2001.6.5 nor 1.20.1 can supply. One defect is still open: `alfheim:scorchfell` is unreachable
-by `locate biome` on every run to date.
+The latest priority is [Fey wildlife and elf variants](alfheim_reclaimed_design/FEY_WILDLIFE.md):
+18 creatures, 13 new supply/food items, 14 recipes and an in-game Fey Bestiary. EntityJS resolves
+the former deer/toad blockers. Restart the client for the new registrations, then review combat,
+rendering and recipes. Zombie work is parked. The older Scorchfell reachability defect remains open.
 
 ## Method
 

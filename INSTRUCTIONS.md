@@ -123,8 +123,8 @@ Establish from here, never from memory of another version.
 | Minecraft | 1.20.1 |
 | Loader | Forge 47.4.10 |
 | Java | 17 (launcher-managed) |
-| Mods installed | 83 jars in `mods/` (counted 2026-09-04). The loaded-mod total is not stated plainly in `logs/latest.log`; do not quote one until a run reports it. |
-| Pack version | 0.13.1-design — `CHANGELOG.md` is the authority for this number |
+| Mods installed | 84 jars in `mods/` (counted 2026-09-05, including EntityJS). The loaded-mod total is not stated plainly in `logs/latest.log`; do not quote one until a run reports it. |
+| Pack version | 0.16.0-design — `CHANGELOG.md` is the authority for this number |
 | Quest engine | FTB Quests 2001.4.22 |
 | Scripting | KubeJS 2001.6.5 (Rhino 2001.2.3) |
 | Home dimension | **`mythicbotany:alfheim`** — the mod's own dimension. No preset override. |

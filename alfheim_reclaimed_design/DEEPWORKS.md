@@ -1,7 +1,13 @@
 # Deepworks — implementation plan for Alfheim's living underworld
 
 **Role:** build-ready design record for the Deepworks terrain province and its material set.
-**Status:** `implementation ready — not yet built or runtime validated`.
+**Status:** material library implemented; runtime evidence is in `EXECUTION_STATE.md`.
+**Terrain continuation:** `DEEP_TERRAIN.md` now records the D3/D4 implementation and the initial
+D5 basin mechanism. Detailed formations and archaeological placement remain later passes.
+**Scope revision, 2026-09-05:** `LIVINGROCK_LIBRARY.md` supersedes the original material count,
+palette, acquisition and output paths below: **24 seven-form Livingrock families, six mana-glasses
+and slag (175 blocks)**. Nineteen families are non-volcanic. The broader cave and archaeology
+targets remain. D1 is implemented; D2 client visual acceptance remains separate from headless checks.
 **Authority:** subordinate to `INSTRUCTIONS.md`; expands `THE_DEEP.md` §5 and does not replace the
 Quarries, Tombs or Faultworks described there.
 **Runtime priority, 2026-09-04:** the pack now boots successfully. The next environmental pass can
@@ -31,7 +37,8 @@ This document deliberately separates the **materials**, which can be built now, 
 
 ## 2. The first material set — build these now
 
-The initial set remains exactly the four forms already established in `THE_DEEP.md`. The correction
+The original set comprised the four forms already established in `THE_DEEP.md`; it is now expanded
+by `LIVINGROCK_LIBRARY.md`. The original correction
 is that Mana-glass is represented by six aligned variants rather than pretending one ordinary block
 can dynamically inspect the nearest crystal at render time.
 
@@ -143,8 +150,8 @@ Create:
 ```text
 tools/deepworks_manifest.json
 tools/gen_deepworks.py
-kubejs/startup_scripts/14_deepworks.js
-kubejs/server_scripts/14_deepworks_loot.js
+kubejs/startup_scripts/20_deepworks.js
+kubejs/data/alfheim/loot_tables/blocks/...
 kubejs/assets/alfheim/textures/block/...
 kubejs/assets/alfheim/models/block/...
 kubejs/assets/alfheim/models/item/...
@@ -357,7 +364,7 @@ it and validate terrain anchoring.
 
 The material pass cannot advance to cavern generation until:
 
-1. all nine block IDs register without startup errors;
+1. all 175 library block IDs register without startup errors;
 2. every block has a correct model and texture with no missing-texture fallback;
 3. Cracked and Magmatic Livingrock visibly remain members of the livingrock family;
 4. Slag looks cooled and valueless rather than like an ore;

@@ -258,20 +258,9 @@ HOSTILE_ELVES = [
 FROGS = [{'type': 'minecraft:frog', 'maxCount': 5, 'minCount': 2, 'weight': 10}]
 FROGS_SPARSE = [{'type': 'minecraft:frog', 'maxCount': 3, 'minCount': 1, 'weight': 5}]
 
-# FEY_BACKLOG -- asked for, NOT built, and why.
-#
-#   Deer, from the horse model, antlers on the bucks
-#       Needs a NEW ENTITY TYPE. KubeJS 2001.6.5 registers blocks and items; it has no entity
-#       registry builder on Forge 1.20.1, so an entity means Java. The pack has no deer either:
-#       the only candidate in 691 registered entities is occultism:deer_familiar, which is a
-#       summoned familiar that follows an owner and has no spawn placement -- world-spawning it
-#       would be a bug wearing a deer model. Options are (a) admit a mod that ships deer, or
-#       (b) a small Java entity, which is a bigger change than a worldgen pass.
-#
-#   Toads, as larger frogs
-#       1.20.1 has no scale attribute -- minecraft:generic.scale arrives in 1.20.5 -- so a
-#       "larger frog" cannot be made from minecraft:frog by NBT or by attribute. It needs the
-#       same new-entity work as the deer.
+# The former deer/toad backlog is superseded by tools/gen_fey_wildlife.py (B-77).
+# EntityJS registers 18 proper custom creatures; additive biome modifiers own their habitats.
+# Keep those additions out of these base lists so biome regeneration cannot duplicate them.
 
 BIOMES = {
     # The start. Drained, spider-ridden, no flowers, no mana crystals — their absence is
@@ -376,6 +365,16 @@ BIOMES = {
 }
 
 
+# Dry-margin siblings share the existing biome schema; terrain and geology
+# distinguish their silhouettes and materials. No geodes or pools are embedded.
+import copy as _copy
+for _name, _fog, _sky in [('shatterfields',0x20202c,0x101018),('prism_drift',0x283344,0x151c30),('rootfall',0x29251f,0x171812),('sepulchral_reach',0x272632,0x15121f),('starless_reach',0x070910,0x02030a)]:
+    BIOMES[_name]=_copy.deepcopy(BIOMES['void_verge'])
+    BIOMES[_name]['effects']['fog_color']=_fog
+    BIOMES[_name]['effects']['sky_color']=_sky
+    BIOMES[_name]['features']=[[],[],[],[],[],[],[f for f in ORES if f.endswith('_ore')],[],[],[]]
+BIOMES['void_verge']['features']=[[],[],[],[],[],[],[f for f in ORES if f.endswith('_ore')],[],[],[]]
+
 # --- the void, and why these two numbers differ --------------------------------------
 #
 # The Void Verge needs two things to agree: a BIOME that says "this is the rim", and
@@ -396,63 +395,13 @@ VOID_ISLAND_LOW = (20, 50)
 VOID_ISLAND_HIGH = (110, 150)
 
 
-def void_final_density():
-    """Override `mythicbotany:alfheim_final` so the world ends in a ragged cliff.
-
-    The original is `min(alfheim_initial, alfheim_caves)`. This wraps it: outside the void
-    band nothing changes at all, and inside it the normal terrain is replaced by sparse
-    floating blobs of the dimension's own default block (livingrock — so the islands are
-    mana-bearing stone, and every ore and geode feature that targets
-    #mythicbotany:base_stone_alfheim still works on them).
-
-    The cliff is ragged rather than a clean contour because the mask is the continentalness
-    noise plus a small high-frequency perturbation. `cache_2d` keeps that mask a 2D lookup
-    instead of a per-block 3D sample.
-    """
-    normal = {'type': 'minecraft:min',
-              'argument1': 'mythicbotany:alfheim_initial',
-              'argument2': 'mythicbotany:alfheim_caves'}
-
-    blobs = {
-        'type': 'minecraft:add',
-        'argument1': {'type': 'minecraft:mul',
-                      'argument1': {'type': 'minecraft:noise',
-                                    'noise': 'minecraft:cave_cheese',
-                                    'xz_scale': 1.0, 'y_scale': 0.8},
-                      'argument2': 2.0},
-        # Only the top slice of the noise clears zero, so islands are sparse.
-        'argument2': -1.35,
-    }
-    window = {
-        'type': 'minecraft:min',
-        'argument1': {'type': 'minecraft:y_clamped_gradient',
-                      'from_y': VOID_ISLAND_LOW[0], 'to_y': VOID_ISLAND_LOW[1],
-                      'from_value': -1.0, 'to_value': 1.0},
-        'argument2': {'type': 'minecraft:y_clamped_gradient',
-                      'from_y': VOID_ISLAND_HIGH[0], 'to_y': VOID_ISLAND_HIGH[1],
-                      'from_value': 1.0, 'to_value': -1.0},
-    }
-    mask = {
-        'type': 'minecraft:cache_2d',
-        'argument': {
-            'type': 'minecraft:add',
-            'argument1': 'mythicbotany:alfheim_continentalness',
-            'argument2': {'type': 'minecraft:mul',
-                          'argument1': {'type': 'minecraft:noise',
-                                        'noise': 'minecraft:surface',
-                                        'xz_scale': 1.0, 'y_scale': 0.0},
-                          'argument2': 0.035},
-        },
-    }
-    return {
-        'type': 'minecraft:range_choice',
-        'input': mask,
-        'min_inclusive': -2.0,
-        'max_exclusive': VOID_TERRAIN_MAX,
-        'when_in_range': {'type': 'minecraft:min',
-                          'argument1': blobs, 'argument2': window},
-        'when_out_of_range': normal,
-    }
+def void_final_density(include_deepworks=True):
+    from gen_void_worldgen import density
+    normal = {'type':'minecraft:min','argument1':'mythicbotany:alfheim_initial','argument2':'mythicbotany:alfheim_caves'}
+    if include_deepworks:
+        from gen_deep_terrain import wrap_density
+        normal=wrap_density(normal)
+    return density(normal)
 
 
 def pt(cont, ero=(-1.0, 1.0), weird=(-1.0, 1.0), temp=(-1.0, 1.0), hum=(-1.0, 1.0)):
@@ -708,7 +657,7 @@ CLAIMS = [
     (f'{NS}:scorchfell',      pt((0.15, 0.45), temp=(0.32, 1.0))),
     (f'{NS}:infested_warren', pt((0.0, 0.15), weird=(-1.0, -0.3), hum=(0.45, 1.0))),
     (f'{NS}:decayed_mire',    pt((0.15, 0.45), weird=(-1.0, -0.3), hum=(0.5, 1.0))),
-    (f'{NS}:void_verge',      pt((-1.0, VOID_BIOME_MAX))),
+    * __import__('gen_void_worldgen').claims(pt),
 
     # --- ours: the six that carry the pack's own geography --------------------------------
     (f'{NS}:silverbark_wood',    pt((0.15, 0.45), temp=(-1.0, -0.3))),

@@ -30,6 +30,9 @@ player touches the world — combat, expedition, gear and reward.
 
 | File | Role |
 |---|---|
+| `VOID_MARGINS.md` | **Design expansion 2026-09-05:** six void environments, 18 proposed stone families, architectural examples and a concept board; dry-rim repair remains required. |
+| `DEEP_TERRAIN.md` | **Terrain implementation 2026-09-05:** colossal-cavern field, natural Livingrock geology, basal lava and native deep-bloom supplements; measured against the same seed without the changes. |
+| `LIVINGROCK_LIBRARY.md` | **Implemented foundation 2026-09-05:** 24 stone families, 175 blocks, architectural palettes and the continued Deep cavern/ore/archaeology design. |
 | `CLASS_ARMORY.md` | **Implemented 2026-09-04:** six verified Mine and Slash base classes, elven weapon suites, ten material grades, armor sets and dual-class builds. |
 | `PROFESSIONS_AND_MMO.md` | **Design-first, armory bridge implemented 2026-09-04:** all nine native professions; 480 armory recipes now connect Gear Crafting to tiered mining, salvage and embedded frame materials. The wider trade overhaul remains specified. |
 | `CURIOS_AND_PROFESSIONS.md` | **Planned 2026-09-04:** 63-piece Guild Regalia system for six classes and nine professions, using established slots, verified native actions, tradeable ranks and 46 installed Curio anchors. |
