@@ -35,7 +35,7 @@ The live observation that blocks could be destroyed also means the prior `SPAWN_
 
 `tools/gen_spawn_hub.py` remains the authority for `kubejs/server_scripts/04_spawn_hub.js`. Its protection generator now reflects the installed pack rather than the stale assumption that FTB Chunks was absent:
 
-- FTB Chunks 2001.3.6 is treated as installed and the generated script creates/reuses the server team `alfheim_hub` and invokes `ftbchunks admin claim_as` for the hub envelope on server load;
+- FTB Chunks 2001.3.8 is treated as installed and the generated script creates/reuses the server team `alfheim_hub` and invokes `ftbchunks admin claim_as` for the hub envelope on server load;
 - `PROTECT_FROM_PLAYERS` defaults to `true`;
 - both `BlockEvents.broken` and `BlockEvents.placed` reject non-op edits in the protected zone;
 - the existing hostile-spawn and explosion layers remain additive rather than being replaced by the claim;
