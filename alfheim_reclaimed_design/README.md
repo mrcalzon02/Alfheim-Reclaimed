@@ -36,11 +36,13 @@ player touches the world — combat, expedition, gear and reward.
 | `curios/INSTALLED_CURIOS.md` | Reproducible installed-jar inventory: 147 wearable IDs, recipe presence, eligible slots and the 14 live slot types reported by the last headless run. |
 | `curios/SUITE_MATRIX.md` | Compact class/profession-to-anchor matrix; `curios/curio_suite_catalog.json` contains the validated 63-item plan. |
 | `armory/WEAPON_FAMILIES.md` | Full simple-to-intricate weapon/offhand naming table; `armory/equipment_catalog.json` maps the 480 registered variants. Texture prompts, alpha evidence and review sheets live beside it. |
+| `FEY_CREATURES.md` | **Runtime refinement open 2026-09-04:** custom Fey creature models are retained; textures need UV-fit, stretch, seam and detail-density tuning against the live animated models. |
 | `GATE_REVERSAL.md` | The recipe inversion, its soft-lock risk, and the fix |
 | `CAMPAIGN_ERAS.md` | Ten eras, 215 quests, capped by the Nine Realm runes |
 | `TWIN_SPINES.md` | How Botania and Ars Nouveau interlock as one tradition |
 | `WORLD_STRUCTURE.md` | The two worlds — Alfheim as the Overworld, Midgard as the dead industrial dimension |
 | `SPAWN_ZONE.md` | The Greatbole and the Hollow Court — the drained city the player wakes in |
+| `SPAWN_HUB_PROTECTION.md` | **Runtime failed 2026-09-04:** the generated Greatbole/Hollow Court was again unclaimed and player-destructible; defines the actual admin-team claim and non-op anti-grief acceptance gate. |
 | `PROCESS_INDEX.md` | Every crafting method in the pack — the menu the tier ladder draws from |
 | `CONTINUITY_WORKS_DEFECTS.md` | Defect report for our own mod — CW-1 blocks worldgen |
 | `PINNED_MOD_MATRIX.md` | The 26 pinned core mods. Accurate but incomplete — 95 are installed |
