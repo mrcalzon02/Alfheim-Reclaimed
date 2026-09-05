@@ -177,6 +177,7 @@ def trunk_column(p, cx, cz, h, r0, r1, rng, roots=False):
     the outside and the interior is never seen except where the chamber cuts it open."""
     for y in range(h):
         r = radius_at(y, h, r0, r1)
+        # Roots: eight buttresses that only exist near the ground, each a lobe of extra radius.
         for x in range(p.size[0]):
             for z in range(p.size[2]):
                 dx, dz = x - cx, z - cz
@@ -186,6 +187,7 @@ def trunk_column(p, cx, cz, h, r0, r1, rng, roots=False):
                     ang = math.atan2(dz, dx)
                     lobe = math.cos(4.0 * ang) ** 2
                     rr += lobe * (10 - y) * 0.75
+                # A little noise on the surface so the trunk is not a cylinder.
                 rr += (rng.random() - 0.5) * 0.7
                 if d <= rr:
                     p.set(x, y, z, OAK_LOG_Y if d > rr - 1.6 else OAK_WOOD)
@@ -197,24 +199,41 @@ def carve_gate_chamber(p, cx, cz):
     Cut first, then build: the frame has to survive the carve, so nothing is placed until the
     air is in.
     """
+    # --- the void
     for y in range(1, CH_TOP):
         for x in range(cx - CH_HALF, cx + CH_HALF + 1):
             for z in range(0, CH_BACK + 1):
+                # An arched ceiling rather than a flat one.
                 arch = CH_TOP - abs(x - cx) * 0.45
                 if y < arch:
                     p.set(x, y, z, AIR)
 
+    # --- floor
     for x in range(cx - CH_HALF - 1, cx + CH_HALF + 2):
         for z in range(0, CH_BACK + 2):
             p.set(x, 0, z, FLOOR)
 
+    # --- the gate face, RECESSED one block behind the wall
+    #
+    # Asked for 2026-09-04: "the portal block should be inset like a nether portal or a glass
+    # pane." A nether portal reads as inset because the portal plane sits one block behind the
+    # obsidian frame, not because the portal block is thin -- so this reproduces the geometry
+    # rather than the block shape.
+    #
+    # It has to be geometry. Jigsaw gives the start piece a RANDOM rotation, rotations are
+    # about the Y axis, and a thin vertical plane is not symmetric under a 90-degree Y turn --
+    # so a slab-shaped model would render edge-on, as a row of fins, in half of all worlds.
+    # KubeJS cannot rescue that either: HorizontalDirectionalBlockJS carries FACING but does
+    # not override Block.rotate, so a `facing` property would not be turned with the structure.
+    # Cutting the niche is rotation-proof because the niche rotates with everything else.
     gx0, gx1 = cx - GATE_W // 2, cx - GATE_W // 2 + GATE_W - 1
     gate_z = CH_BACK + 1
     for y in range(2, 2 + GATE_H):
         for x in range(gx0, gx1 + 1):
-            p.set(x, y, CH_BACK, AIR)
-            p.set(x, y, gate_z, GATE)
+            p.set(x, y, CH_BACK, AIR)      # the opening you look through
+            p.set(x, y, gate_z, GATE)      # the surface itself, set back behind the frame
 
+    # --- the frame around it: livingrock with chiseled quartz corners and gold at the keystone
     for y in range(1, 3 + GATE_H):
         for x in range(gx0 - 2, gx1 + 3):
             on_edge = (x < gx0 or x > gx1 or y < 2 or y >= 2 + GATE_H)
@@ -226,12 +245,24 @@ def carve_gate_chamber(p, cx, cz):
     p.set(cx, 2 + GATE_H, CH_BACK, GOLD)
     p.set(cx - 1, 2 + GATE_H, CH_BACK, GOLD)
 
+    # --- elf glass in the arch above the gate, so the chamber is lit without a torch
     for x in range(gx0, gx1 + 1):
         p.set(x, 2 + GATE_H + 1, CH_BACK, GLASS)
 
 
 def hub_anchor(c):
-    """The world spawn, baked into the gate chamber as a marker entity."""
+    """The world spawn, baked into the gate chamber as a marker entity.
+
+    This is the fix for "we didn't spawn inside it". The previous scheme summoned a marker at
+    0 250 0 and let spreadplayers drop it, which anchors the world spawn to the ORIGIN -- and
+    the origin is not the tree (see HUB_RADIUS). A marker carried inside the structure's own
+    NBT lands wherever the structure lands, so the anchor cannot desynchronise from the tree no
+    matter what the biome search does. Same reason the court is baked in rather than summoned.
+
+    Standing on the chamber floor, four blocks in front of the gate, facing it. Rotation yaw 0
+    is south (+z) and the gate is at the +z back wall, so a player spawning here looks straight
+    at it.
+    """
     x, y, z = c, 1, CH_BACK - 4
     return {
         'pos': [nbt.Double(x + 0.5), nbt.Double(y), nbt.Double(z + 0.5)],
@@ -239,6 +270,9 @@ def hub_anchor(c):
         'nbt': {
             'id': 'minecraft:marker',
             'Rotation': [nbt.Float(0.0), nbt.Float(0.0)],
+            # Two tags on purpose. `alfheim_hub` is what every hub command selects on;
+            # `alfheim_hub_baked` lets hub/create tell a structure-carried anchor apart from the
+            # summoned fallback, so it prefers this one and never ends up with both.
             'Tags': ['alfheim_hub', 'alfheim_hub_baked'],
         },
     }
@@ -250,8 +284,14 @@ def build_base(rng):
     trunk_column(p, c, c, BASE, R_ROOT, R_BASE_TOP, rng, roots=True)
     carve_gate_chamber(p, c, c)
     p.entities.append(hub_anchor(c))
+
+    # Up to the first trunk segment. The trunk pool holds only `trunk`, so the segment directly
+    # above the base is never the crown -- a tree with no trunk would still be a legal assembly.
     p.jigsaw(c, BASE - 1, c, f'{NS}:bole_top', f'{NS}:trunk_bottom',
              f'{NS}:greatbole/trunk', 'up_north')
+
+    # Out to the amphitheatre, at the chamber mouth, facing north. `aligned` rather than
+    # `rollable`: the court has to sit squarely in front of the gate, not at 90 degrees to it.
     p.jigsaw(c, 1, 0, f'{NS}:court_gate', f'{NS}:court_plug',
              f'{NS}:court/amphitheatre', 'north_up', joint='aligned')
     return p
@@ -262,6 +302,8 @@ def build_trunk(rng):
     c = TRUNK_W // 2
     trunk_column(p, c, c, TRUNK_H, R_TRUNK_BOT, R_TRUNK_TOP, rng)
     p.jigsaw(c, 0, c, f'{NS}:trunk_bottom', f'{NS}:bole_top', 'minecraft:empty', 'down_north')
+    # Deterministic: with a single segment the trunk must lead to the crown, not to a pool
+    # that might roll another trunk and push the canopy past the placement radius again.
     nxt = f'{NS}:greatbole/trunk_or_crown' if TRUNK_SEGMENTS > 1 else f'{NS}:greatbole/crown_only'
     p.jigsaw(c, TRUNK_H - 1, c, f'{NS}:trunk_top', f'{NS}:trunk_bottom', nxt, 'up_north')
     return p
@@ -270,12 +312,25 @@ def build_trunk(rng):
 def build_crown(rng):
     p = Piece(CROWN_W, CROWN_H, CROWN_W)
     c = CROWN_W // 2
+
+    # A PROBE, not decoration. The crown is the piece jigsaw was silently culling when the tree
+    # overran max_distance_from_center, and a missing canopy is invisible to every static check
+    # -- the .nbt was always fine, it just never got placed. A marker inside the crown turns
+    # "did the canopy generate?" into a question a headless server can answer:
+    #
+    #     data get entity @e[type=minecraft:marker,tag=alfheim_crown_probe,limit=1] Pos
+    #
+    # which reports nothing at all if the piece was culled, and its world Y if it was not.
     p.entities.append({
         'pos': [nbt.Double(c + 0.5), nbt.Double(CROWN_H // 2), nbt.Double(c + 0.5)],
         'blockPos': [nbt.Int(c), nbt.Int(CROWN_H // 2), nbt.Int(c)],
         'nbt': {'id': 'minecraft:marker', 'Tags': ['alfheim_crown_probe']},
     })
+
+    # The last of the trunk, then boughs, then the canopy shell.
     trunk_column(p, c, c, CROWN_H // 2, R_TRUNK_TOP, 5.0, rng)
+
+    # Four boughs sweeping out and up from the trunk top.
     for k in range(4):
         ang = math.pi / 4 + k * math.pi / 2
         for t in range(20):
@@ -285,6 +340,9 @@ def build_crown(rng):
             for ox in (-1, 0, 1):
                 for oz in (-1, 0, 1):
                     p.set(int(bx) + ox, int(by), int(bz) + oz, OAK_WOOD)
+
+    # Canopy: an ellipsoid shell, thinned at random so it is not a solid dome. Dead patches are
+    # simply omitted -- the crown is meant to read as half-gone.
     cy = CROWN_H - 13
     for y in range(CROWN_H):
         for x in range(CROWN_W):
@@ -294,19 +352,43 @@ def build_crown(rng):
                 if 0.55 < d <= 1.0 and rng.random() < 0.72:
                     if (x, y, z) not in p.blocks:
                         p.set(x, y, z, LEAVES)
+
     p.jigsaw(c, 0, c, f'{NS}:trunk_bottom', f'{NS}:trunk_top', 'minecraft:empty', 'down_north')
     return p
 
 
 def court_entities(c, ground):
+    """Bake the Hollow Court into the amphitheatre.
+
+    The roster is read from tools/hollow_court_manifest.json rather than restated, so the names
+    here and the names in quest_line_links.json cannot drift -- and drift is fatal, because
+    quest_giver matches an NPC to its quest line by custom name.
+
+    Putting the NPCs in the structure rather than summoning them by command is what makes the
+    court land in the amphitheatre at all. 03_hollow_court.js was written before the hub existed
+    and placed them at the player's landing spot, which spreadplayers puts up to 2000 blocks from
+    the tree. A structure knows where its own seats are; a command does not.
+
+    The NBT is the same as the script used, and for the same reasons: WoodElfEntity extends
+    Monster and targets Player, so NoAI is what makes it an NPC rather than an archer.
+    """
     man = json.load(open(os.path.join('tools', 'hollow_court_manifest.json'), encoding='utf-8'))
     posts = []
+    # Named pair flank the stage, facing the gate to the south.
+    #
+    # SKIN SLOTS. richs_races_wood_elves picks its texture from `DataSkinSwap` (1..6). Slots 5
+    # and 6 carry the custom Magister and Captain art generated by tools/gen_court_skins.py,
+    # and 16_wood_elf_skins.js keeps every wild elf out of them. Baked here rather than
+    # summoned so the pair are already wearing the right thing the first time anyone sees them.
     for i, n in enumerate(man['named']):
         posts.append((n['name'], c + (-5 if i % 2 else 5), ground, c + 6, 5 + i))
+    # Ambient court scattered up the tiers, on their own seats.
     for i, n in enumerate(man['ambient']):
         ang = math.pi * (0.15 + 0.7 * (i / max(1, len(man['ambient']) - 1)))
         r = 12.0 + (i % 3) * 3.5
         x, z = int(c - math.cos(ang) * r), int(c - math.sin(ang) * r)
+        # Ambient court draw from the four unreserved slots, so the crowd is varied without
+        # any of them wearing the named pair's art.
         posts.append((n['name'], x, ground + int((r - 8.0) / 3.5), z, 1 + (i % 4)))
 
     out = []
@@ -329,20 +411,42 @@ def court_entities(c, ground):
 
 
 def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
+    """Pillars, vines, a fountain and rubble.
+
+    Asked for 2026-09-04: "the courtyard needs some pillars and some vines and a little central
+    pool of water with a little fountain, another knobbly detail work giving the image of a
+    decayed central amphitheatre court."
+
+    The tiers alone read as a shape rather than as a place -- geometrically correct and
+    completely uninhabited. Everything here exists to say the court was USED and then left:
+    a fountain that still runs, a colonnade that has lost half its columns, and vines taking
+    the rest back.
+
+    Height budget is tight. AMPH_H is 48x12x48 and the top tier already reaches ground+4, so
+    nothing here may rise past y = AMPH_H - 1 or it is silently dropped from the piece.
+    """
     top = AMPH_H - 1
+
+    # --- the fountain ------------------------------------------------------------------------
+    # Sunk into the stage floor rather than sitting on it, so the stage stays walkable and the
+    # basin reads as built-in. The court's named pair stand at hypot(5, 6) = 7.8 from centre,
+    # comfortably outside the basin's rim.
     basin_r, rim_r = 4.2, 5.4
     for x in range(c - 7, c + 8):
         for z in range(c - 7, c + 8):
             d = math.hypot(x - c, z - c)
             if d <= basin_r:
-                p.set(x, ground - 2, z, ELVEN_MARBLE)
-                p.set(x, ground - 1, z, WATER)
+                p.set(x, ground - 2, z, ELVEN_MARBLE)          # basin floor
+                p.set(x, ground - 1, z, WATER)                 # the water itself
             elif d <= rim_r:
+                # A kerb one block proud of the stage, broken in places.
                 p.set(x, ground - 1, z, ELVEN_MARBLE)
                 if rng.random() < 0.72:
                     p.set(x, ground, z, rng.choice(MARBLE_RUINED)
                           if rng.random() < 0.35 else ELVEN_MARBLE)
 
+    # The spout: a short plinth with a bowl on top. The overflow cascading back into the basin
+    # is the point -- a still pool reads as a puddle, a running one reads as maintained.
     for y in range(ground - 1, ground + 2):
         for dx in (-1, 0, 1):
             for dz in (-1, 0, 1):
@@ -350,12 +454,16 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
                     p.set(c + dx, y, c + dz, ELVEN_MARBLE)
     p.set(c, ground + 2, c, WATER)
 
+    # --- the colonnade -----------------------------------------------------------------------
+    # An inner ring, between the stage and the mid tiers. Standing columns alternate with
+    # stumps and with columns that are simply gone; a complete ring would read as restored.
     ring_r = stage_r + 5.0
     for k in range(10):
         ang = k * math.tau / 10
         px, pz = int(c + math.cos(ang) * ring_r), int(c + math.sin(ang) * ring_r)
         fate = rng.random()
         if fate < 0.20:
+            # Gone. Leave the drum it fell as, lying where it landed.
             ox, oz = int(math.cos(ang) * 2), int(math.sin(ang) * 2)
             axis = COLUMN_FALLEN_X if abs(ox) >= abs(oz) else COLUMN_FALLEN_Z
             for t in range(rng.randint(2, 4)):
@@ -366,14 +474,17 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
         base_y = ground
         for y in range(base_y, min(base_y + h, top)):
             p.set(px, y, pz, COLUMN)
+        # Only the tall ones kept their capital.
         if h >= 5 and base_y + h < top:
             p.set(px, base_y + h, pz, CAPITAL)
+        # Vines down whichever side faces out of the ring.
         face = 'west' if math.cos(ang) > 0 else 'east'
         vx = px + (1 if face == 'west' else -1)
         for y in range(base_y + 1, min(base_y + h, top)):
             if rng.random() < 0.55:
                 p.set(vx, y, pz, vine(face))
 
+    # --- vines on the rim stumps and the top tier --------------------------------------------
     for k in range(24):
         ang = k * math.tau / 24
         d = outer_r - rng.uniform(0.5, 3.0)
@@ -383,6 +494,9 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
         if rng.random() < 0.5 and y < top:
             p.set(vx + (1 if face == 'west' else -1), y, vz, vine(face))
 
+    # --- knobbly work: rubble, moss and cracked ground ---------------------------------------
+    # Scattered rather than patterned. Rubble sits ON the tiers, so it reads as fallen masonry
+    # rather than as a floor material.
     for _ in range(150):
         ang = rng.random() * math.tau
         d = rng.uniform(stage_r - 2.0, outer_r)
@@ -402,10 +516,11 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
 
 
 def build_amphitheatre(rng):
+    """Concentric ruined tiers around a sunken stage, opening south toward the gate."""
     p = Piece(AMPH_W, AMPH_H, AMPH_W)
     c = AMPH_W // 2
     stage_r, outer_r = 8.0, 22.0
-    ground = 4
+    ground = 4                      # tiers rise from here; the stage is sunk below it
 
     for x in range(AMPH_W):
         for z in range(AMPH_W):
@@ -413,19 +528,25 @@ def build_amphitheatre(rng):
             d = math.hypot(dx, dz)
             if d > outer_r:
                 continue
+
+            # The stage floor, cracked.
             if d <= stage_r:
                 blk = ELVEN_MARBLE if rng.random() < 0.12 else (
                     rng.choice(MARBLE_RUINED) if rng.random() < 0.28 else rng.choice(MARBLE))
                 p.set(x, ground - 1, z, blk)
                 continue
+
+            # Seating tiers: one step up per 3.5 blocks of radius.
             tier = int((d - stage_r) / 3.5)
             top = ground + tier
+            # Collapse: the further out, the more of the tier is simply gone.
             if rng.random() < 0.10 + 0.02 * tier:
                 continue
             blk = rng.choice(MARBLE_RUINED) if rng.random() < 0.30 else rng.choice(MARBLE)
             for y in range(ground - 1, top + 1):
                 p.set(x, y, z, blk)
 
+    # Column stumps around the rim, broken to differing heights.
     for k in range(12):
         ang = k * math.pi / 6
         cxp, czp = int(c + math.cos(ang) * (outer_r - 1.5)), int(c + math.sin(ang) * (outer_r - 1.5))
@@ -434,9 +555,11 @@ def build_amphitheatre(rng):
             p.set(cxp, ground + int((outer_r - 1.5 - stage_r) / 3.5) + y, czp, COLUMN)
 
     courtyard_detail(p, c, ground, stage_r, outer_r, rng)
+
+    # The court itself, seated in the structure rather than summoned at the player.
     ents, posts = court_entities(c, ground)
     p.entities = ents
-    for _, x, y, z, _skin in posts:
+    for _, x, y, z, _skin in posts:               # a clear seat under each, so none is buried
         p.set(x, y - 1, z, ELVEN_MARBLE)
         for dy in range(3):
             if (x, y + dy, z) in p.blocks and dy > 0:
@@ -444,11 +567,13 @@ def build_amphitheatre(rng):
         p.set(x, y, z, AIR)
         p.set(x, y + 1, z, AIR)
 
+    # The plug, facing south back at the tree.
     p.jigsaw(c, ground, AMPH_W - 1, f'{NS}:court_plug', f'{NS}:court_gate',
              'minecraft:empty', 'south_up', joint='aligned')
     return p
 
 
+# --- jigsaw wiring ---------------------------------------------------------------------------
 def pool(name, elements, fallback='minecraft:empty'):
     return {'name': f'{NS}:{name}', 'fallback': fallback,
             'elements': [{'weight': w, 'element': {
@@ -489,10 +614,13 @@ def main():
         print(f'  {name:22} {p.size[0]}x{p.size[1]}x{p.size[2]}  '
               f'{len(p.blocks):>6} blocks  {len(p.palette):>3} palette  {size / 1024:6.1f} KB')
 
+    # --- template pools
     write_json(os.path.join(DATA, 'worldgen', 'template_pool', 'greatbole', 'base.json'),
                pool('greatbole/base', [('greatbole/base', 1, 'rigid')]), dry)
     write_json(os.path.join(DATA, 'worldgen', 'template_pool', 'greatbole', 'trunk.json'),
                pool('greatbole/trunk', [('greatbole/trunk', 1, 'rigid')]), dry)
+    # Two trunk entries to one crown: the tree usually grows another segment before it tops out,
+    # and the pool's own fallback ends the chain if the depth budget runs out first.
     write_json(os.path.join(DATA, 'worldgen', 'template_pool', 'greatbole', 'trunk_or_crown.json'),
                pool('greatbole/trunk_or_crown',
                     [('greatbole/trunk', TRUNK_SEGMENTS, 'rigid'),
@@ -503,6 +631,8 @@ def main():
     write_json(os.path.join(DATA, 'worldgen', 'template_pool', 'court', 'amphitheatre.json'),
                pool('court/amphitheatre', [('court/amphitheatre', 1, 'rigid')]), dry)
 
+    # --- structure. beard_thin is what MythicBotany's own elven houses use, and it is what
+    # keeps the root flare sitting in the ground instead of on a pillar of air.
     write_json(os.path.join(DATA, 'worldgen', 'structure', 'greatbole.json'), {
         'type': 'minecraft:jigsaw',
         'biomes': f'#{NS}:has_greatbole',
@@ -517,13 +647,49 @@ def main():
         'spawn_overrides': {},
     }, dry)
 
+    # --- placement: the vanilla "at world spawn" mechanism, the one strongholds use.
     write_json(os.path.join(DATA, 'worldgen', 'structure_set', 'greatbole.json'), {
         'structures': [{'structure': f'{NS}:greatbole', 'weight': 1}],
+        # `salt` is MANDATORY on concentric_rings -- omitting it fails world creation with
+        #   No key salt in MapLike[{...}]
+        # Vanilla's strongholds.json carries salt 0; ours differs so the two rings cannot
+        # correlate. Runtime-proven 2026-09-04.
         'placement': {'type': 'minecraft:concentric_rings', 'distance': 0, 'spread': 0,
                       'count': 1, 'salt': 40092026,
                       'preferred_biomes': f'#{NS}:has_greatbole'},
     }, dry)
 
+    # --- the tag, which is what PINS THE TREE TO THE ORIGIN.
+    #
+    # It is read in two places and they do different jobs, which is why this tag being narrow
+    # was two bugs rather than one:
+    #
+    #   structure.biomes            VALIDITY. If the biome at the chosen chunk is not in the
+    #                               tag the Greatbole does not generate AT ALL. With only three
+    #                               biomes tagged out of sixteen in the layer, a fresh world
+    #                               usually had no tree anywhere -- the user's "No spawn
+    #                               structure on Fresh World", 2026-09-04.
+    #
+    #   structure_set.preferred_biomes
+    #                               POSITION. concentric_rings computes ring 0 (the origin, for
+    #                               distance 0 / spread 0) and then snaps it to a tag match via
+    #                               findBiomeHorizontal(..., radius 112, findClosest=true).
+    #                               findClosest returns the CENTRE when the centre matches, so a
+    #                               tag that covers the origin's biome leaves the structure at
+    #                               chunk 0,0. A narrow tag forces the search outward and moves
+    #                               the tree up to 112 blocks -- which is why the claim and the
+    #                               spawn point, both pinned to the origin, missed it.
+    #
+    # So: tag everything buildable. That pins the tree to 0,0 and lets
+    # project_start_to_heightmap WORLD_SURFACE_WG + terrain_adaptation beard_thin do the
+    # terrain snap, which is the whole of what the hub needs.
+    #
+    # Two exclusions, both because the snap cannot save them:
+    #   void_verge     floating islands over nothing; there is no ground to sit the roots in.
+    #   alfheim_lakes  WORLD_SURFACE_WG counts fluids, so the trunk would stand on the water.
+    # When the origin lands in one of those the search relocates to the nearest of the other
+    # fourteen, which is close -- and the baked anchor (see hub_anchor) means the spawn point
+    # follows the tree regardless.
     write_json(os.path.join(DATA, 'tags', 'worldgen', 'biome', 'has_greatbole.json'),
                {'replace': False, 'values': [b for b in LAYER_BIOMES
                                              if b not in GREATBOLE_EXCLUDED]}, dry)
@@ -548,19 +714,20 @@ def protection_script():
     radius in blocks and an anchor column, so the generated script reconciles an `alfheim_hub`
     server-team claim over the same 192-block relocation envelope used by the KubeJS guards.
     The claim is additive: the KubeJS layer remains responsible for hostile spawns, explosions,
-    mechanisms and an explicit non-op break/place backstop.
+    mechanisms and explicit non-op break/place enforcement.
 
-    Command return values are logged as reconciliation evidence but are NOT treated as claim
-    ownership read-back: zero can mean "already claimed" or "could not claim". Runtime acceptance
-    therefore remains failed until a non-op player and FTB Chunks info/map read-back prove ownership.
+    Command return values are logged as reconciliation evidence but are not claim-ownership
+    read-back: zero can mean "already claimed" or "could not claim". Runtime acceptance remains
+    failed until an ordinary player and FTB Chunks read-back prove ownership and persistence.
     """
     return f'''// Alfheim Reclaimed — the protected spawn hub
 //
 // GENERATED by tools/gen_spawn_hub.py — do not hand-edit.
 // Design: alfheim_reclaimed_design/SPAWN_HUB_PROTECTION.md.
 //
-// Two layers are intentional: FTB Chunks provides the visible server-team claim and ordinary
-// ownership semantics; KubeJS independently suppresses damage/spawns and blocks non-op edits.
+// The hub is a persistent campaign location. Two independent layers are intentional:
+// FTB Chunks supplies visible server-team ownership; KubeJS suppresses hazards and provides
+// an explicit non-op edit backstop even if claim state is ever lost or stale.
 
 const HUB_DIMENSION = '{HOME}'
 const HUB_X = 0
@@ -591,6 +758,7 @@ function rejectHubEdit(event) {{
 
 const armed = []
 
+// ---------------------------------------------------------------- no hostile spawns
 try {{
     EntityEvents.checkSpawn(event => {{
         const e = event.entity
@@ -603,6 +771,7 @@ try {{
     console.warn('[Alfheim Reclaimed] hub: could not arm spawn suppression: ' + e)
 }}
 
+// ---------------------------------------------------------------- no blast damage
 try {{
     LevelEvents.beforeExplosion(event => {{
         if (inHub(event.level, event.x, event.z)) event.cancel()
@@ -612,6 +781,7 @@ try {{
     console.warn('[Alfheim Reclaimed] hub: could not arm explosion protection: ' + e)
 }}
 
+// ---------------------------------------------------------------- no block breaking
 try {{
     BlockEvents.broken(rejectHubEdit)
     armed.push('break-locked-to-ops')
@@ -619,6 +789,7 @@ try {{
     console.warn('[Alfheim Reclaimed] hub: could not arm block-break protection: ' + e)
 }}
 
+// ---------------------------------------------------------------- no block placement
 try {{
     BlockEvents.placed(rejectHubEdit)
     armed.push('place-locked-to-ops')
@@ -627,9 +798,6 @@ try {{
 }}
 
 ServerEvents.loaded(event => {{
-    // The first command is deliberately idempotent-at-call-site: on an existing team it returns
-    // zero; on a fresh world it creates the server-owned team. The second then claims the full
-    // relocation envelope in Alfheim. FTB Chunks converts the block radius to chunks internally.
     const teamCreate = event.server.runCommandSilent(`ftbteams server create ${{HUB_FTB_TEAM}}`)
     const claimChanged = event.server.runCommandSilent(
         `execute in ${{HUB_DIMENSION}} run ftbchunks admin claim_as ${{HUB_FTB_TEAM}} ` +
