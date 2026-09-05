@@ -2,15 +2,18 @@
 
 **Role:** design record for Alfheim's surface structures and the map shop that sells directions
 to them.
-**Status:** `static validated` 2026-09-04 — all thirty-two structures and the shop are built and pass fourteen checks; **nothing has been seen in a world.** See
-`EXECUTION_STATE.md` for current status.
+**Status:** `runtime sampled` 2026-09-04 — the thirty-two-structure set is built and statically
+validated, and representative structures have now been seen in a real world. The first field
+review confirms the concepts but opens a **terrain-integration, detail-density and discovery-value
+refinement pass** before the set can be considered production quality.
 **Authority:** subordinate to `INSTRUCTIONS.md`. Sits opposite `THE_DEEP.md` (which owns the
 quarries, tombs and faultworks *below* ground) and beside `SPAWN_HUB.md` (which owns the single
 centrepiece at the origin).
 **Asked for by the user, 2026-09-04:** *"a small subchapter of FTB quests that is explorers maps
 that are repeatable purchase actions … And I want at least two explorable interesting structures
 per Biome that we have. These should be surface features castles ruined castles large craters a
-large quarry mine and so on."*
+large quarry mine and so on."* Runtime refinement recorded from the user's first in-world review
+later the same day.
 
 ---
 
@@ -136,6 +139,34 @@ names a palette, and the palettes are keyed to the land rather than to the shape
 - **Drowned** — prismarine, dark prismarine, mossy cobble. The fen and the lakes.
 - **Dreamwood** — `botania:dreamwood_*` for every timber. There is no oak civilisation here.
 
+### 3.2 The visual bar — grand civilisation, slow decay
+
+**Runtime review, 2026-09-04:** the current structures generally succeed as *concept builds*.
+They establish the right themes, especially the water/shore finds, but they are not yet detailed
+enough to sell Alfheim's central premise. They need to read as the collapsed remains of an
+**advanced elven civilisation that was grand in scale and decayed slowly**, not as small ruins
+placed into a fantasy biome.
+
+Every hero structure therefore needs multiple readable layers at once:
+
+| Layer | Required read |
+|---|---|
+| **Monumental massing** | The ruin implies a larger original whole: tall walls, broad platforms, large spans, terraces, towers, docks, processional spaces or infrastructure sized for a civilisation rather than a campsite. |
+| **Architectural logic** | Rooms, circulation, stairs, bridges, buttresses, foundations, drainage, retaining walls and structural frames explain how the place functioned before it failed. |
+| **Elven technology and magic** | Mana conduits, crystal sockets, ritual machinery, rune channels, broken mechanisms, light wells or other remnants show that this was an advanced society, not merely medieval masonry with a different palette. |
+| **Causal decay** | Collapse has direction and history: failed supports, water ingress, root pressure, storm damage, fire, subsidence, missing roofs, repaired sections and later collapses. Random block removal is not enough. |
+| **Human-scale residue** | Broken paving, railings, benches, work areas, storage, debris, furnishings, loading points and other traces make the grand architecture feel inhabited rather than sculptural. |
+
+The **ocean and shore structures are specifically retained as concepts** — the first field review
+liked them as thematic finds. Their next pass is depth, not replacement: layered waterlines,
+eroded foundations, drowned lower rooms, silt/debris, collapsed piers or seawalls, storm-broken
+upper works and enough surviving high architecture that the player can infer what stood there
+before the coast reclaimed it.
+
+This standard applies to the entire surface catalogue. The weaker structures are not allowed to
+remain "good enough" because one quarry or one shoreline ruin works; the set must establish a
+consistent civilisation-wide visual language.
+
 ---
 
 ## 4. Placement
@@ -174,6 +205,30 @@ needed. A structure whose `biomes` tag does not contain the biome at the chosen 
 generate at all** — silently, with no log line. Each structure therefore emits its own biome tag
 listing exactly the biomes it is allowed in, and `check_surface_works.py` asserts that every
 listed biome exists in the layer.
+
+### 4.2 Terrain incorporation is an acceptance gate
+
+**Runtime defect, observed 2026-09-04:** several structures could generate as if the template had
+simply been stamped onto the heightmap, including structures projecting from cliffs with no
+credible foundation, earthwork or terrain transition. `beard_thin` is not enough by itself.
+A structure that technically generates but visibly ignores the land has failed placement.
+
+The **Starved Reach `starveling_pit` quarry is the positive reference** from this test. It read as
+an excavation cut *into* the landscape rather than a box placed on it. That is the baseline the
+rest of the set needs to reach by whatever method fits the archetype.
+
+For ordinary buildings, the generator should inspect local relief across the footprint before
+accepting a candidate. Mild slopes may be blended. Severe slopes/cliffs should either cause
+relocation or trigger authored terrain geometry: stepped foundations, retaining walls,
+buttresses, buried lower courses, approach stairs, collapsed substructures or deliberate cliff
+architecture with visible support. A naked cantilevered template is never acceptable merely
+because the structure system placed it successfully.
+
+For **shore, lake and ocean structures**, the terrain contract includes the waterline. Foundations
+must meet the bed or bank, lower work should show inundation/erosion, and transitions from dry
+architecture to drowned architecture must be intentional. If a pier, arcade or wreck is partly
+submerged, the placement should explain why rather than leaving half the build hovering beside a
+random shoreline.
 
 ---
 
@@ -272,33 +327,64 @@ unchanged, and there is a third that is specific to the surface.
    from the same archetype must differ in at least two of them. The manifest is the place that
    is checked.
 
+### 6.1 A genuine find must still be worth the walk
+
+"Not a loot pinata" does **not** mean "materially empty." The first runtime review found the
+Starved Reach quarry to be one of the strongest structures in placement and concept, but also
+found that it needs **more resources to make discovery worthwhile**.
+
+For `starveling_pit` and the other quarry variants, the reward should live primarily in the
+**world geometry**, not a progression-skipping chest: more exposed ore/bloom faces, richer visible
+strata, abandoned stockpiles of ordinary materials, half-worked seams and recoverable mundane
+supplies appropriate to the biome. A player who deliberately follows a map or detours to a rare
+quarry should leave with a meaningful haul, while still being unable to skip an era or obtain a
+spine-gated material early.
+
+That gives the quarry the right economic story as well: it was built because there was something
+worth extracting there. A visually impressive empty quarry contradicts its own history.
+
 ---
 
 ## 7. Build order
 
+The first runtime sample has moved the project out of pure proof-of-generation and into quality
+repair. The highest-priority passes are now terrain incorporation and hero-level detail.
+
 | Pass | Work | State |
 |---|---|---|
 | 1 | Extract the shared NBT `Piece`; manifest; ten builders; datapack; loot; the Cartographer chapter; checker | **done 2026-09-04, static** |
-| 2 | Prove it: fresh world, `locate structure` each of the thirty-two | deferred, runtime |
+| 2 | Fresh-world proof: `locate structure` each of the thirty-two and inspect representative examples | **in progress — representative structures observed 2026-09-04** |
 | 3 | Buy one map of each of the ten and confirm it fills rather than coming back blank | deferred, runtime |
-| 4 | Interiors — spawners, named rooms, the one thing worth taking per archetype | not started |
-| 5 | Terrain seams: the crater rim and the quarry bench against real ground; the lake pair against real water | not started |
-| 6 | Density tuning against a real walk | not started |
+| **4** | **Terrain-integration repair across the whole set (§4.2), using `starveling_pit` as the positive reference** | **open, priority** |
+| **5** | **Hero-detail/slow-decay pass across every archetype (§3.2), with shore/ocean/water-edge structures explicitly included** | **open, priority** |
+| 6 | Interiors — named rooms, spawners where appropriate, circulation and the one thing worth taking per archetype | not started |
+| 7 | Quarry discovery-value pass — increase era-safe exposed resources and useful material yield (§6.1) | open |
+| 8 | Density tuning against a real walk | not started |
 
-### 7.1 What pass 1 cannot tell you
+### 7.1 What the first runtime sample changed
 
-Fourteen static checks pass and the self-test proves all of them can fail. None of that is
-runtime acceptance. Specifically **unproven**:
+Static validation remains necessary, but "the file generated" and "the structure looks like it
+belongs in the world" are now explicitly separate acceptance levels.
 
-- that any of the thirty-two actually generates — `INSTRUCTIONS.md` §7 level 9;
-- that `start_height: {absolute: -ground}` lands the crater bowl and the quarry floor where
-  the arithmetic says. A one-block error is cosmetic; a sign error is not;
-- that the two `OCEAN_FLOOR_WG` structures sit on the lake bed rather than under the surface;
-- that `verge_spire`'s plinth is enough ground on the Void Verge's floating islands;
-- that a purchased chart fills in rather than coming back blank (§5.3);
-- that thirty-two extra `random_spread` sets cost nothing measurable at chunk generation.
-  They are excluded from Midgard by biome tag — `ChunkGeneratorStructureState` drops a set
-  whose biomes the generator cannot produce — so the cost should fall on Alfheim alone.
+**Proven by the first field review:** at least representative members of the surface catalogue do
+generate in Alfheim; the Starved Reach quarry can integrate into terrain convincingly; and the
+shore/water concepts are thematically sound enough to keep.
 
-Pass 1 depends on nothing that does not already exist. `tools/gen_spawn_hub.py` proved the NBT
-pipeline and `tools/nbt.py` writes the files; this is the same machinery pointed outward.
+**Still to prove or repair:**
+
+- locate and inspect **all thirty-two**, not only the sample encountered in the test run;
+- repair structures that ignore relief or jut from cliffs (§4.2);
+- prove `start_height: {absolute: -ground}` for every crater/quarry variant rather than relying on
+  the one successful quarry;
+- verify the two `OCEAN_FLOOR_WG` structures against real water depth and shore transitions;
+- verify `verge_spire` on the Void Verge's floating islands;
+- perform the hero-detail pass so each ruin carries architecture, technology, inhabitation and
+  causal decay rather than merely a silhouette (§3.2);
+- confirm a purchased chart fills in rather than coming back blank (§5.3);
+- measure what thirty-two extra `random_spread` sets cost at chunk generation. They are excluded
+  from Midgard by biome tag — `ChunkGeneratorStructureState` drops a set whose biomes the
+generator cannot produce — so the cost should fall on Alfheim alone.
+
+The current implementation is therefore **concept-proven but not production-ready**. The next
+pass is not "add more structures"; it is to make the structures already present look as though
+Alfheim actually built, used, maintained and then slowly lost them.
