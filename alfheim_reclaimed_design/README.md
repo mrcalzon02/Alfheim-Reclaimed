@@ -1,6 +1,6 @@
 # Alfheim Reclaimed — Design Records
 
-**Minecraft:** 1.20.1 · **Loader:** Forge 47.4.10 · **Pack version:** 0.2.0-design
+**Minecraft:** 1.20.1 · **Loader:** Forge 47.4.10 · **Pack version:** 0.13.1-design
 
 Project doctrine lives in `../INSTRUCTIONS.md`. This directory holds design records — what is true
 about the pack's design and why.
@@ -43,6 +43,8 @@ player touches the world — combat, expedition, gear and reward.
 | `WORLD_STRUCTURE.md` | The two worlds — Alfheim as the Overworld, Midgard as the dead industrial dimension |
 | `SPAWN_ZONE.md` | The Greatbole and the Hollow Court — the drained city the player wakes in |
 | `SPAWN_HUB_PROTECTION.md` | **Runtime failed 2026-09-04:** the generated Greatbole/Hollow Court was again unclaimed and player-destructible; defines the actual admin-team claim and non-op anti-grief acceptance gate. |
+| `THE_SURFACE.md` | The first 32 surface landmarks and Cartographer layer; runtime refinement open for terrain fit, ruin depth and discovery value. |
+| `ANCIENT_ELVEN_STRUCTURE_ROSTER.md` | **Planned 2026-09-05:** civilization-scale master roster — 72 archetypes across civic, noble, residential, scholarly, sacred, relief, military, industrial, agricultural, transport, maritime and frontier systems, with district families, mass graves and slow-decline chronology. |
 | `PROCESS_INDEX.md` | Every crafting method in the pack — the menu the tier ladder draws from |
 | `CONTINUITY_WORKS_DEFECTS.md` | Defect report for our own mod — CW-1 blocks worldgen |
 | `PINNED_MOD_MATRIX.md` | The 26 pinned core mods. Accurate but incomplete — 95 are installed |
