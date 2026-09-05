@@ -65,7 +65,9 @@ def extra_files():
     for name,octave,amps in [('relief',-5,[1,0.5]),('fragments',-5,[1,0.6,0.3]),('strata',-4,[1,0.5,0.25])]:
         emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
     emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
-    # REMOVE phase runs after all ADD modifiers. Broad home-dimension injections
-    # must not grow pools/geodes on the thin fragments or in the empty far field.
-    emit('alfheim/forge/biome_modifier/void_no_pools_geodes.json',{'type':'forge:remove_features','biomes':'#alfheim:void_margins','features':['alfheim:liquid_bifrost_pool','alfheim:geode_rim','alfheim:geode_rim_marker'],'steps':['lakes','local_modifications','top_layer_modification']})
+    # REMOVE phase runs after all ADD modifiers. Conventional liquid pools must
+    # not refill the dry margin. Keep the authored Rim geode/marker until their
+    # volume-checked replacement exists; removing them here silently deletes the
+    # existing exploration route before that replacement is implemented.
+    emit('alfheim/forge/biome_modifier/void_no_pools_geodes.json',{'type':'forge:remove_features','biomes':'#alfheim:void_margins','features':['alfheim:liquid_bifrost_pool'],'steps':['lakes','local_modifications','top_layer_modification']})
     return out
