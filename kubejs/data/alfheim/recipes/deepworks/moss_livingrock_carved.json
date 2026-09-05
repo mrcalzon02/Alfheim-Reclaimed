@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:moss_livingrock"
+  },
+  "result": "alfheim:moss_livingrock_carved",
+  "count": 1
+}

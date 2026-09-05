@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:frost_livingrock"
+  },
+  "result": "alfheim:frost_livingrock_polished",
+  "count": 1
+}

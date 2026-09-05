@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:mana_glass_fire",
+    "alfheim:mana_glass_water",
+    "alfheim:mana_glass_earth",
+    "alfheim:mana_glass_air",
+    "alfheim:mana_glass_shadow",
+    "alfheim:mana_glass_light"
+  ]
+}

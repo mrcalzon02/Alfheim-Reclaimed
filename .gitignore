@@ -41,3 +41,7 @@ tools/vendor/
 options.txt
 quarantine/
 
+
+# Minecraft runtime/test-world artifacts
+**/session.lock
+server/void-margin-*/

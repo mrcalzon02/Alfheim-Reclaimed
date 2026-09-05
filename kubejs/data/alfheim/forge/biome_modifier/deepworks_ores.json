@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#alfheim:deepworks_land",
+  "features": [
+    "alfheim:deepworks/ore_grievebloom",
+    "alfheim:deepworks/ore_rimebloom",
+    "alfheim:deepworks/ore_emberwake",
+    "alfheim:deepworks/ore_farbloom"
+  ],
+  "step": "underground_ores"
+}

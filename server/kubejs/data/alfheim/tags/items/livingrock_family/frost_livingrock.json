@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:frost_livingrock",
+    "alfheim:frost_livingrock_polished",
+    "alfheim:frost_livingrock_bricks",
+    "alfheim:frost_livingrock_carved",
+    "alfheim:frost_livingrock_slab",
+    "alfheim:frost_livingrock_stairs",
+    "alfheim:frost_livingrock_wall"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:resinshale_livingrock"
+  },
+  "result": "alfheim:resinshale_livingrock_slab",
+  "count": 2
+}

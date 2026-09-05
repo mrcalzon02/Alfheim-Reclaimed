@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "botania:livingrock"
+  },
+  "result": "alfheim:starfleck_livingrock",
+  "count": 1
+}

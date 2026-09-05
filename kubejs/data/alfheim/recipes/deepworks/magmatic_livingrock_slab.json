@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:magmatic_livingrock"
+  },
+  "result": "alfheim:magmatic_livingrock_slab",
+  "count": 2
+}

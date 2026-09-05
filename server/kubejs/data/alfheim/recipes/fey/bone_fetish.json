@@ -1,0 +1,11 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "alfheim:bone_fetish"
+  },
+  "output": {
+    "item": "minecraft:bone_meal",
+    "count": 4
+  },
+  "mana": 300
+}

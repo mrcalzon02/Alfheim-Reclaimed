@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "alfheim:block/riftchalk_livingrock_bricks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:amber_livingrock"
+  },
+  "result": "alfheim:amber_livingrock_slab",
+  "count": 2
+}

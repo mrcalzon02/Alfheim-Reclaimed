@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:riftchalk_livingrock"
+  },
+  "result": "alfheim:riftchalk_livingrock_wall",
+  "count": 1
+}

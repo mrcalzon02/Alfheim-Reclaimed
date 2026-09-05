@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:aetherquartzite_livingrock"
+  },
+  "result": "alfheim:aetherquartzite_livingrock_bricks",
+  "count": 1
+}

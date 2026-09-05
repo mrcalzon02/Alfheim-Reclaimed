@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "source": "assets/botania/textures/block/livingrock.png",
+  "forms": ["raw", "polished", "bricks", "carved", "slab", "stairs", "wall"],
+  "families": [
+    {"id":"cracked_livingrock","name":"Cracked Livingrock","group":"Furnace","color":"b3a698","accent":"e0b078","pattern":"fissures","light":1,"use":"Pressure halos, quarry faces and cavern transitions"},
+    {"id":"magmatic_livingrock","name":"Magmatic Livingrock","group":"Furnace","color":"665c58","accent":"ffb342","pattern":"fissures","light":10,"use":"Lava shores, forge foundations and hot fault lines"},
+    {"id":"embervein_livingrock","name":"Embervein Livingrock","group":"Furnace","color":"897369","accent":"f26d3c","pattern":"veins","light":4,"use":"Warm gallery trim and cooled furnace walls"},
+    {"id":"cinder_livingrock","name":"Cinder Livingrock","group":"Furnace","color":"67676b","accent":"af9986","pattern":"flecks","light":0,"use":"Ash terraces and dark forge masonry"},
+    {"id":"obsidian_livingrock","name":"Obsidian Livingrock","group":"Furnace","color":"494754","accent":"9790b4","pattern":"bands","light":0,"use":"Vitrified buttresses and dark polished floors"},
+    {"id":"moonstone_livingrock","name":"Moonstone Livingrock","group":"Court","color":"c4cbd8","accent":"e5edfa","pattern":"veins","light":0,"use":"Royal tomb vaults, moon courts and pale colonnades"},
+    {"id":"dawn_livingrock","name":"Dawn Livingrock","group":"Court","color":"ddc697","accent":"fff0c1","pattern":"bands","light":0,"use":"Sun courts, kingly lintels and ceremonial stairs"},
+    {"id":"rose_livingrock","name":"Rose Livingrock","group":"Court","color":"c49baf","accent":"eed0db","pattern":"veins","light":0,"use":"Garden pavilions and memorial chambers"},
+    {"id":"ivory_livingrock","name":"Ivory Livingrock","group":"Court","color":"d7d2ba","accent":"f4edd8","pattern":"flecks","light":0,"use":"Tomb walls and civic arcades paired with existing marble"},
+    {"id":"silvermist_livingrock","name":"Silvermist Livingrock","group":"Court","color":"9cabb5","accent":"d5e2e7","pattern":"bands","light":0,"use":"Archive facades, bridge parapets and mist shrines"},
+    {"id":"moss_livingrock","name":"Moss Livingrock","group":"Grove","color":"859775","accent":"b7c88a","pattern":"patches","light":0,"use":"Reclaimed ruins, grotto walls and garden retaining walls"},
+    {"id":"rootbound_livingrock","name":"Rootbound Livingrock","group":"Grove","color":"a48c6b","accent":"cfb085","pattern":"roots","light":0,"use":"Greatbole foundations and buried woodland halls"},
+    {"id":"fern_livingrock","name":"Fern Livingrock","group":"Grove","color":"739786","accent":"b7d4a7","pattern":"roots","light":0,"use":"Botanical cloisters and cool grotto terraces"},
+    {"id":"amber_livingrock","name":"Amber Livingrock","group":"Grove","color":"bf9d58","accent":"f2d18a","pattern":"flecks","light":0,"use":"Archive floors and petrified woodland deposits"},
+    {"id":"petrified_livingrock","name":"Petrified Livingrock","group":"Grove","color":"938879","accent":"c8bca5","pattern":"rings","light":0,"use":"Ancient root columns and quarry supports"},
+    {"id":"tide_livingrock","name":"Tide Livingrock","group":"Water and sky","color":"719fab","accent":"b3d8db","pattern":"bands","light":0,"use":"Aqueducts, drowned galleries and lake temples"},
+    {"id":"abyssal_livingrock","name":"Abyssal Livingrock","group":"Water and sky","color":"4b647b","accent":"91aabd","pattern":"veins","light":0,"use":"Deep water shrines and dark blue foundations"},
+    {"id":"frost_livingrock","name":"Frost Livingrock","group":"Water and sky","color":"a9c7ca","accent":"e7f5ee","pattern":"fissures","light":0,"use":"Cold shelves, winter courts and pale bridges"},
+    {"id":"gale_livingrock","name":"Gale Livingrock","group":"Water and sky","color":"b6c7bd","accent":"e1ece1","pattern":"bands","light":0,"use":"Wind temples and light upper galleries"},
+    {"id":"storm_livingrock","name":"Storm Livingrock","group":"Water and sky","color":"7f819a","accent":"b8c3de","pattern":"veins","light":0,"use":"Watchtowers and storm shrine masonry"},
+    {"id":"amethyst_livingrock","name":"Amethyst Livingrock","group":"Ley","color":"9980b2","accent":"d2b7e8","pattern":"flecks","light":0,"use":"Crystal chamber walls and scholar halls"},
+    {"id":"leyline_livingrock","name":"Leyline Livingrock","group":"Ley","color":"7c9e9d","accent":"a0f2e5","pattern":"veins","light":3,"use":"Cool mana channels and working conduits"},
+    {"id":"gloam_livingrock","name":"Gloam Livingrock","group":"Ley","color":"665571","accent":"ad91b8","pattern":"patches","light":0,"use":"Shadow tomb borders and silent sanctuaries"},
+    {"id":"starfleck_livingrock","name":"Starfleck Livingrock","group":"Ley","color":"66768d","accent":"e6e7cf","pattern":"flecks","light":2,"use":"Observatory ceilings and deep crystal vaults"}
+  ],
+  "glass_light": {"fire":7,"water":3,"earth":2,"air":3,"shadow":1,"light":10},
+  "acquisition": "Decorative stonecutting of native livingrock; no crystal, ore or progression output. Natural deposits belong to the later terrain pass."
+}

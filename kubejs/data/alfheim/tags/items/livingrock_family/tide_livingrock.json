@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:tide_livingrock",
+    "alfheim:tide_livingrock_polished",
+    "alfheim:tide_livingrock_bricks",
+    "alfheim:tide_livingrock_carved",
+    "alfheim:tide_livingrock_slab",
+    "alfheim:tide_livingrock_stairs",
+    "alfheim:tide_livingrock_wall"
+  ]
+}

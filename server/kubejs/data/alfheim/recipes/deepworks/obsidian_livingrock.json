@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "botania:livingrock"
+  },
+  "result": "alfheim:obsidian_livingrock",
+  "count": 1
+}

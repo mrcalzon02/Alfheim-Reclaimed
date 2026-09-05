@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:leyline_livingrock"
+  },
+  "result": "alfheim:leyline_livingrock_wall",
+  "count": 1
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:rootbound_livingrock",
+    "alfheim:rootbound_livingrock_polished",
+    "alfheim:rootbound_livingrock_bricks",
+    "alfheim:rootbound_livingrock_carved",
+    "alfheim:rootbound_livingrock_slab",
+    "alfheim:rootbound_livingrock_stairs",
+    "alfheim:rootbound_livingrock_wall"
+  ]
+}

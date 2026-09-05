@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:shardbreccia_livingrock"
+  },
+  "result": "alfheim:shardbreccia_livingrock_bricks",
+  "count": 1
+}

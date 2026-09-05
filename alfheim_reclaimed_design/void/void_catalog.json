@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "status": "draft; no new registrations",
+  "authority": "../VOID_MARGINS.md",
+  "forms": [
+    "raw",
+    "polished",
+    "bricks",
+    "carved",
+    "slab",
+    "stairs",
+    "wall"
+  ],
+  "proposed_family_count": 18,
+  "proposed_block_count": 126,
+  "proposed_recipe_count": 126,
+  "far_field": {
+    "terrain": false,
+    "fluids": false,
+    "structures": false,
+    "resource_features": false
+  },
+  "mechanics": {
+    "pickaxe_required": true,
+    "self_drop": true,
+    "double_slab_drop": 2,
+    "gravity": false,
+    "random_ticks": false,
+    "resource_generation": false,
+    "light_scale": "0..15; proposed only",
+    "hardness": "Use existing library baseline initially; tune after runtime mining checks",
+    "acquisition": "Proposed decorative stonecutting from botania:livingrock, then family variants; no material-to-resource conversions"
+  },
+  "biomes": [
+    {
+      "id": "alfheim:void_verge",
+      "name": "Void Verge",
+      "status": "existing; terrain repair rejected",
+      "zone": "safe_rim",
+      "stones": [
+        {
+          "id": "alfheim:riftchalk_livingrock",
+          "name": "Riftchalk",
+          "color": "d5ceba",
+          "accent": "eae3d2",
+          "fabric": "granular chipped fabric",
+          "light": 0,
+          "use": "Rim parapets and survey stairs",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:riftshale_livingrock",
+          "name": "Riftshale",
+          "color": "777f87",
+          "accent": "aeb6bb",
+          "fabric": "thin offset lamination",
+          "light": 0,
+          "use": "Bridge abutments and roof slabs",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:veilstone_livingrock",
+          "name": "Veilstone",
+          "color": "a4a3b2",
+          "accent": "cbc0df",
+          "fabric": "fine fabric with sparse lilac seams",
+          "light": 0,
+          "use": "Observatory trim",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "alfheim:shatterfields",
+      "name": "Shatterfields",
+      "status": "proposed",
+      "zone": "inner_debris",
+      "stones": [
+        {
+          "id": "alfheim:shardbreccia_livingrock",
+          "name": "Shardbreccia",
+          "color": "77767b",
+          "accent": "bcb6ab",
+          "fabric": "large angular clasts in dark matrix",
+          "light": 0,
+          "use": "Rough walls and retaining faces",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:anchorstone_livingrock",
+          "name": "Anchorstone",
+          "color": "444a54",
+          "accent": "727981",
+          "fabric": "dense fabric with pressure folds",
+          "light": 0,
+          "use": "Tower foundations and piers",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:seamstone_livingrock",
+          "name": "Seamstone",
+          "color": "827785",
+          "accent": "c2acd7",
+          "fabric": "fine rejoined fractures",
+          "light": 1,
+          "use": "Boundary markers and restrained lit joints",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "alfheim:prism_drift",
+      "name": "Prism Drift",
+      "status": "proposed",
+      "zone": "inner_middle_debris",
+      "stones": [
+        {
+          "id": "alfheim:prismstone_livingrock",
+          "name": "Prismstone",
+          "color": "c0bcc7",
+          "accent": "b9d8df",
+          "fabric": "interlocking grains with spectral seams",
+          "light": 1,
+          "use": "Crystal gallery floors",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:aetherquartzite_livingrock",
+          "name": "Aetherquartzite",
+          "color": "a0bfc7",
+          "accent": "dfedf0",
+          "fabric": "frosted dense interlocked grains",
+          "light": 0,
+          "use": "Scholar-hall columns",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:glintschist_livingrock",
+          "name": "Glintschist",
+          "color": "7f8c9b",
+          "accent": "d5dce4",
+          "fabric": "directional reflective flakes",
+          "light": 0,
+          "use": "Roofs and wall panels",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "alfheim:rootfall",
+      "name": "Rootfall",
+      "status": "proposed",
+      "zone": "rim_and_inner_debris",
+      "stones": [
+        {
+          "id": "alfheim:rootfossil_livingrock",
+          "name": "Rootfossil",
+          "color": "908473",
+          "accent": "c0af92",
+          "fabric": "petrified branching grain and growth rings",
+          "light": 0,
+          "use": "Root-shrine supports",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:resinshale_livingrock",
+          "name": "Resinshale",
+          "color": "807362",
+          "accent": "c19b4d",
+          "fabric": "small amber lenses in lamination",
+          "light": 0,
+          "use": "Archive trim",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:hollowheart_livingrock",
+          "name": "Hollowheart",
+          "color": "c4baa2",
+          "accent": "e0d6bd",
+          "fabric": "porous fabric and root cavities",
+          "light": 0,
+          "use": "Garden walls",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "alfheim:sepulchral_reach",
+      "name": "Sepulchral Reach",
+      "status": "proposed",
+      "zone": "stable_inner_shelves",
+      "stones": [
+        {
+          "id": "alfheim:epitaph_livingrock",
+          "name": "Epitaph Marble",
+          "color": "d4cbbf",
+          "accent": "a89faf",
+          "fabric": "ivory fabric with hairline violet-grey veins",
+          "light": 0,
+          "use": "Royal burial vaults",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:mourning_livingrock",
+          "name": "Mourning Slate",
+          "color": "4f5c70",
+          "accent": "8894a7",
+          "fabric": "dark layered stone",
+          "light": 0,
+          "use": "Tomb floors and borders",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:oathstone_livingrock",
+          "name": "Oathstone",
+          "color": "8b929a",
+          "accent": "c2c5c8",
+          "fabric": "competent natural stone; interlace only in carved form",
+          "light": 0,
+          "use": "Seals and ceremonial doors",
+          "status": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "alfheim:starless_reach",
+      "name": "Starless Reach",
+      "status": "proposed",
+      "zone": "terminal_fragments_then_empty",
+      "stones": [
+        {
+          "id": "alfheim:nightmantle_livingrock",
+          "name": "Nightmantle",
+          "color": "303846",
+          "accent": "535f74",
+          "fabric": "matte fabric with broad subdued fractures",
+          "light": 0,
+          "use": "Observatory backing",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:nullstone_livingrock",
+          "name": "Nullstone",
+          "color": "49474d",
+          "accent": "797780",
+          "fabric": "porous charcoal with discontinuous inclusions",
+          "light": 0,
+          "use": "Weathered accent masonry",
+          "status": "proposed"
+        },
+        {
+          "id": "alfheim:astralite_livingrock",
+          "name": "Astralite",
+          "color": "535b7c",
+          "accent": "d1d9ee",
+          "fabric": "sparse pinpoint silver inclusions",
+          "light": 2,
+          "use": "Star-vault ceilings",
+          "status": "proposed"
+        }
+      ]
+    }
+  ]
+}

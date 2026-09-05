@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:leyline_livingrock",
+    "alfheim:leyline_livingrock_polished",
+    "alfheim:leyline_livingrock_bricks",
+    "alfheim:leyline_livingrock_carved",
+    "alfheim:leyline_livingrock_slab",
+    "alfheim:leyline_livingrock_stairs",
+    "alfheim:leyline_livingrock_wall"
+  ]
+}

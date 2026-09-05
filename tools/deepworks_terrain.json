@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "seed": "alfheim-deep-terrain-20260905",
+  "region_threshold": 0.08,
+  "chamber_threshold": 0.035,
+  "floor": [-62, -52],
+  "roof": [0, 28],
+  "minimum_initial_density": 2.0,
+  "noises": {
+    "province": {"firstOctave": -9, "amplitudes": [1.0, 0.35]},
+    "chambers": {"firstOctave": -6, "amplitudes": [1.0, 0.35]},
+    "strata": {"firstOctave": -6, "amplitudes": [1.0, 0.5]},
+    "inclusions": {"firstOctave": -4, "amplitudes": [1.0]}
+  },
+  "geology_y": [-59, 24],
+  "ore_y": [-54, 12],
+  "ore_size": 12,
+  "ore_attempts": 5,
+  "blooms": ["grievebloom", "rimebloom", "emberwake", "farbloom"],
+  "notes": "Native deep-bloom supplements target only new natural Livingrock; existing blooms, ordinary ores, Midgard and the Void Verge are not replaced."
+}

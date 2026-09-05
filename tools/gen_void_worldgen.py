@@ -1,0 +1,71 @@
+"""Shared dry-margin density, lateral biome claims, and natural stone palettes.
+
+All generation uses unperturbed 2D Alfheim continentalness for membership. Noise
+inside the debris band varies shape; it cannot escape the empty far-field cutoff.
+"""
+import json
+from gen_deep_terrain import ROOT, binary, choose, gradient, condition, block, sequence
+
+MASK='mythicbotany:alfheim_continentalness'
+RIM=-0.80
+CLIFF=-0.86
+TERMINAL=-0.925
+EMPTY=-0.94
+# Opt-in marker in an unused ore-vein channel. The regional aquifer hook requires
+# this exact marker AND the Livingrock default block, leaving other worlds alone.
+FLUID_MARKER=-0.812345
+CATALOG=json.loads((ROOT/'alfheim_reclaimed_design/void/void_catalog.json').read_text())
+VOID_IDS=[b['id'] for b in CATALOG['biomes']]
+
+def noise(name,y=0):
+    return {'type':'minecraft:noise','noise':'alfheim:void/'+name,'xz_scale':1.0,'y_scale':y}
+
+def density(normal):
+    # Safe rim: gently uneven, solid ground with a top around Y=80; no caves
+    # undermine the approach. The continent's original terrain remains outside.
+    rim=binary('add',gradient((72,88),1,-1),binary('mul',0.18,noise('relief')))
+    # Progressive loss of footprint toward the void. Clamped continentalness
+    # makes the taper seed-independent; the hard cutoff guarantees termination.
+    taper=binary('add',binary('mul',8,MASK),7.18)
+    footprint=binary('add',binary('mul',1.8,noise('fragments')),taper)
+    window=binary('min',gradient((28,52),-1,1),gradient((70,92),1,-1))
+    slabs=binary('min',footprint,window)
+    # Rootfall extends tapered ribs beneath a shared slab crown; Sepulchral
+    # shelves use flatter, thicker fragments. Both remain bounded by footprint.
+    roots=binary('min',footprint,binary('min',gradient((4,46),-1,1),gradient((70,88),1,-1)))
+    prisms=binary('min',footprint,binary('min',gradient((24,60),-1,1),gradient((74,112),1,-1)))
+    shelves=binary('min',footprint,binary('min',gradient((34,48),-1,1),gradient((76,84),1,-1)))
+    fragments=choose('mythicbotany:alfheim_temperature',-100,0,
+        choose('mythicbotany:alfheim_humidity',-100,0,slabs,prisms),
+        choose('mythicbotany:alfheim_humidity',-100,0,roots,shelves))
+    terminal=binary('min',binary('add',footprint,-0.30),binary('min',gradient((46,60),-1,1),gradient((66,76),1,-1)))
+    void=choose(MASK,-100,EMPTY,-1.0,choose(MASK,-100,TERMINAL,terminal,choose(MASK,-100,CLIFF,fragments,rim)))
+    return choose(MASK,-100,RIM,void,normal)
+
+def claims(pt):
+    return [('alfheim:starless_reach',pt((-1,TERMINAL))),
+            ('alfheim:shatterfields',pt((TERMINAL,CLIFF),temp=(-1,0),hum=(-1,0))),
+            ('alfheim:prism_drift',pt((TERMINAL,CLIFF),temp=(-1,0),hum=(0,1))),
+            ('alfheim:rootfall',pt((TERMINAL,CLIFF),temp=(0,1),hum=(-1,0))),
+            ('alfheim:sepulchral_reach',pt((TERMINAL,CLIFF),temp=(0,1),hum=(0,1))),
+            ('alfheim:void_verge',pt((CLIFF,RIM)))]
+
+def surface_rule():
+    rules=[]
+    for biome in CATALOG['biomes']:
+        stones=biome['stones']
+        palette=sequence([condition({'type':'minecraft:noise_threshold','noise':'alfheim:void/strata','min_threshold':0.22,'max_threshold':100},block(stones[2]['id'])),
+                          condition({'type':'minecraft:noise_threshold','noise':'alfheim:void/strata','min_threshold':-0.18,'max_threshold':100},block(stones[1]['id'])),block(stones[0]['id'])])
+        rules.append(condition({'type':'minecraft:biome','biome_is':[biome['id']]},palette))
+    return sequence(rules)
+
+def extra_files():
+    out={}
+    def emit(path,value):out['kubejs/data/'+path]=(json.dumps(value,indent=2)+'\n').encode()
+    for name,octave,amps in [('relief',-5,[1,0.5]),('fragments',-5,[1,0.6,0.3]),('strata',-4,[1,0.5,0.25])]:
+        emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
+    emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
+    # REMOVE phase runs after all ADD modifiers. Broad home-dimension injections
+    # must not grow pools/geodes on the thin fragments or in the empty far field.
+    emit('alfheim/forge/biome_modifier/void_no_pools_geodes.json',{'type':'forge:remove_features','biomes':'#alfheim:void_margins','features':['alfheim:liquid_bifrost_pool','alfheim:geode_rim','alfheim:geode_rim_marker'],'steps':['lakes','local_modifications','top_layer_modification']})
+    return out

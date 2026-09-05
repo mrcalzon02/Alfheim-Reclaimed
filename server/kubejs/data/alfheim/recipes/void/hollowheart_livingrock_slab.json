@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:hollowheart_livingrock"
+  },
+  "result": "alfheim:hollowheart_livingrock_slab",
+  "count": 2
+}

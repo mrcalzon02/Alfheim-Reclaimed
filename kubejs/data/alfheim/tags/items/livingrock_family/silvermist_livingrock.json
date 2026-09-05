@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:silvermist_livingrock",
+    "alfheim:silvermist_livingrock_polished",
+    "alfheim:silvermist_livingrock_bricks",
+    "alfheim:silvermist_livingrock_carved",
+    "alfheim:silvermist_livingrock_slab",
+    "alfheim:silvermist_livingrock_stairs",
+    "alfheim:silvermist_livingrock_wall"
+  ]
+}

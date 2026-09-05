@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:cracked_livingrock"
+  },
+  "result": "alfheim:cracked_livingrock_bricks",
+  "count": 1
+}

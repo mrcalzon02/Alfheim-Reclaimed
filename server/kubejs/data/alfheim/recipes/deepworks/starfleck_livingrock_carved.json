@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:starfleck_livingrock"
+  },
+  "result": "alfheim:starfleck_livingrock_carved",
+  "count": 1
+}

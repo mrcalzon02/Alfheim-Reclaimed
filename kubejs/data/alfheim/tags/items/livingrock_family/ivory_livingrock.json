@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:ivory_livingrock",
+    "alfheim:ivory_livingrock_polished",
+    "alfheim:ivory_livingrock_bricks",
+    "alfheim:ivory_livingrock_carved",
+    "alfheim:ivory_livingrock_slab",
+    "alfheim:ivory_livingrock_stairs",
+    "alfheim:ivory_livingrock_wall"
+  ]
+}

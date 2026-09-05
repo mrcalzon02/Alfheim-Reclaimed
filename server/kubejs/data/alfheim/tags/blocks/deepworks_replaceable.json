@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "botania:livingrock",
+    "alfheim:cracked_livingrock",
+    "alfheim:magmatic_livingrock",
+    "alfheim:embervein_livingrock",
+    "alfheim:cinder_livingrock",
+    "alfheim:obsidian_livingrock",
+    "alfheim:moonstone_livingrock",
+    "alfheim:dawn_livingrock",
+    "alfheim:rose_livingrock",
+    "alfheim:ivory_livingrock",
+    "alfheim:silvermist_livingrock",
+    "alfheim:moss_livingrock",
+    "alfheim:rootbound_livingrock",
+    "alfheim:fern_livingrock",
+    "alfheim:amber_livingrock",
+    "alfheim:petrified_livingrock",
+    "alfheim:tide_livingrock",
+    "alfheim:abyssal_livingrock",
+    "alfheim:frost_livingrock",
+    "alfheim:gale_livingrock",
+    "alfheim:storm_livingrock",
+    "alfheim:amethyst_livingrock",
+    "alfheim:leyline_livingrock",
+    "alfheim:gloam_livingrock",
+    "alfheim:starfleck_livingrock"
+  ]
+}

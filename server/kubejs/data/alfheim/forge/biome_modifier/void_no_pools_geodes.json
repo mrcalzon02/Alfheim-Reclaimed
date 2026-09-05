@@ -1,0 +1,14 @@
+{
+  "type": "forge:remove_features",
+  "biomes": "#alfheim:void_margins",
+  "features": [
+    "alfheim:liquid_bifrost_pool",
+    "alfheim:geode_rim",
+    "alfheim:geode_rim_marker"
+  ],
+  "steps": [
+    "lakes",
+    "local_modifications",
+    "top_layer_modification"
+  ]
+}

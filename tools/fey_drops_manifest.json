@@ -1,0 +1,400 @@
+{
+  "items": {
+    "raw_venison": {
+      "name": "Raw Venison",
+      "texture": "minecraft:item/beef",
+      "use": "Cook at a campfire, furnace or smoker."
+    },
+    "cooked_venison": {
+      "name": "Roasted Venison",
+      "texture": "minecraft:item/cooked_beef",
+      "use": "A hearty Wildward field ration."
+    },
+    "whitetail_hide": {
+      "name": "Whitetail Hide",
+      "texture": "minecraft:item/leather",
+      "use": "Trim with a dreamwood twig to make leather."
+    },
+    "hart_antler": {
+      "name": "Hart Antler",
+      "texture": "minecraft:item/bone",
+      "use": "Grind into three bone meal."
+    },
+    "celestial_mote": {
+      "name": "Celestial Mote",
+      "texture": "minecraft:item/glowstone_dust",
+      "use": "Refine in a Mana Pool: two Fey Dust, 500 mana."
+    },
+    "frog_gel": {
+      "name": "Frog Gel",
+      "texture": "minecraft:item/slime_ball",
+      "use": "Combine two portions into a slimeball."
+    },
+    "toad_gland": {
+      "name": "Toad Gland",
+      "texture": "minecraft:item/fermented_spider_eye",
+      "use": "Refine in a Mana Pool: two slimeballs, 500 mana."
+    },
+    "abyssal_eye": {
+      "name": "Abyssal Eye",
+      "texture": "minecraft:item/ender_eye",
+      "use": "Refine in a Mana Pool: two glow ink sacs, 1000 mana."
+    },
+    "mire_tendril": {
+      "name": "Mire Tendril",
+      "texture": "minecraft:item/kelp",
+      "use": "Refine in a Mana Pool: three string, 200 mana."
+    },
+    "maw_fang": {
+      "name": "Maw Fang",
+      "texture": "minecraft:item/ghast_tear",
+      "use": "Grind into four bone meal."
+    },
+    "barkcloth_scrap": {
+      "name": "Barkcloth Scrap",
+      "texture": "minecraft:item/paper",
+      "use": "Three scraps unravel into two string."
+    },
+    "bone_fetish": {
+      "name": "Savage Bone Fetish",
+      "texture": "minecraft:item/bone",
+      "use": "Refine in a Mana Pool: four bone meal, 300 mana."
+    },
+    "scorched_sigil": {
+      "name": "Scorched Elven Sigil",
+      "texture": "minecraft:item/fire_charge",
+      "use": "Refine in a Mana Pool: one Fey Dust, 1500 mana."
+    }
+  },
+  "recipes": {
+    "whitetail_hide": {
+      "method": "shapeless",
+      "ingredients": [
+        "alfheim:whitetail_hide",
+        "botania:dreamwood_twig"
+      ],
+      "output": "minecraft:leather",
+      "count": 1
+    },
+    "hart_antler": {
+      "method": "shapeless",
+      "ingredients": [
+        "alfheim:hart_antler"
+      ],
+      "output": "minecraft:bone_meal",
+      "count": 3
+    },
+    "frog_gel": {
+      "method": "shapeless",
+      "ingredients": [
+        "alfheim:frog_gel",
+        "alfheim:frog_gel"
+      ],
+      "output": "minecraft:slime_ball",
+      "count": 1
+    },
+    "maw_fang": {
+      "method": "shapeless",
+      "ingredients": [
+        "alfheim:maw_fang"
+      ],
+      "output": "minecraft:bone_meal",
+      "count": 4
+    },
+    "barkcloth_scrap": {
+      "method": "shapeless",
+      "ingredients": [
+        "alfheim:barkcloth_scrap",
+        "alfheim:barkcloth_scrap",
+        "alfheim:barkcloth_scrap"
+      ],
+      "output": "minecraft:string",
+      "count": 2
+    },
+    "celestial_mote": {
+      "method": "mana_infusion",
+      "output": "feywild:fey_dust",
+      "count": 2,
+      "mana": 500
+    },
+    "toad_gland": {
+      "method": "mana_infusion",
+      "output": "minecraft:slime_ball",
+      "count": 2,
+      "mana": 500
+    },
+    "abyssal_eye": {
+      "method": "mana_infusion",
+      "output": "minecraft:glow_ink_sac",
+      "count": 2,
+      "mana": 1000
+    },
+    "mire_tendril": {
+      "method": "mana_infusion",
+      "output": "minecraft:string",
+      "count": 3,
+      "mana": 200
+    },
+    "bone_fetish": {
+      "method": "mana_infusion",
+      "output": "minecraft:bone_meal",
+      "count": 4,
+      "mana": 300
+    },
+    "scorched_sigil": {
+      "method": "mana_infusion",
+      "output": "feywild:fey_dust",
+      "count": 1,
+      "mana": 1500
+    }
+  },
+  "creatures": {
+    "alfheim:whitetail_doe": [
+      [
+        "raw_venison",
+        1,
+        2,
+        1,
+        false
+      ],
+      [
+        "whitetail_hide",
+        1,
+        1,
+        0.8,
+        false
+      ]
+    ],
+    "alfheim:celestial_doe": [
+      [
+        "celestial_mote",
+        1,
+        1,
+        1,
+        true
+      ]
+    ],
+    "alfheim:whitetail_buck": [
+      [
+        "raw_venison",
+        1,
+        2,
+        1,
+        false
+      ],
+      [
+        "whitetail_hide",
+        1,
+        1,
+        0.8,
+        false
+      ],
+      [
+        "hart_antler",
+        1,
+        1,
+        0.5,
+        true
+      ]
+    ],
+    "alfheim:celestial_buck": [
+      [
+        "celestial_mote",
+        1,
+        1,
+        1,
+        true
+      ],
+      [
+        "hart_antler",
+        1,
+        1,
+        0.5,
+        true
+      ]
+    ],
+    "alfheim:moss_small_frog": [
+      [
+        "frog_gel",
+        1,
+        1,
+        0.75,
+        false
+      ]
+    ],
+    "alfheim:moss_large_frog": [
+      [
+        "frog_gel",
+        1,
+        2,
+        0.75,
+        false
+      ]
+    ],
+    "alfheim:azure_small_frog": [
+      [
+        "frog_gel",
+        1,
+        1,
+        0.75,
+        false
+      ]
+    ],
+    "alfheim:azure_large_frog": [
+      [
+        "frog_gel",
+        1,
+        2,
+        0.75,
+        false
+      ]
+    ],
+    "alfheim:amber_small_frog": [
+      [
+        "frog_gel",
+        1,
+        1,
+        0.75,
+        false
+      ]
+    ],
+    "alfheim:amber_large_frog": [
+      [
+        "frog_gel",
+        1,
+        2,
+        0.75,
+        false
+      ]
+    ],
+    "alfheim:bog_toad": [
+      [
+        "frog_gel",
+        1,
+        2,
+        1,
+        false
+      ],
+      [
+        "toad_gland",
+        1,
+        1,
+        0.5,
+        true
+      ]
+    ],
+    "alfheim:mossback_toad": [
+      [
+        "frog_gel",
+        1,
+        2,
+        1,
+        false
+      ],
+      [
+        "toad_gland",
+        1,
+        1,
+        0.5,
+        true
+      ]
+    ],
+    "alfheim:abyssal_watcher": [
+      [
+        "abyssal_eye",
+        1,
+        1,
+        0.5,
+        true
+      ],
+      [
+        "minecraft:ink_sac",
+        1,
+        2,
+        1,
+        false
+      ]
+    ],
+    "alfheim:mire_tentacle": [
+      [
+        "mire_tendril",
+        1,
+        2,
+        1,
+        false
+      ],
+      [
+        "minecraft:ink_sac",
+        1,
+        1,
+        0.5,
+        false
+      ]
+    ],
+    "alfheim:drowned_maw": [
+      [
+        "maw_fang",
+        1,
+        2,
+        1,
+        true
+      ],
+      [
+        "minecraft:ink_sac",
+        1,
+        2,
+        1,
+        false
+      ]
+    ],
+    "alfheim:wild_elf": [
+      [
+        "barkcloth_scrap",
+        1,
+        3,
+        1,
+        true
+      ],
+      [
+        "botania:dreamwood_twig",
+        1,
+        2,
+        0.35,
+        true
+      ]
+    ],
+    "alfheim:savage_elf": [
+      [
+        "bone_fetish",
+        1,
+        1,
+        1,
+        true
+      ],
+      [
+        "minecraft:leather",
+        1,
+        2,
+        0.5,
+        true
+      ]
+    ],
+    "alfheim:demonic_elf": [
+      [
+        "scorched_sigil",
+        1,
+        1,
+        1,
+        true
+      ],
+      [
+        "minecraft:charcoal",
+        1,
+        2,
+        0.5,
+        true
+      ]
+    ]
+  },
+  "looting_bonus": false
+}

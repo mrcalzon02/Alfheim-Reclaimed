@@ -1,0 +1,11 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "alfheim:mire_tendril"
+  },
+  "output": {
+    "item": "minecraft:string",
+    "count": 3
+  },
+  "mana": 200
+}

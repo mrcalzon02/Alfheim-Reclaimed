@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:moss_livingrock",
+    "alfheim:moss_livingrock_polished",
+    "alfheim:moss_livingrock_bricks",
+    "alfheim:moss_livingrock_carved",
+    "alfheim:moss_livingrock_slab",
+    "alfheim:moss_livingrock_stairs",
+    "alfheim:moss_livingrock_wall"
+  ]
+}

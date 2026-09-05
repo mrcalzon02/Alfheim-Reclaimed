@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:riftchalk_livingrock",
+    "alfheim:riftshale_livingrock",
+    "alfheim:veilstone_livingrock",
+    "alfheim:shardbreccia_livingrock",
+    "alfheim:anchorstone_livingrock",
+    "alfheim:seamstone_livingrock",
+    "alfheim:prismstone_livingrock",
+    "alfheim:aetherquartzite_livingrock",
+    "alfheim:glintschist_livingrock",
+    "alfheim:rootfossil_livingrock",
+    "alfheim:resinshale_livingrock",
+    "alfheim:hollowheart_livingrock",
+    "alfheim:epitaph_livingrock",
+    "alfheim:mourning_livingrock",
+    "alfheim:oathstone_livingrock",
+    "alfheim:nightmantle_livingrock",
+    "alfheim:nullstone_livingrock",
+    "alfheim:astralite_livingrock"
+  ]
+}

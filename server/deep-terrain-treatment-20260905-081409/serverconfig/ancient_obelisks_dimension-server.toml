@@ -1,0 +1,63 @@
+
+#Map Dimension Config, Note: These configs are ONLY for this dimension!
+["ancient_obelisks:obelisk"]
+	#Sometimes structures have old/wrong data blocks, instead of skipping them, we can instead use them to spawn a replacement.
+	#By default, a small mob pack will spawn instead.
+	#Advised to leave this as is
+	DEFAULT_DATA_BLOCK = "mob"
+	#Room structures use command blocks as data blocks, by typing a data block id as the command.
+	#With this on, a command block whose command doesn't name a data block and does look like a real command
+	#(it starts with / or contains a space) is left alone and runs like a command block anywhere else.
+	#Note that vanilla still requires enable-command-block=true in server.properties for it to execute.
+	#Turn this off if you don't want a downloaded structure pack to be able to run commands in your world.
+	#Those command blocks then become DEFAULT_DATA_BLOCK instead, like they did before this option existed.
+	ALLOW_FUNCTIONAL_COMMAND_BLOCKS = true
+	#Blocks in this tag will be breakable. This config isn't meant to be edited! Edit the tag datapack instead!
+	#Use this for stuff like Grave mod blocks
+	ALLOWED_BLOCK_BREAK_TAG = "library_of_exile:map_allowed_block_break"
+	#Blocks in this tag will NOT be interactable. This config isn't meant to be edited! Edit the tag datapack instead!
+	# As an example, by default dispensers can't be interacted with so players can't steal items from them.
+	DISABLED_BLOCK_INTERACT_TAG = "library_of_exile:map_disable_block_interact"
+	#Items in this Tag will be unusable with right click in this dimension. This config isn't meant to be edited! Edit the tag datapack instead!
+	# As an example, by default chorus fruit and other teleportation items are banned..
+	BANNED_ITEMS_TAG = "library_of_exile:banned_map_items"
+	#Damage Type tags for enviro damage. This is used to stop mobs in this dimension from being hurt by them
+	#This only stops the damage if it's enviro dmg, meaning there's no entity/player as damage source
+	ENVIRO_DMG_TAG = "library_of_exile:enviro_damage"
+	#The chunk radius in which map data blocks will be turned into map content while in maps. Depending on map type, different values can be good
+	#For example Arena-type maps you probably want the number to be high so all the stuff generates right away
+	#But for exploration-type big maps, you probably don't want mobs to spawn 5 chunks away and despawn
+	#0 Radius means only the chunk the player is currently in will be processed
+	#Range: 0 ~ 8
+	CHUNK_PROCESS_RADIUS = 3
+	#Radius in which the data blocks will turn to actual content in map.
+	#Range: 0 ~ 8
+	CHUNK_SPAWN_RADIUS = 2
+	#Seconds after a player is teleported into this dimension during which content will not
+	#spawn around them. The server places the player instantly, but their client can need a few
+	#seconds to load the chunks - without this, players on slower hardware are attacked before
+	#they can see or act. Waves and room content simply start once the window is over.
+	#Set to 0 for the old behaviour of spawning everything immediately.
+	#Range: 0 ~ 60
+	SPAWN_GRACE_SECONDS = 10
+	#How long an instance of this dimension is kept alive after the last moment a player was
+	#seen standing in it. Instances are cleaned up whenever anyone starts a map, and that check
+	#can only see who is inside right now - so a party whose members are all momentarily dead,
+	#respawning, teleporting or relogging would otherwise have their run deleted underneath them.
+	#Losing an instance's data mid run is what makes the rest of it generate as a different,
+	#randomly picked map. Raise this if players report that happening; lower it to reclaim
+	#abandoned instances sooner. 0 restores the old behaviour of dropping them immediately.
+	#Range: 0 ~ 1440
+	INSTANCE_KEEPALIVE_MINUTES = 5
+	#Despawns or tries to stop spawning of mobs that shouldn't spawn in the dimension
+	DESPAWN_INCORRECT_MOBS = true
+	#Wipes the dimension folder on load, this is important to reduce bugs.
+	WIPE_DIMENSION_ON_LOAD = true
+	#By default this dimension has its worldborder overrided because these dimensions are meant to be infinite.
+	#It's recommended to just wipe the dimension's save folder when needed instead as they're not meant to be built in anyway, so wiping them is no problem.
+	#This config is only here in case this feature causes more urgent bugs.
+	DISABLE_WORLDBORDER_OVERRIDE = false
+	#Makes mobs inside this dimension immune to enviromental damage.
+	#Recommended ON because otherwise a lot of dimension mobs will die to: wither roses, lava, water, wall damage etc.
+	DIMENSION_MOBS_ENVIRO_IMMUNITY = true
+

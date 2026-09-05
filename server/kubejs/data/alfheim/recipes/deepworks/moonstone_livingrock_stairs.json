@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:moonstone_livingrock"
+  },
+  "result": "alfheim:moonstone_livingrock_stairs",
+  "count": 1
+}

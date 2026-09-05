@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:starfleck_livingrock",
+    "alfheim:starfleck_livingrock_polished",
+    "alfheim:starfleck_livingrock_bricks",
+    "alfheim:starfleck_livingrock_carved",
+    "alfheim:starfleck_livingrock_slab",
+    "alfheim:starfleck_livingrock_stairs",
+    "alfheim:starfleck_livingrock_wall"
+  ]
+}

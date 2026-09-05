@@ -1,0 +1,96 @@
+
+#Dungeon Realm Configs
+[general]
+	#Dungeon map spawn chance multi per dimension
+	DIMENSION_CHANCE_MULTI = ["dungeon_realm:dungeon-1.5"]
+	#Dungeon Maps have a chance to spawn when you loot chests outside of map dimensions
+	#Range: 0.0 ~ 100.0
+	DUNGEON_MAP_SPAWN_CHANCE_ON_CHEST_LOOT = 5.0
+	#Range: 1 ~ 100
+	MIN_MAP_ROOMS = 12
+	#Range: 1 ~ 100
+	MAX_MAP_ROOMS = 20
+	#Range: 0 ~ 20
+	mob_min = 1
+	#Range: 0 ~ 20
+	mob_max = 2
+	#Range: 0 ~ 20
+	pack_mob_min = 3
+	#Range: 0 ~ 20
+	pack_mob_max = 6
+	#Uber fragments can drop from A map boss, default chance is 10%
+	#Range: 0.0 ~ 100.0
+	UBER_FRAG_DROP_RATE = 10.0
+	#Chance the final map boss drops a map item. This drop is the tier progression vector - it can't roll below the tier of the map it dropped in. The bonus_map_item_from_boss relic stat adds on top of this. Set to 0 to make the drop relic-only again.
+	#Range: 0.0 ~ 100.0
+	MAP_ITEM_FROM_BOSS_BASE_CHANCE = 20.0
+	#How many mobs should an elite mob count for in terms of map completion? Default is 10, so 10x a normal mob death. Max 9999
+	#Range: 1 ~ 9999
+	elite_mob_completion_weight = 10
+	#How many mobs should a miniboss mob count for in terms of map completion? Default is 20, so 20x a normal mob death. Max 9999
+	#Range: 1 ~ 9999
+	mini_boss_completion_weight = 20
+	#Number of data blocks allowed to be potentially miscounted to transition to accurate kill counts. Defaults to 2, between 0-20.
+	#For example, if you have 20 data blocks, and the player has come into range of 18, with a leeway of 2, this means 18 + 2 >= 20, so assume all mobs have been spawned.
+	#This matters *mostly* for the kill completion assumptions. Until all mobs are spawned, it assumes remaining data blocks (command blocks or structure blocks)
+	#will spawn either the MOB_MAX or PACK_MOB_MAX number of mobs. When you cross the threshold + leeway, it assumes all mobs have been spawned, so the
+	#denominator for the calculation shrinks, and kill % goes up. 2 seems to be roughly the right number from testing, but if this proves to be insanely accurate
+	#feel free to crank this back down to 1 or 0.
+	#Range: 0 ~ 20
+	kill_completion_data_block_leeway = 2
+	#Kill completion percent needed before players can teleport straight to the map boss from the Map gui, without needing to find the boss teleport block.
+	#Range: 5 ~ 99
+	map_percent_complete_needed_for_boss_arena = 30
+	#Minimum loot level required for the Imprisoned Monster's bonus 'Seed' drop to be able to roll the rarer Perfected tier. Below this level, only the base Seed can drop.
+	#Range: 0 ~ 1000
+	min_level_for_perfected_seed = 80
+	#Guaranteed number of currency items dropped when the Imprisoned Monster is slain.
+	#Range: 0 ~ 20
+	imprisoned_monster_currency_reward = 3
+	#Chance for the Imprisoned Monster to additionally drop a bonus 'Seed' potential-restore currency, default 25%
+	#Range: 0.0 ~ 100.0
+	imprisoned_monster_seed_drop_chance = 25.0
+	#Of an Imprisoned Monster Seed drop (see imprisoned_monster_seed_drop_chance), the chance it's the rarer Perfected tier instead of the base tier, default 10%
+	#Range: 0.0 ~ 100.0
+	imprisoned_monster_perfected_seed_chance = 10.0
+	#Number of guardian mobs released when a Strongbox is opened.
+	#Range: 0 ~ 50
+	strongbox_guardian_count = 8
+	#Number of independent chest-loot rolls a Strongbox pays out once its guardians are dead.
+	#Range: 0 ~ 20
+	strongbox_loot_rolls = 3
+	#Radius (blocks) around a Shrine that players must be within to receive its buff.
+	#Range: 1.0 ~ 128.0
+	shrine_buff_radius = 12.0
+	#Minimum number of guaranteed-category items (see strongbox_category_weights) a Strongbox pays out on top of its normal chest loot rolls. Each one independently rolls its own category.
+	#Range: 0 ~ 100
+	strongbox_category_item_min = 1
+	#Maximum number of guaranteed-category items a Strongbox pays out (inclusive). Must be >= strongbox_category_item_min.
+	#Range: 0 ~ 100
+	strongbox_category_item_max = 6
+
+	#Relative weights for each guaranteed-category item roll a Strongbox pays out on top of its normal chest loot rolls. Higher = more common.
+	[general.strongbox_category_weights]
+		#Range: 0 ~ 100000
+		currency = 500
+		#Range: 0 ~ 100000
+		weapon = 1000
+		#Range: 0 ~ 100000
+		armor = 1000
+		#Range: 0 ~ 100000
+		jewelry = 1000
+		#Range: 0 ~ 100000
+		jewel = 250
+		#Range: 0 ~ 100000
+		omen = 250
+		#Range: 0 ~ 100000
+		support_gem = 500
+		#Range: 0 ~ 100000
+		aura_gem = 500
+		#Range: 0 ~ 100000
+		rune = 250
+		#Range: 0 ~ 100000
+		socketable_gem = 250
+		#Range: 0 ~ 100000
+		unique = 50
+

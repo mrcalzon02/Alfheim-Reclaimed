@@ -1,0 +1,363 @@
+{
+	id: "C2FB7BDD0D32592A"
+	group: "A9D308E5E372F98D"
+	order_index: 20
+	filename: "ref_fey_wildlife"
+	title: "The Fey Bestiary"
+	icon: "alfheim:hart_antler"
+	subtitle: [
+		"Habitats, hostile elves and creature drops"
+	]
+	default_quest_shape: "gear"
+	default_hide_dependency_lines: true
+	quests: [
+		{
+			title: "Whitetail Doe"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:whitetail_doe_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 0d
+			y: 0d
+			description: [
+				"Habitat: Silverbark Wood, Bloomfall Vale, Dreamwood Forest, Alfheim Plains, Golden Fields."
+				"Health: 16. Passive wildlife."
+				"Raw Venison: 1-2, 100% per kill."
+				"Cook at a campfire, furnace or smoker."
+				"Whitetail Hide: 1, 80% per kill."
+				"Trim with a dreamwood twig to make leather."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "C53045FF1F4878E8"
+			tasks: [{ id: "F9AA66E52E2E0D0F", type: "checkmark", title: "Whitetail Doe" }]
+		}
+		{
+			title: "Celestial Doe"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:celestial_doe_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 3d
+			y: 0d
+			description: [
+				"Habitat: Silverbark Wood, Bloomfall Vale, Dreamwood Forest, Alfheim Plains, Golden Fields, Void Verge."
+				"Health: 28. Passive wildlife."
+				"Rare: weight 1, solitary, with an additional 1-in-32 natural-spawn roll. Celestial deer yield no meat or hide."
+				"Celestial Mote: 1, 100% per kill. Requires a player kill."
+				"Refine in a Mana Pool: two Fey Dust, 500 mana."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "A55C01DB2416AEA3"
+			tasks: [{ id: "F6653D8D3B0DC7FF", type: "checkmark", title: "Celestial Doe" }]
+		}
+		{
+			title: "Whitetail Buck"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:whitetail_buck_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 6d
+			y: 0d
+			description: [
+				"Habitat: Silverbark Wood, Bloomfall Vale, Dreamwood Forest, Alfheim Plains, Golden Fields."
+				"Health: 16. Passive wildlife."
+				"Raw Venison: 1-2, 100% per kill."
+				"Cook at a campfire, furnace or smoker."
+				"Whitetail Hide: 1, 80% per kill."
+				"Trim with a dreamwood twig to make leather."
+				"Hart Antler: 1, 50% per kill. Requires a player kill."
+				"Grind into three bone meal."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "7E2F1109742C0F24"
+			tasks: [{ id: "D70564F0E768D4AB", type: "checkmark", title: "Whitetail Buck" }]
+		}
+		{
+			title: "Celestial Buck"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:celestial_buck_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 9d
+			y: 0d
+			description: [
+				"Habitat: Silverbark Wood, Bloomfall Vale, Dreamwood Forest, Alfheim Plains, Golden Fields, Void Verge."
+				"Health: 28. Passive wildlife."
+				"Rare: weight 1, solitary, with an additional 1-in-32 natural-spawn roll. Celestial deer yield no meat or hide."
+				"Celestial Mote: 1, 100% per kill. Requires a player kill."
+				"Refine in a Mana Pool: two Fey Dust, 500 mana."
+				"Hart Antler: 1, 50% per kill. Requires a player kill."
+				"Grind into three bone meal."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "38A6BCB4C3386A0D"
+			tasks: [{ id: "FD12729998E056D9", type: "checkmark", title: "Celestial Buck" }]
+		}
+		{
+			title: "Moss Small Frog"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:moss_small_frog_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 12d
+			y: 0d
+			description: [
+				"Habitat: Mana Fen, Decayed Mire."
+				"Health: 6. Passive wildlife."
+				"Frog Gel: 1, 75% per kill."
+				"Combine two portions into a slimeball."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "9D262224A3DDF8B6"
+			tasks: [{ id: "F3B85998EB1168FB", type: "checkmark", title: "Moss Small Frog" }]
+		}
+		{
+			title: "Moss Large Frog"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:moss_large_frog_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 15d
+			y: 0d
+			description: [
+				"Habitat: Mana Fen, Decayed Mire."
+				"Health: 10. Passive wildlife."
+				"Frog Gel: 1-2, 75% per kill."
+				"Combine two portions into a slimeball."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "A70F255E64A426A7"
+			tasks: [{ id: "C21277994467E713", type: "checkmark", title: "Moss Large Frog" }]
+		}
+		{
+			title: "Azure Small Frog"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:azure_small_frog_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 0d
+			y: 3d
+			description: [
+				"Habitat: Silverbark Wood, Alfheim Lakes."
+				"Health: 6. Passive wildlife."
+				"Frog Gel: 1, 75% per kill."
+				"Combine two portions into a slimeball."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "B769F938C04E28CB"
+			tasks: [{ id: "5E0723E89F93921C", type: "checkmark", title: "Azure Small Frog" }]
+		}
+		{
+			title: "Azure Large Frog"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:azure_large_frog_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 3d
+			y: 3d
+			description: [
+				"Habitat: Silverbark Wood, Alfheim Lakes."
+				"Health: 10. Passive wildlife."
+				"Frog Gel: 1-2, 75% per kill."
+				"Combine two portions into a slimeball."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "6106BC3A8C2DC5B4"
+			tasks: [{ id: "2B9B9F1D315AF864", type: "checkmark", title: "Azure Large Frog" }]
+		}
+		{
+			title: "Amber Small Frog"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:amber_small_frog_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 6d
+			y: 3d
+			description: [
+				"Habitat: Bloomfall Vale, Golden Fields."
+				"Health: 6. Passive wildlife."
+				"Frog Gel: 1, 75% per kill."
+				"Combine two portions into a slimeball."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "C7BDE0F35243CA8D"
+			tasks: [{ id: "2AE7BBBC4E5AF8AB", type: "checkmark", title: "Amber Small Frog" }]
+		}
+		{
+			title: "Amber Large Frog"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:amber_large_frog_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 9d
+			y: 3d
+			description: [
+				"Habitat: Bloomfall Vale, Golden Fields."
+				"Health: 10. Passive wildlife."
+				"Frog Gel: 1-2, 75% per kill."
+				"Combine two portions into a slimeball."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "6A3DB5C51E8C6676"
+			tasks: [{ id: "707402B20C05EE6D", type: "checkmark", title: "Amber Large Frog" }]
+		}
+		{
+			title: "Bog Toad"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:bog_toad_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 12d
+			y: 3d
+			description: [
+				"Habitat: Mana Fen, Decayed Mire."
+				"Health: 16. Passive wildlife."
+				"Frog Gel: 1-2, 100% per kill."
+				"Combine two portions into a slimeball."
+				"Toad Gland: 1, 50% per kill. Requires a player kill."
+				"Refine in a Mana Pool: two slimeballs, 500 mana."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "AA89299891EFD992"
+			tasks: [{ id: "9F24FFC42D847E95", type: "checkmark", title: "Bog Toad" }]
+		}
+		{
+			title: "Mossback Toad"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:mossback_toad_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 15d
+			y: 3d
+			description: [
+				"Habitat: Infested Warren, Dreamwood Forest."
+				"Health: 16. Passive wildlife."
+				"Frog Gel: 1-2, 100% per kill."
+				"Combine two portions into a slimeball."
+				"Toad Gland: 1, 50% per kill. Requires a player kill."
+				"Refine in a Mana Pool: two slimeballs, 500 mana."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "C6140EC5760814E9"
+			tasks: [{ id: "3AB5CF2B20421716", type: "checkmark", title: "Mossback Toad" }]
+		}
+		{
+			title: "Abyssal Watcher"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:abyssal_watcher_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 0d
+			y: 6d
+			description: [
+				"Habitat: Alfheim Lakes, Void Verge."
+				"Health: 26. Attack: 4."
+				"Abyssal Eye: 1, 50% per kill. Requires a player kill."
+				"Refine in a Mana Pool: two glow ink sacs, 1000 mana."
+				"Ink Sac: 1-2, 100% per kill."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "F013E68CFE3D45E9"
+			tasks: [{ id: "F4A2CDD03B1BB95C", type: "checkmark", title: "Abyssal Watcher" }]
+		}
+		{
+			title: "Mire Tentacle"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:mire_tentacle_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 3d
+			y: 6d
+			description: [
+				"Habitat: Mana Fen, Decayed Mire."
+				"Health: 20. Attack: 3."
+				"Mire Tendril: 1-2, 100% per kill."
+				"Refine in a Mana Pool: three string, 200 mana."
+				"Ink Sac: 1, 50% per kill."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "307469CD682A5D82"
+			tasks: [{ id: "86DB2D560CA8D131", type: "checkmark", title: "Mire Tentacle" }]
+		}
+		{
+			title: "Drowned Maw"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:drowned_maw_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 6d
+			y: 6d
+			description: [
+				"Habitat: Alfheim Lakes, Mana Fen."
+				"Health: 36. Attack: 6."
+				"Maw Fang: 1-2, 100% per kill. Requires a player kill."
+				"Grind into four bone meal."
+				"Ink Sac: 1-2, 100% per kill."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "96B015040D798029"
+			tasks: [{ id: "0C99B7D1B0926CBC", type: "checkmark", title: "Drowned Maw" }]
+		}
+		{
+			title: "Wild Elf"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:wild_elf_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 9d
+			y: 6d
+			description: [
+				"Habitat: Ashen Grove, Silverbark Wood, Sundered Highlands."
+				"Health: 20. Attack: 3."
+				"A swift woodland fighter in barkcloth."
+				"Barkcloth Scrap: 1-3, 100% per kill. Requires a player kill."
+				"Three scraps unravel into two string."
+				"Dreamwood Twig: 1-2, 35% per kill. Requires a player kill."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "43DFD67A615144BE"
+			tasks: [{ id: "98629BCB443A9996", type: "checkmark", title: "Wild Elf" }]
+		}
+		{
+			title: "Savage Elf"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:savage_elf_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 12d
+			y: 6d
+			description: [
+				"Habitat: Infested Warren, Decayed Mire, Hollow Marches."
+				"Health: 28. Attack: 5."
+				"An armored bruiser with a short leaping attack and stronger knockback."
+				"Savage Bone Fetish: 1, 100% per kill. Requires a player kill."
+				"Refine in a Mana Pool: four bone meal, 300 mana."
+				"Leather: 1-2, 50% per kill. Requires a player kill."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "0EE57C34EFE6644B"
+			tasks: [{ id: "A3C0AE9D2B720C65", type: "checkmark", title: "Savage Elf" }]
+		}
+		{
+			title: "Demonic Elf"
+			subtitle: "Wildlife and field supplies"
+			icon: "alfheim:demonic_elf_spawn_egg"
+			optional: true
+			shape: "gear"
+			x: 15d
+			y: 6d
+			description: [
+				"Habitat: Scorchfell, Void Verge, Starved Reach."
+				"Health: 36. Attack: 7."
+				"A heavily armored, fire-immune corrupted elf. No fire-spreading attack."
+				"Scorched Elven Sigil: 1, 100% per kill. Requires a player kill."
+				"Refine in a Mana Pool: one Fey Dust, 1500 mana."
+				"Charcoal: 1-2, 50% per kill. Requires a player kill."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+			]
+			id: "60D153815F8AA2A2"
+			tasks: [{ id: "58A54AD2DB4770AD", type: "checkmark", title: "Demonic Elf" }]
+		}
+	]
+	quest_links: [ ]
+}

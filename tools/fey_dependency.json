@@ -1,0 +1,14 @@
+{
+  "mod": "entityjs",
+  "version": "0.7.3",
+  "minecraft": "1.20.1",
+  "loader": "forge",
+  "file": "mods\\entityjs-forge-0.7.3.jar",
+  "sha512": "c36b74b59bfa1de1d2f2ea3006fed0ef84c76c5d82a4f69420ab49eef09db287c0aebdd557ea7bb385876fd00ede28fa1e15074ec414d064a0e171e94265ce0f",
+  "source": "https://cdn.modrinth.com/data/OvPZ16yX/versions/MclQtexN/entityjs-forge-0.7.3.jar",
+  "dependencies": [
+    "kubejs >= 2001.6.4-build.99",
+    "geckolib >= 4.3"
+  ],
+  "third_party_jar_modified": false
+}

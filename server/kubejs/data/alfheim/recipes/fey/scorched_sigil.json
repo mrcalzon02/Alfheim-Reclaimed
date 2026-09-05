@@ -1,0 +1,11 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "alfheim:scorched_sigil"
+  },
+  "output": {
+    "item": "feywild:fey_dust",
+    "count": 1
+  },
+  "mana": 1500
+}

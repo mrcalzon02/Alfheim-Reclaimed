@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:amethyst_livingrock"
+  },
+  "result": "alfheim:amethyst_livingrock_stairs",
+  "count": 1
+}

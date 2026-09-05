@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "alfheim:embervein_livingrock"
+  },
+  "result": "alfheim:embervein_livingrock_wall",
+  "count": 1
+}

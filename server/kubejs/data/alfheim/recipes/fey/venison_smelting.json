@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "alfheim:raw_venison"
+  },
+  "result": "alfheim:cooked_venison",
+  "experience": 0.35,
+  "cookingtime": 200
+}

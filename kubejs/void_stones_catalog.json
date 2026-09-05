@@ -1,0 +1,1896 @@
+{
+  "blocks": [
+    {
+      "id": "alfheim:riftchalk_livingrock",
+      "name": "Riftchalk Livingrock",
+      "form": "raw",
+      "texture": "riftchalk_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftchalk_livingrock_polished",
+      "name": "Riftchalk Livingrock Polished",
+      "form": "polished",
+      "texture": "riftchalk_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftchalk_livingrock_bricks",
+      "name": "Riftchalk Livingrock Bricks",
+      "form": "bricks",
+      "texture": "riftchalk_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftchalk_livingrock_carved",
+      "name": "Riftchalk Livingrock Carved",
+      "form": "carved",
+      "texture": "riftchalk_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftchalk_livingrock_slab",
+      "name": "Riftchalk Livingrock Slab",
+      "form": "slab",
+      "texture": "riftchalk_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftchalk_livingrock_stairs",
+      "name": "Riftchalk Livingrock Stairs",
+      "form": "stairs",
+      "texture": "riftchalk_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftchalk_livingrock_wall",
+      "name": "Riftchalk Livingrock Wall",
+      "form": "wall",
+      "texture": "riftchalk_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock",
+      "name": "Riftshale Livingrock",
+      "form": "raw",
+      "texture": "riftshale_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock_polished",
+      "name": "Riftshale Livingrock Polished",
+      "form": "polished",
+      "texture": "riftshale_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock_bricks",
+      "name": "Riftshale Livingrock Bricks",
+      "form": "bricks",
+      "texture": "riftshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock_carved",
+      "name": "Riftshale Livingrock Carved",
+      "form": "carved",
+      "texture": "riftshale_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock_slab",
+      "name": "Riftshale Livingrock Slab",
+      "form": "slab",
+      "texture": "riftshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock_stairs",
+      "name": "Riftshale Livingrock Stairs",
+      "form": "stairs",
+      "texture": "riftshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:riftshale_livingrock_wall",
+      "name": "Riftshale Livingrock Wall",
+      "form": "wall",
+      "texture": "riftshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock",
+      "name": "Veilstone Livingrock",
+      "form": "raw",
+      "texture": "veilstone_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock_polished",
+      "name": "Veilstone Livingrock Polished",
+      "form": "polished",
+      "texture": "veilstone_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock_bricks",
+      "name": "Veilstone Livingrock Bricks",
+      "form": "bricks",
+      "texture": "veilstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock_carved",
+      "name": "Veilstone Livingrock Carved",
+      "form": "carved",
+      "texture": "veilstone_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock_slab",
+      "name": "Veilstone Livingrock Slab",
+      "form": "slab",
+      "texture": "veilstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock_stairs",
+      "name": "Veilstone Livingrock Stairs",
+      "form": "stairs",
+      "texture": "veilstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:veilstone_livingrock_wall",
+      "name": "Veilstone Livingrock Wall",
+      "form": "wall",
+      "texture": "veilstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock",
+      "name": "Shardbreccia Livingrock",
+      "form": "raw",
+      "texture": "shardbreccia_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock_polished",
+      "name": "Shardbreccia Livingrock Polished",
+      "form": "polished",
+      "texture": "shardbreccia_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock_bricks",
+      "name": "Shardbreccia Livingrock Bricks",
+      "form": "bricks",
+      "texture": "shardbreccia_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock_carved",
+      "name": "Shardbreccia Livingrock Carved",
+      "form": "carved",
+      "texture": "shardbreccia_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock_slab",
+      "name": "Shardbreccia Livingrock Slab",
+      "form": "slab",
+      "texture": "shardbreccia_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock_stairs",
+      "name": "Shardbreccia Livingrock Stairs",
+      "form": "stairs",
+      "texture": "shardbreccia_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:shardbreccia_livingrock_wall",
+      "name": "Shardbreccia Livingrock Wall",
+      "form": "wall",
+      "texture": "shardbreccia_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock",
+      "name": "Anchorstone Livingrock",
+      "form": "raw",
+      "texture": "anchorstone_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock_polished",
+      "name": "Anchorstone Livingrock Polished",
+      "form": "polished",
+      "texture": "anchorstone_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock_bricks",
+      "name": "Anchorstone Livingrock Bricks",
+      "form": "bricks",
+      "texture": "anchorstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock_carved",
+      "name": "Anchorstone Livingrock Carved",
+      "form": "carved",
+      "texture": "anchorstone_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock_slab",
+      "name": "Anchorstone Livingrock Slab",
+      "form": "slab",
+      "texture": "anchorstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock_stairs",
+      "name": "Anchorstone Livingrock Stairs",
+      "form": "stairs",
+      "texture": "anchorstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:anchorstone_livingrock_wall",
+      "name": "Anchorstone Livingrock Wall",
+      "form": "wall",
+      "texture": "anchorstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock",
+      "name": "Seamstone Livingrock",
+      "form": "raw",
+      "texture": "seamstone_livingrock",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock_polished",
+      "name": "Seamstone Livingrock Polished",
+      "form": "polished",
+      "texture": "seamstone_livingrock_polished",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock_bricks",
+      "name": "Seamstone Livingrock Bricks",
+      "form": "bricks",
+      "texture": "seamstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock_carved",
+      "name": "Seamstone Livingrock Carved",
+      "form": "carved",
+      "texture": "seamstone_livingrock_carved",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock_slab",
+      "name": "Seamstone Livingrock Slab",
+      "form": "slab",
+      "texture": "seamstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock_stairs",
+      "name": "Seamstone Livingrock Stairs",
+      "form": "stairs",
+      "texture": "seamstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:seamstone_livingrock_wall",
+      "name": "Seamstone Livingrock Wall",
+      "form": "wall",
+      "texture": "seamstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock",
+      "name": "Prismstone Livingrock",
+      "form": "raw",
+      "texture": "prismstone_livingrock",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock_polished",
+      "name": "Prismstone Livingrock Polished",
+      "form": "polished",
+      "texture": "prismstone_livingrock_polished",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock_bricks",
+      "name": "Prismstone Livingrock Bricks",
+      "form": "bricks",
+      "texture": "prismstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock_carved",
+      "name": "Prismstone Livingrock Carved",
+      "form": "carved",
+      "texture": "prismstone_livingrock_carved",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock_slab",
+      "name": "Prismstone Livingrock Slab",
+      "form": "slab",
+      "texture": "prismstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock_stairs",
+      "name": "Prismstone Livingrock Stairs",
+      "form": "stairs",
+      "texture": "prismstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:prismstone_livingrock_wall",
+      "name": "Prismstone Livingrock Wall",
+      "form": "wall",
+      "texture": "prismstone_livingrock_bricks",
+      "light": 1,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock",
+      "name": "Aetherquartzite Livingrock",
+      "form": "raw",
+      "texture": "aetherquartzite_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock_polished",
+      "name": "Aetherquartzite Livingrock Polished",
+      "form": "polished",
+      "texture": "aetherquartzite_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock_bricks",
+      "name": "Aetherquartzite Livingrock Bricks",
+      "form": "bricks",
+      "texture": "aetherquartzite_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock_carved",
+      "name": "Aetherquartzite Livingrock Carved",
+      "form": "carved",
+      "texture": "aetherquartzite_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock_slab",
+      "name": "Aetherquartzite Livingrock Slab",
+      "form": "slab",
+      "texture": "aetherquartzite_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock_stairs",
+      "name": "Aetherquartzite Livingrock Stairs",
+      "form": "stairs",
+      "texture": "aetherquartzite_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:aetherquartzite_livingrock_wall",
+      "name": "Aetherquartzite Livingrock Wall",
+      "form": "wall",
+      "texture": "aetherquartzite_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock",
+      "name": "Glintschist Livingrock",
+      "form": "raw",
+      "texture": "glintschist_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock_polished",
+      "name": "Glintschist Livingrock Polished",
+      "form": "polished",
+      "texture": "glintschist_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock_bricks",
+      "name": "Glintschist Livingrock Bricks",
+      "form": "bricks",
+      "texture": "glintschist_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock_carved",
+      "name": "Glintschist Livingrock Carved",
+      "form": "carved",
+      "texture": "glintschist_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock_slab",
+      "name": "Glintschist Livingrock Slab",
+      "form": "slab",
+      "texture": "glintschist_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock_stairs",
+      "name": "Glintschist Livingrock Stairs",
+      "form": "stairs",
+      "texture": "glintschist_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:glintschist_livingrock_wall",
+      "name": "Glintschist Livingrock Wall",
+      "form": "wall",
+      "texture": "glintschist_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock",
+      "name": "Rootfossil Livingrock",
+      "form": "raw",
+      "texture": "rootfossil_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock_polished",
+      "name": "Rootfossil Livingrock Polished",
+      "form": "polished",
+      "texture": "rootfossil_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock_bricks",
+      "name": "Rootfossil Livingrock Bricks",
+      "form": "bricks",
+      "texture": "rootfossil_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock_carved",
+      "name": "Rootfossil Livingrock Carved",
+      "form": "carved",
+      "texture": "rootfossil_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock_slab",
+      "name": "Rootfossil Livingrock Slab",
+      "form": "slab",
+      "texture": "rootfossil_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock_stairs",
+      "name": "Rootfossil Livingrock Stairs",
+      "form": "stairs",
+      "texture": "rootfossil_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:rootfossil_livingrock_wall",
+      "name": "Rootfossil Livingrock Wall",
+      "form": "wall",
+      "texture": "rootfossil_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock",
+      "name": "Resinshale Livingrock",
+      "form": "raw",
+      "texture": "resinshale_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock_polished",
+      "name": "Resinshale Livingrock Polished",
+      "form": "polished",
+      "texture": "resinshale_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock_bricks",
+      "name": "Resinshale Livingrock Bricks",
+      "form": "bricks",
+      "texture": "resinshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock_carved",
+      "name": "Resinshale Livingrock Carved",
+      "form": "carved",
+      "texture": "resinshale_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock_slab",
+      "name": "Resinshale Livingrock Slab",
+      "form": "slab",
+      "texture": "resinshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock_stairs",
+      "name": "Resinshale Livingrock Stairs",
+      "form": "stairs",
+      "texture": "resinshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:resinshale_livingrock_wall",
+      "name": "Resinshale Livingrock Wall",
+      "form": "wall",
+      "texture": "resinshale_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock",
+      "name": "Hollowheart Livingrock",
+      "form": "raw",
+      "texture": "hollowheart_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock_polished",
+      "name": "Hollowheart Livingrock Polished",
+      "form": "polished",
+      "texture": "hollowheart_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock_bricks",
+      "name": "Hollowheart Livingrock Bricks",
+      "form": "bricks",
+      "texture": "hollowheart_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock_carved",
+      "name": "Hollowheart Livingrock Carved",
+      "form": "carved",
+      "texture": "hollowheart_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock_slab",
+      "name": "Hollowheart Livingrock Slab",
+      "form": "slab",
+      "texture": "hollowheart_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock_stairs",
+      "name": "Hollowheart Livingrock Stairs",
+      "form": "stairs",
+      "texture": "hollowheart_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:hollowheart_livingrock_wall",
+      "name": "Hollowheart Livingrock Wall",
+      "form": "wall",
+      "texture": "hollowheart_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock",
+      "name": "Epitaph Marble",
+      "form": "raw",
+      "texture": "epitaph_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock_polished",
+      "name": "Epitaph Marble Polished",
+      "form": "polished",
+      "texture": "epitaph_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock_bricks",
+      "name": "Epitaph Marble Bricks",
+      "form": "bricks",
+      "texture": "epitaph_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock_carved",
+      "name": "Epitaph Marble Carved",
+      "form": "carved",
+      "texture": "epitaph_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock_slab",
+      "name": "Epitaph Marble Slab",
+      "form": "slab",
+      "texture": "epitaph_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock_stairs",
+      "name": "Epitaph Marble Stairs",
+      "form": "stairs",
+      "texture": "epitaph_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:epitaph_livingrock_wall",
+      "name": "Epitaph Marble Wall",
+      "form": "wall",
+      "texture": "epitaph_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock",
+      "name": "Mourning Slate",
+      "form": "raw",
+      "texture": "mourning_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock_polished",
+      "name": "Mourning Slate Polished",
+      "form": "polished",
+      "texture": "mourning_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock_bricks",
+      "name": "Mourning Slate Bricks",
+      "form": "bricks",
+      "texture": "mourning_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock_carved",
+      "name": "Mourning Slate Carved",
+      "form": "carved",
+      "texture": "mourning_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock_slab",
+      "name": "Mourning Slate Slab",
+      "form": "slab",
+      "texture": "mourning_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock_stairs",
+      "name": "Mourning Slate Stairs",
+      "form": "stairs",
+      "texture": "mourning_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:mourning_livingrock_wall",
+      "name": "Mourning Slate Wall",
+      "form": "wall",
+      "texture": "mourning_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock",
+      "name": "Oathstone Livingrock",
+      "form": "raw",
+      "texture": "oathstone_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock_polished",
+      "name": "Oathstone Livingrock Polished",
+      "form": "polished",
+      "texture": "oathstone_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock_bricks",
+      "name": "Oathstone Livingrock Bricks",
+      "form": "bricks",
+      "texture": "oathstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock_carved",
+      "name": "Oathstone Livingrock Carved",
+      "form": "carved",
+      "texture": "oathstone_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock_slab",
+      "name": "Oathstone Livingrock Slab",
+      "form": "slab",
+      "texture": "oathstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock_stairs",
+      "name": "Oathstone Livingrock Stairs",
+      "form": "stairs",
+      "texture": "oathstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:oathstone_livingrock_wall",
+      "name": "Oathstone Livingrock Wall",
+      "form": "wall",
+      "texture": "oathstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock",
+      "name": "Nightmantle Livingrock",
+      "form": "raw",
+      "texture": "nightmantle_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock_polished",
+      "name": "Nightmantle Livingrock Polished",
+      "form": "polished",
+      "texture": "nightmantle_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock_bricks",
+      "name": "Nightmantle Livingrock Bricks",
+      "form": "bricks",
+      "texture": "nightmantle_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock_carved",
+      "name": "Nightmantle Livingrock Carved",
+      "form": "carved",
+      "texture": "nightmantle_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock_slab",
+      "name": "Nightmantle Livingrock Slab",
+      "form": "slab",
+      "texture": "nightmantle_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock_stairs",
+      "name": "Nightmantle Livingrock Stairs",
+      "form": "stairs",
+      "texture": "nightmantle_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nightmantle_livingrock_wall",
+      "name": "Nightmantle Livingrock Wall",
+      "form": "wall",
+      "texture": "nightmantle_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock",
+      "name": "Nullstone Livingrock",
+      "form": "raw",
+      "texture": "nullstone_livingrock",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock_polished",
+      "name": "Nullstone Livingrock Polished",
+      "form": "polished",
+      "texture": "nullstone_livingrock_polished",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock_bricks",
+      "name": "Nullstone Livingrock Bricks",
+      "form": "bricks",
+      "texture": "nullstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock_carved",
+      "name": "Nullstone Livingrock Carved",
+      "form": "carved",
+      "texture": "nullstone_livingrock_carved",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock_slab",
+      "name": "Nullstone Livingrock Slab",
+      "form": "slab",
+      "texture": "nullstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock_stairs",
+      "name": "Nullstone Livingrock Stairs",
+      "form": "stairs",
+      "texture": "nullstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:nullstone_livingrock_wall",
+      "name": "Nullstone Livingrock Wall",
+      "form": "wall",
+      "texture": "nullstone_livingrock_bricks",
+      "light": 0,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock",
+      "name": "Astralite Livingrock",
+      "form": "raw",
+      "texture": "astralite_livingrock",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock_polished",
+      "name": "Astralite Livingrock Polished",
+      "form": "polished",
+      "texture": "astralite_livingrock_polished",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock_bricks",
+      "name": "Astralite Livingrock Bricks",
+      "form": "bricks",
+      "texture": "astralite_livingrock_bricks",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock_carved",
+      "name": "Astralite Livingrock Carved",
+      "form": "carved",
+      "texture": "astralite_livingrock_carved",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock_slab",
+      "name": "Astralite Livingrock Slab",
+      "form": "slab",
+      "texture": "astralite_livingrock_bricks",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock_stairs",
+      "name": "Astralite Livingrock Stairs",
+      "form": "stairs",
+      "texture": "astralite_livingrock_bricks",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    },
+    {
+      "id": "alfheim:astralite_livingrock_wall",
+      "name": "Astralite Livingrock Wall",
+      "form": "wall",
+      "texture": "astralite_livingrock_bricks",
+      "light": 2,
+      "glass": false,
+      "slag": false
+    }
+  ],
+  "recipes": [
+    {
+      "id": "alfheim:void/riftchalk_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:riftchalk_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftchalk_livingrock_polished",
+      "input": "alfheim:riftchalk_livingrock",
+      "output": "alfheim:riftchalk_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftchalk_livingrock_bricks",
+      "input": "alfheim:riftchalk_livingrock",
+      "output": "alfheim:riftchalk_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftchalk_livingrock_carved",
+      "input": "alfheim:riftchalk_livingrock",
+      "output": "alfheim:riftchalk_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftchalk_livingrock_slab",
+      "input": "alfheim:riftchalk_livingrock",
+      "output": "alfheim:riftchalk_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/riftchalk_livingrock_stairs",
+      "input": "alfheim:riftchalk_livingrock",
+      "output": "alfheim:riftchalk_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftchalk_livingrock_wall",
+      "input": "alfheim:riftchalk_livingrock",
+      "output": "alfheim:riftchalk_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:riftshale_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock_polished",
+      "input": "alfheim:riftshale_livingrock",
+      "output": "alfheim:riftshale_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock_bricks",
+      "input": "alfheim:riftshale_livingrock",
+      "output": "alfheim:riftshale_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock_carved",
+      "input": "alfheim:riftshale_livingrock",
+      "output": "alfheim:riftshale_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock_slab",
+      "input": "alfheim:riftshale_livingrock",
+      "output": "alfheim:riftshale_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock_stairs",
+      "input": "alfheim:riftshale_livingrock",
+      "output": "alfheim:riftshale_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/riftshale_livingrock_wall",
+      "input": "alfheim:riftshale_livingrock",
+      "output": "alfheim:riftshale_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:veilstone_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock_polished",
+      "input": "alfheim:veilstone_livingrock",
+      "output": "alfheim:veilstone_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock_bricks",
+      "input": "alfheim:veilstone_livingrock",
+      "output": "alfheim:veilstone_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock_carved",
+      "input": "alfheim:veilstone_livingrock",
+      "output": "alfheim:veilstone_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock_slab",
+      "input": "alfheim:veilstone_livingrock",
+      "output": "alfheim:veilstone_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock_stairs",
+      "input": "alfheim:veilstone_livingrock",
+      "output": "alfheim:veilstone_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/veilstone_livingrock_wall",
+      "input": "alfheim:veilstone_livingrock",
+      "output": "alfheim:veilstone_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:shardbreccia_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock_polished",
+      "input": "alfheim:shardbreccia_livingrock",
+      "output": "alfheim:shardbreccia_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock_bricks",
+      "input": "alfheim:shardbreccia_livingrock",
+      "output": "alfheim:shardbreccia_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock_carved",
+      "input": "alfheim:shardbreccia_livingrock",
+      "output": "alfheim:shardbreccia_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock_slab",
+      "input": "alfheim:shardbreccia_livingrock",
+      "output": "alfheim:shardbreccia_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock_stairs",
+      "input": "alfheim:shardbreccia_livingrock",
+      "output": "alfheim:shardbreccia_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/shardbreccia_livingrock_wall",
+      "input": "alfheim:shardbreccia_livingrock",
+      "output": "alfheim:shardbreccia_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:anchorstone_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock_polished",
+      "input": "alfheim:anchorstone_livingrock",
+      "output": "alfheim:anchorstone_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock_bricks",
+      "input": "alfheim:anchorstone_livingrock",
+      "output": "alfheim:anchorstone_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock_carved",
+      "input": "alfheim:anchorstone_livingrock",
+      "output": "alfheim:anchorstone_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock_slab",
+      "input": "alfheim:anchorstone_livingrock",
+      "output": "alfheim:anchorstone_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock_stairs",
+      "input": "alfheim:anchorstone_livingrock",
+      "output": "alfheim:anchorstone_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/anchorstone_livingrock_wall",
+      "input": "alfheim:anchorstone_livingrock",
+      "output": "alfheim:anchorstone_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:seamstone_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock_polished",
+      "input": "alfheim:seamstone_livingrock",
+      "output": "alfheim:seamstone_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock_bricks",
+      "input": "alfheim:seamstone_livingrock",
+      "output": "alfheim:seamstone_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock_carved",
+      "input": "alfheim:seamstone_livingrock",
+      "output": "alfheim:seamstone_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock_slab",
+      "input": "alfheim:seamstone_livingrock",
+      "output": "alfheim:seamstone_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock_stairs",
+      "input": "alfheim:seamstone_livingrock",
+      "output": "alfheim:seamstone_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/seamstone_livingrock_wall",
+      "input": "alfheim:seamstone_livingrock",
+      "output": "alfheim:seamstone_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:prismstone_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock_polished",
+      "input": "alfheim:prismstone_livingrock",
+      "output": "alfheim:prismstone_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock_bricks",
+      "input": "alfheim:prismstone_livingrock",
+      "output": "alfheim:prismstone_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock_carved",
+      "input": "alfheim:prismstone_livingrock",
+      "output": "alfheim:prismstone_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock_slab",
+      "input": "alfheim:prismstone_livingrock",
+      "output": "alfheim:prismstone_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock_stairs",
+      "input": "alfheim:prismstone_livingrock",
+      "output": "alfheim:prismstone_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/prismstone_livingrock_wall",
+      "input": "alfheim:prismstone_livingrock",
+      "output": "alfheim:prismstone_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:aetherquartzite_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock_polished",
+      "input": "alfheim:aetherquartzite_livingrock",
+      "output": "alfheim:aetherquartzite_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock_bricks",
+      "input": "alfheim:aetherquartzite_livingrock",
+      "output": "alfheim:aetherquartzite_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock_carved",
+      "input": "alfheim:aetherquartzite_livingrock",
+      "output": "alfheim:aetherquartzite_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock_slab",
+      "input": "alfheim:aetherquartzite_livingrock",
+      "output": "alfheim:aetherquartzite_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock_stairs",
+      "input": "alfheim:aetherquartzite_livingrock",
+      "output": "alfheim:aetherquartzite_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/aetherquartzite_livingrock_wall",
+      "input": "alfheim:aetherquartzite_livingrock",
+      "output": "alfheim:aetherquartzite_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:glintschist_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock_polished",
+      "input": "alfheim:glintschist_livingrock",
+      "output": "alfheim:glintschist_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock_bricks",
+      "input": "alfheim:glintschist_livingrock",
+      "output": "alfheim:glintschist_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock_carved",
+      "input": "alfheim:glintschist_livingrock",
+      "output": "alfheim:glintschist_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock_slab",
+      "input": "alfheim:glintschist_livingrock",
+      "output": "alfheim:glintschist_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock_stairs",
+      "input": "alfheim:glintschist_livingrock",
+      "output": "alfheim:glintschist_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/glintschist_livingrock_wall",
+      "input": "alfheim:glintschist_livingrock",
+      "output": "alfheim:glintschist_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:rootfossil_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock_polished",
+      "input": "alfheim:rootfossil_livingrock",
+      "output": "alfheim:rootfossil_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock_bricks",
+      "input": "alfheim:rootfossil_livingrock",
+      "output": "alfheim:rootfossil_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock_carved",
+      "input": "alfheim:rootfossil_livingrock",
+      "output": "alfheim:rootfossil_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock_slab",
+      "input": "alfheim:rootfossil_livingrock",
+      "output": "alfheim:rootfossil_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock_stairs",
+      "input": "alfheim:rootfossil_livingrock",
+      "output": "alfheim:rootfossil_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/rootfossil_livingrock_wall",
+      "input": "alfheim:rootfossil_livingrock",
+      "output": "alfheim:rootfossil_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:resinshale_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock_polished",
+      "input": "alfheim:resinshale_livingrock",
+      "output": "alfheim:resinshale_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock_bricks",
+      "input": "alfheim:resinshale_livingrock",
+      "output": "alfheim:resinshale_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock_carved",
+      "input": "alfheim:resinshale_livingrock",
+      "output": "alfheim:resinshale_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock_slab",
+      "input": "alfheim:resinshale_livingrock",
+      "output": "alfheim:resinshale_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock_stairs",
+      "input": "alfheim:resinshale_livingrock",
+      "output": "alfheim:resinshale_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/resinshale_livingrock_wall",
+      "input": "alfheim:resinshale_livingrock",
+      "output": "alfheim:resinshale_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:hollowheart_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock_polished",
+      "input": "alfheim:hollowheart_livingrock",
+      "output": "alfheim:hollowheart_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock_bricks",
+      "input": "alfheim:hollowheart_livingrock",
+      "output": "alfheim:hollowheart_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock_carved",
+      "input": "alfheim:hollowheart_livingrock",
+      "output": "alfheim:hollowheart_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock_slab",
+      "input": "alfheim:hollowheart_livingrock",
+      "output": "alfheim:hollowheart_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock_stairs",
+      "input": "alfheim:hollowheart_livingrock",
+      "output": "alfheim:hollowheart_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/hollowheart_livingrock_wall",
+      "input": "alfheim:hollowheart_livingrock",
+      "output": "alfheim:hollowheart_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:epitaph_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock_polished",
+      "input": "alfheim:epitaph_livingrock",
+      "output": "alfheim:epitaph_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock_bricks",
+      "input": "alfheim:epitaph_livingrock",
+      "output": "alfheim:epitaph_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock_carved",
+      "input": "alfheim:epitaph_livingrock",
+      "output": "alfheim:epitaph_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock_slab",
+      "input": "alfheim:epitaph_livingrock",
+      "output": "alfheim:epitaph_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock_stairs",
+      "input": "alfheim:epitaph_livingrock",
+      "output": "alfheim:epitaph_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/epitaph_livingrock_wall",
+      "input": "alfheim:epitaph_livingrock",
+      "output": "alfheim:epitaph_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:mourning_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock_polished",
+      "input": "alfheim:mourning_livingrock",
+      "output": "alfheim:mourning_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock_bricks",
+      "input": "alfheim:mourning_livingrock",
+      "output": "alfheim:mourning_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock_carved",
+      "input": "alfheim:mourning_livingrock",
+      "output": "alfheim:mourning_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock_slab",
+      "input": "alfheim:mourning_livingrock",
+      "output": "alfheim:mourning_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock_stairs",
+      "input": "alfheim:mourning_livingrock",
+      "output": "alfheim:mourning_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/mourning_livingrock_wall",
+      "input": "alfheim:mourning_livingrock",
+      "output": "alfheim:mourning_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:oathstone_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock_polished",
+      "input": "alfheim:oathstone_livingrock",
+      "output": "alfheim:oathstone_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock_bricks",
+      "input": "alfheim:oathstone_livingrock",
+      "output": "alfheim:oathstone_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock_carved",
+      "input": "alfheim:oathstone_livingrock",
+      "output": "alfheim:oathstone_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock_slab",
+      "input": "alfheim:oathstone_livingrock",
+      "output": "alfheim:oathstone_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock_stairs",
+      "input": "alfheim:oathstone_livingrock",
+      "output": "alfheim:oathstone_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/oathstone_livingrock_wall",
+      "input": "alfheim:oathstone_livingrock",
+      "output": "alfheim:oathstone_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:nightmantle_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock_polished",
+      "input": "alfheim:nightmantle_livingrock",
+      "output": "alfheim:nightmantle_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock_bricks",
+      "input": "alfheim:nightmantle_livingrock",
+      "output": "alfheim:nightmantle_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock_carved",
+      "input": "alfheim:nightmantle_livingrock",
+      "output": "alfheim:nightmantle_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock_slab",
+      "input": "alfheim:nightmantle_livingrock",
+      "output": "alfheim:nightmantle_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock_stairs",
+      "input": "alfheim:nightmantle_livingrock",
+      "output": "alfheim:nightmantle_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nightmantle_livingrock_wall",
+      "input": "alfheim:nightmantle_livingrock",
+      "output": "alfheim:nightmantle_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:nullstone_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock_polished",
+      "input": "alfheim:nullstone_livingrock",
+      "output": "alfheim:nullstone_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock_bricks",
+      "input": "alfheim:nullstone_livingrock",
+      "output": "alfheim:nullstone_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock_carved",
+      "input": "alfheim:nullstone_livingrock",
+      "output": "alfheim:nullstone_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock_slab",
+      "input": "alfheim:nullstone_livingrock",
+      "output": "alfheim:nullstone_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock_stairs",
+      "input": "alfheim:nullstone_livingrock",
+      "output": "alfheim:nullstone_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/nullstone_livingrock_wall",
+      "input": "alfheim:nullstone_livingrock",
+      "output": "alfheim:nullstone_livingrock_wall",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock",
+      "input": "botania:livingrock",
+      "output": "alfheim:astralite_livingrock",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock_polished",
+      "input": "alfheim:astralite_livingrock",
+      "output": "alfheim:astralite_livingrock_polished",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock_bricks",
+      "input": "alfheim:astralite_livingrock",
+      "output": "alfheim:astralite_livingrock_bricks",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock_carved",
+      "input": "alfheim:astralite_livingrock",
+      "output": "alfheim:astralite_livingrock_carved",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock_slab",
+      "input": "alfheim:astralite_livingrock",
+      "output": "alfheim:astralite_livingrock_slab",
+      "count": 2
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock_stairs",
+      "input": "alfheim:astralite_livingrock",
+      "output": "alfheim:astralite_livingrock_stairs",
+      "count": 1
+    },
+    {
+      "id": "alfheim:void/astralite_livingrock_wall",
+      "input": "alfheim:astralite_livingrock",
+      "output": "alfheim:astralite_livingrock_wall",
+      "count": 1
+    }
+  ]
+}

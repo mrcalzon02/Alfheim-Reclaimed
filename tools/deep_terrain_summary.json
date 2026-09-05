@@ -1,0 +1,335 @@
+{
+  "sections": [
+    {
+      "mode": "baseline",
+      "site": 0,
+      "axis": 0,
+      "max_open_height": 28,
+      "max_open_width": 34,
+      "max_lava_width": 20,
+      "lava_samples": 155,
+      "air_samples": 626,
+      "ore_samples": 52,
+      "solid_samples": 11087,
+      "ores_per_thousand_solid": 4.69,
+      "native_stones": [],
+      "bedrock_floor": false,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "baseline",
+      "site": 0,
+      "axis": 1,
+      "max_open_height": 29,
+      "max_open_width": 28,
+      "max_lava_width": 28,
+      "lava_samples": 124,
+      "air_samples": 548,
+      "ore_samples": 44,
+      "solid_samples": 11196,
+      "ores_per_thousand_solid": 3.93,
+      "native_stones": [],
+      "bedrock_floor": false,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "baseline",
+      "site": 1,
+      "axis": 0,
+      "max_open_height": 12,
+      "max_open_width": 14,
+      "max_lava_width": 0,
+      "lava_samples": 0,
+      "air_samples": 148,
+      "ore_samples": 107,
+      "solid_samples": 11552,
+      "ores_per_thousand_solid": 9.26,
+      "native_stones": [],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "baseline",
+      "site": 1,
+      "axis": 1,
+      "max_open_height": 30,
+      "max_open_width": 14,
+      "max_lava_width": 0,
+      "lava_samples": 0,
+      "air_samples": 287,
+      "ore_samples": 92,
+      "solid_samples": 11581,
+      "ores_per_thousand_solid": 7.94,
+      "native_stones": [],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "baseline",
+      "site": 2,
+      "axis": 0,
+      "max_open_height": 16,
+      "max_open_width": 20,
+      "max_lava_width": 0,
+      "lava_samples": 0,
+      "air_samples": 238,
+      "ore_samples": 97,
+      "solid_samples": 11589,
+      "ores_per_thousand_solid": 8.37,
+      "native_stones": [],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "baseline",
+      "site": 2,
+      "axis": 1,
+      "max_open_height": 23,
+      "max_open_width": 22,
+      "max_lava_width": 0,
+      "lava_samples": 0,
+      "air_samples": 238,
+      "ore_samples": 84,
+      "solid_samples": 11630,
+      "ores_per_thousand_solid": 7.22,
+      "native_stones": [],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "treatment",
+      "site": 0,
+      "axis": 0,
+      "max_open_height": 84,
+      "max_open_width": 162,
+      "max_lava_width": 94,
+      "lava_samples": 289,
+      "air_samples": 5333,
+      "ore_samples": 72,
+      "solid_samples": 6246,
+      "ores_per_thousand_solid": 11.53,
+      "native_stones": [
+        "alfheim:amber_livingrock",
+        "alfheim:cracked_livingrock",
+        "alfheim:fern_livingrock",
+        "alfheim:gloam_livingrock",
+        "alfheim:leyline_livingrock",
+        "alfheim:magmatic_livingrock",
+        "alfheim:rootbound_livingrock",
+        "alfheim:starfleck_livingrock"
+      ],
+      "bedrock_floor": false,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "treatment",
+      "site": 0,
+      "axis": 1,
+      "max_open_height": 73,
+      "max_open_width": 216,
+      "max_lava_width": 72,
+      "lava_samples": 287,
+      "air_samples": 4679,
+      "ore_samples": 97,
+      "solid_samples": 6902,
+      "ores_per_thousand_solid": 14.05,
+      "native_stones": [
+        "alfheim:cracked_livingrock",
+        "alfheim:gloam_livingrock",
+        "alfheim:leyline_livingrock",
+        "alfheim:magmatic_livingrock",
+        "alfheim:starfleck_livingrock"
+      ],
+      "bedrock_floor": false,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "treatment",
+      "site": 1,
+      "axis": 0,
+      "max_open_height": 68,
+      "max_open_width": 160,
+      "max_lava_width": 58,
+      "lava_samples": 105,
+      "air_samples": 4221,
+      "ore_samples": 131,
+      "solid_samples": 7500,
+      "ores_per_thousand_solid": 17.47,
+      "native_stones": [
+        "alfheim:abyssal_livingrock",
+        "alfheim:cracked_livingrock",
+        "alfheim:fern_livingrock",
+        "alfheim:frost_livingrock",
+        "alfheim:gale_livingrock",
+        "alfheim:magmatic_livingrock",
+        "alfheim:moss_livingrock",
+        "alfheim:rootbound_livingrock",
+        "alfheim:storm_livingrock",
+        "alfheim:tide_livingrock"
+      ],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "treatment",
+      "site": 1,
+      "axis": 1,
+      "max_open_height": 68,
+      "max_open_width": 184,
+      "max_lava_width": 164,
+      "lava_samples": 177,
+      "air_samples": 6177,
+      "ore_samples": 100,
+      "solid_samples": 5514,
+      "ores_per_thousand_solid": 18.14,
+      "native_stones": [
+        "alfheim:abyssal_livingrock",
+        "alfheim:amber_livingrock",
+        "alfheim:cracked_livingrock",
+        "alfheim:fern_livingrock",
+        "alfheim:frost_livingrock",
+        "alfheim:gale_livingrock",
+        "alfheim:magmatic_livingrock",
+        "alfheim:petrified_livingrock",
+        "alfheim:rootbound_livingrock",
+        "alfheim:storm_livingrock",
+        "alfheim:tide_livingrock"
+      ],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "treatment",
+      "site": 2,
+      "axis": 0,
+      "max_open_height": 70,
+      "max_open_width": 94,
+      "max_lava_width": 76,
+      "lava_samples": 172,
+      "air_samples": 3916,
+      "ore_samples": 97,
+      "solid_samples": 7780,
+      "ores_per_thousand_solid": 12.47,
+      "native_stones": [
+        "alfheim:abyssal_livingrock",
+        "alfheim:cracked_livingrock",
+        "alfheim:frost_livingrock",
+        "alfheim:gale_livingrock",
+        "alfheim:magmatic_livingrock",
+        "alfheim:tide_livingrock"
+      ],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    },
+    {
+      "mode": "treatment",
+      "site": 2,
+      "axis": 1,
+      "max_open_height": 71,
+      "max_open_width": 190,
+      "max_lava_width": 74,
+      "lava_samples": 149,
+      "air_samples": 5522,
+      "ore_samples": 89,
+      "solid_samples": 6197,
+      "ores_per_thousand_solid": 14.36,
+      "native_stones": [
+        "alfheim:abyssal_livingrock",
+        "alfheim:amber_livingrock",
+        "alfheim:cracked_livingrock",
+        "alfheim:fern_livingrock",
+        "alfheim:frost_livingrock",
+        "alfheim:gale_livingrock",
+        "alfheim:magmatic_livingrock",
+        "alfheim:tide_livingrock"
+      ],
+      "bedrock_floor": true,
+      "stone_above_limit": 0
+    }
+  ],
+  "treatment_world": "deep-terrain-treatment-20260905-130352",
+  "treatment_console": "deep-terrain-treatment-20260905-130352.log",
+  "upper_density_equal": true,
+  "surface_height_differences": 3,
+  "surface_height_details": [
+    {
+      "baseline": [
+        -1930.0,
+        -960.0,
+        70.0
+      ],
+      "treatment": [
+        -1930.0,
+        -960.0,
+        75.0
+      ]
+    },
+    {
+      "baseline": [
+        -1928.0,
+        -960.0,
+        70.0
+      ],
+      "treatment": [
+        -1928.0,
+        -960.0,
+        76.0
+      ]
+    },
+    {
+      "baseline": [
+        -1926.0,
+        -960.0,
+        70.0
+      ],
+      "treatment": [
+        -1926.0,
+        -960.0,
+        74.0
+      ]
+    }
+  ],
+  "bottom_block_differences": 0,
+  "baseline_world": "deep-terrain-baseline-20260905-130620",
+  "totals": {
+    "baseline": {
+      "lava_samples": 279,
+      "air_samples": 2085,
+      "ore_samples": 476,
+      "solid_samples": 68635,
+      "ores_per_thousand_solid": 6.94
+    },
+    "treatment": {
+      "lava_samples": 1179,
+      "air_samples": 29848,
+      "ore_samples": 586,
+      "solid_samples": 40139,
+      "ores_per_thousand_solid": 14.6
+    }
+  },
+  "unique_natural_stones": [
+    "alfheim:abyssal_livingrock",
+    "alfheim:amber_livingrock",
+    "alfheim:cracked_livingrock",
+    "alfheim:fern_livingrock",
+    "alfheim:frost_livingrock",
+    "alfheim:gale_livingrock",
+    "alfheim:gloam_livingrock",
+    "alfheim:leyline_livingrock",
+    "alfheim:magmatic_livingrock",
+    "alfheim:moss_livingrock",
+    "alfheim:petrified_livingrock",
+    "alfheim:rootbound_livingrock",
+    "alfheim:starfleck_livingrock",
+    "alfheim:storm_livingrock",
+    "alfheim:tide_livingrock"
+  ],
+  "checks": {
+    "upper_density_preserved": true,
+    "bottom_blocks_preserved": true,
+    "no_library_stone_above_y23": true,
+    "three_large_lava_sites": true,
+    "added_cavity_samples": true,
+    "richer_ore_in_solid_rock": true
+  }
+}

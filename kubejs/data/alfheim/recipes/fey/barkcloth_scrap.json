@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alfheim:barkcloth_scrap"
+    },
+    {
+      "item": "alfheim:barkcloth_scrap"
+    },
+    {
+      "item": "alfheim:barkcloth_scrap"
+    }
+  ],
+  "result": {
+    "item": "minecraft:string",
+    "count": 2
+  }
+}
