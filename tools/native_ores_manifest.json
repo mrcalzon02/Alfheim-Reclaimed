@@ -1,0 +1,61 @@
+{
+  "ores": [
+    {
+      "id": "elementium",
+      "name": "Elementium",
+      "source_texture": "mythicbotany:block/elementium_ore.png",
+      "source_host": "botania:block/livingrock.png",
+      "base_block": "mythicbotany:elementium_ore",
+      "drop": "mythicbotany:raw_elementium",
+      "tier": "minecraft:needs_iron_tool",
+      "size": 12,
+      "count": 6,
+      "height": {
+        "type": "minecraft:trapezoid",
+        "max_inclusive": {"absolute": 70},
+        "min_inclusive": {"above_bottom": 0}
+      }
+    },
+    {
+      "id": "dragonstone",
+      "name": "Dragonstone",
+      "source_texture": "mythicbotany:block/dragonstone_ore.png",
+      "source_host": "botania:block/livingrock.png",
+      "base_block": "mythicbotany:dragonstone_ore",
+      "drop": "botania:dragonstone",
+      "tier": "minecraft:needs_diamond_tool",
+      "size": 7,
+      "count": 2,
+      "height": {
+        "type": "minecraft:trapezoid",
+        "max_inclusive": {"absolute": 20},
+        "min_inclusive": {"above_bottom": 0}
+      }
+    },
+    {
+      "id": "fey_gem",
+      "name": "Fey Gem",
+      "source_texture": "feywild:block/fey_gem_ore.png",
+      "source_host": "minecraft:block/stone.png",
+      "base_block": "feywild:fey_gem_ore",
+      "drop": "feywild:fey_gem",
+      "tier": "minecraft:needs_iron_tool",
+      "size": 6,
+      "count": 3,
+      "height": {
+        "type": "minecraft:trapezoid",
+        "max_inclusive": {"absolute": 48},
+        "min_inclusive": {"absolute": -48}
+      }
+    }
+  ],
+  "fey_gem_biomes": [
+    "alfheim:ashen_grove",
+    "alfheim:bloomfall_vale",
+    "alfheim:silverbark_wood",
+    "mythicbotany:alfheim_hills",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:golden_fields"
+  ]
+}

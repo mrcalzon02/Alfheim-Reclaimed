@@ -1,6 +1,6 @@
 # Backlog
 
-### B-80 — September 5 field-review corrections — **I1 RUNTIME-PROVEN; I2–I5 + I8 STATIC 2026-09-06**
+### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I2–I5 + I8 STATIC 2026-09-06**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
 `alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
@@ -16,6 +16,11 @@ Elementium and Dragonstone deposits, a native Fey Gem ore, and knight-quest crea
 appropriate structures. Pixie villages now explicitly require climate-matched Feywild trees, small
 organic sky islands and vanilla food gardens. These are planning commitments, not implementation claims.
 
+The later queue adds multiple distinct forest identities, at least two dense wooded-shoreline environments
+around Alfheim's large ocean footprint, climate-matched Feywild mushrooms in every non-Void biome, a custom
+Bramble family without repeating growth logic, and more local-stone crystalline/geode features throughout
+the six Void biomes. The Void remains absolutely vegetation-free.
+
 I1–I5 now have an implementation pass: deterministic Great Bole placement, native Scorchfell
 surface/lava features, sparse named ocean vegetation, removal of the wood-elf skin handler, and a
 continuous low littoral density blend at the Void Verge. Static checks pass. After Java was cleared,
@@ -28,6 +33,12 @@ I8 now adds six restrained climate accents through Alfheim-owned wrappers around
 Jaffabricate/Feywild placement rules. The wrappers retain the source rarity and ground-safety predicates
 while avoiding cross-mod feature-order cycles. Giant-tree world placement remains disabled, and denser
 Feywild tree groupings remain reserved for the deliberately shaped pixie sky islands.
+
+I10 is runtime smoke-proven. Elementium is now size 12/count 6, Dragonstone size 7/count 2, and the new
+climate-limited Fey Gem feature size 6/count 3. All three have variants for the 42 natural Deep/Void hosts
+(126 blocks total) with source-equivalent loot and startup-only registration. A clean fresh server generated
+639 full Alfheim chunks containing 26 naturally selected hosted IDs from all three families. Wider density
+sampling and client texture review remain.
 
 ### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
 

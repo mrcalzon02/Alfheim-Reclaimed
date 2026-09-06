@@ -16,6 +16,11 @@ The queue also includes three more
 Z-fighting models, pants/book display offsets, native ore tuning and Fey Gem compatibility, and
 knight-quest structure spawners. Starfall precipitation is accepted and will not be changed.
 
+Newly queued after the ore pass: multiple forest identities; two dense wooded-shoreline environments around
+the large Alfheim Ocean footprint; climate-matched Feywild mushrooms across every non-Void biome; a custom
+Bramble family using static behavior rather than repeating growth code; and additional local-stone crystal/
+geode features for all six Void biomes. The Void's no-living-growth rule remains absolute.
+
 I1 is runtime-proven and I2–I5 have a static implementation pass. Hub creation now checks a bounded
 solid-surface lattice, assembles the trunk/crown/court/base exactly once, verifies its baked anchor,
 retries only an explicit failure and reopens provisional worlds;
@@ -34,6 +39,11 @@ I8 uses six climate-specific biome modifiers and Alfheim-owned placed-feature wr
 Jaffabricate/Feywild rarity and survival rules. This keeps the additions sparse and eliminates the feature-
 order cycles produced by directly sharing their vanilla-biome placed-feature identities. The dedicated tree
 checker, full worldgen resolver and global feature-order checker pass; fresh-client visual acceptance remains.
+
+I10 is runtime smoke-proven. Elementium uses size 12/count 6, Dragonstone size 7/count 2, and climate-limited
+Fey Gem size 6/count 3. Each has 42 Deep/Void host variants with preserved source loot—126 startup-registered
+blocks and no recurring hook. The fresh validation server exited 0; 639 full Alfheim chunks contain 26
+distinct hosted IDs across all three ore families. Quantitative density and client appearance remain open.
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 

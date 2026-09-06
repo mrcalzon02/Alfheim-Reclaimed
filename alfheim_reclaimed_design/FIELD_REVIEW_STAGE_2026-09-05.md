@@ -134,17 +134,22 @@ fault does not survive in sibling assets.
 Acceptance: the three blocks remain stable at near/mid/far camera distances; pants and books are centered in
 inventory, hand and item frame; generated siblings pass the same transform bounds check.
 
-### I10 — native and compatibility ore tuning (queued)
+### I10 — native and compatibility ore tuning (runtime smoke-proven)
 
-Increase MythicBotany Elementium and Dragonstone deposit size and placement frequency in Alfheim without
-restoring ordinary Overworld ore. Add a native **Fey Gem ore** route for Feywild compatibility after verifying
-the exact installed item registry id, then give it Deep host-rock variants and a climate/era-appropriate
-distribution. Preserve material scarcity by measuring blocks per chunk rather than multiplying both size and
-count blindly.
+Elementium is increased from size 9/count 5 to size 12/count 6; Dragonstone from size 4/count 1 to size
+7/count 2. This deliberately increases both deposit presence and useful deposit size without multiplying
+either into ordinary-ore abundance. Fey Gem now has its own climate-limited Alfheim feature at size 6/count
+3 across seven living/fey biomes.
 
-Acceptance: sampled new chunks show the larger/more frequent Elementium and Dragonstone target bands; Fey
-Gem is renewable from an Alfheim-native ore and follows the matching Deep rock palette; progression and
-feature-order checks remain valid.
+Elementium, Dragonstone and Fey Gem each have 42 host-matched variants covering every authored Deep and
+Void natural stone. Exact host predicates are evaluated before the broad Livingrock fallback, so authored
+stone walls no longer receive a conspicuous foreign-rock square. Source Silk Touch, Fortune, count and
+explosion behavior are retained. The 126 blocks register once at startup; there is no polling or tick script.
+
+Acceptance: quantitative blocks-per-chunk sampling still needs a wider fixed-seed census and the textures
+need client inspection. The fresh headless smoke world did load cleanly and its 639 full Alfheim chunks
+contained 26 distinct naturally generated hosted IDs, including Fey Gem, Elementium and Dragonstone.
+Progression and feature-order checks remain valid.
 
 ### I11 — structure encounter spawners (queued)
 
@@ -154,6 +159,37 @@ ranges and cooldowns; never substitute arbitrary hostile mobs merely because the
 
 Acceptance: every named knight-quest creature has at least one discoverable structure encounter, spawners do
 not leak into the Hollow Court or peaceful settlements, and quest kill/encounter credit works end to end.
+
+### I12 — forest, wooded-shore and living undergrowth expansion (queued)
+
+Add several recognizably different forest identities rather than treating every wooded biome as a different
+leaf color over the same spacing. At minimum, design two dense wooded shoreline environments around the large
+Alfheim Ocean footprint: one warm/lush coast and one cool or misted coast. Their biome/density bands must
+follow the actual littoral instead of dropping generic trees into every inland chunk; trunks, fallen wood,
+roots and understory should make both read as forests while retaining navigable openings and views to water.
+
+Inventory the installed Feywild mushroom features and distribute climate-suitable families through every
+non-Void biome. “Nothing grows” remains an absolute Void rule: no mushrooms, brambles, trees, grass or other
+living ground cover may target Void Verge, Prism Drift, Rootfall, Sepulchral Reach, Shatterfields or Starless
+Reach. Add an Alfheim Bramble block/family for thickets, hedges and ruins; prefer static block behavior and
+worldgen predicates over any repeating growth script. Bramble density, collision/damage behavior, drops and
+renewability require a separate design gate before implementation.
+
+Acceptance: at least two shore forest types form dense, irregular coastal belts in new chunks; inland forest
+types remain visually distinct; mushroom families are climate-aligned and absent from every Void biome; and
+brambles enrich paths/edges without turning normal travel into constant chip damage or a performance cost.
+
+### I13 — Void crystal and local-stone geode expansion (queued)
+
+Expand the crystalline feature vocabulary of Void Verge and all associated Void biomes. New geodes, crystal
+seams, exposed nodules, broken crowns and suspended shard clusters must use each host biome's local stone
+types for shells, anchors and debris instead of falling back to generic Livingrock. Give related environments
+shared mineral logic but different silhouettes and exposure levels, so the features help explain the geology
+rather than reading as randomly pasted decorations.
+
+Acceptance: every Void biome gains at least two suitable crystalline/structural feature families; shells and
+supports match the local stone palette; features never introduce living vegetation; placements preserve the
+intentional floating-island silhouette and stay clear of major authored structures.
 
 ## Running completion record
 
@@ -167,10 +203,12 @@ not leak into the Hollow Court or peaceful settlements, and quest kill/encounter
 | I5 | static prototype | CLIFF..RIM now continuously blends ordinary density into a lower noisy shore; Deep density is explicitly excluded from that blend. | `70d2fa8` |
 | I6 | deferred | Explicitly queued; no image generation authorized for this stage. | — |
 | I7 | deferred | Pixie settlement/spawner brief captured. | — |
-| I8 | static implemented | Six sparse climate accents use Alfheim-owned wrappers around Jaffabricate/Feywild placement rules. Cross-mod feature ordering is acyclic. TaxTreeGiant world placement is explicitly disabled by later field-review decision. | pending |
+| I8 | static implemented | Six sparse climate accents use Alfheim-owned wrappers around Jaffabricate/Feywild placement rules. Cross-mod feature ordering is acyclic. TaxTreeGiant world placement is explicitly disabled by later field-review decision. | `7348eed` |
 | I9 | queued | Carpet, balustrade, wall-sconce Z-fighting and right-shifted pants/books recorded. | — |
-| I10 | queued | Elementium/Dragonstone density tuning and native Fey Gem ore compatibility recorded. | — |
+| I10 | runtime smoke-proven | Elementium 12×6, Dragonstone 7×2, climate-limited Fey Gem 6×3; 126 host-matched variants. Fresh server exit 0; 639 full chunks contain 26 hosted IDs from all three ores. Wider density/client review remains. | pending |
 | I11 | queued | Knight-quest creature spawners in suitable structures recorded. | — |
+| I12 | queued | Distinct forests, two dense wooded shore types, non-Void Feywild mushrooms, and static-behavior Bramble family recorded. | — |
+| I13 | queued | More local-stone geodes/crystal structures across all six Void biomes recorded. | — |
 
 ## Implementation log
 
@@ -193,6 +231,19 @@ not leak into the Hollow Court or peaceful settlements, and quest kill/encounter
   predicate while isolating the registry identities from the source mods' vanilla-biome order graph.
 - `tools/check_tree_worldgen.py`, the full worldgen resolver and the global feature-order checker pass.
   Natural placement still needs new-chunk visual acceptance; dense Feywild groves remain part of I7.
+
+### 2026-09-06 — I10 native ore pass and I12–I13 plan expansion
+
+- `tools/gen_native_ores.py` and `tools/native_ores_manifest.json` own three ore families, 126 hosted
+  blocks/textures/loot tables, measured density settings and the climate-limited Fey Gem modifier.
+- `tools/check_native_ores.py` proves the complete host mapping, source-equivalent loot, animation
+  metadata, configured/placed feature contract and absence of repeating runtime hooks. Full worldgen,
+  global feature order and all KubeJS syntax checks pass.
+- `validation-native-ores-0906` exited cleanly. Its 639 full Alfheim chunks contain 5,024 section-palette
+  references across 26 hosted ore IDs, including all three families. This proves natural selection and
+  registration, not the final blocks-per-chunk balance or client appearance.
+- Later field-review additions are queued as I12 (multiple forest identities, two dense wooded shores,
+  non-Void Feywild mushrooms and a Bramble family) and I13 (more local-stone Void geodes/crystals).
 - Runtime script policy: `kubejs/server_scripts/16_wood_elf_skins.js` removed. Its legacy generator
   is prevented from recreating it. Dedicated court NPC assets remain I6 scope.
 - Passing checks: Deep regeneration, Deep invariants, worldgen/climate, feature order (961 edges,

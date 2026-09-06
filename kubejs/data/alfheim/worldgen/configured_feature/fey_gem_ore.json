@@ -1,0 +1,396 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 6,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:cracked_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_cracked_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:magmatic_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_magmatic_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:embervein_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_embervein_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:cinder_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_cinder_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:obsidian_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_obsidian_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:moonstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_moonstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:dawn_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_dawn_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rose_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_rose_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:ivory_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_ivory_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:silvermist_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_silvermist_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:moss_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_moss_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rootbound_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_rootbound_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:fern_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_fern_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:amber_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_amber_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:petrified_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_petrified_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:tide_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_tide_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:abyssal_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_abyssal_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:frost_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_frost_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:gale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_gale_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:storm_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_storm_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:amethyst_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_amethyst_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:leyline_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_leyline_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:gloam_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_gloam_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:starfleck_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_starfleck_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:riftchalk_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_riftchalk_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:riftshale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_riftshale_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:veilstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_veilstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:shardbreccia_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_shardbreccia_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:anchorstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_anchorstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:seamstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_seamstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:prismstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_prismstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:aetherquartzite_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_aetherquartzite_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:glintschist_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_glintschist_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rootfossil_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_rootfossil_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:resinshale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_resinshale_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:hollowheart_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_hollowheart_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:epitaph_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_epitaph_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:mourning_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_mourning_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:oathstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_oathstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:nightmantle_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_nightmantle_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:nullstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_nullstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:astralite_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:fey_gem_astralite_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "mythicbotany:base_stone_alfheim"
+        },
+        "state": {
+          "Name": "feywild:fey_gem_ore"
+        }
+      }
+    ]
+  }
+}
