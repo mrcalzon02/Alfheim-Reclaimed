@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:silverbark_wood",
+    "mythicbotany:dreamwood_forest"
+  ],
+  "features": "alfheim:tree_jaffa_orange_scattered",
+  "step": "vegetal_decoration"
+}

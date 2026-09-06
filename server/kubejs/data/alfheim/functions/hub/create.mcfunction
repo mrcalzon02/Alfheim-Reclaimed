@@ -4,14 +4,12 @@
 #
 # Idempotent. Safe to run repeatedly and safe to run from #minecraft:load, which fires on every world load AND every /reload.
 #
-# This function CANNOT finish the job on its own, and that is deliberate. `forceload add` only marks chunks -- the server generates them over the following ticks -- so the anchor baked into greatbole/base.nbt does not exist yet on the tick this runs. Anything reading the anchor here would read nothing. So create only starts the work and hands off to hub/resolve, which retries until the chunks are actually there.
+# Creation assembles the templates explicitly, stores the result, then verifies the structure-carried anchor. It never depends on incidental chunk generation.
 
 scoreboard objectives add alfheim.hub dummy
 scoreboard players set #attempts alfheim.hub 0
+scoreboard players set #place_result alfheim.hub -1
 
-# Generate the ground the hub stands on -- and, with it, the Greatbole and the anchor
-# marker baked into its base piece. NEAR first: this is the disc the tree occupies when it
-# pins to chunk 0,0, which is the normal case, and it is a fifth of the chunks.
-execute in mythicbotany:alfheim run forceload add -4 -4 4 4
+function alfheim:hub/place
 
 function alfheim:hub/resolve

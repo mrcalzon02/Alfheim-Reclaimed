@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:spring_feature",
+  "config": {
+    "state": {
+      "Name": "minecraft:lava",
+      "Properties": {
+        "falling": "true"
+      }
+    },
+    "rock_count": 4,
+    "hole_count": 1,
+    "requires_block_below": true,
+    "valid_blocks": [
+      "alfheim:magmatic_livingrock",
+      "alfheim:embervein_livingrock",
+      "alfheim:cinder_livingrock",
+      "alfheim:obsidian_livingrock",
+      "alfheim:cracked_livingrock"
+    ]
+  }
+}

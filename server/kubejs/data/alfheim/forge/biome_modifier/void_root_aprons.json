@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:rootfall"
+  ],
+  "features": "alfheim:void/root_aprons",
+  "step": "local_modifications"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:bloomfall_vale",
+    "mythicbotany:golden_fields"
+  ],
+  "features": "alfheim:tree_jaffa_orange_warm",
+  "step": "vegetal_decoration"
+}

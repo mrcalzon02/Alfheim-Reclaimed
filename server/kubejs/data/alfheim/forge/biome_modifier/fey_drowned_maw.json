@@ -2,6 +2,7 @@
   "type": "forge:add_spawns",
   "biomes": [
     "mythicbotany:alfheim_lakes",
+    "alfheim:alfheim_ocean",
     "alfheim:mana_fen"
   ],
   "spawners": {

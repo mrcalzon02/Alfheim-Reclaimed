@@ -4,15 +4,16 @@
 #
 # Reached when hub/resolve has waited ~2 minutes. This does not end the search: it gives the world a spawn a player can stand on, and hub/resolve keeps looking for the real anchor and re-anchors to it when it appears.
 #
-# spreadplayers drops a summoned marker onto a legal surface, which still gives the world a spawn a player can stand on.
+# Uses a tiny emergency platform at the origin. Non-player entities cannot carry a spreadplayers destination across an unloaded chunk, so the provisional path must not pretend they can.
 
 execute in mythicbotany:alfheim run kill @e[type=minecraft:marker,tag=alfheim_hub,tag=!alfheim_hub_baked]
-execute in mythicbotany:alfheim run summon minecraft:marker 0 250 0 {Tags:["alfheim_hub"]}
-execute in mythicbotany:alfheim run spreadplayers 0 0 1 24 false @e[type=minecraft:marker,tag=alfheim_hub]
+execute in mythicbotany:alfheim run forceload add -16 -16 16 16
+execute in mythicbotany:alfheim run fill -2 99 -2 2 99 2 botania:livingrock
+execute in mythicbotany:alfheim run summon minecraft:marker 0 100 0 {Tags:["alfheim_hub"]}
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run setworldspawn ~ ~1 ~
 
 execute in mythicbotany:alfheim run forceload remove all
-execute in mythicbotany:alfheim run forceload add -6 -6 6 6
+execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run forceload add -16 -16 16 16
 
 scoreboard players set #created alfheim.hub 1
 tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; using a provisional spawn at the origin. It will move to the tree automatically once the chunks finish.","color":"yellow"}

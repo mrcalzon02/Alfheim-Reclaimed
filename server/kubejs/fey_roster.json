@@ -230,6 +230,7 @@
     "celestial": false,
     "biomes": [
       "mythicbotany:alfheim_lakes",
+      "alfheim:alfheim_ocean",
       "alfheim:void_verge"
     ],
     "weight": 2
@@ -264,6 +265,7 @@
     "celestial": false,
     "biomes": [
       "mythicbotany:alfheim_lakes",
+      "alfheim:alfheim_ocean",
       "alfheim:mana_fen"
     ],
     "weight": 1

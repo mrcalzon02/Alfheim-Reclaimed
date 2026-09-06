@@ -1,0 +1,48 @@
+{
+  "minecraft": "1.20.1",
+  "forge": "47.4.10",
+  "seed": "hub-proof-wide-0906",
+  "level_name": "validation-hub-proof-wide-0906",
+  "heap_gib": 8,
+  "elapsed_s": 85.6,
+  "exit_code": 0,
+  "harness_exit_code": 0,
+  "properties": {
+    "level-name": "validation-hub-proof-wide-0906",
+    "level-seed": "hub-proof-wide-0906",
+    "online-mode": "false",
+    "gamemode": "creative",
+    "max-tick-time": "-1",
+    "view-distance": "8",
+    "simulation-distance": "6",
+    "spawn-protection": "0",
+    "sync-chunk-writes": "false",
+    "motd": "Alfheim Reclaimed - headless validation"
+  },
+  "omitted_mods": [
+    "continuity-3.0.0+1.20.1.forge.jar",
+    "entity_texture_features_1.20.1-forge-7.1.jar",
+    "entity_model_features-3.2.4-1.20.1-forge.jar",
+    "BetterGrassify-1.4.4+forge.1.20.1.jar",
+    "forgeskyboxes-0.0.2-1.20.2-new.jar"
+  ],
+  "mods_jars": 81,
+  "commands": [
+    "say alfheim hub-only validation: startup reached",
+    "function alfheim:hub/status",
+    "scoreboard players get #place_result alfheim.hub",
+    "scoreboard players get #base_result alfheim.hub",
+    "scoreboard players get #trunk_result alfheim.hub",
+    "scoreboard players get #crown_result alfheim.hub",
+    "scoreboard players get #court_result alfheim.hub",
+    "execute in mythicbotany:alfheim store result score #hub_anchor_count alfheim.hub if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]",
+    "scoreboard players get #hub_anchor_count alfheim.hub",
+    "execute in mythicbotany:alfheim store result score #hub_crown_count alfheim.hub if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]",
+    "scoreboard players get #hub_crown_count alfheim.hub",
+    "execute in mythicbotany:alfheim store result score #hub_court_count alfheim.hub if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]",
+    "scoreboard players get #hub_court_count alfheim.hub",
+    "save-all flush",
+    "stop"
+  ],
+  "console": "console-20260906-003050.log"
+}

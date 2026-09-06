@@ -23,7 +23,9 @@
   },
   "features": [
     [],
-    [],
+    [
+      "alfheim:scorchfell_lava_pool"
+    ],
     [],
     [],
     [],
@@ -41,9 +43,12 @@
       "mythicbotany:gold_ore"
     ],
     [],
-    [],
     [
-      "mythicbotany:loose_dreamwood_trees"
+      "alfheim:scorchfell_lava_seep"
+    ],
+    [
+      "mythicbotany:loose_dreamwood_trees",
+      "minecraft:patch_dead_bush_badlands"
     ],
     []
   ],

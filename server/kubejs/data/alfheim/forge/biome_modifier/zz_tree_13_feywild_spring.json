@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:bloomfall_vale",
+    "mythicbotany:alfheim_plains"
+  ],
+  "features": "alfheim:tree_feywild_spring",
+  "step": "vegetal_decoration"
+}

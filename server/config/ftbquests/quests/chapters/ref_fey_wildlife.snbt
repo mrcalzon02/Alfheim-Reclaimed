@@ -4,7 +4,7 @@
 	filename: "ref_fey_wildlife"
 	group: ""
 	icon: "alfheim:hart_antler"
-	id: "7FFC9085FAA2C9D2"
+	id: "0AF97162F8496870"
 	order_index: 7
 	quest_links: [ ]
 	quests: [
@@ -19,12 +19,12 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:whitetail_doe_spawn_egg"
-			id: "208C01060C5C1500"
+			id: "32A673312A57E6DF"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "71658C1EEFC3C2B7"
+				id: "6D6003C3844DB502"
 				title: "Whitetail Doe"
 				type: "checkmark"
 			}]
@@ -42,12 +42,12 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:celestial_doe_spawn_egg"
-			id: "5361D2EAEF72B7F6"
+			id: "481068AE20F94F10"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "320B702760607DFC"
+				id: "34A9FC724A8D4B7A"
 				title: "Celestial Doe"
 				type: "checkmark"
 			}]
@@ -73,7 +73,7 @@
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "34180BBE3C243610"
+				id: "62B9B8C91E7856E1"
 				title: "Whitetail Buck"
 				type: "checkmark"
 			}]
@@ -98,7 +98,7 @@
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "3AE5AAF98DE1B9C8"
+				id: "30CD2A06D8372965"
 				title: "Celestial Buck"
 				type: "checkmark"
 			}]
@@ -115,12 +115,12 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:moss_small_frog_spawn_egg"
-			id: "4FF71AFE591AE895"
+			id: "660E1D880EA29319"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "11BD14DE0590FBA0"
+				id: "46909A1428422F92"
 				title: "Moss Small Frog"
 				type: "checkmark"
 			}]
@@ -137,12 +137,12 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:moss_large_frog_spawn_egg"
-			id: "43BB3EC48A402C22"
+			id: "4C53A9AD525BE458"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "2E1B27F87010D7B8"
+				id: "249A193BCC915DD9"
 				title: "Moss Large Frog"
 				type: "checkmark"
 			}]
@@ -159,7 +159,7 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:azure_small_frog_spawn_egg"
-			id: "0A1741A98EDFBD7C"
+			id: "41C483809F06848E"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
@@ -203,7 +203,7 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:amber_small_frog_spawn_egg"
-			id: "7B1D6785A6818D2F"
+			id: "7D047F528D0FFFA6"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
@@ -249,12 +249,12 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:bog_toad_spawn_egg"
-			id: "498312F3D68EF82A"
+			id: "36E4602290FA62B3"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "4A70E3A1270D8A10"
+				id: "542EDED5E257EF92"
 				title: "Bog Toad"
 				type: "checkmark"
 			}]
@@ -273,7 +273,7 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:mossback_toad_spawn_egg"
-			id: "01F87C16E92A08D8"
+			id: "78FC766696B465D7"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
@@ -288,7 +288,7 @@
 		}
 		{
 			description: [
-				"Habitat: Alfheim Lakes, Void Verge."
+				"Habitat: Alfheim Lakes, Alfheim Ocean, Void Verge."
 				"Health: 26. Attack: 4."
 				"Abyssal Eye: 1, 50% per kill. Requires a player kill."
 				"Refine in a Mana Pool: two glow ink sacs, 1000 mana."
@@ -296,12 +296,12 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:abyssal_watcher_spawn_egg"
-			id: "4A17BD75B76815E7"
+			id: "02BD101A8B8FBAE1"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "60E39B8A3B130907"
+				id: "7356C40513B1B288"
 				title: "Abyssal Watcher"
 				type: "checkmark"
 			}]
@@ -324,7 +324,7 @@
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "082F65E0E628816D"
+				id: "152ADDF8ECE0EEAD"
 				title: "Mire Tentacle"
 				type: "checkmark"
 			}]
@@ -334,7 +334,7 @@
 		}
 		{
 			description: [
-				"Habitat: Alfheim Lakes, Mana Fen."
+				"Habitat: Alfheim Lakes, Alfheim Ocean, Mana Fen."
 				"Health: 36. Attack: 6."
 				"Maw Fang: 1-2, 100% per kill. Requires a player kill."
 				"Grind into four bone meal."
@@ -342,7 +342,7 @@
 				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
 			]
 			icon: "alfheim:drowned_maw_spawn_egg"
-			id: "54DCC35C63CDA5A9"
+			id: "775BAF349ADC3CED"
 			optional: true
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
@@ -371,7 +371,7 @@
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "4CB16C01A1D8DF50"
+				id: "2471DEA0965AA286"
 				title: "Wild Elf"
 				type: "checkmark"
 			}]
@@ -395,7 +395,7 @@
 			shape: "gear"
 			subtitle: "Wildlife and field supplies"
 			tasks: [{
-				id: "084D1F3E5F967F5D"
+				id: "0348C35A1D418F03"
 				title: "Savage Elf"
 				type: "checkmark"
 			}]

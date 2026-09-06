@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "mythicbotany:golden_fields"
+  ],
+  "features": "alfheim:tree_feywild_summer",
+  "step": "vegetal_decoration"
+}

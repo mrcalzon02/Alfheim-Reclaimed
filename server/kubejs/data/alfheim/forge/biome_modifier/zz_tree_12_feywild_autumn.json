@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:ashen_grove",
+    "alfheim:silverbark_wood"
+  ],
+  "features": "alfheim:tree_feywild_autumn",
+  "step": "vegetal_decoration"
+}

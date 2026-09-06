@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:ashen_grove",
+    "alfheim:bloomfall_vale",
+    "alfheim:silverbark_wood",
+    "mythicbotany:alfheim_hills",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:dreamwood_forest",
+    "mythicbotany:golden_fields"
+  ],
+  "features": "alfheim:fey_gem_ore",
+  "step": "underground_ores"
+}

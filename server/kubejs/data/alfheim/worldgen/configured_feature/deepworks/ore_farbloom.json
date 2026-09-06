@@ -6,6 +6,222 @@
     "targets": [
       {
         "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:cracked_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_cracked_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:magmatic_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_magmatic_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:embervein_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_embervein_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:cinder_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_cinder_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:obsidian_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_obsidian_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:moonstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_moonstone_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:dawn_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_dawn_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rose_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_rose_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:ivory_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_ivory_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:silvermist_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_silvermist_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:moss_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_moss_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rootbound_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_rootbound_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:fern_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_fern_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:amber_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_amber_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:petrified_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_petrified_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:tide_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_tide_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:abyssal_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_abyssal_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:frost_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_frost_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:gale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_gale_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:storm_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_storm_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:amethyst_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_amethyst_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:leyline_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_leyline_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:gloam_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_gloam_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:starfleck_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:farbloom_starfleck_ore"
+        }
+      },
+      {
+        "target": {
           "predicate_type": "minecraft:tag_match",
           "tag": "alfheim:livingrock_natural"
         },

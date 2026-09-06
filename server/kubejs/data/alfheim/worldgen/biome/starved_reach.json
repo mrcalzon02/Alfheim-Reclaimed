@@ -6,9 +6,9 @@
     ]
   },
   "creature_spawn_probability": 0.2,
-  "downfall": 0.0,
-  "temperature": 0.4,
-  "has_precipitation": false,
+  "downfall": 0.65,
+  "temperature": 0.0,
+  "has_precipitation": true,
   "effects": {
     "fog_color": 9078136,
     "sky_color": 10130308,
@@ -36,8 +36,13 @@
     ],
     [],
     [],
-    [],
-    []
+    [
+      "alfheim:starved_ice_spike",
+      "alfheim:starved_snow_pile"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ],
   "spawn_costs": {},
   "spawners": {
@@ -75,5 +80,6 @@
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []
-  }
+  },
+  "temperature_modifier": "frozen"
 }

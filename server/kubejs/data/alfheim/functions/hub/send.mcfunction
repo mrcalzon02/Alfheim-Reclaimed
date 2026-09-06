@@ -10,9 +10,9 @@
 #
 # Sets the respawn point too, so dying bedless returns them here rather than to Midgard.
 
-# 1. CROSS. Unconditional, and safe to run on a player already in Alfheim. y=320 is above
+# 1. CROSS. Unconditional, and safe to run on a player already in Alfheim. y=256 is above
 #    any terrain, so this never suffocates; the next lines put them on the ground.
-execute in mythicbotany:alfheim run tp @s 0 320 0
+execute in mythicbotany:alfheim run tp @s 0 256 0
 
 # 2. REFINE, if the hub has resolved: stand them in the gate chamber.
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run tp @s ~ ~1 ~
