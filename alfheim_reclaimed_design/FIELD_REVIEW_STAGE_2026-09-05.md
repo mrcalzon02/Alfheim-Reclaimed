@@ -236,7 +236,7 @@ intentional floating-island silhouette and stay clear of major authored structur
 | I8 | static implemented | Six sparse climate accents use Alfheim-owned wrappers around Jaffabricate/Feywild placement rules. Cross-mod feature ordering is acyclic. TaxTreeGiant world placement is explicitly disabled by later field-review decision. | `7348eed` |
 | I9 | static implemented | Three model sources rebuilt without same-facing coplanar overlaps; all 480 armory source cells receive bounded edge-spill cleanup before centering. Review sheets and static checks pass; restarted-client signoff remains. | `4a41095` |
 | I10 | runtime smoke-proven | Elementium 12×6, Dragonstone 7×2, climate-limited Fey Gem 6×3; 126 host-matched variants. Fresh server exit 0; 639 full chunks contain 26 hosted IDs from all three ores. Wider density/client review remains. | `566e11d` |
-| I11 | runtime load smoke-proven | Twelve independent Knight Quest creatures each have one climate-matched ruined encounter with bounded vanilla spawner NBT. Surface checker/self-tests pass and fresh Forge load exits 0; placement/combat review remains. | pending |
+| I11 | runtime load smoke-proven | Twelve independent Knight Quest creatures each have one climate-matched ruined encounter with bounded vanilla spawner NBT. Surface checker/self-tests pass and fresh Forge load exits 0; placement/combat review remains. | `3eb7415` |
 | I12 | queued | Distinct forests, two dense wooded shore types, non-Void Feywild mushrooms, and static-behavior Bramble family recorded. | — |
 | I13 | queued | More local-stone geodes/crystal structures across all six Void biomes recorded. | — |
 
