@@ -12,9 +12,11 @@ Work is ordered Great Bole → Scorchfell/ocean → custom elf runtime test → 
 The texture/NPC-art pass and pixie sky-island villages with denser Feywild trees and crops remain
 deliberately deferred. Natural giant-tree placement was declined because it would intrinsically alter
 the world's silhouette. Sparse Jaffa orange and seasonal Feywild accents are now statically implemented.
-The queue also includes three more
-Z-fighting models, pants/book display offsets, native ore tuning and Fey Gem compatibility, and
-knight-quest structure spawners. Starfall precipitation is accepted and will not be changed.
+I9 has a static repair: the carpet, balustrade and wall sconce no longer contain the reported same-facing
+coplanar geometry, and the apparent pants/book offsets were identified as neighbouring atlas fragments crossing
+cell cuts. The shared generator now removes only detached boundary spill before centering all 480 icons; rebuilt
+review sheets pass, while restarted-client signoff remains. The queue also includes knight-quest structure
+spawners. Starfall precipitation is accepted and will not be changed.
 
 Newly queued after the ore pass: multiple forest identities; two dense wooded-shoreline environments around
 the large Alfheim Ocean footprint; climate-matched Feywild mushrooms across every non-Void biome; a custom

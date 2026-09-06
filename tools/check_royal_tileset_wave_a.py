@@ -19,6 +19,19 @@ EXPECTED_SEMANTIC={
     "lidded_amphora","canopy_bed","wall_banner","astrolabe"
 }
 FORBIDDEN_WORDS=("fey_stone","inventory","blockentity","block_entity","loot_table","quest")
+Z_FIGHT_REPAIRS={"carpet_runner","balustrade","wall_sconce"}
+
+def positive_overlap(a0,a1,b0,b1):
+    return min(a1,b1)-max(a0,b0)>1e-9
+
+def same_oriented_coplanar_faces(a,b):
+    """Yield same-facing planes whose projected rectangles overlap with positive area."""
+    af,at=a["from"],a["to"]; bf,bt=b["from"],b["to"]
+    for axis in range(3):
+        others=[i for i in range(3) if i!=axis]
+        if not all(positive_overlap(af[i],at[i],bf[i],bt[i]) for i in others):continue
+        if abs(af[axis]-bf[axis])<1e-9:yield axis,"min",af[axis]
+        if abs(at[axis]-bt[axis])<1e-9:yield axis,"max",at[axis]
 
 def main():
     problems=[]
@@ -77,6 +90,11 @@ def main():
                 tex=face.get("texture","")
                 if not tex.startswith("#") or tex[1:] not in textures:
                     fail(f"{b.get('id')}: unresolved texture slot {tex}")
+        if b.get("model_kind") in Z_FIGHT_REPAIRS:
+            for i,left in enumerate(elements):
+                for right in elements[i+1:]:
+                    for axis,side,plane in same_oriented_coplanar_faces(left,right):
+                        fail(f"{b.get('id')}: same-facing coplanar overlap axis={axis} side={side} plane={plane}")
 
     # Multi-block semantic assets must be complete rectangular local-module matrices.
     for name, expected in (("canopy_bed",(2,3)),("astrolabe",(2,2))):

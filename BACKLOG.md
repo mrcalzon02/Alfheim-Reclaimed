@@ -1,6 +1,6 @@
 # Backlog
 
-### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I2–I5 + I8 STATIC 2026-09-06**
+### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I2–I5 + I8–I9 STATIC 2026-09-06**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
 `alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
@@ -10,8 +10,9 @@ runtime spawning and the ocean-to-Void-Verge transition. Starfall rain is accept
 Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run and
 biome-specific miniature pixie villages with buried spawners. Natural TaxTreeGiant placement was removed
 from the plan by later field-review decision because it would intrinsically alter Alfheim's silhouette.
-Sparse Jaffabricate orange and normal-size seasonal Feywild trees are now statically implemented. The expanded queue also records Z-fighting
-on the carpet/balustrade/wall sconce, right-shifted pants and book display models, larger/more frequent
+Sparse Jaffabricate orange and normal-size seasonal Feywild trees are now statically implemented. I9 rebuilds
+the carpet/balustrade/wall-sconce geometry and removes vertical source-atlas bleed before centering all 480
+armory icons; restarted-client signoff remains. The expanded queue also records larger/more frequent
 Elementium and Dragonstone deposits, a native Fey Gem ore, and knight-quest creature spawners in
 appropriate structures. Pixie villages now explicitly require climate-matched Feywild trees, small
 organic sky islands and vanilla food gardens. These are planning commitments, not implementation claims.

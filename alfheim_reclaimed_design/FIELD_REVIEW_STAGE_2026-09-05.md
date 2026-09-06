@@ -124,15 +124,22 @@ Acceptance: a fresh server loads and generates chunks without a feature-order fa
 only in their assigned new Alfheim chunks; oranges remain renewable; and sapling/growth behavior is verified
 separately from natural placement. No natural TaxTreeGiant structures are enabled.
 
-### I9 — model and display alignment repair (queued)
+### I9 — model and display alignment repair (static implemented)
 
-Repair coplanar geometry on the custom carpet, balustrade and wall sconce. Audit custom wearable/item models,
-with the reported pants and books first, for the rightward GUI/display-frame offset that exposes part of the
-item on the left edge of its frame. Correct transforms at the shared generator/template level so the same
-fault does not survive in sibling assets.
+The custom carpet now uses three adjacent base strips instead of coplanar trim over a full-width slab, and
+its inlays sit above the textile. Balustrade posts, caps and rails no longer occupy the same volumes. The wall
+sconce's backplate, mount and arm are separated, while its glow is inset from every glass face plane. A
+static model check rejects same-facing coplanar rectangles on all three repaired models.
+
+The apparent rightward display offset was traced to neighbouring source-atlas fragments crossing vertical
+cell cuts. The shared armory generator now removes only non-principal foreground components that touch those
+cut lines before all 480 item sprites are resized and centered. The principal silhouette and detached
+interior decoration remain intact. Regenerated six-class review sheets show the reported left-edge fragments
+removed from pants and books, along with sibling equipment affected by the same source fault.
 
 Acceptance: the three blocks remain stable at near/mid/far camera distances; pants and books are centered in
-inventory, hand and item frame; generated siblings pass the same transform bounds check.
+inventory, hand and item frame; generated siblings pass the same crop rule. Static generation/checks and the
+review atlas pass; an actual restarted client is still required for depth stability and display-frame signoff.
 
 ### I10 — native and compatibility ore tuning (runtime smoke-proven)
 
@@ -204,8 +211,8 @@ intentional floating-island silhouette and stay clear of major authored structur
 | I6 | deferred | Explicitly queued; no image generation authorized for this stage. | — |
 | I7 | deferred | Pixie settlement/spawner brief captured. | — |
 | I8 | static implemented | Six sparse climate accents use Alfheim-owned wrappers around Jaffabricate/Feywild placement rules. Cross-mod feature ordering is acyclic. TaxTreeGiant world placement is explicitly disabled by later field-review decision. | `7348eed` |
-| I9 | queued | Carpet, balustrade, wall-sconce Z-fighting and right-shifted pants/books recorded. | — |
-| I10 | runtime smoke-proven | Elementium 12×6, Dragonstone 7×2, climate-limited Fey Gem 6×3; 126 host-matched variants. Fresh server exit 0; 639 full chunks contain 26 hosted IDs from all three ores. Wider density/client review remains. | pending |
+| I9 | static implemented | Three model sources rebuilt without same-facing coplanar overlaps; all 480 armory source cells receive bounded edge-spill cleanup before centering. Review sheets and static checks pass; restarted-client signoff remains. | pending |
+| I10 | runtime smoke-proven | Elementium 12×6, Dragonstone 7×2, climate-limited Fey Gem 6×3; 126 host-matched variants. Fresh server exit 0; 639 full chunks contain 26 hosted IDs from all three ores. Wider density/client review remains. | `566e11d` |
 | I11 | queued | Knight-quest creature spawners in suitable structures recorded. | — |
 | I12 | queued | Distinct forests, two dense wooded shore types, non-Void Feywild mushrooms, and static-behavior Bramble family recorded. | — |
 | I13 | queued | More local-stone geodes/crystal structures across all six Void biomes recorded. | — |
@@ -253,3 +260,13 @@ intentional floating-island silhouette and stay clear of major authored structur
   on attempt one, and saved exactly one baked anchor, one crown marker and all eight tagged court
   NPCs. The early live court query saw seven because one entity chunk had not ticked in; saved entity
   data contains the complete eight-member manifest.
+
+### 2026-09-06 — I9 model and armory crop repair
+
+- `tools/gen_royal_tileset_wave_a.py` now owns non-coplanar carpet, balustrade and wall-sconce geometry;
+  `tools/check_royal_tileset_wave_a.py` rejects a recurrence of overlapping same-facing planes on them.
+- `tools/gen_armory.py` now strips only detached art crossing a source cell's vertical boundary before
+  resizing and centering every item icon. This repairs the reported pants/books and the same visible fault
+  in sibling equipment without adding model transforms or runtime code.
+- All 480 item and 120 worn textures regenerate and pass the armory audit. The six rebuilt review sheets
+  have clean cell margins. Minecraft client inspection is still required before calling I9 visually proven.

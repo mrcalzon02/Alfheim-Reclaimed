@@ -189,6 +189,36 @@ def keep_largest_foreground_component(im):
             for x,y in group:px[x,y]=(0,0,0,0)
     return out
 
+def remove_detached_horizontal_edge_spill(im):
+    """Remove small neighbouring-atlas fragments crossing a cell's left/right cut lines.
+
+    The principal silhouette is always preserved, even when it legitimately reaches an edge.
+    Interior detached details are also preserved; only secondary components touching a vertical
+    crop edge are discarded before the icon is resized and centred.
+    """
+    out=im.convert('RGBA').copy(); alpha=out.getchannel('A'); w,h=out.size; seen=bytearray(w*h); groups=[]
+    for y in range(h):
+      for x in range(w):
+        start=y*w+x
+        if seen[start] or alpha.getpixel((x,y))==0:continue
+        q=deque([(x,y)]);seen[start]=1;group=[]
+        while q:
+            cx,cy=q.popleft();group.append((cx,cy))
+            for nx,ny in ((cx-1,cy),(cx+1,cy),(cx,cy-1),(cx,cy+1),(cx-1,cy-1),(cx+1,cy-1),(cx-1,cy+1),(cx+1,cy+1)):
+                if 0<=nx<w and 0<=ny<h:
+                    i=ny*w+nx
+                    if not seen[i] and alpha.getpixel((nx,ny))>0:
+                        seen[i]=1;q.append((nx,ny))
+        groups.append(group)
+    if not groups:return out
+    keep=max(groups,key=len); edge=max(1,w//64); px=out.load()
+    for group in groups:
+        if group is keep:continue
+        xs=[p[0] for p in group]
+        if min(xs)<=edge or max(xs)>=w-1-edge:
+            for x,y in group:px[x,y]=(0,0,0,0)
+    return out
+
 def foreground_component_count(im):
     alpha=im.convert('RGBA').getchannel('A');w,h=im.size;seen=bytearray(w*h);count=0
     for y in range(h):
@@ -252,6 +282,7 @@ def main(check=False):
                 iid=f'alfheim:armory/{school}/{family}/era_{era:02}'; path=iid.split(':',1)[1]
                 display=f'{grade} {NAMES[school][col][stage]}'; ids.append(iid);generated.append(iid)
                 cell=cleaned.crop((col*cw,stage*ch,(col+1)*cw,(stage+1)*ch))
+                cell=remove_detached_horizontal_edge_spill(cell)
                 if gear_type=='bow':cell=remove_large_enclosed_background(cell,1000)
                 elif gear_type=='crossbow':cell=remove_large_enclosed_background(cell,600)
                 elif school=='hunter' and family=='charm':cell=remove_large_enclosed_background(cell,1000)
@@ -288,7 +319,9 @@ def main(check=False):
             for era,grade,material,prof_tier,dur,hue,rars in GRADES:
                 stage=0 if era<=2 else 1 if era<=6 else 2
                 iid=f'alfheim:armory/{school}/{slot}/era_{era:02}';path=iid.split(':',1)[1];ids.append(iid);generated.append(iid)
-                cell=cleaned.crop((col*cw,stage*ch,(col+1)*cw,(stage+1)*ch)); tex=tint(icon(cell),hue,.14+.018*era)
+                cell=cleaned.crop((col*cw,stage*ch,(col+1)*cw,(stage+1)*ch))
+                cell=remove_detached_horizontal_edge_spill(cell)
+                tex=tint(icon(cell),hue,.14+.018*era)
                 if not check:
                     tp=TEX/school/slot/f'era_{era:02}.png';tp.parent.mkdir(parents=True,exist_ok=True);tex.save(tp)
                     write(MODELS/school/slot/f'era_{era:02}.json',model('minecraft:item/generated',f'alfheim:item/{path}'))
@@ -375,6 +408,7 @@ def main(check=False):
             'status':'generated and static validated; runtime evidence must be refreshed after regeneration',
             'sources':source_meta,
             'alpha_method':'Pillow edge-connected background flood fill; post-quantization alpha haze <=16 is written as literal RGBA 0,0,0,0',
+            'atlas_crop_cleanup':{'scope':'all 480 item sprites','method':'discard only non-principal foreground components touching a vertical source-cell cut before resizing and centering','review':'alfheim_reclaimed_design/armory/visual_review/armory_overview.png'},
             'alpha_audit':alpha_audit,
             'bow_interior_alpha':{'textures':len(bow_holes),'all_have_enclosed_alpha_zero_region':True,'enclosed_region_pixels_min':min(bow_holes),'enclosed_region_pixels_max':max(bow_holes)},
             'crossbow_interior_alpha':{'textures':len(crossbow_holes),'all_have_enclosed_alpha_zero_region':True,'enclosed_region_pixels_min':min(crossbow_holes),'enclosed_region_pixels_max':max(crossbow_holes)},

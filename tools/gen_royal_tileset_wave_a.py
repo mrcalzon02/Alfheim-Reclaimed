@@ -47,36 +47,43 @@ def highback(t):
 def sconce(t):
     e=[
         element([5,4,14],[11,14,16],"stone"),
-        element([6,5,13],[10,13,15],"metal"),
-        element([7,8,9],[9,10,14],"metal"),
-        element([5,6,7],[11,8,11],"metal"),
-        element([6,8,8],[10,13,11],"glass",shade=False),
-        element([7,9,8],[9,12,10],"glow",shade=False),
+        # Keep the projecting pieces out of the backplate volume. The old metal inset
+        # occupied z=14..15 inside it, which produced depth fighting at oblique angles.
+        element([6,5,12],[10,13,13.99],"metal"),
+        element([7,8,9.5],[9,10,12],"metal"),
+        element([5,6,7],[11,8,10.5],"metal"),
+        element([6,8.01,7.25],[10,13,10.25],"glass",shade=False),
+        # The glow remains inside the glass but shares none of its face planes.
+        element([7.25,9,7.75],[8.75,12,9.75],"glow",shade=False),
     ]
     return model(t,e,ambient=False)
 
 def carpet(t):
     e=[
-        element([1,0,0],[15,1,16],"textile"),
+        # Three adjacent base strips replace the former full-width textile slab plus
+        # coplanar trim overlays. Decorative inlays sit just above the woven surface.
+        element([3,0,0],[13,1,16],"textile"),
         element([1,0,0],[3,1,16],"textile_trim"),
         element([13,0,0],[15,1,16],"textile_trim"),
-        element([6,0.1,2],[10,1.1,5],"metal"),
-        element([7,0.1,5],[9,1.1,11],"textile_trim"),
-        element([6,0.1,11],[10,1.1,14],"metal"),
+        element([6,1.01,2],[10,1.26,5],"metal"),
+        element([7,1.01,5],[9,1.26,11],"textile_trim"),
+        element([6,1.01,11],[10,1.26,14],"metal"),
     ]
     return model(t,e)
 
 def balustrade(t):
     e=[
-        element([1,0,6],[4,16,10],"stone"),
-        element([12,0,6],[15,16,10],"stone"),
-        element([3,10,7],[13,13,9],"stone"),
-        element([3,4,7],[13,6,9],"metal"),
-        element([4,6,7],[6,10,9],"wood"),
+        # Posts stop at the underside of their caps, and rails span only the opening.
+        # This removes the overlapping top/side faces that striped in the field review.
+        element([1,0,6],[4,15,10],"stone"),
+        element([12,0,6],[15,15,10],"stone"),
+        element([4,10,7],[12,13,9],"stone"),
+        element([4,4,7],[12,6,9],"metal"),
+        element([4.25,6,7],[5.75,10,9],"wood"),
         element([7,6,7],[9,10,9],"wood"),
-        element([10,6,7],[12,10,9],"wood"),
-        element([1,15,5],[4,16,11],"metal"),
-        element([12,15,5],[15,16,11],"metal"),
+        element([10.25,6,7],[11.75,10,9],"wood"),
+        element([0.75,15,5.5],[4.25,16,10.5],"metal"),
+        element([11.75,15,5.5],[15.25,16,10.5],"metal"),
     ]
     return model(t,e)
 
