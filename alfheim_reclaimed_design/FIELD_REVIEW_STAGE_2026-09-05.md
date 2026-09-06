@@ -158,14 +158,37 @@ need client inspection. The fresh headless smoke world did load cleanly and its 
 contained 26 distinct naturally generated hosted IDs, including Fey Gem, Elementium and Dragonstone.
 Progression and feature-order checks remain valid.
 
-### I11 — structure encounter spawners (queued)
+### I11 — structure encounter spawners (runtime load smoke-proven)
 
-Inventory the creatures required by the knight quest line and assign them to appropriate ruin/fortress
-families. Add protected, bounded spawners inside those structures with encounter-specific counts, activation
-ranges and cooldowns; never substitute arbitrary hostile mobs merely because they fit a room.
+The installed Knight Quest build has twelve independently encounterable creatures. Netherman Clone, its
+projectile and Swampman's thrown axe are support entities rather than encounters; “Momma Lizzy” has a stale
+translation but no registered entity. No FTB/Quest Giver chain currently names these mobs, so this pass
+integrates the mod's creature roster without pretending that a quest chain already exists.
 
-Acceptance: every named knight-quest creature has at least one discoverable structure encounter, spawners do
-not leak into the Hollow Court or peaceful settlements, and quest kill/encounter credit works end to end.
+Each creature now has exactly one climate-appropriate ruined encounter. Every spawner sits on a local-palette
+five-by-five plinth with broken iron-bar corners and four open exits. Skirmish, swarm and elite profiles bound
+nearby population, activation range, spawn count and cooldown. These are vanilla block entities baked into
+the structure templates: there is no server-tick spawn handler.
+
+| Creature | Ruin | Profile |
+|---|---|---|
+| Fallen Knight | Ashwatch Keep | elite |
+| Ghosty | Grey Barrow | skirmish |
+| Eld Bomb | Frostwatch Spire | skirmish |
+| Swampman | Sunken Wayshrine | skirmish |
+| Eld Knight | Riven Hold | elite |
+| Ratman | Sundered Quarry | swarm |
+| Bad Patch | Hollow Bastion | skirmish |
+| Netherman | Marchfall Crater | elite |
+| Gremlin | Pyre Hall | swarm |
+| Ghastling | Cinderglass Crater | swarm |
+| Lizzy | Mire Hulk | skirmish |
+| Samhain | Rotwood Barrow | elite |
+
+Acceptance: all twelve templates and their exact NBT/profile/entity mapping pass the Surface Works checker and
+Forge loads the resulting datapack in a fresh disposable world. No encounter targets the Hollow Court,
+peaceful living biomes, oceans or Void. Actual structure placement, spawner activation, combat balance and any
+future quest kill-credit wiring still require client/gameplay acceptance.
 
 ### I12 — forest, wooded-shore and living undergrowth expansion (queued)
 
@@ -213,7 +236,7 @@ intentional floating-island silhouette and stay clear of major authored structur
 | I8 | static implemented | Six sparse climate accents use Alfheim-owned wrappers around Jaffabricate/Feywild placement rules. Cross-mod feature ordering is acyclic. TaxTreeGiant world placement is explicitly disabled by later field-review decision. | `7348eed` |
 | I9 | static implemented | Three model sources rebuilt without same-facing coplanar overlaps; all 480 armory source cells receive bounded edge-spill cleanup before centering. Review sheets and static checks pass; restarted-client signoff remains. | `4a41095` |
 | I10 | runtime smoke-proven | Elementium 12×6, Dragonstone 7×2, climate-limited Fey Gem 6×3; 126 host-matched variants. Fresh server exit 0; 639 full chunks contain 26 hosted IDs from all three ores. Wider density/client review remains. | `566e11d` |
-| I11 | queued | Knight-quest creature spawners in suitable structures recorded. | — |
+| I11 | runtime load smoke-proven | Twelve independent Knight Quest creatures each have one climate-matched ruined encounter with bounded vanilla spawner NBT. Surface checker/self-tests pass and fresh Forge load exits 0; placement/combat review remains. | pending |
 | I12 | queued | Distinct forests, two dense wooded shore types, non-Void Feywild mushrooms, and static-behavior Bramble family recorded. | — |
 | I13 | queued | More local-stone geodes/crystal structures across all six Void biomes recorded. | — |
 
@@ -270,3 +293,16 @@ intentional floating-island silhouette and stay clear of major authored structur
   in sibling equipment without adding model transforms or runtime code.
 - All 480 item and 120 worn textures regenerate and pass the armory audit. The six rebuilt review sheets
   have clean cell margins. Minecraft client inspection is still required before calling I9 visually proven.
+
+### 2026-09-06 — I11 Knight Quest structure encounters
+
+- `tools/surface_works_manifest.json` assigns the twelve independent encounter creatures once each across
+  twelve hostile ruin templates. Support/projectile entities and the unregistered Momma Lizzy lang key are
+  explicitly excluded.
+- `tools/gen_surface_works.py` installs a small local-palette spawner plinth after structure decay, with
+  skirmish/swarm/elite NBT profiles. Targeted generation no longer rewrites aggregate structure tags/maps.
+- `tools/check_surface_works.py` verifies exact position, entity, profile, coverage and protected-biome
+  exclusions from the generated NBT. All 12 checker self-tests fire.
+- Fresh disposable world `validation-knight-encounters-0906` loaded 17/17 startup scripts and 26/26 server
+  scripts with zero KubeJS errors/warnings, reached Done and exited cleanly. Console:
+  `server/console-20260906-075322.log`. Existing third-party diagnostics remain unrelated.

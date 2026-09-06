@@ -131,6 +131,21 @@ def barrel(facing, table):
             {'id': 'minecraft:barrel', 'LootTable': f'{NS}:chests/{table}'})
 
 
+def mob_spawner(entity, profile):
+    """A bounded 1.20.1 mob-spawner block entity using short-width vanilla fields."""
+    return (B('minecraft:spawner'), {
+        'id': 'minecraft:mob_spawner',
+        'Delay': nbt.Short(20),
+        'MinSpawnDelay': nbt.Short(profile['min_delay']),
+        'MaxSpawnDelay': nbt.Short(profile['max_delay']),
+        'SpawnCount': nbt.Short(profile['spawn_count']),
+        'MaxNearbyEntities': nbt.Short(profile['max_nearby']),
+        'RequiredPlayerRange': nbt.Short(profile['required_range']),
+        'SpawnRange': nbt.Short(profile['spawn_range']),
+        'SpawnData': {'entity': {'id': entity}},
+    })
+
+
 OPPOSITE = {'north': 'south', 'south': 'north', 'east': 'west', 'west': 'east'}
 STEP = {'north': (0, -1), 'south': (0, 1), 'east': (1, 0), 'west': (-1, 0)}
 
@@ -240,6 +255,31 @@ def perimeter(x0, z0, x1, z1):
     for z in range(z1 - 1, z0, -1):
         out.append((x0, z))
     return out
+
+
+def install_encounter(p, pal, encounter, profile):
+    """Install a small readable spawner plinth after decay so the encounter cannot vanish.
+
+    The local five-by-five floor and three-high clearance make the authored position usable in
+    every supported archetype. Broken iron-bar corners identify the apparatus without sealing in
+    its mobs; four cardinal exits remain open. No ticking script is involved.
+    """
+    x, y, z = encounter['pos']
+    for dx in range(-2, 3):
+        for dz in range(-2, 3):
+            p.set(x + dx, y - 1, z + dz, (pal['floor'], None))
+            for dy in range(3):
+                p.set(x + dx, y + dy, z + dz, AIR)
+    for dx in range(-2, 3):
+        for dz in range(-2, 3):
+            if max(abs(dx), abs(dz)) != 2 or dx == 0 or dz == 0:
+                continue
+            for dy in (0, 1):
+                p.set(x + dx, y + dy, z + dz, B('minecraft:iron_bars'))
+    for dx, dz in ((-2, -2), (-2, 2), (2, -2), (2, 2)):
+        p.set(x + dx, y + 2, z + dz, (pal['accent'], None))
+    p.set(x, y, z, *mob_spawner(encounter['entity'], profile))
+    connect(p)
 
 
 # --------------------------------------------------------------------------- passes
@@ -1295,6 +1335,7 @@ def main():
     by_arch = {}
     total_blocks = 0
     drops = []
+    encounter_count = 0
 
     for st in structures:
         arch = archetypes[st['archetype']]
@@ -1308,6 +1349,11 @@ def main():
         builder = BUILDERS[st['archetype']]
         kw = {'ores': shallow_ores} if st['archetype'] == 'quarry' else {}
         piece = builder(pal, shape, ground, size, seed, **kw)
+        encounter = st.get('encounter')
+        if encounter:
+            profile = m['encounter_profiles'][encounter['profile']]
+            install_encounter(piece, pal, encounter, profile)
+            encounter_count += 1
 
         for axis_len in size:
             assert axis_len <= MAX_AXIS, f"{st['id']} is {size} -- over the {MAX_AXIS} limit"
@@ -1372,18 +1418,21 @@ def main():
 
         by_arch.setdefault(st['archetype'], []).append(st['id'])
 
-    # --- one structure tag and one map per archetype
-    for key, ids in sorted(by_arch.items()):
-        write_json(os.path.join(DATA, 'tags', 'worldgen', 'structure', key + '.json'),
-                   {'replace': False, 'values': [f'{NS}:{i}' for i in ids]}, dry)
-        write_json(os.path.join(DATA, 'loot_tables', 'explorer_maps', key + '.json'),
-                   explorer_map(key, archetypes[key]), dry)
+    # A targeted rebuild must not collapse an archetype tag to its one selected member.
+    # Aggregate tags/maps and shared loot are rewritten only by a complete generation pass.
+    if not a.only:
+        for key, ids in sorted(by_arch.items()):
+            write_json(os.path.join(DATA, 'tags', 'worldgen', 'structure', key + '.json'),
+                       {'replace': False, 'values': [f'{NS}:{i}' for i in ids]}, dry)
+            write_json(os.path.join(DATA, 'loot_tables', 'explorer_maps', key + '.json'),
+                       explorer_map(key, archetypes[key]), dry)
 
-    for name, tbl in chest_tables().items():
-        write_json(os.path.join(DATA, 'loot_tables', 'chests', name + '.json'), tbl, dry)
+        for name, tbl in chest_tables().items():
+            write_json(os.path.join(DATA, 'loot_tables', 'chests', name + '.json'), tbl, dry)
 
     print(f"\n  {len(structures)} structures, {len(by_arch)} archetypes, "
-          f"{total_blocks} blocks, {len(chest_tables())} chest tables")
+          f"{total_blocks} blocks, {encounter_count} encounters, "
+          f"{len(chest_tables()) if not a.only else 0} shared chest tables rewritten")
     print('  maps: ' + ', '.join(f'{k}({len(v)})' for k, v in sorted(by_arch.items())))
     worst = max(drops, key=lambda d: d[1], default=None)
     if worst:

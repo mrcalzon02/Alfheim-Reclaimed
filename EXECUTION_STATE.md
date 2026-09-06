@@ -15,8 +15,9 @@ the world's silhouette. Sparse Jaffa orange and seasonal Feywild accents are now
 I9 has a static repair: the carpet, balustrade and wall sconce no longer contain the reported same-facing
 coplanar geometry, and the apparent pants/book offsets were identified as neighbouring atlas fragments crossing
 cell cuts. The shared generator now removes only detached boundary spill before centering all 480 icons; rebuilt
-review sheets pass, while restarted-client signoff remains. The queue also includes knight-quest structure
-spawners. Starfall precipitation is accepted and will not be changed.
+review sheets pass, while restarted-client signoff remains. I11 now gives all twelve independent Knight Quest
+creatures one climate-matched hostile-ruin encounter through bounded vanilla spawner NBT; no repeating spawn
+script was added. Starfall precipitation is accepted and will not be changed.
 
 Newly queued after the ore pass: multiple forest identities; two dense wooded-shoreline environments around
 the large Alfheim Ocean footprint; climate-matched Feywild mushrooms across every non-Void biome; a custom
@@ -46,6 +47,12 @@ I10 is runtime smoke-proven. Elementium uses size 12/count 6, Dragonstone size 7
 Fey Gem size 6/count 3. Each has 42 Deep/Void host variants with preserved source loot—126 startup-registered
 blocks and no recurring hook. The fresh validation server exited 0; 639 full Alfheim chunks contain 26
 distinct hosted IDs across all three ore families. Quantitative density and client appearance remain open.
+
+I11 is runtime load-smoke-proven. Twelve hostile Surface Works templates contain one Knight Quest encounter
+each, divided among skirmish, swarm and elite cooldown/population profiles. The checker validates exact NBT,
+entity coverage, placement and protected-biome exclusions; all self-tests fire. Disposable world
+`validation-knight-encounters-0906` reached Done and exited 0 with 17/17 startup and 26/26 server scripts clean.
+Actual ruin placement, spawner activation and combat balance remain unclaimed client/gameplay checks.
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 

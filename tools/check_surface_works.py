@@ -2,7 +2,7 @@
 
 Design: alfheim_reclaimed_design/THE_SURFACE.md. Generator: tools/gen_surface_works.py.
 
-Fourteen checks. Most of them exist because the failure they catch is SILENT -- the world
+Fifteen checks. Most of them exist because the failure they catch is SILENT -- the world
 still loads, every file still parses, and the thing simply is not there:
 
   W2  An unknown block id does not error. NbtUtils.readBlockState returns Blocks.AIR for a
@@ -44,7 +44,24 @@ GROUPS = os.path.join('config', 'ftbquests', 'quests', 'chapter_groups.snbt')
 # which is the only ground truth this project has for what actually exists at runtime.
 NO_ITEM = {'minecraft:air', 'minecraft:cave_air', 'minecraft:void_air', 'minecraft:water',
            'minecraft:lava', 'minecraft:wall_torch', 'minecraft:soul_wall_torch',
-           'minecraft:structure_void'}
+           'minecraft:structure_void', 'minecraft:spawner'}
+
+# The twelve independently encounterable Knight Quest creatures in the live 1.20.1 registry.
+# netherman_clone, projectiles and swampman_axe are implementation helpers rather than encounters;
+# Momma Lizzy has a stale lang key but no registered entity in this installed build.
+KNIGHTQUEST_ENCOUNTERS = {
+    'knightquest:bad_patch', 'knightquest:eldbomb', 'knightquest:eldknight',
+    'knightquest:fallen_knight', 'knightquest:ghastling', 'knightquest:ghosty',
+    'knightquest:gremlin', 'knightquest:lizzy', 'knightquest:netherman',
+    'knightquest:ratman', 'knightquest:samhain', 'knightquest:swampman',
+}
+NO_ENCOUNTER_BIOMES = {
+    'alfheim:bloomfall_vale', 'mythicbotany:alfheim_plains',
+    'mythicbotany:dreamwood_forest', 'mythicbotany:golden_fields',
+    'alfheim:alfheim_ocean', 'mythicbotany:alfheim_lakes',
+    'alfheim:void_verge', 'alfheim:shatterfields', 'alfheim:prism_drift',
+    'alfheim:rootfall', 'alfheim:sepulchral_reach', 'alfheim:starless_reach',
+}
 
 # Read off the shipping 1.20.1 client jar (dyl$a.class), not remembered. 1.20.1 has no
 # jungle_temple and no swamp_hut -- those decorations arrived in later versions.
@@ -152,6 +169,7 @@ def run(st, verbose=False):
     # ---------------------------------------------------------------- W1  NBT integrity
     seen_nbt = set()
     palettes_seen = {}
+    spawners_seen = {}
     for path in st['nbts']:
         sid = os.path.basename(path)[:-4]
         seen_nbt.add(sid)
@@ -175,9 +193,13 @@ def run(st, verbose=False):
                 fail('W1', f'{sid}: block at {(x, y, z)} outside {size}')
                 break
         palettes_seen[sid] = [p['Name'] for p in root['palette']]
+        spawners_seen[sid] = []
         # every chest/barrel must name a loot table that exists
         for e in root['blocks']:
             be = e.get('nbt')
+            state_name = palettes_seen[sid][int(e['state'])]
+            if state_name == 'minecraft:spawner':
+                spawners_seen[sid].append((tuple(int(v) for v in e['pos']), be))
             if isinstance(be, dict) and 'LootTable' in be:
                 lt = be['LootTable']
                 ns, _, rest = lt.partition(':')
@@ -400,6 +422,50 @@ def run(st, verbose=False):
         if js['step'] != 'surface_structures':
             fail('W13', f'{sid}: step "{js["step"]}" -- these are surface features')
 
+    # ---------------------------------------------------------------- W15 structure encounters
+    profile_keys = {
+        'MinSpawnDelay': 'min_delay', 'MaxSpawnDelay': 'max_delay',
+        'SpawnCount': 'spawn_count', 'MaxNearbyEntities': 'max_nearby',
+        'RequiredPlayerRange': 'required_range', 'SpawnRange': 'spawn_range',
+    }
+    declared_entities = []
+    for sid in manifest_ids:
+        spec = by_id[sid].get('encounter')
+        actual = spawners_seen.get(sid, [])
+        if not spec:
+            if actual:
+                fail('W15', f'{sid}: NBT has {len(actual)} undeclared encounter spawner(s)')
+            continue
+        declared_entities.append(spec['entity'])
+        if any(b in NO_ENCOUNTER_BIOMES for b in by_id[sid]['biomes']):
+            fail('W15', f'{sid}: encounter assigned to protected peaceful/Void biome')
+        profile = m.get('encounter_profiles', {}).get(spec.get('profile'))
+        if profile is None:
+            fail('W15', f'{sid}: unknown encounter profile {spec.get("profile")}')
+            continue
+        if len(actual) != 1:
+            fail('W15', f'{sid}: expected one encounter spawner, found {len(actual)}')
+            continue
+        pos, be = actual[0]
+        if pos != tuple(spec['pos']):
+            fail('W15', f'{sid}: spawner at {pos}, manifest requires {tuple(spec["pos"])}')
+        if not isinstance(be, dict) or be.get('id') != 'minecraft:mob_spawner':
+            fail('W15', f'{sid}: spawner block entity id is invalid')
+            continue
+        entity = be.get('SpawnData', {}).get('entity', {}).get('id')
+        if entity != spec['entity']:
+            fail('W15', f'{sid}: SpawnData entity {entity}, expected {spec["entity"]}')
+        for nbt_key, profile_key in profile_keys.items():
+            if int(be.get(nbt_key, -1)) != profile[profile_key]:
+                fail('W15', f'{sid}: {nbt_key} {be.get(nbt_key)} != profile '
+                            f'{profile[profile_key]}')
+    declared_set = set(declared_entities)
+    if declared_set != KNIGHTQUEST_ENCOUNTERS:
+        fail('W15', f'encounter creature coverage {sorted(declared_set)} != '
+                    f'{sorted(KNIGHTQUEST_ENCOUNTERS)}')
+    if len(declared_entities) != len(declared_set):
+        fail('W15', 'a Knight Quest creature is assigned to more than one structure')
+
     if verbose:
         print(f'  {len(seen_nbt)} nbt, {len(st["structures"])} structures, '
               f'{len(st["sets"])} sets, {len(st["struct_tags"])} archetype tags, '
@@ -424,6 +490,8 @@ SELF_TESTS = [
         'max_distance_from_center', 120)),
     ('W13', lambda s: s['structures']['marchfall_crater'].__setitem__(
         'start_height', {'absolute': 0})),
+    ('W15', lambda s: s['m']['structures'][0]['encounter'].__setitem__(
+        'entity', 'knightquest:not_real')),
 ]
 
 

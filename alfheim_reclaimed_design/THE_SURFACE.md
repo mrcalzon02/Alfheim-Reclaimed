@@ -357,7 +357,7 @@ repair. The highest-priority passes are now terrain incorporation and hero-level
 | 3 | Buy one map of each of the ten and confirm it fills rather than coming back blank | deferred, runtime |
 | **4** | **Terrain-integration repair across the whole set (§4.2), using `starveling_pit` as the positive reference** | **open, priority** |
 | **5** | **Hero-detail/slow-decay pass across every archetype (§3.2), with shore/ocean/water-edge structures explicitly included** | **open, priority** |
-| 6 | Interiors — named rooms, spawners where appropriate, circulation and the one thing worth taking per archetype | not started |
+| 6 | Interiors — named rooms, spawners where appropriate, circulation and the one thing worth taking per archetype | first encounter slice: 12 bounded Knight Quest spawners; broader interiors open |
 | 7 | Quarry discovery-value pass — increase era-safe exposed resources and useful material yield (§6.1) | open |
 | 8 | Density tuning against a real walk | not started |
 

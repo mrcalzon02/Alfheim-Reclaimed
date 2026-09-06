@@ -261,19 +261,31 @@
     "rare":     {"spacing": 40, "separation": 13}
   },
 
+  "encounter_profiles": {
+    "skirmish": {"min_delay": 600, "max_delay": 1200, "spawn_count": 1,
+                  "max_nearby": 2, "required_range": 14, "spawn_range": 4},
+    "swarm": {"min_delay": 500, "max_delay": 1000, "spawn_count": 2,
+               "max_nearby": 4, "required_range": 14, "spawn_range": 4},
+    "elite": {"min_delay": 1200, "max_delay": 2400, "spawn_count": 1,
+               "max_nearby": 1, "required_range": 12, "spawn_range": 3}
+  },
+
   "structures": [
     {"id": "ashwatch_keep", "name": "Ashwatch Keep", "archetype": "castle",
      "biomes": ["alfheim:ashen_grove"], "palette": "livingrock",
+     "encounter": {"entity": "knightquest:fallen_knight", "profile": "elite", "pos": [24, 1, 24]},
      "shape": {"ruin": 0.62, "tower_h": 15, "keep_h": 13, "gate": "north", "collapse": "east"},
      "blurb": "The garrison that watched the grove die. Half of it went with the grove."},
 
     {"id": "grey_barrow", "name": "The Grey Barrow", "archetype": "barrow",
      "biomes": ["alfheim:ashen_grove"], "palette": "bone",
+     "encounter": {"entity": "knightquest:ghosty", "profile": "skirmish", "pos": [20, 1, 19]},
      "shape": {"radius": 11, "height": 7, "menhirs": 8, "menhir_h": 6, "door": "south"},
      "blurb": "Eight stones and a mound. The door was sealed from the inside."},
 
     {"id": "frostwatch_spire", "name": "Frostwatch Spire", "archetype": "tower",
      "biomes": ["alfheim:silverbark_wood"], "palette": "elven_marble",
+     "encounter": {"entity": "knightquest:eldbomb", "profile": "skirmish", "pos": [12, 1, 12]},
      "shape": {"radius": 5, "height": 34, "ruin": 0.40, "balcony": true},
      "blurb": "It still has its stair. Very little else in Alfheim still has its stair."},
 
@@ -289,17 +301,20 @@
 
     {"id": "fen_shrine", "name": "The Sunken Wayshrine", "archetype": "shrine",
      "biomes": ["alfheim:mana_fen"], "palette": "drowned",
+     "encounter": {"entity": "knightquest:swampman", "profile": "skirmish", "pos": [11, 3, 14]},
      "shape": {"radius": 6, "height": 12, "dome": true, "pillars": 8, "ruin": 0.40},
      "blurb": "Knee-deep and still standing. Somebody kept the offering bowl full for a while."},
 
     {"id": "riven_hold", "name": "Riven Hold", "archetype": "castle",
      "biomes": ["alfheim:sundered_highlands"], "palette": "elven_marble",
+     "encounter": {"entity": "knightquest:eldknight", "profile": "elite", "pos": [24, 1, 24]},
      "shape": {"ruin": 0.45, "towers": 3, "tower_h": 19, "keep_w": 16, "keep_d": 12,
                "keep_h": 16, "gate": "west", "collapse": "north"},
      "blurb": "Built on the fault. The fault won, and took the north wall with it."},
 
     {"id": "sundered_quarry", "name": "The Sundered Quarry", "archetype": "quarry",
      "biomes": ["alfheim:sundered_highlands"], "palette": "livingrock",
+     "encounter": {"entity": "knightquest:ratman", "profile": "swarm", "pos": [24, 5, 20]},
      "shape": {"radius": 21, "depth": 17, "benches": 5, "headframe": true, "rails": true},
      "blurb": "Five benches down and the face still fresh. They walked off shift and never came back."},
 
@@ -315,12 +330,14 @@
 
     {"id": "hollow_bastion", "name": "The Hollow Bastion", "archetype": "castle",
      "biomes": ["alfheim:hollow_marches"], "palette": "burnt",
+     "encounter": {"entity": "knightquest:bad_patch", "profile": "skirmish", "pos": [24, 1, 24]},
      "shape": {"ruin": 0.78, "towers": 4, "tower_h": 12, "keep_w": 12, "keep_d": 12,
                "keep_h": 11, "gate": "south", "collapse": "west"},
      "blurb": "The last place that held. You can see how long it held by how little is left."},
 
     {"id": "marchfall_crater", "name": "The Marchfall", "archetype": "crater",
      "biomes": ["alfheim:hollow_marches"], "palette": "burnt",
+     "encounter": {"entity": "knightquest:netherman", "profile": "elite", "pos": [30, 4, 24]},
      "shape": {"radius": 21, "depth": 12, "glass": 0.30, "rim": 3, "spire": true},
      "blurb": "Whatever was cast here, it was cast once. There is a spike of fused stone at the centre."},
 
@@ -336,11 +353,13 @@
 
     {"id": "pyre_hall", "name": "The Pyre Hall", "archetype": "hall",
      "biomes": ["alfheim:scorchfell"], "palette": "burnt",
+     "encounter": {"entity": "knightquest:gremlin", "profile": "swarm", "pos": [20, 1, 14]},
      "shape": {"length": 26, "width": 12, "height": 10, "roof": 0.85, "colonnade": false},
      "blurb": "It burned with the doors shut. The roof is a memory and the floor is glass."},
 
     {"id": "cinderglass_crater", "name": "The Cinderglass", "archetype": "crater",
      "biomes": ["alfheim:scorchfell"], "palette": "burnt",
+     "encounter": {"entity": "knightquest:ghastling", "profile": "swarm", "pos": [24, 7, 24]},
      "shape": {"radius": 19, "depth": 10, "glass": 0.65, "rim": 4, "spire": false, "lava": 2},
      "blurb": "Two thirds of this floor is glass and some of it is still warm."},
 
@@ -357,11 +376,13 @@
 
     {"id": "mire_hulk", "name": "The Mire Hulk", "archetype": "wreck",
      "biomes": ["alfheim:decayed_mire"], "palette": "drowned",
+     "encounter": {"entity": "knightquest:lizzy", "profile": "skirmish", "pos": [18, 3, 12]},
      "shape": {"length": 30, "beam": 10, "height": 9, "list": 22, "mast": false, "broken": 0.7},
      "blurb": "On her side in the rot, and most of her strakes are gone."},
 
     {"id": "rotwood_barrow", "name": "The Rotwood Barrow", "archetype": "barrow",
      "biomes": ["alfheim:decayed_mire"], "palette": "drowned",
+     "encounter": {"entity": "knightquest:samhain", "profile": "elite", "pos": [20, 1, 19]},
      "shape": {"radius": 12, "height": 6, "menhirs": 6, "menhir_h": 5, "door": "east"},
      "blurb": "Six stones, leaning. The mound has been open a long time."},
 

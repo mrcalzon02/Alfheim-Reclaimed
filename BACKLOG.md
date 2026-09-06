@@ -1,6 +1,6 @@
 # Backlog
 
-### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I2–I5 + I8–I9 STATIC 2026-09-06**
+### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I11 LOAD-SMOKE; I2–I5 + I8–I9 STATIC 2026-09-06**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
 `alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
@@ -12,9 +12,9 @@ biome-specific miniature pixie villages with buried spawners. Natural TaxTreeGia
 from the plan by later field-review decision because it would intrinsically alter Alfheim's silhouette.
 Sparse Jaffabricate orange and normal-size seasonal Feywild trees are now statically implemented. I9 rebuilds
 the carpet/balustrade/wall-sconce geometry and removes vertical source-atlas bleed before centering all 480
-armory icons; restarted-client signoff remains. The expanded queue also records larger/more frequent
-Elementium and Dragonstone deposits, a native Fey Gem ore, and knight-quest creature spawners in
-appropriate structures. Pixie villages now explicitly require climate-matched Feywild trees, small
+armory icons; restarted-client signoff remains. I11 places the twelve independent Knight Quest creatures
+once each in climate-matched hostile ruins using bounded vanilla spawner profiles; static checks and a fresh
+Forge load pass, while placement/combat review remains. Pixie villages now explicitly require climate-matched Feywild trees, small
 organic sky islands and vanilla food gardens. These are planning commitments, not implementation claims.
 
 The later queue adds multiple distinct forest identities, at least two dense wooded-shoreline environments
@@ -40,6 +40,11 @@ climate-limited Fey Gem feature size 6/count 3. All three have variants for the 
 (126 blocks total) with source-equivalent loot and startup-only registration. A clean fresh server generated
 639 full Alfheim chunks containing 26 naturally selected hosted IDs from all three families. Wider density
 sampling and client texture review remain.
+
+I11 is load-smoke-proven. Twelve Surface Works templates now contain one intentional Knight Quest encounter
+each. The generator uses baked vanilla spawner block entities and three bounded profiles rather than a
+recurring script. The NBT coverage/profile checker and its self-tests pass; a fresh dedicated Forge world
+reached Done and exited 0. Natural placement, activation and combat balance remain a client gate.
 
 ### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
 
