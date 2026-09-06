@@ -210,6 +210,65 @@ def main():
             continue
         own[b] = (biome_features(doc), where)
 
+    # W9 -- field-review identity contracts. These are intentionally exact enough to catch a
+    # generator regression that quietly restores the dense vanilla ocean or an Overworld-looking
+    # Scorchfell, while leaving the tuning values easy to change deliberately in one place.
+    print('\n--- field-review identity contracts ---')
+    ocean, _ = src.read('alfheim/worldgen/biome/alfheim_ocean.json')
+    expected_ocean = {
+        'alfheim:ocean_coral_sparse', 'alfheim:ocean_seagrass_sparse',
+        'alfheim:ocean_pickle_sparse', 'alfheim:ocean_kelp_sparse',
+    }
+    ocean_vegetation = set((ocean or {}).get('features', [[], [], [], [], [], [], [], [], [], []])[9])
+    if ocean_vegetation != expected_ocean:
+        fail('W9', f'Alfheim Ocean vegetation is {sorted(ocean_vegetation)!r}, expected the '
+                   f'four sparse wrappers {sorted(expected_ocean)!r}')
+    else:
+        print('  OK   ocean uses four sparse vegetation wrappers')
+
+    sparse_contracts = {
+        'ocean_coral_sparse': ('rarity_filter', 5),
+        'ocean_kelp_sparse': ('rarity_filter', 3),
+        'ocean_pickle_sparse': ('rarity_filter', 32),
+        'ocean_seagrass_sparse': ('count', 6),
+    }
+    for name, (kind, value) in sparse_contracts.items():
+        placed, _ = src.read(f'alfheim/worldgen/placed_feature/{name}.json')
+        mods = (placed or {}).get('placement', [])
+        got = next((m.get('chance' if kind == 'rarity_filter' else 'count') for m in mods
+                    if m.get('type') == f'minecraft:{kind}'), None)
+        if got != value:
+            fail('W9', f'{name} {kind} is {got!r}, expected {value}')
+
+    lang_path = os.path.join('kubejs', 'assets', 'alfheim', 'lang', 'en_us.json')
+    try:
+        lang = json.load(open(lang_path, encoding='utf-8'))
+    except Exception as e:
+        lang = {}
+        fail('W9', f'Alfheim language file does not parse: {e}')
+    if lang.get('biome.alfheim.alfheim_ocean') != 'Alfheim Ocean':
+        fail('W9', 'Alfheim Ocean is missing its player-facing English name')
+    else:
+        print('  OK   ocean player-facing name is Alfheim Ocean')
+
+    scorch, _ = src.read('alfheim/worldgen/biome/scorchfell.json')
+    scorch_features = set(biome_features(scorch or {}))
+    for needed in ('alfheim:scorchfell_lava_pool', 'alfheim:scorchfell_lava_seep'):
+        if needed not in scorch_features:
+            fail('W9', f'Scorchfell is missing {needed}')
+    surface, _ = src.read('mythicbotany/libx/surface_rule_set/alfheim_surface.json')
+    surface_text = json.dumps(surface or {}, sort_keys=True)
+    native_scorch = {
+        'alfheim:magmatic_livingrock', 'alfheim:embervein_livingrock',
+        'alfheim:cinder_livingrock', 'alfheim:obsidian_livingrock',
+        'alfheim:cracked_livingrock',
+    }
+    absent_native = sorted(block for block in native_scorch if block not in surface_text)
+    if absent_native:
+        fail('W9', f'Scorchfell surface is missing native blocks {absent_native!r}')
+    else:
+        print('  OK   Scorchfell surface and lava features use the native flame palette')
+
     # Forge biome modifiers, from our datapack and from every jar.
     modifiers = []
     for p in src.list_datapack(os.path.join('*', 'forge', 'biome_modifier', '*.json')):

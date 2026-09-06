@@ -28,13 +28,32 @@ DEBRIS_IDS=[id for id in VOID_IDS if id != 'alfheim:void_verge']
 def noise(name,y=0):
     return {'type':'minecraft:noise','noise':'alfheim:void/'+name,'xz_scale':1.0,'y_scale':y}
 
-def density(normal):
-    # Safe rim: continuous footing, but no longer a slab cut with a ruler.  Two
+def clamp(value, low, high):
+    return {'type':'minecraft:clamp','input':value,'min':low,'max':high}
+
+def density(normal, shore_normal=None):
+    # Deepworks wraps ordinary Alfheim density with cavern carving. The littoral blend needs
+    # the original surface density, otherwise those unrelated deep cavities leak into the
+    # Void branch and defeat the guarantee that this transition remains supported.
+    if shore_normal is None:
+        shore_normal=normal
+    # Safe rim: continuous footing, but no longer a slab cut with a ruler. Two
     # horizontal scales displace the top by several blocks while preserving the
-    # guaranteed solid approach.
+    # guaranteed solid approach. Its median surface is only a few blocks above sea
+    # level so the transition can make shelves, low slopes and coves before the tall
+    # detached margins begin.
     rim_relief=binary('add',binary('mul',0.46,noise('relief')),
                       binary('mul',0.16,noise('detail')))
-    rim=binary('add',gradient((70,92),1,-1),rim_relief)
+    rim=binary('add',gradient((53,83),1,-1),rim_relief)
+
+    # The previous final range_choice jumped directly from `normal` density to `rim`
+    # at RIM. That discontinuity is the vertical wall in the September field screenshot:
+    # punching noise holes into it cannot turn it into a coast. Blend the complete normal
+    # density into the low rim across CLIFF..RIM instead. Continentalness already has broad,
+    # curved contours; relief/detail give the target shore local ledges and inlets.
+    shore_t=clamp(binary('mul',1.0/(RIM-CLIFF),binary('add',MASK,-CLIFF)),0.0,1.0)
+    shoreline=binary('add',binary('mul',shore_t,shore_normal),
+                     binary('mul',binary('add',1.0,binary('mul',-1.0,shore_t)),rim))
     # Progressive loss of footprint toward the void. Clamped continentalness
     # makes the taper seed-independent; the hard cutoff guarantees termination.
     taper=binary('add',binary('mul',8,MASK),7.18)
@@ -66,7 +85,8 @@ def density(normal):
     terminal=binary('min',binary('add',footprint,-0.30),binary('min',
         binary('add',gradient((42,62),-1,1),binary('mul',0.18,noise('shape',0.8))),
         binary('add',gradient((65,80),1,-1),binary('mul',0.16,noise('detail',1.0)))))
-    void=choose(MASK,-100,EMPTY,-1.0,choose(MASK,-100,TERMINAL,terminal,choose(MASK,-100,CLIFF,fragments,rim)))
+    void=choose(MASK,-100,EMPTY,-1.0,choose(MASK,-100,TERMINAL,terminal,
+                choose(MASK,-100,CLIFF,fragments,shoreline)))
     # NoiseBasedChunkGenerator hardcodes lava below Y=-54. Negative density there
     # would therefore become lava before floodedness can suppress it. Build temporary
     # default Livingrock instead; surface_rule() turns it back into air in the five

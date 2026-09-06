@@ -231,16 +231,14 @@ def main():
             print(f'  --   assembled tree {height} blocks tall, cap {mdc} '
                   f'(budget {budget} after the "{adapt}" margin of {margin})')
 
-    # ---- S10: the biome tag must be wide enough to pin the tree to the origin -------------
-    #
-    # The tag is read twice and does two different jobs -- structure.biomes is a VALIDITY test
-    # (a narrow tag means no tree generates at all) and structure_set.preferred_biomes is a
-    # POSITION test (a narrow tag moves the tree up to 112 blocks off the origin). Both bit us.
-    # See SPAWN_HUB.md 4.3.
+    # ---- S10: explicit placement must be unique and valid across the layer -----------------
+    # New World Gamma proved that passive concentric-ring placement could leave the hub absent
+    # forever. hub/place now selects legal ground and assembles the four templates directly;
+    # a natural structure set would therefore be a duplicate source. The complete biome tag is
+    # retained for the operator-facing structure definition and must not silently reject a site.
     tag_p = os.path.join(DATA, 'tags', 'worldgen', 'biome', 'has_greatbole.json')
     layer_p = os.path.join('kubejs', 'data', 'mythicbotany', 'libx', 'biome_layer',
                            'alfheim.json')
-    EXCLUDED = {'alfheim:void_verge', 'mythicbotany:alfheim_lakes'}
     if os.path.exists(tag_p) and os.path.exists(layer_p):
         tagged = set(json.load(open(tag_p, encoding='utf-8')).get('values', []))
 
@@ -259,21 +257,33 @@ def main():
 
         walk(json.load(open(layer_p, encoding='utf-8')))
 
-        missing = (layer - EXCLUDED) - tagged
+        missing = layer - tagged
         if missing:
             fail('S10', f'#alfheim:has_greatbole omits {len(missing)} biome(s) that exist in '
-                        f'the Alfheim layer ({", ".join(sorted(missing))}). A biome outside '
-                        'the tag both forbids the Greatbole from generating there AND pushes '
-                        'concentric_rings off the origin, so the claim and the spawn anchor '
-                        'stop matching the tree.')
-        stray = tagged & EXCLUDED
-        if stray:
-            fail('S10', f'#alfheim:has_greatbole includes {", ".join(sorted(stray))}, which '
-                        'has no ground the roots can sit in -- WORLD_SURFACE_WG would place '
-                        'the trunk on water or on nothing.')
+                        f'the Alfheim layer ({", ".join(sorted(missing))}). The safe-ground '
+                        'probe may land in any layer biome, so this would reject an otherwise '
+                        'valid explicit placement.')
+        natural = os.path.join(DATA, 'worldgen', 'structure_set', 'greatbole.json')
+        if os.path.exists(natural):
+            fail('S10', 'worldgen/structure_set/greatbole.json still exists; explicit hub '
+                        'placement and natural placement can create two Greatboles')
+        place_p = os.path.join(DATA, 'functions', 'hub', 'place.mcfunction')
+        place_text = open(place_p, encoding='utf-8').read() if os.path.exists(place_p) else ''
+        assemble_p = os.path.join(DATA, 'functions', 'hub', 'assemble.mcfunction')
+        assemble_text = (open(assemble_p, encoding='utf-8').read()
+                         if os.path.exists(assemble_p) else '')
+        templates = ('greatbole/trunk', 'greatbole/crown', 'court/amphitheatre',
+                     'greatbole/base')
+        for template in templates:
+            if f'place template alfheim:{template}' not in assemble_text:
+                fail('S10', f'hub/assemble.mcfunction does not explicitly place {template}')
+        if 'if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run scoreboard players set #already' not in place_text:
+            fail('S10', 'hub/place.mcfunction does not snapshot the baked-anchor guard; retries can duplicate the hub')
+        if assemble_text.find('place template alfheim:greatbole/base') < assemble_text.find('place template alfheim:court/amphitheatre'):
+            fail('S10', 'the anchor-carrying base is not placed last, so a partial assembly can look committed')
         if a.verbose:
-            print(f'  --   has_greatbole: {len(tagged)} of {len(layer)} layer biome(s), '
-                  f'{len(EXCLUDED)} excluded')
+            print(f'  --   explicit Greatbole placement: {len(tagged)} of {len(layer)} '
+                  'layer biome(s), natural duplicate source absent')
 
     # ---- S6: the seated court must match the quest links ---------------------------------
     links_p = os.path.join('kubejs', 'data', 'quest_giver', 'quest_line_links.json')
@@ -283,6 +293,9 @@ def main():
         for e in amph.get('entities', []):
             try:
                 seated.add(json.loads(e['nbt']['CustomName'])['text'])
+                if 'alfheim_hub_court' not in e['nbt'].get('Tags', []):
+                    fail('S6', f'{json.loads(e["nbt"]["CustomName"])["text"]} lacks the '
+                               'alfheim_hub_court tag used by runtime acceptance')
             except Exception:
                 fail('S6', 'an amphitheatre entity has an unreadable CustomName')
         for lk in json.load(open(links_p, encoding='utf-8')):

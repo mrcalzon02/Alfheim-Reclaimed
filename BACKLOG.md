@@ -1,6 +1,6 @@
 # Backlog
 
-### B-80 — September 5 field-review corrections — **ACTIVE 2026-09-05**
+### B-80 — September 5 field-review corrections — **I1 RUNTIME-PROVEN; I2–I5 STATIC 2026-09-06**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
 `alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
@@ -9,8 +9,19 @@ runtime spawning and the ocean-to-Void-Verge transition. Starfall rain is accept
 
 Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run;
 biome-specific miniature pixie villages with buried spawners; and sparse natural placement for
-TaxTreeGiant giant trees plus Jaffabricate orange groves. These are planning commitments, not claims
-of implementation.
+TaxTreeGiant giant trees plus Jaffabricate orange groves. The expanded queue also records Z-fighting
+on the carpet/balustrade/wall sconce, right-shifted pants and book display models, larger/more frequent
+Elementium and Dragonstone deposits, a native Fey Gem ore, and knight-quest creature spawners in
+appropriate structures. Pixie villages now explicitly require climate-matched Feywild trees, small
+organic sky islands and vanilla food gardens. These are planning commitments, not implementation claims.
+
+I1–I5 now have an implementation pass: deterministic Great Bole placement, native Scorchfell
+surface/lava features, sparse named ocean vegetation, removal of the wood-elf skin handler, and a
+continuous low littoral density blend at the Void Verge. Static checks pass. After Java was cleared,
+a fresh headless world proved the final bounded-lattice hub path: trunk, crown, court and base each
+returned success; the baked anchor and crown marker were unique; the world hub anchored on its first
+attempt; and all eight tagged court NPCs persisted in their authored seats. I2–I5 still need visual
+acceptance in newly generated client chunks, and natural wild-elf spawning still needs field proof.
 
 ### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
 

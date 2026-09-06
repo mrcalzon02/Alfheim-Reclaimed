@@ -9,8 +9,24 @@ ocean/Verge boundary is a vertical density cut, Scorchfell walls are repetitive,
 Gamma never generated a Great Bole or baked hub anchor despite 1,200 seconds of force-loading.
 
 Work is ordered Great Bole → Scorchfell/ocean → custom elf runtime test → Void littoral prototype.
-The texture/NPC-art pass, pixie villages, giant trees and Jaffa orange groves are recorded but
-deliberately deferred. Starfall precipitation is accepted and will not be changed.
+The texture/NPC-art pass, pixie sky-island villages with Feywild trees and crops, giant trees and
+Jaffa orange groves are recorded but deliberately deferred. The queue now also includes three more
+Z-fighting models, pants/book display offsets, native ore tuning and Fey Gem compatibility, and
+knight-quest structure spawners. Starfall precipitation is accepted and will not be changed.
+
+I1 is runtime-proven and I2–I5 have a static implementation pass. Hub creation now checks a bounded
+solid-surface lattice, assembles the trunk/crown/court/base exactly once, verifies its baked anchor,
+retries only an explicit failure and reopens provisional worlds;
+the natural duplicate placement source is removed. Scorchfell uses its native five-stone family at the
+surface with 1-in-36 lava pools and six seep attempts. Alfheim Ocean has sparse independent vegetation
+and its player-facing name. The Void shore blends continuously into a lower noisy shelf. The faulting
+wood-elf cosmetic handler is deleted rather than replaced with more runtime logic.
+
+Deep regeneration/invariants, worldgen, feature order, hub and wildlife static checks pass. After the
+user cleared Java, `validation-hub-lattice-proof-0906` proved all four templates succeeded, one baked
+anchor and one crown existed, the hub finalized on attempt one, and all eight tagged court NPCs were
+present in the saved entity data. Client visual acceptance for Scorchfell/ocean/Void shore and natural
+wild-elf spawn observation remain pending. Details and exact files are in the B-80 field-review log.
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 

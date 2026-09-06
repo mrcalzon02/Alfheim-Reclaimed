@@ -66,10 +66,13 @@ def identity_surface_rule():
                          condition(preliminary,sequence([condition(floor,top),
                                                         condition(shallow,block(fill))])))
     return sequence([
-        palette('alfheim:scorchfell',[(0.56,'minecraft:magma_block'),
-                                      (0.12,'minecraft:blackstone'),
-                                      (-0.30,'minecraft:coarse_dirt')],
-                'minecraft:basalt'),
+        # Scorchfell is Alfheim's burn scar, not a slice of the Nether or Overworld.
+        # Its exposed crust now continues the same native geological family used below.
+        palette('alfheim:scorchfell',[(0.60,'alfheim:magmatic_livingrock'),
+                                      (0.22,'alfheim:embervein_livingrock'),
+                                      (-0.10,'alfheim:cinder_livingrock'),
+                                      (-0.46,'alfheim:obsidian_livingrock')],
+                'alfheim:cracked_livingrock'),
         palette('alfheim:starved_reach',[(0.58,'minecraft:blue_ice'),
                                          (0.18,'minecraft:packed_ice'),
                                          (-0.28,'minecraft:snow_block')],

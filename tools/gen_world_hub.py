@@ -28,10 +28,12 @@ Vanilla function files have none of that risk, and they are a better fit for the
 
 THE ANCHOR
 ----------
-Finding a safe Y from a command is the hard part, and it is solved by not trying to compute one:
-a `minecraft:marker` is summoned high over the hub and `spreadplayers` drops it onto a legal
-surface. The marker IS the anchor from then on. Nothing has to parse coordinates back out of a
-command, which `runCommandSilent` cannot do anyway -- it returns a result count.
+Finding a safe X/Z/Y from a command is the hard part. `spreadplayers` cannot hand an unloaded
+non-player destination to a later command, so the hub instead checks a small fixed lattice around
+the origin. It loads one candidate footprint at a time, rejects air and liquids, and uses
+`positioned over world_surface` for Y. The four authored templates are then placed at fixed
+offsets, independent of natural structure-placement rules. The permanent anchor is carried by the
+base template. Nothing parses coordinates out of command text and nothing runs every tick.
 
     python tools/gen_world_hub.py
 """
@@ -47,21 +49,18 @@ TAGS = os.path.join('kubejs', 'data', 'minecraft', 'tags', 'functions')
 MARKER = 'minecraft:marker'
 TAG = 'alfheim_hub'
 OBJ = 'alfheim.hub'          # scoreboard flag; functions have no persistent storage otherwise
-# TWO-STAGE FORCE-LOAD. Runtime-reported 2026-09-04: a player joined 31 seconds after world
-# load and the hub had still not resolved 2.5 minutes later, because 441 chunks have to
-# GENERATE before the anchor exists and a client is rendering at the same time.
-#
-# But 441 chunks is the worst case, not the normal one. The Greatbole pins to chunk 0,0 whenever
-# the origin is buildable (see gen_spawn_hub's has_greatbole note); only when the origin is void
-# or lake does the biome search push it out as far as 112 blocks. So: load the small disc first
-# and answer the common case in a fraction of the time, and widen only if the tree really is not
-# there.
-NEAR = 4                     # 81 chunks, +-64 blocks -- covers a tree pinned at chunk 0,0
-RADIUS = 10                  # 441 chunks, +-160 blocks -- covers the 112-block relocation
-                             # plus half the 96-block structure. It was 32 when the tree could
-                             # be anywhere.
-KEEP = 6                     # chunks kept loaded after the hub resolves, so the court and
-                             # the gate stay ticking for arriving players
+PLACE_LOAD_X = 32            # temporary loaded rectangle covers the 48-wide tree
+PLACE_LOAD_NORTH = 80        # ...and the court extending 72 blocks north of its centre
+PLACE_LOAD_SOUTH = 32
+# Deterministic candidate lattice. The axial 192-block probes usually cross one climate band;
+# the diagonals and 384-block ring cover seeds whose origin lies in a broad ocean or Void Verge.
+CANDIDATES = [
+    (0, 0), (192, 0), (-192, 0), (0, 192), (0, -192),
+    (192, 192), (-192, 192), (192, -192), (-192, -192),
+    (384, 0), (-384, 0), (0, 384), (0, -384),
+    (384, 192), (-384, 192), (384, -192), (-384, -192),
+    (192, 384), (-192, 384), (192, -384), (-192, -384),
+]
 RETRY_TICKS = 100            # 5s between resolve attempts
 # TWO deadlines, not one. Runtime-proven 2026-09-04: a single 2-minute deadline fired the
 # fallback at 125s and the baked anchor turned up at ~145s, so the world ended up permanently
@@ -70,9 +69,9 @@ RETRY_TICKS = 100            # 5s between resolve attempts
 # So the fallback is now PROVISIONAL -- it gives the world a usable spawn on time, and the
 # resolve loop keeps going. If the anchor appears later the hub re-anchors to it, in the same
 # session, with no restart.
-WIDEN_AT = 6                 # resolve attempts (~30s) before widening the force-load to RADIUS
+REPLACE_AT = 6               # retry only if the explicit template assembly returned failure
 PROVISIONAL = 24             # ~2 min: give the world SOME spawn rather than none
-RETRIES = 240                # ~20 min hard stop, but the loop ends the moment it anchors
+RETRIES = 60                 # ~5 min hard stop; deterministic placement should resolve at once
 
 AWAIT = 'alfheim_awaiting_hub'  # a player placed provisionally, owed a move to the hub
 BAKED = 'alfheim_hub_baked'  # carried inside greatbole/base.nbt by gen_spawn_hub.hub_anchor
@@ -91,24 +90,98 @@ def header(title, *notes):
 
 FILES = {}
 
+# ---------------------------------------------------------------------------- assemble
+FILES['assemble'] = header(
+    'assemble the Greatbole at the current surface position',
+    'Called only by hub/place after the candidate footprint is loaded and its surface is known '
+    'to be solid. The base is last because its baked anchor is the commit marker.',
+) + [
+    f'scoreboard players set #base_result {OBJ} 0',
+    f'scoreboard players set #trunk_result {OBJ} 0',
+    f'scoreboard players set #crown_result {OBJ} 0',
+    f'scoreboard players set #court_result {OBJ} 0',
+    f'execute store success score #trunk_result {OBJ} run place template '
+    f'{NS}:greatbole/trunk ~-16 ~40 ~-16 none none 1 0',
+    f'execute store success score #crown_result {OBJ} run place template '
+    f'{NS}:greatbole/crown ~-24 ~64 ~-24 none none 1 0',
+    f'execute store success score #court_result {OBJ} run place template '
+    f'{NS}:court/amphitheatre ~-24 ~-3 ~-72 none none 1 0',
+    f'execute store success score #base_result {OBJ} run place template '
+    f'{NS}:greatbole/base ~-24 ~-8 ~-24 none none 1 0',
+    '# /place template deliberately preserves jigsaw blocks; retire the six authored sockets.',
+    'setblock ~ ~39 ~ air',
+    'setblock ~ ~1 ~-24 air',
+    'setblock ~ ~40 ~ air',
+    'setblock ~ ~63 ~ air',
+    'setblock ~ ~64 ~ air',
+    'setblock ~ ~1 ~-25 air',
+    f'execute if score #base_result {OBJ} matches 1 if score #trunk_result {OBJ} matches 1 '
+    f'if score #crown_result {OBJ} matches 1 if score #court_result {OBJ} matches 1 '
+    f'run scoreboard players set #place_result {OBJ} 1',
+    f'execute if score #place_result {OBJ} matches 0 run kill @e[type={MARKER},tag={BAKED}]',
+    f'execute if score #place_result {OBJ} matches 0 run kill '
+    '@e[type=minecraft:marker,tag=alfheim_crown_probe]',
+    f'execute if score #place_result {OBJ} matches 0 run kill '
+    '@e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]',
+]
+
+# ---------------------------------------------------------------------------- place
+place_lines = header(
+    'place exactly one Greatbole on safe ground',
+    'Idempotent and bounded. Checks a fixed lattice, loads one footprint at a time and calls '
+    'hub/assemble at the first solid non-liquid WORLD_SURFACE position.',
+    'All four templates must succeed before #place_result becomes 1; no entity is used to carry '
+    'coordinates across unloaded chunks.',
+) + [
+    f'scoreboard players set #already {OBJ} 0',
+    f'execute in {HOME} if entity {SELECT_BAKED} run scoreboard players set #already {OBJ} 1',
+    f'scoreboard players set #place_result {OBJ} 0',
+    f'execute if score #already {OBJ} matches 1 run scoreboard players set #place_result {OBJ} 1',
+    f'execute in {HOME} unless score #already {OBJ} matches 1 run kill '
+    '@e[type=minecraft:marker,tag=alfheim_crown_probe]',
+    f'execute in {HOME} unless score #already {OBJ} matches 1 run kill '
+    '@e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]',
+]
+
+for x, z in CANDIDATES:
+    x1, z1 = x - PLACE_LOAD_X, z - PLACE_LOAD_NORTH
+    x2, z2 = x + PLACE_LOAD_X, z + PLACE_LOAD_SOUTH
+    place_lines += [
+        '',
+        f'# candidate {x} {z}',
+        f'execute in {HOME} unless score #already {OBJ} matches 1 '
+        f'if score #place_result {OBJ} matches 0 run forceload add {x1} {z1} {x2} {z2}',
+        f'execute in {HOME} unless score #already {OBJ} matches 1 '
+        f'if score #place_result {OBJ} matches 0 positioned {x} 0 {z} positioned over world_surface '
+        'unless block ~ ~-1 ~ minecraft:air unless block ~ ~-1 ~ minecraft:void_air '
+        'unless block ~ ~-1 ~ minecraft:water unless block ~ ~-1 ~ minecraft:lava '
+        f'run function {NS}:hub/assemble',
+        f'execute in {HOME} unless score #already {OBJ} matches 1 '
+        f'if score #place_result {OBJ} matches 0 run forceload remove all',
+    ]
+
+place_lines += [
+    '',
+    f'execute if score #place_result {OBJ} matches 1 run say [Alfheim] deterministic Greatbole '
+    'template assembly succeeded; verifying its baked anchor.',
+    f'execute if score #place_result {OBJ} matches 0 run say [Alfheim] deterministic Greatbole '
+    f'template assembly found no valid site across {len(CANDIDATES)} bounded candidates; one retry remains.',
+]
+FILES['place'] = place_lines
+
 # ---------------------------------------------------------------------------- create
 FILES['create'] = header(
     'create the world hub',
     'Idempotent. Safe to run repeatedly and safe to run from #minecraft:load, which fires on '
     'every world load AND every /reload.',
-    'This function CANNOT finish the job on its own, and that is deliberate. `forceload add` '
-    'only marks chunks -- the server generates them over the following ticks -- so the anchor '
-    'baked into greatbole/base.nbt does not exist yet on the tick this runs. Anything reading '
-    'the anchor here would read nothing. So create only starts the work and hands off to '
-    'hub/resolve, which retries until the chunks are actually there.',
+    'Creation assembles the templates explicitly, stores the result, then verifies the '
+    'structure-carried anchor. It never depends on incidental chunk generation.',
 ) + [
     f'scoreboard objectives add {OBJ} dummy',
     f'scoreboard players set #attempts {OBJ} 0',
+    f'scoreboard players set #place_result {OBJ} -1',
     '',
-    '# Generate the ground the hub stands on -- and, with it, the Greatbole and the anchor',
-    '# marker baked into its base piece. NEAR first: this is the disc the tree occupies when it',
-    '# pins to chunk 0,0, which is the normal case, and it is a fifth of the chunks.',
-    f'execute in {HOME} run forceload add -{NEAR} -{NEAR} {NEAR} {NEAR}',
+    f'function {NS}:hub/place',
     '',
     f'function {NS}:hub/resolve',
 ]
@@ -117,19 +190,17 @@ FILES['create'] = header(
 FILES['resolve'] = header(
     'wait for the Greatbole to generate, then anchor to it',
     'The retry half of create. Reschedules itself every 5s until the baked anchor appears, then '
-    'hands to hub/anchor. After ~2 minutes it gives up and takes the fallback.',
+    'hands to hub/anchor. After ~2 minutes it establishes a provisional spawn, then keeps the '
+    'bounded placement retry alive for roughly five minutes.',
     'Bounded on purpose: an unbounded self-schedule, in a world where the structure genuinely '
     'cannot generate, would reschedule for the life of the server.',
 ) + [
     f'scoreboard players add #attempts {OBJ} 1',
     '',
-    '# Widen once if the near disc did not contain the tree -- the origin was void or lake and',
-    '# the biome search relocated it. Costs the bigger generation pass only when it is needed.',
-    f'execute unless score #final {OBJ} matches 1 if score #attempts {OBJ} matches {WIDEN_AT} '
-    f'in {HOME} run forceload add -{RADIUS} -{RADIUS} {RADIUS} {RADIUS}',
-    f'execute unless score #final {OBJ} matches 1 if score #attempts {OBJ} matches {WIDEN_AT} '
-    f'run say [Alfheim] no Greatbole within {NEAR * 16} blocks of the origin; widening the '
-    f'search to {RADIUS * 16}.',
+    '# Retry only when the command itself reported failure. A successful placement whose entity',
+    '# tick is delayed is left untouched, preventing a duplicate structure.',
+    f'execute unless score #final {OBJ} matches 1 if score #attempts {OBJ} matches {REPLACE_AT} '
+    f'if score #place_result {OBJ} matches ..0 run function {NS}:hub/place',
     '',
     '# Success, and the only thing that ends the loop: the structure generated and brought its',
     '# anchor with it. Runs even after a provisional fallback, which is the point -- the hub',
@@ -167,10 +238,10 @@ FILES['anchor'] = header(
     f'execute in {HOME} at {SELECT_BAKED} run setworldspawn ~ ~1 ~',
     '',
     '# Release the generation force-load and keep only the hub itself loaded. Without this the',
-    f'# server pays for {(2 * RADIUS + 1) ** 2} permanently loaded chunks for the life of the '
-    'world.',
+    '# server pays for the placement search area permanently.',
     f'execute in {HOME} run forceload remove all',
-    f'execute in {HOME} run forceload add -{KEEP} -{KEEP} {KEEP} {KEEP}',
+    f'execute in {HOME} at {SELECT_BAKED} run forceload add '
+    f'~-{PLACE_LOAD_X} ~-{PLACE_LOAD_NORTH} ~{PLACE_LOAD_X} ~{PLACE_LOAD_SOUTH}',
     '',
     '',
     '# COLLECT THE PLAYERS WHO ARRIVED FIRST. Anyone placed provisionally while the Greatbole',
@@ -198,16 +269,18 @@ FILES['fallback'] = header(
     'Reached when hub/resolve has waited ~2 minutes. This does not end the search: it gives '
     'the world a spawn a player can stand on, and hub/resolve keeps looking for the real '
     'anchor and re-anchors to it when it appears.',
-    'spreadplayers drops a summoned marker onto a legal surface, which still gives the world a '
-    'spawn a player can stand on.',
+    'Uses a tiny emergency platform at the origin. Non-player entities cannot carry a '
+    'spreadplayers destination across an unloaded chunk, so the provisional path must not '
+    'pretend they can.',
 ) + [
     f'execute in {HOME} run kill @e[type={MARKER},tag={TAG},tag=!{BAKED}]',
-    f'execute in {HOME} run summon {MARKER} 0 250 0 {{Tags:["{TAG}"]}}',
-    f'execute in {HOME} run spreadplayers 0 0 1 24 false @e[type={MARKER},tag={TAG}]',
+    f'execute in {HOME} run forceload add -16 -16 16 16',
+    f'execute in {HOME} run fill -2 99 -2 2 99 2 botania:livingrock',
+    f'execute in {HOME} run summon {MARKER} 0 100 0 {{Tags:["{TAG}"]}}',
     f'execute in {HOME} at {SELECT} run setworldspawn ~ ~1 ~',
     '',
     f'execute in {HOME} run forceload remove all',
-    f'execute in {HOME} run forceload add -{KEEP} -{KEEP} {KEEP} {KEEP}',
+    f'execute in {HOME} at {SELECT} run forceload add -16 -16 16 16',
     '',
     f'scoreboard players set #created {OBJ} 1',
     'tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; '
@@ -224,11 +297,12 @@ FILES['autoload'] = header(
     'Creates the hub only once per world; #created survives in the scoreboard.',
 ) + [
     f'scoreboard objectives add {OBJ} dummy',
-    f'execute unless score #created {OBJ} matches 1 run function {NS}:hub/create',
+    f'execute unless score #final {OBJ} matches 1 run function {NS}:hub/create',
     '',
     '# Re-assert the force-load every load: forceload state is per-world and an operator may',
     '# legitimately have cleared it.',
-    f'execute if score #created {OBJ} matches 1 in {HOME} run forceload add -{KEEP} -{KEEP} {KEEP} {KEEP}',
+    f'execute if score #final {OBJ} matches 1 in {HOME} at {SELECT_BAKED} run forceload add '
+    f'~-{PLACE_LOAD_X} ~-{PLACE_LOAD_NORTH} ~{PLACE_LOAD_X} ~{PLACE_LOAD_SOUTH}',
 ]
 
 # ---------------------------------------------------------------------------- status
@@ -267,9 +341,9 @@ FILES['send'] = header(
     'second either way.',
     'Sets the respawn point too, so dying bedless returns them here rather than to Midgard.',
 ) + [
-    '# 1. CROSS. Unconditional, and safe to run on a player already in Alfheim. y=320 is above',
+    '# 1. CROSS. Unconditional, and safe to run on a player already in Alfheim. y=256 is above',
     '#    any terrain, so this never suffocates; the next lines put them on the ground.',
-    f'execute in {HOME} run tp @s 0 320 0',
+    f'execute in {HOME} run tp @s 0 256 0',
     '',
     '# 2. REFINE, if the hub has resolved: stand them in the gate chamber.',
     f'execute in {HOME} at {SELECT} run tp @s ~ ~1 ~',

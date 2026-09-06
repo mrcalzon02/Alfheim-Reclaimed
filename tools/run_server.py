@@ -371,31 +371,18 @@ DEFAULT_COMMANDS = [
     (30, 'execute in mythicbotany:alfheim run forceload add -16 -16 16 16'),
 
     # --- the spawn hub, verified rather than assumed -----------------------------------------
-    #
-    # Three separate failures hid behind "the hub exists", and each needs its own probe:
-    #
-    #   1. DID IT GENERATE AT ALL?  The structure's `biomes` field is a validity test, so a
-    #      narrow #alfheim:has_greatbole meant no tree anywhere. `locate structure` is the only
-    #      honest answer.
-    #   2. IS IT AT THE ORIGIN?  concentric_rings snaps ring 0 to a preferred_biomes match up to
-    #      112 blocks away, which is what desynchronised the claim and the spawn anchor from the
-    #      tree. locate prints the coordinates, so the displacement is measurable.
-    #   3. DID THE CANOPY SURVIVE?  Every piece was individually legal and the crown was culled
-    #      anyway for overrunning max_distance_from_center. The probe marker baked into
-    #      greatbole/crown answers this and nothing else does.
-    (30, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate structure '
-         'alfheim:greatbole'),
-
-    # WHICH BIOME IS AT THE ORIGIN? Answered from the `locate biome` block above, not by a
-    # probe of its own: `execute if biome` does NOT exist in 1.20.1 -- Brigadier parses `if b`
-    # as `if blocks` and fails with "Expected integer". It arrives in a later version.
-    #
-    # The distances do the job instead. On 2026-09-04 the nearest of our eleven was mana_fen at
-    # 160 blocks, so the origin belongs to one of MythicBotany's five; of those only
-    # alfheim_lakes is outside #alfheim:has_greatbole. The Greatbole duly appeared 135 blocks
-    # out at [96, ~, -96] -- the designed fallback relocating off water, not a placement bug.
-    # If a future run shows one of our biomes at distance ~0 AND the tree still displaced, that
-    # deduction no longer holds and the cause is something else.
+    # The hub is explicitly placed and the natural structure set is deliberately absent, so
+    # `/locate structure` is no longer meaningful. Count its three independent runtime proofs:
+    # exactly one baked base anchor, exactly one crown marker and eight seated court elves.
+    (5, 'execute in mythicbotany:alfheim store result score #hub_anchor_count alfheim.hub '
+        'if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]'),
+    (1, 'scoreboard players get #hub_anchor_count alfheim.hub'),
+    (1, 'execute in mythicbotany:alfheim store result score #hub_crown_count alfheim.hub '
+        'if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]'),
+    (1, 'scoreboard players get #hub_crown_count alfheim.hub'),
+    (1, 'execute in mythicbotany:alfheim store result score #hub_court_count alfheim.hub '
+        'if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
+    (1, 'scoreboard players get #hub_court_count alfheim.hub'),
     (5, 'execute in mythicbotany:alfheim run data get entity '
         '@e[type=minecraft:marker,tag=alfheim_crown_probe,limit=1] Pos'),
     (5, 'execute in mythicbotany:alfheim run data get entity '
@@ -404,7 +391,7 @@ DEFAULT_COMMANDS = [
     # branch placed too -- the court jigsaw is horizontal and fails independently of the
     # vertical trunk chain.
     (5, 'execute in mythicbotany:alfheim run data get entity '
-        '@e[type=richs_races_wood_elves:wood_elf,limit=1] CustomName'),
+        '@e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court,limit=1] CustomName'),
 
     # Late status: hub/resolve retries every 5s until the chunks finish generating, so an
     # early status call can legitimately report NOT CREATED. This one runs after the
@@ -414,17 +401,40 @@ DEFAULT_COMMANDS = [
 
     # FTB Chunks claim acceptance needs ownership read-back, not the return value from
     # `claim_as`. FTB Chunks `info` reports the owning team for the addressed chunk to an
-    # operator/console source. Probe the centre and all four corners of the 192-block square
+    # operator/console source. Probe the centre and all four corners of the 640-block square
     # that 04_spawn_hub.js reconciles so the next headless run records whether the whole
-    # relocation envelope belongs to the `alfheim_hub` server team.
+    # placement envelope belongs to the `alfheim_hub` server team.
     (2, 'ftbchunks info 0 0 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 192 192 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -192 192 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 192 -192 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -192 -192 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 640 640 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -640 640 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 640 -640 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -640 -640 mythicbotany:alfheim'),
 
     (60, 'save-all flush'),
     (20, 'stop'),
+]
+
+# Fast feedback for Great Bole placement work. The load function owns creation; these commands
+# only wait for startup, read its four piece results and runtime entities, then stop cleanly.
+HUB_ONLY_COMMANDS = [
+    (35, 'say alfheim hub-only validation: startup reached'),
+    (5, 'function alfheim:hub/status'),
+    (1, 'scoreboard players get #place_result alfheim.hub'),
+    (1, 'scoreboard players get #base_result alfheim.hub'),
+    (1, 'scoreboard players get #trunk_result alfheim.hub'),
+    (1, 'scoreboard players get #crown_result alfheim.hub'),
+    (1, 'scoreboard players get #court_result alfheim.hub'),
+    (5, 'execute in mythicbotany:alfheim store result score #hub_anchor_count alfheim.hub '
+        'if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]'),
+    (1, 'scoreboard players get #hub_anchor_count alfheim.hub'),
+    (1, 'execute in mythicbotany:alfheim store result score #hub_crown_count alfheim.hub '
+        'if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]'),
+    (1, 'scoreboard players get #hub_crown_count alfheim.hub'),
+    (1, 'execute in mythicbotany:alfheim store result score #hub_court_count alfheim.hub '
+        'if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
+    (1, 'scoreboard players get #hub_court_count alfheim.hub'),
+    (5, 'save-all flush'),
+    (5, 'stop'),
 ]
 
 
@@ -433,6 +443,8 @@ def main():
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--install', action='store_true')
     ap.add_argument('--run', action='store_true')
+    ap.add_argument('--hub-only', action='store_true',
+                    help='run the short Great Bole placement proof instead of the full suite')
     ap.add_argument('--seed', default='alfheim')
     ap.add_argument('--level-name', default='validation')
     ap.add_argument('--heap', type=int, default=8)
@@ -444,7 +456,7 @@ def main():
     if a.install:
         return install()
     if a.run:
-        cmds = list(DEFAULT_COMMANDS)
+        cmds = list(HUB_ONLY_COMMANDS if a.hub_only else DEFAULT_COMMANDS)
         if a.export:
             cmds.insert(1, (5, 'kubejs export'))
         return run(a.seed, a.level_name, a.heap, cmds, a.timeout)

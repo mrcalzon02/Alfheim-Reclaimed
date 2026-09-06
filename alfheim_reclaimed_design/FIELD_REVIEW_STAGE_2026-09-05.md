@@ -21,8 +21,8 @@
 - The Great Bole did not generate. The log records 8/8 court NPCs absent, an empty 64-block search,
   an empty 160-block search, a provisional origin spawn, and final timeout after 1,200 seconds.
   Waiting longer is therefore not an acceptable repair.
-- `16_wood_elf_skins.js` also throws `redeclaration of var nbt` whenever a wood elf spawns. This is
-  a separate runtime defect and must be repaired before court/wild-elf skin acceptance.
+- `16_wood_elf_skins.js` also threw `redeclaration of var nbt` whenever a wood elf spawned. The
+  handler is unnecessary runtime skin-slot policing and is retired rather than repaired.
 
 ## Ordered increments
 
@@ -62,7 +62,7 @@ between gardens, and no single reef carpet dominates the view.
 
 ### I4 — custom elf spawning (P1)
 
-Repair any runtime script fault affecting elf creation, then test wild, savage and demonic variants in
+Avoid runtime skin-policing scripts, then test wild, savage and demonic variants in
 their named biomes while a non-spectator survival/creative player is present. Measure attempts and actual
 entities rather than treating biome-modifier registration as proof. Tune weights or light rules only from
 that evidence.
@@ -96,14 +96,22 @@ are reviewed at 8×8 and 16×8 scales; variants preserve block-edge tiling and r
 Design tiny biome-specific villages for the installed Feywild pixie types: two to four miniature buildings,
 paths/props readable at player scale, and a concealed, protected spawner chamber beneath each settlement.
 Use separate palettes and structure pools by pixie culture; keep placement rare enough to feel discovered.
+Each settlement should occupy its own small, intentionally shaped sky island, carry the Feywild tree species
+whose climate matches the host biome, and include miniature but functional vanilla food gardens/crop plots.
+The island silhouette, roots and support fragments must read as a floating landform rather than a structure
+placed on a rectangular pad.
 
 Acceptance when implemented: each pixie type has a valid settlement/spawner pairing, spawners remain
-reachable for maintenance but not visually exposed, and settlements do not collide with major structures.
+reachable for maintenance but not visually exposed, crops provide renewable vanilla food, the expected
+Feywild tree grows on each cultural island, and settlements do not collide with major structures.
 
 ### I8 — giant trees and Jaffa orange trees (queued worldgen)
 
-Inventory `TaxTreeGiant` configured features and Jaffabricate orange-tree blocks/features from their jars,
-then add them through Forge biome modifiers rather than editing either mod. Giant trees belong sparsely in
+The installed-jar inventory is complete. `TaxTreeGiant` supplies structure families (two variants each) for
+giant birch, cherry blossom, jungle, oak, palm, pine, snowy, spruce, swamp and yellow trees. Jaffabricate
+supplies `orange_tree` plus normal, rare and very-rare placed forms. Feywild supplies autumn, spring, summer
+and winter configured/placed trees, as well as its own Fey Gem ore feature. Add the appropriate assets through
+Alfheim-owned structure placement or Forge biome modifiers rather than editing any source mod. Giant trees belong sparsely in
 Dreamwood Forest, Silverbark Wood and selected old-growth pockets; orange groves belong in warm living
 biomes such as Bloomfall Vale and Golden Fields, never the deficiencies, ocean or Void Margins.
 
@@ -111,17 +119,71 @@ Acceptance when implemented: both tree families occur in new Alfheim chunks, gia
 rather than canopy spam, oranges are renewable, feature ordering stays acyclic, and sapling/growth behavior
 is verified separately from natural placement.
 
+### I9 — model and display alignment repair (queued)
+
+Repair coplanar geometry on the custom carpet, balustrade and wall sconce. Audit custom wearable/item models,
+with the reported pants and books first, for the rightward GUI/display-frame offset that exposes part of the
+item on the left edge of its frame. Correct transforms at the shared generator/template level so the same
+fault does not survive in sibling assets.
+
+Acceptance: the three blocks remain stable at near/mid/far camera distances; pants and books are centered in
+inventory, hand and item frame; generated siblings pass the same transform bounds check.
+
+### I10 — native and compatibility ore tuning (queued)
+
+Increase MythicBotany Elementium and Dragonstone deposit size and placement frequency in Alfheim without
+restoring ordinary Overworld ore. Add a native **Fey Gem ore** route for Feywild compatibility after verifying
+the exact installed item registry id, then give it Deep host-rock variants and a climate/era-appropriate
+distribution. Preserve material scarcity by measuring blocks per chunk rather than multiplying both size and
+count blindly.
+
+Acceptance: sampled new chunks show the larger/more frequent Elementium and Dragonstone target bands; Fey
+Gem is renewable from an Alfheim-native ore and follows the matching Deep rock palette; progression and
+feature-order checks remain valid.
+
+### I11 — structure encounter spawners (queued)
+
+Inventory the creatures required by the knight quest line and assign them to appropriate ruin/fortress
+families. Add protected, bounded spawners inside those structures with encounter-specific counts, activation
+ranges and cooldowns; never substitute arbitrary hostile mobs merely because they fit a room.
+
+Acceptance: every named knight-quest creature has at least one discoverable structure encounter, spawners do
+not leak into the Hollow Court or peaceful settlements, and quest kill/encounter credit works end to end.
+
 ## Running completion record
 
 | Increment | State | Evidence / completed work | Commit |
 |---|---|---|---|
-| I0 | authored | Screenshots and log translated into scope and acceptance gates; later tree request included. | pending |
-| I1 | active | Root symptom proven: no baked anchor after 1,200 seconds in New World Gamma. | pending |
-| I2 | queued | — | — |
-| I3 | queued | — | — |
-| I4 | active | Registration exists; runtime field acceptance did not occur. Skin reservation script fault found. | pending |
-| I5 | queued | Screenshot proves a vertical ocean/Verge density contact. | — |
+| I0 | committed | Screenshots and log translated into scope and acceptance gates; all later additions captured. | `d865f28` |
+| I1 | runtime-proven | Bounded solid-surface lattice; deterministic trunk/crown/court/base template assembly; base-last commit marker; exact footprint loading; provisional-state self-repair; natural duplicate source removed. Fresh proof succeeded on attempt one with one anchor, one crown and all eight tagged court NPCs persisted. | pending |
+| I2 | static implemented | Surface rule now uses magmatic/embervein/cinder/obsidian/cracked Livingrock; lava pool 1/36 chunks plus six native-rock seep attempts. | pending |
+| I3 | static implemented | Name is “Alfheim Ocean”; coral 1/5 chunks, kelp 1/3, six seagrass attempts, pickles 1/32. Fish/custom sea life retained. | pending |
+| I4 | partial | Registration remains; runtime field acceptance did not occur. Faulting skin handler deleted instead of expanded; natural-spawn proof remains. | pending |
+| I5 | static prototype | CLIFF..RIM now continuously blends ordinary density into a lower noisy shore; Deep density is explicitly excluded from that blend. | pending |
 | I6 | deferred | Explicitly queued; no image generation authorized for this stage. | — |
 | I7 | deferred | Pixie settlement/spawner brief captured. | — |
-| I8 | deferred | TaxTreeGiant and Jaffabricate jars confirmed installed; registry inventory remains. | — |
+| I8 | deferred | Installed registry inventory complete: ten TaxTreeGiant structure families, Jaffabricate orange tree with three placed rarities, and four seasonal Feywild tree features. Placement design remains. | — |
+| I9 | queued | Carpet, balustrade, wall-sconce Z-fighting and right-shifted pants/books recorded. | — |
+| I10 | queued | Elementium/Dragonstone density tuning and native Fey Gem ore compatibility recorded. | — |
+| I11 | queued | Knight-quest creature spawners in suitable structures recorded. | — |
 
+## Implementation log
+
+### 2026-09-05 / 2026-09-06 — I1 runtime proof and I2 through I5 static pass
+
+- Great Bole: `tools/gen_world_hub.py`, `tools/gen_spawn_hub.py`, generated hub functions,
+  protection script and biome tag changed. `worldgen/structure_set/greatbole.json` removed.
+- Scorchfell/ocean: `tools/gen_alfheim_biomes.py` owns the new placed/configured features and
+  ocean name; `tools/gen_deep_terrain.py` owns the native surface palette.
+- Void shore: `tools/gen_void_worldgen.py` owns the continuous shoreline blend. The blend consumes
+  original Alfheim surface density rather than Deepworks-wrapped density, preserving the Deep/Void
+  separation contract.
+- Runtime script policy: `kubejs/server_scripts/16_wood_elf_skins.js` removed. Its legacy generator
+  is prevented from recreating it. Dedicated court NPC assets remain I6 scope.
+- Passing checks: Deep regeneration, Deep invariants, worldgen/climate, feature order (961 edges,
+  611 placed features), spawn-hub structure/wiring, and 18-entity wildlife synchronization.
+- Runtime proof: after Java was cleared, the final fresh `validation-hub-lattice-proof-0906` run
+  loaded all scripts, found a solid candidate, placed trunk/crown/court/base with result 1, anchored
+  on attempt one, and saved exactly one baked anchor, one crown marker and all eight tagged court
+  NPCs. The early live court query saw seven because one entity chunk had not ticked in; saved entity
+  data contains the complete eight-member manifest.

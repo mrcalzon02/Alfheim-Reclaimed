@@ -105,9 +105,9 @@ VOID_MOBS = [{'type': 'minecraft:enderman', 'maxCount': 2, 'minCount': 1, 'weigh
 # entry here is a hard error: add it deliberately, in a position MythicBotany allows.
 FEATURE_ORDER = [
     # steps 1/2/4/8/10 used by the strong surface-identity biomes
-    'minecraft:lake_lava_surface',
+    'minecraft:lake_lava_surface', 'alfheim:scorchfell_lava_pool',
     'alfheim:starved_ice_spike', 'alfheim:starved_snow_pile',
-    'minecraft:spring_lava',
+    'minecraft:spring_lava', 'alfheim:scorchfell_lava_seep',
     # step 4, surface structures
     'mythicbotany:abandoned_apothecaries',
     # step 6, underground ores -- MythicBotany's own order, extra_gold_ore last
@@ -129,6 +129,8 @@ FEATURE_ORDER = [
     # Regions Unexplored fixes sea_pickle before kelp_warm in rocky_reef. Matching
     # that order keeps the combined feature graph acyclic.
     'minecraft:sea_pickle', 'minecraft:kelp_warm',
+    'alfheim:ocean_coral_sparse', 'alfheim:ocean_seagrass_sparse',
+    'alfheim:ocean_pickle_sparse', 'alfheim:ocean_kelp_sparse',
     'minecraft:freeze_top_layer',
     # ars_nouveau:placed_cascading_tree and placed_mixed_archwoods are deliberately absent.
     # They reach our biomes through GROVE_MODIFIERS instead -- see the note there. A
@@ -347,8 +349,8 @@ BIOMES = {
     # It burned, and then it kept burning. Standing dead wood and ash in the air.
     'scorchfell': biome(
         fog=0x3A2A22, sky=0x6B4A38, water=0x3A2A22, water_fog=0x1A1210,
-        features=[[], ['minecraft:lake_lava_surface'], [], [], [], [], ORES, [],
-                  ['minecraft:spring_lava'],
+        features=[[], ['alfheim:scorchfell_lava_pool'], [], [], [], [], ORES, [],
+                  ['alfheim:scorchfell_lava_seep'],
                   ['mythicbotany:loose_dreamwood_trees','minecraft:patch_dead_bush_badlands']],
         spawners={'creature': FEY_SCORCH, 'monster': HOSTILE},
         downfall=0.0, temperature=1.2, precipitation=False,
@@ -384,8 +386,8 @@ BIOMES = {
     'alfheim_ocean': biome(
         fog=0x8FC7D0, sky=0x79B7D8, water=0x2D86A6, water_fog=0x12394C,
         features=[[], [], [], [], [], [], ORES, [], [],
-                  ['minecraft:warm_ocean_vegetation','minecraft:seagrass_warm',
-                   'minecraft:sea_pickle','minecraft:kelp_warm']],
+                  ['alfheim:ocean_coral_sparse','alfheim:ocean_seagrass_sparse',
+                   'alfheim:ocean_pickle_sparse','alfheim:ocean_kelp_sparse']],
         spawners={'creature': [], 'monster': [
             {'type':'minecraft:drowned','maxCount':1,'minCount':1,'weight':5}]},
         downfall=0.8, temperature=0.7,
@@ -439,11 +441,12 @@ VOID_ISLAND_HIGH = (110, 150)
 
 def void_final_density(include_deepworks=True):
     from gen_void_worldgen import density
-    normal = {'type':'minecraft:min','argument1':'mythicbotany:alfheim_initial','argument2':'mythicbotany:alfheim_caves'}
+    base_normal = {'type':'minecraft:min','argument1':'mythicbotany:alfheim_initial','argument2':'mythicbotany:alfheim_caves'}
+    normal = base_normal
     if include_deepworks:
         from gen_deep_terrain import wrap_density
         normal=wrap_density(normal)
-    return density(normal)
+    return density(normal, base_normal)
 
 
 def pt(cont, ero=(-1.0, 1.0), weird=(-1.0, 1.0), temp=(-1.0, 1.0), hum=(-1.0, 1.0)):
@@ -775,6 +778,60 @@ def ore_files():
     """
     out = {}
 
+    # Scorchfell surface heat. The vanilla surface lake is 1-in-200 chunks, which was
+    # effectively invisible in the field review. A 1-in-36 pool plus six native-rock seep
+    # attempts gives the biome punctuation without turning every route into a lava field.
+    out[os.path.join(OUT, NS, 'worldgen', 'placed_feature',
+                     'scorchfell_lava_pool.json')] = {
+        'feature':'minecraft:lake_lava',
+        'placement':[{'type':'minecraft:rarity_filter','chance':36},
+                     {'type':'minecraft:in_square'},
+                     {'type':'minecraft:heightmap','heightmap':'WORLD_SURFACE_WG'},
+                     {'type':'minecraft:biome'}],
+    }
+    out[os.path.join(OUT, NS, 'worldgen', 'configured_feature',
+                     'scorchfell_lava_seep.json')] = {
+        'type':'minecraft:spring_feature',
+        'config':{
+            'state':{'Name':'minecraft:lava','Properties':{'falling':'true'}},
+            'rock_count':4, 'hole_count':1, 'requires_block_below':True,
+            'valid_blocks':['alfheim:magmatic_livingrock','alfheim:embervein_livingrock',
+                            'alfheim:cinder_livingrock','alfheim:obsidian_livingrock',
+                            'alfheim:cracked_livingrock'],
+        },
+    }
+    out[os.path.join(OUT, NS, 'worldgen', 'placed_feature',
+                     'scorchfell_lava_seep.json')] = {
+        'feature':'alfheim:scorchfell_lava_seep',
+        'placement':[{'type':'minecraft:count','count':6},
+                     {'type':'minecraft:in_square'},
+                     {'type':'minecraft:height_range','height':{
+                         'type':'minecraft:uniform','min_inclusive':{'absolute':36},
+                         'max_inclusive':{'absolute':132}}},
+                     {'type':'minecraft:biome'}],
+    }
+
+    # The complete vanilla warm-ocean placements request up to 80 seagrass attempts in every
+    # chunk and noise-driven coral/kelp carpets. Keep all four life forms, but give each a small,
+    # independent budget so open water separates the gardens.
+    sparse_ocean = {
+        'ocean_coral_sparse':('minecraft:warm_ocean_vegetation',[
+            {'type':'minecraft:rarity_filter','chance':5}]),
+        'ocean_seagrass_sparse':('minecraft:seagrass_short',[
+            {'type':'minecraft:count','count':6}]),
+        'ocean_pickle_sparse':('minecraft:sea_pickle',[
+            {'type':'minecraft:rarity_filter','chance':32}]),
+        'ocean_kelp_sparse':('minecraft:kelp',[
+            {'type':'minecraft:rarity_filter','chance':3}]),
+    }
+    for name,(feature,frequency) in sparse_ocean.items():
+        out[os.path.join(OUT, NS, 'worldgen', 'placed_feature', name + '.json')] = {
+            'feature':feature,
+            'placement':frequency + [{'type':'minecraft:in_square'},
+                                     {'type':'minecraft:heightmap','heightmap':'OCEAN_FLOOR_WG'},
+                                     {'type':'minecraft:biome'}],
+        }
+
     # Glacial features at landmark density.  Vanilla's ice-spike placement is three
     # attempts in every chunk; the Starved Reach needs scars and ice fields, not a
     # second Ice Spikes biome packed solid with towers.
@@ -867,6 +924,12 @@ def main():
         os.path.join(OUT, 'mythicbotany', 'tags', 'worldgen', 'biome', 'elven_houses.json'),
         {'replace': False,
          'values': [f'{NS}:silverbark_wood', f'{NS}:bloomfall_vale', f'{NS}:ashen_grove']}))
+
+    # JourneyMap and other player-facing biome displays resolve this standard translation key.
+    lang_path = os.path.join('kubejs', 'assets', NS, 'lang', 'en_us.json')
+    lang = json.load(open(lang_path, encoding='utf-8')) if os.path.exists(lang_path) else {}
+    lang['biome.alfheim.alfheim_ocean'] = 'Alfheim Ocean'
+    written.append(write(lang_path, lang))
 
     for p in written:
         print('  wrote', p)

@@ -10,7 +10,7 @@
 const HUB_DIMENSION = 'mythicbotany:alfheim'
 const HUB_X = 0
 const HUB_Z = 0
-const HUB_RADIUS = 192
+const HUB_RADIUS = 640
 const HUB_FTB_TEAM = 'alfheim_hub'
 const PROTECT_FROM_PLAYERS = true
 

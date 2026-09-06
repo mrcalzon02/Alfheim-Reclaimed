@@ -37,10 +37,10 @@
     [],
     [],
     [
-      "minecraft:warm_ocean_vegetation",
-      "minecraft:seagrass_warm",
-      "minecraft:sea_pickle",
-      "minecraft:kelp_warm"
+      "alfheim:ocean_coral_sparse",
+      "alfheim:ocean_seagrass_sparse",
+      "alfheim:ocean_pickle_sparse",
+      "alfheim:ocean_kelp_sparse"
     ],
     []
   ],
