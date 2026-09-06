@@ -1,0 +1,636 @@
+{
+  "schema": "alfheim:royal_tileset_wave_a/v1",
+  "design_authority": "alfheim_reclaimed_design/ROYAL_TILESET_I.md",
+  "semantic_catalog": "tools/royal_tileset_catalog.json",
+  "status": "implementation_source",
+  "minecraft": "1.20.1",
+  "loader": "forge",
+  "kubejs": "2001.6.5",
+  "pilot_semantic_assets": [
+    "highback_chair",
+    "wall_sconce",
+    "carpet_runner",
+    "balustrade_segment",
+    "lidded_amphora",
+    "canopy_bed",
+    "wall_banner",
+    "astrolabe"
+  ],
+  "texture_contract": {
+    "wood": "botania:block/dreamwood_planks",
+    "wood_log": "botania:block/dreamwood_log",
+    "metal": "botania:block/elementium_block",
+    "glass": "botania:block/elf_glass_0",
+    "stone": "minecraft:block/quartz_block_side",
+    "stone_top": "minecraft:block/quartz_block_top",
+    "textile": "minecraft:block/purple_wool",
+    "textile_trim": "minecraft:block/magenta_wool",
+    "dark": "minecraft:block/polished_blackstone",
+    "glow": "minecraft:block/sea_lantern"
+  },
+  "rules": {
+    "directional_builder": "cardinal",
+    "directional_blocks_require_explicit_structure_rotation_callbacks": true,
+    "all_model_elements_local_0_16": true,
+    "multi_block_assets_use_local_modules": true,
+    "no_progression_objects": true,
+    "no_block_entities": true,
+    "no_inventory": true,
+    "no_recipes_in_pilot": true,
+    "module_items_default": false
+  },
+  "assemblies": {
+    "canopy_bed": {
+      "footprint": [
+        2,
+        3
+      ],
+      "facing": "north",
+      "rows": [
+        [
+          "royal_canopy_bed_head_left",
+          "royal_canopy_bed_head_right"
+        ],
+        [
+          "royal_canopy_bed_middle_left",
+          "royal_canopy_bed_middle_right"
+        ],
+        [
+          "royal_canopy_bed_foot_left",
+          "royal_canopy_bed_foot_right"
+        ]
+      ]
+    },
+    "astrolabe": {
+      "footprint": [
+        2,
+        2
+      ],
+      "facing": "north",
+      "rows": [
+        [
+          "royal_astrolabe_nw",
+          "royal_astrolabe_ne"
+        ],
+        [
+          "royal_astrolabe_sw",
+          "royal_astrolabe_se"
+        ]
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "alfheim:royal_highback_chair",
+      "semantic_asset": "highback_chair",
+      "module": "single",
+      "builder": "cardinal",
+      "model_kind": "highback_chair",
+      "display_name": "Royal Highback Chair",
+      "collision_boxes": [
+        [
+          3,
+          0,
+          3,
+          5,
+          6,
+          5
+        ],
+        [
+          11,
+          0,
+          3,
+          13,
+          6,
+          5
+        ],
+        [
+          3,
+          0,
+          11,
+          5,
+          6,
+          13
+        ],
+        [
+          11,
+          0,
+          11,
+          13,
+          6,
+          13
+        ],
+        [
+          3,
+          6,
+          3,
+          13,
+          9,
+          13
+        ],
+        [
+          3,
+          9,
+          12,
+          13,
+          16,
+          15
+        ]
+      ],
+      "light": 0,
+      "item": true,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_wall_sconce",
+      "semantic_asset": "wall_sconce",
+      "module": "single",
+      "builder": "cardinal",
+      "model_kind": "wall_sconce",
+      "display_name": "Royal Wall Sconce",
+      "collision_boxes": [
+        [
+          5,
+          4,
+          13,
+          11,
+          14,
+          16
+        ],
+        [
+          7,
+          7,
+          9,
+          9,
+          11,
+          13
+        ]
+      ],
+      "light": 12,
+      "item": true,
+      "sound": "metal",
+      "render_type": "cutout",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_carpet_runner",
+      "semantic_asset": "carpet_runner",
+      "module": "segment",
+      "builder": "cardinal",
+      "model_kind": "carpet_runner",
+      "display_name": "Royal Carpet Runner",
+      "collision_boxes": [
+        [
+          1,
+          0,
+          0,
+          15,
+          1,
+          16
+        ]
+      ],
+      "light": 0,
+      "item": true,
+      "sound": "wool",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_balustrade",
+      "semantic_asset": "balustrade_segment",
+      "module": "segment",
+      "builder": "cardinal",
+      "model_kind": "balustrade",
+      "display_name": "Royal Balustrade Segment",
+      "collision_boxes": [
+        [
+          1,
+          0,
+          6,
+          4,
+          16,
+          10
+        ],
+        [
+          12,
+          0,
+          6,
+          15,
+          16,
+          10
+        ],
+        [
+          3,
+          10,
+          7,
+          13,
+          13,
+          9
+        ]
+      ],
+      "light": 0,
+      "item": true,
+      "sound": "stone",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_lidded_amphora",
+      "semantic_asset": "lidded_amphora",
+      "module": "single",
+      "builder": "cardinal",
+      "model_kind": "lidded_amphora",
+      "display_name": "Royal Lidded Amphora",
+      "collision_boxes": [
+        [
+          4,
+          0,
+          4,
+          12,
+          12,
+          12
+        ],
+        [
+          6,
+          12,
+          6,
+          10,
+          16,
+          10
+        ]
+      ],
+      "light": 0,
+      "item": true,
+      "sound": "stone",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_canopy_bed_head_left",
+      "semantic_asset": "canopy_bed",
+      "module": "head_left",
+      "builder": "cardinal",
+      "model_kind": "canopy_bed_head_left",
+      "display_name": "Royal Canopy Bed Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          7,
+          16
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          16,
+          3
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_canopy_bed_head_right",
+      "semantic_asset": "canopy_bed",
+      "module": "head_right",
+      "builder": "cardinal",
+      "model_kind": "canopy_bed_head_right",
+      "display_name": "Royal Canopy Bed Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          7,
+          16
+        ],
+        [
+          13,
+          0,
+          0,
+          16,
+          16,
+          3
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_canopy_bed_middle_left",
+      "semantic_asset": "canopy_bed",
+      "module": "middle_left",
+      "builder": "cardinal",
+      "model_kind": "canopy_bed_middle_left",
+      "display_name": "Royal Canopy Bed Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          7,
+          16
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_canopy_bed_middle_right",
+      "semantic_asset": "canopy_bed",
+      "module": "middle_right",
+      "builder": "cardinal",
+      "model_kind": "canopy_bed_middle_right",
+      "display_name": "Royal Canopy Bed Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          7,
+          16
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_canopy_bed_foot_left",
+      "semantic_asset": "canopy_bed",
+      "module": "foot_left",
+      "builder": "cardinal",
+      "model_kind": "canopy_bed_foot_left",
+      "display_name": "Royal Canopy Bed Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          7,
+          16
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          16,
+          3
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_canopy_bed_foot_right",
+      "semantic_asset": "canopy_bed",
+      "module": "foot_right",
+      "builder": "cardinal",
+      "model_kind": "canopy_bed_foot_right",
+      "display_name": "Royal Canopy Bed Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          7,
+          16
+        ],
+        [
+          13,
+          0,
+          0,
+          16,
+          16,
+          3
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "wood",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_wall_banner",
+      "semantic_asset": "wall_banner",
+      "module": "single",
+      "builder": "cardinal",
+      "model_kind": "wall_banner",
+      "display_name": "Royal Wall Banner",
+      "collision_boxes": [
+        [
+          2,
+          2,
+          14,
+          14,
+          16,
+          16
+        ]
+      ],
+      "light": 0,
+      "item": true,
+      "sound": "wool",
+      "render_type": "cutout",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_astrolabe_nw",
+      "semantic_asset": "astrolabe",
+      "module": "nw",
+      "builder": "cardinal",
+      "model_kind": "astrolabe_nw",
+      "display_name": "Royal Astrolabe Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          5,
+          16
+        ],
+        [
+          5,
+          5,
+          5,
+          11,
+          16,
+          11
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "metal",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_astrolabe_ne",
+      "semantic_asset": "astrolabe",
+      "module": "ne",
+      "builder": "cardinal",
+      "model_kind": "astrolabe_ne",
+      "display_name": "Royal Astrolabe Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          5,
+          16
+        ],
+        [
+          5,
+          5,
+          5,
+          11,
+          16,
+          11
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "metal",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_astrolabe_sw",
+      "semantic_asset": "astrolabe",
+      "module": "sw",
+      "builder": "cardinal",
+      "model_kind": "astrolabe_sw",
+      "display_name": "Royal Astrolabe Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          5,
+          16
+        ],
+        [
+          5,
+          5,
+          5,
+          11,
+          16,
+          11
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "metal",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    },
+    {
+      "id": "alfheim:royal_astrolabe_se",
+      "semantic_asset": "astrolabe",
+      "module": "se",
+      "builder": "cardinal",
+      "model_kind": "astrolabe_se",
+      "display_name": "Royal Astrolabe Module",
+      "collision_boxes": [
+        [
+          0,
+          0,
+          0,
+          16,
+          5,
+          16
+        ],
+        [
+          5,
+          5,
+          5,
+          11,
+          16,
+          11
+        ]
+      ],
+      "light": 0,
+      "item": false,
+      "sound": "metal",
+      "render_type": "solid",
+      "tags": [
+        "alfheim:royal_tileset",
+        "alfheim:royal_tileset_wave_a"
+      ]
+    }
+  ]
+}
