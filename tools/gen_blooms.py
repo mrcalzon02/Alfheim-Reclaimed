@@ -94,6 +94,22 @@ def rgb_int(hue, sat=0.85, val=0.85):
     return (int(r * 255) << 16) | (int(g * 255) << 8) | int(b * 255)
 
 
+def ore_hosts():
+    """All authored natural Alfheim stones that can host a bloom vein."""
+    deep = json.load(open(os.path.join('tools', 'deepworks_manifest.json'), encoding='utf-8'))
+    void = json.load(open(os.path.join('alfheim_reclaimed_design', 'void',
+                                      'void_catalog.json'), encoding='utf-8'))
+    rows = [{'id': f['id'], 'name': f['name']} for f in deep['families']]
+    rows += [{'id': s['id'].split(':', 1)[1], 'name': s['name']}
+             for biome in void['biomes'] for s in biome['stones']]
+    return rows
+
+
+def hosted_ore_id(bloom, host):
+    stem = host['id'].removesuffix('_livingrock')
+    return f'{bloom}_{stem}_ore'
+
+
 def esc(s):
     return s.replace('\\', '\\\\').replace("'", "\\'")
 
@@ -115,6 +131,7 @@ def write_json(path, obj, dry):
 
 def build_textures(blooms, jar, dry):
     host = load_base(jar, HOST_STONE)
+    hosts = ore_hosts()
     for b in blooms:
         oid, o = b['id'], b['ore']
         ore_src = load_base(jar, o['base'])
@@ -124,6 +141,18 @@ def build_textures(blooms, jar, dry):
         if not dry:
             os.makedirs(TEX_BLOCK, exist_ok=True)
             img.save(os.path.join(TEX_BLOCK, f'{oid}_ore.png'))
+
+        # A vein now keeps the fabric of the stone it replaced.  The former single
+        # Livingrock-backed texture was the conspicuous foreign square in every
+        # Deepworks and Void-stone wall.
+        for h in hosts:
+            hp = os.path.join(TEX_BLOCK, h['id'] + '.png')
+            if not os.path.exists(hp):
+                raise FileNotFoundError(f'{hp}: generate the stone libraries before blooms')
+            hosted = Image.open(hp).convert('RGBA').resize(blobs.size)
+            variant = Image.alpha_composite(hosted, blobs)
+            if not dry:
+                variant.save(os.path.join(TEX_BLOCK, hosted_ore_id(oid, h) + '.png'))
 
         for prefix, spec in (('raw', b['raw']), ('quickened', b['quick'])):
             src = load_base(jar, spec['base'])
@@ -162,6 +191,16 @@ def build_startup(blooms, dry):
             f".tagBlock('{TIER_TAG[b['tier']]}')"
             f".tagBlock('forge:ores').tagBlock('{NS}:blooms')"
             f".textureAll('{NS}:block/{oid}_ore')")
+        for h in ore_hosts():
+            vid = hosted_ore_id(oid, h)
+            L.append(
+                f"    event.create('{NS}:{vid}')"
+                f".displayName('{esc(h['name'])} {esc(b['name'])} Ore')"
+                f".soundType('stone').hardness(3.0).resistance(3.0).requiresTool(true)"
+                f".tagBlock('minecraft:mineable/pickaxe')"
+                f".tagBlock('{TIER_TAG[b['tier']]}')"
+                f".tagBlock('forge:ores').tagBlock('{NS}:blooms')"
+                f".textureAll('{NS}:block/{vid}')")
     L += ['})', '', "StartupEvents.registry('item', event => {"]
     for b in blooms:
         oid, nm = b['id'], esc(b['name'])
@@ -190,6 +229,9 @@ def build_loot(blooms, dry):
          'ServerEvents.blockLootTables(event => {']
     for b in blooms:
         L.append(f"    event.addSimpleBlock('{NS}:{b['id']}_ore', '{NS}:raw_{b['id']}')")
+        for h in ore_hosts():
+            L.append(f"    event.addSimpleBlock('{NS}:{hosted_ore_id(b['id'], h)}', "
+                     f"'{NS}:raw_{b['id']}')")
     L += ['',
           "    console.info('[Alfheim Reclaimed] %d bloom loot tables registered.')" % len(blooms),
           '})', '']
@@ -300,8 +342,22 @@ def build_rites(blooms, rites, dry):
 # ---------------------------------------------------------------------------- worldgen
 
 def build_worldgen(blooms, groups, biome_tags, dry):
+    hosts = ore_hosts()
     for b in blooms:
         oid, w = b['id'], b['worldgen']
+        targets = [{
+            'target': {'predicate_type': 'minecraft:block_match',
+                       'block': f'{NS}:{h["id"]}'},
+            'state': {'Name': f'{NS}:{hosted_ore_id(oid, h)}'},
+        } for h in hosts]
+        # Keep MythicBotany's livingrock and metamorphic hosts.  This broad target
+        # must be last: authored hosts also belong to the tag and need to match their
+        # exact texture-preserving state first.
+        targets.append({
+            'target': {'predicate_type': 'minecraft:tag_match',
+                       'tag': 'mythicbotany:base_stone_alfheim'},
+            'state': {'Name': f'{NS}:{oid}_ore'},
+        })
         write_json(os.path.join(DATA, 'worldgen', 'configured_feature', f'bloom_{oid}.json'), {
             'type': 'minecraft:ore',
             'config': {
@@ -309,11 +365,7 @@ def build_worldgen(blooms, groups, biome_tags, dry):
                 'discard_chance_on_air_exposure': 0.0,
                 # Alfheim's stone, not vanilla's. This is what lets the global
                 # #minecraft:stone_ore_replaceables override be retired.
-                'targets': [{
-                    'target': {'predicate_type': 'minecraft:tag_match',
-                               'tag': 'mythicbotany:base_stone_alfheim'},
-                    'state': {'Name': f'{NS}:{oid}_ore'},
-                }],
+                'targets': targets,
             },
         }, dry)
         write_json(os.path.join(DATA, 'worldgen', 'placed_feature', f'bloom_{oid}.json'), {
@@ -355,7 +407,9 @@ def build_worldgen(blooms, groups, biome_tags, dry):
 
     write_json(os.path.join(DATA, 'tags', 'blocks', 'blooms.json'),
                {'replace': False,
-                'values': [f'{NS}:{b["id"]}_ore' for b in blooms]}, dry)
+                'values': ([f'{NS}:{b["id"]}_ore' for b in blooms] +
+                           [f'{NS}:{hosted_ore_id(b["id"], h)}'
+                            for b in blooms for h in hosts])}, dry)
 
 
 # ---------------------------------------------------------------------------- main

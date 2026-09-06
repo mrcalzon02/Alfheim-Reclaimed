@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:kings_cliff_tomb",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 20,
+    "separation": 6,
+    "spread_type": "linear",
+    "salt": 152734410
+  }
+}

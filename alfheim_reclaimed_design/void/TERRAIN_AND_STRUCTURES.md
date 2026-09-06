@@ -1,14 +1,14 @@
 # Void Margins — terrain and supported structure contract
 
 **Role:** implementation-facing extension of `../VOID_MARGINS.md`.
-**Status:** design contract. The six biome IDs are already present in the shipping Alfheim biome layer; the new terrain-feature and structure definitions below are not yet generated or runtime accepted.
+**Status:** statically implemented 2026-09-05; fresh-world and client traversal acceptance remain pending.
 **Authority:** subordinate to `INSTRUCTIONS.md`, `../VOID_MARGINS.md`, `../DEFICIENT_BIOMES.md`, `../THE_SURFACE.md`, and `../THE_DEEP.md`.
 
 ## 1. Live-state correction
 
 The five Void Margin siblings are no longer merely proposals. The generated Alfheim layer already contains `alfheim:shatterfields`, `alfheim:prism_drift`, `alfheim:rootfall`, `alfheim:sepulchral_reach`, and `alfheim:starless_reach` alongside `alfheim:void_verge`. That makes twenty-one live Alfheim biome IDs: the sixteen biomes covered by the existing thirty-two Surface Works structures plus these five additional Void Margin biomes.
 
-The original Surface Works rule remains useful: every live Alfheim biome should have two meaningful surface structures. `void_verge` already has `verge_spire` and `severed_span`, so the extension defined here adds ten structures for the five sibling biomes. The resulting target is forty-two surface structures across twenty-one live biomes. This is a coverage target, not a claim that the ten new structures are built.
+The original Surface Works rule remains useful: every live Alfheim biome should have two meaningful surface structures. `void_verge` already has `verge_spire` and `severed_span`, and the extension adds ten structures for the five sibling biomes. With the separately added Alfheim Ocean pair, the live catalogue is forty-four surface structures across twenty-two biomes. The twelve Void structures are generated; runtime placement and client support review remain open.
 
 The rejected terrain state also remains rejected. The custom aquifer helper does not become the foundation for this work. Terrain must be repaired in the existing density/noise/surface data first, and every structure below is conditional on terrain support that already exists before structure placement.
 

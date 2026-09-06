@@ -23,7 +23,9 @@
   },
   "features": [
     [],
-    [],
+    [
+      "minecraft:lake_lava_surface"
+    ],
     [],
     [],
     [],
@@ -41,9 +43,12 @@
       "mythicbotany:gold_ore"
     ],
     [],
-    [],
     [
-      "mythicbotany:loose_dreamwood_trees"
+      "minecraft:spring_lava"
+    ],
+    [
+      "mythicbotany:loose_dreamwood_trees",
+      "minecraft:patch_dead_bush_badlands"
     ],
     []
   ],

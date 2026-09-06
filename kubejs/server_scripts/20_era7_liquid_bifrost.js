@@ -15,7 +15,7 @@
 // bifrost recipe, one would think using the mixer, with say water and a renewable crystal
 // based ingredient."
 //
-// Until now Liquid Bifrost was strictly FINITE. The pools generate at 1-in-40 chunks and do not
+// Until now Liquid Bifrost was strictly FINITE. The pools generate at 1-in-24 chunks and do not
 // come back, so the bridge between thirteen magic systems was a consumable that ran out — and a
 // player who spent their last bucket on the wrong conversion had permanently lost access to a
 // system. That is a worse failure than the exchange rate being poor, because it is invisible

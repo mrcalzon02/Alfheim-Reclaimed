@@ -13,7 +13,13 @@
     "fog_color": 2696479,
     "sky_color": 1513490,
     "water_color": 1052696,
-    "water_fog_color": 328970
+    "water_fog_color": 328970,
+    "particle": {
+      "options": {
+        "type": "minecraft:end_rod"
+      },
+      "probability": 0.006
+    }
   },
   "features": [
     [],

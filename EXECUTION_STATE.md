@@ -2,23 +2,37 @@
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 
-## Latest design request — expanded Void Margins — 2026-09-05
+## Latest implementation — terrain-identity field review — 2026-09-05
 
-The user requested examples and an extended definition of the Void Verge/void biomes with their
-own stone classes. Delivered `alfheim_reclaimed_design/VOID_MARGINS.md`, a six-environment concept
-board under `alfheim_reclaimed_design/void/`, and `void_catalog.json` with 18 proposed stone
-families and seven forms each (126 planned blocks). Acceptance: **draft design**. The catalog
-parses, its counts/IDs are consistent and its proposed stone IDs do not collide with live IDs.
-No new block or biome registration or worldgen change was made for this design request.
+The user's fourteen-point screenshot review is implemented for newly generated chunks. The Great
+Bole has an eight-block root embed and a broad processional aisle through the stone circle. Frog
+and toad heads, deer tails and antlers were separated to remove the reported coplanar geometry.
 
-The environments are Void Verge, Shatterfields, Prism Drift, Rootfall, Sepulchral Reach and
-Starless Reach. They are lateral variants of the same rim, not additional endless island rings.
-The Starless far field remains empty. The earlier Void terrain is still **runtime rejected**
-under `DEFICIENT_BIOMES.md`; the Deep pass preserved that branch rather than repairing it.
+Deep geology is now biome-specific across sixteen non-Void biomes, with five-stone palettes,
+upper/lower permutations, independent inclusions and a noisy y=8..42 surface transition. All 42
+natural Deep/Void host stones have matching variants for all twelve blooms (504 new ore blocks).
+Liquid Bifrost is 1-in-24 rather than 1-in-40 and includes the new ocean.
 
-Next void implementation: prototype the proposed stones, repair the dry plain/hard cut/aquifer
-and debris-falloff contract, introduce shared void-biome exclusions for the Deep, then add
-variants and volume-checked resources/structures. The verified Deep terrain work below remains.
+`alfheim:alfheim_ocean` is live with coral, seagrass, kelp, sea pickles, vanilla aquatic life and
+Alfheim sea predators. Stormwreck and Tidal Arcade make it the twenty-second biome in the complete
+44-structure Surface Works catalogue. Scorchfell now exposes volcanic materials/lava features;
+Starved Reach exposes snow and ice and receives sparse glacial formations. Void precipitation
+remains disabled and is represented by ambient End-rod star motes.
+
+The Void density branch now uses 3-D fragment, fracture and shape fields, noisy Verge relief and
+a narrow intact shore. It produces tapered, undercut floating masses instead of height-windowed
+vertical extrusions. Six biome material formations and ten new Void sibling landmarks are live;
+all twelve Void structures declare terrain-owned support and use no terrain adaptation. The old
+Verge Spire self-generated island was removed.
+
+Acceptance is **static complete; fresh-world/client acceptance pending**. Wildlife/drop equality,
+spawn-hub, Deep, feature-order, climate/worldgen, Surface Works and complete Void-support checks
+all pass. Forge loaded 16/16 startup scripts, including the expanded registry, with zero KubeJS
+startup errors/warnings. The first fresh-world harness attempt reached that point but filesystem
+access failed before datapack load. A permitted retry found an existing dedicated server process
+holding the world lock, so it was not interrupted. Next exact action: restart that server or close
+it, run a clean fresh world, then traverse the Bole/Court, ocean, three Deep sites and several
+separated Void margins. Existing chunks do not change.
 
 ## Current priority — the Deep terrain — 2026-09-05
 

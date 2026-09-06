@@ -62,7 +62,9 @@ LAYER_BIOMES = [
     f'{NS}:ashen_grove', f'{NS}:bloomfall_vale', f'{NS}:decayed_mire',
     f'{NS}:hollow_marches', f'{NS}:infested_warren', f'{NS}:mana_fen',
     f'{NS}:scorchfell', f'{NS}:silverbark_wood', f'{NS}:starved_reach',
-    f'{NS}:sundered_highlands', f'{NS}:void_verge',
+    f'{NS}:sundered_highlands', f'{NS}:alfheim_ocean', f'{NS}:void_verge',
+    f'{NS}:shatterfields', f'{NS}:prism_drift', f'{NS}:rootfall',
+    f'{NS}:sepulchral_reach', f'{NS}:starless_reach',
     'mythicbotany:alfheim_hills', 'mythicbotany:alfheim_lakes',
     'mythicbotany:alfheim_plains', 'mythicbotany:dreamwood_forest',
     'mythicbotany:golden_fields',
@@ -74,6 +76,10 @@ BASE = 48
 TRUNK_W, TRUNK_H = 32, 24
 CROWN_W, CROWN_H = 48, 40
 AMPH_W, AMPH_H = 48, 12
+# Sink the root plate eight blocks into the sampled terrain.  The gate/court floor
+# is raised by the same amount inside the base piece, so the playable route remains
+# on the heightmap while roots and masonry have real buried support below it.
+ROOT_EMBED = 8
 
 # ONE trunk segment, and the tree is 120 blocks rather than 184.
 #
@@ -193,25 +199,25 @@ def trunk_column(p, cx, cz, h, r0, r1, rng, roots=False):
                     p.set(x, y, z, OAK_LOG_Y if d > rr - 1.6 else OAK_WOOD)
 
 
-def carve_gate_chamber(p, cx, cz):
+def carve_gate_chamber(p, cx, cz, ground=ROOT_EMBED):
     """Hollow the chamber out of the north flank and build the gate into its back wall.
 
     Cut first, then build: the frame has to survive the carve, so nothing is placed until the
     air is in.
     """
     # --- the void
-    for y in range(1, CH_TOP):
+    for y in range(ground + 1, ground + CH_TOP):
         for x in range(cx - CH_HALF, cx + CH_HALF + 1):
             for z in range(0, CH_BACK + 1):
                 # An arched ceiling rather than a flat one.
-                arch = CH_TOP - abs(x - cx) * 0.45
+                arch = ground + CH_TOP - abs(x - cx) * 0.45
                 if y < arch:
                     p.set(x, y, z, AIR)
 
     # --- floor
     for x in range(cx - CH_HALF - 1, cx + CH_HALF + 2):
         for z in range(0, CH_BACK + 2):
-            p.set(x, 0, z, FLOOR)
+            p.set(x, ground, z, FLOOR)
 
     # --- the gate face, RECESSED one block behind the wall
     #
@@ -228,26 +234,26 @@ def carve_gate_chamber(p, cx, cz):
     # Cutting the niche is rotation-proof because the niche rotates with everything else.
     gx0, gx1 = cx - GATE_W // 2, cx - GATE_W // 2 + GATE_W - 1
     gate_z = CH_BACK + 1
-    for y in range(2, 2 + GATE_H):
+    for y in range(ground + 2, ground + 2 + GATE_H):
         for x in range(gx0, gx1 + 1):
             p.set(x, y, CH_BACK, AIR)      # the opening you look through
             p.set(x, y, gate_z, GATE)      # the surface itself, set back behind the frame
 
     # --- the frame around it: livingrock with chiseled quartz corners and gold at the keystone
-    for y in range(1, 3 + GATE_H):
+    for y in range(ground + 1, ground + 3 + GATE_H):
         for x in range(gx0 - 2, gx1 + 3):
-            on_edge = (x < gx0 or x > gx1 or y < 2 or y >= 2 + GATE_H)
+            on_edge = (x < gx0 or x > gx1 or y < ground + 2 or y >= ground + 2 + GATE_H)
             if not on_edge:
                 continue
             corner = (x in (gx0 - 2, gx0 - 1, gx1 + 1, gx1 + 2) and
-                      y in (1, 2 + GATE_H - 1, 2 + GATE_H))
+                      y in (ground + 1, ground + 2 + GATE_H - 1, ground + 2 + GATE_H))
             p.set(x, y, CH_BACK, FRAME_TRIM if corner else FRAME)
-    p.set(cx, 2 + GATE_H, CH_BACK, GOLD)
-    p.set(cx - 1, 2 + GATE_H, CH_BACK, GOLD)
+    p.set(cx, ground + 2 + GATE_H, CH_BACK, GOLD)
+    p.set(cx - 1, ground + 2 + GATE_H, CH_BACK, GOLD)
 
     # --- elf glass in the arch above the gate, so the chamber is lit without a torch
     for x in range(gx0, gx1 + 1):
-        p.set(x, 2 + GATE_H + 1, CH_BACK, GLASS)
+        p.set(x, ground + 2 + GATE_H + 1, CH_BACK, GLASS)
 
 
 def hub_anchor(c):
@@ -263,7 +269,7 @@ def hub_anchor(c):
     is south (+z) and the gate is at the +z back wall, so a player spawning here looks straight
     at it.
     """
-    x, y, z = c, 1, CH_BACK - 4
+    x, y, z = c, ROOT_EMBED + 1, CH_BACK - 4
     return {
         'pos': [nbt.Double(x + 0.5), nbt.Double(y), nbt.Double(z + 0.5)],
         'blockPos': [nbt.Int(x), nbt.Int(y), nbt.Int(z)],
@@ -292,7 +298,7 @@ def build_base(rng):
 
     # Out to the amphitheatre, at the chamber mouth, facing north. `aligned` rather than
     # `rollable`: the court has to sit squarely in front of the gate, not at 90 degrees to it.
-    p.jigsaw(c, 1, 0, f'{NS}:court_gate', f'{NS}:court_plug',
+    p.jigsaw(c, ROOT_EMBED + 1, 0, f'{NS}:court_gate', f'{NS}:court_plug',
              f'{NS}:court/amphitheatre', 'north_up', joint='aligned')
     return p
 
@@ -546,6 +552,24 @@ def build_amphitheatre(rng):
             for y in range(ground - 1, top + 1):
                 p.set(x, y, z, blk)
 
+    # A broad processional aisle enters from the Greatbole connector at the south
+    # edge and descends one deliberate step at a time to the stage.  This is carved
+    # after the seating so the route cannot be closed by a surviving tier.
+    for z in range(c + int(stage_r) - 1, AMPH_W):
+        d = max(stage_r, z - c)
+        tier = max(0, int((d - stage_r) / 3.5))
+        walk_y = ground - 1 + tier
+        for x in range(c - 3, c + 4):
+            for y in range(walk_y + 1, AMPH_H):
+                p.set(x, y, z, AIR)
+            paving = ELVEN_MARBLE if (x + z) % 5 else rng.choice(MARBLE_RUINED)
+            p.set(x, walk_y, z, paving)
+        # Broken retaining cheeks make the cut read as authored circulation rather
+        # than seven missing columns through the seating.
+        if z % 4 != 0:
+            for x in (c - 4, c + 4):
+                p.set(x, walk_y, z, rng.choice(MARBLE_RUINED))
+
     # Column stumps around the rim, broken to differing heights.
     for k in range(12):
         ang = k * math.pi / 6
@@ -641,7 +665,7 @@ def main():
         'start_pool': f'{NS}:greatbole/base',
         'size': 6,
         'max_distance_from_center': MAX_FROM_CENTER,
-        'start_height': {'absolute': 0},
+        'start_height': {'absolute': -ROOT_EMBED},
         'project_start_to_heightmap': 'WORLD_SURFACE_WG',
         'use_expansion_hack': False,
         'spawn_overrides': {},
@@ -680,16 +704,13 @@ def main():
     #                               the tree up to 112 blocks -- which is why the claim and the
     #                               spawn point, both pinned to the origin, missed it.
     #
-    # So: tag everything buildable. That pins the tree to 0,0 and lets
+    # So: tag the complete layer. That pins the tree to 0,0 and lets
     # project_start_to_heightmap WORLD_SURFACE_WG + terrain_adaptation beard_thin do the
     # terrain snap, which is the whole of what the hub needs.
     #
-    # Two exclusions, both because the snap cannot save them:
-    #   void_verge     floating islands over nothing; there is no ground to sit the roots in.
-    #   alfheim_lakes  WORLD_SURFACE_WG counts fluids, so the trunk would stand on the water.
-    # When the origin lands in one of those the search relocates to the nearest of the other
-    # fourteen, which is close -- and the baked anchor (see hub_anchor) means the spawn point
-    # follows the tree regardless.
+    # The origin climate is controlled by the world-hub claim; narrowing this tag is not a
+    # valid fallback for unsuitable terrain because concentric-rings relocation separates the
+    # tree from the spawn claim. Keep every layer biome here and let the claim own suitability.
     write_json(os.path.join(DATA, 'tags', 'worldgen', 'biome', 'has_greatbole.json'),
                {'replace': False, 'values': [b for b in LAYER_BIOMES
                                              if b not in GREATBOLE_EXCLUDED]}, dry)

@@ -250,7 +250,7 @@
 			x: 0d
 			y: 6d
 			description: [
-				"Habitat: Alfheim Lakes, Void Verge."
+				"Habitat: Alfheim Lakes, Alfheim Ocean, Void Verge."
 				"Health: 26. Attack: 4."
 				"Abyssal Eye: 1, 50% per kill. Requires a player kill."
 				"Refine in a Mana Pool: two glow ink sacs, 1000 mana."
@@ -288,7 +288,7 @@
 			x: 6d
 			y: 6d
 			description: [
-				"Habitat: Alfheim Lakes, Mana Fen."
+				"Habitat: Alfheim Lakes, Alfheim Ocean, Mana Fen."
 				"Health: 36. Attack: 6."
 				"Maw Fang: 1-2, 100% per kill. Requires a player kill."
 				"Grind into four bone meal."

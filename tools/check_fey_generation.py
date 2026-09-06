@@ -18,7 +18,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_CREATURES = 18
-EXPECTED_GENERATED_FILES = EXPECTED_CREATURES * 4 + 3
+# Four creature-specific artifacts each, three shared wildlife files, and thirty-two
+# drop/item/recipe/compendium artifacts owned by fey_drops.py.
+EXPECTED_GENERATED_FILES = EXPECTED_CREATURES * 4 + 3 + 32
 LANG = Path("kubejs/assets/alfheim/lang/en_us.json")
 MANIFEST = Path("tools/fey_manifest.json")
 GENERATOR = Path("tools/gen_fey_wildlife.py")

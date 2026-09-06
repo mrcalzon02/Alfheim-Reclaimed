@@ -1,16 +1,18 @@
 # Backlog
 
-### B-79 — Void Margins definition and dedicated stone classes — **DRAFT DESIGN 2026-09-05**
+### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
 
 Requested examples/extended definition are recorded in `alfheim_reclaimed_design/VOID_MARGINS.md`:
 six environments including the existing Verge, 18 proposed stone families, 126 planned block
 forms, concrete building/exploration examples and a generated concept board. The companion JSON
 catalog is valid and its proposed stone IDs do not collide with live content.
 
-Implementation depends on B-51's still-rejected dry-rim repair: safe plain, hard cliff, consistent
-fluid mask, fragment falloff and terminal zero terrain. Prototype materials independently, then
-use one shared void-biome membership tag across Deep exclusions, resources and structures.
-No new blocks/biomes or repaired void terrain are claimed by this design deliverable.
+The 18 families and six environments are live. The density repair now gives the Verge noisy
+relief and an intact shore, then uses 3-D body/fracture/shape noise to taper and undercut outer
+masses before the terminal empty field. Six mineral formations and all twelve Void structure
+families are generated with terrain-owned support contracts and no terrain adaptation. The old
+Verge Spire self-generated island is removed. Static worldgen, feature-order, structure and
+complete Void-support checks pass. Fresh-world/client traversal remains the acceptance gate.
 
 ### B-78 — The Deep: expanded Livingrock library and colossal cavern province — 2026-09-05
 
@@ -27,10 +29,12 @@ masked colossal cave volumes, basal lava and four richer native bloom features. 
 show 216-block open spans, 164-block lava spans and roughly twice the ore density in sampled solid
 rock. See `DEEP_TERRAIN.md` and `EXECUTION_STATE.md` for exact evidence and limits.
 
-Continuation: client terrain review; soften the y=23 geological contact and refine material shores;
-D6 crystal chandeliers, ley scars and mineral columns; D7 anchored quarries, tombs and faultworks.
-Quarry-specific exposed ore seams and world-wide density tuning remain. Existing native ore routes
-and processing are preserved; Midgard ore replacement tags remain untouched.
+The sharp y=23 contact is replaced by a noisy y=8..42 blend. Sixteen biomes now have individual
+five-stone geological palettes with two vertical permutations and inclusions. All twelve blooms
+have matching variants for all 24 Deep and 18 Void host stones. Continuation: fresh-world/client
+terrain review; refine lava shores; D6 crystal chandeliers, ley scars and mineral columns; D7
+anchored underground quarries, tombs and faultworks. Existing native ore routes and processing
+are preserved; Midgard ore replacement tags remain untouched.
 
 **Role:** intent and sequencing. A backlog item is not evidence that work began.
 **Live state:** `EXECUTION_STATE.md`. **Doctrine:** `INSTRUCTIONS.md`.

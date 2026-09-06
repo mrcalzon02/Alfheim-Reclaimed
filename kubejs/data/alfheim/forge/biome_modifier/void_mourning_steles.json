@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:sepulchral_reach"
+  ],
+  "features": "alfheim:void/mourning_steles",
+  "step": "local_modifications"
+}

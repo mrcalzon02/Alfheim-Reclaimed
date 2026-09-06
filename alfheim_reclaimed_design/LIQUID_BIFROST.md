@@ -47,7 +47,7 @@ something they are uniquely good at.
 |---|---|
 | **Feature** | `minecraft:lake`, the same one vanilla uses for water and lava lakes, so the pools carve a basin and sit in the terrain rather than being a disc pasted on top |
 | **Barrier** | `botania:livingrock`, the dimension's own stone |
-| **Rarity** | **1 in 40 chunks** — rarer than the geodes after their same-day retune (1 in 13–15) |
+| **Rarity** | **1 in 24 chunks** — still a landmark, but common enough to support exploration |
 | **Biomes** | `alfheim_lakes`, `mana_fen`, `hollow_marches`, `void_verge`, `bloomfall_vale` |
 
 Five biomes, not sixteen. A bridge material that turns up everywhere stops being a reason to go
@@ -93,7 +93,7 @@ contributive step(s) belong to no era ... they cannot be checked until they are 
 **Asked for by the user, 2026-09-04:** *"We also need a high level renewable bifrost recipe. One
 would think using the mixer, with say water and a renewable crystal based ingredient."*
 
-Until this existed, Liquid Bifrost was strictly **finite**. Pools generate at 1-in-40 chunks and
+Until this existed, Liquid Bifrost was strictly **finite**. Pools generate at 1-in-24 chunks and
 do not come back, so the bridge between thirteen magic systems was a consumable that ran out — a
 player who spent their last bucket on the wrong conversion had permanently lost access to a
 system. That is a worse failure than a poor exchange rate, because it is **invisible until it

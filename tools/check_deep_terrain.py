@@ -26,21 +26,27 @@ def main():
     settings=json.loads(output['kubejs/data/mythicbotany/worldgen/noise_settings/alfheim.json'])
     fluids=settings['noise_router']['fluid_level_floodedness']
     assert fluids['input']==baseline['input'] and fluids['max_exclusive']==baseline['max_exclusive']
-    assert fluids['when_in_range']==original['noise_router']['fluid_level_floodedness'], 'Void aquifers changed'
-    settings['noise_router']['fluid_level_floodedness']=original['noise_router']['fluid_level_floodedness']
+    deep_fluids=fluids['when_out_of_range']
+    assert deep_fluids['input']=='minecraft:y' and (deep_fluids['min_inclusive'],deep_fluids['max_exclusive'])==(-60,28)
+    assert deep_fluids['when_out_of_range']==original['noise_router']['fluid_level_floodedness'], 'Ordinary Alfheim aquifers changed'
+    for key in ('fluid_level_floodedness','initial_density_without_jaggedness','fluid_level_spread','lava'):
+        settings['noise_router'][key]=original['noise_router'][key]
     assert settings==original, 'Unrelated noise settings changed'
     surface=json.loads(output['kubejs/data/mythicbotany/libx/surface_rule_set/alfheim_surface.json'])
-    assert surface['before_biomes']['sequence'][0]==old_surface['before_biomes'], 'Bedrock rule changed'
+    assert surface['before_biomes']['sequence'][2]==old_surface['before_biomes'], 'Upstream surface rule changed'
     surface['before_biomes']=old_surface['before_biomes']
     assert surface==old_surface, 'Unrelated surface rules changed'
     assert not any('/data/minecraft/' in name or '/dimension/' in name for name in output)
     layer=json.loads((ROOT/'kubejs/data/mythicbotany/libx/biome_layer/alfheim.json').read_text())
     land=json.loads(output['kubejs/data/alfheim/tags/worldgen/biome/deepworks_land.json'])['values']
-    assert set(land)=={b['biome'] for b in layer['biomes']} - {'alfheim:void_verge'}
+    from gen_void_worldgen import VOID_IDS
+    assert set(land)=={b['biome'] for b in layer['biomes']} - set(VOID_IDS)
     for name,data in output.items():
-        if '/configured_feature/' in name:
+        if '/configured_feature/deepworks/ore_' in name:
             feature=json.loads(data)
-            assert feature['config']['targets'][0]['target']['tag']=='alfheim:livingrock_natural'
+            targets=feature['config']['targets']
+            assert targets[0]['target']['predicate_type']=='minecraft:block_match'
+            assert targets[-1]['target']['tag']=='alfheim:livingrock_natural'
     print(f'PASS: {len(output)} reproducible files; Void branch, upper density, bedrock and unrelated noise/surface settings preserved; {len(land)} land biomes')
 
 

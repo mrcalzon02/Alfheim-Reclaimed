@@ -47,17 +47,22 @@ def deer(buck):
                        cube([2.2, 25.3, -11], [.5, 1, 1], 2),
                        cube([-5, 26, -7], [3, 1, 4], 0),
                        cube([2, 26, -7], [3, 1, 4], 0)], [0, 24, -6]),
-         bone('tail', [cube([-1, 16, 7], [2, 4, 2], 0),
-                       cube([-1, 16, 8.5], [2, 4, .6], 1)], [0, 16, 7])]
+         # The body ends at z=8.  The old tail started at z=7 and put two coplanar
+         # faces inside the rump, which flickered at every middle distance.  Leave a
+         # quarter-pixel air seam and keep the pale underside behind the main tail.
+         bone('tail', [cube([-1, 16, 8.25], [2, 4, 1.9], 0),
+                       cube([-1, 16, 10.25], [2, 4, .6], 1)], [0, 16, 8.25])]
     for i, (x, z) in enumerate([(-3,-5),(1,-5),(-3,5),(1,5)]):
         b.append(bone('leg'+str(i), [cube([x, 1, z], [2, 11, 2], 0),
                                     cube([x, 0, z-.2], [2, 1.5, 2.4], 2)], [x+1, 12, z+1]))
     if buck:
         for side in [-1,1]:
-            c = [cube([side*3-.6, 27, -7], [1.2, 8, 1.2], 3),
-                 cube([min(side*3, side*7)-.5, 32, -7], [5, 1, 1], 3)]
+            # Antlers need a readable side face.  One-pixel-deep tines collapsed to
+            # coplanar cards from most angles and fought with each other at the forks.
+            c = [cube([side*3-.7, 27, -7.15], [1.4, 8, 1.5], 3),
+                 cube([min(side*3, side*7)-.6, 32, -7.1], [5.2, 1.15, 1.35], 3)]
             for x, h in [(4,3),(6,4),(8,3)]:
-                c.append(cube([side*x-.45, 32, -7], [.9, h, .9], 3))
+                c.append(cube([side*x-.55, 32.1, -7.05], [1.1, h, 1.2], 3))
             b.append(bone('antler_'+str(side), c, parent='head'))
     return b
 
@@ -65,16 +70,19 @@ def deer(buck):
 def frog(material, toad=False):
     b = [bone('body', [cube([-5, 3, -4], [10, 5, 10], material),
                        cube([-4, 2, -4], [8, 1.5, 8], 1)]),
-         bone('head', [cube([-5, 4, -7], [10, 4, 5], material),
-                       cube([-4.5, 7, -6], [3, 2, 3], material),
-                       cube([1.5, 7, -6], [3, 2, 3], material),
-                       cube([-4, 7.5, -6.2], [2, 1, .3], 2),
-                       cube([2, 7.5, -6.2], [2, 1, .3], 2),
-                       cube([-3.5, 4.7, -7.1], [7, .35, .2], 2)])]
+         # The body reaches y=8 while the head used to begin at y=4, leaving four
+         # layers of coincident geometry across the neck.  Raising the whole head by
+         # half a model pixel keeps the silhouette joined without coplanar faces.
+         bone('head', [cube([-5, 4.5, -7], [10, 4, 5], material),
+                       cube([-4.5, 7.5, -6], [3, 2, 3], material),
+                       cube([1.5, 7.5, -6], [3, 2, 3], material),
+                       cube([-4, 8, -6.2], [2, 1, .3], 2),
+                       cube([2, 8, -6.2], [2, 1, .3], 2),
+                       cube([-3.5, 5.2, -7.1], [7, .35, .2], 2)])]
     for i, (x,z) in enumerate([(-5,-5),(3,-5),(-7,2),(4,2)]):
         b.append(bone('leg'+str(i), [cube([x, 0, z], [3, 3, 5], material)], [x+1,3,z+2]))
     if toad:
-        b.append(bone('warts', [cube([x,8,z], [1.3,.8,1.3],7)
+        b.append(bone('warts', [cube([x,8.5,z], [1.3,.8,1.3],7)
                                for x,z in [(-3,0),(1,3),(-1,4),(3,0),(-4,4)]]))
     return b
 
@@ -175,9 +183,9 @@ def main():
         # Vanilla pig dimensions: .9 by .9. Separate model scaling keeps collision honest.
         add(color+'_toad','toad',frog(material,True),biomes,3,.9,.9,16,.14,1.45)
     for name,biomes,weight,width,height,hp,damage in [
-        ('abyssal_watcher',['mythicbotany:alfheim_lakes','alfheim:void_verge'],2,1,1.5,26,4),
+        ('abyssal_watcher',['mythicbotany:alfheim_lakes','alfheim:alfheim_ocean','alfheim:void_verge'],2,1,1.5,26,4),
         ('mire_tentacle',['alfheim:mana_fen','alfheim:decayed_mire'],3,1,.9,20,3),
-        ('drowned_maw',['mythicbotany:alfheim_lakes','alfheim:mana_fen'],1,1.1,.85,36,6)]:
+        ('drowned_maw',['mythicbotany:alfheim_lakes','alfheim:alfheim_ocean','alfheim:mana_fen'],1,1.1,.85,36,6)]:
         add(name,'sea',sea(name),biomes,weight,width,height,hp,.22,damage=damage)
     for name,mat,biomes,hp,damage in [
         ('wild_elf',12,['alfheim:ashen_grove','alfheim:silverbark_wood','alfheim:sundered_highlands'],20,3),

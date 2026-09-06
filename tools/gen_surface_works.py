@@ -1338,11 +1338,12 @@ def main():
                         'processors': 'minecraft:empty', 'projection': 'rigid',
                         'element_type': 'minecraft:single_pool_element'}}]}, dry)
 
+        adaptation = st.get('adaptation', arch['adaptation'])
         write_json(os.path.join(DATA, 'worldgen', 'structure', st['id'] + '.json'), {
             'type': 'minecraft:jigsaw',
             'biomes': f"#{NS}:has_{st['id']}",
             'step': 'surface_structures',
-            'terrain_adaptation': arch['adaptation'],
+            'terrain_adaptation': adaptation,
             'start_pool': f"{NS}:surface/{st['id']}",
             'size': 1,
             # JigsawStructure's codec validates max_distance_from_center + margin <= 128, and
@@ -1350,7 +1351,7 @@ def main():
             # not cull a piece -- it REFUSES WORLD CREATION, which SPAWN_HUB.md paid for at
             # runtime. 116 is the value the Greatbole has been proven on, it clears the budget
             # under either adaptation, and no single 48-block piece comes close to needing it.
-            'max_distance_from_center': min(116, 128 - ADAPTATION_MARGIN[arch['adaptation']]),
+            'max_distance_from_center': min(116, 128 - ADAPTATION_MARGIN[adaptation]),
             'start_height': {'absolute': -ground},
             'project_start_to_heightmap': st.get('heightmap', 'WORLD_SURFACE_WG'),
             'use_expansion_hack': False,

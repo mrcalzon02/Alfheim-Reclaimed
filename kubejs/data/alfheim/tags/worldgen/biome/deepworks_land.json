@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "alfheim:alfheim_ocean",
     "alfheim:ashen_grove",
     "alfheim:bloomfall_vale",
     "alfheim:decayed_mire",

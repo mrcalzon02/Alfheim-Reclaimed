@@ -313,7 +313,7 @@ def era7_script():
 // bifrost recipe, one would think using the mixer, with say water and a renewable crystal
 // based ingredient."
 //
-// Until now Liquid Bifrost was strictly FINITE. The pools generate at 1-in-40 chunks and do not
+// Until now Liquid Bifrost was strictly FINITE. The pools generate at 1-in-24 chunks and do not
 // come back, so the bridge between thirteen magic systems was a consumable that ran out — and a
 // player who spent their last bucket on the wrong conversion had permanently lost access to a
 // system. That is a worse failure than the exchange rate being poor, because it is invisible
@@ -364,8 +364,8 @@ def worldgen():
     every vanilla lava/water lake uses -- so the pools sit in terrain properly instead of
     being a flat disc pasted on top.
 
-    RARITY. Deliberately rarer than the geodes after their same-day retune (1-in-13 to 1-in-15
-    per biome). A pool is a landmark: the whole point is that a player remembers where one is.
+    RARITY. One in 24 chunks keeps a pool a landmark while making the exploration
+    route materially visible; the former one-in-40 rate was too sparse in flight tests.
 
     Finite, and that is the point of the Era VII mixing route -- see era7_script(). These are
     what you FIND; the mixer is what you build when finding is no longer enough.
@@ -382,7 +382,7 @@ def worldgen():
     placed = {
         'feature': f'{NS}:liquid_bifrost_pool',
         'placement': [
-            {'type': 'minecraft:rarity_filter', 'chance': 40},
+            {'type': 'minecraft:rarity_filter', 'chance': 24},
             {'type': 'minecraft:in_square'},
             {'type': 'minecraft:heightmap', 'heightmap': 'WORLD_SURFACE_WG'},
             {'type': 'minecraft:biome'},
@@ -394,6 +394,7 @@ def worldgen():
         'type': 'forge:add_features',
         'biomes': [
             'mythicbotany:alfheim_lakes',
+            f'{NS}:alfheim_ocean',
             f'{NS}:mana_fen',
             f'{NS}:hollow_marches',
             f'{NS}:void_verge',

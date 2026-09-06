@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:shatterfields"
+  ],
+  "features": "alfheim:void/shatter_anchors",
+  "step": "local_modifications"
+}

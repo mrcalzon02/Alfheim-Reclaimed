@@ -4,6 +4,40 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.17.0-design — 2026-09-05 — Alfheim terrain identity and field-review repair
+
+Implemented the field-review pass across the Great Bole, wildlife, the Deep, Void Margins and
+surface biomes. The Great Bole now embeds its root plate eight blocks into the terrain and the
+stone amphitheatre has a seven-block processional aisle into the tree. Frog/toad heads are raised
+half a model pixel; deer tails are separated from the rump and antlers have visible side depth.
+
+The Deep now uses a distinct five-stone palette for each of sixteen non-Void biomes, two noisy
+vertical strata, independent inclusions and a randomized y=8..42 upper contact. All twelve blooms
+have texture-matched variants for 24 Deep and 18 Void natural hosts: 504 host-specific ore blocks
+that retain the existing raw-bloom drops and mining tiers. Liquid Bifrost pool rarity increased
+from 1-in-40 to 1-in-24 chunks and now includes the Alfheim Ocean.
+
+Added `alfheim:alfheim_ocean` with warm-ocean coral, seagrass, kelp, sea pickles, fish, squid,
+dolphins, glow squid, drowned and the existing Alfheim aquatic predators. Its Stormwreck and
+Tidal Arcade complete a two-landmark-per-biome surface catalogue: 44 structures across 22 live
+biomes. Scorchfell gained magma, blackstone, basalt, lava springs and dead scrub; Starved Reach
+gained snow, packed/blue ice and sparse ice/snow formations. Void biomes use ambient star motes.
+
+Void terrain now uses three-dimensional body, fracture and vertical-shape noise instead of a
+two-dimensional footprint extruded through flat height windows. The safe Verge has surface
+relief and a narrow intact shore; outer fragments taper, hollow and undercut into island forms.
+Six biome-specific mineral formations and the ten planned sibling-biome landmarks are live. The
+Verge Spire no longer manufactures its own island and all twelve Void structures declare their
+terrain-owned support contract with no terrain adaptation.
+
+Static acceptance passes: wildlife/drop regeneration, spawn hub, Deep terrain/materials,
+feature ordering, climate/worldgen, Surface Works and the complete Void support suite. Forge
+accepted all 16 startup scripts and the expanded block registry with zero KubeJS startup errors
+or warnings. A clean fresh-world datapack load remains pending: the first harness attempt was
+stopped by workspace access before datapack load, and the permitted retry found a pre-existing
+dedicated server process holding the world lock. No live server was interrupted. All terrain and
+biome changes apply only to newly generated chunks; client visual traversal remains required.
+
 ## 0.16.0-design — 2026-09-05 — Natural Deep terrain, lava and ore-rich stone
 
 Added a dedicated deep cavern field to Alfheim's existing land density branch, natural masses

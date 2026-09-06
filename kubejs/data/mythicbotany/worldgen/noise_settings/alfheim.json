@@ -32,7 +32,7 @@
       "type": "minecraft:range_choice",
       "input": "mythicbotany:alfheim_continentalness",
       "min_inclusive": -100,
-      "max_exclusive": -0.8,
+      "max_exclusive": -0.82,
       "when_in_range": -1.0,
       "when_out_of_range": {
         "type": "minecraft:range_choice",
@@ -64,7 +64,7 @@
       "type": "minecraft:range_choice",
       "input": "mythicbotany:alfheim_continentalness",
       "min_inclusive": -100,
-      "max_exclusive": -0.8,
+      "max_exclusive": -0.82,
       "when_in_range": 0.0,
       "when_out_of_range": {
         "type": "minecraft:noise",
@@ -77,7 +77,7 @@
       "type": "minecraft:range_choice",
       "input": "mythicbotany:alfheim_continentalness",
       "min_inclusive": -100,
-      "max_exclusive": -0.8,
+      "max_exclusive": -0.82,
       "when_in_range": 1.0,
       "when_out_of_range": "mythicbotany:alfheim_initial"
     },
@@ -85,7 +85,7 @@
       "type": "minecraft:range_choice",
       "input": "mythicbotany:alfheim_continentalness",
       "min_inclusive": -100,
-      "max_exclusive": -0.8,
+      "max_exclusive": -0.82,
       "when_in_range": 0.0,
       "when_out_of_range": {
         "type": "minecraft:noise",

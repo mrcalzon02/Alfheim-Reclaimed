@@ -104,6 +104,10 @@ VOID_MOBS = [{'type': 'minecraft:enderman', 'maxCount': 2, 'minCount': 1, 'weigh
 # contradict `mythicbotany:alfheim_plains` and crash the home dimension. A feature with no
 # entry here is a hard error: add it deliberately, in a position MythicBotany allows.
 FEATURE_ORDER = [
+    # steps 1/2/4/8/10 used by the strong surface-identity biomes
+    'minecraft:lake_lava_surface',
+    'alfheim:starved_ice_spike', 'alfheim:starved_snow_pile',
+    'minecraft:spring_lava',
     # step 4, surface structures
     'mythicbotany:abandoned_apothecaries',
     # step 6, underground ores -- MythicBotany's own order, extra_gold_ore last
@@ -120,6 +124,12 @@ FEATURE_ORDER = [
     'mythicbotany:dense_dreamwood_trees',
     'mythicbotany:motif_flowers',
     'mythicbotany:mana_crystals',
+    'minecraft:patch_dead_bush_badlands',
+    'minecraft:warm_ocean_vegetation', 'minecraft:seagrass_warm',
+    # Regions Unexplored fixes sea_pickle before kelp_warm in rocky_reef. Matching
+    # that order keeps the combined feature graph acyclic.
+    'minecraft:sea_pickle', 'minecraft:kelp_warm',
+    'minecraft:freeze_top_layer',
     # ars_nouveau:placed_cascading_tree and placed_mixed_archwoods are deliberately absent.
     # They reach our biomes through GROVE_MODIFIERS instead -- see the note there. A
     # JSON-listed feature sorts before every appended one, which is what produced a
@@ -141,7 +151,8 @@ def ordered(step, feats):
 
 
 def biome(fog, sky, water, water_fog, features, spawners, downfall=1.0,
-          temperature=0.7, precipitation=True, particle=None):
+          temperature=0.7, precipitation=True, particle=None,
+          water_ambient=None, water_creature=None, underground_water_creature=None):
     """Feature list is 11 GenerationStep.Decoration slots; short lists are padded."""
     feats = [ordered(i, list(f)) for i, f in enumerate(features)]
     feats += [[] for _ in range(11 - len(feats))]
@@ -160,8 +171,9 @@ def biome(fog, sky, water, water_fog, features, spawners, downfall=1.0,
         'spawn_costs': {},
         'spawners': {'ambient': [], 'axolotls': [], 'creature': spawners.get('creature', []),
                      'misc': [], 'monster': spawners.get('monster', []),
-                     'underground_water_creature': [], 'water_ambient': [],
-                     'water_creature': []},
+                     'underground_water_creature': underground_water_creature or [],
+                     'water_ambient': water_ambient or [],
+                     'water_creature': water_creature or []},
     }
 
 
@@ -326,15 +338,18 @@ BIOMES = {
     # Nothing grows. Not poisoned, not burned — simply used up. No vegetation feature at all.
     'starved_reach': biome(
         fog=0x8A8578, sky=0x9A9384, water=0x4A4A42, water_fog=0x22221E,
-        features=[[], [], [], [], [], [], ORES, [], [], []],
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['alfheim:starved_ice_spike','alfheim:starved_snow_pile'],
+                  ['minecraft:freeze_top_layer']],
         spawners={'creature': FEY_STARVED, 'monster': HOSTILE + HOSTILE_ELVES},
-        downfall=0.0, temperature=0.4, precipitation=False),
+        downfall=0.65, temperature=0.0, precipitation=True),
 
     # It burned, and then it kept burning. Standing dead wood and ash in the air.
     'scorchfell': biome(
         fog=0x3A2A22, sky=0x6B4A38, water=0x3A2A22, water_fog=0x1A1210,
-        features=[[], [], [], [], [], [], ORES, [], [],
-                  ['mythicbotany:loose_dreamwood_trees']],
+        features=[[], ['minecraft:lake_lava_surface'], [], [], [], [], ORES, [],
+                  ['minecraft:spring_lava'],
+                  ['mythicbotany:loose_dreamwood_trees','minecraft:patch_dead_bush_badlands']],
         spawners={'creature': FEY_SCORCH, 'monster': HOSTILE},
         downfall=0.0, temperature=1.2, precipitation=False,
         particle={'options': {'type': 'minecraft:white_ash'}, 'probability': 0.012}),
@@ -362,6 +377,28 @@ BIOMES = {
         features=[[], [], [], [], [], [], ORES, [], [], []],
         spawners={'creature': FEY_VOID, 'monster': VOID_MOBS},
         downfall=0.0, temperature=0.5, precipitation=False),
+
+    # The living sea between Alfheim's lake country and the Void rim.  This is a
+    # real aquatic biome rather than an ocean-shaped patch of the lake biome: it
+    # owns vanilla fish, squid, dolphins, kelp, coral and sea-pickle vegetation.
+    'alfheim_ocean': biome(
+        fog=0x8FC7D0, sky=0x79B7D8, water=0x2D86A6, water_fog=0x12394C,
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['minecraft:warm_ocean_vegetation','minecraft:seagrass_warm',
+                   'minecraft:sea_pickle','minecraft:kelp_warm']],
+        spawners={'creature': [], 'monster': [
+            {'type':'minecraft:drowned','maxCount':1,'minCount':1,'weight':5}]},
+        downfall=0.8, temperature=0.7,
+        water_ambient=[
+            {'type':'minecraft:cod','maxCount':8,'minCount':3,'weight':18},
+            {'type':'minecraft:salmon','maxCount':5,'minCount':1,'weight':15},
+            {'type':'minecraft:tropical_fish','maxCount':8,'minCount':4,'weight':20},
+            {'type':'minecraft:pufferfish','maxCount':3,'minCount':1,'weight':5}],
+        water_creature=[
+            {'type':'minecraft:squid','maxCount':4,'minCount':1,'weight':10},
+            {'type':'minecraft:dolphin','maxCount':2,'minCount':1,'weight':2}],
+        underground_water_creature=[
+            {'type':'minecraft:glow_squid','maxCount':6,'minCount':2,'weight':10}]),
 }
 
 
@@ -372,8 +409,13 @@ for _name, _fog, _sky in [('shatterfields',0x20202c,0x101018),('prism_drift',0x2
     BIOMES[_name]=_copy.deepcopy(BIOMES['void_verge'])
     BIOMES[_name]['effects']['fog_color']=_fog
     BIOMES[_name]['effects']['sky_color']=_sky
+    BIOMES[_name]['effects']['particle']={'options':{'type':'minecraft:end_rod'},
+                                          'probability':0.006}
     BIOMES[_name]['features']=[[],[],[],[],[],[],[f for f in ORES if f.endswith('_ore')],[],[],[]]
 BIOMES['void_verge']['features']=[[],[],[],[],[],[],[f for f in ORES if f.endswith('_ore')],[],[],[]]
+BIOMES['void_verge']['effects']['particle']={'options':{'type':'minecraft:end_rod'},
+                                             'probability':0.006}
+BIOMES['starved_reach']['temperature_modifier']='frozen'
 
 # --- the void, and why these two numbers differ --------------------------------------
 #
@@ -658,6 +700,7 @@ CLAIMS = [
     (f'{NS}:infested_warren', pt((0.0, 0.15), weird=(-1.0, -0.3), hum=(0.45, 1.0))),
     (f'{NS}:decayed_mire',    pt((0.15, 0.45), weird=(-1.0, -0.3), hum=(0.5, 1.0))),
     * __import__('gen_void_worldgen').claims(pt),
+    (f'{NS}:alfheim_ocean',      pt((-0.80, -0.28))),
 
     # --- ours: the six that carry the pack's own geography --------------------------------
     (f'{NS}:silverbark_wood',    pt((0.15, 0.45), temp=(-1.0, -0.3))),
@@ -731,6 +774,26 @@ def ore_files():
     `quarantine/vanilla_ore_layer_2026-09-03/`.
     """
     out = {}
+
+    # Glacial features at landmark density.  Vanilla's ice-spike placement is three
+    # attempts in every chunk; the Starved Reach needs scars and ice fields, not a
+    # second Ice Spikes biome packed solid with towers.
+    out[os.path.join(OUT, NS, 'worldgen', 'placed_feature',
+                     'starved_ice_spike.json')] = {
+        'feature':'minecraft:ice_spike',
+        'placement':[{'type':'minecraft:rarity_filter','chance':8},
+                     {'type':'minecraft:in_square'},
+                     {'type':'minecraft:heightmap','heightmap':'MOTION_BLOCKING'},
+                     {'type':'minecraft:biome'}],
+    }
+    out[os.path.join(OUT, NS, 'worldgen', 'placed_feature',
+                     'starved_snow_pile.json')] = {
+        'feature':'minecraft:pile_snow',
+        'placement':[{'type':'minecraft:rarity_filter','chance':5},
+                     {'type':'minecraft:in_square'},
+                     {'type':'minecraft:heightmap','heightmap':'MOTION_BLOCKING'},
+                     {'type':'minecraft:biome'}],
+    }
 
     for name, biomes, feature in GROVE_MODIFIERS:
         out[os.path.join(OUT, NS, 'forge', 'biome_modifier', name + '.json')] = {

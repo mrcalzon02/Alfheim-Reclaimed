@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:block_pile",
+  "config": {
+    "state_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "alfheim:veilstone_livingrock"
+          },
+          "weight": 5
+        },
+        {
+          "data": {
+            "Name": "minecraft:amethyst_block"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

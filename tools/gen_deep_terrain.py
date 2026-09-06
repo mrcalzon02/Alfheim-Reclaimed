@@ -46,6 +46,38 @@ def above(y): return {'type':'minecraft:y_above','anchor':{'absolute':y},'surfac
 def negate(test): return {'type':'minecraft:not','invert':test}
 def threshold(name, low, high=100): return {'type':'minecraft:noise_threshold','noise':'alfheim:deepworks/'+name,'min_threshold':low,'max_threshold':high}
 def sequence(rows): return {'type':'minecraft:sequence','sequence':rows}
+def vertical_gradient(name, below, above):
+    return {'type':'minecraft:vertical_gradient','random_name':'alfheim:'+name,
+            'true_at_and_below':{'absolute':below},'false_at_and_above':{'absolute':above}}
+
+
+def identity_surface_rule():
+    """Biome-specific exposed floors, ahead of MythicBotany's grass/dirt rule."""
+    floor={'type':'minecraft:stone_depth','offset':0,'add_surface_depth':False,
+           'secondary_depth_range':0,'surface_type':'floor'}
+    shallow={'type':'minecraft:stone_depth','offset':3,'add_surface_depth':True,
+             'secondary_depth_range':0,'surface_type':'floor'}
+    preliminary={'type':'minecraft:above_preliminary_surface'}
+    mix=lambda low: {'type':'minecraft:noise_threshold','noise':'alfheim:deepworks/surface_mix',
+                     'min_threshold':low,'max_threshold':100}
+    def palette(biome, tops, fill):
+        top=sequence([condition(mix(limit),block(name)) for limit,name in tops]+[block(fill)])
+        return condition({'type':'minecraft:biome','biome_is':[biome]},
+                         condition(preliminary,sequence([condition(floor,top),
+                                                        condition(shallow,block(fill))])))
+    return sequence([
+        palette('alfheim:scorchfell',[(0.56,'minecraft:magma_block'),
+                                      (0.12,'minecraft:blackstone'),
+                                      (-0.30,'minecraft:coarse_dirt')],
+                'minecraft:basalt'),
+        palette('alfheim:starved_reach',[(0.58,'minecraft:blue_ice'),
+                                         (0.18,'minecraft:packed_ice'),
+                                         (-0.28,'minecraft:snow_block')],
+                'minecraft:packed_ice'),
+        palette('alfheim:alfheim_ocean',[(0.35,'minecraft:gravel'),
+                                         (-0.35,'minecraft:sand')],
+                'minecraft:sand'),
+    ])
 
 
 def build():
@@ -86,20 +118,48 @@ def build():
     emit('mythicbotany/worldgen/noise_settings/alfheim.json',settings)
 
     families=json.loads((ROOT/'tools/deepworks_manifest.json').read_text())['families']
-    # Biome palettes create geographic associations; one low-frequency field then
-    # selects coherent masses within each palette. All 24 natural stones have a home.
-    palettes=[
-        (['alfheim:ashen_grove','alfheim:sundered_highlands','alfheim:scorchfell'],[f['id'] for f in families if f['group']=='Furnace']),
-        (['mythicbotany:dreamwood_forest','alfheim:silverbark_wood','alfheim:bloomfall_vale'],[f['id'] for f in families if f['group']=='Grove']),
-        (['mythicbotany:alfheim_lakes','alfheim:mana_fen'],[f['id'] for f in families if f['group']=='Water and sky']),
-        (['mythicbotany:golden_fields','mythicbotany:alfheim_plains'],[f['id'] for f in families if f['group']=='Court']),
-        ([],[f['id'] for f in families if f['group']=='Ley'])]
+    known={f['id'] for f in families}
+    # Every land biome owns a recognisable five-stone geological family.  The old
+    # four broad buckets made very different places share the same underground and
+    # silently dropped every deficient biome into the generic Ley fallback.
+    biome_palettes={
+        'alfheim:ashen_grove':['cinder_livingrock','cracked_livingrock','embervein_livingrock','obsidian_livingrock','gloam_livingrock'],
+        'alfheim:sundered_highlands':['cracked_livingrock','obsidian_livingrock','starfleck_livingrock','moonstone_livingrock','embervein_livingrock'],
+        'alfheim:scorchfell':['magmatic_livingrock','embervein_livingrock','cinder_livingrock','obsidian_livingrock','cracked_livingrock'],
+        'mythicbotany:dreamwood_forest':['rootbound_livingrock','moss_livingrock','petrified_livingrock','amber_livingrock','fern_livingrock'],
+        'alfheim:silverbark_wood':['fern_livingrock','silvermist_livingrock','frost_livingrock','rootbound_livingrock','moonstone_livingrock'],
+        'alfheim:bloomfall_vale':['moss_livingrock','amber_livingrock','rose_livingrock','fern_livingrock','leyline_livingrock'],
+        'mythicbotany:alfheim_lakes':['tide_livingrock','abyssal_livingrock','storm_livingrock','gale_livingrock','frost_livingrock'],
+        'alfheim:alfheim_ocean':['abyssal_livingrock','tide_livingrock','storm_livingrock','frost_livingrock','gale_livingrock'],
+        'alfheim:mana_fen':['tide_livingrock','moss_livingrock','abyssal_livingrock','leyline_livingrock','fern_livingrock'],
+        'mythicbotany:golden_fields':['dawn_livingrock','amber_livingrock','ivory_livingrock','starfleck_livingrock','rose_livingrock'],
+        'mythicbotany:alfheim_plains':['ivory_livingrock','dawn_livingrock','silvermist_livingrock','moonstone_livingrock','leyline_livingrock'],
+        'alfheim:starved_reach':['frost_livingrock','ivory_livingrock','moonstone_livingrock','gloam_livingrock','starfleck_livingrock'],
+        'alfheim:hollow_marches':['gloam_livingrock','storm_livingrock','frost_livingrock','cracked_livingrock','abyssal_livingrock'],
+        'alfheim:infested_warren':['rootbound_livingrock','gloam_livingrock','moss_livingrock','petrified_livingrock','amethyst_livingrock'],
+        'alfheim:decayed_mire':['abyssal_livingrock','moss_livingrock','gloam_livingrock','tide_livingrock','amethyst_livingrock'],
+        'mythicbotany:alfheim_hills':['cracked_livingrock','storm_livingrock','gale_livingrock','moonstone_livingrock','obsidian_livingrock'],
+    }
+    assert all(set(ids)<=known for ids in biome_palettes.values())
+    palettes=[([biome],ids) for biome,ids in biome_palettes.items()]
+    palettes.append(([],['amethyst_livingrock','leyline_livingrock','gloam_livingrock',
+                         'starfleck_livingrock','moonstone_livingrock']))
     zones=[]
     for biomes,ids in palettes:
-        rules=[condition(threshold('strata', -0.30+i*0.20),block('alfheim:'+id))
-               for i,id in reversed(list(enumerate(ids[1:])))]
-        rules.append(block('alfheim:'+ids[0]))
-        rule=sequence(rules)
+        def strata_rule(stones):
+            step=1.35/max(1,len(stones)-1)
+            rules=[condition(threshold('strata',-0.68+i*step),block('alfheim:'+id))
+                   for i,id in reversed(list(enumerate(stones[1:])))]
+            rules.append(block('alfheim:'+stones[0]))
+            return sequence(rules)
+        upper=strata_rule(ids[:3])
+        lower=strata_rule(ids[2:]+ids[:2])
+        rule=sequence([
+            condition(threshold('inclusions',0.62),block('alfheim:'+ids[-1])),
+            condition(negate(above(-34)),lower),
+            condition(vertical_gradient('deepworks_lower_blend',-30,-8),lower),
+            upper,
+        ])
         zones.append(condition({'type':'minecraft:biome','biome_is':biomes},rule) if biomes else rule)
     floor={'type':'minecraft:stone_depth','offset':3,'add_surface_depth':False,'secondary_depth_range':0,'surface_type':'floor'}
     geology=sequence([
@@ -108,20 +168,28 @@ def build():
             block('alfheim:magmatic_livingrock')]))),
         condition(negate(above(-45)),condition(floor,block('alfheim:cracked_livingrock'))),
         sequence(zones)])
-    geology=condition(above(c['geology_y'][0]),condition(negate(above(c['geology_y'][1])),
+    geology=condition(above(c['geology_y'][0]),
+        condition(vertical_gradient('deepworks_upper_contact',8,42),
         condition(negate({'type':'minecraft:biome','biome_is':VOID_IDS}),geology)))
     # Bedrock still runs first; biome and surface rules are otherwise retained.
-    surface['before_biomes']=sequence([surface_rule(),surface['before_biomes'],geology])
+    surface['before_biomes']=sequence([surface_rule(),identity_surface_rule(),
+                                       surface['before_biomes'],geology])
     emit('mythicbotany/libx/surface_rule_set/alfheim_surface.json',surface)
     # Surface material replacement happens before underground_ores. The ordinary
     # features remain unchanged, while these additions can replace only library rock.
     placed=[]
     for bloom in c['blooms']:
         id='deepworks/ore_'+bloom
+        ore_targets=[{'target':{'predicate_type':'minecraft:block_match',
+                                'block':'alfheim:'+f['id']},
+                      'state':{'Name':'alfheim:'+bloom+'_'+f['id'].removesuffix('_livingrock')+'_ore'}}
+                     for f in families]
+        ore_targets.append({'target':{'predicate_type':'minecraft:tag_match',
+                                      'tag':'alfheim:livingrock_natural'},
+                            'state':{'Name':'alfheim:'+bloom+'_ore'}})
         emit('alfheim/worldgen/configured_feature/'+id+'.json',{
             'type':'minecraft:ore','config':{'size':c['ore_size'],'discard_chance_on_air_exposure':0,
-                'targets':[{'target':{'predicate_type':'minecraft:tag_match','tag':'alfheim:livingrock_natural'},
-                            'state':{'Name':'alfheim:'+bloom+'_ore'}}]}})
+                'targets':ore_targets}})
         emit('alfheim/worldgen/placed_feature/'+id+'.json',{'feature':'alfheim:'+id,'placement':[
             {'type':'minecraft:count','count':c['ore_attempts']},{'type':'minecraft:in_square'},
             {'type':'minecraft:height_range','height':{'type':'minecraft:trapezoid',

@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:void_verge"
+  ],
+  "features": "alfheim:void/verge_markers",
+  "step": "local_modifications"
+}

@@ -10,9 +10,10 @@
     "province": {"firstOctave": -9, "amplitudes": [1.0, 0.35]},
     "chambers": {"firstOctave": -6, "amplitudes": [1.0, 0.35]},
     "strata": {"firstOctave": -6, "amplitudes": [1.0, 0.5]},
-    "inclusions": {"firstOctave": -4, "amplitudes": [1.0]}
+    "inclusions": {"firstOctave": -4, "amplitudes": [1.0]},
+    "surface_mix": {"firstOctave": -5, "amplitudes": [1.0, 0.45, 0.2]}
   },
-  "geology_y": [-59, 24],
+  "geology_y": [-59, 42],
   "ore_y": [-54, 12],
   "ore_size": 12,
   "ore_attempts": 5,
