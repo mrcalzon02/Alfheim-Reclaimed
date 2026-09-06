@@ -1,5 +1,17 @@
 # Execution State
 
+## Active implementation — September 5 field-review corrections
+
+The durable plan and active work log are
+`alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md` (B-80). Field evidence establishes
+three visual corrections and one critical runtime failure: ocean vegetation is over-dense, the
+ocean/Verge boundary is a vertical density cut, Scorchfell walls are repetitive, and New World
+Gamma never generated a Great Bole or baked hub anchor despite 1,200 seconds of force-loading.
+
+Work is ordered Great Bole → Scorchfell/ocean → custom elf runtime test → Void littoral prototype.
+The texture/NPC-art pass, pixie villages, giant trees and Jaffa orange groves are recorded but
+deliberately deferred. Starfall precipitation is accepted and will not be changed.
+
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 
 ## Latest implementation — terrain-identity field review — 2026-09-05

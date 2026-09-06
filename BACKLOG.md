@@ -1,5 +1,17 @@
 # Backlog
 
+### B-80 — September 5 field-review corrections — **ACTIVE 2026-09-05**
+
+The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
+`alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
+Bole spawn system, Scorchfell's native hot-stone surface/features, ocean density/name, custom elf
+runtime spawning and the ocean-to-Void-Verge transition. Starfall rain is accepted unchanged.
+
+Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run;
+biome-specific miniature pixie villages with buried spawners; and sparse natural placement for
+TaxTreeGiant giant trees plus Jaffabricate orange groves. These are planning commitments, not claims
+of implementation.
+
 ### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
 
 Requested examples/extended definition are recorded in `alfheim_reclaimed_design/VOID_MARGINS.md`:
