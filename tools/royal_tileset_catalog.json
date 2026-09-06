@@ -1,0 +1,135 @@
+{
+  "schema": "alfheim:royal_tileset/v1",
+  "id": "royal_court_residence_i",
+  "display_name": "Royal Tile Set I — Court & Residence",
+  "design_authority": "alfheim_reclaimed_design/ROYAL_TILESET_I.md",
+  "parent_library": "alfheim_reclaimed_design/CULTURAL_ASSET_LIBRARY.md",
+  "extends_set_dressing": "tools/ancient_set_dressing_manifest.json",
+  "status": "design",
+  "counts": {"families": 12, "semantic_assets": 48},
+  "rules": {
+    "progression_items_forbidden": true,
+    "persistent_entity_props_forbidden": true,
+    "functional_inventory_default": false,
+    "generic_debris_owned_by_ancient_set_dressing": true,
+    "house_identity_via_substitution_not_duplicate_geometry": true,
+    "custom_model_only_when_block_assembly_is_insufficient": true,
+    "condition_vocabulary": ["intact", "worn", "damaged", "collapsed", "overgrown", "burned", "repaired", "repurposed"]
+  },
+  "representation_classes": {
+    "custom": "registered custom-model decorative block",
+    "modular": "connectable/end-middle-corner model set",
+    "assembly": "multi-block composition built from registered tiles and/or existing structural blocks"
+  },
+  "house_substitution_slots": ["house_primary", "house_secondary", "heraldic_metal", "emblem", "wood_tone", "stone_inlay", "textile_border", "glass_tint", "glow_tint"],
+  "families": {
+    "ceremonial_sacred": {
+      "material_profile": "elven_quartz + Elementium + Dreamwood + house inlay",
+      "assets": [
+        {"id":"oath_basin","tile":"T4","footprint":[2,2],"h":1,"anchor":"floor","model":"custom","wave":"B","rooms":["oath_hall","reliquary_antechamber","audience_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"offering_stand","tile":"T1","footprint":[1,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["reliquary","oath_hall","memorial_gallery"],"affinity":["universal_royal","botanical"],"states":["intact","worn","damaged"]},
+        {"id":"lineage_stele","tile":"T1","footprint":[1,1],"h":3,"anchor":"floor","model":"custom","wave":"A","rooms":["entry_hall","gallery","audience_hall","reliquary_antechamber"],"affinity":["universal_royal"],"states":["intact","worn","damaged","overgrown"]},
+        {"id":"crown_display_dais","tile":"T4","footprint":[2,2],"h":2,"anchor":"floor","model":"assembly","wave":"C","rooms":["treasury","audience_hall","private_gallery"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "seating": {
+      "material_profile": "Dreamwood + house textile + quartz/Elementium trim",
+      "assets": [
+        {"id":"highback_chair","tile":"T1","footprint":[1,1],"h":2,"anchor":"floor","model":"custom","wave":"A","rooms":["audience_hall","salon","study","bedchamber","dining_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"audience_bench","tile":"T2","footprint":[2,1],"h":1,"anchor":"floor","model":"custom","wave":"A","rooms":["gallery","entry_hall","audience_hall","reliquary_antechamber"],"affinity":["universal_royal"],"states":["intact","worn","damaged"],"prototype_bridge":"royal_bench_*"},
+        {"id":"crescent_settee","tile":"T6","footprint":[3,2],"h":1,"anchor":"floor","model":"assembly","wave":"B","rooms":["salon","private_gallery","garden_room"],"affinity":["universal_royal","botanical"],"states":["intact","worn","damaged"]},
+        {"id":"kneeling_stool","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor","model":"custom","wave":"C","rooms":["reliquary","bedchamber","music_room","dressing_room"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "tables_desks": {
+      "material_profile": "Dreamwood + elven quartz inlay",
+      "assets": [
+        {"id":"banquet_table","tile":"T6","footprint":[3,1],"h":1,"anchor":"floor","model":"modular","wave":"B","rooms":["dining_hall","banquet_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"salon_table","tile":"T2","footprint":[2,1],"h":1,"anchor":"floor","model":"custom","wave":"B","rooms":["salon","private_gallery","bedchamber"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"writing_desk","tile":"T2","footprint":[2,1],"h":1,"anchor":"floor","model":"custom","wave":"A","rooms":["study","archive","private_chamber","administration"],"affinity":["scholarly","universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"council_map_table","tile":"T9","footprint":[3,3],"h":1,"anchor":"floor","model":"assembly","wave":"C","rooms":["council_chamber","war_room","map_room"],"affinity":["militant","scholarly"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "storage_display": {
+      "material_profile": "Dreamwood + inlay; elf-glass/Elementium for displays",
+      "assets": [
+        {"id":"tall_cabinet","tile":"T1","footprint":[1,1],"h":2,"anchor":"floor","model":"custom","wave":"A","rooms":["bedchamber","dining_hall","service_room","study"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"glass_display_case","tile":"T2","footprint":[2,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["gallery","treasury","archive","conservatory"],"affinity":["scholarly","botanical","militant","universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"wardrobe","tile":"T2","footprint":[2,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["bedchamber","dressing_room","guest_suite"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"jewel_coffer","tile":"T1","footprint":[1,1],"h":1,"anchor":"tabletop_or_floor","model":"custom","wave":"C","rooms":["bedchamber","treasury","study","dressing_room"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "sleeping_personal": {
+      "material_profile": "Dreamwood + house textile + glass/ceramic accents",
+      "assets": [
+        {"id":"canopy_bed","tile":"T6","footprint":[3,2],"h":2,"anchor":"floor","model":"assembly","wave":"A","rooms":["bedchamber","guest_suite"],"affinity":["universal_royal"],"states":["intact","worn","damaged","collapsed"]},
+        {"id":"washstand","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor","model":"custom","wave":"B","rooms":["bedchamber","dressing_room","bath_room"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"vanity","tile":"T2","footprint":[2,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["bedchamber","dressing_room"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"privacy_screen","tile":"T6","footprint":[3,1],"h":2,"anchor":"floor","model":"modular","wave":"C","rooms":["bedchamber","dressing_room","bath_room","service_room"],"affinity":["universal_royal"],"states":["intact","worn","damaged","collapsed"]}
+      ]
+    },
+    "lighting": {
+      "material_profile": "Elementium + elf glass + elven quartz; magical glow slot",
+      "assets": [
+        {"id":"wall_sconce","tile":"W1","footprint":[1,1],"h":1,"anchor":"wall","model":"custom","wave":"A","rooms":["entry_hall","gallery","bedchamber","study","corridor","reliquary_antechamber"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"floor_candelabrum","tile":"T1","footprint":[1,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["audience_hall","dining_hall","gallery","oath_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"hanging_lantern_cluster","tile":"C1","footprint":[2,2],"h":2,"anchor":"ceiling","model":"assembly","wave":"C","rooms":["salon","dining_hall","gallery","entry_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged","collapsed"]},
+        {"id":"mana_brazier","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor","model":"custom","wave":"A","rooms":["reliquary","oath_hall","processional_hall","audience_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"],"prototype_bridge":"ceremonial_brazier_*"}
+      ]
+    },
+    "heraldry_textiles": {
+      "material_profile": "house textile slots + heraldic metal/emblem",
+      "assets": [
+        {"id":"wall_banner","tile":"W1","footprint":[1,1],"h":3,"anchor":"wall","model":"custom","wave":"A","rooms":["audience_hall","entry_hall","gallery","guard_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged","collapsed"]},
+        {"id":"ceiling_pennant","tile":"C1","footprint":[1,1],"h":2,"anchor":"ceiling","model":"custom","wave":"B","rooms":["processional_hall","gallery","courtyard","banquet_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged","collapsed"]},
+        {"id":"carpet_runner","tile":"T2","footprint":[1,2],"h":1,"anchor":"floor","model":"modular","wave":"A","rooms":["processional_hall","audience_hall","gallery","bedchamber","entry_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"ceremonial_drape","tile":"W2","footprint":[2,1],"h":3,"anchor":"wall_or_ceiling","model":"modular","wave":"C","rooms":["audience_hall","reliquary","oath_hall","stage"],"affinity":["universal_royal"],"states":["intact","worn","damaged","collapsed"]}
+      ]
+    },
+    "vessels_tableware": {
+      "material_profile": "ceramic/elf glass + Elementium + house inlay",
+      "assets": [
+        {"id":"lidded_amphora","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor_or_tabletop","model":"custom","wave":"A","rooms":["dining_hall","pantry","bedchamber","service_room","reliquary"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"goblet_service","tile":"T1","footprint":[1,1],"h":1,"anchor":"tabletop","model":"custom","wave":"A","rooms":["dining_hall","salon","bedchamber","banquet_hall"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"tea_service","tile":"T1","footprint":[1,1],"h":1,"anchor":"tabletop","model":"custom","wave":"B","rooms":["salon","study","bedchamber","garden_room"],"affinity":["scholarly","botanical","universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"ceremonial_bowl","tile":"T1","footprint":[1,1],"h":1,"anchor":"tabletop_or_pedestal","model":"custom","wave":"C","rooms":["reliquary","oath_hall","memorial_gallery"],"affinity":["universal_royal","botanical"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "scholarly_court": {
+      "material_profile": "Dreamwood + Elementium + elf glass + quartz",
+      "assets": [
+        {"id":"scroll_rack","tile":"T1","footprint":[1,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["archive","study","administration"],"affinity":["scholarly"],"states":["intact","worn","damaged"]},
+        {"id":"book_lectern","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor","model":"custom","wave":"B","rooms":["archive","study","reliquary","music_room"],"affinity":["scholarly","universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"astrolabe","tile":"T4","footprint":[2,2],"h":2,"anchor":"floor","model":"custom","wave":"A","rooms":["observatory","map_room","study","gallery"],"affinity":["scholarly"],"states":["intact","worn","damaged","collapsed"]},
+        {"id":"map_case","tile":"T2","footprint":[2,1],"h":1,"anchor":"floor","model":"custom","wave":"C","rooms":["map_room","archive","administration","study"],"affinity":["scholarly","militant"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "architectural_ornament": {
+      "material_profile": "elven quartz + Dreamwood + Elementium",
+      "assets": [
+        {"id":"balustrade_segment","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor_edge","model":"modular","wave":"A","rooms":["gallery","balcony","processional_stair","courtyard"],"affinity":["universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"finial","tile":"T1","footprint":[1,1],"h":1,"anchor":"top_mount","model":"custom","wave":"A","rooms":["gallery","courtyard","roofline","entry_hall","reliquary"],"affinity":["universal_royal","botanical"],"states":["intact","worn","damaged","collapsed"]},
+        {"id":"carved_wall_panel","tile":"W1","footprint":[1,1],"h":2,"anchor":"wall","model":"modular","wave":"B","rooms":["gallery","audience_hall","study","dining_hall","entry_hall"],"affinity":["universal_royal","scholarly","botanical"],"states":["intact","worn","damaged"]},
+        {"id":"window_lattice","tile":"W1","footprint":[1,1],"h":2,"anchor":"wall","model":"modular","wave":"C","rooms":["gallery","salon","bedchamber","conservatory","corridor"],"affinity":["universal_royal","botanical"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "botanical_conservatory": {
+      "material_profile": "elven quartz + Dreamwood + trained growth",
+      "assets": [
+        {"id":"pedestal_planter","tile":"T1","footprint":[1,1],"h":1,"anchor":"floor","model":"custom","wave":"A","rooms":["conservatory","garden_room","gallery","courtyard","bedchamber"],"affinity":["botanical","universal_royal"],"states":["intact","worn","damaged","overgrown"]},
+        {"id":"trough_planter","tile":"T2","footprint":[2,1],"h":1,"anchor":"floor","model":"modular","wave":"B","rooms":["conservatory","courtyard","balcony","garden_room"],"affinity":["botanical"],"states":["intact","worn","damaged","overgrown"]},
+        {"id":"trellis_panel","tile":"W1","footprint":[1,1],"h":2,"anchor":"wall_or_floor","model":"modular","wave":"B","rooms":["conservatory","garden_room","courtyard","balcony"],"affinity":["botanical"],"states":["intact","worn","damaged","overgrown"]},
+        {"id":"conservatory_stand","tile":"T2","footprint":[2,1],"h":2,"anchor":"floor","model":"custom","wave":"C","rooms":["conservatory","garden_room","study"],"affinity":["botanical","scholarly"],"states":["intact","worn","damaged"]}
+      ]
+    },
+    "guard_accoutrements": {
+      "material_profile": "Dreamwood + Elementium + house heraldry",
+      "assets": [
+        {"id":"weapon_rack","tile":"W2","footprint":[2,1],"h":2,"anchor":"wall_or_floor","model":"custom","wave":"A","rooms":["guard_hall","armory","gatehouse","audience_hall"],"affinity":["militant"],"states":["intact","worn","damaged"]},
+        {"id":"shield_display","tile":"W1","footprint":[1,1],"h":2,"anchor":"wall","model":"custom","wave":"B","rooms":["guard_hall","armory","gallery","audience_hall"],"affinity":["militant","universal_royal"],"states":["intact","worn","damaged"]},
+        {"id":"armor_display","tile":"T1","footprint":[1,1],"h":2,"anchor":"floor","model":"custom","wave":"B","rooms":["armory","guard_hall","gallery","treasury"],"affinity":["militant"],"states":["intact","worn","damaged"]},
+        {"id":"command_standard","tile":"T1","footprint":[1,1],"h":3,"anchor":"floor","model":"custom","wave":"C","rooms":["guard_hall","audience_hall","gatehouse","war_room"],"affinity":["militant","universal_royal"],"states":["intact","worn","damaged","collapsed"]}
+      ]
+    }
+  }
+}
