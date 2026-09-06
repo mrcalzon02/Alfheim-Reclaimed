@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "placement": {
+    "mode": "absolute_void_space",
+    "start_height": { "absolute": 0 },
+    "project_start_to_heightmap": null,
+    "terrain_adaptation": "none",
+    "shared_structure_set": true,
+    "initial_biomes": ["alfheim:void_verge"]
+  },
+  "families": [
+    {
+      "id": "floating_geode",
+      "weight": 4,
+      "templates": ["prism_drift_geode", "starfall_geode"]
+    },
+    {
+      "id": "astral_tower",
+      "weight": 3,
+      "templates": ["astral_watchtower", "nightglass_spire"]
+    },
+    {
+      "id": "ley_focus",
+      "weight": 5,
+      "templates": ["ley_focus_ring", "fractured_ley_focus"]
+    }
+  ]
+}
