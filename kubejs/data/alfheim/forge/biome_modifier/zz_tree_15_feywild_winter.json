@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:starved_reach",
+    "mythicbotany:alfheim_hills"
+  ],
+  "features": "alfheim:tree_feywild_winter",
+  "step": "vegetal_decoration"
+}

@@ -9,8 +9,10 @@ ocean/Verge boundary is a vertical density cut, Scorchfell walls are repetitive,
 Gamma never generated a Great Bole or baked hub anchor despite 1,200 seconds of force-loading.
 
 Work is ordered Great Bole → Scorchfell/ocean → custom elf runtime test → Void littoral prototype.
-The texture/NPC-art pass, pixie sky-island villages with Feywild trees and crops, giant trees and
-Jaffa orange groves are recorded but deliberately deferred. The queue now also includes three more
+The texture/NPC-art pass and pixie sky-island villages with denser Feywild trees and crops remain
+deliberately deferred. Natural giant-tree placement was declined because it would intrinsically alter
+the world's silhouette. Sparse Jaffa orange and seasonal Feywild accents are now statically implemented.
+The queue also includes three more
 Z-fighting models, pants/book display offsets, native ore tuning and Fey Gem compatibility, and
 knight-quest structure spawners. Starfall precipitation is accepted and will not be changed.
 
@@ -27,6 +29,11 @@ user cleared Java, `validation-hub-lattice-proof-0906` proved all four templates
 anchor and one crown existed, the hub finalized on attempt one, and all eight tagged court NPCs were
 present in the saved entity data. Client visual acceptance for Scorchfell/ocean/Void shore and natural
 wild-elf spawn observation remain pending. Details and exact files are in the B-80 field-review log.
+
+I8 uses six climate-specific biome modifiers and Alfheim-owned placed-feature wrappers that exactly mirror
+Jaffabricate/Feywild rarity and survival rules. This keeps the additions sparse and eliminates the feature-
+order cycles produced by directly sharing their vanilla-biome placed-feature identities. The dedicated tree
+checker, full worldgen resolver and global feature-order checker pass; fresh-client visual acceptance remains.
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 

@@ -1,15 +1,16 @@
 # Backlog
 
-### B-80 — September 5 field-review corrections — **I1 RUNTIME-PROVEN; I2–I5 STATIC 2026-09-06**
+### B-80 — September 5 field-review corrections — **I1 RUNTIME-PROVEN; I2–I5 + I8 STATIC 2026-09-06**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
 `alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
 Bole spawn system, Scorchfell's native hot-stone surface/features, ocean density/name, custom elf
 runtime spawning and the ocean-to-Void-Verge transition. Starfall rain is accepted unchanged.
 
-Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run;
-biome-specific miniature pixie villages with buried spawners; and sparse natural placement for
-TaxTreeGiant giant trees plus Jaffabricate orange groves. The expanded queue also records Z-fighting
+Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run and
+biome-specific miniature pixie villages with buried spawners. Natural TaxTreeGiant placement was removed
+from the plan by later field-review decision because it would intrinsically alter Alfheim's silhouette.
+Sparse Jaffabricate orange and normal-size seasonal Feywild trees are now statically implemented. The expanded queue also records Z-fighting
 on the carpet/balustrade/wall sconce, right-shifted pants and book display models, larger/more frequent
 Elementium and Dragonstone deposits, a native Fey Gem ore, and knight-quest creature spawners in
 appropriate structures. Pixie villages now explicitly require climate-matched Feywild trees, small
@@ -22,6 +23,11 @@ a fresh headless world proved the final bounded-lattice hub path: trunk, crown, 
 returned success; the baked anchor and crown marker were unique; the world hub anchored on its first
 attempt; and all eight tagged court NPCs persisted in their authored seats. I2–I5 still need visual
 acceptance in newly generated client chunks, and natural wild-elf spawning still needs field proof.
+
+I8 now adds six restrained climate accents through Alfheim-owned wrappers around the installed
+Jaffabricate/Feywild placement rules. The wrappers retain the source rarity and ground-safety predicates
+while avoiding cross-mod feature-order cycles. Giant-tree world placement remains disabled, and denser
+Feywild tree groupings remain reserved for the deliberately shaped pixie sky islands.
 
 ### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
 

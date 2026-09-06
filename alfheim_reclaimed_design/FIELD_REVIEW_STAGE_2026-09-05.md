@@ -105,19 +105,24 @@ Acceptance when implemented: each pixie type has a valid settlement/spawner pair
 reachable for maintenance but not visually exposed, crops provide renewable vanilla food, the expected
 Feywild tree grows on each cultural island, and settlements do not collide with major structures.
 
-### I8 — giant trees and Jaffa orange trees (queued worldgen)
+### I8 — restrained Jaffa orange and Feywild trees (static implemented)
 
-The installed-jar inventory is complete. `TaxTreeGiant` supplies structure families (two variants each) for
-giant birch, cherry blossom, jungle, oak, palm, pine, snowy, spruce, swamp and yellow trees. Jaffabricate
-supplies `orange_tree` plus normal, rare and very-rare placed forms. Feywild supplies autumn, spring, summer
-and winter configured/placed trees, as well as its own Fey Gem ore feature. Add the appropriate assets through
-Alfheim-owned structure placement or Forge biome modifiers rather than editing any source mod. Giant trees belong sparsely in
-Dreamwood Forest, Silverbark Wood and selected old-growth pockets; orange groves belong in warm living
-biomes such as Bloomfall Vale and Golden Fields, never the deficiencies, ocean or Void Margins.
+The installed-jar inventory found Jaffabricate's normal/rare orange placements and Feywild's autumn,
+spring, summer and winter trees. The later field-review decision explicitly declines natural TaxTreeGiant
+placement: even sparse giant structures would intrinsically change Alfheim's world silhouette. The checker
+therefore treats any Alfheim-owned giant-tree placement as a regression.
 
-Acceptance when implemented: both tree families occur in new Alfheim chunks, giant trees remain landmarks
-rather than canopy spam, oranges are renewable, feature ordering stays acyclic, and sapling/growth behavior
-is verified separately from natural placement.
+Six climate-aligned modifiers now add isolated tree accents only. Warm Bloomfall/Golden country receives
+the normal orange feature; Silverbark/Dreamwood receives its rarer form. Autumn trees are confined to Ashen
+Grove/Silverbark, spring to Bloomfall/Alfheim Plains, summer to Golden Fields, and winter to Starved Reach/
+Alfheim Hills. Each uses an Alfheim-owned placed-feature wrapper that exactly mirrors the installed source
+feature's rarity, biome, dry-surface and survival predicates. The separate identities prevent cross-mod
+feature-order cycles without changing density. Dense Feywild groupings remain reserved for I7's pixie
+sky islands.
+
+Acceptance: a fresh server loads and generates chunks without a feature-order failure; the six accents occur
+only in their assigned new Alfheim chunks; oranges remain renewable; and sapling/growth behavior is verified
+separately from natural placement. No natural TaxTreeGiant structures are enabled.
 
 ### I9 — model and display alignment repair (queued)
 
@@ -155,14 +160,14 @@ not leak into the Hollow Court or peaceful settlements, and quest kill/encounter
 | Increment | State | Evidence / completed work | Commit |
 |---|---|---|---|
 | I0 | committed | Screenshots and log translated into scope and acceptance gates; all later additions captured. | `d865f28` |
-| I1 | runtime-proven | Bounded solid-surface lattice; deterministic trunk/crown/court/base template assembly; base-last commit marker; exact footprint loading; provisional-state self-repair; natural duplicate source removed. Fresh proof succeeded on attempt one with one anchor, one crown and all eight tagged court NPCs persisted. | pending |
-| I2 | static implemented | Surface rule now uses magmatic/embervein/cinder/obsidian/cracked Livingrock; lava pool 1/36 chunks plus six native-rock seep attempts. | pending |
-| I3 | static implemented | Name is “Alfheim Ocean”; coral 1/5 chunks, kelp 1/3, six seagrass attempts, pickles 1/32. Fish/custom sea life retained. | pending |
-| I4 | partial | Registration remains; runtime field acceptance did not occur. Faulting skin handler deleted instead of expanded; natural-spawn proof remains. | pending |
-| I5 | static prototype | CLIFF..RIM now continuously blends ordinary density into a lower noisy shore; Deep density is explicitly excluded from that blend. | pending |
+| I1 | runtime-proven | Bounded solid-surface lattice; deterministic trunk/crown/court/base template assembly; base-last commit marker; exact footprint loading; provisional-state self-repair; natural duplicate source removed. Fresh proof succeeded on attempt one with one anchor, one crown and all eight tagged court NPCs persisted. | `70d2fa8` |
+| I2 | static implemented | Surface rule now uses magmatic/embervein/cinder/obsidian/cracked Livingrock; lava pool 1/36 chunks plus six native-rock seep attempts. | `70d2fa8` |
+| I3 | static implemented | Name is “Alfheim Ocean”; coral 1/5 chunks, kelp 1/3, six seagrass attempts, pickles 1/32. Fish/custom sea life retained. | `70d2fa8` |
+| I4 | partial | Registration remains; runtime field acceptance did not occur. Faulting skin handler deleted instead of expanded; natural-spawn proof remains. | `70d2fa8` |
+| I5 | static prototype | CLIFF..RIM now continuously blends ordinary density into a lower noisy shore; Deep density is explicitly excluded from that blend. | `70d2fa8` |
 | I6 | deferred | Explicitly queued; no image generation authorized for this stage. | — |
 | I7 | deferred | Pixie settlement/spawner brief captured. | — |
-| I8 | deferred | Installed registry inventory complete: ten TaxTreeGiant structure families, Jaffabricate orange tree with three placed rarities, and four seasonal Feywild tree features. Placement design remains. | — |
+| I8 | static implemented | Six sparse climate accents use Alfheim-owned wrappers around Jaffabricate/Feywild placement rules. Cross-mod feature ordering is acyclic. TaxTreeGiant world placement is explicitly disabled by later field-review decision. | pending |
 | I9 | queued | Carpet, balustrade, wall-sconce Z-fighting and right-shifted pants/books recorded. | — |
 | I10 | queued | Elementium/Dragonstone density tuning and native Fey Gem ore compatibility recorded. | — |
 | I11 | queued | Knight-quest creature spawners in suitable structures recorded. | — |
@@ -178,6 +183,16 @@ not leak into the Hollow Court or peaceful settlements, and quest kill/encounter
 - Void shore: `tools/gen_void_worldgen.py` owns the continuous shoreline blend. The blend consumes
   original Alfheim surface density rather than Deepworks-wrapped density, preserving the Deep/Void
   separation contract.
+
+### 2026-09-06 — I8 restrained tree pass
+
+- User decision: natural TaxTreeGiant landmarks are declined because they would change the intrinsic
+  character and silhouette of the world. No giant-tree structure or biome modifier was added.
+- `tools/gen_tree_worldgen.py` generates six sparse climate-aligned accents from the installed
+  Jaffabricate and Feywild placed features. Alfheim-owned wrappers preserve every source placement
+  predicate while isolating the registry identities from the source mods' vanilla-biome order graph.
+- `tools/check_tree_worldgen.py`, the full worldgen resolver and the global feature-order checker pass.
+  Natural placement still needs new-chunk visual acceptance; dense Feywild groves remain part of I7.
 - Runtime script policy: `kubejs/server_scripts/16_wood_elf_skins.js` removed. Its legacy generator
   is prevented from recreating it. Dedicated court NPC assets remain I6 scope.
 - Passing checks: Deep regeneration, Deep invariants, worldgen/climate, feature order (961 edges,
