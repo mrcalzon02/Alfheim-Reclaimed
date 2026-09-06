@@ -5,269 +5,276 @@
   "max_exclusive": -0.8,
   "when_in_range": {
     "type": "minecraft:range_choice",
-    "input": "mythicbotany:alfheim_continentalness",
-    "min_inclusive": -100,
-    "max_exclusive": -0.94,
-    "when_in_range": -1.0,
+    "input": "minecraft:y",
+    "min_inclusive": -64,
+    "max_exclusive": -54,
+    "when_in_range": 1.0,
     "when_out_of_range": {
       "type": "minecraft:range_choice",
       "input": "mythicbotany:alfheim_continentalness",
       "min_inclusive": -100,
-      "max_exclusive": -0.925,
-      "when_in_range": {
-        "type": "minecraft:min",
-        "argument1": {
-          "type": "minecraft:add",
-          "argument1": {
-            "type": "minecraft:add",
-            "argument1": {
-              "type": "minecraft:mul",
-              "argument1": 1.8,
-              "argument2": {
-                "type": "minecraft:noise",
-                "noise": "alfheim:void/fragments",
-                "xz_scale": 1.0,
-                "y_scale": 0
-              }
-            },
-            "argument2": {
-              "type": "minecraft:add",
-              "argument1": {
-                "type": "minecraft:mul",
-                "argument1": 8,
-                "argument2": "mythicbotany:alfheim_continentalness"
-              },
-              "argument2": 7.18
-            }
-          },
-          "argument2": -0.3
-        },
-        "argument2": {
-          "type": "minecraft:min",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": 46,
-            "to_y": 60,
-            "from_value": -1,
-            "to_value": 1
-          },
-          "argument2": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": 66,
-            "to_y": 76,
-            "from_value": 1,
-            "to_value": -1
-          }
-        }
-      },
+      "max_exclusive": -0.94,
+      "when_in_range": -1.0,
       "when_out_of_range": {
         "type": "minecraft:range_choice",
         "input": "mythicbotany:alfheim_continentalness",
         "min_inclusive": -100,
-        "max_exclusive": -0.86,
+        "max_exclusive": -0.925,
         "when_in_range": {
-          "type": "minecraft:range_choice",
-          "input": "mythicbotany:alfheim_temperature",
-          "min_inclusive": -100,
-          "max_exclusive": 0,
-          "when_in_range": {
-            "type": "minecraft:range_choice",
-            "input": "mythicbotany:alfheim_humidity",
-            "min_inclusive": -100,
-            "max_exclusive": 0,
-            "when_in_range": {
-              "type": "minecraft:min",
+          "type": "minecraft:min",
+          "argument1": {
+            "type": "minecraft:add",
+            "argument1": {
+              "type": "minecraft:add",
               "argument1": {
-                "type": "minecraft:add",
-                "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 1.8,
-                  "argument2": {
-                    "type": "minecraft:noise",
-                    "noise": "alfheim:void/fragments",
-                    "xz_scale": 1.0,
-                    "y_scale": 0
-                  }
-                },
+                "type": "minecraft:mul",
+                "argument1": 1.8,
                 "argument2": {
-                  "type": "minecraft:add",
-                  "argument1": {
-                    "type": "minecraft:mul",
-                    "argument1": 8,
-                    "argument2": "mythicbotany:alfheim_continentalness"
-                  },
-                  "argument2": 7.18
+                  "type": "minecraft:noise",
+                  "noise": "alfheim:void/fragments",
+                  "xz_scale": 1.0,
+                  "y_scale": 0
                 }
               },
               "argument2": {
+                "type": "minecraft:add",
+                "argument1": {
+                  "type": "minecraft:mul",
+                  "argument1": 8,
+                  "argument2": "mythicbotany:alfheim_continentalness"
+                },
+                "argument2": 7.18
+              }
+            },
+            "argument2": -0.3
+          },
+          "argument2": {
+            "type": "minecraft:min",
+            "argument1": {
+              "type": "minecraft:y_clamped_gradient",
+              "from_y": 46,
+              "to_y": 60,
+              "from_value": -1,
+              "to_value": 1
+            },
+            "argument2": {
+              "type": "minecraft:y_clamped_gradient",
+              "from_y": 66,
+              "to_y": 76,
+              "from_value": 1,
+              "to_value": -1
+            }
+          }
+        },
+        "when_out_of_range": {
+          "type": "minecraft:range_choice",
+          "input": "mythicbotany:alfheim_continentalness",
+          "min_inclusive": -100,
+          "max_exclusive": -0.86,
+          "when_in_range": {
+            "type": "minecraft:range_choice",
+            "input": "mythicbotany:alfheim_temperature",
+            "min_inclusive": -100,
+            "max_exclusive": 0,
+            "when_in_range": {
+              "type": "minecraft:range_choice",
+              "input": "mythicbotany:alfheim_humidity",
+              "min_inclusive": -100,
+              "max_exclusive": 0,
+              "when_in_range": {
                 "type": "minecraft:min",
                 "argument1": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 28,
-                  "to_y": 52,
-                  "from_value": -1,
-                  "to_value": 1
+                  "type": "minecraft:add",
+                  "argument1": {
+                    "type": "minecraft:mul",
+                    "argument1": 1.8,
+                    "argument2": {
+                      "type": "minecraft:noise",
+                      "noise": "alfheim:void/fragments",
+                      "xz_scale": 1.0,
+                      "y_scale": 0
+                    }
+                  },
+                  "argument2": {
+                    "type": "minecraft:add",
+                    "argument1": {
+                      "type": "minecraft:mul",
+                      "argument1": 8,
+                      "argument2": "mythicbotany:alfheim_continentalness"
+                    },
+                    "argument2": 7.18
+                  }
                 },
                 "argument2": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 70,
-                  "to_y": 92,
-                  "from_value": 1,
-                  "to_value": -1
+                  "type": "minecraft:min",
+                  "argument1": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 28,
+                    "to_y": 52,
+                    "from_value": -1,
+                    "to_value": 1
+                  },
+                  "argument2": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 70,
+                    "to_y": 92,
+                    "from_value": 1,
+                    "to_value": -1
+                  }
+                }
+              },
+              "when_out_of_range": {
+                "type": "minecraft:min",
+                "argument1": {
+                  "type": "minecraft:add",
+                  "argument1": {
+                    "type": "minecraft:mul",
+                    "argument1": 1.8,
+                    "argument2": {
+                      "type": "minecraft:noise",
+                      "noise": "alfheim:void/fragments",
+                      "xz_scale": 1.0,
+                      "y_scale": 0
+                    }
+                  },
+                  "argument2": {
+                    "type": "minecraft:add",
+                    "argument1": {
+                      "type": "minecraft:mul",
+                      "argument1": 8,
+                      "argument2": "mythicbotany:alfheim_continentalness"
+                    },
+                    "argument2": 7.18
+                  }
+                },
+                "argument2": {
+                  "type": "minecraft:min",
+                  "argument1": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 24,
+                    "to_y": 60,
+                    "from_value": -1,
+                    "to_value": 1
+                  },
+                  "argument2": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 74,
+                    "to_y": 112,
+                    "from_value": 1,
+                    "to_value": -1
+                  }
                 }
               }
             },
             "when_out_of_range": {
-              "type": "minecraft:min",
-              "argument1": {
-                "type": "minecraft:add",
+              "type": "minecraft:range_choice",
+              "input": "mythicbotany:alfheim_humidity",
+              "min_inclusive": -100,
+              "max_exclusive": 0,
+              "when_in_range": {
+                "type": "minecraft:min",
                 "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 1.8,
-                  "argument2": {
-                    "type": "minecraft:noise",
-                    "noise": "alfheim:void/fragments",
-                    "xz_scale": 1.0,
-                    "y_scale": 0
-                  }
-                },
-                "argument2": {
                   "type": "minecraft:add",
                   "argument1": {
                     "type": "minecraft:mul",
-                    "argument1": 8,
-                    "argument2": "mythicbotany:alfheim_continentalness"
+                    "argument1": 1.8,
+                    "argument2": {
+                      "type": "minecraft:noise",
+                      "noise": "alfheim:void/fragments",
+                      "xz_scale": 1.0,
+                      "y_scale": 0
+                    }
                   },
-                  "argument2": 7.18
-                }
-              },
-              "argument2": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 24,
-                  "to_y": 60,
-                  "from_value": -1,
-                  "to_value": 1
+                  "argument2": {
+                    "type": "minecraft:add",
+                    "argument1": {
+                      "type": "minecraft:mul",
+                      "argument1": 8,
+                      "argument2": "mythicbotany:alfheim_continentalness"
+                    },
+                    "argument2": 7.18
+                  }
                 },
                 "argument2": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 74,
-                  "to_y": 112,
-                  "from_value": 1,
-                  "to_value": -1
+                  "type": "minecraft:min",
+                  "argument1": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 4,
+                    "to_y": 46,
+                    "from_value": -1,
+                    "to_value": 1
+                  },
+                  "argument2": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 70,
+                    "to_y": 88,
+                    "from_value": 1,
+                    "to_value": -1
+                  }
+                }
+              },
+              "when_out_of_range": {
+                "type": "minecraft:min",
+                "argument1": {
+                  "type": "minecraft:add",
+                  "argument1": {
+                    "type": "minecraft:mul",
+                    "argument1": 1.8,
+                    "argument2": {
+                      "type": "minecraft:noise",
+                      "noise": "alfheim:void/fragments",
+                      "xz_scale": 1.0,
+                      "y_scale": 0
+                    }
+                  },
+                  "argument2": {
+                    "type": "minecraft:add",
+                    "argument1": {
+                      "type": "minecraft:mul",
+                      "argument1": 8,
+                      "argument2": "mythicbotany:alfheim_continentalness"
+                    },
+                    "argument2": 7.18
+                  }
+                },
+                "argument2": {
+                  "type": "minecraft:min",
+                  "argument1": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 34,
+                    "to_y": 48,
+                    "from_value": -1,
+                    "to_value": 1
+                  },
+                  "argument2": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 76,
+                    "to_y": 84,
+                    "from_value": 1,
+                    "to_value": -1
+                  }
                 }
               }
             }
           },
           "when_out_of_range": {
-            "type": "minecraft:range_choice",
-            "input": "mythicbotany:alfheim_humidity",
-            "min_inclusive": -100,
-            "max_exclusive": 0,
-            "when_in_range": {
-              "type": "minecraft:min",
-              "argument1": {
-                "type": "minecraft:add",
-                "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 1.8,
-                  "argument2": {
-                    "type": "minecraft:noise",
-                    "noise": "alfheim:void/fragments",
-                    "xz_scale": 1.0,
-                    "y_scale": 0
-                  }
-                },
-                "argument2": {
-                  "type": "minecraft:add",
-                  "argument1": {
-                    "type": "minecraft:mul",
-                    "argument1": 8,
-                    "argument2": "mythicbotany:alfheim_continentalness"
-                  },
-                  "argument2": 7.18
-                }
-              },
-              "argument2": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 4,
-                  "to_y": 46,
-                  "from_value": -1,
-                  "to_value": 1
-                },
-                "argument2": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 70,
-                  "to_y": 88,
-                  "from_value": 1,
-                  "to_value": -1
-                }
-              }
+            "type": "minecraft:add",
+            "argument1": {
+              "type": "minecraft:y_clamped_gradient",
+              "from_y": 72,
+              "to_y": 88,
+              "from_value": 1,
+              "to_value": -1
             },
-            "when_out_of_range": {
-              "type": "minecraft:min",
-              "argument1": {
-                "type": "minecraft:add",
-                "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 1.8,
-                  "argument2": {
-                    "type": "minecraft:noise",
-                    "noise": "alfheim:void/fragments",
-                    "xz_scale": 1.0,
-                    "y_scale": 0
-                  }
-                },
-                "argument2": {
-                  "type": "minecraft:add",
-                  "argument1": {
-                    "type": "minecraft:mul",
-                    "argument1": 8,
-                    "argument2": "mythicbotany:alfheim_continentalness"
-                  },
-                  "argument2": 7.18
-                }
-              },
-              "argument2": {
-                "type": "minecraft:min",
-                "argument1": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 34,
-                  "to_y": 48,
-                  "from_value": -1,
-                  "to_value": 1
-                },
-                "argument2": {
-                  "type": "minecraft:y_clamped_gradient",
-                  "from_y": 76,
-                  "to_y": 84,
-                  "from_value": 1,
-                  "to_value": -1
-                }
-              }
-            }
-          }
-        },
-        "when_out_of_range": {
-          "type": "minecraft:add",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": 72,
-            "to_y": 88,
-            "from_value": 1,
-            "to_value": -1
-          },
-          "argument2": {
-            "type": "minecraft:mul",
-            "argument1": 0.18,
             "argument2": {
-              "type": "minecraft:noise",
-              "noise": "alfheim:void/relief",
-              "xz_scale": 1.0,
-              "y_scale": 0
+              "type": "minecraft:mul",
+              "argument1": 0.18,
+              "argument2": {
+                "type": "minecraft:noise",
+                "noise": "alfheim:void/relief",
+                "xz_scale": 1.0,
+                "y_scale": 0
+              }
             }
           }
         }

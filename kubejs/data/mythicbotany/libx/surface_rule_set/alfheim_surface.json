@@ -177,6 +177,39 @@
             "if_true": {
               "type": "minecraft:biome",
               "biome_is": [
+                "alfheim:shatterfields",
+                "alfheim:prism_drift",
+                "alfheim:rootfall",
+                "alfheim:sepulchral_reach",
+                "alfheim:starless_reach"
+              ]
+            },
+            "then_run": {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:not",
+                "invert": {
+                  "type": "minecraft:y_above",
+                  "anchor": {
+                    "absolute": -54
+                  },
+                  "surface_depth_multiplier": 0,
+                  "add_stone_depth": false
+                }
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:air"
+                }
+              }
+            }
+          },
+          {
+            "type": "minecraft:condition",
+            "if_true": {
+              "type": "minecraft:biome",
+              "biome_is": [
                 "alfheim:void_verge"
               ]
             },

@@ -2,20 +2,25 @@
 
 All generation uses unperturbed 2D Alfheim continentalness for membership. Noise
 inside the debris band varies shape; it cannot escape the empty far-field cutoff.
+
+The dry-void contract stays entirely data-driven. Minecraft's aquifer picker hardcodes
+lava below Y=-54 before floodedness noise can veto it, so the void branch uses a
+temporary positive default-block density below that boundary. The existing surface
+rule stage then converts that temporary Livingrock to literal air only in debris/terminal
+void biomes. The safe Void Verge shelf remains solid, and ordinary Alfheim is untouched.
 """
 import json
-from gen_deep_terrain import ROOT, binary, choose, gradient, condition, block, sequence
+from gen_deep_terrain import ROOT, binary, choose, gradient, condition, block, sequence, above, negate
 
 MASK='mythicbotany:alfheim_continentalness'
 RIM=-0.80
 CLIFF=-0.86
 TERMINAL=-0.925
 EMPTY=-0.94
-# Opt-in marker in an unused ore-vein channel. The regional aquifer hook requires
-# this exact marker AND the Livingrock default block, leaving other worlds alone.
-FLUID_MARKER=-0.812345
+BASAL_LAVA_Y=-54
 CATALOG=json.loads((ROOT/'alfheim_reclaimed_design/void/void_catalog.json').read_text())
 VOID_IDS=[b['id'] for b in CATALOG['biomes']]
+DEBRIS_IDS=[id for id in VOID_IDS if id != 'alfheim:void_verge']
 
 def noise(name,y=0):
     return {'type':'minecraft:noise','noise':'alfheim:void/'+name,'xz_scale':1.0,'y_scale':y}
@@ -40,6 +45,11 @@ def density(normal):
         choose('mythicbotany:alfheim_humidity',-100,0,roots,shelves))
     terminal=binary('min',binary('add',footprint,-0.30),binary('min',gradient((46,60),-1,1),gradient((66,76),1,-1)))
     void=choose(MASK,-100,EMPTY,-1.0,choose(MASK,-100,TERMINAL,terminal,choose(MASK,-100,CLIFF,fragments,rim)))
+    # NoiseBasedChunkGenerator hardcodes lava below Y=-54. Negative density there
+    # would therefore become lava before floodedness can suppress it. Build temporary
+    # default Livingrock instead; surface_rule() turns it back into air in the five
+    # debris/terminal biomes, while Void Verge intentionally keeps its deep support.
+    void=choose('minecraft:y',-64,BASAL_LAVA_Y,1.0,void)
     return choose(MASK,-100,RIM,void,normal)
 
 def claims(pt):
@@ -51,7 +61,12 @@ def claims(pt):
             ('alfheim:void_verge',pt((CLIFF,RIM)))]
 
 def surface_rule():
-    rules=[]
+    # This is the second half of the data-only basal-void contract above. Surface
+    # rules run over default stone through the full build height, so sacrificial
+    # Livingrock below the hardcoded lava picker becomes literal air before features.
+    # Void Verge is excluded because its safe approach shelf is intentionally solid.
+    rules=[condition({'type':'minecraft:biome','biome_is':DEBRIS_IDS},
+                     condition(negate(above(BASAL_LAVA_Y)),block('minecraft:air')))]
     for biome in CATALOG['biomes']:
         stones=biome['stones']
         palette=sequence([condition({'type':'minecraft:noise_threshold','noise':'alfheim:void/strata','min_threshold':0.22,'max_threshold':100},block(stones[2]['id'])),

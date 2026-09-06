@@ -6,7 +6,6 @@ Both generators may run in either order without erasing the Deep/Void compositio
 """
 from pathlib import Path
 import argparse
-import copy
 import json
 import zipfile
 
@@ -50,7 +49,7 @@ def sequence(rows): return {'type':'minecraft:sequence','sequence':rows}
 
 
 def build():
-    from gen_void_worldgen import VOID_IDS, FLUID_MARKER, surface_rule, extra_files
+    from gen_void_worldgen import VOID_IDS, MASK, RIM, surface_rule, extra_files
     c=config()
     with zipfile.ZipFile(next((ROOT/'mods').glob('MythicBotany*.jar'))) as jar:
         settings=json.loads(jar.read('data/mythicbotany/worldgen/noise_settings/alfheim.json'))
@@ -59,16 +58,30 @@ def build():
     def emit(path,obj): out[PREFIX+path]=(json.dumps(obj,indent=2)+'\n').encode()
     for name,value in c['noises'].items(): emit('alfheim/worldgen/noise/deepworks/'+name+'.json',value)
     emit('alfheim/worldgen/density_function/deepworks/cavities.json',cavity_density())
-    # Aquifers stay vanilla outside the actual cavern field. Dry cavern air above
-    # the vanilla basal lava picker avoids turning giant chambers into water tanks.
-    old=settings['noise_router']['fluid_level_floodedness']
-    from gen_alfheim_biomes import void_final_density
-    original_final=void_final_density(False)
+
+    # The dry Void needs all aquifer inputs to consume the same continentalness mask.
+    # floodedness=-1 removes ordinary aquifer levels. initial_density=+1 is not terrain:
+    # NoiseChunk uses it only for preliminary-surface estimation, and the high value stops
+    # the aquifer's early surface shortcut from interpreting removed edge columns as ocean.
+    # spread and lava are inert inside the same region. The separate basal final-density
+    # guard in gen_void_worldgen handles the global Y<-54 lava picker before aquifer noise.
+    old_floodedness=settings['noise_router']['fluid_level_floodedness']
+    old_initial=settings['noise_router']['initial_density_without_jaggedness']
+    old_spread=settings['noise_router']['fluid_level_spread']
+    old_lava=settings['noise_router']['lava']
     deep_floodedness=choose('minecraft:y',-60,28,
-        choose('alfheim:deepworks/cavities',-100,0,-1.0,old),old)
-    settings['noise_router']['fluid_level_floodedness']=choose(original_final['input'],
-        original_final['min_inclusive'],original_final['max_exclusive'],-1.0,deep_floodedness)
-    settings['noise_router']['vein_gap']=FLUID_MARKER
+        choose('alfheim:deepworks/cavities',-100,0,-1.0,old_floodedness),old_floodedness)
+    settings['noise_router']['fluid_level_floodedness']=choose(MASK,-100,RIM,-1.0,deep_floodedness)
+    settings['noise_router']['initial_density_without_jaggedness']=choose(MASK,-100,RIM,1.0,old_initial)
+    settings['noise_router']['fluid_level_spread']=choose(MASK,-100,RIM,0.0,old_spread)
+    settings['noise_router']['lava']=choose(MASK,-100,RIM,0.0,old_lava)
+
+    # Keep MythicBotany's own vein_gap untouched. The retired custom helper used
+    # this otherwise unrelated channel as an opt-in marker; the data-only repair
+    # must not retain or reproduce that marker.
+    expected_vein_gap={'type':'minecraft:noise','noise':'minecraft:ore_gap','xz_scale':1.0,'y_scale':1.0}
+    if settings['noise_router']['vein_gap'] != expected_vein_gap:
+        raise RuntimeError('Unexpected MythicBotany vein_gap; refusing to overwrite upstream noise settings')
     out.update(extra_files())
     emit('mythicbotany/worldgen/noise_settings/alfheim.json',settings)
 
@@ -97,7 +110,7 @@ def build():
         sequence(zones)])
     geology=condition(above(c['geology_y'][0]),condition(negate(above(c['geology_y'][1])),
         condition(negate({'type':'minecraft:biome','biome_is':VOID_IDS}),geology)))
-    # Bedrock still runs first; biome and surface rules are byte-for-byte retained.
+    # Bedrock still runs first; biome and surface rules are otherwise retained.
     surface['before_biomes']=sequence([surface_rule(),surface['before_biomes'],geology])
     emit('mythicbotany/libx/surface_rule_set/alfheim_surface.json',surface)
     # Surface material replacement happens before underground_ores. The ordinary
@@ -117,7 +130,7 @@ def build():
         placed.append('alfheim:'+id)
     emit('alfheim/forge/biome_modifier/deepworks_ores.json',{'type':'forge:add_features',
         'biomes':'#alfheim:deepworks_land','features':placed,'step':'underground_ores'})
-    # Explicitly exclude the Void Verge; the home tag is shared with its islands.
+    # Explicitly exclude all Void Margin biomes; the home tag is shared with their islands.
     layer=json.loads((ROOT/(PREFIX+'mythicbotany/libx/biome_layer/alfheim.json')).read_text())
     land=sorted({r['biome'] for r in layer['biomes']} - set(VOID_IDS))
     emit('alfheim/tags/worldgen/biome/deepworks_land.json',{'replace':False,'values':land})
