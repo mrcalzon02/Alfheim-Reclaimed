@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "status": "draft; no new registrations",
+  "schema_version": 2,
+  "status": "stone material layer implemented; void terrain status remains governed by VOID_MARGINS.md",
   "authority": "../VOID_MARGINS.md",
   "forms": [
     "raw",
@@ -14,29 +14,15 @@
   "proposed_family_count": 18,
   "proposed_block_count": 126,
   "proposed_recipe_count": 126,
-  "far_field": {
-    "terrain": false,
-    "fluids": false,
-    "structures": false,
-    "resource_features": false
-  },
-  "mechanics": {
-    "pickaxe_required": true,
-    "self_drop": true,
-    "double_slab_drop": 2,
-    "gravity": false,
-    "random_ticks": false,
-    "resource_generation": false,
-    "light_scale": "0..15; proposed only",
-    "hardness": "Use existing library baseline initially; tune after runtime mining checks",
-    "acquisition": "Proposed decorative stonecutting from botania:livingrock, then family variants; no material-to-resource conversions"
+  "texture_engine": {
+    "path": "tools/material_texture.py",
+    "version": 2,
+    "livingrock_relief": false
   },
   "biomes": [
     {
       "id": "alfheim:void_verge",
       "name": "Void Verge",
-      "status": "existing; terrain repair rejected",
-      "zone": "safe_rim",
       "stones": [
         {
           "id": "alfheim:riftchalk_livingrock",
@@ -46,7 +32,7 @@
           "fabric": "granular chipped fabric",
           "light": 0,
           "use": "Rim parapets and survey stairs",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:riftshale_livingrock",
@@ -56,7 +42,7 @@
           "fabric": "thin offset lamination",
           "light": 0,
           "use": "Bridge abutments and roof slabs",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:veilstone_livingrock",
@@ -66,15 +52,13 @@
           "fabric": "fine fabric with sparse lilac seams",
           "light": 0,
           "use": "Observatory trim",
-          "status": "proposed"
+          "status": "implemented material"
         }
       ]
     },
     {
       "id": "alfheim:shatterfields",
       "name": "Shatterfields",
-      "status": "proposed",
-      "zone": "inner_debris",
       "stones": [
         {
           "id": "alfheim:shardbreccia_livingrock",
@@ -84,7 +68,7 @@
           "fabric": "large angular clasts in dark matrix",
           "light": 0,
           "use": "Rough walls and retaining faces",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:anchorstone_livingrock",
@@ -94,7 +78,7 @@
           "fabric": "dense fabric with pressure folds",
           "light": 0,
           "use": "Tower foundations and piers",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:seamstone_livingrock",
@@ -104,15 +88,13 @@
           "fabric": "fine rejoined fractures",
           "light": 1,
           "use": "Boundary markers and restrained lit joints",
-          "status": "proposed"
+          "status": "implemented material"
         }
       ]
     },
     {
       "id": "alfheim:prism_drift",
       "name": "Prism Drift",
-      "status": "proposed",
-      "zone": "inner_middle_debris",
       "stones": [
         {
           "id": "alfheim:prismstone_livingrock",
@@ -122,7 +104,7 @@
           "fabric": "interlocking grains with spectral seams",
           "light": 1,
           "use": "Crystal gallery floors",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:aetherquartzite_livingrock",
@@ -132,7 +114,7 @@
           "fabric": "frosted dense interlocked grains",
           "light": 0,
           "use": "Scholar-hall columns",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:glintschist_livingrock",
@@ -142,15 +124,13 @@
           "fabric": "directional reflective flakes",
           "light": 0,
           "use": "Roofs and wall panels",
-          "status": "proposed"
+          "status": "implemented material"
         }
       ]
     },
     {
       "id": "alfheim:rootfall",
       "name": "Rootfall",
-      "status": "proposed",
-      "zone": "rim_and_inner_debris",
       "stones": [
         {
           "id": "alfheim:rootfossil_livingrock",
@@ -160,7 +140,7 @@
           "fabric": "petrified branching grain and growth rings",
           "light": 0,
           "use": "Root-shrine supports",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:resinshale_livingrock",
@@ -170,7 +150,7 @@
           "fabric": "small amber lenses in lamination",
           "light": 0,
           "use": "Archive trim",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:hollowheart_livingrock",
@@ -180,15 +160,13 @@
           "fabric": "porous fabric and root cavities",
           "light": 0,
           "use": "Garden walls",
-          "status": "proposed"
+          "status": "implemented material"
         }
       ]
     },
     {
       "id": "alfheim:sepulchral_reach",
       "name": "Sepulchral Reach",
-      "status": "proposed",
-      "zone": "stable_inner_shelves",
       "stones": [
         {
           "id": "alfheim:epitaph_livingrock",
@@ -198,7 +176,7 @@
           "fabric": "ivory fabric with hairline violet-grey veins",
           "light": 0,
           "use": "Royal burial vaults",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:mourning_livingrock",
@@ -208,7 +186,7 @@
           "fabric": "dark layered stone",
           "light": 0,
           "use": "Tomb floors and borders",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:oathstone_livingrock",
@@ -218,15 +196,13 @@
           "fabric": "competent natural stone; interlace only in carved form",
           "light": 0,
           "use": "Seals and ceremonial doors",
-          "status": "proposed"
+          "status": "implemented material"
         }
       ]
     },
     {
       "id": "alfheim:starless_reach",
       "name": "Starless Reach",
-      "status": "proposed",
-      "zone": "terminal_fragments_then_empty",
       "stones": [
         {
           "id": "alfheim:nightmantle_livingrock",
@@ -236,7 +212,7 @@
           "fabric": "matte fabric with broad subdued fractures",
           "light": 0,
           "use": "Observatory backing",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:nullstone_livingrock",
@@ -246,7 +222,7 @@
           "fabric": "porous charcoal with discontinuous inclusions",
           "light": 0,
           "use": "Weathered accent masonry",
-          "status": "proposed"
+          "status": "implemented material"
         },
         {
           "id": "alfheim:astralite_livingrock",
@@ -256,7 +232,7 @@
           "fabric": "sparse pinpoint silver inclusions",
           "light": 2,
           "use": "Star-vault ceilings",
-          "status": "proposed"
+          "status": "implemented material"
         }
       ]
     }

@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/budding_duskglass"
+      },
+      {
+        "model": "alfheim:block/budding_duskglass",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_duskglass",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_duskglass",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v1"
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v1",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v1",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v1",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v2"
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v2",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v2",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v2",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v3"
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v3",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v3",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_duskglass__v3",
+        "y": 270
+      }
+    ]
+  }
+}

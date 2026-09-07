@@ -9,8 +9,9 @@ ocean/Verge boundary is a vertical density cut, Scorchfell walls are repetitive,
 Gamma never generated a Great Bole or baked hub anchor despite 1,200 seconds of force-loading.
 
 Work is ordered Great Bole → Scorchfell/ocean → custom elf runtime test → Void littoral prototype.
-The texture/NPC-art pass and pixie sky-island villages with denser Feywild trees and crops remain
-deliberately deferred. Natural giant-tree placement was declined because it would intrinsically alter
+The stone-library texture pass is now statically implemented as recorded below; the NPC-art pass and
+pixie sky-island villages with denser Feywild trees and crops remain deliberately deferred. Natural
+giant-tree placement was declined because it would intrinsically alter
 the world's silhouette. Sparse Jaffa orange and seasonal Feywild accents are now statically implemented.
 I9 has a static repair: the carpet, balustrade and wall sconce no longer contain the reported same-facing
 coplanar geometry, and the apparent pants/book offsets were identified as neighbouring atlas fragments crossing
@@ -55,6 +56,26 @@ entity coverage, placement and protected-biome exclusions; all self-tests fire. 
 Actual ruin placement, spawner activation and combat balance remain unclaimed client/gameplay checks.
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
+
+## Latest implementation — stone textures and Continuity CTM — 2026-09-06
+
+The uploaded texture archive is installed at its repository-relative destinations. It replaces
+placeholder/recoloured art with native 32×32 material grammars for all 24 Deep and 18 Void stone
+families, four texture variants per natural/polished/brick/carved form, four Y rotations for every
+full cube, and transparent mana-glass/crystal assets.
+
+The archive's 1,974 connected tiles were renderer-neutral source assets. The installed renderer is
+Continuity 3.0.0 for Forge, so `tools/gen_connected_palette.py` now also emits 42 OptiFine-format
+rules and 1,974 runtime tiles in Continuity's historical 0..46 order. The mapping is verified
+against the installed jar rather than assuming that the source generator's compact state order is
+the same as Continuity's sprite order.
+
+Acceptance is **static validated; restarted-client visual acceptance pending**.
+`tools/check_material_textures.py`, `tools/check_deepworks.py`,
+`tools/check_connected_palette.py`, crystal regeneration, JSON parsing and asset-reference closure
+pass. The uploaded PNGs were pixel-identical to their generator outputs but encoded by a different
+Pillow build; local regeneration normalized compression without changing any pixels and restored
+byte-for-byte generator closure. No player save or worldgen configuration was changed.
 
 ## Latest implementation — terrain-identity field review — 2026-09-05
 

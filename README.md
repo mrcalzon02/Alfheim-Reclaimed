@@ -9,7 +9,7 @@ Alfheim is **`mythicbotany:alfheim`**, the dimension MythicBotany ships; **`mine
 Midgard**, left vanilla and populated by Continuity Works. The world-preset override was struck on
 2026-09-02 — `INSTRUCTIONS.md` §1 records why.
 
-**Version** 0.16.0-design · **Forge** 47.4.10 · **Mods** 84 jars in `mods/` · **Status** boots and
+**Version** 0.18.0-design · **Forge** 47.4.10 · **Mods** 84 jars in `mods/` · **Status** boots and
 generates headlessly. Fey registration, habitats and drops are runtime validated; client acceptance remains.
 
 ## Start here

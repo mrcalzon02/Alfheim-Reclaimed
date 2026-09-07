@@ -4,6 +4,25 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.18.0-design — 2026-09-06 — Native stone textures and Continuity CTM
+
+Replaced the placeholder/recoloured material pass with deterministic native 32×32 geological
+textures for all 24 Deep and 18 Void stone families. Natural, polished, brick and carved forms
+now each have four distinct texture variants, and full-cube blockstates combine those variants
+with four Y rotations. Mana-glass and all six crystal families now use true per-pixel transparency.
+
+Added 1,974 renderer-neutral connected-texture source tiles: 42 families × the complete 47-state
+cardinal/diagonal topology. Because this instance ships Continuity 3.0.0 for Forge, the generator
+also emits one OptiFine-format rule and a correctly remapped 47-tile runtime set per family under
+`kubejs/assets/alfheim/optifine/ctm/`. The remap is verified against Continuity's installed
+`SPRITE_INDEX_MAP`; CTM is active through the existing client configuration.
+
+Static acceptance passes: 672 unique opaque stone tiles, all variant/rotation blockstate wiring,
+six transparent crystal families, 1,974 connected states, 42 Continuity rules and 1,974 remapped
+runtime tiles. Deepworks (1,486 outputs), connected palettes (3,992 outputs), JSON parsing and
+model/texture closure reproduce locally. Runtime registration remains covered by the preceding
+Deepworks proof; visual appearance and connected-edge behavior still require a restarted client.
+
 ## 0.17.0-design — 2026-09-05 — Alfheim terrain identity and field-review repair
 
 Implemented the field-review pass across the Great Bole, wildlife, the Deep, Void Margins and

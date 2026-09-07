@@ -1,6 +1,6 @@
 # Alfheim Reclaimed — Design Records
 
-**Minecraft:** 1.20.1 · **Loader:** Forge 47.4.10 · **Pack version:** 0.13.1-design
+**Minecraft:** 1.20.1 · **Loader:** Forge 47.4.10 · **Pack version:** 0.18.0-design
 
 Project doctrine lives in `../INSTRUCTIONS.md`. This directory holds design records — what is true
 about the pack's design and why.

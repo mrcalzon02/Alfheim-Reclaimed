@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/budding_dawnglass"
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v1"
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v1",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v1",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v1",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v2"
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v2",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v2",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v2",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v3"
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v3",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v3",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/budding_dawnglass__v3",
+        "y": 270
+      }
+    ]
+  }
+}

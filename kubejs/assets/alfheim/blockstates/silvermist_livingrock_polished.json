@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished"
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v1"
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v1",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v1",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v1",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v2"
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v2",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v2",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v2",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v3"
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v3",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v3",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/silvermist_livingrock_polished__v3",
+        "y": 270
+      }
+    ]
+  }
+}
