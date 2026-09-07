@@ -10,7 +10,7 @@
 const HUB_DIMENSION = 'mythicbotany:alfheim'
 const HUB_X = 0
 const HUB_Z = 0
-const HUB_RADIUS = 640
+const HUB_RADIUS = 128
 const HUB_FTB_TEAM = 'alfheim_hub'
 const PROTECT_FROM_PLAYERS = true
 
@@ -76,12 +76,121 @@ try {
 }
 
 ServerEvents.loaded(event => {
-    const teamCreate = event.server.runCommandSilent(`ftbteams server create ${HUB_FTB_TEAM}`)
-    const claimChanged = event.server.runCommandSilent(
-        `execute in ${HUB_DIMENSION} run ftbchunks admin claim_as ${HUB_FTB_TEAM} ` +
-        `${HUB_RADIUS} ${HUB_X} ${HUB_Z}`
-    )
-    console.info(`[Alfheim Reclaimed] spawn hub protection armed: ${armed.join(', ')}; ` +
-                 `FTB team-create result=${teamCreate}, newly-claimed chunks=${claimChanged}. ` +
-                 `Claim ownership still requires FTB read-back before runtime acceptance.`)
+    const server = event.server
+    const $FTBTeamsAPI = Java.loadClass('dev.ftb.mods.ftbteams.api.FTBTeamsAPI')
+    const $ClaimedChunkManager = Java.loadClass('dev.ftb.mods.ftbchunks.data.ClaimedChunkManagerImpl')
+    const $ChunkDimPos = Java.loadClass('dev.ftb.mods.ftblibrary.math.ChunkDimPos')
+    const $TeamProperties = Java.loadClass('dev.ftb.mods.ftbteams.api.property.TeamProperties')
+    const $FTBChunksProperties = Java.loadClass('dev.ftb.mods.ftbchunks.api.FTBChunksProperties')
+    const $PrivacyMode = Java.loadClass('dev.ftb.mods.ftbteams.api.property.PrivacyMode')
+    const $Color4I = Java.loadClass('dev.ftb.mods.ftblibrary.icon.Color4I')
+    const $ResourceKey = Java.loadClass('net.minecraft.resources.ResourceKey')
+    const $ResourceLocation = Java.loadClass('net.minecraft.resources.ResourceLocation')
+    const $Registries = Java.loadClass('net.minecraft.core.registries.Registries')
+    const hubLevelKey = $ResourceKey.create($Registries.DIMENSION, new $ResourceLocation(HUB_DIMENSION))
+
+    function findHubTeam(manager) {
+        const teams = manager.getTeams().toArray()
+        for (let i = 0; i < teams.length; i++) {
+            const candidate = teams[i]
+            if (!candidate.isServerTeam()) continue
+            const displayName = candidate.getProperty($TeamProperties.DISPLAY_NAME)
+            if (displayName !== null && String(displayName) === HUB_FTB_TEAM) return candidate
+        }
+        return null
+    }
+
+    function configureHubClaims(attempt) {
+        const manager = $FTBTeamsAPI.api().getManager()
+        const source = server.createCommandSourceStack()
+        let team = manager.getTeamByName(HUB_FTB_TEAM).orElse(null)
+        if (team === null) team = findHubTeam(manager)
+
+        if (team === null) {
+            try {
+                team = manager.createServerTeam(
+                    source,
+                    HUB_FTB_TEAM,
+                    'Protected Great Bole, Hollow Court, and royal spawn grounds',
+                    $Color4I.fromString('#63A95A'),
+                    null
+                )
+            } catch (error) {
+                console.error('[Alfheim Reclaimed] spawn hub team creation failed: ' + error)
+            }
+        }
+
+        if (team === null) {
+            console.error('[Alfheim Reclaimed] could not create or find the alfheim_hub server team')
+            if (attempt < 5) server.scheduleInTicks(40, () => configureHubClaims(attempt + 1))
+            return
+        }
+
+        team.setProperty($TeamProperties.DISPLAY_NAME, HUB_FTB_TEAM)
+        team.setProperty($TeamProperties.DESCRIPTION, 'Protected Great Bole, Hollow Court, and royal spawn grounds')
+        team.setProperty($TeamProperties.COLOR, $Color4I.fromString('#63A95A'))
+        team.setProperty($FTBChunksProperties.BLOCK_EDIT_MODE, $PrivacyMode.PRIVATE)
+        team.setProperty($FTBChunksProperties.BLOCK_INTERACT_MODE, $PrivacyMode.PRIVATE)
+        team.setProperty($FTBChunksProperties.ENTITY_INTERACT_MODE, $PrivacyMode.PRIVATE)
+        team.setProperty($FTBChunksProperties.NONLIVING_ENTITY_ATTACK_MODE, $PrivacyMode.PRIVATE)
+        team.setProperty($FTBChunksProperties.ALLOW_EXPLOSIONS, false)
+        team.setProperty($FTBChunksProperties.ALLOW_MOB_GRIEFING, false)
+        team.setProperty($FTBChunksProperties.ALLOW_PVP, false)
+        team.setProperty($FTBChunksProperties.CLAIM_VISIBILITY, $PrivacyMode.PUBLIC)
+        team.markDirty()
+
+        const claimedChunkManager = $ClaimedChunkManager.getInstance()
+        const chunkData = claimedChunkManager.getOrCreateData(team)
+        const teamId = team.getId()
+        const minChunkX = Math.floor((HUB_X - HUB_RADIUS) / 16)
+        const maxChunkX = Math.floor((HUB_X + HUB_RADIUS) / 16)
+        const minChunkZ = Math.floor((HUB_Z - HUB_RADIUS) / 16)
+        const maxChunkZ = Math.floor((HUB_Z + HUB_RADIUS) / 16)
+        const expectedClaims = (maxChunkX - minChunkX + 1) * (maxChunkZ - minChunkZ + 1)
+        let claimPosition = null
+        let existingClaim = null
+        let existingTeamId = null
+        let claimResult = null
+        let verifiedClaims = 0
+
+        for (let chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
+            for (let chunkZ = minChunkZ; chunkZ <= maxChunkZ; chunkZ++) {
+                claimPosition = new $ChunkDimPos(hubLevelKey, chunkX, chunkZ)
+                existingClaim = claimedChunkManager.getChunk(claimPosition)
+
+                if (existingClaim !== null) {
+                    existingTeamId = existingClaim.getTeamData().getTeam().getId()
+                    if (!existingTeamId.equals(teamId)) existingClaim.unclaim(source, true)
+                }
+
+                // ChunkTeamData#claim(source, pos, checkOnly): false performs the claim.
+                // Passing true only simulates it, which was the silent failure in the old path.
+                claimResult = chunkData.claim(source, claimPosition, false)
+                if (claimResult !== null && !claimResult.isSuccess()) {
+                    console.warn(`[Alfheim Reclaimed] spawn claim ${chunkX},${chunkZ} returned ${claimResult.getResultId()}`)
+                }
+
+                existingClaim = claimedChunkManager.getChunk(claimPosition)
+                if (existingClaim !== null && existingClaim.getTeamData().getTeam().getId().equals(teamId)) {
+                    verifiedClaims++
+                }
+            }
+        }
+
+        chunkData.saveNow()
+        chunkData.syncChunksToAll(server)
+        if (verifiedClaims === expectedClaims) {
+            console.info(`[Alfheim Reclaimed] spawn hub protection armed: ${armed.join(', ')}; ` +
+                         `FTB ownership verified ${verifiedClaims}/${expectedClaims} chunks for ${HUB_FTB_TEAM}.`)
+        } else if (attempt < 5) {
+            console.warn(`[Alfheim Reclaimed] ${HUB_FTB_TEAM} owns ${verifiedClaims}/${expectedClaims} required chunks; ` +
+                         `retry ${attempt + 1}/5 scheduled`)
+            server.scheduleInTicks(40, () => configureHubClaims(attempt + 1))
+        } else {
+            console.error(`[Alfheim Reclaimed] spawn claim repair stopped after 5 attempts with ` +
+                          `${verifiedClaims}/${expectedClaims} chunks verified`)
+        }
+    }
+
+    server.scheduleInTicks(20, () => configureHubClaims(1))
 })
