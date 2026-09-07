@@ -1,0 +1,90 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:chests/elder_kings_relic",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Memory Crystal of Aelthir",
+                "italic": false,
+                "color": "aqua"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "replace": true,
+              "lore": [
+                {
+                  "text": "A king who ordered the gates sealed.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Memory Crystal of Maerwyn",
+                "italic": false,
+                "color": "light_purple"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "replace": true,
+              "lore": [
+                {
+                  "text": "A queen who kept the last census.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Memory Crystal of Orodain",
+                "italic": false,
+                "color": "gold"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "replace": true,
+              "lore": [
+                {
+                  "text": "A king who descended when the ley-lines broke.",
+                  "italic": true,
+                  "color": "gray"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

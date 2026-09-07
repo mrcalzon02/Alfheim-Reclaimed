@@ -1,5 +1,24 @@
 # Execution State
 
+## Latest implementation — Deepworks Section 8 formations — 2026-09-07
+
+D6 now decorates the existing colossal-cavern field with four terrain-aware formation systems.
+Crystal chandeliers, ley scars and mineral columns each have Fire, Water, Earth, Air, Shadow and
+Light variants derived from the existing crystal manifest. Chandeliers search real ceilings and
+hang multiple 5–22-block branches; scars form broad fused floor bands; clustered mineral shafts
+rise 12–36 blocks and truncate at cave roofs while carrying native Bloom inclusions. Slag terraces
+first find basal lava, then spread the established lava → Magmatic → Cracked → ordinary Livingrock
+grammar across nearby shelves. None of the features carves a substitute cavern.
+
+Acceptance is **fresh-world load and natural-generation validated; client visual acceptance
+pending**. Generator closure and the dedicated formation checker pass, as do full worldgen
+resolution and global feature ordering. The first Forge run caught Minecraft 1.20.1's 32-block
+`environment_scan` codec maximum; the generator and checker were corrected. The clean retry reached
+Done, generated a new world and exited 0. Its 2,025 Alfheim chunks naturally contain Mana-glass from
+four alignments, proving the new formation path executed without direct placement. Frequency,
+silhouette, lava-shore readability and traversal still require client review before production
+admission. D7 archaeology—Quarries, Tombs and Faultworks—remains next.
+
 ## Active implementation — September 5 field-review corrections
 
 The durable plan and active work log are
@@ -9,8 +28,8 @@ ocean/Verge boundary is a vertical density cut, Scorchfell walls are repetitive,
 Gamma never generated a Great Bole or baked hub anchor despite 1,200 seconds of force-loading.
 
 Work is ordered Great Bole → Scorchfell/ocean → custom elf runtime test → Void littoral prototype.
-The stone-library texture pass is now statically implemented as recorded below; the NPC-art pass and
-pixie sky-island villages with denser Feywild trees and crops remain deliberately deferred. Natural
+The stone-library texture pass is now statically implemented as recorded below; the NPC-art pass remains
+deliberately deferred. The four seasonal pixie sky-island villages are now direct-assembly runtime-proven. Natural
 giant-tree placement was declined because it would intrinsically alter
 the world's silhouette. Sparse Jaffa orange and seasonal Feywild accents are now statically implemented.
 I9 has a static repair: the carpet, balustrade and wall sconce no longer contain the reported same-facing
@@ -54,6 +73,15 @@ each, divided among skirmish, swarm and elite cooldown/population profiles. The 
 entity coverage, placement and protected-biome exclusions; all self-tests fire. Disposable world
 `validation-knight-encounters-0906` reached Done and exited 0 with 17/17 startup and 26/26 server scripts clean.
 Actual ruin placement, spawner activation and combat balance remain unclaimed client/gameplay checks.
+
+I7 is direct-assembly runtime-proven. Four fixed-height, one-step jigsaw hamlets provide spring,
+summer, autumn and winter pixies with culture-specific dew-well centres, three miniature houses,
+functional vanilla crop gardens and complete matching Feywild trees on tapered 33×33 islands. A
+clean Forge run directly placed all four at Y 208, and the saved-world audit found every required
+piece, no residual jigsaw blocks and exactly one correct bounded pixie spawner beneath each centre.
+Natural random placement is not yet claimed: Continuity Works auto-enrols registered structures in
+its 500-block exclusion system, so a fresh-world census must measure actual rarity and clearance.
+Spawner activation/escape and client silhouette, scale and fall-safety review also remain open.
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 

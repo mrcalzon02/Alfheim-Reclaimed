@@ -1,0 +1,524 @@
+"""Generate three gigantic Deepworks archaeology complexes.
+
+Each registered structure is a deterministic nine-piece jigsaw assembly: a 47-block centre,
+four 33-block approaches and four 47-block wings. Rotating the north-authored approach and wing
+onto four centre sockets produces a roughly 207x207-block destination while keeping every NBT
+piece under Minecraft's 48-block structure-block editing limit.
+"""
+import argparse
+import hashlib
+import json
+import math
+import os
+import random
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import nbt  # noqa: E402
+from structure_nbt import MAX_AXIS, Piece  # noqa: E402
+
+NS = "alfheim"
+DATA = os.path.join("kubejs", "data", NS)
+STRUCT = os.path.join(DATA, "structures", "deepworks_archaeology")
+MANIFEST = os.path.join("tools", "deep_archaeology_manifest.json")
+AIR = ("minecraft:air", None)
+
+
+def B(name, **props):
+    return (name, {k: str(v).lower() if isinstance(v, bool) else str(v)
+                   for k, v in props.items()} or None)
+
+
+def box(p, x0, y0, z0, x1, y1, z1, block):
+    for x in range(x0, x1 + 1):
+        for y in range(y0, y1 + 1):
+            for z in range(z0, z1 + 1):
+                p.set(x, y, z, block)
+
+
+def hollow(p, x0, y0, z0, x1, y1, z1, wall, inside=AIR):
+    for x in range(x0, x1 + 1):
+        for y in range(y0, y1 + 1):
+            for z in range(z0, z1 + 1):
+                edge = x in (x0, x1) or y in (y0, y1) or z in (z0, z1)
+                p.set(x, y, z, wall if edge else inside)
+
+
+def ring(p, cx, cz, y, radius, width, block):
+    for x in range(max(0, cx - radius - 1), min(p.size[0], cx + radius + 2)):
+        for z in range(max(0, cz - radius - 1), min(p.size[2], cz + radius + 2)):
+            d = math.hypot(x - cx, z - cz)
+            if radius - width <= d <= radius + 0.5:
+                p.set(x, y, z, block)
+
+
+def chest(p, x, y, z, facing, table):
+    p.set(x, y, z, B("minecraft:chest", facing=facing, type="single", waterlogged=False),
+          {"id": "minecraft:chest", "LootTable": f"{NS}:chests/{table}"})
+
+
+def barrel(p, x, y, z, table):
+    p.set(x, y, z, B("minecraft:barrel", facing="up", open=False),
+          {"id": "minecraft:barrel", "LootTable": f"{NS}:chests/{table}"})
+
+
+def shell_and_floor(p, wall, floor, height=None):
+    sx, sy, sz = p.size
+    top = sy - 2 if height is None else min(sy - 2, height)
+    box(p, 0, 0, 0, sx - 1, 1, sz - 1, wall)
+    hollow(p, 1, 1, 1, sx - 2, top, sz - 2, wall)
+    box(p, 3, 2, 3, sx - 4, 2, sz - 4, floor)
+    box(p, 3, 3, 3, sx - 4, top - 1, sz - 4, AIR)
+
+
+def four_doors(p, y, half_width=3, height=6):
+    sx, _, sz = p.size
+    cx, cz = sx // 2, sz // 2
+    box(p, cx - half_width, y, 0, cx + half_width, y + height, 4, AIR)
+    box(p, cx - half_width, y, sz - 5, cx + half_width, y + height, sz - 1, AIR)
+    box(p, 0, y, cz - half_width, 4, y + height, cz + half_width, AIR)
+    box(p, sx - 5, y, cz - half_width, sx - 1, y + height, cz + half_width, AIR)
+
+
+def centre_jigsaws(p, family, y=3):
+    sx, _, sz = p.size
+    cx, cz = sx // 2, sz // 2
+    pool = f"{NS}:deepworks_archaeology/{family}/approach"
+    target = f"{NS}:{family}_approach_in"
+    for x, z, orientation in ((cx, 0, "north_up"), (cx, sz - 1, "south_up"),
+                              (0, cz, "west_up"), (sx - 1, cz, "east_up")):
+        p.jigsaw(x, y, z, f"{NS}:{family}_centre_out", target, pool, orientation,
+                 joint="aligned", final_state="minecraft:air")
+
+
+def approach_jigsaws(p, family, y=3):
+    sx, _, sz = p.size
+    cx = sx // 2
+    p.jigsaw(cx, y, sz - 1, f"{NS}:{family}_approach_in",
+             f"{NS}:{family}_centre_out", "minecraft:empty", "south_up",
+             joint="aligned", final_state="minecraft:air")
+    p.jigsaw(cx, y, 0, f"{NS}:{family}_approach_out",
+             f"{NS}:{family}_wing_in", f"{NS}:deepworks_archaeology/{family}/wing",
+             "north_up", joint="aligned", final_state="minecraft:air")
+
+
+def wing_jigsaw(p, family, y=3):
+    cx = p.size[0] // 2
+    p.jigsaw(cx, y, p.size[2] - 1, f"{NS}:{family}_wing_in",
+             f"{NS}:{family}_approach_out", "minecraft:empty", "south_up",
+                 joint="aligned", final_state="minecraft:air")
+
+
+def sarcophagus(p, x, y, z, facing="north"):
+    """Place one three-block-long royal sarcophagus."""
+    steps = {"north": (0, 1), "south": (0, -1), "east": (-1, 0), "west": (1, 0)}
+    dx, dz = steps[facing]
+    for i, part in enumerate(("head", "middle", "foot")):
+        p.set(x + dx * i, y, z + dz * i, B(f"alfheim:elder_sarcophagus_{part}", facing=facing))
+
+
+def funerary_tapestry(p, x, y, z, facing="north"):
+    """Place a three-block-tall hanging, with y at its tattered lower edge."""
+    for dy, part in enumerate(("bottom", "middle", "top")):
+        p.set(x, y + dy, z, B(f"alfheim:funerary_tapestry_{part}", facing=facing))
+
+
+def grave_door(p, x, y, z, facing="north"):
+    """Place a sealed two-wide, three-high grave portal."""
+    side_step = {"north": (1, 0), "south": (-1, 0), "east": (0, 1), "west": (0, -1)}[facing]
+    for dy, part in enumerate(("base", "middle", "crown")):
+        p.set(x, y + dy, z, B(f"alfheim:elder_grave_door_left_{part}", facing=facing))
+        p.set(x + side_step[0], y + dy, z + side_step[1],
+              B(f"alfheim:elder_grave_door_right_{part}", facing=facing))
+
+
+def funerary_statue(p, x, y, z, facing="north"):
+    """Place a three-block-tall crowned funerary guardian."""
+    for dy, part in enumerate(("base", "body", "crown")):
+        p.set(x, y + dy, z, B(f"alfheim:elder_statue_{part}", facing=facing))
+
+
+def quarry_centre(size, seed):
+    p, rng = Piece(*size), random.Random(seed)
+    sx, _, sz = size
+    stone, floor = B("alfheim:rootbound_livingrock"), B("alfheim:rootbound_livingrock_polished")
+    brick, carved = B("alfheim:rootbound_livingrock_bricks"), B("alfheim:rootbound_livingrock_carved")
+    shell_and_floor(p, stone, floor)
+    four_doors(p, 3, 4, 8)
+    cx, cz = sx // 2, sz // 2
+    box(p, cx - 9, 2, cz - 9, cx + 9, 2, cz + 9, brick)
+    box(p, cx - 6, 2, cz - 6, cx + 6, 8, cz + 6, AIR)
+    for x, z in ((cx - 10, cz - 10), (cx + 10, cz - 10),
+                 (cx - 10, cz + 10), (cx + 10, cz + 10)):
+        box(p, x - 1, 2, z - 1, x + 1, 17, z + 1, carved)
+    for x in range(cx - 10, cx + 11):
+        p.set(x, 17, cz - 10, B("botania:dreamwood_log", axis="x"))
+        p.set(x, 17, cz + 10, B("botania:dreamwood_log", axis="x"))
+    for z in range(cz - 10, cz + 11):
+        p.set(cx - 10, 17, z, B("botania:dreamwood_log", axis="z"))
+        p.set(cx + 10, 17, z, B("botania:dreamwood_log", axis="z"))
+    for y in range(5, 18):
+        p.set(cx, y, cz, B("minecraft:chain", axis="y"))
+    for _ in range(65):
+        p.set(rng.randrange(5, sx - 5), 3, rng.randrange(5, sz - 5),
+              rng.choice([stone, brick, B("minecraft:gravel")]))
+    barrel(p, cx + 12, 3, cz + 4, "deep_quarry_supplies")
+    centre_jigsaws(p, "deep_quarry")
+    return p
+
+
+def quarry_approach(size, seed):
+    p = Piece(*size)
+    sx, _, sz = size
+    wall, floor = B("alfheim:rootbound_livingrock_bricks"), B("alfheim:rootbound_livingrock_polished")
+    shell_and_floor(p, wall, floor, 16)
+    cx = sx // 2
+    box(p, cx - 4, 3, 0, cx + 4, 11, sz - 1, AIR)
+    for z in range(2, sz - 2):
+        for x in (cx - 2, cx + 2):
+            p.set(x, 3, z, B("minecraft:rail", shape="north_south"))
+    for z in range(5, sz - 2, 7):
+        for x in (2, sx - 3):
+            box(p, x, 3, z, x, 12, z, B("botania:dreamwood_log", axis="y"))
+        box(p, 2, 12, z, sx - 3, 12, z, B("botania:dreamwood_log", axis="x"))
+    approach_jigsaws(p, "deep_quarry")
+    return p
+
+
+def quarry_wing(size, seed):
+    p, rng = Piece(*size), random.Random(seed)
+    sx, _, sz = size
+    stone, brick = B("alfheim:rootbound_livingrock"), B("alfheim:rootbound_livingrock_bricks")
+    floor = B("alfheim:rootbound_livingrock_polished")
+    shell_and_floor(p, stone, floor)
+    cx = sx // 2
+    box(p, cx - 4, 3, sz - 6, cx + 4, 11, sz - 1, AIR)
+    for x0, x1 in ((4, 15), (18, 29), (32, 43)):
+        box(p, x0, 3, 5, x1, 16, 38, AIR)
+        box(p, x0, 2, 5, x1, 2, 38, floor)
+        box(p, x0, 3, 4, x1, 16, 4, stone)
+        for y in (7, 12):
+            box(p, x0, y, 4, x1, y, 4, brick)
+    ores = ["cinderbloom", "verdigris", "palebloom", "sparkroot", "duskbloom",
+            "sunbloom", "silverthorn", "grievebloom", "rimebloom", "emberwake"]
+    for i, ore in enumerate(ores):
+        x = 5 + (i * 9) % 38
+        y = 5 + (i * 4) % 11
+        for dx, dy in ((0, 0), (1, 0), (0, 1), (-1, 0), (0, -1)):
+            p.set(x + dx, y + dy, 4, B(f"alfheim:{ore}_ore"))
+    box(p, 20, 3, 31, 27, 3, 37, B("botania:dreamwood_planks"))
+    p.set(23, 4, 34, B("botania:apothecary_livingrock"))
+    for pos in ((8, 3, 28), (38, 3, 19), (24, 3, 10)):
+        barrel(p, *pos, "deep_quarry_supplies")
+    for _ in range(90):
+        p.set(rng.randrange(4, sx - 4), 3, rng.randrange(5, sz - 5),
+              rng.choice([stone, brick, B("minecraft:gravel"), B("alfheim:cracked_livingrock")]))
+    wing_jigsaw(p, "deep_quarry")
+    return p
+
+
+def tomb_centre(size, seed):
+    p = Piece(*size)
+    sx, _, sz = size
+    wall, floor = B("alfheim:ivory_livingrock_bricks"), B("alfheim:moonstone_livingrock_polished")
+    shell_and_floor(p, wall, floor, 19)
+    four_doors(p, 3, 3, 7)
+    cx, cz = sx // 2, sz // 2
+    box(p, 8, 3, 8, sx - 9, 15, sz - 9, wall)
+    box(p, 10, 3, 10, sx - 11, 13, sz - 11, AIR)
+    box(p, cx - 4, 3, 1, cx + 4, 10, sz - 2, AIR)
+    box(p, 1, 3, cz - 4, sx - 2, 10, cz + 4, AIR)
+    for x, z in ((11, 11), (sx - 12, 11), (11, sz - 12), (sx - 12, sz - 12)):
+        box(p, x, 3, z, x + 1, 13, z + 1, B("feywild:elven_quartz_pillar", axis="y"))
+    box(p, cx - 4, 3, cz - 3, cx + 4, 3, cz + 3, B("minecraft:smooth_quartz"))
+    p.set(cx, 4, cz, B("alfheim:mana_glass_light"))
+    chest(p, cx, 3, cz + 5, "north", "elder_kings_relic")
+    # The Hall of Names is a royal mortuary monument rather than a bare stone junction.
+    for x, z, facing in ((14, 14, "south"), (32, 14, "west"),
+                         (14, 32, "east"), (32, 32, "north")):
+        funerary_statue(p, x, 3, z, facing)
+    funerary_tapestry(p, cx, 6, 10, "south")
+    funerary_tapestry(p, cx, 6, sz - 11, "north")
+    p.set(10, 7, 18, B("alfheim:memorial_carving", facing="east"))
+    p.set(sx - 11, 7, 28, B("alfheim:memorial_carving", facing="west"))
+    grave_door(p, cx - 1, 3, 5, "south")
+    grave_door(p, cx + 1, 3, sz - 6, "north")
+    grave_door(p, 5, 3, cx + 1, "east")
+    grave_door(p, sx - 6, 3, cx - 1, "west")
+    for x, z in ((8, 20), (18, 8), (29, 37), (38, 25), (7, 35), (35, 7)):
+        p.set(x, 3, z, B("alfheim:tomb_debris", facing="north"))
+    centre_jigsaws(p, "elder_kings_tomb")
+    return p
+
+
+def tomb_approach(size, seed):
+    p = Piece(*size)
+    sx, _, sz = size
+    wall, floor = B("alfheim:ivory_livingrock_bricks"), B("alfheim:moonstone_livingrock_polished")
+    shell_and_floor(p, wall, floor, 15)
+    cx = sx // 2
+    box(p, cx - 3, 3, 0, cx + 3, 10, sz - 1, AIR)
+    for dz in range(-6, 7):
+        half = 6 - abs(dz)
+        z = 16 + dz
+        for x in range(cx - half, cx + half + 1):
+            p.set(x, 2, z, B("alfheim:silvermist_livingrock_polished"))
+            for y in range(3, 9):
+                p.set(x, y, z, AIR)
+    for z in (7, 25):
+        box(p, 2, 3, z, 4, 10, z + 4, B("feywild:elven_quartz_brick"))
+        box(p, sx - 5, 3, z, sx - 3, 10, z + 4, B("feywild:elven_quartz_brick"))
+    approach_jigsaws(p, "elder_kings_tomb")
+    return p
+
+
+def tomb_wing(size, seed):
+    p = Piece(*size)
+    sx, _, sz = size
+    wall, floor = B("alfheim:ivory_livingrock_bricks"), B("alfheim:moonstone_livingrock_polished")
+    shell_and_floor(p, wall, floor, 19)
+    cx = sx // 2
+    box(p, cx - 3, 3, sz - 7, cx + 3, 10, sz - 1, AIR)
+    rooms = ((5, 5, 19, 20), (27, 5, 41, 20), (14, 25, 32, 41))
+    for x0, z0, x1, z1 in rooms:
+        hollow(p, x0, 2, z0, x1, 14, z1, wall)
+        box(p, x0 + 2, 3, z0 + 2, x1 - 2, 12, z1 - 2, AIR)
+        box(p, x0 + 4, 3, z0 + 5, x1 - 4, 3, z1 - 3, B("minecraft:smooth_quartz"))
+        p.set((x0 + x1) // 2, 4, (z0 + z1) // 2, B("alfheim:mana_glass_light"))
+    for inset in (3, 7, 11):
+        for x in range(inset, sx - inset):
+            if (x + inset) % 9 not in (0, 1):
+                box(p, x, 3, inset, x, 8, inset, wall)
+                box(p, x, 3, sz - inset - 1, x, 8, sz - inset - 1, wall)
+        for z in range(inset + 1, sz - inset - 1):
+            if (z + inset * 2) % 11 not in (0, 1):
+                box(p, inset, 3, z, inset, 8, z, wall)
+                box(p, sx - inset - 1, 3, z, sx - inset - 1, 8, z, wall)
+    box(p, cx - 2, 3, 17, cx + 2, 9, sz - 1, AIR)
+    box(p, 11, 3, 21, 35, 9, 25, AIR)
+    # Twelve chambers across the assembled tomb: three lavish burials in each wing.
+    for x, z in ((12, 10), (34, 10), (23, 31)):
+        sarcophagus(p, x, 3, z, "north")
+    for x, z in ((12, 19), (34, 19), (23, 40)):
+        funerary_tapestry(p, x, 6, z, "north")
+    for x, z, facing in ((6, 12, "east"), (40, 12, "west"), (15, 33, "east")):
+        p.set(x, 7, z, B("alfheim:memorial_carving", facing=facing))
+    for x, z, facing in ((8, 9, "south"), (30, 9, "south"), (18, 29, "east")):
+        funerary_statue(p, x, 3, z, facing)
+    grave_door(p, 11, 3, 5, "south")
+    grave_door(p, 33, 3, 5, "south")
+    grave_door(p, 22, 3, 25, "south")
+    for x, z in ((8, 17), (17, 8), (29, 16), (38, 8), (17, 37), (29, 35),
+                 (8, 29), (38, 30), (23, 20), (12, 24)):
+        p.set(x, 3, z, B("alfheim:tomb_debris", facing="north"))
+    wing_jigsaw(p, "elder_kings_tomb")
+    return p
+
+
+def fault_centre(size, seed):
+    p, rng = Piece(*size), random.Random(seed)
+    sx, _, sz = size
+    cracked, floor = B("alfheim:cracked_livingrock"), B("alfheim:gloam_livingrock_polished")
+    shell_and_floor(p, cracked, floor)
+    four_doors(p, 3, 4, 9)
+    cx, cz = sx // 2, sz // 2
+    for radius in (7, 12, 17):
+        for y in range(3, 14 if radius == 7 else 8):
+            ring(p, cx, cz, y, radius, 1.2,
+                 B("minecraft:crying_obsidian") if y % 3 else B("alfheim:magmatic_livingrock"))
+    for x in range(2, sx - 2):
+        for z in range(cz - 2, cz + 3):
+            p.set(x, 2, z, rng.choice([B("alfheim:mana_glass_shadow"),
+                                       B("alfheim:mana_glass_fire"),
+                                       B("alfheim:mana_glass_light")]))
+    centre_jigsaws(p, "faultwork")
+    return p
+
+
+def fault_approach(size, seed):
+    p, rng = Piece(*size), random.Random(seed)
+    sx, _, sz = size
+    cracked = B("alfheim:cracked_livingrock")
+    shell_and_floor(p, cracked, B("alfheim:leyline_livingrock_polished"), 18)
+    cx = sx // 2
+    box(p, cx - 4, 3, 0, cx + 4, 13, sz - 1, AIR)
+    for z in range(sz):
+        for x in range(cx - 2, cx + 3):
+            p.set(x, 2, z, rng.choice([B("alfheim:mana_glass_shadow"),
+                                       B("alfheim:mana_glass_fire"),
+                                       B("alfheim:mana_glass_light")]))
+        if z % 8 == 3:
+            for x in (2, sx - 3):
+                box(p, x, 3, z, x, 15, z, B("alfheim:leyline_livingrock_carved"))
+    approach_jigsaws(p, "faultwork")
+    return p
+
+
+def fault_wing(size, seed):
+    p, rng = Piece(*size), random.Random(seed)
+    sx, sy, sz = size
+    cracked = B("alfheim:cracked_livingrock")
+    shell_and_floor(p, cracked, B("alfheim:gloam_livingrock_polished"))
+    cx, cz = sx // 2, sz // 2
+    box(p, cx - 4, 3, sz - 7, cx + 4, 12, sz - 1, AIR)
+    for x in range(2, sx - 2):
+        for y in range(2, sy - 2):
+            for z in range(2, sz - 2):
+                d = math.sqrt(((x - cx) / 16.0) ** 2 + ((y - 12) / 13.0) ** 2 +
+                              ((z - 18) / 14.0) ** 2)
+                if d < 1:
+                    p.set(x, y, z, AIR)
+                elif d < 1.16 and rng.random() < 0.42:
+                    p.set(x, y, z, rng.choice([B("minecraft:crying_obsidian"),
+                                               B("alfheim:magmatic_livingrock"),
+                                               B("alfheim:mana_glass_shadow"),
+                                               B("alfheim:mana_glass_fire")]))
+    for radius in (10, 15, 20):
+        ring(p, cx, cz, 2 + radius // 5, radius, 1.3, B("minecraft:crying_obsidian"))
+    for _ in range(140):
+        p.set(rng.randrange(3, sx - 3), rng.randrange(3, 11), rng.randrange(3, sz - 3),
+              rng.choice([cracked, B("minecraft:crying_obsidian"), B("alfheim:magmatic_livingrock")]))
+    for pos in ((7, 3, 37), (39, 3, 37), (23, 3, 40)):
+        barrel(p, *pos, "faultwork_salvage")
+    wing_jigsaw(p, "faultwork")
+    return p
+
+
+BUILDERS = {
+    "deep_quarry": {"centre": quarry_centre, "approach": quarry_approach, "wing": quarry_wing},
+    "elder_kings_tomb": {"centre": tomb_centre, "approach": tomb_approach, "wing": tomb_wing},
+    "faultwork": {"centre": fault_centre, "approach": fault_approach, "wing": fault_wing},
+}
+
+
+def json_bytes(body):
+    return (json.dumps(body, indent=2) + "\n").encode()
+
+
+def write_json(path, body):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "wb") as f:
+        f.write(json_bytes(body))
+
+
+def salt_for(name):
+    return int(hashlib.sha1(("deep-archaeology:" + name).encode()).hexdigest()[:7], 16)
+
+
+def single_pool(name, location):
+    return {"name": name, "fallback": "minecraft:empty", "elements": [{"weight": 1,
+            "element": {"location": location, "processors": "minecraft:empty",
+                        "projection": "rigid", "element_type": "minecraft:single_pool_element"}}]}
+
+
+def relic_loot():
+    entries = []
+    for name, color, lore in (
+        ("Memory Crystal of Aelthir", "aqua", "A king who ordered the gates sealed."),
+        ("Memory Crystal of Maerwyn", "light_purple", "A queen who kept the last census."),
+        ("Memory Crystal of Orodain", "gold", "A king who descended when the ley-lines broke."),
+    ):
+        entries.append({"type": "minecraft:item", "name": "minecraft:amethyst_shard", "weight": 1,
+                        "functions": [{"function": "minecraft:set_name",
+                                       "name": {"text": name, "italic": False, "color": color}},
+                                      {"function": "minecraft:set_lore", "replace": True,
+                                       "lore": [{"text": lore, "italic": True, "color": "gray"}]}]})
+    return {"type": "minecraft:chest", "random_sequence": f"{NS}:chests/elder_kings_relic",
+            "pools": [{"rolls": 1.0, "bonus_rolls": 0.0, "entries": entries}]}
+
+
+def quarry_loot():
+    return {"type": "minecraft:chest", "random_sequence": f"{NS}:chests/deep_quarry_supplies",
+            "pools": [{"rolls": {"type": "minecraft:uniform", "min": 1.0, "max": 3.0},
+                       "bonus_rolls": 0.0, "entries": [
+                           {"type": "minecraft:item", "name": "minecraft:torch", "weight": 8,
+                            "functions": [{"function": "minecraft:set_count", "count": {"min": 3.0, "max": 9.0}}]},
+                           {"type": "minecraft:item", "name": "minecraft:iron_pickaxe", "weight": 2,
+                            "functions": [{"function": "minecraft:set_damage", "damage": {"min": 0.55, "max": 0.92}}]},
+                           {"type": "minecraft:item", "name": "botania:livingrock", "weight": 6,
+                            "functions": [{"function": "minecraft:set_count", "count": {"min": 2.0, "max": 8.0}}]}
+                       ]}]}
+
+
+def faultwork_loot():
+    return {"type": "minecraft:chest", "random_sequence": f"{NS}:chests/faultwork_salvage",
+            "pools": [{"rolls": {"type": "minecraft:uniform", "min": 2.0, "max": 4.0},
+                       "bonus_rolls": 0.0, "entries": [
+                           {"type": "minecraft:item", "name": "occultism:burnt_otherstone", "weight": 8,
+                            "functions": [{"function": "minecraft:set_count", "count": {"min": 2.0, "max": 7.0}}]},
+                           {"type": "minecraft:item", "name": "minecraft:amethyst_shard", "weight": 4,
+                            "functions": [{"function": "minecraft:set_count", "count": {"min": 1.0, "max": 4.0}}]},
+                           {"type": "minecraft:item", "name": "botania:mana_powder", "weight": 2,
+                            "functions": [{"function": "minecraft:set_count", "count": {"min": 1.0, "max": 3.0}}]}
+                       ]}]}
+
+
+def build_outputs(check=False):
+    manifest = json.load(open(MANIFEST, encoding="utf-8"))
+    json_out, nbt_expected = {}, {}
+    for family in manifest["families"]:
+        fid = family["id"]
+        for role, size in family["pieces"].items():
+            assert max(size) <= MAX_AXIS
+            seed = int(hashlib.sha1(f"{fid}:{role}".encode()).hexdigest()[:8], 16)
+            piece = BUILDERS[fid][role](tuple(size), seed)
+            path = os.path.join(STRUCT, fid, role + ".nbt")
+            nbt_expected[path] = piece.to_nbt()
+            if not check:
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                nbt.save(path, "", piece.to_nbt())
+            print(f"  {fid:18} {role:9} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks")
+
+        base = f"{NS}:deepworks_archaeology/{fid}"
+        for role in ("centre", "approach", "wing"):
+            path = os.path.join(DATA, "worldgen", "template_pool", "deepworks_archaeology", fid,
+                                role + ".json")
+            json_out[path] = single_pool(f"{base}/{role}", f"{base}/{role}")
+        lo, hi = family["depth"]
+        json_out[os.path.join(DATA, "worldgen", "structure", fid + ".json")] = {
+            "type": "minecraft:jigsaw", "biomes": manifest["biomes"],
+            "step": "underground_structures", "terrain_adaptation": "none",
+            "start_pool": f"{base}/centre", "size": 2, "max_distance_from_center": 116,
+            "start_height": {"type": "minecraft:uniform",
+                             "min_inclusive": {"absolute": lo},
+                             "max_inclusive": {"absolute": hi}},
+            "use_expansion_hack": False, "spawn_overrides": {}}
+        json_out[os.path.join(DATA, "worldgen", "structure_set", fid + ".json")] = {
+            "structures": [{"structure": f"{NS}:{fid}", "weight": 1}],
+            "placement": {"type": "minecraft:random_spread", "spacing": family["spacing"],
+                          "separation": family["separation"], "spread_type": "linear",
+                          "salt": salt_for(fid)}}
+        json_out[os.path.join(DATA, "tags", "worldgen", "structure", fid + ".json")] = {
+            "replace": False, "values": [f"{NS}:{fid}"]}
+
+    json_out[os.path.join(DATA, "loot_tables", "chests", "deep_quarry_supplies.json")] = quarry_loot()
+    json_out[os.path.join(DATA, "loot_tables", "chests", "elder_kings_relic.json")] = relic_loot()
+    json_out[os.path.join(DATA, "loot_tables", "chests", "faultwork_salvage.json")] = faultwork_loot()
+    json_out[os.path.join("kubejs", "data", "continuityworks_spawn_protection", "tags", "worldgen",
+                          "structure", "ignored.json")] = {
+        "replace": False, "values": ["alfheim:deep_quarry", "alfheim:elder_kings_tomb", "alfheim:faultwork"]}
+    return json_out, nbt_expected
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true")
+    args = ap.parse_args()
+    json_out, nbt_expected = build_outputs(args.check)
+    if args.check:
+        problems = [path for path, body in json_out.items()
+                    if not os.path.exists(path) or open(path, "rb").read() != json_bytes(body)]
+        for path, expected in nbt_expected.items():
+            if not os.path.exists(path) or nbt.load(path)[1] != expected:
+                problems.append(path)
+        if problems:
+            raise SystemExit("generated output differs: " + ", ".join(problems))
+        print(f"PASS: {len(json_out)} JSON and {len(nbt_expected)} decoded NBT payloads match")
+    else:
+        for path, body in json_out.items():
+            write_json(path, body)
+        print(f"generated {len(json_out)} JSON and {len(nbt_expected)} NBT archaeology files")
+
+
+if __name__ == "__main__":
+    main()

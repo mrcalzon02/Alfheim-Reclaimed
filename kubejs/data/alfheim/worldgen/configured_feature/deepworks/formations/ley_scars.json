@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "alfheim:deepworks/formations/ley_scar_emberglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/ley_scar_tidewake",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/ley_scar_rootglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/ley_scar_galeglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/ley_scar_duskglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/ley_scar_dawnglass",
+        "placement": []
+      }
+    ]
+  }
+}

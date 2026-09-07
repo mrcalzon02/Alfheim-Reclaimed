@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:faultwork",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 58,
+    "separation": 24,
+    "spread_type": "linear",
+    "salt": 262718961
+  }
+}

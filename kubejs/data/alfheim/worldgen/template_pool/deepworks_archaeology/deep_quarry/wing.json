@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:deepworks_archaeology/deep_quarry/wing",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:deepworks_archaeology/deep_quarry/wing",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

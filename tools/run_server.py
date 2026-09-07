@@ -437,6 +437,29 @@ HUB_ONLY_COMMANDS = [
     (5, 'stop'),
 ]
 
+# Direct assembly proof for the four seasonal sky hamlets. `place structure` still checks the
+# configured biome holder, so each disposable test site receives a tiny matching biome patch at
+# the requested Y before placement. The sites are well outside the Great Bole's protected envelope
+# and far enough apart that their 33-block islands cannot interact.
+PIXIE_ONLY_COMMANDS = [
+    (75, 'say alfheim pixie-settlement validation: startup reached'),
+    (2, 'execute in mythicbotany:alfheim run forceload add 2032 2032 2079 2079'),
+    (2, 'execute in mythicbotany:alfheim run forceload add 2288 2032 2335 2079'),
+    (2, 'execute in mythicbotany:alfheim run forceload add 2544 2032 2591 2079'),
+    (2, 'execute in mythicbotany:alfheim run forceload add 2800 2032 2847 2079'),
+    (30, 'say alfheim pixie-settlement validation: remote chunks ready'),
+    (2, 'execute in mythicbotany:alfheim run fillbiome 2046 208 2046 2050 208 2050 alfheim:bloomfall_vale'),
+    (2, 'execute in mythicbotany:alfheim run place structure alfheim:pixie_spring_hamlet 2048 208 2048'),
+    (2, 'execute in mythicbotany:alfheim run fillbiome 2302 208 2046 2306 208 2050 mythicbotany:golden_fields'),
+    (2, 'execute in mythicbotany:alfheim run place structure alfheim:pixie_summer_hamlet 2304 208 2048'),
+    (2, 'execute in mythicbotany:alfheim run fillbiome 2558 208 2046 2562 208 2050 alfheim:ashen_grove'),
+    (2, 'execute in mythicbotany:alfheim run place structure alfheim:pixie_autumn_hamlet 2560 208 2048'),
+    (2, 'execute in mythicbotany:alfheim run fillbiome 2814 208 2046 2818 208 2050 alfheim:starved_reach'),
+    (2, 'execute in mythicbotany:alfheim run place structure alfheim:pixie_winter_hamlet 2816 208 2048'),
+    (20, 'save-all flush'),
+    (5, 'stop'),
+]
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -445,6 +468,8 @@ def main():
     ap.add_argument('--run', action='store_true')
     ap.add_argument('--hub-only', action='store_true',
                     help='run the short Great Bole placement proof instead of the full suite')
+    ap.add_argument('--pixie-only', action='store_true',
+                    help='place and assemble one of each seasonal pixie sky hamlet')
     ap.add_argument('--seed', default='alfheim')
     ap.add_argument('--level-name', default='validation')
     ap.add_argument('--heap', type=int, default=8)
@@ -456,7 +481,10 @@ def main():
     if a.install:
         return install()
     if a.run:
-        cmds = list(HUB_ONLY_COMMANDS if a.hub_only else DEFAULT_COMMANDS)
+        if a.hub_only and a.pixie_only:
+            ap.error('--hub-only and --pixie-only are mutually exclusive')
+        cmds = list(PIXIE_ONLY_COMMANDS if a.pixie_only else
+                    HUB_ONLY_COMMANDS if a.hub_only else DEFAULT_COMMANDS)
         if a.export:
             cmds.insert(1, (5, 'kubejs export'))
         return run(a.seed, a.level_name, a.heap, cmds, a.timeout)

@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#alfheim:deepworks_land",
+  "features": [
+    "alfheim:deepworks/formations/crystal_chandeliers",
+    "alfheim:deepworks/formations/ley_scars",
+    "alfheim:deepworks/formations/mineral_columns",
+    "alfheim:deepworks/formations/slag_terraces"
+  ],
+  "step": "local_modifications"
+}

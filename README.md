@@ -9,8 +9,9 @@ Alfheim is **`mythicbotany:alfheim`**, the dimension MythicBotany ships; **`mine
 Midgard**, left vanilla and populated by Continuity Works. The world-preset override was struck on
 2026-09-02 — `INSTRUCTIONS.md` §1 records why.
 
-**Version** 0.18.0-design · **Forge** 47.4.10 · **Mods** 84 jars in `mods/` · **Status** boots and
-generates headlessly. Fey registration, habitats and drops are runtime validated; client acceptance remains.
+**Version** 0.20.0-design · **Forge** 47.4.10 · **Mods** 84 jars in `mods/` · **Status** boots and
+generates headlessly. Fey registration, habitats and drops are runtime validated; four seasonal pixie
+sky hamlets are direct-assembly proven; Deepworks formations generate naturally; client acceptance remains.
 
 ## Start here
 
@@ -42,12 +43,13 @@ The three that carry the design:
 
 ## The next thing to do
 
-**Deep terrain continuation:** natural stone masses, colossal caves and initial lava basins now
+**Deep terrain continuation:** natural stone masses, colossal caves, lava basins and Section 8
+environmental formations now
 generate. Paired fresh-world sections show open spans up to roughly 216 blocks and twice the ore
 density in sampled solid rock. [See the actual before/after terrain](tools/deep_terrain_sections.png)
-and [implementation record](alfheim_reclaimed_design/DEEP_TERRAIN.md). Client traversal and
-formation/structure authoring remain; new terrain appears in new chunks. The material foundation
-below remains the library these environments use.
+and [implementation record](alfheim_reclaimed_design/DEEP_TERRAIN.md). Six aligned chandelier,
+ley-scar and mineral-column variants plus lava-bound slag terraces now decorate real cavern faces;
+client traversal and D7 archaeology remain. New terrain appears only in new chunks.
 
 **Current priority, 2026-09-05:** the Deep and its expanded
 [Livingrock library](alfheim_reclaimed_design/LIVINGROCK_LIBRARY.md). The material foundation now

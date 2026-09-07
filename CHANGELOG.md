@@ -4,6 +4,44 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.20.0-design — 2026-09-07 — Deepworks environmental formations
+
+Implemented `DEEPWORKS.md` Section 8 as four cave-anchored worldgen systems. Six elemental variants
+each of crystal chandeliers, ley scars and mineral columns use the existing aligned crystal and
+Mana-glass vocabulary. Chandeliers form broad ceiling roots with multiple hanging branches, scars
+fuse wide bands across exposed cavern floors, and clustered 12–36-block mineral shafts can bridge
+large chambers while carrying native Bloom seams. Lava-anchored Slag/Magmatic/Cracked terrace
+fields add visible high-water history around basal lakes.
+
+The 28 generated datapack files use only terrain-aware configured and placed features; they do not
+fake cavern scale with structure templates or alter the Deep density field. Generator closure, the
+new formation invariant checker, full worldgen resolution and global feature ordering pass. A first
+Forge load exposed the 1.20.1 `environment_scan` maximum of 32 blocks; the generator and checker now
+enforce it. The corrected fresh-world run reached Done and exited 0. A saved-region audit of 2,025
+Alfheim chunks found naturally generated Mana-glass from four alignments. Client visual traversal,
+rarity tuning and D7 archaeology remain open.
+
+## 0.19.0-design — 2026-09-07 — Seasonal pixie sky hamlets
+
+Added four small fixed-height jigsaw settlements for Feywild's spring, summer, autumn and winter
+pixies. Each settlement is a tapered 33×33 organic floating island with a culture-specific dew-well
+centre, three houses selected from four miniature forms, a functional vanilla crop garden and a
+complete matching seasonal tree. The dew well conceals a serviceable Livingrock vault containing
+one bounded seasonal-pixie spawner. MythicBotany's alf pixie remains ambient wildlife because it
+does not have a corresponding material/tree culture.
+
+The generator emits 32 structure NBT pieces, 20 template pools, four structures, four salted
+random-spread sets and four biome tags. The structural checker validates the six-socket grammar,
+seasonal contents, spawner profiles, organic footprint and connector closure. Existing worldgen and
+feature-order checks remain clean.
+
+Acceptance: **direct runtime assembly proven**. A clean Forge server directly placed all four
+hamlets at Y 208 in `validation-pixie-assembly-0907b`; the saved-region audit found every centre,
+house group, garden and seasonal tree, no residual jigsaw blocks, and exactly one correct buried
+spawner per settlement. Natural random placement remains unclaimed because direct placement bypasses
+structure competition and Continuity Works currently auto-enrols every registered structure in its
+500-block exclusion system. Actual spawner activation/escape and client visual review also remain.
+
 ## 0.18.1-design — 2026-09-06 — Feature-bound Void Margin geology
 
 Replaced the six Void biomes' shared random three-stone wall wash with a feature-bound terrain

@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:deep_quarry",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 52,
+    "separation": 20,
+    "spread_type": "linear",
+    "salt": 178223504
+  }
+}

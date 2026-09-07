@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "alfheim:deepworks/formations/mineral_column_emberglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/mineral_column_tidewake",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/mineral_column_rootglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/mineral_column_galeglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/mineral_column_duskglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/mineral_column_dawnglass",
+        "placement": []
+      }
+    ]
+  }
+}

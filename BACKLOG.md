@@ -1,21 +1,21 @@
 # Backlog
 
-### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I11 LOAD-SMOKE; I2–I5 + I8–I9 STATIC 2026-09-06**
+### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I7 DIRECT-ASSEMBLY-PROVEN; I11 LOAD-SMOKE; I2–I5 + I8–I9 STATIC 2026-09-07**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in
 `alfheim_reclaimed_design/FIELD_REVIEW_STAGE_2026-09-05.md`. Immediate work is the failed Great
 Bole spawn system, Scorchfell's native hot-stone surface/features, ocean density/name, custom elf
 runtime spawning and the ocean-to-Void-Verge transition. Starfall rain is accepted unchanged.
 
-Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run and
-biome-specific miniature pixie villages with buried spawners. Natural TaxTreeGiant placement was removed
+Deferred but explicitly queued: one coordinated custom-block and Hollow Court NPC texture run. Natural TaxTreeGiant placement was removed
 from the plan by later field-review decision because it would intrinsically alter Alfheim's silhouette.
 Sparse Jaffabricate orange and normal-size seasonal Feywild trees are now statically implemented. I9 rebuilds
 the carpet/balustrade/wall-sconce geometry and removes vertical source-atlas bleed before centering all 480
 armory icons; restarted-client signoff remains. I11 places the twelve independent Knight Quest creatures
 once each in climate-matched hostile ruins using bounded vanilla spawner profiles; static checks and a fresh
-Forge load pass, while placement/combat review remains. Pixie villages now explicitly require climate-matched Feywild trees, small
-organic sky islands and vanilla food gardens. These are planning commitments, not implementation claims.
+Forge load pass, while placement/combat review remains. I7 now implements four climate-matched pixie
+hamlets on small organic sky islands, each with a seasonal tree, functional vanilla food garden and
+buried bounded spawner beneath its culture-specific dew well.
 
 The later queue adds multiple distinct forest identities, at least two dense wooded-shoreline environments
 around Alfheim's large ocean footprint, climate-matched Feywild mushrooms in every non-Void biome, a custom
@@ -34,6 +34,14 @@ I8 now adds six restrained climate accents through Alfheim-owned wrappers around
 Jaffabricate/Feywild placement rules. The wrappers retain the source rarity and ground-safety predicates
 while avoiding cross-mod feature-order cycles. Giant-tree world placement remains disabled, and denser
 Feywild tree groupings remain reserved for the deliberately shaped pixie sky islands.
+
+I7 is direct-assembly runtime-proven. Spring, summer, autumn and winter each own a fixed-height
+one-step jigsaw hamlet: one 33×33 tapered island, a seasonal dew well, three houses selected from
+four forms, a functional vanilla garden and one complete matching Feywild tree. A saved-world audit
+of one directly placed hamlet per culture found all six children, no exposed jigsaw blocks and one
+correct bounded seasonal-pixie spawner beneath every centre. Natural random placement, interaction
+with Continuity Works' automatic 500-block structure exclusion, spawner activation/escape and client
+appearance remain open.
 
 I10 is runtime smoke-proven. Elementium is now size 12/count 6, Dragonstone size 7/count 2, and the new
 climate-limited Fey Gem feature size 6/count 3. All three have variants for the 42 natural Deep/Void hosts
@@ -88,10 +96,12 @@ rock. See `DEEP_TERRAIN.md` and `EXECUTION_STATE.md` for exact evidence and limi
 
 The sharp y=23 contact is replaced by a noisy y=8..42 blend. Sixteen biomes now have individual
 five-stone geological palettes with two vertical permutations and inclusions. All twelve blooms
-have matching variants for all 24 Deep and 18 Void host stones. Continuation: fresh-world/client
-terrain review; refine lava shores; D6 crystal chandeliers, ley scars and mineral columns; D7
-anchored underground quarries, tombs and faultworks. Existing native ore routes and processing
-are preserved; Midgard ore replacement tags remain untouched.
+have matching variants for all 24 Deep and 18 Void host stones. **D6 is fresh-world load and
+natural-generation validated:** six aligned chandelier, ley-scar and mineral-column variants plus
+lava-anchored slag terraces decorate existing cavern faces. A 2,025-chunk Alfheim sample naturally
+contained four Mana-glass alignments. Client traversal/rarity tuning remains. Continuation: D7
+anchored underground quarries, tombs and faultworks. Existing native ore routes and processing are
+preserved; Midgard ore replacement tags remain untouched.
 
 **Role:** intent and sequencing. A backlog item is not evidence that work began.
 **Live state:** `EXECUTION_STATE.md`. **Doctrine:** `INSTRUCTIONS.md`.

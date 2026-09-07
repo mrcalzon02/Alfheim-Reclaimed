@@ -4,6 +4,18 @@
       "id": "alfheim:cracked_livingrock",
       "name": "Cracked Livingrock",
       "texture": "cracked_livingrock",
+      "texture_variants": [
+        "cracked_livingrock",
+        "cracked_livingrock_v1",
+        "cracked_livingrock_v2",
+        "cracked_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 1,
       "glass": false,
@@ -13,6 +25,18 @@
       "id": "alfheim:cracked_livingrock_polished",
       "name": "Cracked Livingrock Polished",
       "texture": "cracked_livingrock_polished",
+      "texture_variants": [
+        "cracked_livingrock_polished",
+        "cracked_livingrock_polished_v1",
+        "cracked_livingrock_polished_v2",
+        "cracked_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 1,
       "glass": false,
@@ -22,6 +46,18 @@
       "id": "alfheim:cracked_livingrock_bricks",
       "name": "Cracked Livingrock Bricks",
       "texture": "cracked_livingrock_bricks",
+      "texture_variants": [
+        "cracked_livingrock_bricks",
+        "cracked_livingrock_bricks_v1",
+        "cracked_livingrock_bricks_v2",
+        "cracked_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 1,
       "glass": false,
@@ -31,6 +67,18 @@
       "id": "alfheim:cracked_livingrock_carved",
       "name": "Cracked Livingrock Carved",
       "texture": "cracked_livingrock_carved",
+      "texture_variants": [
+        "cracked_livingrock_carved",
+        "cracked_livingrock_carved_v1",
+        "cracked_livingrock_carved_v2",
+        "cracked_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 1,
       "glass": false,
@@ -40,6 +88,18 @@
       "id": "alfheim:cracked_livingrock_slab",
       "name": "Cracked Livingrock Slab",
       "texture": "cracked_livingrock_bricks",
+      "texture_variants": [
+        "cracked_livingrock_bricks",
+        "cracked_livingrock_bricks_v1",
+        "cracked_livingrock_bricks_v2",
+        "cracked_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 1,
       "glass": false,
@@ -49,6 +109,18 @@
       "id": "alfheim:cracked_livingrock_stairs",
       "name": "Cracked Livingrock Stairs",
       "texture": "cracked_livingrock_bricks",
+      "texture_variants": [
+        "cracked_livingrock_bricks",
+        "cracked_livingrock_bricks_v1",
+        "cracked_livingrock_bricks_v2",
+        "cracked_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 1,
       "glass": false,
@@ -58,6 +130,18 @@
       "id": "alfheim:cracked_livingrock_wall",
       "name": "Cracked Livingrock Wall",
       "texture": "cracked_livingrock_bricks",
+      "texture_variants": [
+        "cracked_livingrock_bricks",
+        "cracked_livingrock_bricks_v1",
+        "cracked_livingrock_bricks_v2",
+        "cracked_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 1,
       "glass": false,
@@ -67,6 +151,18 @@
       "id": "alfheim:magmatic_livingrock",
       "name": "Magmatic Livingrock",
       "texture": "magmatic_livingrock",
+      "texture_variants": [
+        "magmatic_livingrock",
+        "magmatic_livingrock_v1",
+        "magmatic_livingrock_v2",
+        "magmatic_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 10,
       "glass": false,
@@ -76,6 +172,18 @@
       "id": "alfheim:magmatic_livingrock_polished",
       "name": "Magmatic Livingrock Polished",
       "texture": "magmatic_livingrock_polished",
+      "texture_variants": [
+        "magmatic_livingrock_polished",
+        "magmatic_livingrock_polished_v1",
+        "magmatic_livingrock_polished_v2",
+        "magmatic_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 10,
       "glass": false,
@@ -85,6 +193,18 @@
       "id": "alfheim:magmatic_livingrock_bricks",
       "name": "Magmatic Livingrock Bricks",
       "texture": "magmatic_livingrock_bricks",
+      "texture_variants": [
+        "magmatic_livingrock_bricks",
+        "magmatic_livingrock_bricks_v1",
+        "magmatic_livingrock_bricks_v2",
+        "magmatic_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 10,
       "glass": false,
@@ -94,6 +214,18 @@
       "id": "alfheim:magmatic_livingrock_carved",
       "name": "Magmatic Livingrock Carved",
       "texture": "magmatic_livingrock_carved",
+      "texture_variants": [
+        "magmatic_livingrock_carved",
+        "magmatic_livingrock_carved_v1",
+        "magmatic_livingrock_carved_v2",
+        "magmatic_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 10,
       "glass": false,
@@ -103,6 +235,18 @@
       "id": "alfheim:magmatic_livingrock_slab",
       "name": "Magmatic Livingrock Slab",
       "texture": "magmatic_livingrock_bricks",
+      "texture_variants": [
+        "magmatic_livingrock_bricks",
+        "magmatic_livingrock_bricks_v1",
+        "magmatic_livingrock_bricks_v2",
+        "magmatic_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 10,
       "glass": false,
@@ -112,6 +256,18 @@
       "id": "alfheim:magmatic_livingrock_stairs",
       "name": "Magmatic Livingrock Stairs",
       "texture": "magmatic_livingrock_bricks",
+      "texture_variants": [
+        "magmatic_livingrock_bricks",
+        "magmatic_livingrock_bricks_v1",
+        "magmatic_livingrock_bricks_v2",
+        "magmatic_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 10,
       "glass": false,
@@ -121,6 +277,18 @@
       "id": "alfheim:magmatic_livingrock_wall",
       "name": "Magmatic Livingrock Wall",
       "texture": "magmatic_livingrock_bricks",
+      "texture_variants": [
+        "magmatic_livingrock_bricks",
+        "magmatic_livingrock_bricks_v1",
+        "magmatic_livingrock_bricks_v2",
+        "magmatic_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 10,
       "glass": false,
@@ -130,6 +298,18 @@
       "id": "alfheim:embervein_livingrock",
       "name": "Embervein Livingrock",
       "texture": "embervein_livingrock",
+      "texture_variants": [
+        "embervein_livingrock",
+        "embervein_livingrock_v1",
+        "embervein_livingrock_v2",
+        "embervein_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 4,
       "glass": false,
@@ -139,6 +319,18 @@
       "id": "alfheim:embervein_livingrock_polished",
       "name": "Embervein Livingrock Polished",
       "texture": "embervein_livingrock_polished",
+      "texture_variants": [
+        "embervein_livingrock_polished",
+        "embervein_livingrock_polished_v1",
+        "embervein_livingrock_polished_v2",
+        "embervein_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 4,
       "glass": false,
@@ -148,6 +340,18 @@
       "id": "alfheim:embervein_livingrock_bricks",
       "name": "Embervein Livingrock Bricks",
       "texture": "embervein_livingrock_bricks",
+      "texture_variants": [
+        "embervein_livingrock_bricks",
+        "embervein_livingrock_bricks_v1",
+        "embervein_livingrock_bricks_v2",
+        "embervein_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 4,
       "glass": false,
@@ -157,6 +361,18 @@
       "id": "alfheim:embervein_livingrock_carved",
       "name": "Embervein Livingrock Carved",
       "texture": "embervein_livingrock_carved",
+      "texture_variants": [
+        "embervein_livingrock_carved",
+        "embervein_livingrock_carved_v1",
+        "embervein_livingrock_carved_v2",
+        "embervein_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 4,
       "glass": false,
@@ -166,6 +382,18 @@
       "id": "alfheim:embervein_livingrock_slab",
       "name": "Embervein Livingrock Slab",
       "texture": "embervein_livingrock_bricks",
+      "texture_variants": [
+        "embervein_livingrock_bricks",
+        "embervein_livingrock_bricks_v1",
+        "embervein_livingrock_bricks_v2",
+        "embervein_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 4,
       "glass": false,
@@ -175,6 +403,18 @@
       "id": "alfheim:embervein_livingrock_stairs",
       "name": "Embervein Livingrock Stairs",
       "texture": "embervein_livingrock_bricks",
+      "texture_variants": [
+        "embervein_livingrock_bricks",
+        "embervein_livingrock_bricks_v1",
+        "embervein_livingrock_bricks_v2",
+        "embervein_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 4,
       "glass": false,
@@ -184,6 +424,18 @@
       "id": "alfheim:embervein_livingrock_wall",
       "name": "Embervein Livingrock Wall",
       "texture": "embervein_livingrock_bricks",
+      "texture_variants": [
+        "embervein_livingrock_bricks",
+        "embervein_livingrock_bricks_v1",
+        "embervein_livingrock_bricks_v2",
+        "embervein_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 4,
       "glass": false,
@@ -193,6 +445,18 @@
       "id": "alfheim:cinder_livingrock",
       "name": "Cinder Livingrock",
       "texture": "cinder_livingrock",
+      "texture_variants": [
+        "cinder_livingrock",
+        "cinder_livingrock_v1",
+        "cinder_livingrock_v2",
+        "cinder_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -202,6 +466,18 @@
       "id": "alfheim:cinder_livingrock_polished",
       "name": "Cinder Livingrock Polished",
       "texture": "cinder_livingrock_polished",
+      "texture_variants": [
+        "cinder_livingrock_polished",
+        "cinder_livingrock_polished_v1",
+        "cinder_livingrock_polished_v2",
+        "cinder_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -211,6 +487,18 @@
       "id": "alfheim:cinder_livingrock_bricks",
       "name": "Cinder Livingrock Bricks",
       "texture": "cinder_livingrock_bricks",
+      "texture_variants": [
+        "cinder_livingrock_bricks",
+        "cinder_livingrock_bricks_v1",
+        "cinder_livingrock_bricks_v2",
+        "cinder_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -220,6 +508,18 @@
       "id": "alfheim:cinder_livingrock_carved",
       "name": "Cinder Livingrock Carved",
       "texture": "cinder_livingrock_carved",
+      "texture_variants": [
+        "cinder_livingrock_carved",
+        "cinder_livingrock_carved_v1",
+        "cinder_livingrock_carved_v2",
+        "cinder_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -229,6 +529,18 @@
       "id": "alfheim:cinder_livingrock_slab",
       "name": "Cinder Livingrock Slab",
       "texture": "cinder_livingrock_bricks",
+      "texture_variants": [
+        "cinder_livingrock_bricks",
+        "cinder_livingrock_bricks_v1",
+        "cinder_livingrock_bricks_v2",
+        "cinder_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -238,6 +550,18 @@
       "id": "alfheim:cinder_livingrock_stairs",
       "name": "Cinder Livingrock Stairs",
       "texture": "cinder_livingrock_bricks",
+      "texture_variants": [
+        "cinder_livingrock_bricks",
+        "cinder_livingrock_bricks_v1",
+        "cinder_livingrock_bricks_v2",
+        "cinder_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -247,6 +571,18 @@
       "id": "alfheim:cinder_livingrock_wall",
       "name": "Cinder Livingrock Wall",
       "texture": "cinder_livingrock_bricks",
+      "texture_variants": [
+        "cinder_livingrock_bricks",
+        "cinder_livingrock_bricks_v1",
+        "cinder_livingrock_bricks_v2",
+        "cinder_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -256,6 +592,18 @@
       "id": "alfheim:obsidian_livingrock",
       "name": "Obsidian Livingrock",
       "texture": "obsidian_livingrock",
+      "texture_variants": [
+        "obsidian_livingrock",
+        "obsidian_livingrock_v1",
+        "obsidian_livingrock_v2",
+        "obsidian_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -265,6 +613,18 @@
       "id": "alfheim:obsidian_livingrock_polished",
       "name": "Obsidian Livingrock Polished",
       "texture": "obsidian_livingrock_polished",
+      "texture_variants": [
+        "obsidian_livingrock_polished",
+        "obsidian_livingrock_polished_v1",
+        "obsidian_livingrock_polished_v2",
+        "obsidian_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -274,6 +634,18 @@
       "id": "alfheim:obsidian_livingrock_bricks",
       "name": "Obsidian Livingrock Bricks",
       "texture": "obsidian_livingrock_bricks",
+      "texture_variants": [
+        "obsidian_livingrock_bricks",
+        "obsidian_livingrock_bricks_v1",
+        "obsidian_livingrock_bricks_v2",
+        "obsidian_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -283,6 +655,18 @@
       "id": "alfheim:obsidian_livingrock_carved",
       "name": "Obsidian Livingrock Carved",
       "texture": "obsidian_livingrock_carved",
+      "texture_variants": [
+        "obsidian_livingrock_carved",
+        "obsidian_livingrock_carved_v1",
+        "obsidian_livingrock_carved_v2",
+        "obsidian_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -292,6 +676,18 @@
       "id": "alfheim:obsidian_livingrock_slab",
       "name": "Obsidian Livingrock Slab",
       "texture": "obsidian_livingrock_bricks",
+      "texture_variants": [
+        "obsidian_livingrock_bricks",
+        "obsidian_livingrock_bricks_v1",
+        "obsidian_livingrock_bricks_v2",
+        "obsidian_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -301,6 +697,18 @@
       "id": "alfheim:obsidian_livingrock_stairs",
       "name": "Obsidian Livingrock Stairs",
       "texture": "obsidian_livingrock_bricks",
+      "texture_variants": [
+        "obsidian_livingrock_bricks",
+        "obsidian_livingrock_bricks_v1",
+        "obsidian_livingrock_bricks_v2",
+        "obsidian_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -310,6 +718,18 @@
       "id": "alfheim:obsidian_livingrock_wall",
       "name": "Obsidian Livingrock Wall",
       "texture": "obsidian_livingrock_bricks",
+      "texture_variants": [
+        "obsidian_livingrock_bricks",
+        "obsidian_livingrock_bricks_v1",
+        "obsidian_livingrock_bricks_v2",
+        "obsidian_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -319,6 +739,18 @@
       "id": "alfheim:moonstone_livingrock",
       "name": "Moonstone Livingrock",
       "texture": "moonstone_livingrock",
+      "texture_variants": [
+        "moonstone_livingrock",
+        "moonstone_livingrock_v1",
+        "moonstone_livingrock_v2",
+        "moonstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -328,6 +760,18 @@
       "id": "alfheim:moonstone_livingrock_polished",
       "name": "Moonstone Livingrock Polished",
       "texture": "moonstone_livingrock_polished",
+      "texture_variants": [
+        "moonstone_livingrock_polished",
+        "moonstone_livingrock_polished_v1",
+        "moonstone_livingrock_polished_v2",
+        "moonstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -337,6 +781,18 @@
       "id": "alfheim:moonstone_livingrock_bricks",
       "name": "Moonstone Livingrock Bricks",
       "texture": "moonstone_livingrock_bricks",
+      "texture_variants": [
+        "moonstone_livingrock_bricks",
+        "moonstone_livingrock_bricks_v1",
+        "moonstone_livingrock_bricks_v2",
+        "moonstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -346,6 +802,18 @@
       "id": "alfheim:moonstone_livingrock_carved",
       "name": "Moonstone Livingrock Carved",
       "texture": "moonstone_livingrock_carved",
+      "texture_variants": [
+        "moonstone_livingrock_carved",
+        "moonstone_livingrock_carved_v1",
+        "moonstone_livingrock_carved_v2",
+        "moonstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -355,6 +823,18 @@
       "id": "alfheim:moonstone_livingrock_slab",
       "name": "Moonstone Livingrock Slab",
       "texture": "moonstone_livingrock_bricks",
+      "texture_variants": [
+        "moonstone_livingrock_bricks",
+        "moonstone_livingrock_bricks_v1",
+        "moonstone_livingrock_bricks_v2",
+        "moonstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -364,6 +844,18 @@
       "id": "alfheim:moonstone_livingrock_stairs",
       "name": "Moonstone Livingrock Stairs",
       "texture": "moonstone_livingrock_bricks",
+      "texture_variants": [
+        "moonstone_livingrock_bricks",
+        "moonstone_livingrock_bricks_v1",
+        "moonstone_livingrock_bricks_v2",
+        "moonstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -373,6 +865,18 @@
       "id": "alfheim:moonstone_livingrock_wall",
       "name": "Moonstone Livingrock Wall",
       "texture": "moonstone_livingrock_bricks",
+      "texture_variants": [
+        "moonstone_livingrock_bricks",
+        "moonstone_livingrock_bricks_v1",
+        "moonstone_livingrock_bricks_v2",
+        "moonstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -382,6 +886,18 @@
       "id": "alfheim:dawn_livingrock",
       "name": "Dawn Livingrock",
       "texture": "dawn_livingrock",
+      "texture_variants": [
+        "dawn_livingrock",
+        "dawn_livingrock_v1",
+        "dawn_livingrock_v2",
+        "dawn_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -391,6 +907,18 @@
       "id": "alfheim:dawn_livingrock_polished",
       "name": "Dawn Livingrock Polished",
       "texture": "dawn_livingrock_polished",
+      "texture_variants": [
+        "dawn_livingrock_polished",
+        "dawn_livingrock_polished_v1",
+        "dawn_livingrock_polished_v2",
+        "dawn_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -400,6 +928,18 @@
       "id": "alfheim:dawn_livingrock_bricks",
       "name": "Dawn Livingrock Bricks",
       "texture": "dawn_livingrock_bricks",
+      "texture_variants": [
+        "dawn_livingrock_bricks",
+        "dawn_livingrock_bricks_v1",
+        "dawn_livingrock_bricks_v2",
+        "dawn_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -409,6 +949,18 @@
       "id": "alfheim:dawn_livingrock_carved",
       "name": "Dawn Livingrock Carved",
       "texture": "dawn_livingrock_carved",
+      "texture_variants": [
+        "dawn_livingrock_carved",
+        "dawn_livingrock_carved_v1",
+        "dawn_livingrock_carved_v2",
+        "dawn_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -418,6 +970,18 @@
       "id": "alfheim:dawn_livingrock_slab",
       "name": "Dawn Livingrock Slab",
       "texture": "dawn_livingrock_bricks",
+      "texture_variants": [
+        "dawn_livingrock_bricks",
+        "dawn_livingrock_bricks_v1",
+        "dawn_livingrock_bricks_v2",
+        "dawn_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -427,6 +991,18 @@
       "id": "alfheim:dawn_livingrock_stairs",
       "name": "Dawn Livingrock Stairs",
       "texture": "dawn_livingrock_bricks",
+      "texture_variants": [
+        "dawn_livingrock_bricks",
+        "dawn_livingrock_bricks_v1",
+        "dawn_livingrock_bricks_v2",
+        "dawn_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -436,6 +1012,18 @@
       "id": "alfheim:dawn_livingrock_wall",
       "name": "Dawn Livingrock Wall",
       "texture": "dawn_livingrock_bricks",
+      "texture_variants": [
+        "dawn_livingrock_bricks",
+        "dawn_livingrock_bricks_v1",
+        "dawn_livingrock_bricks_v2",
+        "dawn_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -445,6 +1033,18 @@
       "id": "alfheim:rose_livingrock",
       "name": "Rose Livingrock",
       "texture": "rose_livingrock",
+      "texture_variants": [
+        "rose_livingrock",
+        "rose_livingrock_v1",
+        "rose_livingrock_v2",
+        "rose_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -454,6 +1054,18 @@
       "id": "alfheim:rose_livingrock_polished",
       "name": "Rose Livingrock Polished",
       "texture": "rose_livingrock_polished",
+      "texture_variants": [
+        "rose_livingrock_polished",
+        "rose_livingrock_polished_v1",
+        "rose_livingrock_polished_v2",
+        "rose_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -463,6 +1075,18 @@
       "id": "alfheim:rose_livingrock_bricks",
       "name": "Rose Livingrock Bricks",
       "texture": "rose_livingrock_bricks",
+      "texture_variants": [
+        "rose_livingrock_bricks",
+        "rose_livingrock_bricks_v1",
+        "rose_livingrock_bricks_v2",
+        "rose_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -472,6 +1096,18 @@
       "id": "alfheim:rose_livingrock_carved",
       "name": "Rose Livingrock Carved",
       "texture": "rose_livingrock_carved",
+      "texture_variants": [
+        "rose_livingrock_carved",
+        "rose_livingrock_carved_v1",
+        "rose_livingrock_carved_v2",
+        "rose_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -481,6 +1117,18 @@
       "id": "alfheim:rose_livingrock_slab",
       "name": "Rose Livingrock Slab",
       "texture": "rose_livingrock_bricks",
+      "texture_variants": [
+        "rose_livingrock_bricks",
+        "rose_livingrock_bricks_v1",
+        "rose_livingrock_bricks_v2",
+        "rose_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -490,6 +1138,18 @@
       "id": "alfheim:rose_livingrock_stairs",
       "name": "Rose Livingrock Stairs",
       "texture": "rose_livingrock_bricks",
+      "texture_variants": [
+        "rose_livingrock_bricks",
+        "rose_livingrock_bricks_v1",
+        "rose_livingrock_bricks_v2",
+        "rose_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -499,6 +1159,18 @@
       "id": "alfheim:rose_livingrock_wall",
       "name": "Rose Livingrock Wall",
       "texture": "rose_livingrock_bricks",
+      "texture_variants": [
+        "rose_livingrock_bricks",
+        "rose_livingrock_bricks_v1",
+        "rose_livingrock_bricks_v2",
+        "rose_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -508,6 +1180,18 @@
       "id": "alfheim:ivory_livingrock",
       "name": "Ivory Livingrock",
       "texture": "ivory_livingrock",
+      "texture_variants": [
+        "ivory_livingrock",
+        "ivory_livingrock_v1",
+        "ivory_livingrock_v2",
+        "ivory_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -517,6 +1201,18 @@
       "id": "alfheim:ivory_livingrock_polished",
       "name": "Ivory Livingrock Polished",
       "texture": "ivory_livingrock_polished",
+      "texture_variants": [
+        "ivory_livingrock_polished",
+        "ivory_livingrock_polished_v1",
+        "ivory_livingrock_polished_v2",
+        "ivory_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -526,6 +1222,18 @@
       "id": "alfheim:ivory_livingrock_bricks",
       "name": "Ivory Livingrock Bricks",
       "texture": "ivory_livingrock_bricks",
+      "texture_variants": [
+        "ivory_livingrock_bricks",
+        "ivory_livingrock_bricks_v1",
+        "ivory_livingrock_bricks_v2",
+        "ivory_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -535,6 +1243,18 @@
       "id": "alfheim:ivory_livingrock_carved",
       "name": "Ivory Livingrock Carved",
       "texture": "ivory_livingrock_carved",
+      "texture_variants": [
+        "ivory_livingrock_carved",
+        "ivory_livingrock_carved_v1",
+        "ivory_livingrock_carved_v2",
+        "ivory_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -544,6 +1264,18 @@
       "id": "alfheim:ivory_livingrock_slab",
       "name": "Ivory Livingrock Slab",
       "texture": "ivory_livingrock_bricks",
+      "texture_variants": [
+        "ivory_livingrock_bricks",
+        "ivory_livingrock_bricks_v1",
+        "ivory_livingrock_bricks_v2",
+        "ivory_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -553,6 +1285,18 @@
       "id": "alfheim:ivory_livingrock_stairs",
       "name": "Ivory Livingrock Stairs",
       "texture": "ivory_livingrock_bricks",
+      "texture_variants": [
+        "ivory_livingrock_bricks",
+        "ivory_livingrock_bricks_v1",
+        "ivory_livingrock_bricks_v2",
+        "ivory_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -562,6 +1306,18 @@
       "id": "alfheim:ivory_livingrock_wall",
       "name": "Ivory Livingrock Wall",
       "texture": "ivory_livingrock_bricks",
+      "texture_variants": [
+        "ivory_livingrock_bricks",
+        "ivory_livingrock_bricks_v1",
+        "ivory_livingrock_bricks_v2",
+        "ivory_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -571,6 +1327,18 @@
       "id": "alfheim:silvermist_livingrock",
       "name": "Silvermist Livingrock",
       "texture": "silvermist_livingrock",
+      "texture_variants": [
+        "silvermist_livingrock",
+        "silvermist_livingrock_v1",
+        "silvermist_livingrock_v2",
+        "silvermist_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -580,6 +1348,18 @@
       "id": "alfheim:silvermist_livingrock_polished",
       "name": "Silvermist Livingrock Polished",
       "texture": "silvermist_livingrock_polished",
+      "texture_variants": [
+        "silvermist_livingrock_polished",
+        "silvermist_livingrock_polished_v1",
+        "silvermist_livingrock_polished_v2",
+        "silvermist_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -589,6 +1369,18 @@
       "id": "alfheim:silvermist_livingrock_bricks",
       "name": "Silvermist Livingrock Bricks",
       "texture": "silvermist_livingrock_bricks",
+      "texture_variants": [
+        "silvermist_livingrock_bricks",
+        "silvermist_livingrock_bricks_v1",
+        "silvermist_livingrock_bricks_v2",
+        "silvermist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -598,6 +1390,18 @@
       "id": "alfheim:silvermist_livingrock_carved",
       "name": "Silvermist Livingrock Carved",
       "texture": "silvermist_livingrock_carved",
+      "texture_variants": [
+        "silvermist_livingrock_carved",
+        "silvermist_livingrock_carved_v1",
+        "silvermist_livingrock_carved_v2",
+        "silvermist_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -607,6 +1411,18 @@
       "id": "alfheim:silvermist_livingrock_slab",
       "name": "Silvermist Livingrock Slab",
       "texture": "silvermist_livingrock_bricks",
+      "texture_variants": [
+        "silvermist_livingrock_bricks",
+        "silvermist_livingrock_bricks_v1",
+        "silvermist_livingrock_bricks_v2",
+        "silvermist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -616,6 +1432,18 @@
       "id": "alfheim:silvermist_livingrock_stairs",
       "name": "Silvermist Livingrock Stairs",
       "texture": "silvermist_livingrock_bricks",
+      "texture_variants": [
+        "silvermist_livingrock_bricks",
+        "silvermist_livingrock_bricks_v1",
+        "silvermist_livingrock_bricks_v2",
+        "silvermist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -625,6 +1453,18 @@
       "id": "alfheim:silvermist_livingrock_wall",
       "name": "Silvermist Livingrock Wall",
       "texture": "silvermist_livingrock_bricks",
+      "texture_variants": [
+        "silvermist_livingrock_bricks",
+        "silvermist_livingrock_bricks_v1",
+        "silvermist_livingrock_bricks_v2",
+        "silvermist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -634,6 +1474,18 @@
       "id": "alfheim:moss_livingrock",
       "name": "Moss Livingrock",
       "texture": "moss_livingrock",
+      "texture_variants": [
+        "moss_livingrock",
+        "moss_livingrock_v1",
+        "moss_livingrock_v2",
+        "moss_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -643,6 +1495,18 @@
       "id": "alfheim:moss_livingrock_polished",
       "name": "Moss Livingrock Polished",
       "texture": "moss_livingrock_polished",
+      "texture_variants": [
+        "moss_livingrock_polished",
+        "moss_livingrock_polished_v1",
+        "moss_livingrock_polished_v2",
+        "moss_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -652,6 +1516,18 @@
       "id": "alfheim:moss_livingrock_bricks",
       "name": "Moss Livingrock Bricks",
       "texture": "moss_livingrock_bricks",
+      "texture_variants": [
+        "moss_livingrock_bricks",
+        "moss_livingrock_bricks_v1",
+        "moss_livingrock_bricks_v2",
+        "moss_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -661,6 +1537,18 @@
       "id": "alfheim:moss_livingrock_carved",
       "name": "Moss Livingrock Carved",
       "texture": "moss_livingrock_carved",
+      "texture_variants": [
+        "moss_livingrock_carved",
+        "moss_livingrock_carved_v1",
+        "moss_livingrock_carved_v2",
+        "moss_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -670,6 +1558,18 @@
       "id": "alfheim:moss_livingrock_slab",
       "name": "Moss Livingrock Slab",
       "texture": "moss_livingrock_bricks",
+      "texture_variants": [
+        "moss_livingrock_bricks",
+        "moss_livingrock_bricks_v1",
+        "moss_livingrock_bricks_v2",
+        "moss_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -679,6 +1579,18 @@
       "id": "alfheim:moss_livingrock_stairs",
       "name": "Moss Livingrock Stairs",
       "texture": "moss_livingrock_bricks",
+      "texture_variants": [
+        "moss_livingrock_bricks",
+        "moss_livingrock_bricks_v1",
+        "moss_livingrock_bricks_v2",
+        "moss_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -688,6 +1600,18 @@
       "id": "alfheim:moss_livingrock_wall",
       "name": "Moss Livingrock Wall",
       "texture": "moss_livingrock_bricks",
+      "texture_variants": [
+        "moss_livingrock_bricks",
+        "moss_livingrock_bricks_v1",
+        "moss_livingrock_bricks_v2",
+        "moss_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -697,6 +1621,18 @@
       "id": "alfheim:rootbound_livingrock",
       "name": "Rootbound Livingrock",
       "texture": "rootbound_livingrock",
+      "texture_variants": [
+        "rootbound_livingrock",
+        "rootbound_livingrock_v1",
+        "rootbound_livingrock_v2",
+        "rootbound_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -706,6 +1642,18 @@
       "id": "alfheim:rootbound_livingrock_polished",
       "name": "Rootbound Livingrock Polished",
       "texture": "rootbound_livingrock_polished",
+      "texture_variants": [
+        "rootbound_livingrock_polished",
+        "rootbound_livingrock_polished_v1",
+        "rootbound_livingrock_polished_v2",
+        "rootbound_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -715,6 +1663,18 @@
       "id": "alfheim:rootbound_livingrock_bricks",
       "name": "Rootbound Livingrock Bricks",
       "texture": "rootbound_livingrock_bricks",
+      "texture_variants": [
+        "rootbound_livingrock_bricks",
+        "rootbound_livingrock_bricks_v1",
+        "rootbound_livingrock_bricks_v2",
+        "rootbound_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -724,6 +1684,18 @@
       "id": "alfheim:rootbound_livingrock_carved",
       "name": "Rootbound Livingrock Carved",
       "texture": "rootbound_livingrock_carved",
+      "texture_variants": [
+        "rootbound_livingrock_carved",
+        "rootbound_livingrock_carved_v1",
+        "rootbound_livingrock_carved_v2",
+        "rootbound_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -733,6 +1705,18 @@
       "id": "alfheim:rootbound_livingrock_slab",
       "name": "Rootbound Livingrock Slab",
       "texture": "rootbound_livingrock_bricks",
+      "texture_variants": [
+        "rootbound_livingrock_bricks",
+        "rootbound_livingrock_bricks_v1",
+        "rootbound_livingrock_bricks_v2",
+        "rootbound_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -742,6 +1726,18 @@
       "id": "alfheim:rootbound_livingrock_stairs",
       "name": "Rootbound Livingrock Stairs",
       "texture": "rootbound_livingrock_bricks",
+      "texture_variants": [
+        "rootbound_livingrock_bricks",
+        "rootbound_livingrock_bricks_v1",
+        "rootbound_livingrock_bricks_v2",
+        "rootbound_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -751,6 +1747,18 @@
       "id": "alfheim:rootbound_livingrock_wall",
       "name": "Rootbound Livingrock Wall",
       "texture": "rootbound_livingrock_bricks",
+      "texture_variants": [
+        "rootbound_livingrock_bricks",
+        "rootbound_livingrock_bricks_v1",
+        "rootbound_livingrock_bricks_v2",
+        "rootbound_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -760,6 +1768,18 @@
       "id": "alfheim:fern_livingrock",
       "name": "Fern Livingrock",
       "texture": "fern_livingrock",
+      "texture_variants": [
+        "fern_livingrock",
+        "fern_livingrock_v1",
+        "fern_livingrock_v2",
+        "fern_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -769,6 +1789,18 @@
       "id": "alfheim:fern_livingrock_polished",
       "name": "Fern Livingrock Polished",
       "texture": "fern_livingrock_polished",
+      "texture_variants": [
+        "fern_livingrock_polished",
+        "fern_livingrock_polished_v1",
+        "fern_livingrock_polished_v2",
+        "fern_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -778,6 +1810,18 @@
       "id": "alfheim:fern_livingrock_bricks",
       "name": "Fern Livingrock Bricks",
       "texture": "fern_livingrock_bricks",
+      "texture_variants": [
+        "fern_livingrock_bricks",
+        "fern_livingrock_bricks_v1",
+        "fern_livingrock_bricks_v2",
+        "fern_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -787,6 +1831,18 @@
       "id": "alfheim:fern_livingrock_carved",
       "name": "Fern Livingrock Carved",
       "texture": "fern_livingrock_carved",
+      "texture_variants": [
+        "fern_livingrock_carved",
+        "fern_livingrock_carved_v1",
+        "fern_livingrock_carved_v2",
+        "fern_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -796,6 +1852,18 @@
       "id": "alfheim:fern_livingrock_slab",
       "name": "Fern Livingrock Slab",
       "texture": "fern_livingrock_bricks",
+      "texture_variants": [
+        "fern_livingrock_bricks",
+        "fern_livingrock_bricks_v1",
+        "fern_livingrock_bricks_v2",
+        "fern_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -805,6 +1873,18 @@
       "id": "alfheim:fern_livingrock_stairs",
       "name": "Fern Livingrock Stairs",
       "texture": "fern_livingrock_bricks",
+      "texture_variants": [
+        "fern_livingrock_bricks",
+        "fern_livingrock_bricks_v1",
+        "fern_livingrock_bricks_v2",
+        "fern_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -814,6 +1894,18 @@
       "id": "alfheim:fern_livingrock_wall",
       "name": "Fern Livingrock Wall",
       "texture": "fern_livingrock_bricks",
+      "texture_variants": [
+        "fern_livingrock_bricks",
+        "fern_livingrock_bricks_v1",
+        "fern_livingrock_bricks_v2",
+        "fern_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -823,6 +1915,18 @@
       "id": "alfheim:amber_livingrock",
       "name": "Amber Livingrock",
       "texture": "amber_livingrock",
+      "texture_variants": [
+        "amber_livingrock",
+        "amber_livingrock_v1",
+        "amber_livingrock_v2",
+        "amber_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -832,6 +1936,18 @@
       "id": "alfheim:amber_livingrock_polished",
       "name": "Amber Livingrock Polished",
       "texture": "amber_livingrock_polished",
+      "texture_variants": [
+        "amber_livingrock_polished",
+        "amber_livingrock_polished_v1",
+        "amber_livingrock_polished_v2",
+        "amber_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -841,6 +1957,18 @@
       "id": "alfheim:amber_livingrock_bricks",
       "name": "Amber Livingrock Bricks",
       "texture": "amber_livingrock_bricks",
+      "texture_variants": [
+        "amber_livingrock_bricks",
+        "amber_livingrock_bricks_v1",
+        "amber_livingrock_bricks_v2",
+        "amber_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -850,6 +1978,18 @@
       "id": "alfheim:amber_livingrock_carved",
       "name": "Amber Livingrock Carved",
       "texture": "amber_livingrock_carved",
+      "texture_variants": [
+        "amber_livingrock_carved",
+        "amber_livingrock_carved_v1",
+        "amber_livingrock_carved_v2",
+        "amber_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -859,6 +1999,18 @@
       "id": "alfheim:amber_livingrock_slab",
       "name": "Amber Livingrock Slab",
       "texture": "amber_livingrock_bricks",
+      "texture_variants": [
+        "amber_livingrock_bricks",
+        "amber_livingrock_bricks_v1",
+        "amber_livingrock_bricks_v2",
+        "amber_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -868,6 +2020,18 @@
       "id": "alfheim:amber_livingrock_stairs",
       "name": "Amber Livingrock Stairs",
       "texture": "amber_livingrock_bricks",
+      "texture_variants": [
+        "amber_livingrock_bricks",
+        "amber_livingrock_bricks_v1",
+        "amber_livingrock_bricks_v2",
+        "amber_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -877,6 +2041,18 @@
       "id": "alfheim:amber_livingrock_wall",
       "name": "Amber Livingrock Wall",
       "texture": "amber_livingrock_bricks",
+      "texture_variants": [
+        "amber_livingrock_bricks",
+        "amber_livingrock_bricks_v1",
+        "amber_livingrock_bricks_v2",
+        "amber_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -886,6 +2062,18 @@
       "id": "alfheim:petrified_livingrock",
       "name": "Petrified Livingrock",
       "texture": "petrified_livingrock",
+      "texture_variants": [
+        "petrified_livingrock",
+        "petrified_livingrock_v1",
+        "petrified_livingrock_v2",
+        "petrified_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -895,6 +2083,18 @@
       "id": "alfheim:petrified_livingrock_polished",
       "name": "Petrified Livingrock Polished",
       "texture": "petrified_livingrock_polished",
+      "texture_variants": [
+        "petrified_livingrock_polished",
+        "petrified_livingrock_polished_v1",
+        "petrified_livingrock_polished_v2",
+        "petrified_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -904,6 +2104,18 @@
       "id": "alfheim:petrified_livingrock_bricks",
       "name": "Petrified Livingrock Bricks",
       "texture": "petrified_livingrock_bricks",
+      "texture_variants": [
+        "petrified_livingrock_bricks",
+        "petrified_livingrock_bricks_v1",
+        "petrified_livingrock_bricks_v2",
+        "petrified_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -913,6 +2125,18 @@
       "id": "alfheim:petrified_livingrock_carved",
       "name": "Petrified Livingrock Carved",
       "texture": "petrified_livingrock_carved",
+      "texture_variants": [
+        "petrified_livingrock_carved",
+        "petrified_livingrock_carved_v1",
+        "petrified_livingrock_carved_v2",
+        "petrified_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -922,6 +2146,18 @@
       "id": "alfheim:petrified_livingrock_slab",
       "name": "Petrified Livingrock Slab",
       "texture": "petrified_livingrock_bricks",
+      "texture_variants": [
+        "petrified_livingrock_bricks",
+        "petrified_livingrock_bricks_v1",
+        "petrified_livingrock_bricks_v2",
+        "petrified_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -931,6 +2167,18 @@
       "id": "alfheim:petrified_livingrock_stairs",
       "name": "Petrified Livingrock Stairs",
       "texture": "petrified_livingrock_bricks",
+      "texture_variants": [
+        "petrified_livingrock_bricks",
+        "petrified_livingrock_bricks_v1",
+        "petrified_livingrock_bricks_v2",
+        "petrified_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -940,6 +2188,18 @@
       "id": "alfheim:petrified_livingrock_wall",
       "name": "Petrified Livingrock Wall",
       "texture": "petrified_livingrock_bricks",
+      "texture_variants": [
+        "petrified_livingrock_bricks",
+        "petrified_livingrock_bricks_v1",
+        "petrified_livingrock_bricks_v2",
+        "petrified_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -949,6 +2209,18 @@
       "id": "alfheim:tide_livingrock",
       "name": "Tide Livingrock",
       "texture": "tide_livingrock",
+      "texture_variants": [
+        "tide_livingrock",
+        "tide_livingrock_v1",
+        "tide_livingrock_v2",
+        "tide_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -958,6 +2230,18 @@
       "id": "alfheim:tide_livingrock_polished",
       "name": "Tide Livingrock Polished",
       "texture": "tide_livingrock_polished",
+      "texture_variants": [
+        "tide_livingrock_polished",
+        "tide_livingrock_polished_v1",
+        "tide_livingrock_polished_v2",
+        "tide_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -967,6 +2251,18 @@
       "id": "alfheim:tide_livingrock_bricks",
       "name": "Tide Livingrock Bricks",
       "texture": "tide_livingrock_bricks",
+      "texture_variants": [
+        "tide_livingrock_bricks",
+        "tide_livingrock_bricks_v1",
+        "tide_livingrock_bricks_v2",
+        "tide_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -976,6 +2272,18 @@
       "id": "alfheim:tide_livingrock_carved",
       "name": "Tide Livingrock Carved",
       "texture": "tide_livingrock_carved",
+      "texture_variants": [
+        "tide_livingrock_carved",
+        "tide_livingrock_carved_v1",
+        "tide_livingrock_carved_v2",
+        "tide_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -985,6 +2293,18 @@
       "id": "alfheim:tide_livingrock_slab",
       "name": "Tide Livingrock Slab",
       "texture": "tide_livingrock_bricks",
+      "texture_variants": [
+        "tide_livingrock_bricks",
+        "tide_livingrock_bricks_v1",
+        "tide_livingrock_bricks_v2",
+        "tide_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -994,6 +2314,18 @@
       "id": "alfheim:tide_livingrock_stairs",
       "name": "Tide Livingrock Stairs",
       "texture": "tide_livingrock_bricks",
+      "texture_variants": [
+        "tide_livingrock_bricks",
+        "tide_livingrock_bricks_v1",
+        "tide_livingrock_bricks_v2",
+        "tide_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1003,6 +2335,18 @@
       "id": "alfheim:tide_livingrock_wall",
       "name": "Tide Livingrock Wall",
       "texture": "tide_livingrock_bricks",
+      "texture_variants": [
+        "tide_livingrock_bricks",
+        "tide_livingrock_bricks_v1",
+        "tide_livingrock_bricks_v2",
+        "tide_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1012,6 +2356,18 @@
       "id": "alfheim:abyssal_livingrock",
       "name": "Abyssal Livingrock",
       "texture": "abyssal_livingrock",
+      "texture_variants": [
+        "abyssal_livingrock",
+        "abyssal_livingrock_v1",
+        "abyssal_livingrock_v2",
+        "abyssal_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1021,6 +2377,18 @@
       "id": "alfheim:abyssal_livingrock_polished",
       "name": "Abyssal Livingrock Polished",
       "texture": "abyssal_livingrock_polished",
+      "texture_variants": [
+        "abyssal_livingrock_polished",
+        "abyssal_livingrock_polished_v1",
+        "abyssal_livingrock_polished_v2",
+        "abyssal_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -1030,6 +2398,18 @@
       "id": "alfheim:abyssal_livingrock_bricks",
       "name": "Abyssal Livingrock Bricks",
       "texture": "abyssal_livingrock_bricks",
+      "texture_variants": [
+        "abyssal_livingrock_bricks",
+        "abyssal_livingrock_bricks_v1",
+        "abyssal_livingrock_bricks_v2",
+        "abyssal_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -1039,6 +2419,18 @@
       "id": "alfheim:abyssal_livingrock_carved",
       "name": "Abyssal Livingrock Carved",
       "texture": "abyssal_livingrock_carved",
+      "texture_variants": [
+        "abyssal_livingrock_carved",
+        "abyssal_livingrock_carved_v1",
+        "abyssal_livingrock_carved_v2",
+        "abyssal_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -1048,6 +2440,18 @@
       "id": "alfheim:abyssal_livingrock_slab",
       "name": "Abyssal Livingrock Slab",
       "texture": "abyssal_livingrock_bricks",
+      "texture_variants": [
+        "abyssal_livingrock_bricks",
+        "abyssal_livingrock_bricks_v1",
+        "abyssal_livingrock_bricks_v2",
+        "abyssal_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -1057,6 +2461,18 @@
       "id": "alfheim:abyssal_livingrock_stairs",
       "name": "Abyssal Livingrock Stairs",
       "texture": "abyssal_livingrock_bricks",
+      "texture_variants": [
+        "abyssal_livingrock_bricks",
+        "abyssal_livingrock_bricks_v1",
+        "abyssal_livingrock_bricks_v2",
+        "abyssal_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1066,6 +2482,18 @@
       "id": "alfheim:abyssal_livingrock_wall",
       "name": "Abyssal Livingrock Wall",
       "texture": "abyssal_livingrock_bricks",
+      "texture_variants": [
+        "abyssal_livingrock_bricks",
+        "abyssal_livingrock_bricks_v1",
+        "abyssal_livingrock_bricks_v2",
+        "abyssal_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1075,6 +2503,18 @@
       "id": "alfheim:frost_livingrock",
       "name": "Frost Livingrock",
       "texture": "frost_livingrock",
+      "texture_variants": [
+        "frost_livingrock",
+        "frost_livingrock_v1",
+        "frost_livingrock_v2",
+        "frost_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1084,6 +2524,18 @@
       "id": "alfheim:frost_livingrock_polished",
       "name": "Frost Livingrock Polished",
       "texture": "frost_livingrock_polished",
+      "texture_variants": [
+        "frost_livingrock_polished",
+        "frost_livingrock_polished_v1",
+        "frost_livingrock_polished_v2",
+        "frost_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -1093,6 +2545,18 @@
       "id": "alfheim:frost_livingrock_bricks",
       "name": "Frost Livingrock Bricks",
       "texture": "frost_livingrock_bricks",
+      "texture_variants": [
+        "frost_livingrock_bricks",
+        "frost_livingrock_bricks_v1",
+        "frost_livingrock_bricks_v2",
+        "frost_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -1102,6 +2566,18 @@
       "id": "alfheim:frost_livingrock_carved",
       "name": "Frost Livingrock Carved",
       "texture": "frost_livingrock_carved",
+      "texture_variants": [
+        "frost_livingrock_carved",
+        "frost_livingrock_carved_v1",
+        "frost_livingrock_carved_v2",
+        "frost_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -1111,6 +2587,18 @@
       "id": "alfheim:frost_livingrock_slab",
       "name": "Frost Livingrock Slab",
       "texture": "frost_livingrock_bricks",
+      "texture_variants": [
+        "frost_livingrock_bricks",
+        "frost_livingrock_bricks_v1",
+        "frost_livingrock_bricks_v2",
+        "frost_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -1120,6 +2608,18 @@
       "id": "alfheim:frost_livingrock_stairs",
       "name": "Frost Livingrock Stairs",
       "texture": "frost_livingrock_bricks",
+      "texture_variants": [
+        "frost_livingrock_bricks",
+        "frost_livingrock_bricks_v1",
+        "frost_livingrock_bricks_v2",
+        "frost_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1129,6 +2629,18 @@
       "id": "alfheim:frost_livingrock_wall",
       "name": "Frost Livingrock Wall",
       "texture": "frost_livingrock_bricks",
+      "texture_variants": [
+        "frost_livingrock_bricks",
+        "frost_livingrock_bricks_v1",
+        "frost_livingrock_bricks_v2",
+        "frost_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1138,6 +2650,18 @@
       "id": "alfheim:gale_livingrock",
       "name": "Gale Livingrock",
       "texture": "gale_livingrock",
+      "texture_variants": [
+        "gale_livingrock",
+        "gale_livingrock_v1",
+        "gale_livingrock_v2",
+        "gale_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1147,6 +2671,18 @@
       "id": "alfheim:gale_livingrock_polished",
       "name": "Gale Livingrock Polished",
       "texture": "gale_livingrock_polished",
+      "texture_variants": [
+        "gale_livingrock_polished",
+        "gale_livingrock_polished_v1",
+        "gale_livingrock_polished_v2",
+        "gale_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -1156,6 +2692,18 @@
       "id": "alfheim:gale_livingrock_bricks",
       "name": "Gale Livingrock Bricks",
       "texture": "gale_livingrock_bricks",
+      "texture_variants": [
+        "gale_livingrock_bricks",
+        "gale_livingrock_bricks_v1",
+        "gale_livingrock_bricks_v2",
+        "gale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -1165,6 +2713,18 @@
       "id": "alfheim:gale_livingrock_carved",
       "name": "Gale Livingrock Carved",
       "texture": "gale_livingrock_carved",
+      "texture_variants": [
+        "gale_livingrock_carved",
+        "gale_livingrock_carved_v1",
+        "gale_livingrock_carved_v2",
+        "gale_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -1174,6 +2734,18 @@
       "id": "alfheim:gale_livingrock_slab",
       "name": "Gale Livingrock Slab",
       "texture": "gale_livingrock_bricks",
+      "texture_variants": [
+        "gale_livingrock_bricks",
+        "gale_livingrock_bricks_v1",
+        "gale_livingrock_bricks_v2",
+        "gale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -1183,6 +2755,18 @@
       "id": "alfheim:gale_livingrock_stairs",
       "name": "Gale Livingrock Stairs",
       "texture": "gale_livingrock_bricks",
+      "texture_variants": [
+        "gale_livingrock_bricks",
+        "gale_livingrock_bricks_v1",
+        "gale_livingrock_bricks_v2",
+        "gale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1192,6 +2776,18 @@
       "id": "alfheim:gale_livingrock_wall",
       "name": "Gale Livingrock Wall",
       "texture": "gale_livingrock_bricks",
+      "texture_variants": [
+        "gale_livingrock_bricks",
+        "gale_livingrock_bricks_v1",
+        "gale_livingrock_bricks_v2",
+        "gale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1201,6 +2797,18 @@
       "id": "alfheim:storm_livingrock",
       "name": "Storm Livingrock",
       "texture": "storm_livingrock",
+      "texture_variants": [
+        "storm_livingrock",
+        "storm_livingrock_v1",
+        "storm_livingrock_v2",
+        "storm_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1210,6 +2818,18 @@
       "id": "alfheim:storm_livingrock_polished",
       "name": "Storm Livingrock Polished",
       "texture": "storm_livingrock_polished",
+      "texture_variants": [
+        "storm_livingrock_polished",
+        "storm_livingrock_polished_v1",
+        "storm_livingrock_polished_v2",
+        "storm_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -1219,6 +2839,18 @@
       "id": "alfheim:storm_livingrock_bricks",
       "name": "Storm Livingrock Bricks",
       "texture": "storm_livingrock_bricks",
+      "texture_variants": [
+        "storm_livingrock_bricks",
+        "storm_livingrock_bricks_v1",
+        "storm_livingrock_bricks_v2",
+        "storm_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -1228,6 +2860,18 @@
       "id": "alfheim:storm_livingrock_carved",
       "name": "Storm Livingrock Carved",
       "texture": "storm_livingrock_carved",
+      "texture_variants": [
+        "storm_livingrock_carved",
+        "storm_livingrock_carved_v1",
+        "storm_livingrock_carved_v2",
+        "storm_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -1237,6 +2881,18 @@
       "id": "alfheim:storm_livingrock_slab",
       "name": "Storm Livingrock Slab",
       "texture": "storm_livingrock_bricks",
+      "texture_variants": [
+        "storm_livingrock_bricks",
+        "storm_livingrock_bricks_v1",
+        "storm_livingrock_bricks_v2",
+        "storm_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -1246,6 +2902,18 @@
       "id": "alfheim:storm_livingrock_stairs",
       "name": "Storm Livingrock Stairs",
       "texture": "storm_livingrock_bricks",
+      "texture_variants": [
+        "storm_livingrock_bricks",
+        "storm_livingrock_bricks_v1",
+        "storm_livingrock_bricks_v2",
+        "storm_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1255,6 +2923,18 @@
       "id": "alfheim:storm_livingrock_wall",
       "name": "Storm Livingrock Wall",
       "texture": "storm_livingrock_bricks",
+      "texture_variants": [
+        "storm_livingrock_bricks",
+        "storm_livingrock_bricks_v1",
+        "storm_livingrock_bricks_v2",
+        "storm_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1264,6 +2944,18 @@
       "id": "alfheim:amethyst_livingrock",
       "name": "Amethyst Livingrock",
       "texture": "amethyst_livingrock",
+      "texture_variants": [
+        "amethyst_livingrock",
+        "amethyst_livingrock_v1",
+        "amethyst_livingrock_v2",
+        "amethyst_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1273,6 +2965,18 @@
       "id": "alfheim:amethyst_livingrock_polished",
       "name": "Amethyst Livingrock Polished",
       "texture": "amethyst_livingrock_polished",
+      "texture_variants": [
+        "amethyst_livingrock_polished",
+        "amethyst_livingrock_polished_v1",
+        "amethyst_livingrock_polished_v2",
+        "amethyst_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -1282,6 +2986,18 @@
       "id": "alfheim:amethyst_livingrock_bricks",
       "name": "Amethyst Livingrock Bricks",
       "texture": "amethyst_livingrock_bricks",
+      "texture_variants": [
+        "amethyst_livingrock_bricks",
+        "amethyst_livingrock_bricks_v1",
+        "amethyst_livingrock_bricks_v2",
+        "amethyst_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -1291,6 +3007,18 @@
       "id": "alfheim:amethyst_livingrock_carved",
       "name": "Amethyst Livingrock Carved",
       "texture": "amethyst_livingrock_carved",
+      "texture_variants": [
+        "amethyst_livingrock_carved",
+        "amethyst_livingrock_carved_v1",
+        "amethyst_livingrock_carved_v2",
+        "amethyst_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -1300,6 +3028,18 @@
       "id": "alfheim:amethyst_livingrock_slab",
       "name": "Amethyst Livingrock Slab",
       "texture": "amethyst_livingrock_bricks",
+      "texture_variants": [
+        "amethyst_livingrock_bricks",
+        "amethyst_livingrock_bricks_v1",
+        "amethyst_livingrock_bricks_v2",
+        "amethyst_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -1309,6 +3049,18 @@
       "id": "alfheim:amethyst_livingrock_stairs",
       "name": "Amethyst Livingrock Stairs",
       "texture": "amethyst_livingrock_bricks",
+      "texture_variants": [
+        "amethyst_livingrock_bricks",
+        "amethyst_livingrock_bricks_v1",
+        "amethyst_livingrock_bricks_v2",
+        "amethyst_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1318,6 +3070,18 @@
       "id": "alfheim:amethyst_livingrock_wall",
       "name": "Amethyst Livingrock Wall",
       "texture": "amethyst_livingrock_bricks",
+      "texture_variants": [
+        "amethyst_livingrock_bricks",
+        "amethyst_livingrock_bricks_v1",
+        "amethyst_livingrock_bricks_v2",
+        "amethyst_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1327,6 +3091,18 @@
       "id": "alfheim:leyline_livingrock",
       "name": "Leyline Livingrock",
       "texture": "leyline_livingrock",
+      "texture_variants": [
+        "leyline_livingrock",
+        "leyline_livingrock_v1",
+        "leyline_livingrock_v2",
+        "leyline_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 3,
       "glass": false,
@@ -1336,6 +3112,18 @@
       "id": "alfheim:leyline_livingrock_polished",
       "name": "Leyline Livingrock Polished",
       "texture": "leyline_livingrock_polished",
+      "texture_variants": [
+        "leyline_livingrock_polished",
+        "leyline_livingrock_polished_v1",
+        "leyline_livingrock_polished_v2",
+        "leyline_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 3,
       "glass": false,
@@ -1345,6 +3133,18 @@
       "id": "alfheim:leyline_livingrock_bricks",
       "name": "Leyline Livingrock Bricks",
       "texture": "leyline_livingrock_bricks",
+      "texture_variants": [
+        "leyline_livingrock_bricks",
+        "leyline_livingrock_bricks_v1",
+        "leyline_livingrock_bricks_v2",
+        "leyline_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 3,
       "glass": false,
@@ -1354,6 +3154,18 @@
       "id": "alfheim:leyline_livingrock_carved",
       "name": "Leyline Livingrock Carved",
       "texture": "leyline_livingrock_carved",
+      "texture_variants": [
+        "leyline_livingrock_carved",
+        "leyline_livingrock_carved_v1",
+        "leyline_livingrock_carved_v2",
+        "leyline_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 3,
       "glass": false,
@@ -1363,6 +3175,18 @@
       "id": "alfheim:leyline_livingrock_slab",
       "name": "Leyline Livingrock Slab",
       "texture": "leyline_livingrock_bricks",
+      "texture_variants": [
+        "leyline_livingrock_bricks",
+        "leyline_livingrock_bricks_v1",
+        "leyline_livingrock_bricks_v2",
+        "leyline_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 3,
       "glass": false,
@@ -1372,6 +3196,18 @@
       "id": "alfheim:leyline_livingrock_stairs",
       "name": "Leyline Livingrock Stairs",
       "texture": "leyline_livingrock_bricks",
+      "texture_variants": [
+        "leyline_livingrock_bricks",
+        "leyline_livingrock_bricks_v1",
+        "leyline_livingrock_bricks_v2",
+        "leyline_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 3,
       "glass": false,
@@ -1381,6 +3217,18 @@
       "id": "alfheim:leyline_livingrock_wall",
       "name": "Leyline Livingrock Wall",
       "texture": "leyline_livingrock_bricks",
+      "texture_variants": [
+        "leyline_livingrock_bricks",
+        "leyline_livingrock_bricks_v1",
+        "leyline_livingrock_bricks_v2",
+        "leyline_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 3,
       "glass": false,
@@ -1390,6 +3238,18 @@
       "id": "alfheim:gloam_livingrock",
       "name": "Gloam Livingrock",
       "texture": "gloam_livingrock",
+      "texture_variants": [
+        "gloam_livingrock",
+        "gloam_livingrock_v1",
+        "gloam_livingrock_v2",
+        "gloam_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1399,6 +3259,18 @@
       "id": "alfheim:gloam_livingrock_polished",
       "name": "Gloam Livingrock Polished",
       "texture": "gloam_livingrock_polished",
+      "texture_variants": [
+        "gloam_livingrock_polished",
+        "gloam_livingrock_polished_v1",
+        "gloam_livingrock_polished_v2",
+        "gloam_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 0,
       "glass": false,
@@ -1408,6 +3280,18 @@
       "id": "alfheim:gloam_livingrock_bricks",
       "name": "Gloam Livingrock Bricks",
       "texture": "gloam_livingrock_bricks",
+      "texture_variants": [
+        "gloam_livingrock_bricks",
+        "gloam_livingrock_bricks_v1",
+        "gloam_livingrock_bricks_v2",
+        "gloam_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 0,
       "glass": false,
@@ -1417,6 +3301,18 @@
       "id": "alfheim:gloam_livingrock_carved",
       "name": "Gloam Livingrock Carved",
       "texture": "gloam_livingrock_carved",
+      "texture_variants": [
+        "gloam_livingrock_carved",
+        "gloam_livingrock_carved_v1",
+        "gloam_livingrock_carved_v2",
+        "gloam_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 0,
       "glass": false,
@@ -1426,6 +3322,18 @@
       "id": "alfheim:gloam_livingrock_slab",
       "name": "Gloam Livingrock Slab",
       "texture": "gloam_livingrock_bricks",
+      "texture_variants": [
+        "gloam_livingrock_bricks",
+        "gloam_livingrock_bricks_v1",
+        "gloam_livingrock_bricks_v2",
+        "gloam_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 0,
       "glass": false,
@@ -1435,6 +3343,18 @@
       "id": "alfheim:gloam_livingrock_stairs",
       "name": "Gloam Livingrock Stairs",
       "texture": "gloam_livingrock_bricks",
+      "texture_variants": [
+        "gloam_livingrock_bricks",
+        "gloam_livingrock_bricks_v1",
+        "gloam_livingrock_bricks_v2",
+        "gloam_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 0,
       "glass": false,
@@ -1444,6 +3364,18 @@
       "id": "alfheim:gloam_livingrock_wall",
       "name": "Gloam Livingrock Wall",
       "texture": "gloam_livingrock_bricks",
+      "texture_variants": [
+        "gloam_livingrock_bricks",
+        "gloam_livingrock_bricks_v1",
+        "gloam_livingrock_bricks_v2",
+        "gloam_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 0,
       "glass": false,
@@ -1453,6 +3385,18 @@
       "id": "alfheim:starfleck_livingrock",
       "name": "Starfleck Livingrock",
       "texture": "starfleck_livingrock",
+      "texture_variants": [
+        "starfleck_livingrock",
+        "starfleck_livingrock_v1",
+        "starfleck_livingrock_v2",
+        "starfleck_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 2,
       "glass": false,
@@ -1462,6 +3406,18 @@
       "id": "alfheim:starfleck_livingrock_polished",
       "name": "Starfleck Livingrock Polished",
       "texture": "starfleck_livingrock_polished",
+      "texture_variants": [
+        "starfleck_livingrock_polished",
+        "starfleck_livingrock_polished_v1",
+        "starfleck_livingrock_polished_v2",
+        "starfleck_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "polished",
       "light": 2,
       "glass": false,
@@ -1471,6 +3427,18 @@
       "id": "alfheim:starfleck_livingrock_bricks",
       "name": "Starfleck Livingrock Bricks",
       "texture": "starfleck_livingrock_bricks",
+      "texture_variants": [
+        "starfleck_livingrock_bricks",
+        "starfleck_livingrock_bricks_v1",
+        "starfleck_livingrock_bricks_v2",
+        "starfleck_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "bricks",
       "light": 2,
       "glass": false,
@@ -1480,6 +3448,18 @@
       "id": "alfheim:starfleck_livingrock_carved",
       "name": "Starfleck Livingrock Carved",
       "texture": "starfleck_livingrock_carved",
+      "texture_variants": [
+        "starfleck_livingrock_carved",
+        "starfleck_livingrock_carved_v1",
+        "starfleck_livingrock_carved_v2",
+        "starfleck_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "carved",
       "light": 2,
       "glass": false,
@@ -1489,6 +3469,18 @@
       "id": "alfheim:starfleck_livingrock_slab",
       "name": "Starfleck Livingrock Slab",
       "texture": "starfleck_livingrock_bricks",
+      "texture_variants": [
+        "starfleck_livingrock_bricks",
+        "starfleck_livingrock_bricks_v1",
+        "starfleck_livingrock_bricks_v2",
+        "starfleck_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "slab",
       "light": 2,
       "glass": false,
@@ -1498,6 +3490,18 @@
       "id": "alfheim:starfleck_livingrock_stairs",
       "name": "Starfleck Livingrock Stairs",
       "texture": "starfleck_livingrock_bricks",
+      "texture_variants": [
+        "starfleck_livingrock_bricks",
+        "starfleck_livingrock_bricks_v1",
+        "starfleck_livingrock_bricks_v2",
+        "starfleck_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "stairs",
       "light": 2,
       "glass": false,
@@ -1507,6 +3511,18 @@
       "id": "alfheim:starfleck_livingrock_wall",
       "name": "Starfleck Livingrock Wall",
       "texture": "starfleck_livingrock_bricks",
+      "texture_variants": [
+        "starfleck_livingrock_bricks",
+        "starfleck_livingrock_bricks_v1",
+        "starfleck_livingrock_bricks_v2",
+        "starfleck_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "wall",
       "light": 2,
       "glass": false,
@@ -1516,6 +3532,18 @@
       "id": "alfheim:livingrock_slag",
       "name": "Livingrock Slag",
       "texture": "livingrock_slag",
+      "texture_variants": [
+        "livingrock_slag",
+        "livingrock_slag_v1",
+        "livingrock_slag_v2",
+        "livingrock_slag_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 0,
       "glass": false,
@@ -1525,6 +3553,18 @@
       "id": "alfheim:mana_glass_fire",
       "name": "Fire Mana-glass",
       "texture": "mana_glass_fire",
+      "texture_variants": [
+        "mana_glass_fire",
+        "mana_glass_fire_v1",
+        "mana_glass_fire_v2",
+        "mana_glass_fire_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 7,
       "glass": true,
@@ -1534,6 +3574,18 @@
       "id": "alfheim:mana_glass_water",
       "name": "Water Mana-glass",
       "texture": "mana_glass_water",
+      "texture_variants": [
+        "mana_glass_water",
+        "mana_glass_water_v1",
+        "mana_glass_water_v2",
+        "mana_glass_water_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 3,
       "glass": true,
@@ -1543,6 +3595,18 @@
       "id": "alfheim:mana_glass_earth",
       "name": "Earth Mana-glass",
       "texture": "mana_glass_earth",
+      "texture_variants": [
+        "mana_glass_earth",
+        "mana_glass_earth_v1",
+        "mana_glass_earth_v2",
+        "mana_glass_earth_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 2,
       "glass": true,
@@ -1552,6 +3616,18 @@
       "id": "alfheim:mana_glass_air",
       "name": "Air Mana-glass",
       "texture": "mana_glass_air",
+      "texture_variants": [
+        "mana_glass_air",
+        "mana_glass_air_v1",
+        "mana_glass_air_v2",
+        "mana_glass_air_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 3,
       "glass": true,
@@ -1561,6 +3637,18 @@
       "id": "alfheim:mana_glass_shadow",
       "name": "Shadow Mana-glass",
       "texture": "mana_glass_shadow",
+      "texture_variants": [
+        "mana_glass_shadow",
+        "mana_glass_shadow_v1",
+        "mana_glass_shadow_v2",
+        "mana_glass_shadow_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 1,
       "glass": true,
@@ -1570,6 +3658,18 @@
       "id": "alfheim:mana_glass_light",
       "name": "Light Mana-glass",
       "texture": "mana_glass_light",
+      "texture_variants": [
+        "mana_glass_light",
+        "mana_glass_light_v1",
+        "mana_glass_light_v2",
+        "mana_glass_light_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "form": "raw",
       "light": 10,
       "glass": true,

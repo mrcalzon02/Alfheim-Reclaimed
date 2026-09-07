@@ -44,4 +44,7 @@ quarantine/
 
 # Minecraft runtime/test-world artifacts
 **/session.lock
+server/kubejs/
+server/manifest-*.json
+server/validation-*/
 server/void-margin-*/

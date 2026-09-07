@@ -1,0 +1,105 @@
+{
+  "type": "minecraft:vegetation_patch",
+  "config": {
+    "surface": "ceiling",
+    "depth": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 2,
+        "max_inclusive": 4
+      }
+    },
+    "vertical_range": 10,
+    "xz_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 6,
+        "max_inclusive": 11
+      }
+    },
+    "extra_bottom_block_chance": 0.35,
+    "extra_edge_column_chance": 0.68,
+    "ground_state": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "alfheim:mana_glass_air"
+          },
+          "weight": 7
+        },
+        {
+          "data": {
+            "Name": "alfheim:gale_livingrock"
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "alfheim:budding_galeglass"
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "replaceable": "#alfheim:deepworks_replaceable",
+    "vegetation_chance": 0.22,
+    "vegetation_feature": {
+      "feature": {
+        "type": "minecraft:block_column",
+        "config": {
+          "direction": "down",
+          "allowed_placement": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          "prioritize_tip": true,
+          "layers": [
+            {
+              "height": {
+                "type": "minecraft:uniform",
+                "value": {
+                  "min_inclusive": 5,
+                  "max_inclusive": 22
+                }
+              },
+              "provider": {
+                "type": "minecraft:weighted_state_provider",
+                "entries": [
+                  {
+                    "data": {
+                      "Name": "alfheim:galeglass_block"
+                    },
+                    "weight": 6
+                  },
+                  {
+                    "data": {
+                      "Name": "alfheim:budding_galeglass"
+                    },
+                    "weight": 2
+                  },
+                  {
+                    "data": {
+                      "Name": "alfheim:mana_glass_air"
+                    },
+                    "weight": 2
+                  }
+                ]
+              }
+            },
+            {
+              "height": 1,
+              "provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "alfheim:galeglass_cluster"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "placement": []
+    }
+  }
+}

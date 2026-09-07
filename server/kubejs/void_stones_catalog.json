@@ -5,6 +5,18 @@
       "name": "Riftchalk Livingrock",
       "form": "raw",
       "texture": "riftchalk_livingrock",
+      "texture_variants": [
+        "riftchalk_livingrock",
+        "riftchalk_livingrock_v1",
+        "riftchalk_livingrock_v2",
+        "riftchalk_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -14,6 +26,18 @@
       "name": "Riftchalk Livingrock Polished",
       "form": "polished",
       "texture": "riftchalk_livingrock_polished",
+      "texture_variants": [
+        "riftchalk_livingrock_polished",
+        "riftchalk_livingrock_polished_v1",
+        "riftchalk_livingrock_polished_v2",
+        "riftchalk_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -23,6 +47,18 @@
       "name": "Riftchalk Livingrock Bricks",
       "form": "bricks",
       "texture": "riftchalk_livingrock_bricks",
+      "texture_variants": [
+        "riftchalk_livingrock_bricks",
+        "riftchalk_livingrock_bricks_v1",
+        "riftchalk_livingrock_bricks_v2",
+        "riftchalk_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -32,6 +68,18 @@
       "name": "Riftchalk Livingrock Carved",
       "form": "carved",
       "texture": "riftchalk_livingrock_carved",
+      "texture_variants": [
+        "riftchalk_livingrock_carved",
+        "riftchalk_livingrock_carved_v1",
+        "riftchalk_livingrock_carved_v2",
+        "riftchalk_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -41,6 +89,18 @@
       "name": "Riftchalk Livingrock Slab",
       "form": "slab",
       "texture": "riftchalk_livingrock_bricks",
+      "texture_variants": [
+        "riftchalk_livingrock_bricks",
+        "riftchalk_livingrock_bricks_v1",
+        "riftchalk_livingrock_bricks_v2",
+        "riftchalk_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -50,6 +110,18 @@
       "name": "Riftchalk Livingrock Stairs",
       "form": "stairs",
       "texture": "riftchalk_livingrock_bricks",
+      "texture_variants": [
+        "riftchalk_livingrock_bricks",
+        "riftchalk_livingrock_bricks_v1",
+        "riftchalk_livingrock_bricks_v2",
+        "riftchalk_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -59,6 +131,18 @@
       "name": "Riftchalk Livingrock Wall",
       "form": "wall",
       "texture": "riftchalk_livingrock_bricks",
+      "texture_variants": [
+        "riftchalk_livingrock_bricks",
+        "riftchalk_livingrock_bricks_v1",
+        "riftchalk_livingrock_bricks_v2",
+        "riftchalk_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -68,6 +152,18 @@
       "name": "Riftshale Livingrock",
       "form": "raw",
       "texture": "riftshale_livingrock",
+      "texture_variants": [
+        "riftshale_livingrock",
+        "riftshale_livingrock_v1",
+        "riftshale_livingrock_v2",
+        "riftshale_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -77,6 +173,18 @@
       "name": "Riftshale Livingrock Polished",
       "form": "polished",
       "texture": "riftshale_livingrock_polished",
+      "texture_variants": [
+        "riftshale_livingrock_polished",
+        "riftshale_livingrock_polished_v1",
+        "riftshale_livingrock_polished_v2",
+        "riftshale_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -86,6 +194,18 @@
       "name": "Riftshale Livingrock Bricks",
       "form": "bricks",
       "texture": "riftshale_livingrock_bricks",
+      "texture_variants": [
+        "riftshale_livingrock_bricks",
+        "riftshale_livingrock_bricks_v1",
+        "riftshale_livingrock_bricks_v2",
+        "riftshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -95,6 +215,18 @@
       "name": "Riftshale Livingrock Carved",
       "form": "carved",
       "texture": "riftshale_livingrock_carved",
+      "texture_variants": [
+        "riftshale_livingrock_carved",
+        "riftshale_livingrock_carved_v1",
+        "riftshale_livingrock_carved_v2",
+        "riftshale_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -104,6 +236,18 @@
       "name": "Riftshale Livingrock Slab",
       "form": "slab",
       "texture": "riftshale_livingrock_bricks",
+      "texture_variants": [
+        "riftshale_livingrock_bricks",
+        "riftshale_livingrock_bricks_v1",
+        "riftshale_livingrock_bricks_v2",
+        "riftshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -113,6 +257,18 @@
       "name": "Riftshale Livingrock Stairs",
       "form": "stairs",
       "texture": "riftshale_livingrock_bricks",
+      "texture_variants": [
+        "riftshale_livingrock_bricks",
+        "riftshale_livingrock_bricks_v1",
+        "riftshale_livingrock_bricks_v2",
+        "riftshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -122,6 +278,18 @@
       "name": "Riftshale Livingrock Wall",
       "form": "wall",
       "texture": "riftshale_livingrock_bricks",
+      "texture_variants": [
+        "riftshale_livingrock_bricks",
+        "riftshale_livingrock_bricks_v1",
+        "riftshale_livingrock_bricks_v2",
+        "riftshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -131,6 +299,18 @@
       "name": "Veilstone Livingrock",
       "form": "raw",
       "texture": "veilstone_livingrock",
+      "texture_variants": [
+        "veilstone_livingrock",
+        "veilstone_livingrock_v1",
+        "veilstone_livingrock_v2",
+        "veilstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -140,6 +320,18 @@
       "name": "Veilstone Livingrock Polished",
       "form": "polished",
       "texture": "veilstone_livingrock_polished",
+      "texture_variants": [
+        "veilstone_livingrock_polished",
+        "veilstone_livingrock_polished_v1",
+        "veilstone_livingrock_polished_v2",
+        "veilstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -149,6 +341,18 @@
       "name": "Veilstone Livingrock Bricks",
       "form": "bricks",
       "texture": "veilstone_livingrock_bricks",
+      "texture_variants": [
+        "veilstone_livingrock_bricks",
+        "veilstone_livingrock_bricks_v1",
+        "veilstone_livingrock_bricks_v2",
+        "veilstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -158,6 +362,18 @@
       "name": "Veilstone Livingrock Carved",
       "form": "carved",
       "texture": "veilstone_livingrock_carved",
+      "texture_variants": [
+        "veilstone_livingrock_carved",
+        "veilstone_livingrock_carved_v1",
+        "veilstone_livingrock_carved_v2",
+        "veilstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -167,6 +383,18 @@
       "name": "Veilstone Livingrock Slab",
       "form": "slab",
       "texture": "veilstone_livingrock_bricks",
+      "texture_variants": [
+        "veilstone_livingrock_bricks",
+        "veilstone_livingrock_bricks_v1",
+        "veilstone_livingrock_bricks_v2",
+        "veilstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -176,6 +404,18 @@
       "name": "Veilstone Livingrock Stairs",
       "form": "stairs",
       "texture": "veilstone_livingrock_bricks",
+      "texture_variants": [
+        "veilstone_livingrock_bricks",
+        "veilstone_livingrock_bricks_v1",
+        "veilstone_livingrock_bricks_v2",
+        "veilstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -185,6 +425,18 @@
       "name": "Veilstone Livingrock Wall",
       "form": "wall",
       "texture": "veilstone_livingrock_bricks",
+      "texture_variants": [
+        "veilstone_livingrock_bricks",
+        "veilstone_livingrock_bricks_v1",
+        "veilstone_livingrock_bricks_v2",
+        "veilstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -194,6 +446,18 @@
       "name": "Shardbreccia Livingrock",
       "form": "raw",
       "texture": "shardbreccia_livingrock",
+      "texture_variants": [
+        "shardbreccia_livingrock",
+        "shardbreccia_livingrock_v1",
+        "shardbreccia_livingrock_v2",
+        "shardbreccia_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -203,6 +467,18 @@
       "name": "Shardbreccia Livingrock Polished",
       "form": "polished",
       "texture": "shardbreccia_livingrock_polished",
+      "texture_variants": [
+        "shardbreccia_livingrock_polished",
+        "shardbreccia_livingrock_polished_v1",
+        "shardbreccia_livingrock_polished_v2",
+        "shardbreccia_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -212,6 +488,18 @@
       "name": "Shardbreccia Livingrock Bricks",
       "form": "bricks",
       "texture": "shardbreccia_livingrock_bricks",
+      "texture_variants": [
+        "shardbreccia_livingrock_bricks",
+        "shardbreccia_livingrock_bricks_v1",
+        "shardbreccia_livingrock_bricks_v2",
+        "shardbreccia_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -221,6 +509,18 @@
       "name": "Shardbreccia Livingrock Carved",
       "form": "carved",
       "texture": "shardbreccia_livingrock_carved",
+      "texture_variants": [
+        "shardbreccia_livingrock_carved",
+        "shardbreccia_livingrock_carved_v1",
+        "shardbreccia_livingrock_carved_v2",
+        "shardbreccia_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -230,6 +530,18 @@
       "name": "Shardbreccia Livingrock Slab",
       "form": "slab",
       "texture": "shardbreccia_livingrock_bricks",
+      "texture_variants": [
+        "shardbreccia_livingrock_bricks",
+        "shardbreccia_livingrock_bricks_v1",
+        "shardbreccia_livingrock_bricks_v2",
+        "shardbreccia_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -239,6 +551,18 @@
       "name": "Shardbreccia Livingrock Stairs",
       "form": "stairs",
       "texture": "shardbreccia_livingrock_bricks",
+      "texture_variants": [
+        "shardbreccia_livingrock_bricks",
+        "shardbreccia_livingrock_bricks_v1",
+        "shardbreccia_livingrock_bricks_v2",
+        "shardbreccia_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -248,6 +572,18 @@
       "name": "Shardbreccia Livingrock Wall",
       "form": "wall",
       "texture": "shardbreccia_livingrock_bricks",
+      "texture_variants": [
+        "shardbreccia_livingrock_bricks",
+        "shardbreccia_livingrock_bricks_v1",
+        "shardbreccia_livingrock_bricks_v2",
+        "shardbreccia_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -257,6 +593,18 @@
       "name": "Anchorstone Livingrock",
       "form": "raw",
       "texture": "anchorstone_livingrock",
+      "texture_variants": [
+        "anchorstone_livingrock",
+        "anchorstone_livingrock_v1",
+        "anchorstone_livingrock_v2",
+        "anchorstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -266,6 +614,18 @@
       "name": "Anchorstone Livingrock Polished",
       "form": "polished",
       "texture": "anchorstone_livingrock_polished",
+      "texture_variants": [
+        "anchorstone_livingrock_polished",
+        "anchorstone_livingrock_polished_v1",
+        "anchorstone_livingrock_polished_v2",
+        "anchorstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -275,6 +635,18 @@
       "name": "Anchorstone Livingrock Bricks",
       "form": "bricks",
       "texture": "anchorstone_livingrock_bricks",
+      "texture_variants": [
+        "anchorstone_livingrock_bricks",
+        "anchorstone_livingrock_bricks_v1",
+        "anchorstone_livingrock_bricks_v2",
+        "anchorstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -284,6 +656,18 @@
       "name": "Anchorstone Livingrock Carved",
       "form": "carved",
       "texture": "anchorstone_livingrock_carved",
+      "texture_variants": [
+        "anchorstone_livingrock_carved",
+        "anchorstone_livingrock_carved_v1",
+        "anchorstone_livingrock_carved_v2",
+        "anchorstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -293,6 +677,18 @@
       "name": "Anchorstone Livingrock Slab",
       "form": "slab",
       "texture": "anchorstone_livingrock_bricks",
+      "texture_variants": [
+        "anchorstone_livingrock_bricks",
+        "anchorstone_livingrock_bricks_v1",
+        "anchorstone_livingrock_bricks_v2",
+        "anchorstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -302,6 +698,18 @@
       "name": "Anchorstone Livingrock Stairs",
       "form": "stairs",
       "texture": "anchorstone_livingrock_bricks",
+      "texture_variants": [
+        "anchorstone_livingrock_bricks",
+        "anchorstone_livingrock_bricks_v1",
+        "anchorstone_livingrock_bricks_v2",
+        "anchorstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -311,6 +719,18 @@
       "name": "Anchorstone Livingrock Wall",
       "form": "wall",
       "texture": "anchorstone_livingrock_bricks",
+      "texture_variants": [
+        "anchorstone_livingrock_bricks",
+        "anchorstone_livingrock_bricks_v1",
+        "anchorstone_livingrock_bricks_v2",
+        "anchorstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -320,6 +740,18 @@
       "name": "Seamstone Livingrock",
       "form": "raw",
       "texture": "seamstone_livingrock",
+      "texture_variants": [
+        "seamstone_livingrock",
+        "seamstone_livingrock_v1",
+        "seamstone_livingrock_v2",
+        "seamstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -329,6 +761,18 @@
       "name": "Seamstone Livingrock Polished",
       "form": "polished",
       "texture": "seamstone_livingrock_polished",
+      "texture_variants": [
+        "seamstone_livingrock_polished",
+        "seamstone_livingrock_polished_v1",
+        "seamstone_livingrock_polished_v2",
+        "seamstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -338,6 +782,18 @@
       "name": "Seamstone Livingrock Bricks",
       "form": "bricks",
       "texture": "seamstone_livingrock_bricks",
+      "texture_variants": [
+        "seamstone_livingrock_bricks",
+        "seamstone_livingrock_bricks_v1",
+        "seamstone_livingrock_bricks_v2",
+        "seamstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -347,6 +803,18 @@
       "name": "Seamstone Livingrock Carved",
       "form": "carved",
       "texture": "seamstone_livingrock_carved",
+      "texture_variants": [
+        "seamstone_livingrock_carved",
+        "seamstone_livingrock_carved_v1",
+        "seamstone_livingrock_carved_v2",
+        "seamstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -356,6 +824,18 @@
       "name": "Seamstone Livingrock Slab",
       "form": "slab",
       "texture": "seamstone_livingrock_bricks",
+      "texture_variants": [
+        "seamstone_livingrock_bricks",
+        "seamstone_livingrock_bricks_v1",
+        "seamstone_livingrock_bricks_v2",
+        "seamstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -365,6 +845,18 @@
       "name": "Seamstone Livingrock Stairs",
       "form": "stairs",
       "texture": "seamstone_livingrock_bricks",
+      "texture_variants": [
+        "seamstone_livingrock_bricks",
+        "seamstone_livingrock_bricks_v1",
+        "seamstone_livingrock_bricks_v2",
+        "seamstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -374,6 +866,18 @@
       "name": "Seamstone Livingrock Wall",
       "form": "wall",
       "texture": "seamstone_livingrock_bricks",
+      "texture_variants": [
+        "seamstone_livingrock_bricks",
+        "seamstone_livingrock_bricks_v1",
+        "seamstone_livingrock_bricks_v2",
+        "seamstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -383,6 +887,18 @@
       "name": "Prismstone Livingrock",
       "form": "raw",
       "texture": "prismstone_livingrock",
+      "texture_variants": [
+        "prismstone_livingrock",
+        "prismstone_livingrock_v1",
+        "prismstone_livingrock_v2",
+        "prismstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -392,6 +908,18 @@
       "name": "Prismstone Livingrock Polished",
       "form": "polished",
       "texture": "prismstone_livingrock_polished",
+      "texture_variants": [
+        "prismstone_livingrock_polished",
+        "prismstone_livingrock_polished_v1",
+        "prismstone_livingrock_polished_v2",
+        "prismstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -401,6 +929,18 @@
       "name": "Prismstone Livingrock Bricks",
       "form": "bricks",
       "texture": "prismstone_livingrock_bricks",
+      "texture_variants": [
+        "prismstone_livingrock_bricks",
+        "prismstone_livingrock_bricks_v1",
+        "prismstone_livingrock_bricks_v2",
+        "prismstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -410,6 +950,18 @@
       "name": "Prismstone Livingrock Carved",
       "form": "carved",
       "texture": "prismstone_livingrock_carved",
+      "texture_variants": [
+        "prismstone_livingrock_carved",
+        "prismstone_livingrock_carved_v1",
+        "prismstone_livingrock_carved_v2",
+        "prismstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -419,6 +971,18 @@
       "name": "Prismstone Livingrock Slab",
       "form": "slab",
       "texture": "prismstone_livingrock_bricks",
+      "texture_variants": [
+        "prismstone_livingrock_bricks",
+        "prismstone_livingrock_bricks_v1",
+        "prismstone_livingrock_bricks_v2",
+        "prismstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -428,6 +992,18 @@
       "name": "Prismstone Livingrock Stairs",
       "form": "stairs",
       "texture": "prismstone_livingrock_bricks",
+      "texture_variants": [
+        "prismstone_livingrock_bricks",
+        "prismstone_livingrock_bricks_v1",
+        "prismstone_livingrock_bricks_v2",
+        "prismstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -437,6 +1013,18 @@
       "name": "Prismstone Livingrock Wall",
       "form": "wall",
       "texture": "prismstone_livingrock_bricks",
+      "texture_variants": [
+        "prismstone_livingrock_bricks",
+        "prismstone_livingrock_bricks_v1",
+        "prismstone_livingrock_bricks_v2",
+        "prismstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 1,
       "glass": false,
       "slag": false
@@ -446,6 +1034,18 @@
       "name": "Aetherquartzite Livingrock",
       "form": "raw",
       "texture": "aetherquartzite_livingrock",
+      "texture_variants": [
+        "aetherquartzite_livingrock",
+        "aetherquartzite_livingrock_v1",
+        "aetherquartzite_livingrock_v2",
+        "aetherquartzite_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -455,6 +1055,18 @@
       "name": "Aetherquartzite Livingrock Polished",
       "form": "polished",
       "texture": "aetherquartzite_livingrock_polished",
+      "texture_variants": [
+        "aetherquartzite_livingrock_polished",
+        "aetherquartzite_livingrock_polished_v1",
+        "aetherquartzite_livingrock_polished_v2",
+        "aetherquartzite_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -464,6 +1076,18 @@
       "name": "Aetherquartzite Livingrock Bricks",
       "form": "bricks",
       "texture": "aetherquartzite_livingrock_bricks",
+      "texture_variants": [
+        "aetherquartzite_livingrock_bricks",
+        "aetherquartzite_livingrock_bricks_v1",
+        "aetherquartzite_livingrock_bricks_v2",
+        "aetherquartzite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -473,6 +1097,18 @@
       "name": "Aetherquartzite Livingrock Carved",
       "form": "carved",
       "texture": "aetherquartzite_livingrock_carved",
+      "texture_variants": [
+        "aetherquartzite_livingrock_carved",
+        "aetherquartzite_livingrock_carved_v1",
+        "aetherquartzite_livingrock_carved_v2",
+        "aetherquartzite_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -482,6 +1118,18 @@
       "name": "Aetherquartzite Livingrock Slab",
       "form": "slab",
       "texture": "aetherquartzite_livingrock_bricks",
+      "texture_variants": [
+        "aetherquartzite_livingrock_bricks",
+        "aetherquartzite_livingrock_bricks_v1",
+        "aetherquartzite_livingrock_bricks_v2",
+        "aetherquartzite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -491,6 +1139,18 @@
       "name": "Aetherquartzite Livingrock Stairs",
       "form": "stairs",
       "texture": "aetherquartzite_livingrock_bricks",
+      "texture_variants": [
+        "aetherquartzite_livingrock_bricks",
+        "aetherquartzite_livingrock_bricks_v1",
+        "aetherquartzite_livingrock_bricks_v2",
+        "aetherquartzite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -500,6 +1160,18 @@
       "name": "Aetherquartzite Livingrock Wall",
       "form": "wall",
       "texture": "aetherquartzite_livingrock_bricks",
+      "texture_variants": [
+        "aetherquartzite_livingrock_bricks",
+        "aetherquartzite_livingrock_bricks_v1",
+        "aetherquartzite_livingrock_bricks_v2",
+        "aetherquartzite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -509,6 +1181,18 @@
       "name": "Glintschist Livingrock",
       "form": "raw",
       "texture": "glintschist_livingrock",
+      "texture_variants": [
+        "glintschist_livingrock",
+        "glintschist_livingrock_v1",
+        "glintschist_livingrock_v2",
+        "glintschist_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -518,6 +1202,18 @@
       "name": "Glintschist Livingrock Polished",
       "form": "polished",
       "texture": "glintschist_livingrock_polished",
+      "texture_variants": [
+        "glintschist_livingrock_polished",
+        "glintschist_livingrock_polished_v1",
+        "glintschist_livingrock_polished_v2",
+        "glintschist_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -527,6 +1223,18 @@
       "name": "Glintschist Livingrock Bricks",
       "form": "bricks",
       "texture": "glintschist_livingrock_bricks",
+      "texture_variants": [
+        "glintschist_livingrock_bricks",
+        "glintschist_livingrock_bricks_v1",
+        "glintschist_livingrock_bricks_v2",
+        "glintschist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -536,6 +1244,18 @@
       "name": "Glintschist Livingrock Carved",
       "form": "carved",
       "texture": "glintschist_livingrock_carved",
+      "texture_variants": [
+        "glintschist_livingrock_carved",
+        "glintschist_livingrock_carved_v1",
+        "glintschist_livingrock_carved_v2",
+        "glintschist_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -545,6 +1265,18 @@
       "name": "Glintschist Livingrock Slab",
       "form": "slab",
       "texture": "glintschist_livingrock_bricks",
+      "texture_variants": [
+        "glintschist_livingrock_bricks",
+        "glintschist_livingrock_bricks_v1",
+        "glintschist_livingrock_bricks_v2",
+        "glintschist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -554,6 +1286,18 @@
       "name": "Glintschist Livingrock Stairs",
       "form": "stairs",
       "texture": "glintschist_livingrock_bricks",
+      "texture_variants": [
+        "glintschist_livingrock_bricks",
+        "glintschist_livingrock_bricks_v1",
+        "glintschist_livingrock_bricks_v2",
+        "glintschist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -563,6 +1307,18 @@
       "name": "Glintschist Livingrock Wall",
       "form": "wall",
       "texture": "glintschist_livingrock_bricks",
+      "texture_variants": [
+        "glintschist_livingrock_bricks",
+        "glintschist_livingrock_bricks_v1",
+        "glintschist_livingrock_bricks_v2",
+        "glintschist_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -572,6 +1328,18 @@
       "name": "Rootfossil Livingrock",
       "form": "raw",
       "texture": "rootfossil_livingrock",
+      "texture_variants": [
+        "rootfossil_livingrock",
+        "rootfossil_livingrock_v1",
+        "rootfossil_livingrock_v2",
+        "rootfossil_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -581,6 +1349,18 @@
       "name": "Rootfossil Livingrock Polished",
       "form": "polished",
       "texture": "rootfossil_livingrock_polished",
+      "texture_variants": [
+        "rootfossil_livingrock_polished",
+        "rootfossil_livingrock_polished_v1",
+        "rootfossil_livingrock_polished_v2",
+        "rootfossil_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -590,6 +1370,18 @@
       "name": "Rootfossil Livingrock Bricks",
       "form": "bricks",
       "texture": "rootfossil_livingrock_bricks",
+      "texture_variants": [
+        "rootfossil_livingrock_bricks",
+        "rootfossil_livingrock_bricks_v1",
+        "rootfossil_livingrock_bricks_v2",
+        "rootfossil_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -599,6 +1391,18 @@
       "name": "Rootfossil Livingrock Carved",
       "form": "carved",
       "texture": "rootfossil_livingrock_carved",
+      "texture_variants": [
+        "rootfossil_livingrock_carved",
+        "rootfossil_livingrock_carved_v1",
+        "rootfossil_livingrock_carved_v2",
+        "rootfossil_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -608,6 +1412,18 @@
       "name": "Rootfossil Livingrock Slab",
       "form": "slab",
       "texture": "rootfossil_livingrock_bricks",
+      "texture_variants": [
+        "rootfossil_livingrock_bricks",
+        "rootfossil_livingrock_bricks_v1",
+        "rootfossil_livingrock_bricks_v2",
+        "rootfossil_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -617,6 +1433,18 @@
       "name": "Rootfossil Livingrock Stairs",
       "form": "stairs",
       "texture": "rootfossil_livingrock_bricks",
+      "texture_variants": [
+        "rootfossil_livingrock_bricks",
+        "rootfossil_livingrock_bricks_v1",
+        "rootfossil_livingrock_bricks_v2",
+        "rootfossil_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -626,6 +1454,18 @@
       "name": "Rootfossil Livingrock Wall",
       "form": "wall",
       "texture": "rootfossil_livingrock_bricks",
+      "texture_variants": [
+        "rootfossil_livingrock_bricks",
+        "rootfossil_livingrock_bricks_v1",
+        "rootfossil_livingrock_bricks_v2",
+        "rootfossil_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -635,6 +1475,18 @@
       "name": "Resinshale Livingrock",
       "form": "raw",
       "texture": "resinshale_livingrock",
+      "texture_variants": [
+        "resinshale_livingrock",
+        "resinshale_livingrock_v1",
+        "resinshale_livingrock_v2",
+        "resinshale_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -644,6 +1496,18 @@
       "name": "Resinshale Livingrock Polished",
       "form": "polished",
       "texture": "resinshale_livingrock_polished",
+      "texture_variants": [
+        "resinshale_livingrock_polished",
+        "resinshale_livingrock_polished_v1",
+        "resinshale_livingrock_polished_v2",
+        "resinshale_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -653,6 +1517,18 @@
       "name": "Resinshale Livingrock Bricks",
       "form": "bricks",
       "texture": "resinshale_livingrock_bricks",
+      "texture_variants": [
+        "resinshale_livingrock_bricks",
+        "resinshale_livingrock_bricks_v1",
+        "resinshale_livingrock_bricks_v2",
+        "resinshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -662,6 +1538,18 @@
       "name": "Resinshale Livingrock Carved",
       "form": "carved",
       "texture": "resinshale_livingrock_carved",
+      "texture_variants": [
+        "resinshale_livingrock_carved",
+        "resinshale_livingrock_carved_v1",
+        "resinshale_livingrock_carved_v2",
+        "resinshale_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -671,6 +1559,18 @@
       "name": "Resinshale Livingrock Slab",
       "form": "slab",
       "texture": "resinshale_livingrock_bricks",
+      "texture_variants": [
+        "resinshale_livingrock_bricks",
+        "resinshale_livingrock_bricks_v1",
+        "resinshale_livingrock_bricks_v2",
+        "resinshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -680,6 +1580,18 @@
       "name": "Resinshale Livingrock Stairs",
       "form": "stairs",
       "texture": "resinshale_livingrock_bricks",
+      "texture_variants": [
+        "resinshale_livingrock_bricks",
+        "resinshale_livingrock_bricks_v1",
+        "resinshale_livingrock_bricks_v2",
+        "resinshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -689,6 +1601,18 @@
       "name": "Resinshale Livingrock Wall",
       "form": "wall",
       "texture": "resinshale_livingrock_bricks",
+      "texture_variants": [
+        "resinshale_livingrock_bricks",
+        "resinshale_livingrock_bricks_v1",
+        "resinshale_livingrock_bricks_v2",
+        "resinshale_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -698,6 +1622,18 @@
       "name": "Hollowheart Livingrock",
       "form": "raw",
       "texture": "hollowheart_livingrock",
+      "texture_variants": [
+        "hollowheart_livingrock",
+        "hollowheart_livingrock_v1",
+        "hollowheart_livingrock_v2",
+        "hollowheart_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -707,6 +1643,18 @@
       "name": "Hollowheart Livingrock Polished",
       "form": "polished",
       "texture": "hollowheart_livingrock_polished",
+      "texture_variants": [
+        "hollowheart_livingrock_polished",
+        "hollowheart_livingrock_polished_v1",
+        "hollowheart_livingrock_polished_v2",
+        "hollowheart_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -716,6 +1664,18 @@
       "name": "Hollowheart Livingrock Bricks",
       "form": "bricks",
       "texture": "hollowheart_livingrock_bricks",
+      "texture_variants": [
+        "hollowheart_livingrock_bricks",
+        "hollowheart_livingrock_bricks_v1",
+        "hollowheart_livingrock_bricks_v2",
+        "hollowheart_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -725,6 +1685,18 @@
       "name": "Hollowheart Livingrock Carved",
       "form": "carved",
       "texture": "hollowheart_livingrock_carved",
+      "texture_variants": [
+        "hollowheart_livingrock_carved",
+        "hollowheart_livingrock_carved_v1",
+        "hollowheart_livingrock_carved_v2",
+        "hollowheart_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -734,6 +1706,18 @@
       "name": "Hollowheart Livingrock Slab",
       "form": "slab",
       "texture": "hollowheart_livingrock_bricks",
+      "texture_variants": [
+        "hollowheart_livingrock_bricks",
+        "hollowheart_livingrock_bricks_v1",
+        "hollowheart_livingrock_bricks_v2",
+        "hollowheart_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -743,6 +1727,18 @@
       "name": "Hollowheart Livingrock Stairs",
       "form": "stairs",
       "texture": "hollowheart_livingrock_bricks",
+      "texture_variants": [
+        "hollowheart_livingrock_bricks",
+        "hollowheart_livingrock_bricks_v1",
+        "hollowheart_livingrock_bricks_v2",
+        "hollowheart_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -752,6 +1748,18 @@
       "name": "Hollowheart Livingrock Wall",
       "form": "wall",
       "texture": "hollowheart_livingrock_bricks",
+      "texture_variants": [
+        "hollowheart_livingrock_bricks",
+        "hollowheart_livingrock_bricks_v1",
+        "hollowheart_livingrock_bricks_v2",
+        "hollowheart_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -761,6 +1769,18 @@
       "name": "Epitaph Marble",
       "form": "raw",
       "texture": "epitaph_livingrock",
+      "texture_variants": [
+        "epitaph_livingrock",
+        "epitaph_livingrock_v1",
+        "epitaph_livingrock_v2",
+        "epitaph_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -770,6 +1790,18 @@
       "name": "Epitaph Marble Polished",
       "form": "polished",
       "texture": "epitaph_livingrock_polished",
+      "texture_variants": [
+        "epitaph_livingrock_polished",
+        "epitaph_livingrock_polished_v1",
+        "epitaph_livingrock_polished_v2",
+        "epitaph_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -779,6 +1811,18 @@
       "name": "Epitaph Marble Bricks",
       "form": "bricks",
       "texture": "epitaph_livingrock_bricks",
+      "texture_variants": [
+        "epitaph_livingrock_bricks",
+        "epitaph_livingrock_bricks_v1",
+        "epitaph_livingrock_bricks_v2",
+        "epitaph_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -788,6 +1832,18 @@
       "name": "Epitaph Marble Carved",
       "form": "carved",
       "texture": "epitaph_livingrock_carved",
+      "texture_variants": [
+        "epitaph_livingrock_carved",
+        "epitaph_livingrock_carved_v1",
+        "epitaph_livingrock_carved_v2",
+        "epitaph_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -797,6 +1853,18 @@
       "name": "Epitaph Marble Slab",
       "form": "slab",
       "texture": "epitaph_livingrock_bricks",
+      "texture_variants": [
+        "epitaph_livingrock_bricks",
+        "epitaph_livingrock_bricks_v1",
+        "epitaph_livingrock_bricks_v2",
+        "epitaph_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -806,6 +1874,18 @@
       "name": "Epitaph Marble Stairs",
       "form": "stairs",
       "texture": "epitaph_livingrock_bricks",
+      "texture_variants": [
+        "epitaph_livingrock_bricks",
+        "epitaph_livingrock_bricks_v1",
+        "epitaph_livingrock_bricks_v2",
+        "epitaph_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -815,6 +1895,18 @@
       "name": "Epitaph Marble Wall",
       "form": "wall",
       "texture": "epitaph_livingrock_bricks",
+      "texture_variants": [
+        "epitaph_livingrock_bricks",
+        "epitaph_livingrock_bricks_v1",
+        "epitaph_livingrock_bricks_v2",
+        "epitaph_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -824,6 +1916,18 @@
       "name": "Mourning Slate",
       "form": "raw",
       "texture": "mourning_livingrock",
+      "texture_variants": [
+        "mourning_livingrock",
+        "mourning_livingrock_v1",
+        "mourning_livingrock_v2",
+        "mourning_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -833,6 +1937,18 @@
       "name": "Mourning Slate Polished",
       "form": "polished",
       "texture": "mourning_livingrock_polished",
+      "texture_variants": [
+        "mourning_livingrock_polished",
+        "mourning_livingrock_polished_v1",
+        "mourning_livingrock_polished_v2",
+        "mourning_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -842,6 +1958,18 @@
       "name": "Mourning Slate Bricks",
       "form": "bricks",
       "texture": "mourning_livingrock_bricks",
+      "texture_variants": [
+        "mourning_livingrock_bricks",
+        "mourning_livingrock_bricks_v1",
+        "mourning_livingrock_bricks_v2",
+        "mourning_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -851,6 +1979,18 @@
       "name": "Mourning Slate Carved",
       "form": "carved",
       "texture": "mourning_livingrock_carved",
+      "texture_variants": [
+        "mourning_livingrock_carved",
+        "mourning_livingrock_carved_v1",
+        "mourning_livingrock_carved_v2",
+        "mourning_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -860,6 +2000,18 @@
       "name": "Mourning Slate Slab",
       "form": "slab",
       "texture": "mourning_livingrock_bricks",
+      "texture_variants": [
+        "mourning_livingrock_bricks",
+        "mourning_livingrock_bricks_v1",
+        "mourning_livingrock_bricks_v2",
+        "mourning_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -869,6 +2021,18 @@
       "name": "Mourning Slate Stairs",
       "form": "stairs",
       "texture": "mourning_livingrock_bricks",
+      "texture_variants": [
+        "mourning_livingrock_bricks",
+        "mourning_livingrock_bricks_v1",
+        "mourning_livingrock_bricks_v2",
+        "mourning_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -878,6 +2042,18 @@
       "name": "Mourning Slate Wall",
       "form": "wall",
       "texture": "mourning_livingrock_bricks",
+      "texture_variants": [
+        "mourning_livingrock_bricks",
+        "mourning_livingrock_bricks_v1",
+        "mourning_livingrock_bricks_v2",
+        "mourning_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -887,6 +2063,18 @@
       "name": "Oathstone Livingrock",
       "form": "raw",
       "texture": "oathstone_livingrock",
+      "texture_variants": [
+        "oathstone_livingrock",
+        "oathstone_livingrock_v1",
+        "oathstone_livingrock_v2",
+        "oathstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -896,6 +2084,18 @@
       "name": "Oathstone Livingrock Polished",
       "form": "polished",
       "texture": "oathstone_livingrock_polished",
+      "texture_variants": [
+        "oathstone_livingrock_polished",
+        "oathstone_livingrock_polished_v1",
+        "oathstone_livingrock_polished_v2",
+        "oathstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -905,6 +2105,18 @@
       "name": "Oathstone Livingrock Bricks",
       "form": "bricks",
       "texture": "oathstone_livingrock_bricks",
+      "texture_variants": [
+        "oathstone_livingrock_bricks",
+        "oathstone_livingrock_bricks_v1",
+        "oathstone_livingrock_bricks_v2",
+        "oathstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -914,6 +2126,18 @@
       "name": "Oathstone Livingrock Carved",
       "form": "carved",
       "texture": "oathstone_livingrock_carved",
+      "texture_variants": [
+        "oathstone_livingrock_carved",
+        "oathstone_livingrock_carved_v1",
+        "oathstone_livingrock_carved_v2",
+        "oathstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -923,6 +2147,18 @@
       "name": "Oathstone Livingrock Slab",
       "form": "slab",
       "texture": "oathstone_livingrock_bricks",
+      "texture_variants": [
+        "oathstone_livingrock_bricks",
+        "oathstone_livingrock_bricks_v1",
+        "oathstone_livingrock_bricks_v2",
+        "oathstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -932,6 +2168,18 @@
       "name": "Oathstone Livingrock Stairs",
       "form": "stairs",
       "texture": "oathstone_livingrock_bricks",
+      "texture_variants": [
+        "oathstone_livingrock_bricks",
+        "oathstone_livingrock_bricks_v1",
+        "oathstone_livingrock_bricks_v2",
+        "oathstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -941,6 +2189,18 @@
       "name": "Oathstone Livingrock Wall",
       "form": "wall",
       "texture": "oathstone_livingrock_bricks",
+      "texture_variants": [
+        "oathstone_livingrock_bricks",
+        "oathstone_livingrock_bricks_v1",
+        "oathstone_livingrock_bricks_v2",
+        "oathstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -950,6 +2210,18 @@
       "name": "Nightmantle Livingrock",
       "form": "raw",
       "texture": "nightmantle_livingrock",
+      "texture_variants": [
+        "nightmantle_livingrock",
+        "nightmantle_livingrock_v1",
+        "nightmantle_livingrock_v2",
+        "nightmantle_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -959,6 +2231,18 @@
       "name": "Nightmantle Livingrock Polished",
       "form": "polished",
       "texture": "nightmantle_livingrock_polished",
+      "texture_variants": [
+        "nightmantle_livingrock_polished",
+        "nightmantle_livingrock_polished_v1",
+        "nightmantle_livingrock_polished_v2",
+        "nightmantle_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -968,6 +2252,18 @@
       "name": "Nightmantle Livingrock Bricks",
       "form": "bricks",
       "texture": "nightmantle_livingrock_bricks",
+      "texture_variants": [
+        "nightmantle_livingrock_bricks",
+        "nightmantle_livingrock_bricks_v1",
+        "nightmantle_livingrock_bricks_v2",
+        "nightmantle_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -977,6 +2273,18 @@
       "name": "Nightmantle Livingrock Carved",
       "form": "carved",
       "texture": "nightmantle_livingrock_carved",
+      "texture_variants": [
+        "nightmantle_livingrock_carved",
+        "nightmantle_livingrock_carved_v1",
+        "nightmantle_livingrock_carved_v2",
+        "nightmantle_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -986,6 +2294,18 @@
       "name": "Nightmantle Livingrock Slab",
       "form": "slab",
       "texture": "nightmantle_livingrock_bricks",
+      "texture_variants": [
+        "nightmantle_livingrock_bricks",
+        "nightmantle_livingrock_bricks_v1",
+        "nightmantle_livingrock_bricks_v2",
+        "nightmantle_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -995,6 +2315,18 @@
       "name": "Nightmantle Livingrock Stairs",
       "form": "stairs",
       "texture": "nightmantle_livingrock_bricks",
+      "texture_variants": [
+        "nightmantle_livingrock_bricks",
+        "nightmantle_livingrock_bricks_v1",
+        "nightmantle_livingrock_bricks_v2",
+        "nightmantle_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1004,6 +2336,18 @@
       "name": "Nightmantle Livingrock Wall",
       "form": "wall",
       "texture": "nightmantle_livingrock_bricks",
+      "texture_variants": [
+        "nightmantle_livingrock_bricks",
+        "nightmantle_livingrock_bricks_v1",
+        "nightmantle_livingrock_bricks_v2",
+        "nightmantle_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1013,6 +2357,18 @@
       "name": "Nullstone Livingrock",
       "form": "raw",
       "texture": "nullstone_livingrock",
+      "texture_variants": [
+        "nullstone_livingrock",
+        "nullstone_livingrock_v1",
+        "nullstone_livingrock_v2",
+        "nullstone_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1022,6 +2378,18 @@
       "name": "Nullstone Livingrock Polished",
       "form": "polished",
       "texture": "nullstone_livingrock_polished",
+      "texture_variants": [
+        "nullstone_livingrock_polished",
+        "nullstone_livingrock_polished_v1",
+        "nullstone_livingrock_polished_v2",
+        "nullstone_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1031,6 +2399,18 @@
       "name": "Nullstone Livingrock Bricks",
       "form": "bricks",
       "texture": "nullstone_livingrock_bricks",
+      "texture_variants": [
+        "nullstone_livingrock_bricks",
+        "nullstone_livingrock_bricks_v1",
+        "nullstone_livingrock_bricks_v2",
+        "nullstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1040,6 +2420,18 @@
       "name": "Nullstone Livingrock Carved",
       "form": "carved",
       "texture": "nullstone_livingrock_carved",
+      "texture_variants": [
+        "nullstone_livingrock_carved",
+        "nullstone_livingrock_carved_v1",
+        "nullstone_livingrock_carved_v2",
+        "nullstone_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1049,6 +2441,18 @@
       "name": "Nullstone Livingrock Slab",
       "form": "slab",
       "texture": "nullstone_livingrock_bricks",
+      "texture_variants": [
+        "nullstone_livingrock_bricks",
+        "nullstone_livingrock_bricks_v1",
+        "nullstone_livingrock_bricks_v2",
+        "nullstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1058,6 +2462,18 @@
       "name": "Nullstone Livingrock Stairs",
       "form": "stairs",
       "texture": "nullstone_livingrock_bricks",
+      "texture_variants": [
+        "nullstone_livingrock_bricks",
+        "nullstone_livingrock_bricks_v1",
+        "nullstone_livingrock_bricks_v2",
+        "nullstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1067,6 +2483,18 @@
       "name": "Nullstone Livingrock Wall",
       "form": "wall",
       "texture": "nullstone_livingrock_bricks",
+      "texture_variants": [
+        "nullstone_livingrock_bricks",
+        "nullstone_livingrock_bricks_v1",
+        "nullstone_livingrock_bricks_v2",
+        "nullstone_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 0,
       "glass": false,
       "slag": false
@@ -1076,6 +2504,18 @@
       "name": "Astralite Livingrock",
       "form": "raw",
       "texture": "astralite_livingrock",
+      "texture_variants": [
+        "astralite_livingrock",
+        "astralite_livingrock_v1",
+        "astralite_livingrock_v2",
+        "astralite_livingrock_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false
@@ -1085,6 +2525,18 @@
       "name": "Astralite Livingrock Polished",
       "form": "polished",
       "texture": "astralite_livingrock_polished",
+      "texture_variants": [
+        "astralite_livingrock_polished",
+        "astralite_livingrock_polished_v1",
+        "astralite_livingrock_polished_v2",
+        "astralite_livingrock_polished_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false
@@ -1094,6 +2546,18 @@
       "name": "Astralite Livingrock Bricks",
       "form": "bricks",
       "texture": "astralite_livingrock_bricks",
+      "texture_variants": [
+        "astralite_livingrock_bricks",
+        "astralite_livingrock_bricks_v1",
+        "astralite_livingrock_bricks_v2",
+        "astralite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false
@@ -1103,6 +2567,18 @@
       "name": "Astralite Livingrock Carved",
       "form": "carved",
       "texture": "astralite_livingrock_carved",
+      "texture_variants": [
+        "astralite_livingrock_carved",
+        "astralite_livingrock_carved_v1",
+        "astralite_livingrock_carved_v2",
+        "astralite_livingrock_carved_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false
@@ -1112,6 +2588,18 @@
       "name": "Astralite Livingrock Slab",
       "form": "slab",
       "texture": "astralite_livingrock_bricks",
+      "texture_variants": [
+        "astralite_livingrock_bricks",
+        "astralite_livingrock_bricks_v1",
+        "astralite_livingrock_bricks_v2",
+        "astralite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false
@@ -1121,6 +2609,18 @@
       "name": "Astralite Livingrock Stairs",
       "form": "stairs",
       "texture": "astralite_livingrock_bricks",
+      "texture_variants": [
+        "astralite_livingrock_bricks",
+        "astralite_livingrock_bricks_v1",
+        "astralite_livingrock_bricks_v2",
+        "astralite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false
@@ -1130,6 +2630,18 @@
       "name": "Astralite Livingrock Wall",
       "form": "wall",
       "texture": "astralite_livingrock_bricks",
+      "texture_variants": [
+        "astralite_livingrock_bricks",
+        "astralite_livingrock_bricks_v1",
+        "astralite_livingrock_bricks_v2",
+        "astralite_livingrock_bricks_v3"
+      ],
+      "rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
       "light": 2,
       "glass": false,
       "slag": false

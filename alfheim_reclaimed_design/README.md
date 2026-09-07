@@ -1,6 +1,6 @@
 # Alfheim Reclaimed — Design Records
 
-**Minecraft:** 1.20.1 · **Loader:** Forge 47.4.10 · **Pack version:** 0.18.0-design
+**Minecraft:** 1.20.1 · **Loader:** Forge 47.4.10 · **Pack version:** 0.20.0-design
 
 Project doctrine lives in `../INSTRUCTIONS.md`. This directory holds design records — what is true
 about the pack's design and why.
@@ -31,7 +31,7 @@ player touches the world — combat, expedition, gear and reward.
 | File | Role |
 |---|---|
 | `VOID_MARGINS.md` | **Design expansion 2026-09-05:** six void environments, 18 proposed stone families, architectural examples and a concept board; dry-rim repair remains required. |
-| `DEEP_TERRAIN.md` | **Terrain implementation 2026-09-05:** colossal-cavern field, natural Livingrock geology, basal lava and native deep-bloom supplements; measured against the same seed without the changes. |
+| `DEEP_TERRAIN.md` | **Terrain implementation 2026-09-05:** colossal-cavern field, natural Livingrock geology, basal lava and native deep-bloom supplements; measured against the same seed without the changes. Section 8 formations are implemented in `DEEPWORKS.md`. |
 | `LIVINGROCK_LIBRARY.md` | **Implemented foundation 2026-09-05:** 24 stone families, 175 blocks, architectural palettes and the continued Deep cavern/ore/archaeology design. |
 | `CLASS_ARMORY.md` | **Implemented 2026-09-04:** six verified Mine and Slash base classes, elven weapon suites, ten material grades, armor sets and dual-class builds. |
 | `PROFESSIONS_AND_MMO.md` | **Design-first, armory bridge implemented 2026-09-04:** all nine native professions; 480 armory recipes now connect Gear Crafting to tiered mining, salvage and embedded frame materials. The wider trade overhaul remains specified. |
@@ -40,6 +40,7 @@ player touches the world — combat, expedition, gear and reward.
 | `curios/SUITE_MATRIX.md` | Compact class/profession-to-anchor matrix; `curios/curio_suite_catalog.json` contains the validated 63-item plan. |
 | `armory/WEAPON_FAMILIES.md` | Full simple-to-intricate weapon/offhand naming table; `armory/equipment_catalog.json` maps the 480 registered variants. Texture prompts, alpha evidence and review sheets live beside it. |
 | `FEY_CREATURES.md` | **Runtime refinement open 2026-09-04:** custom Fey creature models are retained; textures need UV-fit, stretch, seam and detail-density tuning against the live animated models. |
+| `PIXIE_SETTLEMENTS.md` | **Direct runtime assembly proven 2026-09-07:** four seasonal high-sky hamlets organized around culture-specific dew wells, with buried pixie spawners, houses, trees and functional gardens. Natural placement and client review remain. |
 | `GATE_REVERSAL.md` | The recipe inversion, its soft-lock risk, and the fix |
 | `CAMPAIGN_ERAS.md` | Ten eras, 215 quests, capped by the Nine Realm runes |
 | `TWIN_SPINES.md` | How Botania and Ars Nouveau interlock as one tradition |

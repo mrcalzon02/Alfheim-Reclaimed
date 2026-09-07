@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "alfheim:deepworks/formations/chandelier_emberglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/chandelier_tidewake",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/chandelier_rootglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/chandelier_galeglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/chandelier_duskglass",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:deepworks/formations/chandelier_dawnglass",
+        "placement": []
+      }
+    ]
+  }
+}

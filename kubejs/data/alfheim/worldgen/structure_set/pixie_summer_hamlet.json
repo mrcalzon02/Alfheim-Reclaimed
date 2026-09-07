@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:pixie_summer_hamlet",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "spread_type": "linear",
+    "salt": 74572781
+  }
+}

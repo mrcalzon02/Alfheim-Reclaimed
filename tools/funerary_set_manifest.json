@@ -1,0 +1,43 @@
+{
+  "schema": "alfheim:elder_kings_funerary_set/v1",
+  "status": "implementation_source",
+  "minecraft": "1.20.1",
+  "purpose": "A bespoke material culture for the gigantic Tombs of the Elder Kings.",
+  "semantic_assets": [
+    "tomb_debris",
+    "royal_sarcophagus",
+    "funerary_tapestry",
+    "memorial_carving",
+    "grave_door",
+    "funerary_statue"
+  ],
+  "assemblies": {
+    "royal_sarcophagus": ["elder_sarcophagus_head", "elder_sarcophagus_middle", "elder_sarcophagus_foot"],
+    "funerary_tapestry": ["funerary_tapestry_top", "funerary_tapestry_middle", "funerary_tapestry_bottom"],
+    "grave_door": [
+      ["elder_grave_door_left_crown", "elder_grave_door_right_crown"],
+      ["elder_grave_door_left_middle", "elder_grave_door_right_middle"],
+      ["elder_grave_door_left_base", "elder_grave_door_right_base"]
+    ],
+    "funerary_statue": ["elder_statue_base", "elder_statue_body", "elder_statue_crown"]
+  },
+  "blocks": [
+    {"id":"alfheim:tomb_debris","name":"Elder Tomb Debris","kind":"debris","item":true,"sound":"stone","render":"cutout","boxes":[[1,0,1,15,4,15]]},
+    {"id":"alfheim:elder_sarcophagus_head","name":"Elder Sarcophagus Head","kind":"sarcophagus_head","item":true,"sound":"stone","render":"solid","boxes":[[1,0,0,15,14,16]]},
+    {"id":"alfheim:elder_sarcophagus_middle","name":"Elder Sarcophagus Middle","kind":"sarcophagus_middle","item":false,"sound":"stone","render":"solid","boxes":[[1,0,0,15,14,16]]},
+    {"id":"alfheim:elder_sarcophagus_foot","name":"Elder Sarcophagus Foot","kind":"sarcophagus_foot","item":false,"sound":"stone","render":"solid","boxes":[[1,0,0,15,14,16]]},
+    {"id":"alfheim:funerary_tapestry_top","name":"Funerary Tapestry Top","kind":"tapestry_top","item":true,"sound":"wool","render":"cutout","boxes":[[2,0,14,14,16,16]]},
+    {"id":"alfheim:funerary_tapestry_middle","name":"Funerary Tapestry Middle","kind":"tapestry_middle","item":false,"sound":"wool","render":"cutout","boxes":[[2,0,14,14,16,16]]},
+    {"id":"alfheim:funerary_tapestry_bottom","name":"Funerary Tapestry Tattered End","kind":"tapestry_bottom","item":false,"sound":"wool","render":"cutout","boxes":[[2,1,14,14,16,16]]},
+    {"id":"alfheim:memorial_carving","name":"Memorial Carving","kind":"carving","item":true,"sound":"stone","render":"solid","boxes":[[1,1,13,15,15,16]]},
+    {"id":"alfheim:elder_grave_door_left_base","name":"Elder Grave Door Left Base","kind":"door_left_base","item":true,"sound":"stone","render":"solid","boxes":[[0,0,12,16,16,16]]},
+    {"id":"alfheim:elder_grave_door_right_base","name":"Elder Grave Door Right Base","kind":"door_right_base","item":false,"sound":"stone","render":"solid","boxes":[[0,0,12,16,16,16]]},
+    {"id":"alfheim:elder_grave_door_left_middle","name":"Elder Grave Door Left Middle","kind":"door_left_middle","item":false,"sound":"stone","render":"solid","boxes":[[0,0,12,16,16,16]]},
+    {"id":"alfheim:elder_grave_door_right_middle","name":"Elder Grave Door Right Middle","kind":"door_right_middle","item":false,"sound":"stone","render":"solid","boxes":[[0,0,12,16,16,16]]},
+    {"id":"alfheim:elder_grave_door_left_crown","name":"Elder Grave Door Left Crown","kind":"door_left_crown","item":false,"sound":"stone","render":"solid","boxes":[[0,0,12,16,16,16]]},
+    {"id":"alfheim:elder_grave_door_right_crown","name":"Elder Grave Door Right Crown","kind":"door_right_crown","item":false,"sound":"stone","render":"solid","boxes":[[0,0,12,16,16,16]]},
+    {"id":"alfheim:elder_statue_base","name":"Elder Funerary Statue Base","kind":"statue_base","item":true,"sound":"stone","render":"solid","boxes":[[2,0,2,14,16,14]]},
+    {"id":"alfheim:elder_statue_body","name":"Elder Funerary Statue Body","kind":"statue_body","item":false,"sound":"stone","render":"solid","boxes":[[3,0,3,13,16,13]]},
+    {"id":"alfheim:elder_statue_crown","name":"Elder Funerary Statue Crown","kind":"statue_crown","item":false,"sound":"stone","render":"solid","boxes":[[2,0,2,14,16,14]]}
+  ]
+}

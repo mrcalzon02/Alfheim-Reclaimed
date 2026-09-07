@@ -1,9 +1,11 @@
 # Deepworks — implementation plan for Alfheim's living underworld
 
 **Role:** build-ready design record for the Deepworks terrain province and its material set.
-**Status:** material library implemented; runtime evidence is in `EXECUTION_STATE.md`.
+**Status:** material library and Section 8 environmental formations implemented; runtime evidence
+is in `EXECUTION_STATE.md`.
 **Terrain continuation:** `DEEP_TERRAIN.md` now records the D3/D4 implementation and the initial
-D5 basin mechanism. Detailed formations and archaeological placement remain later passes.
+D5 basin mechanism. D6 now adds cave-anchored aligned formations; archaeological placement remains
+the next pass.
 **Scope revision, 2026-09-05:** `LIVINGROCK_LIBRARY.md` supersedes the original material count,
 palette, acquisition and output paths below: **24 seven-form Livingrock families, six mana-glasses
 and slag (175 blocks)**. Nineteen families are non-volcanic. The broader cave and archaeology
@@ -352,6 +354,14 @@ Slag terraces.
 
 Add Mana-glass ley scars, crystal chandeliers and mineral columns, driven by the six existing crystal
 alignments rather than a separate colour table.
+
+**Implemented 2026-09-07.** Six aligned variants of each formation are selected through three
+shared placed features. Chandeliers search upward for a real cavern ceiling and build a broad
+Mana-glass root with multiple 5–22-block crystal branches. Ley scars follow exposed cavern floors
+in 9–16-block fused bands. Mineral-column fields search downward for real floors and grow clustered
+12–36-block shafts that truncate against cave roofs and carry native Bloom inclusions. A fourth
+lava-anchored feature spreads irregular Slag/Magmatic/Cracked terraces onto nearby basal shelves.
+All four use the existing Deepworks cavern rather than carving a room around themselves.
 
 ### D7 — archaeology
 

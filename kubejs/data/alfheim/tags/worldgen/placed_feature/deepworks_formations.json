@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:deepworks/formations/crystal_chandeliers",
+    "alfheim:deepworks/formations/ley_scars",
+    "alfheim:deepworks/formations/mineral_columns",
+    "alfheim:deepworks/formations/slag_terraces"
+  ]
+}

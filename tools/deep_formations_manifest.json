@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "design": "alfheim_reclaimed_design/DEEPWORKS.md section 8",
+  "depth": {
+    "min": -54,
+    "max": 12,
+    "scan": 32
+  },
+  "alignments": [
+    {"crystal": "emberglass", "element": "fire", "host": "embervein_livingrock", "bloom": "emberwake_ore"},
+    {"crystal": "tidewake", "element": "water", "host": "tide_livingrock", "bloom": "rimebloom_ore"},
+    {"crystal": "rootglass", "element": "earth", "host": "rootbound_livingrock", "bloom": "farbloom_ore"},
+    {"crystal": "galeglass", "element": "air", "host": "gale_livingrock", "bloom": "farbloom_ore"},
+    {"crystal": "duskglass", "element": "shadow", "host": "gloam_livingrock", "bloom": "grievebloom_ore"},
+    {"crystal": "dawnglass", "element": "light", "host": "dawn_livingrock", "bloom": "emberwake_ore"}
+  ],
+  "formations": {
+    "crystal_chandeliers": {
+      "rarity": 11,
+      "radius": [6, 11],
+      "depth": [2, 4],
+      "branch_height": [5, 22],
+      "vegetation_chance": 0.22
+    },
+    "ley_scars": {
+      "rarity": 7,
+      "radius": [9, 16],
+      "depth": [1, 3]
+    },
+    "mineral_columns": {
+      "rarity": 17,
+      "radius": [6, 10],
+      "root_depth": [2, 4],
+      "column_height": [12, 36],
+      "vegetation_chance": 0.34
+    },
+    "slag_terraces": {
+      "rarity": 8,
+      "radius": [10, 17],
+      "depth": [1, 3],
+      "lava_spread": 8
+    }
+  },
+  "notes": [
+    "All formations use environment scans and fail unless they find real cavern air and a sturdy host face.",
+    "Chandeliers are ceiling patches with multiple downward branches; columns are floor patches with truncating upward shafts.",
+    "Ley scars replace only exposed Deepworks stone; terraces are anchored to lava before spreading onto nearby shelves.",
+    "The four placed features share one ordered local_modifications modifier, before underground ores add bloom inclusions."
+  ]
+}

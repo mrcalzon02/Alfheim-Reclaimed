@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:elder_kings_tomb",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 46,
+    "separation": 18,
+    "spread_type": "linear",
+    "salt": 187933377
+  }
+}
