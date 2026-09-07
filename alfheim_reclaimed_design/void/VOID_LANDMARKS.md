@@ -1,45 +1,55 @@
 # Void Margins — additive landmark family
 
-**Role:** implementation-facing extension of `TERRAIN_AND_STRUCTURES.md` for the later user-requested floating geodes, astral towers and ley-line focus nodes.
-**Status:** static implementation; fresh-world placement and client traversal pending.
+**Role:** implementation-facing extension of `TERRAIN_AND_STRUCTURES.md` for floating geodes, astral towers and ley-line focus nodes.
+**Status:** placement contract defined; generated structures and fresh-world placement still require proof.
 **Source:** `tools/void_landmarks_manifest.json`.
-**Generator:** `tools/gen_void_landmarks.py`.
-**Checker:** `tools/check_void_landmarks.py`.
 
 ## Authority and scope
 
-The twelve structures in `TERRAIN_AND_STRUCTURES.md` remain the **biome-core coverage set**: two terrain-supported ruins for each of the six Void Margin environments. This later landmark family is additive and does not replace, renumber, or satisfy those twelve coverage slots. It exists because the user subsequently requested another class of Void content: floating geodes, astral towers and ley-line focus nodes.
+The twelve structures in `TERRAIN_AND_STRUCTURES.md` remain the biome-core coverage set. This landmark family is additive and does not replace or satisfy those twelve slots.
 
-All six Void Margin biome IDs are already live: Void Verge, Shatterfields, Prism Drift, Rootfall, Sepulchral Reach and Starless Reach. This first landmark admission nevertheless targets only `alfheim:void_verge`. That biome occupies the continuous safe rim. The sibling biomes extend into debris and terminal bands, and a plain biome tag cannot by itself distinguish a supported fragment from the guaranteed-empty `< -0.94` far field. Expanding placement before that filter exists would violate the empty-horizon contract.
+The additive landmarks are **Void-space structures**, not ordinary surface structures. Empty Void columns do not provide a meaningful `WORLD_SURFACE_WG` result. Heightmap projection can therefore collapse a jigsaw start toward the dimension floor instead of placing the object in the intended Void volume.
 
-The landmark family therefore uses one conservative admission rule now and can be redistributed later when a continentalness/support-aware placement gate can prove the host. Starless far-field placement remains forbidden.
+## Fixed-height rule
 
-## Family 1 — floating geodes
+For additive Void landmarks the default registration contract is:
 
-Two genuinely suspended formations are authored: **Prism Drift Geode** and **Starfall Geode**. They are not substitute islands. Their templates contain no foundation, no hidden terrain fill and use `terrain_adaptation: none`. The start is projected from the local surface and raised ten blocks, leaving the whole formation visibly clear of the host shelf.
+- `start_height: {"absolute": 0}`
+- **no `project_start_to_heightmap` field**
+- `terrain_adaptation: "none"`
 
-Prism Drift Geode uses Prismstone and Aetherquartzite with luminous Seamstone ribs. Starfall Geode uses Nightmantle and Astralite with Veilstone structure. Each is hollow, opened broadly on one face, and carries a central crystalline axis so the player reads the object as a fractured mana-geode rather than a random stone ball. These are landmarks in this pass, not a new processing route and not a replacement for the existing buried Rim geode resource feature.
+Y=0 is the structure start plane, not a request to locate terrain at Y=0. The structure begins there even when the entire column is empty.
 
-## Family 2 — astral towers
+This applies by default to the requested floating geodes, astral towers and ley-line focus nodes. A future landmark may use another explicit absolute height only when its design deliberately calls for another vertical band. It may not silently fall back to surface projection.
 
-**Astral Watchtower** and **Nightglass Spire** are observatories built to study the broken edge and old ley sky. Both use `terrain_adaptation: none`; neither invokes the old Verge Spire `island` behavior. The lowest disc is architectural footing only, no larger than the tower mass it carries.
+The biome-core Void ruins are different: Anchor Bastions, Root Shrines, cliff tombs and similar ruins explicitly depend on real terrain support and may use their own support/placement logic. Their surface behavior must not be generalized to the additive landmark layer.
 
-Astral Watchtower combines Anchorstone, Veilstone, Astralite and Seamstone around an open orrery crown. Nightglass Spire combines Nightmantle, Aetherquartzite and Glintschist around a dark lens. Both contain multiple interior decks, a continuous central climb path and cardinal observing slits. Their source contract requires a substantial existing host volume. That metadata is not a claim that vanilla jigsaw placement has already measured it; fresh-world placement remains the acceptance gate for support and edge interaction.
+## Floating geodes
 
-## Family 3 — ley-line focus nodes
+**Prism Drift Geode** and **Starfall Geode** are suspended formations. They contain no generated foundation or hidden rescue island and never ask Minecraft to locate a surface beneath an empty Void column.
 
-**Ley Focus Ring** and **Fractured Ley Focus** are compact civic/magical infrastructure remnants, not functional mana generators. Each leaves its centre open, uses a ring footing, raises multiple pylons and suspends one focus stone where ley energy would once have converged.
+Prism Drift Geode uses Prismstone and Aetherquartzite with luminous Seamstone ribs. Starfall Geode uses Nightmantle, Astralite and Veilstone. Each is hollow, visibly fractured and opened on at least one face, with an internal crystalline axis so it reads as a geological/magical formation rather than a stone sphere.
 
-The intact ring uses Anchorstone, Seamstone, Veilstone and Astralite. The fractured node uses Shardbreccia, Glintschist, Riftshale and Seamstone. They require less host mass than the towers but still declare a non-zero host-volume requirement. They do not generate a rescue island.
+## Astral towers
 
-## Placement and overlap contract
+**Astral Watchtower** and **Nightglass Spire** are free-standing Void observatories. They start from the fixed Y=0 plane and do not query a surface heightmap. Their lowest platform is architecture, not generated terrain, and may not expand into an island merely to support the tower.
 
-The six physical templates are exposed through three template pools and three jigsaw structure registrations, all using `terrain_adaptation: none`. The three structure registrations share one weighted `random_spread` structure set rather than three independent sets. A candidate cell therefore selects **one** family (geode, tower or focus) by manifest weight; the three landmark families cannot select the same random-spread cell and stack on one another.
+Astral Watchtower uses Anchorstone, Veilstone, Astralite and Seamstone around an orrery crown. Nightglass Spire uses Nightmantle, Aetherquartzite and Glintschist around a dark astronomical lens. Both require readable interior decks, a continuous climb path and cardinal observing geometry.
 
-This is a distinct additive landmark source family, not an alternate implementation of the twelve Surface Works Void ruins. It reuses the repository's canonical `structure_nbt.py` primitive and the existing geometry helpers from `gen_surface_works.py`; it does not fork those primitives or modify third-party jars.
+## Ley-line focus nodes
 
-## Acceptance boundary
+**Ley Focus Ring** and **Fractured Ley Focus** are compact ruined infrastructure in Void space. They use the fixed Y=0 start contract, do not project to a surface and do not manufacture a rescue island.
 
-Static acceptance requires exactly three families and six templates, all template axes at or below 48 blocks, one shared structure set, one conservative Void Verge biome tag, valid registered block IDs, no terrain adaptation, no generated support island, and source-to-shipping equality. JSON is compared structurally and NBT semantically so gzip timestamps cannot masquerade as content drift.
+The intact ring uses Anchorstone, Seamstone, Veilstone and Astralite. The fractured node uses Shardbreccia, Glintschist, Riftshale and Seamstone. They are focusing infrastructure remnants, not new functional mana generators.
 
-Fresh-world acceptance requires at least three separated Verge samples. Observe actual tower/focus support, geode clearance, approach safety, visibility from inland, absence of overlaps, and no landmark placement beyond the safe rim. Only after those observations may sibling-biome placement be considered; expanding the tag is not itself a support solution.
+## Placement and overlap
+
+The six templates are grouped into three families: floating geodes, astral towers and ley-focus nodes. The families should share one weighted `random_spread` structure set so a candidate cell selects one family instead of stacking several independent sets in the same cell.
+
+Initial biome admission remains conservative. Distribution across sibling Void biomes is separate from vertical placement. Expanding a biome tag must never reintroduce heightmap projection as a substitute for a real Void-space placement rule.
+
+## Acceptance contract
+
+Static acceptance requires every additive landmark registration to use an explicit absolute start height; the current default is exactly Y=0; `project_start_to_heightmap` is absent; `terrain_adaptation` is `none`; no template creates a replacement island or broad terrain footing; templates remain at or below the 48-block inspection limit; and source-to-shipping equality is proven before claiming implementation.
+
+Fresh-world acceptance must inspect at least three separated placements and reject immediately if any landmark appears at the bottom of the dimension, attempts to hug a nonexistent surface, or creates an artificial terrain mass merely to remain supported.
