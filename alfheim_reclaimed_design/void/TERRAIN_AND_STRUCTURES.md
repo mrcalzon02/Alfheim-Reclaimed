@@ -1,7 +1,7 @@
 # Void Margins — terrain and supported structure contract
 
 **Role:** implementation-facing extension of `../VOID_MARGINS.md`.
-**Status:** statically implemented 2026-09-05; fresh-world and client traversal acceptance remain pending.
+**Status:** feature-bound geology statically implemented and Forge load-smoke-proven 2026-09-06; client traversal and dry/far-field acceptance remain pending.
 **Authority:** subordinate to `INSTRUCTIONS.md`, `../VOID_MARGINS.md`, `../DEFICIENT_BIOMES.md`, `../THE_SURFACE.md`, and `../THE_DEEP.md`.
 
 ## 1. Live-state correction
@@ -76,7 +76,23 @@ Each environment gets three terrain features. These are not eighteen independent
 | Starless Reach | **Hollow Splinter** | small non-anchorable shard with internal voids |
 | Starless Reach | **Astralite Fleck** | tiny outward-facing visual reward on the final surviving rock |
 
-The dimensions will be recorded in the machine-readable terrain/structure catalog during implementation. Their purpose is to stop scale drift: a Fault Needle must not become a new cliff wall, and a Crystal Crown must not become a geode larger than the fragment supporting it.
+The machine-readable terrain catalog now records each feature's unique material binding; the density and configured-feature parameters record its implemented scale. Together they stop scale drift: a Fault Needle must not become a new cliff wall, and a Crystal Crown must not become a geode larger than the fragment supporting it.
+
+### Implemented material binding
+
+Catalog schema 3 makes the feature/material association executable rather than descriptive. The
+surface rule no longer rolls all three biome stones through one global `strata` noise. It assigns
+stone by physical role: exposed cap or shell, competent core or backing, bounded split seam, fossil
+rib and resin halo, with rare signature materials reserved for their placed formation.
+
+Rootfall is the strongest binding. One elongated `root_ribs` field contributes the supporting rib
+geometry and selects Rootfossil on those ribs; a narrow interval around it selects Resinshale, while
+Hollowheart remains the host shelf/trunk-socket material. Its placed Root Apron is a patch of long
+downward columns constrained to existing `alfheim:void_natural` blocks, so it cannot read as a loose
+pile on top of an unrelated cliff. Shatterfields independently combines pressure slabs and fault
+needles; Prism Drift combines tall mineral cores with bounded thin seams; Sepulchral Reach favors
+broad quiet shelves and thick competent backing. The generator and checker reject any catalog stone
+that lacks exactly one declared role.
 
 ## 5. Structure coverage
 
@@ -149,6 +165,13 @@ Static acceptance requires exactly six Void Margin biome IDs, exactly eighteen t
 Generation acceptance requires every candidate structure to expose the host class and support measurements used to accept it. Rejected support must result in relocation or no placement, not hidden terrain fill.
 
 Fresh-world acceptance requires at least three separated rim segments. For each, observe the dry shelf, cliff, debris falloff, far-field zero terrain, supported structures and absence of fake foundations. Starless structures must be proven to disappear entirely below the `-0.94` threshold. Client traversal remains mandatory because a numerical support ratio cannot prove that an approach, drop or broken stair reads correctly to a player.
+
+The 2026-09-06 dedicated-server pass accepted all new noise, density and configured-feature codecs
+and generated the requested sample sites. It did not satisfy the whole acceptance contract: the
+audit found 91 water/dry-field failures caused by the older aquifer-centre spatial leak. Reversing
+the floodedness polarity increased the result to 137 failures and was reverted. The material and
+shape grammar is therefore load-smoke-proven, but neither the dry/far-field contract nor client
+visual legibility is claimed complete.
 
 ## 10. Implementation order
 

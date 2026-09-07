@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/mana_glass_shadow"
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v1"
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v1",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v1",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v1",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v2"
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v2",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v2",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v2",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v3"
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v3",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v3",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/mana_glass_shadow__v3",
+        "y": 270
+      }
+    ]
+  }
+}

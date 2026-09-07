@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/tide_livingrock_carved"
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v1"
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v1",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v1",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v1",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v2"
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v2",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v2",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v2",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v3"
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v3",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v3",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/tide_livingrock_carved__v3",
+        "y": 270
+      }
+    ]
+  }
+}

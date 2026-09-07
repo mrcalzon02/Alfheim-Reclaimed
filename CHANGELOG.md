@@ -4,6 +4,29 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.18.1-design — 2026-09-06 — Feature-bound Void Margin geology
+
+Replaced the six Void biomes' shared random three-stone wall wash with a feature-bound terrain
+grammar. Shatterfields now composes broad pressure slabs with independent upright fault needles;
+Prism Drift uses taller competent cores and thin split seams; Rootfall combines a shelf crown with
+long fossil ribs; and Sepulchral Reach uses broad quiet shelves backed by thick burial rock. The
+Verge and Starless materials likewise distinguish shelf cap, cliff backing, terminal core, shell
+and rare exposed mineral instead of behaving as interchangeable strata.
+
+Each of the eighteen Void stones now has one declared terrain or formation role. In particular,
+Rootfossil follows the same elongated `root_ribs` field that shapes Rootfall and the Root Apron
+formation is a patch of 7–18-block downward columns constrained to existing Void stone. Upright
+markers, fault anchors and memorial steles use columns; crystal crowns remain low hosted piles;
+Astralite is a tiny replacement fleck. A new invariant checker covers this contract and its four
+mutation self-tests all fire.
+
+Static worldgen, feature-order, complete Void-support and generator-closure checks pass. A fresh
+Forge dedicated-server load accepted every new density, noise and feature codec. The complete
+fresh-world audit still reports the previously unresolved aquifer spatial leak (91 dry/far-field
+errors); reversing floodedness made it worse (137), so that experiment was reverted. The geology
+repair applies to new chunks; client silhouette/material review and the separate dry-Void repair
+remain open.
+
 ## 0.18.0-design — 2026-09-06 — Native stone textures and Continuity CTM
 
 Replaced the placeholder/recoloured material pass with deterministic native 32×32 geological

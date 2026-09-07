@@ -46,7 +46,7 @@ each. The generator uses baked vanilla spawner block entities and three bounded 
 recurring script. The NBT coverage/profile checker and its self-tests pass; a fresh dedicated Forge world
 reached Done and exited 0. Natural placement, activation and combat balance remain a client gate.
 
-### B-79 — Void Margins definition and dedicated stone classes — **STATIC IMPLEMENTED 2026-09-05**
+### B-79 — Void Margins definition and dedicated stone classes — **FEATURE-BOUND GEOLOGY STATIC IMPLEMENTED 2026-09-06**
 
 Requested examples/extended definition are recorded in `alfheim_reclaimed_design/VOID_MARGINS.md`:
 six environments including the existing Verge, 18 proposed stone families, 126 planned block
@@ -59,6 +59,17 @@ masses before the terminal empty field. Six mineral formations and all twelve Vo
 families are generated with terrain-owned support contracts and no terrain adaptation. The old
 Verge Spire self-generated island is removed. Static worldgen, feature-order, structure and
 complete Void-support checks pass. Fresh-world/client traversal remains the acceptance gate.
+
+The follow-up geology pass removes the shared random three-stone wall wash. All eighteen materials
+are now bound to named feature roles in catalog schema 3: caps, cliff backing, pressure-slab rind,
+fault cores, split seams, prism cores/crowns, fossil ribs and resin halos, burial faces/shelves/
+backing, terminal cores/shells and tiny Astralite indications. Each lateral biome also has a
+distinct density composition rather than a different height window over one common blob. Rootfall
+is the key regression guard: its geometry and Rootfossil surface both consume `root_ribs`, while
+its placed Root Aprons descend 7–18 blocks through existing Void-natural support. The new checker
+and four mutation tests pass; a fresh Forge server accepts every codec. Client legibility remains
+open. The pre-existing aquifer spatial leak still fails the full dry/far-field audit and remains a
+separate repair item; the tested opposite polarity was worse and was reverted.
 
 ### B-78 — The Deep: expanded Livingrock library and colossal cavern province — 2026-09-05
 

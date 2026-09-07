@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "alfheim:block/oathstone_livingrock_polished_v2"
+  }
+}

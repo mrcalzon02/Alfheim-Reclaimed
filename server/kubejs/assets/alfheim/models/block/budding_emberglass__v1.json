@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "alfheim:block/budding_emberglass_v1"
+  }
+}

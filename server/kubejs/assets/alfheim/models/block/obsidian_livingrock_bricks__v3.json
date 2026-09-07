@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "alfheim:block/obsidian_livingrock_bricks_v3"
+  }
+}

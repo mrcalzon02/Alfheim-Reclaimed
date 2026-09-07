@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "alfheim:block/galeglass_block_v2"
+  }
+}

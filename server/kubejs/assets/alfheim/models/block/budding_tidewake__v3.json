@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "alfheim:block/budding_tidewake_v3"
+  }
+}

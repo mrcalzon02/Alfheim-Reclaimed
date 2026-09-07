@@ -1,6 +1,6 @@
 {
-  "schema_version": 2,
-  "status": "stone material layer implemented; void terrain status remains governed by VOID_MARGINS.md",
+  "schema_version": 3,
+  "status": "stone material layer and feature-bound terrain grammar implemented; runtime visual acceptance remains governed by VOID_MARGINS.md",
   "authority": "../VOID_MARGINS.md",
   "forms": [
     "raw",
@@ -23,6 +23,11 @@
     {
       "id": "alfheim:void_verge",
       "name": "Void Verge",
+      "terrain_grammar": [
+        {"feature": "verge_table", "material": "alfheim:riftchalk_livingrock", "role": "pale exposed cap on the final walkable shelf"},
+        {"feature": "breakline_scar", "material": "alfheim:riftshale_livingrock", "role": "competent laminated cliff backing"},
+        {"feature": "shear_marker", "material": "alfheim:veilstone_livingrock", "role": "sparse upright warning markers, never background stone"}
+      ],
       "stones": [
         {
           "id": "alfheim:riftchalk_livingrock",
@@ -59,6 +64,11 @@
     {
       "id": "alfheim:shatterfields",
       "name": "Shatterfields",
+      "terrain_grammar": [
+        {"feature": "pressure_slab", "material": "alfheim:shardbreccia_livingrock", "role": "broken exposed rind of pressure slabs"},
+        {"feature": "fault_needle", "material": "alfheim:anchorstone_livingrock", "role": "dense cores and upright pressure remnants"},
+        {"feature": "split_seam", "material": "alfheim:seamstone_livingrock", "role": "thin rejoined shear planes only"}
+      ],
       "stones": [
         {
           "id": "alfheim:shardbreccia_livingrock",
@@ -95,6 +105,11 @@
     {
       "id": "alfheim:prism_drift",
       "name": "Prism Drift",
+      "terrain_grammar": [
+        {"feature": "prism_core", "material": "alfheim:aetherquartzite_livingrock", "role": "competent interior of tall mineral fragments"},
+        {"feature": "split_seam", "material": "alfheim:glintschist_livingrock", "role": "narrow reflective fracture sheets"},
+        {"feature": "crystal_crown", "material": "alfheim:prismstone_livingrock", "role": "exposed caps and small hosted crystal crowns"}
+      ],
       "stones": [
         {
           "id": "alfheim:prismstone_livingrock",
@@ -131,6 +146,11 @@
     {
       "id": "alfheim:rootfall",
       "name": "Rootfall",
+      "terrain_grammar": [
+        {"feature": "root_apron", "material": "alfheim:rootfossil_livingrock", "role": "long coherent fossil ribs descending through shelves"},
+        {"feature": "resin_halo", "material": "alfheim:resinshale_livingrock", "role": "thin amber-bearing sheath around fossil ribs"},
+        {"feature": "trunk_socket", "material": "alfheim:hollowheart_livingrock", "role": "porous host shelf and vanished-trunk sockets"}
+      ],
       "stones": [
         {
           "id": "alfheim:rootfossil_livingrock",
@@ -167,6 +187,11 @@
     {
       "id": "alfheim:sepulchral_reach",
       "name": "Sepulchral Reach",
+      "terrain_grammar": [
+        {"feature": "burial_face", "material": "alfheim:epitaph_livingrock", "role": "rare upright memorial and tomb-face material"},
+        {"feature": "memorial_shelf", "material": "alfheim:mourning_livingrock", "role": "dark quiet walking surfaces and fallen plates"},
+        {"feature": "competent_backing", "material": "alfheim:oathstone_livingrock", "role": "continuous host rock behind sealed chambers"}
+      ],
       "stones": [
         {
           "id": "alfheim:epitaph_livingrock",
@@ -203,6 +228,11 @@
     {
       "id": "alfheim:starless_reach",
       "name": "Starless Reach",
+      "terrain_grammar": [
+        {"feature": "terminal_landing", "material": "alfheim:nightmantle_livingrock", "role": "last competent structure-bearing core"},
+        {"feature": "hollow_splinter", "material": "alfheim:nullstone_livingrock", "role": "weathered exposed shell on non-anchorable shards"},
+        {"feature": "astralite_fleck", "material": "alfheim:astralite_livingrock", "role": "tiny terminal mineral indications only"}
+      ],
       "stones": [
         {
           "id": "alfheim:nightmantle_livingrock",

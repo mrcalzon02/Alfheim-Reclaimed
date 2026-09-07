@@ -1,20 +1,61 @@
 {
-  "type": "minecraft:block_pile",
+  "type": "minecraft:random_patch",
   "config": {
-    "state_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "alfheim:rootfossil_livingrock"
+    "tries": 14,
+    "xz_spread": 6,
+    "y_spread": 0,
+    "feature": {
+      "feature": {
+        "type": "minecraft:block_column",
+        "config": {
+          "direction": "down",
+          "allowed_placement": {
+            "type": "minecraft:matching_block_tag",
+            "tag": "alfheim:void_natural"
           },
-          "weight": 5
+          "prioritize_tip": true,
+          "layers": [
+            {
+              "height": {
+                "type": "minecraft:uniform",
+                "value": {
+                  "min_inclusive": 7,
+                  "max_inclusive": 18
+                }
+              },
+              "provider": {
+                "type": "minecraft:weighted_state_provider",
+                "entries": [
+                  {
+                    "data": {
+                      "Name": "alfheim:rootfossil_livingrock"
+                    },
+                    "weight": 5
+                  },
+                  {
+                    "data": {
+                      "Name": "alfheim:resinshale_livingrock"
+                    },
+                    "weight": 1
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:random_offset",
+          "xz_spread": 0,
+          "y_spread": -1
         },
         {
-          "data": {
-            "Name": "alfheim:resinshale_livingrock"
-          },
-          "weight": 2
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_block_tag",
+            "tag": "alfheim:void_natural"
+          }
         }
       ]
     }

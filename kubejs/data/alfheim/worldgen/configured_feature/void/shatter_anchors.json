@@ -1,22 +1,39 @@
 {
-  "type": "minecraft:block_pile",
+  "type": "minecraft:block_column",
   "config": {
-    "state_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "alfheim:anchorstone_livingrock"
-          },
-          "weight": 5
+    "direction": "up",
+    "allowed_placement": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "minecraft:air"
+    },
+    "prioritize_tip": true,
+    "layers": [
+      {
+        "height": {
+          "type": "minecraft:uniform",
+          "value": {
+            "min_inclusive": 4,
+            "max_inclusive": 9
+          }
         },
-        {
-          "data": {
-            "Name": "alfheim:seamstone_livingrock"
-          },
-          "weight": 2
+        "provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "alfheim:anchorstone_livingrock"
+              },
+              "weight": 4
+            },
+            {
+              "data": {
+                "Name": "alfheim:seamstone_livingrock"
+              },
+              "weight": 1
+            }
+          ]
         }
-      ]
-    }
+      }
+    ]
   }
 }

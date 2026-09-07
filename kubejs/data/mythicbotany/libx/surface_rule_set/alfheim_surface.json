@@ -219,37 +219,23 @@
                 {
                   "type": "minecraft:condition",
                   "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": 0.22,
-                    "max_threshold": 100
+                    "type": "minecraft:stone_depth",
+                    "offset": 3,
+                    "add_surface_depth": false,
+                    "secondary_depth_range": 0,
+                    "surface_type": "floor"
                   },
                   "then_run": {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "alfheim:veilstone_livingrock"
-                    }
-                  }
-                },
-                {
-                  "type": "minecraft:condition",
-                  "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": -0.18,
-                    "max_threshold": 100
-                  },
-                  "then_run": {
-                    "type": "minecraft:block",
-                    "result_state": {
-                      "Name": "alfheim:riftshale_livingrock"
+                      "Name": "alfheim:riftchalk_livingrock"
                     }
                   }
                 },
                 {
                   "type": "minecraft:block",
                   "result_state": {
-                    "Name": "alfheim:riftchalk_livingrock"
+                    "Name": "alfheim:riftshale_livingrock"
                   }
                 }
               ]
@@ -270,9 +256,9 @@
                   "type": "minecraft:condition",
                   "if_true": {
                     "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": 0.22,
-                    "max_threshold": 100
+                    "noise": "alfheim:void/split_seams",
+                    "min_threshold": -0.035,
+                    "max_threshold": 0.035
                   },
                   "then_run": {
                     "type": "minecraft:block",
@@ -284,22 +270,23 @@
                 {
                   "type": "minecraft:condition",
                   "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": -0.18,
-                    "max_threshold": 100
+                    "type": "minecraft:stone_depth",
+                    "offset": 3,
+                    "add_surface_depth": false,
+                    "secondary_depth_range": 0,
+                    "surface_type": "floor"
                   },
                   "then_run": {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "alfheim:anchorstone_livingrock"
+                      "Name": "alfheim:shardbreccia_livingrock"
                     }
                   }
                 },
                 {
                   "type": "minecraft:block",
                   "result_state": {
-                    "Name": "alfheim:shardbreccia_livingrock"
+                    "Name": "alfheim:anchorstone_livingrock"
                   }
                 }
               ]
@@ -320,9 +307,9 @@
                   "type": "minecraft:condition",
                   "if_true": {
                     "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": 0.22,
-                    "max_threshold": 100
+                    "noise": "alfheim:void/split_seams",
+                    "min_threshold": -0.055,
+                    "max_threshold": 0.055
                   },
                   "then_run": {
                     "type": "minecraft:block",
@@ -334,22 +321,23 @@
                 {
                   "type": "minecraft:condition",
                   "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": -0.18,
-                    "max_threshold": 100
+                    "type": "minecraft:stone_depth",
+                    "offset": 3,
+                    "add_surface_depth": false,
+                    "secondary_depth_range": 0,
+                    "surface_type": "floor"
                   },
                   "then_run": {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "alfheim:aetherquartzite_livingrock"
+                      "Name": "alfheim:prismstone_livingrock"
                     }
                   }
                 },
                 {
                   "type": "minecraft:block",
                   "result_state": {
-                    "Name": "alfheim:prismstone_livingrock"
+                    "Name": "alfheim:aetherquartzite_livingrock"
                   }
                 }
               ]
@@ -370,14 +358,14 @@
                   "type": "minecraft:condition",
                   "if_true": {
                     "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": 0.22,
+                    "noise": "alfheim:void/root_ribs",
+                    "min_threshold": 0.12,
                     "max_threshold": 100
                   },
                   "then_run": {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "alfheim:hollowheart_livingrock"
+                      "Name": "alfheim:rootfossil_livingrock"
                     }
                   }
                 },
@@ -385,9 +373,9 @@
                   "type": "minecraft:condition",
                   "if_true": {
                     "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": -0.18,
-                    "max_threshold": 100
+                    "noise": "alfheim:void/root_ribs",
+                    "min_threshold": -0.1,
+                    "max_threshold": 0.12
                   },
                   "then_run": {
                     "type": "minecraft:block",
@@ -399,7 +387,7 @@
                 {
                   "type": "minecraft:block",
                   "result_state": {
-                    "Name": "alfheim:rootfossil_livingrock"
+                    "Name": "alfheim:hollowheart_livingrock"
                   }
                 }
               ]
@@ -419,25 +407,11 @@
                 {
                   "type": "minecraft:condition",
                   "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": 0.22,
-                    "max_threshold": 100
-                  },
-                  "then_run": {
-                    "type": "minecraft:block",
-                    "result_state": {
-                      "Name": "alfheim:oathstone_livingrock"
-                    }
-                  }
-                },
-                {
-                  "type": "minecraft:condition",
-                  "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": -0.18,
-                    "max_threshold": 100
+                    "type": "minecraft:stone_depth",
+                    "offset": 3,
+                    "add_surface_depth": false,
+                    "secondary_depth_range": 0,
+                    "surface_type": "floor"
                   },
                   "then_run": {
                     "type": "minecraft:block",
@@ -449,7 +423,7 @@
                 {
                   "type": "minecraft:block",
                   "result_state": {
-                    "Name": "alfheim:epitaph_livingrock"
+                    "Name": "alfheim:oathstone_livingrock"
                   }
                 }
               ]
@@ -470,8 +444,8 @@
                   "type": "minecraft:condition",
                   "if_true": {
                     "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": 0.22,
+                    "noise": "alfheim:void/astralite_flecks",
+                    "min_threshold": 0.72,
                     "max_threshold": 100
                   },
                   "then_run": {
@@ -484,10 +458,11 @@
                 {
                   "type": "minecraft:condition",
                   "if_true": {
-                    "type": "minecraft:noise_threshold",
-                    "noise": "alfheim:void/strata",
-                    "min_threshold": -0.18,
-                    "max_threshold": 100
+                    "type": "minecraft:stone_depth",
+                    "offset": 3,
+                    "add_surface_depth": false,
+                    "secondary_depth_range": 0,
+                    "surface_type": "floor"
                   },
                   "then_run": {
                     "type": "minecraft:block",

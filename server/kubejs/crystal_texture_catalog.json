@@ -1,0 +1,156 @@
+{
+  "resolution": 32,
+  "variant_count": 4,
+  "rotations": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "crystals": [
+    {
+      "id": "emberglass",
+      "element": "Fire",
+      "variants": {
+        "block": [
+          "emberglass_block",
+          "emberglass_block_v1",
+          "emberglass_block_v2",
+          "emberglass_block_v3"
+        ],
+        "budding": [
+          "budding_emberglass",
+          "budding_emberglass_v1",
+          "budding_emberglass_v2",
+          "budding_emberglass_v3"
+        ],
+        "cluster": [
+          "emberglass_cluster",
+          "emberglass_cluster_v1",
+          "emberglass_cluster_v2",
+          "emberglass_cluster_v3"
+        ]
+      }
+    },
+    {
+      "id": "tidewake",
+      "element": "Water",
+      "variants": {
+        "block": [
+          "tidewake_block",
+          "tidewake_block_v1",
+          "tidewake_block_v2",
+          "tidewake_block_v3"
+        ],
+        "budding": [
+          "budding_tidewake",
+          "budding_tidewake_v1",
+          "budding_tidewake_v2",
+          "budding_tidewake_v3"
+        ],
+        "cluster": [
+          "tidewake_cluster",
+          "tidewake_cluster_v1",
+          "tidewake_cluster_v2",
+          "tidewake_cluster_v3"
+        ]
+      }
+    },
+    {
+      "id": "rootglass",
+      "element": "Earth",
+      "variants": {
+        "block": [
+          "rootglass_block",
+          "rootglass_block_v1",
+          "rootglass_block_v2",
+          "rootglass_block_v3"
+        ],
+        "budding": [
+          "budding_rootglass",
+          "budding_rootglass_v1",
+          "budding_rootglass_v2",
+          "budding_rootglass_v3"
+        ],
+        "cluster": [
+          "rootglass_cluster",
+          "rootglass_cluster_v1",
+          "rootglass_cluster_v2",
+          "rootglass_cluster_v3"
+        ]
+      }
+    },
+    {
+      "id": "galeglass",
+      "element": "Air",
+      "variants": {
+        "block": [
+          "galeglass_block",
+          "galeglass_block_v1",
+          "galeglass_block_v2",
+          "galeglass_block_v3"
+        ],
+        "budding": [
+          "budding_galeglass",
+          "budding_galeglass_v1",
+          "budding_galeglass_v2",
+          "budding_galeglass_v3"
+        ],
+        "cluster": [
+          "galeglass_cluster",
+          "galeglass_cluster_v1",
+          "galeglass_cluster_v2",
+          "galeglass_cluster_v3"
+        ]
+      }
+    },
+    {
+      "id": "duskglass",
+      "element": "Shadow",
+      "variants": {
+        "block": [
+          "duskglass_block",
+          "duskglass_block_v1",
+          "duskglass_block_v2",
+          "duskglass_block_v3"
+        ],
+        "budding": [
+          "budding_duskglass",
+          "budding_duskglass_v1",
+          "budding_duskglass_v2",
+          "budding_duskglass_v3"
+        ],
+        "cluster": [
+          "duskglass_cluster",
+          "duskglass_cluster_v1",
+          "duskglass_cluster_v2",
+          "duskglass_cluster_v3"
+        ]
+      }
+    },
+    {
+      "id": "dawnglass",
+      "element": "Light",
+      "variants": {
+        "block": [
+          "dawnglass_block",
+          "dawnglass_block_v1",
+          "dawnglass_block_v2",
+          "dawnglass_block_v3"
+        ],
+        "budding": [
+          "budding_dawnglass",
+          "budding_dawnglass_v1",
+          "budding_dawnglass_v2",
+          "budding_dawnglass_v3"
+        ],
+        "cluster": [
+          "dawnglass_cluster",
+          "dawnglass_cluster_v1",
+          "dawnglass_cluster_v2",
+          "dawnglass_cluster_v3"
+        ]
+      }
+    }
+  ]
+}

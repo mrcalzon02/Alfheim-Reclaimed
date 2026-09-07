@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/rootglass_block"
+      },
+      {
+        "model": "alfheim:block/rootglass_block",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/rootglass_block",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/rootglass_block",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v1"
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v1",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v1",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v1",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v2"
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v2",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v2",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v2",
+        "y": 270
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v3"
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v3",
+        "y": 90
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v3",
+        "y": 180
+      },
+      {
+        "model": "alfheim:block/rootglass_block__v3",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -57,6 +57,29 @@ Actual ruin placement, spawner activation and combat balance remain unclaimed cl
 
 **Role:** live operational state. Distinct from `BACKLOG.md`, which holds intent.
 
+## Latest implementation — feature-bound Void Margin geology — 2026-09-06
+
+The six Void biomes no longer share one fragment silhouette painted with a generic three-stone
+noise wash. Their density branches now express separate landform vocabularies: Shatterfields has
+pressure slabs and upright fault needles, Prism Drift has tall cores with bounded split seams,
+Rootfall has shelves carried by elongated fossil ribs, and Sepulchral Reach has broad memorial
+shelves with competent burial backing. Verge and Starless retain their distinct longitudinal jobs.
+
+`void_catalog.json` schema 3 binds all eighteen stones to named roles. Broad surface rules cover
+only the appropriate cap, shell, seam, core or backing. Signature materials such as Veilstone and
+Epitaph remain formation-only. Rootfossil is selected by the same `root_ribs` noise that shapes the
+roots, Resinshale forms its narrow halo, and Hollowheart remains the vanished-trunk host. The placed
+Root Apron is now a set of 7–18-block downward fossil columns inside existing Void-natural support,
+not another surface block pile.
+
+Acceptance is **static validated and Forge load-smoke-proven; client visual acceptance pending**.
+Generator closure, the new geology invariant checker and its four mutation tests, worldgen
+resolution, feature order and complete structure-support checks pass. A fresh server generated all
+audit sites and accepted the new codecs. Its full dry/far-field audit still failed with 91 errors
+from the older aquifer spatial leak. Testing the opposite floodedness polarity increased that to
+137 errors, so it was reverted. That water defect remains separate from this geology pass. Existing
+chunks do not change.
+
 ## Latest implementation — stone textures and Continuity CTM — 2026-09-06
 
 The uploaded texture archive is installed at its repository-relative destinations. It replaces

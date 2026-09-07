@@ -28,7 +28,11 @@ def main():
                 match=re.search(r'\[VOID AUDIT\] SITES (\[.*\])',content)
                 if match and not requested:
                     for p in json.loads(match.group(1)):
-                        x,z=p['x'],p['z'];process.stdin.write(f'execute in mythicbotany:alfheim run forceload add {x-16} {z} {x+16} {z}\n')
+                        # Rhino serializes the lattice coordinates as JSON numbers and the
+                        # decoder may therefore return e.g. -1856.0. Minecraft's command
+                        # parser requires integer tokens even when the value is integral.
+                        x,z=int(p['x']),int(p['z'])
+                        process.stdin.write(f'execute in mythicbotany:alfheim run forceload add {x-16} {z} {x+16} {z}\n')
                     process.stdin.flush();requested=True
                 if 'Failed to start the minecraft server' in content:process.terminate();process.wait(timeout=20);break
                 if not stopped and any(s in content for s in ['[VOID AUDIT] COMPLETE','Error in scheduled task','Error occurred while handling scheduled event callback']):

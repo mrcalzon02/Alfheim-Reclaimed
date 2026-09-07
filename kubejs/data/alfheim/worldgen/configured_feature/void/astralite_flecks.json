@@ -1,22 +1,27 @@
 {
-  "type": "minecraft:block_pile",
+  "type": "minecraft:ore",
   "config": {
-    "state_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "alfheim:nightmantle_livingrock"
-          },
-          "weight": 5
+    "size": 3,
+    "discard_chance_on_air_exposure": 0.0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:nightmantle_livingrock"
         },
-        {
-          "data": {
-            "Name": "alfheim:astralite_livingrock"
-          },
-          "weight": 1
+        "state": {
+          "Name": "alfheim:astralite_livingrock"
         }
-      ]
-    }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:nullstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:astralite_livingrock"
+        }
+      }
+    ]
   }
 }

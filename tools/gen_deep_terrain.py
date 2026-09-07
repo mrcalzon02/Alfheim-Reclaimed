@@ -95,7 +95,10 @@ def build():
     emit('alfheim/worldgen/density_function/deepworks/cavities.json',cavity_density())
 
     # The dry Void needs all aquifer inputs to consume the same continentalness mask.
-    # floodedness=-1 removes ordinary aquifer levels. initial_density=+1 is not terrain:
+    # Floodedness=-1 is the driest supported sample. The fresh-world margin audit still
+    # observes water where nearby aquifer centres cross the high-frequency mask; that is
+    # a separate unresolved spatial-leak defect, not a reason to reverse this polarity
+    # (+1 was runtime-proven to increase the flooding). initial_density=+1 is not terrain:
     # NoiseChunk uses it only for preliminary-surface estimation, and the high value stops
     # the aquifer's early surface shortcut from interpreting removed edge columns as ocean.
     # spread and lava are inert inside the same region. The separate basal final-density
