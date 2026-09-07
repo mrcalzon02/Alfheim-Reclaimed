@@ -13,8 +13,8 @@
     "xz_radius": {
       "type": "minecraft:uniform",
       "value": {
-        "min_inclusive": 10,
-        "max_inclusive": 17
+        "min_inclusive": 8,
+        "max_inclusive": 11
       }
     },
     "extra_bottom_block_chance": 0.35,

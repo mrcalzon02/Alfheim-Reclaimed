@@ -63,7 +63,13 @@ def main():
     ids |= {'minecraft:water', 'minecraft:lava', 'minecraft:air', 'minecraft:cave_air',
             'minecraft:void_air', 'minecraft:fire', 'minecraft:soul_fire',
             'minecraft:nether_portal', 'minecraft:end_portal', 'minecraft:end_gateway',
-            'minecraft:bubble_column', 'minecraft:moving_piston', 'minecraft:piston_head'}
+            'minecraft:bubble_column', 'minecraft:moving_piston', 'minecraft:piston_head',
+            'minecraft:wheat', 'minecraft:carrots', 'minecraft:potatoes', 'minecraft:beetroots',
+            'minecraft:nether_wart', 'minecraft:cocoa', 'minecraft:sweet_berry_bush',
+            'minecraft:pumpkin_stem', 'minecraft:melon_stem',
+            'minecraft:potted_fern', 'minecraft:potted_dandelion',
+            'minecraft:potted_poppy', 'minecraft:potted_blue_orchid',
+            'minecraft:potted_allium'}
 
     # ---- S1/S2/S3: the pieces ------------------------------------------------------------
     pieces, jigsaws = {}, []
@@ -87,6 +93,10 @@ def main():
                        f'{DATA_VERSION} for 1.20.1')
 
         pal = [e['Name'] for e in root['palette']]
+        for block in root['blocks']:
+            pos = [int(v) for v in block['pos']]
+            if any(v < 0 or v >= size[i] for i, v in enumerate(pos)):
+                fail('S1', f'{key}: block position {pos} lies outside declared size {size}')
         for name in sorted(set(pal)):
             if name in ('minecraft:jigsaw', 'minecraft:air'):
                 continue
@@ -111,6 +121,14 @@ def main():
         if a.verbose:
             print(f'  --   {key:22} {size[0]}x{size[1]}x{size[2]}  {len(root["blocks"]):>6} blocks'
                   f'  {len(root.get("entities", []))} entities')
+
+    greatbole_palette = {entry['Name'] for key, root in pieces.items()
+                         if key.startswith('greatbole/') for entry in root['palette']}
+    if {'minecraft:oak_log', 'minecraft:oak_wood', 'minecraft:oak_leaves'} & greatbole_palette:
+        fail('S2', 'Greatbole still contains vanilla oak material')
+    if not {'alfheim:gloambark_log', 'alfheim:hushbark_log',
+            'alfheim:gloambark_leaves'} <= greatbole_palette:
+        fail('S2', 'Greatbole is missing its custom Elder-wood material family')
 
     # ---- S3: pools a jigsaw points at must exist -----------------------------------------
     pools = {}
@@ -142,7 +160,7 @@ def main():
     names = {be.get('name') for _, _, be in jigsaws}
     for key, pos, be in jigsaws:
         target = be.get('target')
-        if target and target not in names:
+        if target and target != 'minecraft:empty' and target not in names:
             fail('S4', f'{key} @{pos}: jigsaw targets "{target}", which no piece declares as a '
                        'jigsaw name -- that branch generates as an orphan')
         if a.verbose:
@@ -273,6 +291,7 @@ def main():
         assemble_text = (open(assemble_p, encoding='utf-8').read()
                          if os.path.exists(assemble_p) else '')
         templates = ('greatbole/trunk', 'greatbole/crown', 'court/amphitheatre',
+                     'court/west_residence', 'court/east_service', 'court/north_council',
                      'greatbole/base')
         for template in templates:
             if f'place template alfheim:{template}' not in assemble_text:
@@ -281,6 +300,10 @@ def main():
             fail('S10', 'hub/place.mcfunction does not snapshot the baked-anchor guard; retries can duplicate the hub')
         if assemble_text.find('place template alfheim:greatbole/base') < assemble_text.find('place template alfheim:court/amphitheatre'):
             fail('S10', 'the anchor-carrying base is not placed last, so a partial assembly can look committed')
+        if 'candidate 0 0' not in place_text or 'candidate 192 0' in place_text:
+            fail('S10', 'hub/place.mcfunction does not use the world origin as its sole X/Z candidate')
+        if 'positioned over motion_blocking_no_leaves' not in place_text:
+            fail('S10', 'hub placement does not vertically adapt the origin complex to terrain')
         if a.verbose:
             print(f'  --   explicit Greatbole placement: {len(tagged)} of {len(layer)} '
                   'layer biome(s), natural duplicate source absent')
@@ -320,6 +343,21 @@ def main():
         print(f'  --   {len(scripts)} KubeJS script(s) parsed, {bad} syntax error(s)')
     except Exception:
         print('  --   node not available; KubeJS syntax unchecked (S7 skipped)')
+
+    # ---- S11: protection generator closure and real FTB ownership read-back --------------
+    import gen_spawn_hub
+    protection_path = os.path.join('kubejs', 'server_scripts', '04_spawn_hub.js')
+    protection = open(protection_path, encoding='utf-8').read()
+    if protection != gen_spawn_hub.protection_script():
+        fail('S11', '04_spawn_hub.js differs from the authoritative protection template')
+    for token in ('new $ChunkDimPos(hubLevelKey, chunkX, chunkZ)',
+                  'chunkData.claim(source, claimPosition, false)',
+                  'claimedChunkManager.getChunk(claimPosition)',
+                  'chunkData.saveNow()', 'chunkData.syncChunksToAll(server)'):
+        if token not in protection:
+            fail('S11', f'claim implementation is missing {token!r}')
+    if 'ftbchunks admin claim_as' in protection:
+        fail('S11', 'obsolete command-only FTB claim path returned')
 
     # ---- S8: KubeJS scripts share one scope per directory -------------------------------
     #

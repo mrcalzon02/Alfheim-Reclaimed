@@ -11,4 +11,4 @@ execute unless score #final alfheim.hub matches 1 run function alfheim:hub/creat
 
 # Re-assert the force-load every load: forceload state is per-world and an operator may
 # legitimately have cleared it.
-execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run forceload add ~-32 ~-80 ~32 ~32
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run forceload add ~-80 ~-128 ~80 ~32

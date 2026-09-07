@@ -1,0 +1,23 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:deep_quarry",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:elder_kings_tomb",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:faultwork",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 96,
+    "separation": 48,
+    "spread_type": "linear",
+    "salt": 69303017
+  }
+}

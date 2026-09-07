@@ -1,5 +1,32 @@
 # Execution State
 
+## Latest implementation — September 7 field repair — 2026-09-07
+
+Fresh logs confirmed 241 `Detected setBlock in a far chunk` errors, all from the generated
+Deepworks Slag Terraces. The patch radius plus random offset could reach 25 blocks; the generator
+now caps total reach at 15 and its checker enforces that invariant. No KubeJS/EntityJS load error,
+feature-order cycle, or Java crash exception was present in the supplied current logs; the stdout
+session did end with code 1, so extended fresh-world runtime stability remains unaccepted.
+
+The Greatbole/royal complex is rebuilt around X=0/Z=0: 112-block custom Elder-wood
+tree, 20-block embed, eight descending root buttresses, level gate-to-Court procession, and three
+new civic/palace wings. Seven templates totaling 95,354 source blocks are directly assembled on
+one vertical terrain datum. The spawn-claim generator now owns the proven FTB API implementation,
+including `claim(..., false)`, per-chunk read-back, persistence, sync and bounded retries over the
+128-block envelope. Fresh disposable world `validation-field-repair-0907d` placed every one of the
+seven pieces, found exactly one baked base marker, one crown marker and eight Court elves, and
+verified all 289 required chunks as owned by `alfheim_hub`; independent `ftbchunks info` probes at
+the centre and four corners agreed. `check_spawn_hub` reports zero problems. Fresh-client geometry,
+ordinary-player edit denial and restart persistence remain pending.
+
+All three Deep archaeology families now share one 96/48 random-spread grid, making their large
+spawn zones mutually exclusive. Seven Elder Grave Doors have full nine-by-eight corridor-closing
+masonry bays. The decoded-NBT/generator checker passes. Infectious' 99 natural spawn modifiers are
+overridden at their original resource IDs to `#minecraft:is_overworld`, matching the mod's Java
+predicate and removing impossible Alfheim pointers. Wild Elves now include Dreamwood Forest at
+weight 12. Alfheim Hills' climate-owned density branch transitions terrain at Y=191–194. Each has
+a passing dedicated static checker; all require fresh-world/client observation.
+
 ## Latest implementation — Deepworks Section 8 formations — 2026-09-07
 
 D6 now decorates the existing colossal-cavern field with four terrain-aware formation systems.

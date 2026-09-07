@@ -1,18 +1,20 @@
 {
   "_comment": [
     "Source of truth for DEEPWORKS.md section 9 and THE_DEEP.md section 2.",
-    "The first archaeology pass intentionally accepts random underground placement.",
+    "All archaeology families share one large random-spread grid, making their spawn zones mutually exclusive.",
     "Each family is a fixed nine-piece jigsaw complex: centre, four approaches and four wings.",
     "The assembled footprint is about 207 blocks across; every piece remains structure-block editable."
   ],
   "biomes": "#alfheim:deepworks_land",
+  "placement": {
+    "spacing": 96,
+    "separation": 48
+  },
   "families": [
     {
       "id": "deep_quarry",
       "name": "The Deep Quarries",
       "depth": [-55, -20],
-      "spacing": 52,
-      "separation": 20,
       "pieces": {
         "centre": [47, 24, 47],
         "approach": [17, 20, 33],
@@ -23,8 +25,6 @@
       "id": "elder_kings_tomb",
       "name": "The Tombs of the Elder Kings",
       "depth": [-40, -10],
-      "spacing": 46,
-      "separation": 18,
       "pieces": {
         "centre": [47, 22, 47],
         "approach": [17, 18, 33],
@@ -35,8 +35,6 @@
       "id": "faultwork",
       "name": "The Faultworks",
       "depth": [-58, -40],
-      "spacing": 58,
-      "separation": 24,
       "pieces": {
         "centre": [47, 28, 47],
         "approach": [17, 22, 33],

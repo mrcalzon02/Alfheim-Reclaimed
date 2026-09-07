@@ -1,11 +1,12 @@
 # Deepworks — implementation plan for Alfheim's living underworld
 
 **Role:** build-ready design record for the Deepworks terrain province and its material set.
-**Status:** material library and Section 8 environmental formations implemented; runtime evidence
-is in `EXECUTION_STATE.md`.
+**Status:** material library, Section 8 formations, and D7 archaeology implemented statically;
+runtime evidence and remaining client gates are in `EXECUTION_STATE.md`.
 **Terrain continuation:** `DEEP_TERRAIN.md` now records the D3/D4 implementation and the initial
-D5 basin mechanism. D6 now adds cave-anchored aligned formations; archaeological placement remains
-the next pass.
+D5 basin mechanism. D6 adds cave-anchored aligned formations. D7 uses one shared 96/48-chunk
+placement grid for three mutually exclusive archaeology families; its seven tomb portals use
+corridor-closing masonry bays scaled to their two-by-three doors.
 **Scope revision, 2026-09-05:** `LIVINGROCK_LIBRARY.md` supersedes the original material count,
 palette, acquisition and output paths below: **24 seven-form Livingrock families, six mana-glasses
 and slag (175 blocks)**. Nineteen families are non-volcanic. The broader cave and archaeology

@@ -17,6 +17,18 @@ owns the blooms and crystals) and `SPAWN_HUB.md` (which owns the surface centrep
 features, like deep quarries that are filled with all kinds of ores or buried ancient tombs of
 the elder kings of old. Things worth finding in the deep."*
 
+## 2026-09-07 archaeology placement and tomb-scale repair
+
+Quarries, Elder Kings' Tombs and Faultworks now share one `deepworks_archaeology` random-spread
+structure set at spacing 96/separation 48 chunks. A placement cell can select exactly one of the
+three equally weighted families, so their roughly 207-block assemblies cannot independently
+claim overlapping local spawn zones. The three former structure sets are removed.
+
+All seven authored grave portals now close a nine-wide, eight-high corridor section with Ivory
+Livingrock masonry and Moonstone carved trim around the intended two-wide, three-high Elder Grave
+Door. This directly repairs the screenshot evidence of a tiny door floating in an oversized arch.
+Generation and decoded-NBT checks pass; natural placement and client visual review remain pending.
+
 ---
 
 ## 1. The gap this closes

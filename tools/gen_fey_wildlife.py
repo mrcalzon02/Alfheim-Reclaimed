@@ -188,10 +188,12 @@ def main():
         ('drowned_maw',['mythicbotany:alfheim_lakes','alfheim:alfheim_ocean','alfheim:mana_fen'],1,1.1,.85,36,6)]:
         add(name,'sea',sea(name),biomes,weight,width,height,hp,.22,damage=damage)
     for name,mat,biomes,hp,damage in [
-        ('wild_elf',12,['alfheim:ashen_grove','alfheim:silverbark_wood','alfheim:sundered_highlands'],20,3),
+        ('wild_elf',12,['alfheim:ashen_grove','alfheim:silverbark_wood','alfheim:sundered_highlands',
+                        'mythicbotany:dreamwood_forest'],20,3),
         ('savage_elf',13,['alfheim:infested_warren','alfheim:decayed_mire','alfheim:hollow_marches'],28,5),
         ('demonic_elf',14,['alfheim:scorchfell','alfheim:void_verge','alfheim:starved_reach'],36,7)]:
-        add(name,'elf',elf(mat),biomes,5,.65,1.9,hp,.30 if name=='wild_elf' else .24,damage=damage)
+        add(name,'elf',elf(mat),biomes,12 if name=='wild_elf' else 5,.65,1.9,hp,
+            .30 if name=='wild_elf' else .24,damage=damage)
     write(Path('kubejs/fey_roster.json'),ROSTER)
     write(Path('tools/fey_manifest.json'),ROSTER)
     lang_path=ASSETS/'lang/en_us.json'

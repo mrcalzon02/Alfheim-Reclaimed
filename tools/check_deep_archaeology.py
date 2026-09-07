@@ -24,7 +24,17 @@ def main():
     funerary = read(os.path.join(ROOT, "tools", "funerary_set_manifest.json"))
     registry.update(block["id"] for block in funerary["blocks"])
     registry.update({"minecraft:air", "minecraft:cave_air", "minecraft:water", "minecraft:lava"})
-    salts = set()
+    shared_set = read(os.path.join(DATA, "worldgen", "structure_set", "deepworks_archaeology.json"))
+    assert shared_set["structures"] == [
+        {"structure": f"alfheim:{family['id']}", "weight": 1}
+        for family in manifest["families"]
+    ]
+    placement = shared_set["placement"]
+    assert placement["type"] == "minecraft:random_spread"
+    assert placement["spacing"] >= 96 and placement["separation"] >= 48
+    assert placement["spacing"] > placement["separation"]
+    assert [placement["spacing"], placement["separation"]] == [
+        manifest["placement"]["spacing"], manifest["placement"]["separation"]]
     total_blocks = 0
     for family in manifest["families"]:
         fid = family["id"]
@@ -37,12 +47,8 @@ def main():
         provider = structure["start_height"]
         assert provider["type"] == "minecraft:uniform", fid
         assert [provider["min_inclusive"]["absolute"], provider["max_inclusive"]["absolute"]] == family["depth"], fid
-        struct_set = read(os.path.join(DATA, "worldgen", "structure_set", fid + ".json"))
-        placement = struct_set["placement"]
-        assert placement["type"] == "minecraft:random_spread", fid
-        assert placement["spacing"] > placement["separation"] >= 1, fid
-        assert placement["salt"] not in salts, fid
-        salts.add(placement["salt"])
+        assert not os.path.exists(os.path.join(DATA, "worldgen", "structure_set", fid + ".json")), \
+            f"{fid}: independent structure set would defeat mutual exclusion"
         footprint = family["pieces"]["centre"][0] + 2 * family["pieces"]["approach"][2] + 2 * family["pieces"]["wing"][2]
         assert footprint >= 190, f"{fid}: not a gigantic complex ({footprint})"
         for role, expected_size in family["pieces"].items():
@@ -83,6 +89,32 @@ def main():
         tomb_names |= {entry["Name"] for entry in piece["palette"]}
     assert {block["id"] for block in funerary["blocks"]} <= tomb_names
 
+    door_parts = 0
+    framed_doors = 0
+    for role in manifest["families"][1]["pieces"]:
+        _, piece = nbt.load(os.path.join(DATA, "structures", "deepworks_archaeology",
+                                         "elder_kings_tomb", role + ".nbt"))
+        palette = piece["palette"]
+        states = {tuple(int(v) for v in block["pos"]): palette[int(block["state"])]
+                  for block in piece["blocks"]}
+        door_parts += sum(1 for state in states.values()
+                          if state["Name"].startswith("alfheim:elder_grave_door_"))
+        for (x, y, z), state in states.items():
+            if state["Name"] != "alfheim:elder_grave_door_left_base":
+                continue
+            facing = state["Properties"]["facing"]
+            dx, dz = {"north": (1, 0), "south": (-1, 0),
+                      "east": (0, 1), "west": (0, -1)}[facing]
+            for side in range(-1, 3):
+                assert states[(x + dx * side, y + 3, z + dz * side)]["Name"] == \
+                    "alfheim:moonstone_livingrock_carved"
+            for side in (-1, 2):
+                for dy in range(3):
+                    assert states[(x + dx * side, y + dy, z + dz * side)]["Name"] == \
+                        "alfheim:moonstone_livingrock_carved"
+            framed_doors += 1
+    assert door_parts == 42 and framed_doors == 7, (door_parts, framed_doors)
+
     fault_names = set()
     for role in manifest["families"][2]["pieces"]:
         _, piece = nbt.load(os.path.join(DATA, "structures", "deepworks_archaeology", "faultwork", role + ".nbt"))
@@ -97,7 +129,9 @@ def main():
     assert set(ignored) == {"alfheim:deep_quarry", "alfheim:elder_kings_tomb", "alfheim:faultwork"}
     subprocess.run([sys.executable, "-B", os.path.join(ROOT, "tools", "gen_deep_archaeology.py"), "--check"],
                    cwd=ROOT, check=True)
-    print(f"PASS: 3 underground families, three 9-piece ~200-block complexes, {total_blocks} source template blocks; random depth bands; no authored mobs; generator closed")
+    print(f"PASS: 3 mutually-exclusive underground families on one 96/48 grid; "
+          f"three 9-piece ~200-block complexes, {total_blocks} source template blocks; "
+          "7 scaled grave-door bays; random depth bands; no authored mobs; generator closed")
 
 
 if __name__ == "__main__":

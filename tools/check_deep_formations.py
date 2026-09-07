@@ -31,6 +31,9 @@ def main():
     alignments = manifest["alignments"]
     assert len(alignments) == 6
     assert {a["element"] for a in alignments} == {"fire", "water", "earth", "air", "shadow", "light"}
+    terraces = manifest["formations"]["slag_terraces"]
+    assert max(terraces["radius"]) + terraces["lava_spread"] <= 15, \
+        "slag terrace patch plus random offset can write beyond the neighboring chunk"
 
     objects = {name.replace("\\", "/"): json.loads(body)
                for name, body in expected.items() if name.endswith(".json")}

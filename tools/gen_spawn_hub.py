@@ -7,13 +7,14 @@ will take many passes to get right. A parametric build means pass 2 is an edit t
 a re-run; a hand-placed one would mean rebuilding. That is the whole reason this file exists in
 this shape.
 
-Four pieces, all inside the 48x48x48 structure-block save limit, assembled vertically with
-jigsaws because a 186-block tree cannot be one structure:
+Seven pieces, all inside the 48x48x48 structure-block save limit. The tree is assembled
+vertically and the civic wings are placed on one fixed origin grid:
 
     greatbole/base    48x48x48   roots, trunk foot, the gate chamber, the court socket
     greatbole/trunk   32x48x32   stackable, rollable so segments do not look extruded
     greatbole/crown   48x40x48   canopy
     court/amphitheatre 48x12x48  marble tiers around a sunken stage
+    court/*             3x 48x16x48  residences, service halls and council terrace
 
 The structure NBT format was read off MythicBotany's shipping house.nbt rather than assumed:
 size / entities / blocks / palette / DataVersion, blocks as {pos:[x,y,z], state:int}, and
@@ -51,7 +52,7 @@ HOME = 'mythicbotany:alfheim'
 #   +  48   half the base piece, so the claim reaches the far side of the trunk
 #   +  32   the amphitheatre apron beyond it
 #   = 592, rounded up for a stable chunk boundary
-HUB_RADIUS = 640
+HUB_RADIUS = 128
 
 # Every biome in the Alfheim layer, ours and MythicBotany's, read off
 # kubejs/data/mythicbotany/libx/biome_layer/alfheim.json. Listed rather than globbed because
@@ -73,10 +74,10 @@ BASE = 48
 TRUNK_W, TRUNK_H = 32, 24
 CROWN_W, CROWN_H = 48, 40
 AMPH_W, AMPH_H = 48, 12
-# Sink the root plate eight blocks into the sampled terrain.  The gate/court floor
+# Sink the root plate twenty blocks into the sampled terrain.  The gate/court floor
 # is raised by the same amount inside the base piece, so the playable route remains
 # on the heightmap while roots and masonry have real buried support below it.
-ROOT_EMBED = 8
+ROOT_EMBED = 20
 
 # ONE trunk segment, and the tree is 120 blocks rather than 184.
 #
@@ -121,10 +122,10 @@ GATE_W, GATE_H = 8, 10         # the sealed_gate face itself
 CH_HALF, CH_TOP, CH_BACK = 6, 13, 22   # chamber half-width, ceiling, and depth into the trunk
 
 # --- palettes -------------------------------------------------------------------------------
-OAK_LOG_Y = ('minecraft:oak_log', {'axis': 'y'})
-OAK_WOOD = ('minecraft:oak_wood', {'axis': 'y'})
+ELDER_BARK = (f'{NS}:gloambark_log', None)
+ELDER_HEARTWOOD = (f'{NS}:hushbark_log', None)
 AIR = ('minecraft:air', None)
-LEAVES = ('minecraft:oak_leaves', {'distance': '7', 'persistent': 'true', 'waterlogged': 'false'})
+LEAVES = (f'{NS}:gloambark_leaves', None)
 
 # Marble stand-ins. There is no marble block in the load path -- Conquest Reforged is
 # quarantined and Quark is absent -- so calcite and the quartz family carry it. SPAWN_HUB.md §3.
@@ -175,8 +176,15 @@ def radius_at(y, h, r0, r1):
     return r
 
 
+def box(p, x0, y0, z0, x1, y1, z1, block):
+    for x in range(x0, x1 + 1):
+        for y in range(y0, y1 + 1):
+            for z in range(z0, z1 + 1):
+                p.set(x, y, z, block)
+
+
 def trunk_column(p, cx, cz, h, r0, r1, rng, roots=False):
-    """Fill the trunk mass. Surface is oak_log, interior oak_wood -- the bark reads better on
+    """Fill the trunk mass. Gloambark wraps a Hushbark heartwood core -- the bark reads on
     the outside and the interior is never seen except where the chamber cuts it open."""
     for y in range(h):
         r = radius_at(y, h, r0, r1)
@@ -193,7 +201,28 @@ def trunk_column(p, cx, cz, h, r0, r1, rng, roots=False):
                 # A little noise on the surface so the trunk is not a cylinder.
                 rr += (rng.random() - 0.5) * 0.7
                 if d <= rr:
-                    p.set(x, y, z, OAK_LOG_Y if d > rr - 1.6 else OAK_WOOD)
+                    p.set(x, y, z, ELDER_BARK if d > rr - 1.6 else ELDER_HEARTWOOD)
+
+
+def major_roots(p, cx, cz, rng):
+    """Eight long, descending root buttresses that visibly enter the surrounding terrain."""
+    for k in range(8):
+        angle = k * math.tau / 8.0 + rng.uniform(-0.10, 0.10)
+        for distance in range(8, 31):
+            x = int(round(cx + math.cos(angle) * distance))
+            z = int(round(cz + math.sin(angle) * distance))
+            if not (1 <= x < p.size[0] - 1 and 1 <= z < p.size[2] - 1):
+                continue
+            y = max(1, ROOT_EMBED + 7 - int((distance - 8) * 0.58))
+            radius = 3 if distance < 15 else (2 if distance < 23 else 1)
+            for ox in range(-radius, radius + 1):
+                for oz in range(-radius, radius + 1):
+                    if ox * ox + oz * oz > radius * radius + 1:
+                        continue
+                    for oy in range(-1, 2):
+                        xx, yy, zz = x + ox, y + oy, z + oz
+                        if 0 <= xx < p.size[0] and 0 <= yy < p.size[1] and 0 <= zz < p.size[2]:
+                            p.set(xx, yy, zz, ELDER_BARK if abs(oy) == 1 else ELDER_HEARTWOOD)
 
 
 def carve_gate_chamber(p, cx, cz, ground=ROOT_EMBED):
@@ -285,6 +314,7 @@ def build_base(rng):
     p = Piece(BASE, BASE, BASE)
     c = BASE // 2
     trunk_column(p, c, c, BASE, R_ROOT, R_BASE_TOP, rng, roots=True)
+    major_roots(p, c, c, rng)
     carve_gate_chamber(p, c, c)
     p.entities.append(hub_anchor(c))
 
@@ -342,7 +372,7 @@ def build_crown(rng):
             by = CROWN_H // 2 - 4 + t * 0.45
             for ox in (-1, 0, 1):
                 for oz in (-1, 0, 1):
-                    p.set(int(bx) + ox, int(by), int(bz) + oz, OAK_WOOD)
+                    p.set(int(bx) + ox, int(by), int(bz) + oz, ELDER_HEARTWOOD)
 
     # Canopy: an ellipsoid shell, thinned at random so it is not a solid dome. Dead patches are
     # simply omitted -- the crown is meant to read as half-gone.
@@ -550,12 +580,10 @@ def build_amphitheatre(rng):
                 p.set(x, y, z, blk)
 
     # A broad processional aisle enters from the Greatbole connector at the south
-    # edge and descends one deliberate step at a time to the stage.  This is carved
+    # edge on the same elevation as the Greatbole gate. This is carved
     # after the seating so the route cannot be closed by a surviving tier.
     for z in range(c + int(stage_r) - 1, AMPH_W):
-        d = max(stage_r, z - c)
-        tier = max(0, int((d - stage_r) / 3.5))
-        walk_y = ground - 1 + tier
+        walk_y = ground - 1
         for x in range(c - 3, c + 4):
             for y in range(walk_y + 1, AMPH_H):
                 p.set(x, y, z, AIR)
@@ -594,6 +622,69 @@ def build_amphitheatre(rng):
     return p
 
 
+def build_royal_annex(rng, role):
+    """One 48-block civic wing of the ruined palace surrounding the Hollow Court."""
+    p = Piece(48, 16, 48)
+    c = 24
+    floor_y = 3
+    # Buried subfloor plus rising terraces: these give slopes a retaining wall instead of a
+    # floating platform and make the complex read as a palace built into the Greatbole mound.
+    for x in range(48):
+        for z in range(48):
+            tier = 0
+            if role == 'north_council':
+                tier = min(3, max(0, (38 - z) // 9))
+            else:
+                tier = min(2, abs(x - c) // 10)
+            top = floor_y + tier
+            if rng.random() < 0.07 and (x < 5 or x > 42 or z < 5 or z > 42):
+                continue
+            for y in range(0, top + 1):
+                p.set(x, y, z, rng.choice(MARBLE_RUINED) if y < top else
+                      (ELVEN_MARBLE if (x + z) % 11 == 0 else rng.choice(MARBLE)))
+
+    # A broad ceremonial spine aligns every wing with the central court.
+    if role == 'north_council':
+        box(p, c - 4, floor_y, 0, c + 4, floor_y + 3, 47, ELVEN_MARBLE)
+        box(p, 7, floor_y + 4, 5, 40, floor_y + 4, 18, ELVEN_MARBLE)
+        box(p, 11, floor_y + 5, 7, 36, floor_y + 8, 16, AIR)
+    else:
+        box(p, 0, floor_y, c - 4, 47, floor_y + 1, c + 4, ELVEN_MARBLE)
+
+    # Ruined galleries and inhabited/service chambers flank the route.
+    for x0, z0, x1, z1 in ((5, 6, 18, 19), (29, 6, 42, 19),
+                           (5, 29, 18, 42), (29, 29, 42, 42)):
+        box(p, x0, floor_y + 1, z0, x1, floor_y + 1, z1, rng.choice(MARBLE))
+        for x, z in ((x0, z0), (x1, z0), (x0, z1), (x1, z1)):
+            height = rng.choice((4, 5, 7))
+            for dy in range(height):
+                p.set(x, floor_y + 2 + dy, z, COLUMN)
+            if height >= 5:
+                p.set(x, floor_y + 2 + height, z, CAPITAL)
+
+    # Greatbole roots cross the inner palace edges and visibly bind tree and masonry.
+    root_edge = 47 if role == 'north_council' else (47 if role == 'west_residence' else 0)
+    for offset in (-13, 12):
+        for step in range(15):
+            if role == 'north_council':
+                x, z = c + offset // 3, root_edge - step
+            else:
+                x, z = root_edge - step if role == 'west_residence' else root_edge + step, c + offset
+            y = floor_y + max(0, 3 - step // 4)
+            for w in (-1, 0, 1):
+                xx, zz = (x + w, z) if role == 'north_council' else (x, z + w)
+                p.set(xx, y, zz, ELDER_HEARTWOOD)
+
+    # Intentional decay reads better than perfect symmetry.
+    for _ in range(120):
+        x, z = rng.randrange(3, 45), rng.randrange(3, 45)
+        if rng.random() < 0.55:
+            p.set(x, floor_y + 1, z, rng.choice(RUBBLE))
+        else:
+            p.set(x, floor_y + 1, z, MOSS_CARPET)
+    return p
+
+
 # --- jigsaw wiring ---------------------------------------------------------------------------
 def pool(name, elements, fallback='minecraft:empty'):
     return {'name': f'{NS}:{name}', 'fallback': fallback,
@@ -624,6 +715,9 @@ def main():
         'greatbole/trunk': build_trunk(rng),
         'greatbole/crown': build_crown(rng),
         'court/amphitheatre': build_amphitheatre(rng),
+        'court/west_residence': build_royal_annex(rng, 'west_residence'),
+        'court/east_service': build_royal_annex(rng, 'east_service'),
+        'court/north_council': build_royal_annex(rng, 'north_council'),
     }
 
     for name, p in pieces.items():
@@ -697,106 +791,10 @@ def main():
 
 
 def protection_script():
-    """Generate both required protection layers for the persistent spawn hub.
-
-    FTB Chunks 2001.3.6 is installed. Its admin `claim_as` command accepts a server team, a
-    radius in blocks and an anchor column, so the generated script reconciles an `alfheim_hub`
-    server-team claim over the same 192-block relocation envelope used by the KubeJS guards.
-    The claim is additive: the KubeJS layer remains responsible for hostile spawns, explosions,
-    mechanisms and explicit non-op break/place enforcement.
-
-    Command return values are logged as reconciliation evidence but are not claim-ownership
-    read-back: zero can mean "already claimed" or "could not claim". Runtime acceptance remains
-    failed until an ordinary player and FTB Chunks read-back prove ownership and persistence.
-    """
-    return f'''// Alfheim Reclaimed — the protected spawn hub
-//
-// GENERATED by tools/gen_spawn_hub.py — do not hand-edit.
-// Design: alfheim_reclaimed_design/SPAWN_HUB_PROTECTION.md.
-//
-// The hub is a persistent campaign location. Two independent layers are intentional:
-// FTB Chunks supplies visible server-team ownership; KubeJS suppresses hazards and provides
-// an explicit non-op edit backstop even if claim state is ever lost or stale.
-
-const HUB_DIMENSION = '{HOME}'
-const HUB_X = 0
-const HUB_Z = 0
-const HUB_RADIUS = {HUB_RADIUS}
-const HUB_FTB_TEAM = 'alfheim_hub'
-const PROTECT_FROM_PLAYERS = true
-
-function inHub(level, x, z) {{
-    if (!level) return false
-    try {{
-        if (String(level.dimension) !== HUB_DIMENSION) return false
-    }} catch (e) {{
-        return false
-    }}
-    return Math.abs(x - HUB_X) <= HUB_RADIUS && Math.abs(z - HUB_Z) <= HUB_RADIUS
-}}
-
-function rejectHubEdit(event) {{
-    if (!inHub(event.level, event.block.x, event.block.z)) return
-    const p = event.player
-    if (!p) {{ event.cancel(); return }}
-    if (PROTECT_FROM_PLAYERS && !p.op) {{
-        event.cancel()
-        p.tell('The court is under the protection of the Royal Elven Guard.')
-    }}
-}}
-
-const armed = []
-
-// ---------------------------------------------------------------- no hostile spawns
-try {{
-    EntityEvents.checkSpawn(event => {{
-        const e = event.entity
-        if (!e || !inHub(e.level, e.x, e.z)) return
-        if (e.type === 'richs_races_wood_elves:wood_elf') return
-        if (e.living && e.monster) event.cancel()
-    }})
-    armed.push('no-hostile-spawns')
-}} catch (e) {{
-    console.warn('[Alfheim Reclaimed] hub: could not arm spawn suppression: ' + e)
-}}
-
-// ---------------------------------------------------------------- no blast damage
-try {{
-    LevelEvents.beforeExplosion(event => {{
-        if (inHub(event.level, event.x, event.z)) event.cancel()
-    }})
-    armed.push('no-explosions')
-}} catch (e) {{
-    console.warn('[Alfheim Reclaimed] hub: could not arm explosion protection: ' + e)
-}}
-
-// ---------------------------------------------------------------- no block breaking
-try {{
-    BlockEvents.broken(rejectHubEdit)
-    armed.push('break-locked-to-ops')
-}} catch (e) {{
-    console.warn('[Alfheim Reclaimed] hub: could not arm block-break protection: ' + e)
-}}
-
-// ---------------------------------------------------------------- no block placement
-try {{
-    BlockEvents.placed(rejectHubEdit)
-    armed.push('place-locked-to-ops')
-}} catch (e) {{
-    console.warn('[Alfheim Reclaimed] hub: could not arm block-place protection: ' + e)
-}}
-
-ServerEvents.loaded(event => {{
-    const teamCreate = event.server.runCommandSilent(`ftbteams server create ${{HUB_FTB_TEAM}}`)
-    const claimChanged = event.server.runCommandSilent(
-        `execute in ${{HUB_DIMENSION}} run ftbchunks admin claim_as ${{HUB_FTB_TEAM}} ` +
-        `${{HUB_RADIUS}} ${{HUB_X}} ${{HUB_Z}}`
-    )
-    console.info(`[Alfheim Reclaimed] spawn hub protection armed: ${{armed.join(', ')}}; ` +
-                 `FTB team-create result=${{teamCreate}}, newly-claimed chunks=${{claimChanged}}. ` +
-                 `Claim ownership still requires FTB read-back before runtime acceptance.`)
-}})
-'''
+    """Render the checked-in API implementation; the generator owns only stable constants."""
+    template = os.path.join('tools', 'templates', 'spawn_hub_protection.js')
+    text = open(template, encoding='utf-8').read()
+    return text.replace('__HOME_DIMENSION__', HOME).replace('__HUB_RADIUS__', str(HUB_RADIUS))
 
 
 if __name__ == '__main__':

@@ -1,8 +1,8 @@
-"""Extend installed natural zombie spawns to all 16 Alfheim and 146 Midgard biomes.
+"""Extend compatible natural zombie spawns to Alfheim and Midgard biomes.
 
 Read-only jar inspection. Original modifiers remain authoritative for weights and group sizes.
-Infectious already uses forge:any for most entries, but hardcodes Overworld in Java.
-The generated placement additions retain mutation thresholds and enable switches.
+Infectious hardcodes Level.OVERWORLD in Java, so its biome modifiers are overridden to the
+Overworld tag instead of leaving impossible entries in Alfheim's monster selection tables.
 """
 import glob
 import json
@@ -32,6 +32,7 @@ def main():
     audit=[]
     extended=[]
     infectious=[]
+    infectious_overrides=[]
     for pattern in ['*EggsZombies*','*Infectious*']:
         jar=glob.glob('mods/'+pattern)[0]
         with zipfile.ZipFile(jar) as z:
@@ -47,8 +48,13 @@ def main():
                     continue
                 assert all(s['type'] in registry for s in spawns), n
                 selector=d['biomes']
+                is_infectious = pattern == '*Infectious*'
                 already_all=selector=={'type':'forge:any'}
-                if not already_all:
+                if is_infectious:
+                    d['biomes'] = '#minecraft:is_overworld'
+                    write(Path('kubejs')/n,d)
+                    infectious_overrides.append(n)
+                elif not already_all:
                     original=selector if isinstance(selector,list) else [selector]
                     assert all(isinstance(v,str) for v in original), n
                     tag='zombie_habitats/'+n.split('/')[1]+'_'+Path(n).stem
@@ -113,9 +119,11 @@ def main():
     write(Path('kubejs/zombie_spawn_gates.json'),gates)
     write(Path('tools/zombie_habitat_manifest.json'),dict(biomes=sorted(biomes),
         natural=audit,variants=variants,extended_modifiers=extended,placement_gates=gates,
+        infectious_overrides=infectious_overrides,
         excluded=['infectious:lootdrop','infectious:mutation_trigger']))
     print(f'{len(biomes)} biomes; {len(audit)} natural zombie entries; {len(variants)} variants; '
-          f'{len(extended)} habitat extensions; {len(gates)} Infectious placement adaptations')
+          f'{len(extended)} habitat extensions; {len(infectious_overrides)} invalid Infectious '
+          f'non-Overworld pointers removed; {len(gates)} Infectious gate records')
 
 
 if __name__=='__main__':

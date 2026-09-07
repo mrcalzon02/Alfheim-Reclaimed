@@ -4,6 +4,28 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.21.0-design — 2026-09-07 — spawn, Deep archaeology, wildlife and Hills repair
+
+Recomposed the Greatbole and Hollow Court as one deterministic origin complex. The generated
+seven-piece build now uses custom Gloambark/Hushbark materials, eight descending root buttresses,
+a 20-block terrain embed, a level interior-to-Court processional route, and west residence, east
+service and north council ruins. Spawn protection now generates the read-back FTB API claim pattern
+proven in Infinite Domain instead of the obsolete command-only path.
+
+Fresh disposable world `validation-field-repair-0907d` runtime-proved all seven direct placements,
+one baked base marker, one crown marker, eight seated Court elves, and FTB ownership of all 289
+protected chunks. Independent owner readbacks at the centre and four corners returned
+`alfheim_hub`; KubeJS loaded 19/19 startup and 26/26 server scripts with zero script errors or
+warnings.
+
+Moved all three ~207-block Deep archaeology families onto one mutually exclusive 96/48 structure
+grid and rebuilt all seven tomb door sites with corridor-scale masonry frames. Reduced Slag Terrace
+maximum reach from 25 to 15 blocks, addressing all 241 far-chunk worldgen errors in the fresh log.
+Constrained 99 Infectious modifiers to their code-supported Overworld dimension, added Dreamwood
+Forest to Wild Elf habitat at weight 12, and added a Hills-only density plateau transition at
+Y=191–194. Dedicated generator/static checks pass. Broad Deep exploration, natural archaeology and
+wildlife observation, Hills profile inspection, and client visual acceptance remain open.
+
 ## 0.20.0-design — 2026-09-07 — Deepworks environmental formations
 
 Implemented `DEEPWORKS.md` Section 8 as four cave-anchored worldgen systems. Six elemental variants

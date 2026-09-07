@@ -438,6 +438,35 @@ VOID_TERRAIN_MAX = -0.86
 VOID_ISLAND_LOW = (20, 50)
 VOID_ISLAND_HIGH = (110, 150)
 
+# Alfheim Hills owns the remainder of the high-continentalness climate after three explicit
+# claims are removed: Starved Reach (cold), Sundered Highlands (positive weirdness), and Hollow
+# Marches (dry). Repeating those exact boundaries here gives the terrain router the same
+# selection signal even though density functions cannot query the chosen biome directly.
+HILLS_SURFACE_BAND = (191, 194)
+
+
+def hills_plateau_density(normal):
+    plateau = {
+        'type': 'minecraft:range_choice', 'input': 'minecraft:y',
+        'min_inclusive': 128, 'max_exclusive': 256,
+        'when_in_range': {
+            'type': 'minecraft:y_clamped_gradient',
+            'from_y': HILLS_SURFACE_BAND[0], 'to_y': HILLS_SURFACE_BAND[1],
+            'from_value': 1.0, 'to_value': -1.0,
+        },
+        'when_out_of_range': normal,
+    }
+
+    def choose_signal(signal, low, high, yes, no):
+        return {'type': 'minecraft:range_choice', 'input': signal,
+                'min_inclusive': low, 'max_exclusive': high,
+                'when_in_range': yes, 'when_out_of_range': no}
+
+    hills = choose_signal('mythicbotany:alfheim_humidity', -0.3, 100, plateau, normal)
+    hills = choose_signal('mythicbotany:alfheim_weirdness', -100, 0.3, hills, normal)
+    hills = choose_signal('mythicbotany:alfheim_temperature', -0.45, 100, hills, normal)
+    return choose_signal('mythicbotany:alfheim_continentalness', 0.4, 100, hills, normal)
+
 
 def void_final_density(include_deepworks=True):
     from gen_void_worldgen import density
@@ -446,6 +475,7 @@ def void_final_density(include_deepworks=True):
     if include_deepworks:
         from gen_deep_terrain import wrap_density
         normal=wrap_density(normal)
+    normal = hills_plateau_density(normal)
     return density(normal, base_normal)
 
 

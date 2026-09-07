@@ -375,13 +375,13 @@ DEFAULT_COMMANDS = [
     # `/locate structure` is no longer meaningful. Count its three independent runtime proofs:
     # exactly one baked base anchor, exactly one crown marker and eight seated court elves.
     (5, 'execute in mythicbotany:alfheim store result score #hub_anchor_count alfheim.hub '
-        'if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]'),
+        'run execute if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]'),
     (1, 'scoreboard players get #hub_anchor_count alfheim.hub'),
     (1, 'execute in mythicbotany:alfheim store result score #hub_crown_count alfheim.hub '
-        'if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]'),
+        'run execute if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]'),
     (1, 'scoreboard players get #hub_crown_count alfheim.hub'),
     (1, 'execute in mythicbotany:alfheim store result score #hub_court_count alfheim.hub '
-        'if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
+        'run execute if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
     (1, 'scoreboard players get #hub_court_count alfheim.hub'),
     (5, 'execute in mythicbotany:alfheim run data get entity '
         '@e[type=minecraft:marker,tag=alfheim_crown_probe,limit=1] Pos'),
@@ -400,15 +400,15 @@ DEFAULT_COMMANDS = [
     (5, 'execute in mythicbotany:alfheim run forceload query'),
 
     # FTB Chunks claim acceptance needs ownership read-back, not the return value from
-    # `claim_as`. FTB Chunks `info` reports the owning team for the addressed chunk to an
-    # operator/console source. Probe the centre and all four corners of the 640-block square
+    # `claim`. FTB Chunks `info` reports the owning team for the addressed chunk to an
+    # operator/console source. Probe the centre and all four corners of the 128-block square
     # that 04_spawn_hub.js reconciles so the next headless run records whether the whole
     # placement envelope belongs to the `alfheim_hub` server team.
     (2, 'ftbchunks info 0 0 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 640 640 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -640 640 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 640 -640 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -640 -640 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 128 128 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -128 128 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 128 -128 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -128 -128 mythicbotany:alfheim'),
 
     (60, 'save-all flush'),
     (20, 'stop'),
@@ -424,15 +424,23 @@ HUB_ONLY_COMMANDS = [
     (1, 'scoreboard players get #trunk_result alfheim.hub'),
     (1, 'scoreboard players get #crown_result alfheim.hub'),
     (1, 'scoreboard players get #court_result alfheim.hub'),
+    (1, 'scoreboard players get #west_result alfheim.hub'),
+    (1, 'scoreboard players get #east_result alfheim.hub'),
+    (1, 'scoreboard players get #north_result alfheim.hub'),
     (5, 'execute in mythicbotany:alfheim store result score #hub_anchor_count alfheim.hub '
-        'if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]'),
+        'run execute if entity @e[type=minecraft:marker,tag=alfheim_hub_baked]'),
     (1, 'scoreboard players get #hub_anchor_count alfheim.hub'),
     (1, 'execute in mythicbotany:alfheim store result score #hub_crown_count alfheim.hub '
-        'if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]'),
+        'run execute if entity @e[type=minecraft:marker,tag=alfheim_crown_probe]'),
     (1, 'scoreboard players get #hub_crown_count alfheim.hub'),
     (1, 'execute in mythicbotany:alfheim store result score #hub_court_count alfheim.hub '
-        'if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
+        'run execute if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
     (1, 'scoreboard players get #hub_court_count alfheim.hub'),
+    (2, 'ftbchunks info 0 0 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 128 128 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -128 128 mythicbotany:alfheim'),
+    (2, 'ftbchunks info 128 -128 mythicbotany:alfheim'),
+    (2, 'ftbchunks info -128 -128 mythicbotany:alfheim'),
     (5, 'save-all flush'),
     (5, 'stop'),
 ]

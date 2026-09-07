@@ -132,6 +132,29 @@ def grave_door(p, x, y, z, facing="north"):
               B(f"alfheim:elder_grave_door_right_{part}", facing=facing))
 
 
+def grave_door_bay(p, x, y, z, facing="north"):
+    """Close a corridor-sized opening around one deliberately human-scale grave door."""
+    side_step = {"north": (1, 0), "south": (-1, 0),
+                 "east": (0, 1), "west": (0, -1)}[facing]
+    wall = B("alfheim:ivory_livingrock_bricks")
+    trim = B("alfheim:moonstone_livingrock_carved")
+    # The authored corridors are nine blocks wide and eight high. Fill that
+    # entire cross-section, leaving only the two-by-three sealed portal.
+    for side in range(-3, 6):
+        for dy in range(8):
+            block = AIR if side in (0, 1) and dy < 3 else wall
+            p.set(x + side_step[0] * side, y + dy,
+                  z + side_step[1] * side, block)
+    for side in (-1, 2):
+        for dy in range(4):
+            p.set(x + side_step[0] * side, y + dy,
+                  z + side_step[1] * side, trim)
+    for side in range(-1, 3):
+        p.set(x + side_step[0] * side, y + 3,
+              z + side_step[1] * side, trim)
+    grave_door(p, x, y, z, facing)
+
+
 def funerary_statue(p, x, y, z, facing="north"):
     """Place a three-block-tall crowned funerary guardian."""
     for dy, part in enumerate(("base", "body", "crown")):
@@ -241,10 +264,10 @@ def tomb_centre(size, seed):
     funerary_tapestry(p, cx, 6, sz - 11, "north")
     p.set(10, 7, 18, B("alfheim:memorial_carving", facing="east"))
     p.set(sx - 11, 7, 28, B("alfheim:memorial_carving", facing="west"))
-    grave_door(p, cx - 1, 3, 5, "south")
-    grave_door(p, cx + 1, 3, sz - 6, "north")
-    grave_door(p, 5, 3, cx + 1, "east")
-    grave_door(p, sx - 6, 3, cx - 1, "west")
+    grave_door_bay(p, cx - 1, 3, 5, "south")
+    grave_door_bay(p, cx + 1, 3, sz - 6, "north")
+    grave_door_bay(p, 5, 3, cx + 1, "east")
+    grave_door_bay(p, sx - 6, 3, cx - 1, "west")
     for x, z in ((8, 20), (18, 8), (29, 37), (38, 25), (7, 35), (35, 7)):
         p.set(x, 3, z, B("alfheim:tomb_debris", facing="north"))
     centre_jigsaws(p, "elder_kings_tomb")
@@ -305,9 +328,9 @@ def tomb_wing(size, seed):
         p.set(x, 7, z, B("alfheim:memorial_carving", facing=facing))
     for x, z, facing in ((8, 9, "south"), (30, 9, "south"), (18, 29, "east")):
         funerary_statue(p, x, 3, z, facing)
-    grave_door(p, 11, 3, 5, "south")
-    grave_door(p, 33, 3, 5, "south")
-    grave_door(p, 22, 3, 25, "south")
+    grave_door_bay(p, 11, 3, 5, "south")
+    grave_door_bay(p, 33, 3, 5, "south")
+    grave_door_bay(p, 22, 3, 25, "south")
     for x, z in ((8, 17), (17, 8), (29, 16), (38, 8), (17, 37), (29, 35),
                  (8, 29), (38, 30), (23, 20), (12, 24)):
         p.set(x, 3, z, B("alfheim:tomb_debris", facing="north"))
@@ -483,13 +506,18 @@ def build_outputs(check=False):
                              "min_inclusive": {"absolute": lo},
                              "max_inclusive": {"absolute": hi}},
             "use_expansion_hack": False, "spawn_overrides": {}}
-        json_out[os.path.join(DATA, "worldgen", "structure_set", fid + ".json")] = {
-            "structures": [{"structure": f"{NS}:{fid}", "weight": 1}],
-            "placement": {"type": "minecraft:random_spread", "spacing": family["spacing"],
-                          "separation": family["separation"], "spread_type": "linear",
-                          "salt": salt_for(fid)}}
         json_out[os.path.join(DATA, "tags", "worldgen", "structure", fid + ".json")] = {
             "replace": False, "values": [f"{NS}:{fid}"]}
+
+    placement = manifest["placement"]
+    json_out[os.path.join(DATA, "worldgen", "structure_set", "deepworks_archaeology.json")] = {
+        "structures": [{"structure": f"{NS}:{family['id']}", "weight": 1}
+                       for family in manifest["families"]],
+        "placement": {"type": "minecraft:random_spread",
+                      "spacing": placement["spacing"],
+                      "separation": placement["separation"],
+                      "spread_type": "linear",
+                      "salt": salt_for("deepworks_archaeology")}}
 
     json_out[os.path.join(DATA, "loot_tables", "chests", "deep_quarry_supplies.json")] = quarry_loot()
     json_out[os.path.join(DATA, "loot_tables", "chests", "elder_kings_relic.json")] = relic_loot()

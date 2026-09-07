@@ -284,9 +284,10 @@
     "biomes": [
       "alfheim:ashen_grove",
       "alfheim:silverbark_wood",
-      "alfheim:sundered_highlands"
+      "alfheim:sundered_highlands",
+      "mythicbotany:dreamwood_forest"
     ],
-    "weight": 5
+    "weight": 12
   },
   {
     "id": "alfheim:savage_elf",

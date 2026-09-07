@@ -1,5 +1,15 @@
 # Backlog
 
+### B-81 — September 7 field repair — **STATIC IMPLEMENTED; FRESH-WORLD ACCEPTANCE PENDING**
+
+The current generator pass addresses the screenshot/log report: exact-origin Greatbole and expanded
+royal complex, API-owned automatic spawn claim, custom Elder-wood roots and shared circulation,
+Hills terrain at Y=191–194, normal Wild Elf habitat, one mutually exclusive Deep archaeology grid,
+scaled tomb-door bays, and bounded Slag Terraces. Dedicated static checks pass. Highest-priority
+remaining gate is one extended fresh-world client run proving no far-chunk errors, exact origin
+geometry/terrain fit, FTB ownership/restart persistence, natural Wild Elves, Hills elevation and
+natural archaeology separation.
+
 ### B-80 — September 5 field-review corrections — **I1 + I10 RUNTIME-PROVEN; I7 DIRECT-ASSEMBLY-PROVEN; I11 LOAD-SMOKE; I2–I5 + I8–I9 STATIC 2026-09-07**
 
 The full ordered plan, screenshot evidence, acceptance gates and running completion record live in

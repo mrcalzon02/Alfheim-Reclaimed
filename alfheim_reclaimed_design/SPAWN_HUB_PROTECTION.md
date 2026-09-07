@@ -4,6 +4,17 @@
 **Status:** `static claim/edit repair implemented; runtime validation pending; fire-spread hook open` 2026-09-05 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub attempts a server-team claim and independently rejects non-op breaking and placement. Post-reconciliation review confirmed that the current shipping script has **no fire-spread handler**, and the installed KubeJS event surface does not expose a cancellable regional fire-spread event. Fire protection therefore remains an open implementation item rather than an accepted capability.
 **Authority:** subordinate to `INSTRUCTIONS.md`; extends `SPAWN_HUB.md`. `SPAWN_HUB.md` §4 was reconciled to the automatic FTB claim flow on 2026-09-05; this file remains the authority for protection acceptance. Where the parent record's summary table conflicts with the implementation-specific state here, this record controls until that row is corrected.
 
+## 2026-09-07 claim implementation reconciliation
+
+The command-only `ftbchunks admin claim_as` path described later in this record is superseded.
+Inspection of the working Infinite Domain implementation established the actual successful
+pattern, now generator-owned in `tools/templates/spawn_hub_protection.js`: resolve or create the
+server team, configure FTB properties, call `ChunkTeamData.claim(..., false)` for every chunk,
+read each claim back by team UUID, `saveNow()`, sync, and retry an incomplete reconciliation.
+The dimension key is `mythicbotany:alfheim`; the deterministic complex and 128-block envelope are
+both centered at X=0/Z=0. Runtime FTB-map ownership and restart persistence still require a fresh
+world and therefore remain unclaimed.
+
 ---
 
 ## 1. The failure

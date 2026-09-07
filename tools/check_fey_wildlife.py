@@ -57,6 +57,13 @@ def check(root: Path = ROOT):
     ids = [entry.get('id') for entry in manifest if isinstance(entry, dict)]
     if len(ids) != len(set(ids)):
         problems.append('duplicate fey entity id in manifest')
+    wild = next((entry for entry in manifest if entry.get('id') == 'alfheim:wild_elf'), None)
+    if wild is None:
+        problems.append('wild elf is missing from the fey roster')
+    elif 'mythicbotany:dreamwood_forest' not in wild.get('biomes', []):
+        problems.append('wild elf does not inhabit the canonical Dreamwood Forest spawn biome')
+    elif wild.get('weight', 0) < 12:
+        problems.append('wild elf weight is below ordinary vanilla-zombie parity')
 
     startup = startup_path.read_text(encoding='utf-8')
     if "JsonIO.readJson('kubejs/fey_roster.json')" not in startup:

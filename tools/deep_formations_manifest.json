@@ -36,9 +36,9 @@
     },
     "slag_terraces": {
       "rarity": 8,
-      "radius": [10, 17],
+      "radius": [8, 11],
       "depth": [1, 3],
-      "lava_spread": 8
+      "lava_spread": 4
     }
   },
   "notes": [

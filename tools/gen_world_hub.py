@@ -28,12 +28,11 @@ Vanilla function files have none of that risk, and they are a better fit for the
 
 THE ANCHOR
 ----------
-Finding a safe X/Z/Y from a command is the hard part. `spreadplayers` cannot hand an unloaded
-non-player destination to a later command, so the hub instead checks a small fixed lattice around
-the origin. It loads one candidate footprint at a time, rejects air and liquids, and uses
-`positioned over world_surface` for Y. The four authored templates are then placed at fixed
-offsets, independent of natural structure-placement rules. The permanent anchor is carried by the
-base template. Nothing parses coordinates out of command text and nothing runs every tick.
+The hub loads one bounded footprint at X=0/Z=0 and uses
+`positioned over motion_blocking_no_leaves` for its shared Y datum. Seven authored templates are
+then placed at fixed offsets, independent of natural structure-placement rules. The permanent
+anchor is carried by the base template. Nothing parses coordinates out of command text and
+nothing runs every tick.
 
     python tools/gen_world_hub.py
 """
@@ -49,18 +48,12 @@ TAGS = os.path.join('kubejs', 'data', 'minecraft', 'tags', 'functions')
 MARKER = 'minecraft:marker'
 TAG = 'alfheim_hub'
 OBJ = 'alfheim.hub'          # scoreboard flag; functions have no persistent storage otherwise
-PLACE_LOAD_X = 32            # temporary loaded rectangle covers the 48-wide tree
-PLACE_LOAD_NORTH = 80        # ...and the court extending 72 blocks north of its centre
+PLACE_LOAD_X = 80            # tree, court, and the east/west royal wings
+PLACE_LOAD_NORTH = 128       # ...plus the northern council terrace
 PLACE_LOAD_SOUTH = 32
-# Deterministic candidate lattice. The axial 192-block probes usually cross one climate band;
-# the diagonals and 384-block ring cover seeds whose origin lies in a broad ocean or Void Verge.
-CANDIDATES = [
-    (0, 0), (192, 0), (-192, 0), (0, 192), (0, -192),
-    (192, 192), (-192, 192), (192, -192), (-192, -192),
-    (384, 0), (-384, 0), (0, 384), (0, -384),
-    (384, 192), (-384, 192), (384, -192), (-384, -192),
-    (192, 384), (-192, 384), (192, -384), (-192, -384),
-]
+# The Greatbole is the world landmark: its axis is always X=0, Z=0. It adapts to the origin's
+# terrain vertically rather than silently relocating to another biome or mountain.
+CANDIDATES = [(0, 0)]
 RETRY_TICKS = 100            # 5s between resolve attempts
 # TWO deadlines, not one. Runtime-proven 2026-09-04: a single 2-minute deadline fired the
 # fallback at 125s and the baked anchor turned up at ~145s, so the world ended up permanently
@@ -93,30 +86,41 @@ FILES = {}
 # ---------------------------------------------------------------------------- assemble
 FILES['assemble'] = header(
     'assemble the Greatbole at the current surface position',
-    'Called only by hub/place after the candidate footprint is loaded and its surface is known '
-    'to be solid. The base is last because its baked anchor is the commit marker.',
+    'Called only by hub/place after the origin footprint is loaded and its terrain height is '
+    'known. The base is last because its baked anchor is the commit marker.',
 ) + [
     f'scoreboard players set #base_result {OBJ} 0',
     f'scoreboard players set #trunk_result {OBJ} 0',
     f'scoreboard players set #crown_result {OBJ} 0',
     f'scoreboard players set #court_result {OBJ} 0',
+    f'scoreboard players set #west_result {OBJ} 0',
+    f'scoreboard players set #east_result {OBJ} 0',
+    f'scoreboard players set #north_result {OBJ} 0',
     f'execute store success score #trunk_result {OBJ} run place template '
-    f'{NS}:greatbole/trunk ~-16 ~40 ~-16 none none 1 0',
+    f'{NS}:greatbole/trunk ~-16 ~28 ~-16 none none 1 0',
     f'execute store success score #crown_result {OBJ} run place template '
-    f'{NS}:greatbole/crown ~-24 ~64 ~-24 none none 1 0',
+    f'{NS}:greatbole/crown ~-24 ~52 ~-24 none none 1 0',
     f'execute store success score #court_result {OBJ} run place template '
     f'{NS}:court/amphitheatre ~-24 ~-3 ~-72 none none 1 0',
+    f'execute store success score #west_result {OBJ} run place template '
+    f'{NS}:court/west_residence ~-72 ~-3 ~-72 none none 1 0',
+    f'execute store success score #east_result {OBJ} run place template '
+    f'{NS}:court/east_service ~24 ~-3 ~-72 none none 1 0',
+    f'execute store success score #north_result {OBJ} run place template '
+    f'{NS}:court/north_council ~-24 ~-3 ~-120 none none 1 0',
     f'execute store success score #base_result {OBJ} run place template '
-    f'{NS}:greatbole/base ~-24 ~-8 ~-24 none none 1 0',
+    f'{NS}:greatbole/base ~-24 ~-20 ~-24 none none 1 0',
     '# /place template deliberately preserves jigsaw blocks; retire the six authored sockets.',
-    'setblock ~ ~39 ~ air',
+    'setblock ~ ~27 ~ air',
     'setblock ~ ~1 ~-24 air',
-    'setblock ~ ~40 ~ air',
-    'setblock ~ ~63 ~ air',
-    'setblock ~ ~64 ~ air',
+    'setblock ~ ~28 ~ air',
+    'setblock ~ ~51 ~ air',
+    'setblock ~ ~52 ~ air',
     'setblock ~ ~1 ~-25 air',
     f'execute if score #base_result {OBJ} matches 1 if score #trunk_result {OBJ} matches 1 '
     f'if score #crown_result {OBJ} matches 1 if score #court_result {OBJ} matches 1 '
+    f'if score #west_result {OBJ} matches 1 if score #east_result {OBJ} matches 1 '
+    f'if score #north_result {OBJ} matches 1 '
     f'run scoreboard players set #place_result {OBJ} 1',
     f'execute if score #place_result {OBJ} matches 0 run kill @e[type={MARKER},tag={BAKED}]',
     f'execute if score #place_result {OBJ} matches 0 run kill '
@@ -127,10 +131,10 @@ FILES['assemble'] = header(
 
 # ---------------------------------------------------------------------------- place
 place_lines = header(
-    'place exactly one Greatbole on safe ground',
-    'Idempotent and bounded. Checks a fixed lattice, loads one footprint at a time and calls '
-    'hub/assemble at the first solid non-liquid WORLD_SURFACE position.',
-    'All four templates must succeed before #place_result becomes 1; no entity is used to carry '
+    'place exactly one Greatbole at the world origin',
+    'Idempotent and bounded. Loads the origin footprint and vertically adapts the complete '
+    'royal complex to MOTION_BLOCKING_NO_LEAVES at X=0, Z=0.',
+    'All seven templates must succeed before #place_result becomes 1; no entity is used to carry '
     'coordinates across unloaded chunks.',
 ) + [
     f'scoreboard players set #already {OBJ} 0',
@@ -152,10 +156,8 @@ for x, z in CANDIDATES:
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
         f'if score #place_result {OBJ} matches 0 run forceload add {x1} {z1} {x2} {z2}',
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
-        f'if score #place_result {OBJ} matches 0 positioned {x} 0 {z} positioned over world_surface '
-        'unless block ~ ~-1 ~ minecraft:air unless block ~ ~-1 ~ minecraft:void_air '
-        'unless block ~ ~-1 ~ minecraft:water unless block ~ ~-1 ~ minecraft:lava '
-        f'run function {NS}:hub/assemble',
+        f'if score #place_result {OBJ} matches 0 positioned {x} 0 {z} '
+        f'positioned over motion_blocking_no_leaves run function {NS}:hub/assemble',
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
         f'if score #place_result {OBJ} matches 0 run forceload remove all',
     ]
@@ -163,9 +165,9 @@ for x, z in CANDIDATES:
 place_lines += [
     '',
     f'execute if score #place_result {OBJ} matches 1 run say [Alfheim] deterministic Greatbole '
-    'template assembly succeeded; verifying its baked anchor.',
+    'and royal complex assembly succeeded at X=0 Z=0; verifying its baked anchor.',
     f'execute if score #place_result {OBJ} matches 0 run say [Alfheim] deterministic Greatbole '
-    f'template assembly found no valid site across {len(CANDIDATES)} bounded candidates; one retry remains.',
+    'template assembly failed at the origin; one retry remains.',
 ]
 FILES['place'] = place_lines
 

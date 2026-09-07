@@ -12,6 +12,26 @@ boundary between the two records. `SPAWN_HUB_PROTECTION.md` owns protection acce
 runtime claim proof.
 **Asked for by the user, 2026-09-03. Runtime refinement added from the user's 2026-09-04 test.**
 
+## 2026-09-07 authoritative repair note
+
+The September 7 screenshots supersede the older oak/relocation assumptions below. The generated
+complex now has one fixed horizontal datum: the Greatbole axis is **X=0, Z=0**, the gate faces
+north into a level processional aisle, the amphitheatre occupies the next 48-block cell, and
+west-residence, east-service and north-council wings complete a 144×120-block royal precinct.
+Placement samples `MOTION_BLOCKING_NO_LEAVES` only for its vertical datum; it does not relocate.
+
+The Greatbole now uses the pack's custom Gloambark/Hushbark/Gloambark-leaf material language,
+not vanilla oak. Its base is sunk 20 blocks and contains eight tapered descending root
+buttresses. Roots continue into the civic wings to bind architecture and tree visually. The
+gate floor and Court aisle share the same world Y, closing the observed circulation mismatch.
+These are statically generated facts; fresh-client terrain fit and walkability remain pending.
+
+Protection is a 128-block square around the origin. The generated script uses the proven FTB
+Teams/Chunks Java API path: create/reuse a server team, configure ownership policy, perform each
+claim with `checkOnly=false`, read every chunk back, persist, sync, and retry partial results.
+The older command-only, 192/640-radius, and relocation descriptions below are historical and no
+longer control implementation.
+
 ---
 
 ## 1. What is being built, and why it is the most important thing in the pack
