@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from gen_alfheim_biomes import void_final_density
+from gen_golden_terraces import strip, terrace_term
 from gen_deep_terrain import wrap_density
 from gen_void_worldgen import density
 
@@ -27,7 +28,12 @@ def main():
             'argument1': 'mythicbotany:alfheim_initial',
             'argument2': 'mythicbotany:alfheim_caves'}
     expected = density(wrap_density(base), base)
-    assert actual == expected, 'ordinary Alfheim density is no longer the continuous upstream terrain'
+    # The Golden Fields terracing is an addend on top of this. Remove it and the assertion below
+    # is the same one it always was -- ordinary Alfheim terrain must still be the continuous
+    # upstream field. strip() returns its input untouched if the addend is not the known terrace
+    # term, so a different wrapper cannot sneak past here.
+    assert actual['argument2'] == terrace_term(), 'unexpected addend on the final density'
+    assert strip(actual) == expected, 'ordinary Alfheim density is no longer the continuous upstream terrain'
     upper_plateaus = [node for node in walk(actual)
                       if node.get('type') == 'minecraft:y_clamped_gradient'
                       and node.get('from_value') == 1.0

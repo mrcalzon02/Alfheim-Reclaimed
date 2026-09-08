@@ -1,5 +1,119 @@
 # Backlog
 
+### B-86 — Golden Fields terracing — **CALIBRATED IN FRESH WORLDS; CLIENT REVIEW PENDING**
+
+Asked 2026-09-08, via a design brief: rework Golden Fields from "a vaguely hilly biome with
+random stamps of wheat smashed into the surface" into terraced, organised fields integrated with
+the terrain, using layered Voronoi/Worley for plot mapping, following the heightmap without
+overwriting world generation.
+
+#### Two premises in the brief did not hold, and both changed the build
+
+1. **There is no Forge mod to write logic in.** `INSTRUCTIONS.md` §7 line 201 — "Java & Gradle |
+   N/A — no source project". No `build.gradle`, no `gradlew`, no `src/`. Everything below is
+   data-driven density functions instead.
+2. **Alfheim does not use TerraBlender.** Its biome source is `libx:layered`; TerraBlender governs
+   Midgard. So "multiply by the TerraBlender biome edge weight" has nothing to read here.
+
+#### And 1.20.1 has neither Voronoi nor floor()
+
+Verified by enumerating every density-function type used across all 35 vanilla density functions
+and noise settings. No `voronoi`, no `worley`, no `cellular`, no `floor`, no modulo.
+
+Two substitutions carry the algorithm across:
+
+- **Quantization without `floor`.** A staircase is a SUM OF UNIT STEPS, and a unit step is one
+  `y_clamped_gradient`. 22 of them cover Y 56..144 at N=4. Subtracting that staircase from `y`
+  gives a sawtooth, and adding a sawtooth to a density that falls with height cancels the fall
+  across a tread, so the iso-surface pins to the tread and drops at the riser.
+- **Voronoi is not needed for the terracing at all.** Quantizing the height field produces
+  contour-following terraces on its own — the plateau boundaries *are* the contours of the base
+  height, which is where terrace walls belong on a hillside. Cell structure is only needed for
+  plot identity in the decoration, and `|ridge|` supplies both a tiling partition and an
+  edge-distance proxy.
+
+#### Measured in a standalone prototype before any datapack edit
+
+420-block cross-section, comparing surface heights column by column:
+
+| | flat-run share | max 1-block rise | columns exactly on a tread |
+|---|---:|---:|---:|
+| control | 75.4% | 1 | 46.0% |
+| terracing at full strength | 94.3% | 4 (= N) | **100.0%** |
+| edge-blend × biome-fade | 82.3% | 4 | 68.1% |
+
+Residues 1, 2 and 3 are eliminated entirely at full strength. Two errors were found and fixed by
+measurement: the riser must span `k..k+1` (at `k-1..k` it terraces just as hard but leaves every
+flat one block below the tread — 73% of columns on the wrong residue), and the sign/phase decides
+whether the surface is pulled onto treads or pushed off them.
+
+#### Shipped assets
+
+| Asset | Role |
+|---|---|
+| `alfheim:fields/terrace_saw` | 22 summed risers + bare `y`; clamped to ±0.5 |
+| `alfheim:fields/plot_edge` | `\|ridge\|` cell proxy, `flat_cache` |
+| `alfheim:fields/terrace_weight` | edge blend × continentalness window × weirdness ramp, all `flat_cache` |
+| `mythicbotany:alfheim_final` | `add(<untouched density>, mul(weight, mul(0.22, saw)))` |
+| `alfheim_surface` rule set | `steep` → retaining wall; plot interior → farmland; verge → path |
+
+The weight is full only inside continentalness 0.19‥0.235 — the lower, flatter part of Golden
+Fields' 0.15‥0.30 band, leaving the higher ground continuous and wild — and is exactly zero at or
+below weirdness 0.03, so it cannot bleed into Dreamwood across the weirdness-0 split.
+
+**A surface rule may test the biome; a density function may not.** A surface rule only chooses
+which block to paint on a column that already exists, so a biome test there costs at worst a
+colour seam. A density branch keyed on biome *moves terrain*, and where the climate threshold and
+LibX's nearest-biome result disagree the result is the sheer wall B-82 had to revert.
+
+#### Guards
+
+`check_golden_terraces.py` asserts six invariants, G1–G6: files match their generator; the
+injection is an `add` whose first argument is the untouched density unchanged; the weight is
+**exactly** 0.0 outside the biome box across a 7,200-sample sweep; the weight never steps by more
+than 0.05 between adjacent samples; the sawtooth stays within ±0.5 across the whole world height
+and peaks on every tread line; and the surface rule is gated to Golden Fields.
+
+Three existing guards navigated `alfheim_final` assuming the void `range_choice` sat at the top.
+Rather than loosen them — they are the ones that caught B-82 — `gen_golden_terraces.strip()` peels
+the addend off and each keeps asserting exactly what it asserted before, now on the base, plus
+that what was stripped is the known terrace term. `check_deep_terrain`'s upstream-surface-rule
+assertion was also made position-independent, because indexing it broke the moment a rule was
+prepended.
+
+#### Measured in fresh worlds — and the ceiling is not the amplitude
+
+`locate` puts Golden Fields ~1,300 blocks from spawn and the spawn area contains none of it, so
+`run_server.py --forceload X Z R` was added to generate a real patch where a probe can read it.
+Three worlds, same seed, same patch:
+
+| | on-tread share | uniform baseline | enrichment |
+|---|---:|---:|---:|
+| N=4, amplitude 0.22 | 42.0% | 25% | 1.7× |
+| N=4, amplitude 0.60 | 49.9% | 25% | 2.0× |
+| N=8, amplitude 0.60 | 36.0% | 12.5% | **2.9×** |
+
+Tripling the amplitude bought eight points. That is a resolution limit, not a tuning problem, and
+the cause is in the noise settings: `size_vertical: 2` means Minecraft samples `final_density` on
+an **8-block-tall grid** and interpolates linearly between samples. A 4-block sawtooth is a
+half-cell signal the interpolator cannot represent, so most of it is averaged away. N=8 matches
+the cell and pins relatively harder, but its absolute flatness is worse and an 8-block riser is
+not a walkable agricultural step, so N=4 is kept at amplitude 0.60.
+
+**The decoration works fully.** Surface samples in the generated patch: 40.6% farmland, 9.5%
+dirt path, 8.2% moonstone retaining-wall brick on `steep` risers, 6.2% coarse dirt, plus wheat
+planting on the flats.
+
+#### Open
+
+The terrain result is a real, measurable softening into broad stepped shelves — **not** the crisp
+geometric terracing of the offline prototype, which had no interpolation grid to fight. Reaching
+that would mean `size_vertical: 1` for the whole dimension: four-block cells, twice the density
+samples per chunk, and a change to every biome's terrain rather than to Golden Fields alone.
+That is a dimension-wide performance and terrain decision and it has not been taken.
+
+Client visual review of the shelved fields, the retaining walls and the plot verges is open.
+
 ### B-85 — biome distribution, and the three thin biomes — **SURVEY-MEASURED; CLIENT REVIEW PENDING**
 
 Asked 2026-09-08: distribute the biomes better so a given seed is likelier to put all of them

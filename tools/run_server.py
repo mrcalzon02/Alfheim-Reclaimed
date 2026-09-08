@@ -306,6 +306,30 @@ def run(seed, level_name, heap, commands, timeout):
     return harness_exit
 
 
+def _forceload_commands(cx, cz, radius):
+    """Generate a square of chunks centred on one point, then save.
+
+    `locate biome` can tell you a biome is 1,289 blocks away, and the spawn area will still not
+    contain a single chunk of it -- which is exactly how the first terrace probe came back with
+    "no golden_fields chunks generated". This drives real generation where the measurement needs
+    it, so a probe reads terrain the game actually built rather than terrain it might build.
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import gen_spawn_hub as hub
+    lo_x, hi_x = cx - radius, cx + radius
+    lo_z, hi_z = cz - radius, cz + radius
+    out = [(90, 'say alfheim probe: startup reached')]
+    step = 128                      # forceload accepts at most 256x256 blocks per call
+    for x in range(lo_x, hi_x, step):
+        for z in range(lo_z, hi_z, step):
+            out.append((6, f'execute in {hub.HOME} run forceload add '
+                           f'{x} {z} {min(x + step - 1, hi_x)} {min(z + step - 1, hi_z)}'))
+    out.append((60, 'save-all flush'))
+    out.append((10, f'execute in {hub.HOME} run forceload remove all'))
+    out.append((10, 'stop'))
+    return out
+
+
 def _claim_probes():
     """`ftbchunks info` at the centre and four corners of the CURRENT claim envelope.
 
@@ -537,6 +561,9 @@ def main():
     ap.add_argument('--run', action='store_true')
     ap.add_argument('--hub-only', action='store_true',
                     help='run the short Great Bole placement proof instead of the full suite')
+    ap.add_argument('--forceload', nargs=3, type=int, metavar=('X', 'Z', 'RADIUS'),
+                    help='generate a square of chunks around X/Z and stop; for probing a biome '
+                         'that locate says is far from spawn')
     ap.add_argument('--survey', action='store_true',
                     help='biome reachability only: locate every biome from several origins')
     ap.add_argument('--pixie-only', action='store_true',
@@ -554,7 +581,8 @@ def main():
     if a.run:
         if a.hub_only and a.pixie_only:
             ap.error('--hub-only and --pixie-only are mutually exclusive')
-        cmds = list(SURVEY_COMMANDS if a.survey else
+        cmds = list(_forceload_commands(*a.forceload) if a.forceload else
+                    SURVEY_COMMANDS if a.survey else
                     PIXIE_ONLY_COMMANDS if a.pixie_only else
                     HUB_ONLY_COMMANDS if a.hub_only else DEFAULT_COMMANDS)
         if a.export:

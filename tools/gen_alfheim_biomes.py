@@ -525,7 +525,7 @@ VOID_TERRAIN_MAX = -0.86
 VOID_ISLAND_LOW = (20, 50)
 VOID_ISLAND_HIGH = (110, 150)
 
-def void_final_density(include_deepworks=True):
+def void_final_density(include_deepworks=True, include_terraces=True):
     from gen_void_worldgen import density
     base_normal = {'type':'minecraft:min','argument1':'mythicbotany:alfheim_initial','argument2':'mythicbotany:alfheim_caves'}
     normal = base_normal
@@ -539,6 +539,17 @@ def void_final_density(include_deepworks=True):
     # Preserve MythicBotany's continuous base density here; Hills identity belongs in
     # surface material, vegetation and later low-amplitude additions that cannot replace
     # an entire column.
+    #
+    # THE GOLDEN FIELDS TERRACING IS ONE SUCH ADDITION, and it is deliberately built to satisfy
+    # that last clause. It is an ADDEND, not a branch: `+ weight * amplitude * saw`. The saw is
+    # clamped to +/-0.5 and the amplitude is a fixed constant, so the disturbance can never
+    # exceed that product anywhere in the world; and the weight is a product of continuous
+    # clamps that reach exactly zero inside Golden Fields' own climate box, so outside the fade
+    # the addend is exactly 0.0 and this function returns bit-identical output to the line above.
+    # check_golden_terraces.py asserts both of those properties rather than trusting them.
+    if include_terraces:
+        from gen_golden_terraces import inject
+        return inject(density(normal, base_normal))
     return density(normal, base_normal)
 
 

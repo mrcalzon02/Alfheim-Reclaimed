@@ -4,6 +4,7 @@ import zipfile
 from pathlib import Path
 from gen_deep_terrain import ROOT, build, config
 from gen_alfheim_biomes import void_final_density
+from gen_golden_terraces import strip
 
 
 def main():
@@ -11,8 +12,9 @@ def main():
     for name,data in output.items():
         assert (ROOT/name).read_bytes()==data, name
     actual=json.loads((ROOT/'kubejs/data/mythicbotany/worldgen/density_function/alfheim_final.json').read_text())
-    baseline=void_final_density(False)
+    baseline=strip(void_final_density(False))
     assert actual==void_final_density()
+    actual=strip(actual)          # the terracing is an addend; the Void band is underneath it
     assert actual['when_in_range']==baseline['when_in_range'], 'Void island density changed'
     assert actual['input']==baseline['input'], 'Void mask changed'
 
@@ -51,7 +53,11 @@ def main():
         settings['noise_router'][key]=original['noise_router'][key]
     assert settings==original, 'Unrelated noise settings changed'
     surface=json.loads(output['kubejs/data/mythicbotany/libx/surface_rule_set/alfheim_surface.json'])
-    assert surface['before_biomes']['sequence'][2]==old_surface['before_biomes'], 'Upstream surface rule changed'
+    # MythicBotany's own rule must survive verbatim somewhere in our chain. Find it rather than
+    # index it: this assertion has already been broken once by prepending a rule ahead of it, and
+    # the invariant is "it is still in there unchanged", not "it is third".
+    _seq = surface['before_biomes']['sequence']
+    assert old_surface['before_biomes'] in _seq, 'Upstream surface rule changed'
     surface['before_biomes']=old_surface['before_biomes']
     assert surface==old_surface, 'Unrelated surface rules changed'
     assert not any('/data/minecraft/' in name or '/dimension/' in name for name in output)

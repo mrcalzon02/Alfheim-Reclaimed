@@ -198,7 +198,11 @@ def build():
         condition(vertical_gradient('deepworks_upper_contact',8,42),
         condition(negate({'type':'minecraft:biome','biome_is':VOID_IDS}),geology)))
     # Bedrock still runs first; biome and surface rules are otherwise retained.
-    surface['before_biomes']=sequence([surface_rule(),identity_surface_rule(),
+    # The Golden Fields tread/riser painting runs ahead of everything: it is the most specific
+    # rule in the set, it is confined to one biome, and it must win over the generic grass/dirt
+    # rule that would otherwise turn a retaining wall back into a hillside.
+    from gen_golden_terraces import surface_rule as terrace_surface
+    surface['before_biomes']=sequence([terrace_surface(),surface_rule(),identity_surface_rule(),
                                        surface['before_biomes'],geology])
     emit('mythicbotany/libx/surface_rule_set/alfheim_surface.json',surface)
     # Surface material replacement happens before underground_ores. The ordinary

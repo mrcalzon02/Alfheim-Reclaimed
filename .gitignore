@@ -50,5 +50,6 @@ server/validation-*/
 server/void-margin-*/
 server/shore-*/
 server/survey-*/
+server/terrace-*/
 # Add the prefix here when tools/run_server.py --level-name gains a new family; every
 # world it generates is disposable evidence, never source.

@@ -436,6 +436,14 @@ def main():
             fail('W7', f'void files do not parse: {e}')
             df = layer = None
         if df is not None:
+            # The Golden Fields terracing is added on top of the void range_choice. Peel that
+            # addend off before reading the band; strip() returns its input unchanged when the
+            # addend is not the known terrace term, so a wrong wrapper still fails below.
+            try:
+                from gen_golden_terraces import strip as _strip_terraces
+                df = _strip_terraces(df)
+            except Exception:
+                pass
             if df.get('type') != 'minecraft:range_choice':
                 fail('W7', 'alfheim_final override is not a range_choice; '
                            'the void band cannot be read')
