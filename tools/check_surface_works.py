@@ -274,9 +274,23 @@ def run(st, verbose=False):
             ref = entry['structure'].split(':', 1)[1]
             if ref not in st['structures']:
                 fail('W5', f'{name}: references missing structure {entry["structure"]}')
+    # Sharing a salt is normally a bug, and this catches it. One pair shares it ON PURPOSE:
+    # the Deepworks headworks is a surface landmark that has to stand ON the buried complex, and
+    # RandomSpreadStructurePlacement derives its chunk from spacing, separation and salt alone,
+    # so matching all three is exactly how you co-locate two sets. Declared here rather than
+    # exempted, and the pair must still agree on spacing and separation or the trick does not
+    # work and this reports it.
+    INTENTIONAL_CO_LOCATION = [{'deepworks_archaeology', 'deepworks_headworks'}]
     for salt, names in salts.items():
-        if len(names) > 1:
-            fail('W5', f'salt {salt} shared by {names} -- these generate in the same chunk')
+        if len(names) < 2:
+            continue
+        if set(names) in INTENTIONAL_CO_LOCATION:
+            a, b = (st['sets'][n]['placement'] for n in names)
+            if (a['spacing'], a['separation']) != (b['spacing'], b['separation']):
+                fail('W5', f'{sorted(names)} share a salt to co-locate but disagree on '
+                           f'spacing/separation, so they will not land in the same chunk')
+            continue
+        fail('W5', f'salt {salt} shared by {names} -- these generate in the same chunk')
 
     # ---------------------------------------------------------------- W6  archetype tags
     want_tags = {}

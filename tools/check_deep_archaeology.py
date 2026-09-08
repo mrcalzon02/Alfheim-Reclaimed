@@ -168,7 +168,22 @@ def main():
 
     ignored = read(os.path.join(ROOT, "kubejs", "data", "continuityworks_spawn_protection", "tags",
                                 "worldgen", "structure", "ignored.json"))["values"]
-    assert set(ignored) == {"alfheim:deep_quarry", "alfheim:elder_kings_tomb", "alfheim:faultwork"}
+    # JIGSAW SIZE IS CAPPED AT 7 BY THE CODEC. A headworks built with size 10 failed world load
+    # outright -- "Value 10 outside of range [0:7]" -- and a datapack that fails to load takes
+    # the whole dimension with it, so this is asserted rather than remembered.
+    head = read(os.path.join(DATA, "worldgen", "structure", "deepworks_headworks.json"))
+    assert 0 <= head["size"] <= 7, f'headworks size {head["size"]} outside the codec range [0:7]'
+    assert head["project_start_to_heightmap"] == "WORLD_SURFACE_WG",         "the headworks must start at the surface; it is the visible half of the complex"
+    # Co-location is the entire point: same spacing, separation and salt as the archaeology set,
+    # because RandomSpreadStructurePlacement derives its chunk from exactly those three.
+    hset = read(os.path.join(DATA, "worldgen", "structure_set", "deepworks_headworks.json"))
+    for key in ("spacing", "separation", "salt"):
+        assert hset["placement"][key] == shared_set["placement"][key],             f'headworks {key} differs from the archaeology grid; it will not land on a complex'
+
+    # The headworks joins the Continuity Works spawn-protection ignore list for the same reason
+    # the complexes are on it: it is ours, it is large, and CW must not veto it.
+    assert set(ignored) == {"alfheim:deep_quarry", "alfheim:elder_kings_tomb",
+                            "alfheim:faultwork", "alfheim:deepworks_headworks"}
     subprocess.run([sys.executable, "-B", os.path.join(ROOT, "tools", "gen_deep_archaeology.py"), "--check"],
                    cwd=ROOT, check=True)
     print(f"PASS: 3 mutually-exclusive underground families on one "

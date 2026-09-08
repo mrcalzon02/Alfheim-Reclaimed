@@ -1,5 +1,56 @@
 # Backlog
 
+### B-87 — Deepworks surface entrance — **RUNTIME PLACED AND CO-LOCATION PROVEN**
+
+Field item 12's second half. B-83 fixed the grid pitch, but the complexes stayed invisible: all
+three families sit at absolute Y -58..-10 with `terrain_adaptation: none`, and every jigsaw in
+the chain is at local y=3. They are entirely horizontal. A player standing directly on one sees
+ordinary ground.
+
+#### The headworks
+
+A surface winding-gear landmark — spoil apron, broken head frame, open shaft mouth, ladder,
+a lantern still burning — over a timbered shaft that chains downward.
+
+**One generic head, not three matched ones.** The archaeology set picks a family with its own
+weighted roll; a second set would roll independently and a Tomb portal would stand over a Quarry
+a third of the time. A neutral elven mine head is correct over all three and cannot desynchronise.
+
+**Co-located by construction.** `RandomSpreadStructurePlacement` derives its chunk from spacing,
+separation and salt plus the world seed — nothing else. The headworks set uses **identical**
+values to `deepworks_archaeology`, so both resolve to the same chunk.
+
+**The shaft chains rather than being one piece,** because the gap is 50-130 blocks and varies with
+both terrain and the family's own depth roll. No fixed-length piece spans that. Six 24-block
+segments give 144 blocks of reach; an overshoot is a shaft that passes through the complex, which
+is the outcome we want.
+
+#### A codec cap found the hard way
+
+The first attempt used `size: 10` and **failed world load outright** —
+`Value 10 outside of range [0:7]`. A datapack that fails to load takes the dimension with it, so
+the segments were deepened from 16 to 24 blocks to keep the reach at 144 with `size: 7`, and
+`check_deep_archaeology` now asserts the cap, the heightmap projection and the co-location keys
+rather than relying on memory.
+
+#### Measured
+
+Fresh world, 640-block patch around the origin: **`alfheim:deepworks_headworks` placed twice**.
+One at chunk (19, 21) sits **exactly on the `faultwork` complex** — co-location confirmed against
+the real generator, not just against the JSON.
+
+The second, at chunk (15, -30), had no archaeology start recorded. That chunk was only generated
+to `structure_starts` status — its biome array still reads the `minecraft:plains` placeholder — so
+it is not a clean observation either way.
+
+#### Open
+
+A real asymmetry remains: the archaeology structures test `#alfheim:deepworks_land` at their own
+depth (Y -58..-10) while the headworks tests it at the surface. Alfheim's biomes are three
+dimensional, so the two checks can in principle disagree and leave a mine head over nothing.
+Whether that actually happens needs a wider sample than two placements. Client visual review of
+the head, the shaft descent and the junction with the complex is also open.
+
 ### B-86 — Golden Fields terracing — **CALIBRATED IN FRESH WORLDS; CLIENT REVIEW PENDING**
 
 Asked 2026-09-08, via a design brief: rework Golden Fields from "a vaguely hilly biome with

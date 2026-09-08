@@ -685,6 +685,139 @@ def fault_wing(size, seed):
     return p
 
 
+
+# --- the surface headworks --------------------------------------------------------------------
+#
+# Field report 2026-09-07: "I was not able to locate a instance of either of the deep works
+# spawning structures." Two separate causes. The grid pitch was one (B-83, now 48/24). The other
+# is that all three families sit at absolute Y -58..-10 with terrain_adaptation `none` and every
+# jigsaw in the chain at local y=3 -- the complexes are entirely horizontal and nothing about
+# them reaches the surface. A player standing directly on one sees ordinary ground.
+#
+# The headworks is the thing you can see. It is a separate structure set with the SAME spacing,
+# separation and salt as deepworks_archaeology, so RandomSpreadStructurePlacement resolves both
+# to the same chunk and the winding gear stands on top of whatever family is below.
+#
+# ONE generic head rather than three matched ones, deliberately. The archaeology set picks a
+# family with its own weighted roll; a second set would roll independently and a Tomb portal
+# would end up over a Quarry a third of the time. A neutral elven mine head is right over all
+# three and cannot desynchronise.
+#
+# The shaft chains DOWNWARD as a jigsaw pool rather than being one tall piece, because the gap it
+# has to cross is 50-130 blocks and varies with both terrain and the family's own depth roll --
+# no fixed-length piece can span that. Descending segments simply stop when the size budget runs
+# out, and an overshoot is a mine shaft that passes through the complex, which is the outcome we
+# want anyway.
+HEAD_W, HEAD_H = 16, 24
+SHAFT_W, SHAFT_H = 8, 24
+
+HEAD_STONE = B("alfheim:cracked_livingrock")
+HEAD_BRICK = B("alfheim:ivory_livingrock_bricks")
+HEAD_TRIM = B("alfheim:moonstone_livingrock_carved")
+HEAD_BEAM = B("botania:dreamwood_log", axis="y")
+HEAD_BEAM_X = B("botania:dreamwood_log", axis="x")
+HEAD_BEAM_Z = B("botania:dreamwood_log", axis="z")
+SPOIL = B("minecraft:gravel")
+
+
+def headworks_head(size, seed):
+    """Winding gear over an open shaft mouth, on a spoil apron. The one thing visible above."""
+    p, rng = Piece(*size), random.Random(seed)
+    sx, sy, sz = size
+    cx, cz = sx // 2, sz // 2
+
+    # A shallow apron of spoil and dressed stone, so the head reads as worked ground rather
+    # than a building dropped on grass.
+    for x in range(sx):
+        for z in range(sz):
+            d = math.hypot(x - cx, z - cz)
+            if d <= 7.2:
+                p.set(x, 0, z, HEAD_STONE if d > 5.4 else HEAD_BRICK)
+            elif d <= 8.6 and rng.random() < 0.55:
+                p.set(x, 0, z, SPOIL)
+
+    # The shaft mouth: a four-by-four opening ringed by a kerb, carried straight down through
+    # the piece so the first shaft segment below joins clean air.
+    for x in range(cx - 2, cx + 2):
+        for z in range(cz - 2, cz + 2):
+            for y in range(0, HEAD_H):
+                p.set(x, y, z, AIR)
+    for x in range(cx - 3, cx + 3):
+        for z in range(cz - 3, cz + 3):
+            if x in (cx - 3, cx + 2) or z in (cz - 3, cz + 2):
+                p.set(x, 1, z, HEAD_TRIM)
+
+    # Four legs and a head frame over the mouth. Broken to differing heights: this stopped
+    # working a long time ago.
+    legs = ((cx - 3, cz - 3), (cx + 2, cz - 3), (cx - 3, cz + 2), (cx + 2, cz + 2))
+    tops = {}
+    for lx, lz in legs:
+        h = rng.choice([9, 11, 12, 12, 14])
+        for y in range(1, h):
+            p.set(lx, y, lz, HEAD_BEAM)
+        tops[(lx, lz)] = h - 1
+    # The cross-head only survives where both its legs did.
+    top = min(tops.values())
+    if top >= 8:
+        for x in range(cx - 3, cx + 3):
+            p.set(x, top, cz - 3, HEAD_BEAM_X)
+            p.set(x, top, cz + 2, HEAD_BEAM_X)
+        for z in range(cz - 3, cz + 3):
+            p.set(cx - 3, top, z, HEAD_BEAM_Z)
+            p.set(cx + 2, top, z, HEAD_BEAM_Z)
+        # The winding drum, fallen across the frame.
+        for x in range(cx - 2, cx + 2):
+            p.set(x, top + 1, cz, HEAD_BEAM_X)
+
+    # A ladder down one wall of the mouth, and a lantern that still burns.
+    for y in range(1, HEAD_H):
+        p.set(cx - 2, y, cz - 2, B("minecraft:ladder", facing="south"))
+    p.set(cx + 1, 3, cz + 1, B("alfheim:mana_glass_light"))
+
+    # Scattered spoil and a couple of abandoned barrels.
+    for _ in range(26):
+        x, z = rng.randrange(sx), rng.randrange(sz)
+        if math.hypot(x - cx, z - cz) > 4.5 and (x, 1, z) not in p.blocks:
+            p.set(x, 1, z, rng.choice([SPOIL, HEAD_STONE, B("minecraft:cobblestone")]))
+    barrel(p, cx + 4, 1, cz, "faultwork_salvage")
+
+    # Down into the first shaft segment.
+    p.jigsaw(cx, 0, cz, f"{NS}:headworks_head_out", f"{NS}:headworks_shaft_in",
+             f"{NS}:deepworks_archaeology/headworks/shaft", "down_south",
+             joint="aligned", final_state="minecraft:air")
+    return p
+
+
+def headworks_shaft(size, seed):
+    """One repeatable length of timbered shaft. Chains to the next below it."""
+    p, rng = Piece(*size), random.Random(seed)
+    sx, sy, sz = size
+    cx, cz = sx // 2, sz // 2
+    box(p, 0, 0, 0, sx - 1, sy - 1, sz - 1, HEAD_STONE)
+    box(p, cx - 2, 0, cz - 2, cx + 1, sy - 1, cz + 1, AIR)
+    # Timber sets every four courses, and a ladder the whole way.
+    for y in range(0, sy):
+        p.set(cx - 2, y, cz - 2, B("minecraft:ladder", facing="south"))
+        if y % 4 == 0:
+            for x in range(cx - 2, cx + 2):
+                p.set(x, y, cz - 2, HEAD_BEAM_X)
+                p.set(x, y, cz + 1, HEAD_BEAM_X)
+            p.set(cx - 2, y, cz - 2, B("minecraft:ladder", facing="south"))
+    # Local collapse: some sets have failed and spilled into the shaft.
+    for _ in range(rng.randint(2, 6)):
+        y = rng.randrange(1, sy - 1)
+        p.set(rng.randrange(cx - 2, cx + 2), y, rng.randrange(cz - 2, cz + 2),
+              rng.choice([SPOIL, B("minecraft:cobblestone"), HEAD_STONE]))
+    p.jigsaw(cx, sy - 1, cz, f"{NS}:headworks_shaft_in", f"{NS}:headworks_head_out",
+             "minecraft:empty", "up_south", joint="aligned", final_state="minecraft:air")
+    p.jigsaw(cx, 0, cz, f"{NS}:headworks_shaft_out", f"{NS}:headworks_shaft_in",
+             f"{NS}:deepworks_archaeology/headworks/shaft", "down_south",
+             joint="aligned", final_state="minecraft:air")
+    return p
+
+HEADWORKS_BUILDERS = {"head": headworks_head, "shaft": headworks_shaft}
+HEADWORKS_SIZES = {"head": [HEAD_W, HEAD_H, HEAD_W], "shaft": [SHAFT_W, SHAFT_H, SHAFT_W]}
+
 BUILDERS = {
     "deep_quarry": {"centre": quarry_centre, "approach": quarry_approach, "wing": quarry_wing},
     "elder_kings_tomb": {"centre": tomb_centre, "approach": tomb_approach, "wing": tomb_wing},
@@ -773,6 +906,20 @@ def build_outputs(check=False):
                 nbt.save(path, "", piece.to_nbt())
             print(f"  {fid:18} {role:9} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks")
 
+    # The headworks: two pieces, shared by all three families.
+    for role, builder in HEADWORKS_BUILDERS.items():
+        size = HEADWORKS_SIZES[role]
+        assert max(size) <= MAX_AXIS
+        seed = int(hashlib.sha1(f"headworks:{role}".encode()).hexdigest()[:8], 16)
+        piece = builder(tuple(size), seed)
+        piece.prune_orphans()
+        path = os.path.join(STRUCT, "headworks", role + ".nbt")
+        nbt_expected[path] = piece.to_nbt()
+        if not check:
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            nbt.save(path, "", piece.to_nbt())
+        print(f"  {'headworks':18} {role:9} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks")
+
         base = f"{NS}:deepworks_archaeology/{fid}"
         for role in ("centre", "approach", "wing"):
             path = os.path.join(DATA, "worldgen", "template_pool", "deepworks_archaeology", fid,
@@ -800,12 +947,51 @@ def build_outputs(check=False):
                       "spread_type": "linear",
                       "salt": salt_for("deepworks_archaeology")}}
 
+    # --- the headworks: pools, structure and a CO-LOCATED structure set ----------------------
+    for role in HEADWORKS_BUILDERS:
+        json_out[os.path.join(DATA, "worldgen", "template_pool", "deepworks_archaeology",
+                              "headworks", role + ".json")] = single_pool(
+            f"{NS}:deepworks_archaeology/headworks/{role}",
+            f"{NS}:deepworks_archaeology/headworks/{role}")
+
+    # `size` is the jigsaw depth budget and here it is literally how deep the shaft can go.
+    # 1.20.1 CAPS IT AT 7 -- a first attempt at 10 failed world load outright with
+    # "Value 10 outside of range [0:7]", which is why the segments are 24 blocks rather than 16:
+    # one head plus six segments is 144 blocks of reach either way, and the complexes sit
+    # 50-130 blocks below the surface depending on terrain and their own depth roll. A chain
+    # that runs out early leaves a shaft ending in stone, which reads as a mine that collapsed
+    # rather than as a broken structure, but it must not run out in the common case.
+    json_out[os.path.join(DATA, "worldgen", "structure", "deepworks_headworks.json")] = {
+        "type": "minecraft:jigsaw", "biomes": manifest["biomes"],
+        "step": "surface_structures", "terrain_adaptation": "beard_thin",
+        "start_pool": f"{NS}:deepworks_archaeology/headworks/head",
+        "size": 7, "max_distance_from_center": 116,
+        "start_height": {"type": "minecraft:uniform",
+                         "min_inclusive": {"above_bottom": 0},
+                         "max_inclusive": {"above_bottom": 0}},
+        "project_start_to_heightmap": "WORLD_SURFACE_WG",
+        "use_expansion_hack": False, "spawn_overrides": {}}
+    json_out[os.path.join(DATA, "tags", "worldgen", "structure", "deepworks_headworks.json")] = {
+        "replace": False, "values": [f"{NS}:deepworks_headworks"]}
+
+    # IDENTICAL spacing, separation and salt to deepworks_archaeology. RandomSpreadStructurePlacement
+    # derives its chunk from exactly those three plus the world seed, so both sets resolve to the
+    # same chunk and the winding gear stands over the complex rather than somewhere near it.
+    json_out[os.path.join(DATA, "worldgen", "structure_set", "deepworks_headworks.json")] = {
+        "structures": [{"structure": f"{NS}:deepworks_headworks", "weight": 1}],
+        "placement": {"type": "minecraft:random_spread",
+                      "spacing": placement["spacing"],
+                      "separation": placement["separation"],
+                      "spread_type": "linear",
+                      "salt": salt_for("deepworks_archaeology")}}
+
     json_out[os.path.join(DATA, "loot_tables", "chests", "deep_quarry_supplies.json")] = quarry_loot()
     json_out[os.path.join(DATA, "loot_tables", "chests", "elder_kings_relic.json")] = relic_loot()
     json_out[os.path.join(DATA, "loot_tables", "chests", "faultwork_salvage.json")] = faultwork_loot()
     json_out[os.path.join("kubejs", "data", "continuityworks_spawn_protection", "tags", "worldgen",
                           "structure", "ignored.json")] = {
-        "replace": False, "values": ["alfheim:deep_quarry", "alfheim:elder_kings_tomb", "alfheim:faultwork"]}
+        "replace": False, "values": ["alfheim:deep_quarry", "alfheim:elder_kings_tomb",
+                                     "alfheim:faultwork", "alfheim:deepworks_headworks"]}
     return json_out, nbt_expected
 
 
