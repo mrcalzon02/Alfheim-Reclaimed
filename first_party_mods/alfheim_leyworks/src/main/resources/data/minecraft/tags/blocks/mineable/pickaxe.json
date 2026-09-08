@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim_leyworks:ley_conduit_node",
+    "alfheim_leyworks:ley_conduit_node_dormant"
+  ]
+}

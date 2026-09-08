@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "alfheim:leyline_livingrock_bricks",
+      "required": false
+    },
+    {
+      "id": "alfheim:leyline_livingrock_polished",
+      "required": false
+    },
+    {
+      "id": "alfheim:leyline_livingrock_carved",
+      "required": false
+    },
+    {
+      "id": "alfheim:moonstone_livingrock_bricks",
+      "required": false
+    },
+    {
+      "id": "botania:livingrock",
+      "required": false
+    }
+  ]
+}

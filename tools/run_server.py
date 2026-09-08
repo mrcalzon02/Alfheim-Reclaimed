@@ -417,6 +417,62 @@ DEFAULT_COMMANDS = [
     (5, 'forceload add -16 -16 16 16'),
     (30, 'execute in mythicbotany:alfheim run forceload add -16 -16 16 16'),
 
+    # --- the underground works, located rather than assumed ----------------------------------
+    # Field report 2026-09-07 item 12: "I could not locate either Deep Works structure." That is
+    # a report about a search, not about the generator, and the two have completely different
+    # fixes -- so ask the server. `locate structure` either names a position or says it found
+    # none in range, which separates "the structure set is wrong" from "I looked in the wrong
+    # place" without a single guess.
+    # `deepworks_archaeology` is a structure SET holding three structures, and `locate` does not
+    # take sets -- asking for it returns "there is no structure with type", which reads exactly
+    # like the structure being absent. Ask for the three members by name.
+    (10, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate structure '
+         'alfheim:deep_quarry'),
+    (10, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate structure '
+         'alfheim:elder_kings_tomb'),
+    (10, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate structure '
+         'alfheim:faultwork'),
+    (10, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate structure '
+         'alfheim:deepworks_headworks'),
+    (10, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate structure '
+         'alfheim:leyline_corridors'),
+
+    # --- alfheim_leyworks: the node blocks exist at runtime -----------------------------------
+    # The corridors carry `alfheim_leyworks:ley_conduit_node_dormant` in their palette. A
+    # structure whose palette does not resolve still generates -- with holes -- so prove the
+    # first-party jar registered both blocks before trusting a corridor screenshot. Placed high
+    # in the void above spawn, where nothing else is, and read straight back.
+    (2, 'execute in mythicbotany:alfheim run setblock 0 250 0 '
+        'alfheim_leyworks:ley_conduit_node_dormant replace'),
+    (2, 'execute in mythicbotany:alfheim if block 0 250 0 '
+        'alfheim_leyworks:ley_conduit_node_dormant run say LEYWORKS_DORMANT_OK'),
+    (2, 'execute in mythicbotany:alfheim run setblock 0 250 2 '
+        'alfheim_leyworks:ley_conduit_node replace'),
+    (2, 'execute in mythicbotany:alfheim if block 0 250 2 '
+        'alfheim_leyworks:ley_conduit_node run say LEYWORKS_ACTIVE_OK'),
+
+    # --- the modified beacon-pyramid rules, read back from the world -------------------------
+    # The one part of the node that no static check can reach: whether a pyramid of OUR masonry
+    # is actually counted. Two complete courses under a live node must report Tier 2, which also
+    # proves the `pyramid_base` tag loaded -- and that tag only loads if the jar's pack.mcmeta is
+    # present, the defect this run caught on 2026-09-08. Placed at y 248-250 over the void above
+    # spawn, inside the force-loaded region so the block entity actually ticks.
+    (2, 'execute in mythicbotany:alfheim run fill -2 248 -2 2 248 2 '
+        'alfheim:leyline_livingrock_bricks replace'),
+    (2, 'execute in mythicbotany:alfheim run fill -1 249 -1 1 249 1 '
+        'alfheim:leyline_livingrock_bricks replace'),
+    (2, 'execute in mythicbotany:alfheim run setblock 0 250 0 '
+        'alfheim_leyworks:ley_conduit_node replace'),
+    (8, 'execute in mythicbotany:alfheim run data get block 0 250 0 Tier'),
+    # Break the LOWER course and the tier must fall to 1 -- courses are counted from the node
+    # downward and stop at the first gap, so knocking a corner out of the 5x5 leaves the 3x3
+    # intact and the reading must drop by exactly one. A number that never moves is not
+    # evidence that anything was read.
+    (2, 'execute in mythicbotany:alfheim run setblock 2 248 2 minecraft:air replace'),
+    (8, 'execute in mythicbotany:alfheim run data get block 0 250 0 Tier'),
+    (2, 'execute in mythicbotany:alfheim run fill -2 248 -2 2 250 2 minecraft:air replace'),
+    (2, 'execute in mythicbotany:alfheim run setblock 0 250 2 minecraft:air replace'),
+
     # --- the spawn hub, verified rather than assumed -----------------------------------------
     # The hub is explicitly placed and the natural structure set is deliberately absent, so
     # `/locate structure` is no longer meaningful. Count its three independent runtime proofs:

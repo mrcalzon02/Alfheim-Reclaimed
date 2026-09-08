@@ -111,10 +111,29 @@ def scan_jars(type_namespaces=(), verbose=True):
     # `item.mmorpg.map` and registers no `mmorpg:map`, and its real ids are slash-pathed
     # (`mmorpg:currency/chaos_orb`). Eleven recipes were rejected at load while every static
     # check reported them fine, because every static check was reading translations.
+    #
+    # Our OWN namespaces survive that replacement, because a dump is always older than the
+    # thing we just built. `alfheim:` was carved out for KubeJS registrations from the start;
+    # first-party mod namespaces need the same carve-out for the same reason -- a jar built
+    # this morning cannot be in a dump taken last week, and the 2026-09-08 dump reported
+    # `alfheim_leyworks:ley_conduit_node_dormant` unregistered while a running server had
+    # placed one. Read the ids from the Gradle projects so the next mod needs no edit here.
     real = registry_items()
     if real:
-        ids = real | {i for i in ids if i.startswith(NS + ':')}
+        keep = tuple(n + ':' for n in ([NS] + first_party_namespaces()))
+        ids = real | {i for i in ids if i.startswith(keep)}
     return ids, recipes, tags, types
+
+
+def first_party_namespaces():
+    """Mod ids of the Gradle projects under first_party_mods/, from their gradle.properties."""
+    out = []
+    for p in sorted(glob.glob(os.path.join('first_party_mods', '*', 'gradle.properties'))):
+        for line in open(p, encoding='utf-8'):
+            if line.startswith('mod_id='):
+                out.append(line.split('=', 1)[1].strip())
+                break
+    return out
 
 
 def load_ids(verbose=True):

@@ -4,6 +4,68 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.22.0-design — 2026-09-08 — the Ley Conduit Node
+
+The corridors shipped in 0.21.x with the node deliberately absent, on the grounds that no mod in
+the pack owned worldgen blocks. That constraint is gone. `first_party_mods/alfheim_leyworks` is a
+second first-party Gradle mod — its own project, not a package inside the companion, because the
+node needs neither the companion's FTB layer nor its release cadence. Its build declares one
+dependency: Forge.
+
+**Two blocks rather than one blockstate, for a performance reason before an aesthetic one.**
+`ley_conduit_node_dormant` has no block entity; `ley_conduit_node` has one and rechecks every 80
+ticks. Worldgen places only the dormant form, so a world full of corridors carries no tickers at
+all — the 2026-09-07 field report ended with the game bringing the machine to a crawl, and a
+single ticking blockstate in every generated corridor is exactly the shape of that problem. It is
+also what the design asks for: *"The network begins as archaeology rather than infrastructure."*
+
+**Lighting a node is a crafting operation.** Shapeless: dormant node + `alfheim:elementium_core`
+-> live node. The core is our own Era V component, not a borrowed mid-tier item, so a node found
+in Era II is something to carry home rather than something to use.
+
+**The beacon-pyramid rules, modified as designed: tier chooses reach, not effect.** Vanilla's
+geometry exactly — course *n* is a (2n+1) square at depth *n*, up to four — but any block in
+`alfheim_leyworks:pyramid_base` counts, so the pack picks its own masonry instead of inheriting
+iron and diamond. Reach is tier x 12 blocks and governs both node-to-node projection and aura
+radius. The projection runs all six cardinal axes through air and anything in
+`alfheim_leyworks:beam_transmits`, which is what lets architecture mask unused faces rather than
+needing a block per shape. Particles are the visible channel: END_ROD motes travelling outward
+along each open axis at the measured projection length, client-side only.
+
+The aura resolves `alfheim:leyline_presence` by ResourceLocation rather than compiling against
+KubeJS. If the effect is not registered the node still projects; it just cannot buff.
+
+**Worldgen now seats them.** A dormant node goes in the relay housing every twelve blocks of
+straight run, at the centre of every four-way junction, in the sealed face of every terminal
+(*"or disconnected"*), and on the crown of the hub distributor — which is itself three courses of
+relay masonry, so the hub quietly shows the player the shape a pyramid wants to be. Bends get
+none. Because a datapack cannot declare a dependency on a mod's block, the generator gained check
+**L1**, which fails if no `alfheim_leyworks-*.jar` is in `mods/`.
+
+**A server run caught a defect no static check could reach.** The first jar had no `pack.mcmeta`,
+so Forge logged only `Missing metadata in pack mod:alfheim_leyworks` and silently declined to load
+the mod's `data/` tree. The jar built, the blocks registered, and the pyramid, the beam and the
+block's own drop would all have quietly done nothing. `pack.mcmeta` is now present and expanded by
+`processResources`, and the warning is gone from the log.
+
+**Measured, fresh world `leyworks02`.** Both blocks place and read back. A live node over two
+complete courses of `alfheim:leyline_livingrock_bricks` reports `Tier: 2`; knock one corner out of
+the lower 5x5 and it reports `Tier: 1` — the tag loaded, the courses are counted from the node
+downward, and the reading moves by exactly one. `alfheim:leyline_corridors` locates 293 blocks
+from spawn.
+
+**The Deepworks probe was also wrong, and is fixed.** `run_server.py` asked `locate structure` for
+`alfheim:deepworks_archaeology`, which is a structure *set* — the server answers "there is no
+structure with type", which reads exactly like the structure being absent. Asking for the three
+members by name: `deep_quarry` 386 blocks, `elder_kings_tomb` 402, `faultwork` 1,173, and
+`deepworks_headworks` 386 — at [352, ~, 160], the same position as `deep_quarry`, which is the
+co-location B-87 built and had not yet demonstrated.
+
+Hub unchanged and re-verified in the same run: one baked anchor, one crown marker, eight seated
+court elves, FTB ownership 100/100 chunks.
+
+---
+
 ## 0.21.2-design — 2026-09-07 — twelve-item field review
 
 Eight repairs and four diagnoses, from the 22:08 session on `New World-fellhammer`. Five of the

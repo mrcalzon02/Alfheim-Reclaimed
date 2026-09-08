@@ -144,6 +144,7 @@ Establish from here, never from memory of another version.
 | `config/` | Runtime configuration; authoritative once tuned, absent until first boot. **`config/ftbquests/` is authored by `tools/gen_quests.py` but normalised by the game** — FTB rewrites it on every world load, alphabetising keys. Read the game's form. **TerraBlender region weights live here, not in a datapack** — `tools/set_midgard_biomes.py` owns them. |
 | `mods/` | Runtime artifacts. **Third-party jars: never edit, never redistribute.** First-party jars (Continuity Works) may be patched — see §5.1. |
 | `tools/` | Development tooling. Never packaged, never placed in `mods/`. |
+| `first_party_mods/` | **Our own Gradle mod sources.** Built jars go to `mods/`; the source tree never ships. Added 2026-09-08 with `alfheim_companion`. |
 | `quarantine/` | Jars removed from the load path, preserved for reversibility |
 | `saves/`, `logs/`, `crash-reports/` | Runtime evidence, not source |
 | `minecraftinstance.json` | CurseForge-owned manifest. Edit only while CurseForge is closed. |
@@ -198,7 +199,7 @@ Applies per change, not once per project. A lower level never implies a higher o
 | Level | Check | How |
 |---|---|---|
 | 1 | Syntax & schema | JSON/TOML/SNBT parses |
-| 2 | Java & Gradle | N/A — no source project |
+| 2 | Java & Gradle | **Applies as of 2026-09-08.** `first_party_mods/` now holds Gradle projects — `alfheim_companion` first. Build with that project's own wrapper before shipping a jar into `mods/`. The pack itself is still datapack + KubeJS; Java is for behaviour those cannot express, such as block entities. |
 | 3 | Registration & metadata | All mandatory dependencies resolve |
 | 4 | Scripts & gameplay data | KubeJS loads without error; recipes appear in JEI |
 | 5 | Structure & NBT | Only if custom structures are added. **Always:** `check_feature_order.py` — no two loaded biomes may assert contradictory feature orders, **with Forge biome modifiers applied**. A biome's JSON is not its final feature list. |

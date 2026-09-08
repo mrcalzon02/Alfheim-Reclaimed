@@ -1,0 +1,84 @@
+// Alfheim Leyworks -- the ley line conduit node.
+//
+// Deliberately leaner than alfheim_companion's build: this mod has no FTB integration, no
+// inference layer and no optional compile-time adapters. It owns exactly one system, the
+// conduit node and its beacon-pyramid rules, because that is the part of
+// LEY_LINE_CHANNEL_CORRIDORS.md a datapack cannot express -- a block entity that reads a
+// pyramid, projects a payload along six axes and applies an aura.
+//
+// The corridors themselves stay in the datapack (tools/gen_leyline_corridors.py). Nothing here
+// generates terrain.
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+    copyIdeResources = true
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            mods { "${mod_id}" { source sourceSets.main } }
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            args '--nogui'
+            mods { "${mod_id}" { source sourceSets.main } }
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version,
+            forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license,
+            mod_version: mod_version, mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+    // pack.mcmeta must be here too. Without it Forge logs only 'Missing metadata in pack mod:<id>'
+    // and silently declines to load the mod's data/ tree -- recipes and tags both. That failure
+    // is invisible statically: the jar builds, the blocks register, and only the pyramid, the beam
+    // and the block's own drop quietly do nothing. Caught by a server run 2026-09-08.
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : mod_authors,
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : mod_authors,
+        ])
+    }
+    finalizedBy 'reobfJar'
+}

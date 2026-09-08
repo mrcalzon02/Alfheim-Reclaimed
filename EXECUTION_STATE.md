@@ -1,5 +1,48 @@
 # Execution State
 
+## Latest implementation — the Ley Conduit Node — 2026-09-08
+
+The last piece of `LEY_LINE_CHANNEL_CORRIDORS.md` that a datapack could not express. B-88 shipped
+the corridors and recorded the node as deliberately absent because no mod in the pack owned
+worldgen blocks; the client took that decision, so `first_party_mods/alfheim_leyworks` now exists
+as a second first-party Gradle mod — its own project, one dependency, Forge.
+
+**Two blocks, and only the inert one is generated.** `ley_conduit_node_dormant` has no block
+entity; `ley_conduit_node` ticks. Thousands of corridors carrying zero tickers is the point:
+the 2026-09-07 field report ended on the game bringing the machine to a crawl. Converting one is a
+shapeless craft consuming `alfheim:elementium_core`, our own Era V component, so lighting a
+network is a mid-game investment and a node found early is loot rather than a tool.
+
+**The pyramid rules are vanilla's geometry with our masonry and a different meaning.** Course *n*
+is a (2n+1) square at depth *n* up to four courses; anything in `alfheim_leyworks:pyramid_base`
+counts; tier chooses reach (tier x 12 blocks), not an effect. Projection runs six axes through air
+and `alfheim_leyworks:beam_transmits`. The aura resolves `alfheim:leyline_presence` by
+ResourceLocation, so a missing effect degrades to projection-without-buff rather than a hard link.
+
+**The runtime caught what static checking could not.** The first jar shipped without
+`pack.mcmeta`. Forge logs one line — `Missing metadata in pack mod:alfheim_leyworks` — and then
+declines to load the mod's `data/` tree. Blocks still register, the jar still builds, and the
+pyramid tag, the beam tag and the block's own drop all silently do nothing. Fixed, and the warning
+is gone from the log.
+
+**Measured, fresh world.** A live node over two complete courses reports `Tier: 2`; remove one
+corner of the lower 5x5 and it reports `Tier: 1`. That single moving number proves the block
+entity ticks, the courses are counted from the node downward, and the `pyramid_base` tag actually
+loaded. `alfheim:leyline_corridors` locates 293 blocks from spawn; the four Deepworks structures
+locate at 386, 402, 1,173 and 386 blocks, with `deepworks_headworks` and `deep_quarry` sharing
+[352, ~, 160] — the co-location B-87 built and had never demonstrated. Hub unchanged: anchor 1,
+crown 1, court 8, FTB ownership 100/100.
+
+**A stale probe was also fixed.** `run_server.py` was asking `locate structure` for
+`alfheim:deepworks_archaeology`, a structure *set*. The server answers "there is no structure with
+type", which reads exactly like absence. It now asks for the three member structures by name.
+
+**Acceptance: runtime-verified for registration, datapack load and the pyramid rules. Client
+visual review is open** on the node model, its light level and the particle density.
+Node-to-node retransmission — a node inside another's projection coming up to that tier — is
+specified in the design and is not built; each node reads only its own pyramid. Nothing in the
+game points a player at the activation recipe yet.
+
 ## Latest implementation — biome distribution and the three thin biomes — 2026-09-08
 
 The question was whether a given seed reliably puts every biome within a day's travel. It is now

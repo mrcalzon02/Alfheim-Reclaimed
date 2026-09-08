@@ -9,20 +9,28 @@ worldgen half did not exist at all -- only Phase 1, the status-effect registry a
 There was no block, no structure, no template pool and no NBT anywhere in the pack, so there was
 nothing for a spawn criterion to fail.
 
-WHAT THIS IS AND IS NOT. This builds the corridors, the relays, the hubs and the vertical
-exchanges. It does NOT build `alfheim:ley_conduit_node`, the six-direction beam block, because a
-block entity that projects and retransmits a beacon payload is Java and this pack has no mod that
-owns worldgen blocks. That is not a gap in this pass: LEY_LINE_CHANNEL_CORRIDORS.md states the
-intended starting state directly -- "The network begins as archaeology rather than
-infrastructure. Most nodes are dormant or disconnected." A dormant network is the thing the
-player is supposed to find and repair, so a static luminous channel is the correct artifact and
-the live beam is the later mechanic, not a missing half of this one.
+WHAT THIS BUILDS. The corridors, the relays, the hubs and the vertical exchanges -- and, since
+2026-09-08, the dormant conduit nodes themselves, now that `first_party_mods/alfheim_leyworks`
+owns the block. What it deliberately does NOT place is the ACTIVE node. That is the whole design:
+LEY_LINE_CHANNEL_CORRIDORS.md states the intended starting state directly -- "The network begins
+as archaeology rather than infrastructure. Most nodes are dormant or disconnected." So worldgen
+seeds the world with inert nodes and the player lights them, one elementium core at a time.
+
+The dormant block has no block entity, which is not an aesthetic choice: a size-6 network places
+roughly a dozen nodes and there are thousands of these structures in a world. Ticking them all on
+generation would be exactly the kind of load the 2026-09-07 field report was already complaining
+about. Nothing in a generated corridor ticks until a player converts a node by hand.
+
+This generator therefore depends on `alfheim_leyworks` being in `mods/`. If that jar is absent the
+node palette entries will not resolve and the corridors will generate with holes where the nodes
+belong -- see check `L1` below, which asserts the jar is present.
 
 GEOMETRY, from the design's fixed decisions: five-by-five clear interior, one-block shell for a
 seven-by-seven envelope, the channel on the exact horizontal and vertical centre, two-block
 maintenance lanes either side, and relay collars at intervals that push the player into the lanes.
 """
 import argparse
+import glob
 import hashlib
 import json
 import math
@@ -64,6 +72,9 @@ COLLAR = B('alfheim:leyline_livingrock_carved')
 CHANNEL = B('alfheim:mana_glass_light')          # the dormant channel itself
 CHANNEL_DEAD = B('alfheim:leyline_livingrock')   # a length that has gone out
 RELAY = B('alfheim:moonstone_livingrock_bricks')
+# The node the player is meant to find: inert, faintly lit, and worth carrying home. Placing the
+# dormant variant rather than the active one is what makes the network archaeology.
+NODE = B('alfheim_leyworks:ley_conduit_node_dormant')
 RAIL = B('alfheim:leyline_livingrock_wall')
 LANTERN = B('minecraft:lantern', hanging=True)
 CHAIN = B('minecraft:chain', axis='y')
@@ -105,7 +116,9 @@ def channel_line(p, rng, length, axis):
                 for d in (-1, 0, 1):
                     cx, cz = (C + d, i) if axis == 'z' else (i, C + d)
                     p.set(cx, C + dy, cz, RELAY)
-            p.set(x, C, z, COLLAR)
+            # The relay's heart is a dormant node, seated in its housing. One per twelve blocks
+            # of corridor: often enough to be the reason to walk a run, rare enough to matter.
+            p.set(x, C, z, NODE)
         elif i % 4 == 0:
             for dy in (-1, 1):
                 p.set(x, C + dy, z, COLLAR)
@@ -173,7 +186,8 @@ def junction(size, seed):
     for i in range(1, W - 1):
         p.set(C, C, i, CHANNEL if rng.random() > 0.2 else CHANNEL_DEAD)
         p.set(i, C, C, CHANNEL if rng.random() > 0.2 else CHANNEL_DEAD)
-    p.set(C, C, C, COLLAR)
+    # Four channels meet here, so the crossing carries a node rather than a plain collar.
+    p.set(C, C, C, NODE)
     p.set(C, ROOF - 1, C, CHAIN)
     p.set(C, ROOF - 2, C, LANTERN)
     for face in ('n', 's', 'e', 'w'):
@@ -204,6 +218,9 @@ def terminal(size, seed):
         p.set(C, C, z, CHANNEL if rng.random() > 0.3 else CHANNEL_DEAD)
     # The terminal face: a dead relay, collapsed spoil at its foot.
     box(p, C - 1, C - 1, W - 2, C + 1, C + 1, W - 2, RELAY)
+    # "Most nodes are dormant or disconnected" -- this is the disconnected one, walled into a
+    # sealed face with nothing beyond it.
+    p.set(C, C, W - 2, NODE)
     for _ in range(10):
         p.set(rng.randrange(1, W - 1), FLOOR + 2, rng.randrange(W - 4, W - 1), SHELL_WORN)
     box(p, 1, 1, 0, W - 2, H - 2, 0, AIR)
@@ -227,7 +244,9 @@ def hub(size, seed):
                 p.set(x, 1, z, DECK)
     # The distributor column, and the ring of collars around it.
     box(p, cx - 1, 2, cz - 1, cx + 1, sy - 4, cz + 1, RELAY)
-    p.set(cx, sy - 4, cz, COLLAR)
+    # The distributor's crown. A hub node sits three courses of relay masonry up, which is also
+    # the shape a player needs to reproduce to give it a pyramid -- the hint is the building.
+    p.set(cx, sy - 4, cz, NODE)
     for k in range(8):
         a = k * math.tau / 8
         x, z = int(cx + math.cos(a) * 5), int(cz + math.sin(a) * 5)
@@ -309,7 +328,14 @@ def main():
     biomes = json.load(open(os.path.join(
         ROOT, 'tools', 'deep_archaeology_manifest.json'), encoding='utf-8'))['biomes']
 
-    bad, total = 0, 0
+    bad, total, nodes = 0, 0, 0
+
+    # L1: the dormant node is a block from first_party_mods/alfheim_leyworks. A datapack cannot
+    # declare that dependency, so assert it here rather than finding the hole in-world.
+    if not glob.glob(os.path.join(ROOT, 'mods', 'alfheim_leyworks-*.jar')):
+        print('  L1  no alfheim_leyworks jar in mods/ -- the node palette will not resolve')
+        bad += 1
+
     for name, (builder, size) in sorted(PIECES.items()):
         assert max(size) <= MAX_AXIS, f'{name} exceeds the {MAX_AXIS}-block limit'
         seed = int(hashlib.sha1(f'leyline:{name}'.encode()).hexdigest()[:8], 16)
@@ -330,7 +356,12 @@ def main():
             os.makedirs(os.path.dirname(path), exist_ok=True)
             nbt.save(path, '', payload)
         total += len(piece.blocks)
-        print(f'  {name:10} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks')
+        # blocks maps pos -> (palette index, be), so resolve the index before comparing.
+        n = sum(1 for st, _be in piece.blocks.values()
+                if piece.palette[st]['Name'] == NODE[0])
+        nodes += n
+        print(f'  {name:10} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks'
+              f'  {n} node(s)')
 
     for rel, body in sorted(json_files(biomes).items()):
         text = json.dumps(body, indent=2) + '\n'
@@ -349,6 +380,7 @@ def main():
               else f'!! {bad} stale/missing output(s)')
         return 1 if bad else 0
     print(f'\n  {len(PIECES)} pieces, {total} blocks; 5x5 clear interior in a {W}x{W} envelope')
+    print(f'  {nodes} dormant node(s) across the piece set, inert until crafted')
     return 0
 
 

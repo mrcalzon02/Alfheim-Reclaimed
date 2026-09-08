@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "alfheim_leyworks:block/ley_conduit_node_dormant"
+    }
+  }
+}

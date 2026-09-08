@@ -1,5 +1,142 @@
 # Backlog
 
+### B-89 — The Ley Conduit Node — **PYRAMID RULES RUNTIME-PROVEN; CLIENT REVIEW PENDING**
+
+B-88 shipped the corridors and recorded the node as deliberately absent, because "a block entity
+that projects and retransmits a beacon payload is Java, and this pack has no mod that owns
+worldgen blocks." That was true when it was written and is no longer true. The decision B-88 said
+a worldgen block should not be taken without has now been taken by the client: build it, make
+dormant nodes need a crafting operation that consumes a mid-tier item, and use the modified
+beacon-pyramid rules.
+
+#### A second first-party mod, not an extension of the first
+
+`first_party_mods/alfheim_leyworks/` is its own Gradle project rather than another package inside
+`alfheim_companion`. The companion is scoped to one summonable entity and carries an FTB
+integration layer and optional compile-time adapters; the node needs none of that and should not
+inherit its dependency surface or its release cadence. Its build declares exactly one dependency,
+Forge itself. Built with the project's own wrapper under JDK 17 — the default `java` on this
+machine is 26, which Gradle 8.8 cannot run on at all.
+
+#### Two blocks, not one blockstate
+
+| block | ticks | where it comes from |
+|---|---|---|
+| `alfheim_leyworks:ley_conduit_node_dormant` | no block entity at all | placed by worldgen, light 3 |
+| `alfheim_leyworks:ley_conduit_node` | block entity, 80-tick recheck | crafted only, light 12 |
+
+This is a performance decision before it is a design one. A size-6 corridor network places roughly
+a dozen nodes and there are thousands of these structures in a world; a single blockstate with one
+ticking block entity would mean every generated corridor everywhere carries live tickers. The
+2026-09-07 field report already ended with "the game brought my system to a crawl." **Nothing in a
+generated corridor ticks until a player converts a node by hand.**
+
+It is also exactly what the design asks for. `LEY_LINE_CHANNEL_CORRIDORS.md`: *"The network begins
+as archaeology rather than infrastructure. Most nodes are dormant or disconnected."* Worldgen seeds
+inert nodes; the player lights them.
+
+#### The crafting operation, and why elementium core
+
+Shapeless: `ley_conduit_node_dormant` + `alfheim:elementium_core` -> `ley_conduit_node`.
+
+`alfheim:elementium_core` is the Era V component — `10_items.js` registers it,
+`25_era5_tier_ladder.js` crafts it from `alfheim:elementium_stilled` + `botania:livingrock`, and
+`26_era6_tier_ladder.js` already consumes it. It is genuinely mid-tier on our own ladder rather
+than borrowed from a mod's, so lighting a network is a real mid-game investment and a node found
+in Era II is a thing to carry home rather than a thing to use.
+
+#### Modified beacon-pyramid rules
+
+Vanilla reads a four-tier pyramid of a fixed block list and grants an effect globally. This reads
+the same shape and changes what it is for, per the design: **tier chooses reach, not effect.**
+
+- Course *n* is a (2n+1) square at depth *n*, up to four courses — vanilla's geometry exactly.
+- Any block in `alfheim_leyworks:pyramid_base` counts, so the pack picks its own masonry
+  (leyline/moonstone livingrock, `botania:livingrock`) instead of inheriting iron and diamond.
+- Reach = tier x 12 blocks, applied to both node-to-node projection and aura radius.
+- Projection runs all six cardinal axes through air and anything in
+  `alfheim_leyworks:beam_transmits` — that is what lets architecture mask unused faces instead of
+  needing a different block per shape.
+- The aura applies `alfheim:leyline_presence`, looked up **by ResourceLocation** rather than
+  compiled against KubeJS, so the two stay decoupled: if the effect is not registered the node
+  still projects, it just cannot buff.
+
+Particles are the visible channel: END_ROD motes travelling outward along every open axis, at the
+measured projection length, client-side only. A beacon-style rendered light column is a separate
+client renderer and is not claimed here.
+
+#### Worldgen now places them
+
+`gen_leyline_corridors.py` seats a dormant node at the points the geometry already made
+significant: the relay housing every twelve blocks of straight run, the centre of every four-way
+junction, the sealed face of every terminal (*"or disconnected"*), and the crown of the hub
+distributor — which is itself three courses of relay masonry, so the hub silently shows the player
+the shape a pyramid wants to be. Bends get none; a corner is not a place.
+
+Node counts per piece: hub 1, junction 1, straight 1, terminal 1, bend 0.
+
+A datapack cannot declare a dependency on a mod's block, so the generator gained check **L1**: it
+fails if no `alfheim_leyworks-*.jar` is in `mods/`. Without the jar the palette entries do not
+resolve and corridors generate with holes where the nodes belong — a failure that is invisible
+until someone walks one.
+
+#### Measured
+
+Fresh world `leyworks02`, seed `alfheim`, two runs.
+
+**The pyramid rules read the world.** A live node over two complete courses of
+`alfheim:leyline_livingrock_bricks` reports `Tier: 2`. Knock one corner out of the lower 5x5 and
+it reports `Tier: 1`. That one moving number is four proofs at once: the block entity ticks, the
+courses are counted from the node downward and stop at the first gap, the reading is not a
+constant, and `alfheim_leyworks:pyramid_base` actually loaded — which only happens if the jar's
+`pack.mcmeta` is present.
+
+**The nodes are in the ground, not just in the palette.** Force-generating a 320x320-block box
+around the located corridor gave 1,042 full chunks holding **36 dormant nodes**, all at Y -7, the
+channel height — alongside 550 luminous channel blocks, 5,202 relay blocks and 11,512 shell
+bricks. Both node blocks also place and read back by command.
+
+**Everything underground locates.** `alfheim:leyline_corridors` 293 blocks from spawn;
+`deep_quarry` 386, `elder_kings_tomb` 402, `faultwork` 1,173, `deepworks_headworks` 386 — the last
+two at the same [352, ~, 160], which is the co-location B-87 built and had never demonstrated.
+
+**Nothing regressed.** Same run: hub anchor 1, crown 1, court 8, FTB ownership 100/100 chunks.
+Static: `check_surface_works`, `check_deep_archaeology`, `check_worldgen`, `check_golden_terraces`
+and `gen_leyline_corridors --check` all clean.
+
+#### Two defects this pass found, both invisible to static checking
+
+**The jar had no `pack.mcmeta`.** Forge logs exactly one line — `Missing metadata in pack
+mod:alfheim_leyworks` — and then declines to load the mod's `data/` tree. The jar builds, the
+blocks register, and the pyramid tag, the beam tag and the block's own `mineable/pickaxe` entry
+all silently do nothing; with `requiresCorrectToolForDrops()` set, the node would not even have
+dropped. `processResources` now expands `pack.mcmeta` alongside `mods.toml`, and the warning is
+gone from the log. `gradle.properties` also still carried the companion's description verbatim,
+and `mods.toml` was unedited MDK boilerplate carrying an irrelevant optional dependency on
+`continuityworks`; both are now this mod's own.
+
+**The Deepworks probe was asking for a structure set.** `run_server.py` ran `locate structure
+alfheim:deepworks_archaeology`, which is a *set* holding three structures. The server answers
+"there is no structure with type", which reads exactly like the structure being absent — the same
+sentence field item 12 was about. It now asks for `deep_quarry`, `elder_kings_tomb` and
+`faultwork` by name, and all three answer.
+
+#### Open
+
+- Client visual review of the node model, its light level and the particle density.
+- Node-to-node **retransmission** — a node inside another node's projection coming up to that
+  node's tier — is specified in the design and is not built. Each node currently reads only its
+  own pyramid. That is a chained-network mechanic and wants its own pass.
+- No advancement, quest or recipe book entry points at the activation recipe yet, so a player has
+  no in-game way to learn it exists.
+- **`tools/registry_items.json` is stale** — dumped 2026-09-04, so it predates both first-party
+  mods. `check_era.scan_jars` now carves our own namespaces out of the dump's replacement, which
+  is the durable fix and is why every checker passes, but the dump itself is still four days
+  behind. Refresh it with `tools/run_server.py --run --export`, then copy
+  `server/local/kubejs/export/registries/item.json` into it. Not done here: seven tools read that
+  file as ground truth, and the export runs on a build whose datapack reload is known to fail, so
+  replacing it deserves its own verified pass rather than a drive-by.
+
 ### B-88 — Ley line corridors, worldgen half — **RUNTIME PLACED AND ASSEMBLED**
 
 Field item 6: "I still haven't seen the Ley line conduit shafts spawning. They may be missing a
@@ -27,7 +164,9 @@ an open hole. Weights favour straights 8:3:2:2 so the network reads as long arte
 than a knot. Its own grid at 40/18 with its own salt, deliberately *not* the archaeology salt, so
 the two networks are independent finds.
 
-#### What deliberately did not ship, and why that is not a gap
+#### What deliberately did not ship, and why that is not a gap — **SUPERSEDED 2026-09-08 by B-89**
+
+> The reasoning below was correct on 2026-09-07 and the constraint it rests on is gone: `first_party_mods/alfheim_leyworks` now owns the block, and the corridors place the dormant variant. The starting state it describes still holds — worldgen still places *only* dormant nodes, and lighting one is a crafting operation. Left in place because it records why the node was absent rather than missed.
 
 `alfheim:ley_conduit_node` — the six-direction beam block — is **not** here. A block entity that
 projects and retransmits a beacon payload is Java, and this pack has no mod that owns worldgen
@@ -47,9 +186,10 @@ chains and lanterns. All five piece types are represented in the ground.
 #### Open
 
 - Client visual review of corridor scale, the relay pinch points and the hub silhouette.
-- The conduit block and the beacon-pyramid transmission network remain Phase 3. A first-party
-  Java mod now exists in the repo (`first_party_mods/alfheim_companion`), but it is scoped to one
-  summonable companion entity; a worldgen block does not belong in it without a decision.
+- ~~The conduit block and the beacon-pyramid transmission network remain Phase 3.~~ **Closed by
+  B-89 2026-09-08.** The decision was taken: the block lives in a second first-party mod,
+  `first_party_mods/alfheim_leyworks`, not in the companion. Node-to-node retransmission is still
+  outstanding and is now tracked under B-89.
 
 ### B-87 — Deepworks surface entrance — **RUNTIME PLACED AND CO-LOCATION PROVEN**
 

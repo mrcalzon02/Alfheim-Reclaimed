@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "alfheim_leyworks:ley_conduit_node_dormant"
+    },
+    {
+      "item": "alfheim:elementium_core"
+    }
+  ],
+  "result": {
+    "item": "alfheim_leyworks:ley_conduit_node",
+    "count": 1
+  }
+}
