@@ -15,7 +15,7 @@ execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_bake
 # Release the generation force-load and keep only the hub itself loaded. Without this the
 # server pays for the placement search area permanently.
 execute in mythicbotany:alfheim run forceload remove all
-execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run forceload add ~-32 ~-80 ~32 ~32
+execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run forceload add ~-80 ~-128 ~80 ~32
 
 
 # COLLECT THE PLAYERS WHO ARRIVED FIRST. Anyone placed provisionally while the Greatbole

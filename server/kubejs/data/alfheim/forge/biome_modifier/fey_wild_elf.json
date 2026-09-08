@@ -3,11 +3,12 @@
   "biomes": [
     "alfheim:ashen_grove",
     "alfheim:silverbark_wood",
-    "alfheim:sundered_highlands"
+    "alfheim:sundered_highlands",
+    "mythicbotany:dreamwood_forest"
   ],
   "spawners": {
     "type": "alfheim:wild_elf",
-    "weight": 5,
+    "weight": 12,
     "minCount": 2,
     "maxCount": 3
   }

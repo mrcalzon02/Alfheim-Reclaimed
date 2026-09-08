@@ -18,6 +18,7 @@ public record BrainSnapshot(
         List<Threat> threats,
         String activeTask,
         String personality,
+        String combatProfile,
         Map<String, String> recalledFacts
 ) {
     public BrainSnapshot {

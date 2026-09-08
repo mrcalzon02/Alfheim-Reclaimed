@@ -170,6 +170,133 @@
     "type": "minecraft:sequence",
     "sequence": [
       {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:biome",
+          "biome_is": [
+            "mythicbotany:golden_fields"
+          ]
+        },
+        "then_run": {
+          "type": "minecraft:condition",
+          "if_true": {
+            "type": "minecraft:stone_depth",
+            "offset": 0,
+            "add_surface_depth": false,
+            "secondary_depth_range": 0,
+            "surface_type": "floor"
+          },
+          "then_run": {
+            "type": "minecraft:sequence",
+            "sequence": [
+              {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:steep"
+                },
+                "then_run": {
+                  "type": "minecraft:sequence",
+                  "sequence": [
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": {
+                        "type": "minecraft:noise_threshold",
+                        "noise": "minecraft:ridge",
+                        "min_threshold": -0.25,
+                        "max_threshold": 100
+                      },
+                      "then_run": {
+                        "type": "minecraft:block",
+                        "result_state": {
+                          "Name": "alfheim:moonstone_livingrock_bricks"
+                        }
+                      }
+                    },
+                    {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "alfheim:cracked_livingrock"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:ridge",
+                      "min_threshold": 0.35,
+                      "max_threshold": 100
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:farmland"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:ridge",
+                      "min_threshold": -100,
+                      "max_threshold": -0.35
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:farmland"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:ridge",
+                      "min_threshold": 0.1925,
+                      "max_threshold": 100
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:coarse_dirt"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:ridge",
+                      "min_threshold": -100,
+                      "max_threshold": -0.1925
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:coarse_dirt"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:dirt_path"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
         "type": "minecraft:sequence",
         "sequence": [
           {
@@ -983,37 +1110,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cracked_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cinder_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1053,10 +1150,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -1067,37 +1164,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cracked_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cinder_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1222,37 +1289,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:obsidian_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cracked_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1292,10 +1329,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -1306,37 +1343,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:obsidian_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cracked_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1461,37 +1468,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:embervein_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:magmatic_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1531,10 +1508,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -1545,37 +1522,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:embervein_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:magmatic_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1700,37 +1647,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:rootbound_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1770,10 +1687,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -1784,37 +1701,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:rootbound_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -1939,37 +1826,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:silvermist_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:fern_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2009,10 +1866,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -2023,37 +1880,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:silvermist_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:fern_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2178,37 +2005,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:amber_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2248,10 +2045,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -2262,37 +2059,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:amber_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2417,37 +2184,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:abyssal_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:tide_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2487,10 +2224,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -2501,37 +2238,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:abyssal_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:tide_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2656,37 +2363,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:tide_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:abyssal_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2726,10 +2403,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -2740,37 +2417,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:tide_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:abyssal_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2895,37 +2542,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:tide_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -2965,10 +2582,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -2979,37 +2596,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:tide_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3134,37 +2721,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:amber_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:dawn_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3204,10 +2761,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -3218,37 +2775,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:amber_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:dawn_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3373,37 +2900,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:dawn_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:ivory_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3443,10 +2940,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -3457,37 +2954,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:dawn_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:ivory_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3612,37 +3079,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:ivory_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:frost_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3682,10 +3119,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -3696,37 +3133,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:ivory_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:frost_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3851,37 +3258,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:storm_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:gloam_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -3921,10 +3298,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -3935,37 +3312,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:storm_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:gloam_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4090,37 +3437,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:gloam_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:rootbound_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4160,10 +3477,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -4174,37 +3491,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:gloam_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:rootbound_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4329,37 +3616,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:abyssal_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4399,10 +3656,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -4413,37 +3670,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:moss_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:abyssal_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4568,37 +3795,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:storm_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cracked_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4638,10 +3835,10 @@
                               "type": "minecraft:vertical_gradient",
                               "random_name": "alfheim:deepworks_lower_blend",
                               "true_at_and_below": {
-                                "absolute": -30
+                                "absolute": -26
                               },
                               "false_at_and_above": {
-                                "absolute": -8
+                                "absolute": -16
                               }
                             },
                             "then_run": {
@@ -4652,37 +3849,7 @@
                                   "if_true": {
                                     "type": "minecraft:noise_threshold",
                                     "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": 0.33250000000000013,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:storm_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
                                     "min_threshold": -0.0050000000000000044,
-                                    "max_threshold": 100
-                                  },
-                                  "then_run": {
-                                    "type": "minecraft:block",
-                                    "result_state": {
-                                      "Name": "alfheim:cracked_livingrock"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "minecraft:condition",
-                                  "if_true": {
-                                    "type": "minecraft:noise_threshold",
-                                    "noise": "alfheim:deepworks/strata",
-                                    "min_threshold": -0.3425,
                                     "max_threshold": 100
                                   },
                                   "then_run": {
@@ -4761,6 +3928,543 @@
                       }
                     },
                     {
+                      "type": "minecraft:condition",
+                      "if_true": {
+                        "type": "minecraft:biome",
+                        "biome_is": [
+                          "alfheim:tidewood_shore"
+                        ]
+                      },
+                      "then_run": {
+                        "type": "minecraft:sequence",
+                        "sequence": [
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "noise": "alfheim:deepworks/inclusions",
+                              "min_threshold": 0.62,
+                              "max_threshold": 100
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "alfheim:fern_livingrock"
+                              }
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:not",
+                              "invert": {
+                                "type": "minecraft:y_above",
+                                "anchor": {
+                                  "absolute": -34
+                                },
+                                "surface_depth_multiplier": 0,
+                                "add_stone_depth": false
+                              }
+                            },
+                            "then_run": {
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.0050000000000000044,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:fern_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.68,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:amber_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:moss_livingrock"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:vertical_gradient",
+                              "random_name": "alfheim:deepworks_lower_blend",
+                              "true_at_and_below": {
+                                "absolute": -26
+                              },
+                              "false_at_and_above": {
+                                "absolute": -16
+                              }
+                            },
+                            "then_run": {
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.0050000000000000044,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:fern_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.68,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:amber_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:moss_livingrock"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "noise": "alfheim:deepworks/strata",
+                                  "min_threshold": -0.0050000000000000044,
+                                  "max_threshold": 100
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:moss_livingrock"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "noise": "alfheim:deepworks/strata",
+                                  "min_threshold": -0.68,
+                                  "max_threshold": 100
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:rootbound_livingrock"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "alfheim:tide_livingrock"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": {
+                        "type": "minecraft:biome",
+                        "biome_is": [
+                          "alfheim:mistbark_shore"
+                        ]
+                      },
+                      "then_run": {
+                        "type": "minecraft:sequence",
+                        "sequence": [
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "noise": "alfheim:deepworks/inclusions",
+                              "min_threshold": 0.62,
+                              "max_threshold": 100
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "alfheim:moonstone_livingrock"
+                              }
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:not",
+                              "invert": {
+                                "type": "minecraft:y_above",
+                                "anchor": {
+                                  "absolute": -34
+                                },
+                                "surface_depth_multiplier": 0,
+                                "add_stone_depth": false
+                              }
+                            },
+                            "then_run": {
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.0050000000000000044,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:moonstone_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.68,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:fern_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:silvermist_livingrock"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:vertical_gradient",
+                              "random_name": "alfheim:deepworks_lower_blend",
+                              "true_at_and_below": {
+                                "absolute": -26
+                              },
+                              "false_at_and_above": {
+                                "absolute": -16
+                              }
+                            },
+                            "then_run": {
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.0050000000000000044,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:moonstone_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.68,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:fern_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:silvermist_livingrock"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "noise": "alfheim:deepworks/strata",
+                                  "min_threshold": -0.0050000000000000044,
+                                  "max_threshold": 100
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:silvermist_livingrock"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "noise": "alfheim:deepworks/strata",
+                                  "min_threshold": -0.68,
+                                  "max_threshold": 100
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:frost_livingrock"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "alfheim:tide_livingrock"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": {
+                        "type": "minecraft:biome",
+                        "biome_is": [
+                          "alfheim:sporebank_shore"
+                        ]
+                      },
+                      "then_run": {
+                        "type": "minecraft:sequence",
+                        "sequence": [
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:noise_threshold",
+                              "noise": "alfheim:deepworks/inclusions",
+                              "min_threshold": 0.62,
+                              "max_threshold": 100
+                            },
+                            "then_run": {
+                              "type": "minecraft:block",
+                              "result_state": {
+                                "Name": "alfheim:gloam_livingrock"
+                              }
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:not",
+                              "invert": {
+                                "type": "minecraft:y_above",
+                                "anchor": {
+                                  "absolute": -34
+                                },
+                                "surface_depth_multiplier": 0,
+                                "add_stone_depth": false
+                              }
+                            },
+                            "then_run": {
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.0050000000000000044,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:gloam_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.68,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:rootbound_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:amethyst_livingrock"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:condition",
+                            "if_true": {
+                              "type": "minecraft:vertical_gradient",
+                              "random_name": "alfheim:deepworks_lower_blend",
+                              "true_at_and_below": {
+                                "absolute": -26
+                              },
+                              "false_at_and_above": {
+                                "absolute": -16
+                              }
+                            },
+                            "then_run": {
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.0050000000000000044,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:gloam_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:noise_threshold",
+                                    "noise": "alfheim:deepworks/strata",
+                                    "min_threshold": -0.68,
+                                    "max_threshold": 100
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "alfheim:rootbound_livingrock"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:amethyst_livingrock"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "noise": "alfheim:deepworks/strata",
+                                  "min_threshold": -0.0050000000000000044,
+                                  "max_threshold": 100
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:amethyst_livingrock"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "noise": "alfheim:deepworks/strata",
+                                  "min_threshold": -0.68,
+                                  "max_threshold": 100
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "alfheim:tide_livingrock"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "alfheim:moss_livingrock"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
                       "type": "minecraft:sequence",
                       "sequence": [
                         {
@@ -4799,37 +4503,7 @@
                                 "if_true": {
                                   "type": "minecraft:noise_threshold",
                                   "noise": "alfheim:deepworks/strata",
-                                  "min_threshold": 0.33250000000000013,
-                                  "max_threshold": 100
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "alfheim:leyline_livingrock"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:noise_threshold",
-                                  "noise": "alfheim:deepworks/strata",
                                   "min_threshold": -0.0050000000000000044,
-                                  "max_threshold": 100
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "alfheim:amethyst_livingrock"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:noise_threshold",
-                                  "noise": "alfheim:deepworks/strata",
-                                  "min_threshold": -0.3425,
                                   "max_threshold": 100
                                 },
                                 "then_run": {
@@ -4869,10 +4543,10 @@
                             "type": "minecraft:vertical_gradient",
                             "random_name": "alfheim:deepworks_lower_blend",
                             "true_at_and_below": {
-                              "absolute": -30
+                              "absolute": -26
                             },
                             "false_at_and_above": {
-                              "absolute": -8
+                              "absolute": -16
                             }
                           },
                           "then_run": {
@@ -4883,37 +4557,7 @@
                                 "if_true": {
                                   "type": "minecraft:noise_threshold",
                                   "noise": "alfheim:deepworks/strata",
-                                  "min_threshold": 0.33250000000000013,
-                                  "max_threshold": 100
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "alfheim:leyline_livingrock"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:noise_threshold",
-                                  "noise": "alfheim:deepworks/strata",
                                   "min_threshold": -0.0050000000000000044,
-                                  "max_threshold": 100
-                                },
-                                "then_run": {
-                                  "type": "minecraft:block",
-                                  "result_state": {
-                                    "Name": "alfheim:amethyst_livingrock"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "minecraft:condition",
-                                "if_true": {
-                                  "type": "minecraft:noise_threshold",
-                                  "noise": "alfheim:deepworks/strata",
-                                  "min_threshold": -0.3425,
                                   "max_threshold": 100
                                 },
                                 "then_run": {

@@ -26,8 +26,11 @@ desktop.ini
 .vscode/
 .idea/
 
-# Third-party dependencies/source mirrors
-mods/
+# Third-party dependencies/source mirrors. Keep the folder itself visible so the two
+# project-owned runtime artifacts can be staged normally; every other mod jar remains ignored.
+mods/*
+!mods/alfheim_companion-*.jar
+!mods/alfheim_leyworks-*.jar
 tools/vendor/
 
 # Generated build output

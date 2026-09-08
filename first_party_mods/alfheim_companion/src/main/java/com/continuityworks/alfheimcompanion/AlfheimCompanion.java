@@ -19,6 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import com.continuityworks.alfheimcompanion.service.CompanionChunkTickets;
 import com.continuityworks.alfheimcompanion.integration.ftb.FtbIntegrationBootstrap;
+import com.continuityworks.alfheimcompanion.integration.mmo.MineAndSlashIntegrationBootstrap;
 import com.continuityworks.alfheimcompanion.network.CompanionNetwork;
 import org.slf4j.Logger;
 
@@ -46,6 +47,7 @@ public final class AlfheimCompanion {
             CompanionChunkTickets.registerValidationCallback();
             CompanionNetwork.register();
             FtbIntegrationBootstrap.registerAvailableAdapters();
+            MineAndSlashIntegrationBootstrap.registerIfAvailable();
         });
     }
 

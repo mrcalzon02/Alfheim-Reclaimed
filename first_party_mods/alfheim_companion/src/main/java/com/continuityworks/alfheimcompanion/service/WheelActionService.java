@@ -1,6 +1,7 @@
 package com.continuityworks.alfheimcompanion.service;
 
 import com.continuityworks.alfheimcompanion.entity.ElvenCompanionEntity;
+import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.memory.ActiveTask;
 import com.continuityworks.alfheimcompanion.memory.CompanionMode;
 import com.continuityworks.alfheimcompanion.memory.CompanionSavedData;
@@ -77,10 +78,12 @@ public final class WheelActionService {
                     ? "No unfinished task. Blueprint: " + data.blueprintLedger().state().name().toLowerCase()
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
                     + "/100, mood " + data.moodIndex() + "."
+                    + CombatProfileBridge.statusSuffix(player, companion)
                     : "Current task: " + data.activeTask() + ". Blueprint: "
                     + data.blueprintLedger().state().name().toLowerCase()
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
-                    + "/100, mood " + data.moodIndex() + ".");
+                    + "/100, mood " + data.moodIndex() + "."
+                    + CombatProfileBridge.statusSuffix(player, companion));
             case CANCEL_TASK -> {
                 BlueprintLifecycleService.cancel(player.server);
                 data.setTask(ActiveTask.NONE, null);

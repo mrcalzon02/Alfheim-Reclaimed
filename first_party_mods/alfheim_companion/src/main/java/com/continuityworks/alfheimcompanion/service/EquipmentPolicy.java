@@ -1,6 +1,8 @@
 package com.continuityworks.alfheimcompanion.service;
 
+import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -20,4 +22,15 @@ public final class EquipmentPolicy {
             return Optional.of(EquipmentSlot.MAINHAND);
         return Optional.empty();
     }
+
+    public static Decision evaluate(LivingEntity companion, ItemStack stack) {
+        boolean mmoGear = CombatProfileBridge.recognizes(stack);
+        Optional<EquipmentSlot> slot = mmoGear
+                ? CombatProfileBridge.equipmentSlot(stack) : understoodSlot(stack);
+        boolean eligible = !mmoGear || CombatProfileBridge.mayEquip(companion, stack);
+        return new Decision(slot, mmoGear || slot.isPresent(), eligible, mmoGear);
+    }
+
+    public record Decision(Optional<EquipmentSlot> slot, boolean understood,
+                           boolean eligible, boolean mmoGear) {}
 }

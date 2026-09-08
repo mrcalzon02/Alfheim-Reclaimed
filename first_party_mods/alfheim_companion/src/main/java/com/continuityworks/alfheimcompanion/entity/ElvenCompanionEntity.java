@@ -27,6 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
 import com.continuityworks.alfheimcompanion.service.EquipmentPolicy;
+import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.service.CompanionChunkTickets;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -42,7 +43,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Inventory;
 import com.continuityworks.alfheimcompanion.menu.CompanionInventoryMenu;
-import net.minecraftforge.network.NetworkHooks;
 
 import java.util.UUID;
 
@@ -175,6 +175,15 @@ public final class ElvenCompanionEntity extends PathfinderMob implements MenuPro
         if (!level().isClientSide && tickCount % 100 == 0 && getServer() != null) {
             CompanionSavedData.get(getServer()).updateLocation(
                     level().dimension().location().toString(), blockPosition());
+            ServerPlayer owner = resolveOwner();
+            if (owner != null) CombatProfileBridge.provider().ifPresent(provider -> {
+                try {
+                    provider.synchronize(owner, this);
+                } catch (RuntimeException error) {
+                    com.continuityworks.alfheimcompanion.AlfheimCompanion.LOGGER.warn(
+                            "Optional combat profile synchronization failed", error);
+                }
+            });
         }
         if (!level().isClientSide && tickCount % 20 == 0) CompanionChunkTickets.update(this);
         if (!level().isClientSide && deliveryPending && tickCount % 10 == 0) deliverToOwner();
@@ -271,9 +280,11 @@ public final class ElvenCompanionEntity extends PathfinderMob implements MenuPro
                 }
 
                 ItemStack transferred = offered.copyWithCount(1);
-                java.util.Optional<EquipmentSlot> understood = EquipmentPolicy.understoodSlot(transferred);
-                if (understood.isPresent() && getItemBySlot(understood.get()).isEmpty()) {
-                    setItemSlot(understood.get(), transferred);
+                EquipmentPolicy.Decision decision = EquipmentPolicy.evaluate(this, transferred);
+                if (decision.slot().isPresent() && decision.eligible()
+                        && getItemBySlot(decision.slot().get()).isEmpty()) {
+                    setItemSlot(decision.slot().get(), transferred);
+                    CombatProfileBridge.onEquipmentChanged(this);
                 } else if (!inventory.addItem(transferred).isEmpty()) {
                     player.sendSystemMessage(Component.translatable("message.alfheim_companion.inventory_full"));
                     clearPendingOffer();
@@ -282,7 +293,13 @@ public final class ElvenCompanionEntity extends PathfinderMob implements MenuPro
                 if (!player.isCreative()) offered.shrink(1);
                 player.sendSystemMessage(Component.translatable("message.alfheim_companion.offer_accepted",
                         transferred.getHoverName()));
-                if (understood.isEmpty() && !transferred.isEdible() && !transferred.is(Items.POTION)) {
+                if (decision.mmoGear() && !decision.eligible()) {
+                    player.sendSystemMessage(Component.literal(
+                            "I can carry this, but I do not yet meet its Mine and Slash requirements."));
+                } else if (decision.mmoGear() && decision.slot().isEmpty()) {
+                    player.sendSystemMessage(Component.literal(
+                            "I recognize this MMO gear, but I do not have its equipment slot yet."));
+                } else if (!decision.understood() && !transferred.isEdible() && !transferred.is(Items.POTION)) {
                     player.sendSystemMessage(Component.literal("I can carry this, but I do not know how to use it safely."));
                 }
                 clearPendingOffer();

@@ -13,7 +13,13 @@
     "fog_color": 10129286,
     "sky_color": 8292244,
     "water_color": 4215388,
-    "water_fog_color": 1713193
+    "water_fog_color": 1713193,
+    "particle": {
+      "options": {
+        "type": "minecraft:ash"
+      },
+      "probability": 0.004
+    }
   },
   "features": [
     [],
@@ -38,7 +44,10 @@
     [],
     [],
     [
-      "mythicbotany:alfheim_grass"
+      "alfheim:highland_scree",
+      "alfheim:highland_torn_boulder",
+      "mythicbotany:alfheim_grass",
+      "alfheim:highland_tufts"
     ],
     []
   ],

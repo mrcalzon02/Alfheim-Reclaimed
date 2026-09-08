@@ -5,6 +5,7 @@ import com.continuityworks.alfheimcompanion.brain.CompanionBrainCoordinator;
 import com.continuityworks.alfheimcompanion.entity.ElvenCompanionEntity;
 import com.continuityworks.alfheimcompanion.integration.ContinuityWorksBridge;
 import com.continuityworks.alfheimcompanion.integration.QuestAwarenessBridge;
+import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.memory.CompanionMode;
 import com.continuityworks.alfheimcompanion.memory.ActiveTask;
 import com.continuityworks.alfheimcompanion.memory.CompanionSavedData;
@@ -68,10 +69,12 @@ public final class CompanionCommandService {
                     ? "I have no unfinished task. Blueprint state: " + data.blueprintLedger().state().name().toLowerCase(Locale.ROOT)
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
                     + "/100, mood " + data.moodIndex() + "."
+                    + CombatProfileBridge.statusSuffix(player, companion)
                     : "My current task is " + data.activeTask() + ". Blueprint state: "
                     + data.blueprintLedger().state().name().toLowerCase(Locale.ROOT)
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
-                    + "/100, mood " + data.moodIndex() + ".");
+                    + "/100, mood " + data.moodIndex() + "."
+                    + CombatProfileBridge.statusSuffix(player, companion));
             case APPROVE_BLUEPRINT -> BlueprintLifecycleService.approve(player, companion);
             case REJECT_BLUEPRINT -> BlueprintLifecycleService.reject(player);
             case DEFEND -> {

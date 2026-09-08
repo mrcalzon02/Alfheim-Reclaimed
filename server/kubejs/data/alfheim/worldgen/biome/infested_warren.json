@@ -37,7 +37,11 @@
     [],
     [],
     [
-      "mythicbotany:alfheim_grass"
+      "alfheim:warren_root_mat",
+      "mythicbotany:alfheim_grass",
+      "mythicbotany:loose_dreamwood_trees",
+      "alfheim:warren_fungal_bloom",
+      "alfheim:warren_web_snare"
     ],
     []
   ],

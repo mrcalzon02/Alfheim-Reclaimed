@@ -5,6 +5,7 @@ import com.continuityworks.alfheimcompanion.memory.CompanionSavedData;
 import com.continuityworks.alfheimcompanion.memory.MemoryEntry;
 import com.continuityworks.alfheimcompanion.personality.DialogueBank;
 import com.continuityworks.alfheimcompanion.brain.CompanionBrainCoordinator;
+import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.registry.ModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -86,6 +87,12 @@ public final class CompanionSummonService {
             companion.setCustomNameVisible(true);
         }
 
+        try {
+            CombatProfileBridge.synchronize(owner, companion);
+        } catch (RuntimeException | LinkageError error) {
+            com.continuityworks.alfheimcompanion.AlfheimCompanion.LOGGER.warn(
+                    "Optional combat profile synchronization failed during summon", error);
+        }
         owner.sendSystemMessage(Component.translatable("message.alfheim_companion.summoned", data.companionName()));
         QuestMemoryService.refresh(owner, data);
         DialogueBank.Moment moment = agitation >= 3

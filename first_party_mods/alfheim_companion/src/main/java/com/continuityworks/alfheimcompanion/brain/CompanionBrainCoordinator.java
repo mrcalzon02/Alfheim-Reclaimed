@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.Optional;
 import com.continuityworks.alfheimcompanion.integration.QuestAwarenessBridge;
+import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.personality.PersonalityProfiles;
 
 public final class CompanionBrainCoordinator {
@@ -107,7 +108,8 @@ public final class CompanionBrainCoordinator {
                 owner.getUUID(), companion.level().dimension().location().toString(),
                 companion.blockPosition(), owner.blockPosition(), hp, threats,
                 data.activeTask(), PersonalityProfiles.forName(data.companionName()).promptSummary()
-                + "; mood_index=" + data.moodIndex(), data.facts());
+                + "; mood_index=" + data.moodIndex(),
+                CombatProfileBridge.statusSuffix(owner, companion).trim(), data.facts());
     }
 
     private static void applyCompleted(MinecraftServer server, CompanionSavedData data) {
@@ -166,7 +168,8 @@ public final class CompanionBrainCoordinator {
                 companion.level().dimension().location().toString(), biome, time, weather,
                 companion.mode().name().toLowerCase(), quest,
                 PersonalityProfiles.forName(data.companionName()).promptSummary()
-                + "; mood_index=" + data.moodIndex(), memories);
+                + "; mood_index=" + data.moodIndex(),
+                CombatProfileBridge.statusSuffix(owner, companion).trim(), memories);
         if (!IN_FLIGHT.compareAndSet(false, true)) return;
         lastAmbientGameTime = now;
         engine.activate();

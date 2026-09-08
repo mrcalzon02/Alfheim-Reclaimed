@@ -14,7 +14,7 @@ public final class CompanionInventoryScreen extends AbstractContainerScreen<Comp
 
     public CompanionInventoryScreen(CompanionInventoryMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        imageHeight = 186;
+        imageHeight = 204;
         inventoryLabelY = imageHeight - 94;
     }
 
@@ -23,7 +23,7 @@ public final class CompanionInventoryScreen extends AbstractContainerScreen<Comp
         RenderSystem.setShaderColor(1, 1, 1, 1);
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
-        int topHeight = 17 + 4 * 18;
+        int topHeight = 17 + 5 * 18;
         graphics.blit(TEXTURE, x, y, 0, 0, imageWidth, topHeight);
         graphics.blit(TEXTURE, x, y + topHeight, 0, 126, imageWidth, 96);
     }

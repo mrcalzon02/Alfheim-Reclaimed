@@ -13,7 +13,13 @@
     "fog_color": 5130837,
     "sky_color": 6051686,
     "water_color": 3354683,
-    "water_fog_color": 1446938
+    "water_fog_color": 1446938,
+    "particle": {
+      "options": {
+        "type": "minecraft:ash"
+      },
+      "probability": 0.011
+    }
   },
   "features": [
     [],
@@ -38,7 +44,12 @@
     ],
     [],
     [],
-    [],
+    [
+      "alfheim:marches_hollow_ground",
+      "alfheim:marches_hollow_boulder",
+      "alfheim:marches_witherwood",
+      "alfheim:marches_bonefield"
+    ],
     []
   ],
   "spawn_costs": {},

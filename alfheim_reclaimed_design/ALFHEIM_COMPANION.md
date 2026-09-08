@@ -238,7 +238,8 @@ it, only bundled static templates are available.
 ## Player-like capabilities and permissions
 
 The entity owns a persistent, owner-interactable 36-slot carrying layout: 27 main slots and a 9-slot
-hotbar, plus normal equipment slots. Empty-hand interaction opens its container within eight blocks;
+hotbar, plus six directly interactable equipment/hand slots. Empty-hand interaction opens its
+five-row combined equipment/container screen within eight blocks;
 shift-click transfers work in both directions and the server closes access if owner, distance, entity
 or lease validity changes. Eating, potions, crafting, fetching and building all use these same visible
 slots. Validated block actions run through a
@@ -257,17 +258,20 @@ guard radius; retreat navigation seeks distance from nearby monsters. Unknown or
 is accepted into visible storage after confirmation but is not auto-equipped or activated—the elf
 states that it does not know how to use it safely.
 
-An optional version-1 `CombatProfileProvider` is reserved for full MMO integration. It normalizes
-level, archetype, resources, modifiers and item eligibility while leaving inventory creation,
-permissions, damage execution and equipment changes under companion/Forge authority. No provider is
-registered until the pack owner chooses which MMO mechanics apply to companions and how death/reset,
-leases and player progression should interact.
+The version-2 `CombatProfileProvider` now has a direct, optional Mine and Slash adapter pinned to the
+pack's Mine and Slash 6.4.7 and Library of Exile 2.1.11 APIs. When `mmorpg` is loaded it:
 
-The current pack does contain a mod identifying itself as `mmorpg`; the safe-mode server log shows its
-server constructor and mixins. That makes it the first concrete adapter candidate, but identification
-alone is not a stable API contract. Integration must use its documented capability/API surface (or a
-small explicit compatibility adapter), never reflective access to internal classes. Until that API is
-audited, ordinary Forge combat remains authoritative and the optional MMO bridge returns no profile.
+- synchronizes the companion to the active lessee's Mine and Slash level without granting XP or items;
+- exposes the lessee's selected Mine and Slash class path plus the companion's live MMO resources and
+  calculated modifiers to status responses and bounded inference snapshots;
+- reads Mine and Slash `GearItemData`, maps it through the mod's own base-gear slot, enforces
+  `canPlayerWear` and `canUseWeapon`, and invalidates the mod's equipment cache after real slot changes;
+- leaves unmet-requirement gear and unsupported jewelry in ordinary visible storage with an explicit
+  response instead of guessing how to activate it.
+
+The adapter class remains cold when `mmorpg` is absent, and the mod then falls back to ordinary
+vanilla/Forge equipment and combat. Damage execution stays with Mine and Slash/Forge hooks; the
+companion adapter never fabricates damage, progression, gear, currency or resources.
 
 Death inventory follows the world rule. With `keepInventory=true`, all 36 carrying/hotbar stacks and
 six equipment/hand stacks are stored in the fallen player's binding and restored to the replacement
@@ -342,6 +346,8 @@ in a controlled server run.
    server load.
 8. Implement a Java-17-compatible tiny-model adapter or isolated bundled Jlama worker.
 9. Replace the temporary player renderer with approved Hollow Court assets.
+10. Add an explicit Curios-backed companion jewelry harness before enabling Mine and Slash rings or
+    necklaces; they are recognized but safely stored in the current six-slot equipment model.
 
 ## Acceptance gates
 
@@ -366,3 +372,7 @@ measured tick/RAM budget under representative modpack load.
   companion.
 - The command wheel and overhead emotes are clean-build, unit, and dedicated-side validated. Client
   interaction/visual acceptance remains open after the implementation pass.
+- MMO-enabled safe-mode full-pack boot `companion-mmo-safe-20260908c`: exit 0; FTB Chunks, FTB Quests,
+  and the direct Mine and Slash 6.4.x adapter all connected before the server reached `Done` and shut
+  down cleanly. Live-player acceptance for level synchronization, requirement-denied gear, calculated
+  damage, resources, and the six equipment slots remains an explicit in-world test gate.
