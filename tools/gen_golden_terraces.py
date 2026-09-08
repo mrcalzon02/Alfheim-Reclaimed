@@ -76,9 +76,15 @@ AMPLITUDE = 0.60
 CONT = 'mythicbotany:alfheim_continentalness'
 WEIRD = 'mythicbotany:alfheim_weirdness'
 
-CONT_IN = (0.155, 0.190)     # fade up across the biome's lower edge
-CONT_OUT = (0.235, 0.275)    # fade back down well before its upper edge at 0.30
-WEIRD_IN = (0.030, 0.150)    # weirdness 0 is the dreamwood/golden split; stay clear of it
+CONT_IN = (0.155, 0.175)     # fade up across the biome's lower edge
+CONT_OUT = (0.265, 0.290)    # fade back down before its upper edge at 0.30
+WEIRD_IN = (0.020, 0.080)    # weirdness 0 is the dreamwood/golden split; stay clear of it
+
+# WIDENED 2026-09-08 on measurement. The first pass saturated the weight only in a narrow core,
+# and the probe showed the cost precisely: risers 83.0% on-tread and plot interiors 59.5%, but
+# unclaimed grass columns only 32.9% against a 25% baseline. The soft aggregate was coverage, not
+# resolution -- so each ramp now saturates sooner, while every edge stays inset from the biome's
+# own climate box so `check_golden_terraces` G3 still finds an exact zero outside it.
 
 # Plot cells. 1.20.1 has no Voronoi, but the two things the algorithm needs from one are a
 # cell-edge distance and cells that tile the plane. |ridge| gives both: its zero contours are
@@ -86,7 +92,7 @@ WEIRD_IN = (0.030, 0.150)    # weirdness 0 is the dreamwood/golden split; stay c
 PLOT_NOISE = 'minecraft:ridge'
 PLOT_XZ = 2.0                # ridge base period is 128 blocks, so plots run about 64 across
 EDGE_GAIN = 2.2              # scales |ridge| into a usable 0..1 before clamping
-EDGE_IN = (0.18, 0.52)       # risers occupy the low band; flats begin above it
+EDGE_IN = (0.12, 0.34)       # risers occupy the low band; flats begin above it
 
 
 def ref(name):

@@ -118,6 +118,17 @@ def build():
     if settings['noise_router']['vein_gap'] != expected_vein_gap:
         raise RuntimeError('Unexpected MythicBotany vein_gap; refusing to overwrite upstream noise settings')
     out.update(extra_files())
+    # VERTICAL NOISE RESOLUTION: LEFT AT UPSTREAM, AND HERE IS WHY.
+    # size_vertical 1 was tried on 2026-09-08 to sharpen the Golden Fields treads, on the theory
+    # that 8-block density sampling was averaging a 4-block sawtooth away. It was measured and
+    # the theory was wrong twice over. alfheim_final contains no `minecraft:interpolated`, so it
+    # is evaluated per block at full resolution and the cell grid never touched the sawtooth;
+    # and the terrace probe returned 49.8% of columns on a tread against 49.9% at size_vertical
+    # 2, with generation time 14,221 ms against a 14,395 ms five-run baseline -- both inside
+    # noise. The real cause of the soft aggregate was the weight blend, which is now visible in
+    # the per-block split: risers 83.0% on-tread, plot interiors 59.5%, unclaimed grass 32.9%.
+    # Do not change this without a measurement that says it does something.
+    assert settings['noise']['size_vertical']==2, 'upstream vertical cell size moved'
     emit('mythicbotany/worldgen/noise_settings/alfheim.json',settings)
 
     families=json.loads((ROOT/'tools/deepworks_manifest.json').read_text())['families']

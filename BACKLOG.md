@@ -104,13 +104,47 @@ not a walkable agricultural step, so N=4 is kept at amplitude 0.60.
 dirt path, 8.2% moonstone retaining-wall brick on `steep` risers, 6.2% coarse dirt, plus wheat
 planting on the flats.
 
+#### `size_vertical: 1` was authorised, tried, measured and reverted
+
+The theory was that 8-block density sampling averaged a 4-block sawtooth away. It was wrong twice
+over, and measuring it said so:
+
+- `alfheim_final` contains **no `minecraft:interpolated`**, so it is evaluated per block at full
+  resolution. The cell grid never touched the sawtooth.
+- The probe returned **49.8%** on-tread at `size_vertical: 1` against **49.9%** at 2, with
+  generation time 14,221 ms against a five-run 14,395 ms baseline. Both inside noise.
+
+A `sea_level: 64 → 100` probe confirmed the override mechanism itself works — water moved from
+Y 63 to Y 99 — so the setting was genuinely applied and genuinely did nothing. Reverted to
+upstream, with the measurement recorded in `gen_deep_terrain` so it is not retried blind.
+
+#### What the ceiling actually was: coverage, not resolution
+
+Splitting the probe by surface block made it obvious, because the surface block *is* a readout of
+the terrace weight:
+
+| surface | n | on-tread |
+|---|---:|---:|
+| retaining wall (on `steep` risers) | 506 | **83.0%** |
+| dirt path (verge) | 411 | 63.0% |
+| farmland (plot interior) | 1,779 | 59.5% |
+| grass block (low weight) | 916 | 32.9% |
+| wheat (sits one block *above* farmland) | 239 | 13.4% |
+
+The terracing was already sharp where the weight was high. The soft aggregate was dilution by
+low-weight columns. Widening every ramp to saturate sooner — `cont` full across 0.175‥0.265
+instead of 0.19‥0.235, weirdness from 0.02, plot edge from 0.12 — moved the aggregate from
+**49.8% to 59.7%** on-tread and retaining walls from 11.0% to 14.0%, at no global cost.
+
+`check_golden_terraces` G4 was rewritten while doing this: it compared against a fixed 0.05 step
+and fired on a legitimately narrower ramp. It now derives the expected per-sample rise from the
+ramp widths, so it still catches a step function but not a steeper continuous fade.
+
 #### Open
 
-The terrain result is a real, measurable softening into broad stepped shelves — **not** the crisp
-geometric terracing of the offline prototype, which had no interpolation grid to fight. Reaching
-that would mean `size_vertical: 1` for the whole dimension: four-block cells, twice the density
-samples per chunk, and a change to every biome's terrain rather than to Golden Fields alone.
-That is a dimension-wide performance and terrain decision and it has not been taken.
+Client visual review of the shelved fields, retaining walls and plot verges. The remaining
+softness is the deliberate edge blend between plots and at the biome margin; tightening it
+further trades away the smooth transition that keeps this out of B-82 territory.
 
 Client visual review of the shelved fields, the retaining walls and the plot verges is open.
 

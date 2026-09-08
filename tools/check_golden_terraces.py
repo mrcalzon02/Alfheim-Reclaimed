@@ -111,9 +111,20 @@ def main():
     if outside_nonzero:
         fail('G3', f'weight is non-zero outside the biome box at {len(outside_nonzero)} '
                    f'sample(s), first {outside_nonzero[0]}')
-    if worst_step > 0.05:
-        fail('G4', f'weight jumps by {worst_step:.4f} between adjacent continentalness '
-                   f'samples; it must be continuous')
+    # G4 detects a DISCONTINUITY, so its bound has to come from the ramps themselves rather than
+    # from a constant. A linear ramp of width w, sampled every `step`, rises step/w per sample --
+    # narrowing a ramp legitimately raises that, and a fixed 0.05 ceiling simply made the guard
+    # fire on a narrower-but-still-continuous fade. Derive the expected rise, allow a little
+    # float slack, and the check still catches the thing that matters: a step function.
+    narrowest = min(T.CONT_IN[1] - T.CONT_IN[0], T.CONT_OUT[1] - T.CONT_OUT[0])
+    if narrowest < 0.012:
+        fail('G4', f'narrowest continentalness ramp is {narrowest:.4f} wide; that is close '
+                   f'enough to a step to risk the B-82 seam')
+    expected = 0.001 / narrowest
+    if worst_step > expected * 1.05:
+        fail('G4', f'weight jumps by {worst_step:.4f} between adjacent continentalness samples, '
+                   f'above the {expected:.4f} a {narrowest:.3f}-wide ramp explains; '
+                   f'it is not continuous')
 
     # ---- G5
     vals = [ev(saw, {'@y': y}) for y in range(T.WORLD_LO, T.WORLD_HI + 1)]
