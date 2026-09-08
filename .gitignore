@@ -53,5 +53,6 @@ server/survey-*/
 server/terrace-*/
 server/sealevel-probe/
 server/deepworks-probe/
+server/leyline-probe/
 # Add the prefix here when tools/run_server.py --level-name gains a new family; every
 # world it generates is disposable evidence, never source.

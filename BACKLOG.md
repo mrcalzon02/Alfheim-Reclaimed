@@ -1,5 +1,56 @@
 # Backlog
 
+### B-88 — Ley line corridors, worldgen half — **RUNTIME PLACED AND ASSEMBLED**
+
+Field item 6: "I still haven't seen the Ley line conduit shafts spawning. They may be missing a
+spawn criteria or Biome." They were missing neither. **The worldgen half did not exist.** Only
+Phase 1 was built — the status-effect registry and its icons. There was no block, no structure,
+no template pool and no NBT anywhere in the pack, so there was nothing for a spawn criterion to
+fail. B-83 recorded that diagnosis; this builds the missing half.
+
+#### What shipped
+
+Five jigsaw pieces on the design's fixed geometry — five-by-five clear interior, one-block shell
+for a seven-by-seven envelope, channel on the exact horizontal and vertical centre, two-block
+maintenance lanes either side:
+
+| piece | size | role |
+|---|---|---|
+| `hub` | 17×12×17 | start piece; round distributor chamber, four spoke mouths |
+| `straight` | 7×7×16 | arterial run; collars every 4, a solid relay every 12 |
+| `bend` | 7×7×7 | right-angle knee |
+| `junction` | 7×7×7 | four-way crossing |
+| `terminal` | 7×7×7 | sealed dead relay face — **also the pool fallback** |
+
+The terminal doubling as fallback is what stops a branch that hits the depth limit from ending in
+an open hole. Weights favour straights 8:3:2:2 so the network reads as long arterial runs rather
+than a knot. Its own grid at 40/18 with its own salt, deliberately *not* the archaeology salt, so
+the two networks are independent finds.
+
+#### What deliberately did not ship, and why that is not a gap
+
+`alfheim:ley_conduit_node` — the six-direction beam block — is **not** here. A block entity that
+projects and retransmits a beacon payload is Java, and this pack has no mod that owns worldgen
+blocks. That is the intended starting state rather than a shortfall:
+`LEY_LINE_CHANNEL_CORRIDORS.md` says so directly — *"The network begins as archaeology rather
+than infrastructure. Most nodes are dormant or disconnected."* So the channel is static and
+roughly one length in six has gone out, reading as leyline stone. A dormant network is the thing
+the player finds and repairs; the live beam is the later mechanic, not a missing half of this one.
+
+#### Measured
+
+Fresh world, 512-block patch: **`alfheim:leyline_corridors` placed twice**, and the pieces
+assembled rather than merely recording a start — 22 sections of shell brick, 21 of polished deck,
+14 of carved collar, 18 of lane rail, 16 of relay node, 41 carrying the luminous channel, plus
+chains and lanterns. All five piece types are represented in the ground.
+
+#### Open
+
+- Client visual review of corridor scale, the relay pinch points and the hub silhouette.
+- The conduit block and the beacon-pyramid transmission network remain Phase 3. A first-party
+  Java mod now exists in the repo (`first_party_mods/alfheim_companion`), but it is scoped to one
+  summonable companion entity; a worldgen block does not belong in it without a decision.
+
 ### B-87 — Deepworks surface entrance — **RUNTIME PLACED AND CO-LOCATION PROVEN**
 
 Field item 12's second half. B-83 fixed the grid pitch, but the complexes stayed invisible: all
