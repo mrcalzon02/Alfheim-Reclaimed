@@ -199,7 +199,7 @@ Applies per change, not once per project. A lower level never implies a higher o
 | Level | Check | How |
 |---|---|---|
 | 1 | Syntax & schema | JSON/TOML/SNBT parses |
-| 2 | Java & Gradle | **Applies as of 2026-09-08.** `first_party_mods/` now holds Gradle projects — `alfheim_companion` first. Build with that project's own wrapper before shipping a jar into `mods/`. The pack itself is still datapack + KubeJS; Java is for behaviour those cannot express, such as block entities. |
+| 2 | Java & Gradle | **Applies as of 2026-09-08.** `first_party_mods/` now holds Gradle projects — `alfheim_companion` first. Build with that project's own wrapper before shipping a jar into `mods/`, and set `JAVA_HOME="C:/Program Files/Java/jdk-17"` when you do — the default `java` on this machine is 26, which Gradle 8.8 cannot run on at all (`Unsupported class file major version 70`). The pack itself is still datapack + KubeJS; Java is for behaviour those cannot express, such as block entities. |
 | 3 | Registration & metadata | All mandatory dependencies resolve |
 | 4 | Scripts & gameplay data | KubeJS loads without error; recipes appear in JEI |
 | 5 | Structure & NBT | Only if custom structures are added. **Always:** `check_feature_order.py` — no two loaded biomes may assert contradictory feature orders, **with Forge biome modifiers applied**. A biome's JSON is not its final feature list. |
