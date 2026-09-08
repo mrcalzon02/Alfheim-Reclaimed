@@ -6,12 +6,14 @@ import com.continuityworks.alfheimcompanion.entity.ElvenCompanionEntity;
 import com.continuityworks.alfheimcompanion.integration.ContinuityWorksBridge;
 import com.continuityworks.alfheimcompanion.integration.QuestAwarenessBridge;
 import com.continuityworks.alfheimcompanion.memory.CompanionMode;
+import com.continuityworks.alfheimcompanion.memory.ActiveTask;
 import com.continuityworks.alfheimcompanion.memory.CompanionSavedData;
 import com.continuityworks.alfheimcompanion.memory.MemoryEntry;
 import com.continuityworks.alfheimcompanion.personality.DialogueBank;
 import com.continuityworks.alfheimcompanion.service.CompanionSummonService;
 import com.continuityworks.alfheimcompanion.service.CraftingAdvisor;
 import com.continuityworks.alfheimcompanion.service.ItemTaskService;
+import com.continuityworks.alfheimcompanion.service.BlueprintLifecycleService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -31,43 +33,76 @@ public final class CompanionCommandService {
                 data.companionUuid().orElse(null));
         if (companion == null || companion.ownerUuid() == null
                 || !companion.ownerUuid().equals(player.getUUID())) return false;
+        long leaseTime = player.server.overworld().getGameTime();
+        if (!data.leaseHeldBy(player.getUUID(), leaseTime)) {
+            reply(player, data, "My lease is available. Use the sigil to summon me before giving a task.");
+            return true;
+        }
+        data.claimOrRefreshLease(player.getUUID(), leaseTime);
 
         AddressedCommandParser.Parsed command = parsed.get();
         switch (command.verb()) {
             case FOLLOW -> {
-                data.setTask("", null);
+                data.setTask(new ActiveTask(ActiveTask.Kind.FOLLOW, "", "", 1,
+                        player.level().getGameTime()), null);
                 companion.setMode(CompanionMode.FOLLOWING);
-                reply(player, data, DialogueBank.line(DialogueBank.Moment.FOLLOW, player.level().getGameTime()));
+                reply(player, data, DialogueBank.line(DialogueBank.Moment.FOLLOW,
+                        player.level().getGameTime(), data.companionName(), data.moodIndex()));
             }
             case GUARD -> {
-                data.setTask("guard", null);
+                data.setTask(new ActiveTask(ActiveTask.Kind.GUARD, "", "", 1,
+                        player.level().getGameTime()), null);
                 data.rememberFact("guard_anchor", companion.level().dimension().location() + "@" + companion.blockPosition().asLong());
                 companion.setGuardPosition(companion.blockPosition());
                 companion.setMode(CompanionMode.GUARDING);
-                reply(player, data, DialogueBank.line(DialogueBank.Moment.WAIT, player.level().getGameTime()));
+                reply(player, data, DialogueBank.line(DialogueBank.Moment.WAIT,
+                        player.level().getGameTime(), data.companionName(), data.moodIndex()));
             }
             case CANCEL -> {
-                data.setTask("", null);
+                BlueprintLifecycleService.cancel(player.server);
+                data.setTask(ActiveTask.NONE, null);
                 companion.setMode(CompanionMode.FOLLOWING);
                 reply(player, data, "I have set the task aside.");
             }
             case STATUS -> reply(player, data, data.activeTask().isBlank()
-                    ? "I have no unfinished task." : "My current task is " + data.activeTask() + ".");
+                    ? "I have no unfinished task. Blueprint state: " + data.blueprintLedger().state().name().toLowerCase(Locale.ROOT)
+                    + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
+                    + "/100, mood " + data.moodIndex() + "."
+                    : "My current task is " + data.activeTask() + ". Blueprint state: "
+                    + data.blueprintLedger().state().name().toLowerCase(Locale.ROOT)
+                    + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
+                    + "/100, mood " + data.moodIndex() + ".");
+            case APPROVE_BLUEPRINT -> BlueprintLifecycleService.approve(player, companion);
+            case REJECT_BLUEPRINT -> BlueprintLifecycleService.reject(player);
+            case DEFEND -> {
+                companion.setMode(CompanionMode.DEFENDING);
+                reply(player, data, DialogueBank.line(DialogueBank.Moment.DEFEND,
+                        player.level().getGameTime(), data.companionName(), data.moodIndex()));
+            }
+            case RETREAT -> {
+                companion.setTarget(null);
+                companion.setMode(CompanionMode.RETREATING);
+                reply(player, data, DialogueBank.line(DialogueBank.Moment.RETREAT,
+                        player.level().getGameTime(), data.companionName(), data.moodIndex()));
+            }
             case QUEST -> describeQuest(player, data, command.target());
             case BUILD -> {
                 String task = "build|" + safe(command.target());
-                data.setTask(task, null);
+                data.setTask(new ActiveTask(ActiveTask.Kind.BUILD, "", command.target(), 1,
+                        player.level().getGameTime()), null);
                 rememberRequest(player, data, task);
                 if (ContinuityWorksBridge.provider().isEmpty()) {
                     reply(player, data, "I can plan that, but the Continuity Works blueprint endpoint is not connected yet.");
                 } else {
                     CompanionBrainCoordinator.requestComplexPlan(player.server);
-                    reply(player, data, "I will study the site and prepare a blueprint proposal.");
+                    BlueprintLifecycleService.request(player, companion, command.target());
+                    reply(player, data, "I will study the site and prepare a bounded blueprint proposal.");
                 }
             }
             case CRAFT -> {
                 String task = "craft|" + command.count() + "|" + safe(command.target());
-                data.setTask(task, null);
+                data.setTask(new ActiveTask(ActiveTask.Kind.CRAFT, "", command.target(), command.count(),
+                        player.level().getGameTime()), null);
                 rememberRequest(player, data, task);
                 reply(player, data, CraftingAdvisor.describe(player, companion, command.target(), command.count()));
             }
@@ -78,7 +113,8 @@ public final class CompanionCommandService {
                     default -> "lead";
                 };
                 String task = "item|" + approach + "|" + command.count() + "|" + safe(command.target());
-                data.setTask(task, null);
+                data.setTask(new ActiveTask(ActiveTask.Kind.ITEM, approach, command.target(), command.count(),
+                        player.level().getGameTime()), null);
                 rememberRequest(player, data, task);
                 ItemTaskService.Approach itemApproach = switch (approach) {
                     case "show" -> ItemTaskService.Approach.SHOW;
@@ -87,7 +123,7 @@ public final class CompanionCommandService {
                 };
                 ItemTaskService.StartResult start = ItemTaskService.start(player, companion,
                         command.target(), command.count(), itemApproach);
-                if (!start.started()) data.setTask("", null);
+                if (!start.started()) data.setTask(ActiveTask.NONE, null);
                 reply(player, data, start.message());
             }
         }

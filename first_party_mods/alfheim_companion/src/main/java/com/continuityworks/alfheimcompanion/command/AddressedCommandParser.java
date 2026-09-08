@@ -6,7 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class AddressedCommandParser {
-    public enum Verb { FOLLOW, GUARD, SHOW_ITEM, FETCH_ITEM, LEAD_TO_ITEM, CRAFT, BUILD, QUEST, CANCEL, STATUS }
+    public enum Verb { FOLLOW, GUARD, SHOW_ITEM, FETCH_ITEM, LEAD_TO_ITEM, CRAFT, BUILD, QUEST,
+        APPROVE_BLUEPRINT, REJECT_BLUEPRINT, DEFEND, RETREAT, CANCEL, STATUS }
     public record Parsed(Verb verb, String target, int count) {}
 
     private static final Pattern COUNT = Pattern.compile("^(\\d+)\\s+(.+)$");
@@ -30,6 +31,13 @@ public final class AddressedCommandParser {
             return parsed(Verb.GUARD, "", 1);
         if (body.equals("cancel") || body.equals("stop")) return parsed(Verb.CANCEL, "", 1);
         if (body.equals("status") || body.equals("what are you doing")) return parsed(Verb.STATUS, "", 1);
+        if (body.equals("defend") || body.equals("defend me") || body.equals("protect me"))
+            return parsed(Verb.DEFEND, "", 1);
+        if (body.equals("retreat") || body.equals("fall back")) return parsed(Verb.RETREAT, "", 1);
+        if (body.equals("approve blueprint") || body.equals("approve build"))
+            return parsed(Verb.APPROVE_BLUEPRINT, "", 1);
+        if (body.equals("reject blueprint") || body.equals("reject build"))
+            return parsed(Verb.REJECT_BLUEPRINT, "", 1);
 
         Optional<Parsed> matched;
         matched = target(body, Verb.LEAD_TO_ITEM, "bring me to ", "lead me to ", "take me to ");

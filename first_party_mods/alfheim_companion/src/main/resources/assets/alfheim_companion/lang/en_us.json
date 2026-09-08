@@ -6,7 +6,9 @@
   "message.alfheim_companion.not_owner": "The sigil does not answer to you.",
   "message.alfheim_companion.waiting": "The companion will wait here.",
   "message.alfheim_companion.following": "The companion will follow you.",
-  "message.alfheim_companion.offer_confirm": "May I take and equip %s? Offer it again within ten seconds to approve.",
+  "message.alfheim_companion.offer_confirm": "May I take %s and equip it if I know how? Offer it again within ten seconds to approve.",
   "message.alfheim_companion.offer_accepted": "I accept %s.",
-  "message.alfheim_companion.inventory_full": "I have no safe place to carry that."
+  "message.alfheim_companion.inventory_full": "I have no safe place to carry that.",
+  "key.categories.alfheim_companion": "Alfheim Companion",
+  "key.alfheim_companion.command_wheel": "Open Companion Command Wheel"
 }

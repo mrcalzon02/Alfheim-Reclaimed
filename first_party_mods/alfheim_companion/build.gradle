@@ -129,6 +129,24 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    testImplementation platform('org.junit:junit-bom:5.10.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Optional compile-time adapters target the exact FTB versions installed by Alfheim Reclaimed.
+    // In the tracked pack layout this resolves ../../mods automatically. Standalone builds may pass
+    // -Pinstance_mods_dir=<path-to-mods>. These jars are never bundled or redistributed.
+    def instanceModsDir = providers.gradleProperty('instance_mods_dir')
+            .map { file(it) }.getOrElse(file('../../mods'))
+    if (instanceModsDir.exists()) {
+        def integrationJars = fileTree(instanceModsDir) {
+            include 'ftb-chunks-forge-2001.3.8.jar'
+            include 'ftb-quests-forge-2001.4.22.jar'
+            include 'ftb-library-forge-2001.2.13.jar'
+            include 'ftb-teams-forge-2001.3.2.jar'
+            include 'architectury-9.2.14-forge.jar'
+        }
+        compileOnly fg.deobf(files(integrationJars))
+    }
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -204,4 +222,8 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+tasks.named('test', Test).configure {
+    useJUnitPlatform()
 }

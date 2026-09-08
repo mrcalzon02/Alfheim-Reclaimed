@@ -39,6 +39,22 @@ public final class DialogueBank {
     private DialogueBank() {}
 
     public static String line(Moment moment, long seed) {
+        return line(moment, seed, "Elowen");
+    }
+
+    public static String line(Moment moment, long seed, String companionName) {
+        return line(moment, seed, companionName, 0);
+    }
+
+    public static String line(Moment moment, long seed, String companionName, int moodIndex) {
+        PersonalityProfile profile = PersonalityProfiles.forName(companionName);
+        if (moment == Moment.SUMMON) {
+            if (moodIndex >= 40) return profile.acknowledgement() + " " + profile.summonLine();
+            if (moodIndex <= -40) return "I am here. A little quiet today, but ready to help.";
+            return profile.summonLine();
+        }
+        if (moment == Moment.FOLLOW) return profile.followLine();
+        if (moment == Moment.WAIT) return profile.waitLine();
         List<String> lines = switch (moment) {
             case SUMMON -> SUMMON;
             case SUMMON_CRANKY -> SUMMON_CRANKY;
@@ -49,9 +65,9 @@ public final class DialogueBank {
             case RETREAT -> RETREAT;
             case WORK_COMPLETE -> WORK_COMPLETE;
         };
-        String line = lines.get(Math.floorMod(Long.hashCode(seed), lines.size()));
+        String line = lines.get(Math.floorMod(Long.hashCode(seed + moodIndex * 17L), lines.size()));
         if (line.contains("%s")) {
-            String adjective = ADJECTIVES.get(Math.floorMod(Long.hashCode(seed * 31L), ADJECTIVES.size()));
+            String adjective = profile.pathAdjective();
             return line.formatted(adjective);
         }
         return line;

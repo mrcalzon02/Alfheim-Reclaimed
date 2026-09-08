@@ -15,6 +15,11 @@ import com.continuityworks.alfheimcompanion.service.CompanionSummonService;
 import com.continuityworks.alfheimcompanion.service.QuestMemoryService;
 import net.minecraftforge.event.ServerChatEvent;
 import com.continuityworks.alfheimcompanion.command.CompanionCommandService;
+import com.continuityworks.alfheimcompanion.service.BlueprintLifecycleService;
+import com.continuityworks.alfheimcompanion.service.WheelActionService;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import com.continuityworks.alfheimcompanion.command.CompanionAdminCommands;
+import com.continuityworks.alfheimcompanion.service.CompanionDeathInventoryService;
 
 public final class CompanionEvents {
     private CompanionEvents() {}
@@ -25,18 +30,30 @@ public final class CompanionEvents {
     }
 
     @SubscribeEvent
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
+        CompanionAdminCommands.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event) {
         if (!(event.getLevel() instanceof ServerLevel level)
                 || !(event.getEntity() instanceof ElvenCompanionEntity companion)) return;
 
         CompanionSavedData data = CompanionSavedData.get(level.getServer());
+        // The sigil service binds an owner before insertion. Reject commands, spawn eggs, other
+        // mods, or corrupted NBT attempting to create an unowned companion outside that path.
+        if (companion.ownerUuid() == null) {
+            AlfheimCompanion.LOGGER.warn("Rejected unbound elven companion {}", companion.getUUID());
+            event.setCanceled(true);
+            return;
+        }
         if (data.companionUuid().isPresent() && !data.companionUuid().get().equals(companion.getUUID())) {
             AlfheimCompanion.LOGGER.warn("Rejected duplicate elven companion {}", companion.getUUID());
             event.setCanceled(true);
             return;
         }
 
-        if (data.companionUuid().isEmpty() && companion.ownerUuid() != null) {
+        if (data.companionUuid().isEmpty()) {
             data.bind(companion.getUUID(), companion.ownerUuid(),
                     level.dimension().location().toString(), companion.blockPosition());
         }
@@ -47,8 +64,11 @@ public final class CompanionEvents {
         if (!(event.getEntity() instanceof ElvenCompanionEntity companion)
                 || companion.getServer() == null) return;
         CompanionSavedData data = CompanionSavedData.get(companion.getServer());
+        CompanionDeathInventoryService.handle(companion, data);
         data.remember(new MemoryEntry(companion.level().getGameTime(), "death", "self",
                 event.getSource().getMsgId(), 10));
+        data.markCurrentBindingDead();
+        BlueprintLifecycleService.cancel(companion.getServer());
         data.dismiss();
         CompanionChunkTickets.release(companion.getUUID());
         CompanionBrainCoordinator.deactivate();
@@ -59,6 +79,20 @@ public final class CompanionEvents {
     public static void onServerTick(TickEvent.ServerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
         CompanionBrainCoordinator.tick(event.getServer());
+        BlueprintLifecycleService.tick(event.getServer());
+        if (event.getServer().getTickCount() % 20 == 0) {
+            CompanionSavedData leaseData = CompanionSavedData.get(event.getServer());
+            if (leaseData.expireLease(event.getServer().overworld().getGameTime())) {
+                BlueprintLifecycleService.cancel(event.getServer());
+                CompanionBrainCoordinator.deactivate();
+                ElvenCompanionEntity leased = CompanionSummonService.findLoaded(event.getServer(),
+                        leaseData.companionUuid().orElse(null));
+                if (leased != null) {
+                    leased.getNavigation().stop();
+                    leased.setMode(com.continuityworks.alfheimcompanion.memory.CompanionMode.WAITING);
+                }
+            }
+        }
         if (event.getServer().getTickCount() % 1200 == 0) {
             CompanionSavedData data = CompanionSavedData.get(event.getServer());
             ElvenCompanionEntity companion = CompanionSummonService.findLoaded(event.getServer(),
@@ -72,6 +106,8 @@ public final class CompanionEvents {
     @SubscribeEvent
     public static void onServerStopping(ServerStoppingEvent event) {
         CompanionBrainCoordinator.deactivate();
+        BlueprintLifecycleService.cancel(event.getServer());
+        WheelActionService.clearRateLimits();
         CompanionChunkTickets.releaseAll(event.getServer());
     }
 }

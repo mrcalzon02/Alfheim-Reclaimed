@@ -16,4 +16,6 @@ public final class ElvenNames {
     public static String select(UUID identity) {
         return NAMES.get(Math.floorMod(identity.hashCode(), NAMES.size()));
     }
+
+    public static List<String> all() { return NAMES; }
 }

@@ -23,6 +23,27 @@ public final class CompanionSummonService {
     public static void summonOrRecall(ServerPlayer owner) {
         MinecraftServer server = owner.server;
         CompanionSavedData data = CompanionSavedData.get(server);
+        long now = server.overworld().getGameTime();
+        if (data.leaseHeldByOther(owner.getUUID(), now)) {
+            owner.sendSystemMessage(Component.literal("§d[" + data.companionName()
+                    + "] §fSorry, I’m currently busy!"));
+            return;
+        }
+        boolean changingLessee = data.ownerUuid().isPresent()
+                && !data.ownerUuid().get().equals(owner.getUUID());
+        if (changingLessee) {
+            BlueprintLifecycleService.cancel(server);
+            CompanionBrainCoordinator.deactivate();
+            data.setTask(com.continuityworks.alfheimcompanion.memory.ActiveTask.NONE, null);
+            data.clearOwnerContext();
+        }
+        data.activatePlayerBinding(owner.getUUID(), now);
+        if (!data.playerBinding(owner.getUUID()).orElseThrow().alive()) {
+            owner.sendSystemMessage(Component.literal("§d[Hollow Court] §fYour companion has fallen. "
+                    + "Use /alfheimcompanion reset to create a new binding."));
+            return;
+        }
+        data.claimOrRefreshLease(owner.getUUID(), now);
         int agitation = data.recordSummon(owner.level().getGameTime());
         ElvenCompanionEntity companion = findLoaded(server, data.companionUuid().orElse(null));
 
@@ -33,6 +54,7 @@ public final class CompanionSummonService {
                 return;
             }
             companion.bindOwner(owner.getUUID());
+            data.restoreFallenInventory(owner.getUUID(), companion);
             Vec3 destination = findSafeSummonPosition(owner, companion);
             companion.moveTo(destination.x, destination.y, destination.z, owner.getYRot(), 0.0F);
             data.bind(companion.getUUID(), owner.getUUID(),
@@ -40,6 +62,7 @@ public final class CompanionSummonService {
             companion.setCustomName(Component.literal(data.companionName()));
             companion.setCustomNameVisible(true);
             if (!owner.serverLevel().addFreshEntity(companion)) {
+                data.releaseLease();
                 data.dismiss();
                 owner.sendSystemMessage(Component.translatable("message.alfheim_companion.summon_failed"));
                 return;
@@ -64,10 +87,12 @@ public final class CompanionSummonService {
         }
 
         owner.sendSystemMessage(Component.translatable("message.alfheim_companion.summoned", data.companionName()));
+        QuestMemoryService.refresh(owner, data);
         DialogueBank.Moment moment = agitation >= 3
                 ? DialogueBank.Moment.SUMMON_CRANKY : DialogueBank.Moment.SUMMON;
         owner.sendSystemMessage(Component.literal("§d[" + data.companionName() + "] §f"
-                + DialogueBank.line(moment, owner.level().getGameTime() + agitation)));
+                + DialogueBank.line(moment, owner.level().getGameTime() + agitation,
+                data.companionName(), data.moodIndex())));
     }
 
     public static void dismiss(ServerPlayer owner) {
@@ -79,12 +104,14 @@ public final class CompanionSummonService {
         ElvenCompanionEntity companion = findLoaded(owner.server, data.companionUuid().orElse(null));
         if (companion != null) {
             owner.sendSystemMessage(Component.literal("§d[" + data.companionName() + "] §f"
-                    + DialogueBank.line(DialogueBank.Moment.DISMISS, owner.level().getGameTime())));
+                    + DialogueBank.line(DialogueBank.Moment.DISMISS, owner.level().getGameTime(), data.companionName())));
             TeleportEffects.play(companion);
             CompanionChunkTickets.release(companion.getUUID());
             companion.discard();
         }
+        BlueprintLifecycleService.cancel(owner.server);
         CompanionBrainCoordinator.deactivate();
+        data.releaseLease();
         data.dismiss();
         owner.sendSystemMessage(Component.translatable("message.alfheim_companion.dismissed", data.companionName()));
     }

@@ -14,6 +14,7 @@ public record AmbientSnapshot(
         String weather,
         String activity,
         String activeQuest,
+        String personality,
         List<String> relevantMemories
 ) {
     public AmbientSnapshot { relevantMemories = List.copyOf(relevantMemories); }

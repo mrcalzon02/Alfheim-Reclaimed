@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.Optional;
 import com.continuityworks.alfheimcompanion.integration.QuestAwarenessBridge;
+import com.continuityworks.alfheimcompanion.personality.PersonalityProfiles;
 
 public final class CompanionBrainCoordinator {
     private static final int MAX_RESULT_AGE_TICKS = 100;
@@ -105,7 +106,8 @@ public final class CompanionBrainCoordinator {
         return new BrainSnapshot(requestId, companion.level().getGameTime(), companion.getUUID(),
                 owner.getUUID(), companion.level().dimension().location().toString(),
                 companion.blockPosition(), owner.blockPosition(), hp, threats,
-                data.activeTask(), data.facts());
+                data.activeTask(), PersonalityProfiles.forName(data.companionName()).promptSummary()
+                + "; mood_index=" + data.moodIndex(), data.facts());
     }
 
     private static void applyCompleted(MinecraftServer server, CompanionSavedData data) {
@@ -162,7 +164,9 @@ public final class CompanionBrainCoordinator {
         long requestId = data.nextRequestId();
         AmbientSnapshot snapshot = new AmbientSnapshot(requestId, now, companion.getUUID(), owner.getUUID(),
                 companion.level().dimension().location().toString(), biome, time, weather,
-                companion.mode().name().toLowerCase(), quest, memories);
+                companion.mode().name().toLowerCase(), quest,
+                PersonalityProfiles.forName(data.companionName()).promptSummary()
+                + "; mood_index=" + data.moodIndex(), memories);
         if (!IN_FLIGHT.compareAndSet(false, true)) return;
         lastAmbientGameTime = now;
         engine.activate();

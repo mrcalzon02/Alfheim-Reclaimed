@@ -1,6 +1,7 @@
 # Alfheim Companion — Design and Implementation Plan
 
-Status: **prototype / static validation**  
+Status: **integration prototype / clean build and unit validation; updated dedicated-server boot validated**  
+Current artifact: `alfheim_companion-0.2.0.jar`  
 Mod ID: `alfheim_companion`  
 Target: Minecraft 1.20.1, Forge 47.4.10, Java 17  
 Continuity Works blueprint API: version 1
@@ -33,6 +34,17 @@ ambient dialogue; it never directly mutates the world.
     nothing unless the requesting player is in creative mode.
 12. The inference engine is inactive when the companion is dismissed. Routine commands and behaviors
     do not invoke inference.
+13. Ownership is a renewable 30-minute lease, not a permanent monopoly. A valid token holder cannot
+    displace an active lessee and receives the bounded reply “Sorry, I’m currently busy!” The lease
+    expires after 36,000 server ticks without a successful interaction; dismissal releases it early.
+    On transfer, owner-scoped task, guard and quest context is cleared and rebuilt for the new lessee;
+    the elf's identity, agitation and non-private world/personality memory remain continuous.
+    An expired lease can be acquired only through Summon/Recall, not by stale chat or arbitrary wheel
+    packets. A failed entity creation releases the attempted lease rather than leaving a ghost lock.
+14. The one active physical entity fronts a dormant per-player binding. First binding randomizes name/
+    personality and outfit. `/alfheimcompanion profile list|set`, `outfit list|set`, and `reset`
+    manage only the issuing player's binding. Death marks that binding fallen, releases its lease and
+    blocks resummoning until a death-only reset creates a fresh randomized binding.
 
 ## Runtime layers
 
@@ -78,6 +90,22 @@ results are discarded.
 Routine conversation comes from bounded preset banks of adjectives, summon/dismiss lines, activity
 comments and interaction responses. This avoids spending inference on predictable speech.
 
+Every selectable name has one explicit, stable `PersonalityProfile`: temperament, cadence, core
+value, humor style, favorite terrain, food, color and activity, favored path adjective,
+summon/follow/wait lines and acknowledgements. Profiles
+never reroll and do not change permissions or competence. Routine chat reads them directly; compact
+and safety-qualified profile summaries are included in complex/ambient inference snapshots so a future
+tiny model preserves voice without being allowed to reinterpret rules.
+
+The companion also has bounded persistent physiology: nutrition 0–20, stamina 0–100 and movement/
+activity exhaustion. Survival difficulty drains nutrition and stamina in proportion to travel,
+working, defending and retreating; Peaceful or a creative lessee suppresses that drain. Waiting and
+guarding restore stamina when fed. At low nutrition the companion consumes real food from its own
+18-slot inventory; below half health it may drink a real beneficial potion and retains the empty
+bottle. It never takes these directly from a player—the existing confirm-twice trade is the supply
+path. Mood is a persistent -100..100 index, shifts with hunger/rest/feeding, and decays slowly toward
+neutral. Mood affects voice only, never claims, consent, lease rules or task safety.
+
 An ambient reflection request may occur only when all of these are true:
 
 - the companion is summoned and the owner is nearby;
@@ -89,6 +117,65 @@ An ambient reflection request may occur only when all of these are true:
 The ambient model input is a compact, immutable snapshot: dimension, biome, weather/time category,
 current activity, a few nearby semantic features, one active quest summary and up to three relevant
 memories. Its output is dialogue only. It cannot select or execute an action.
+
+## Command wheel and state emotes
+
+The `V` key (fully remappable in Minecraft Controls) opens an eight-segment radial command wheel.
+The same wheel opens after holding the Sigil of the Hollow Court for eight ticks; releasing sooner
+performs the ordinary summon/recall. Crouch-quick-use retains dismissal as an accessibility fallback.
+The first wheel contains Summon/Recall, Follow, Wait Here, Guard Here, Defend Me, Status, Cancel Task
+and Dismiss. Free-form item, quest, crafting and building targets remain name-addressed chat
+because a wheel must not guess their arguments.
+
+Wheel packets contain only a bounded enum. The server independently verifies sigil possession,
+ownership and live companion identity, then runs the same authoritative services as chat/sigil
+interactions. The client cannot send command strings, positions, item IDs or blueprint approvals
+through this channel.
+Wheel actions are rate-limited server-side to one accepted packet per player per four ticks. The
+client also refuses to open the wheel without a sigil, but that convenience check is never trusted as
+authority. Item tooltip text teaches quick, hold, crouch and hotkey paths without requiring a wiki.
+
+While summoned, a small state emblem renders above the companion at up to 32 blocks: compass for
+following, clock for waiting, shield for guarding, iron sword for defending, boots for retreating and
+crafting table for working. These reference built-in Minecraft item renders and introduce no copied
+third-party artwork. A later original icon atlas may replace them after accessibility testing.
+
+## Original Hollow Court skin direction
+
+The installed Rich's Races wood-elf sheets confirm the standard 64×64 player texture layout, but that
+jar declares its license as “Not specified.” Its pixels must not be copied, traced, recolored or
+redistributed. Alfheim Companion skins are original works using the normal player UV topology.
+
+The persistent identity has a stable face/ears/hair seed; outfit variants change by role or biome
+without making the companion look like a different person. Initial design families:
+
+- **Wayfinder:** moss-green split travel coat, bark-brown leather, pale-gold stitching, compass clasp;
+- **Hollow Court Warden:** deep plum and muted silver, leaf-scale shoulder panels, shield-shaped clasp;
+- **Ley Gardener:** layered teal work robes, root-fiber apron, botanical tool loops, mana-blue accents;
+- **Ashen Scout:** charcoal cloak, ember-red repairs, wrapped boots and a soot-muted silhouette;
+- **Winter Envoy:** pale lichen, blue-grey wool and restrained iridescent trim rather than bright white.
+
+Every sheet needs readable pointed ears, asymmetric elven tailoring, two-layer hair/garment depth,
+glove and boot detail, no modern logos, no borrowed franchise heraldry, and an optional original
+emissive mask limited to magical jewelry/eyes. Final admission requires front/back/side inspection on
+both classic and slim player geometry, armor compatibility, mipmap/bleed inspection and in-game tests
+under daylight, rain, caves, Nether-like light and the Alfheim palette.
+
+The first original visual reference is `docs/art/hollow_court_skin_concepts_v1.png`. It is a concept
+sheet, not a game-ready texture and must not be shipped as an entity UV map. Pixel-perfect 64×64 skins
+will be authored from it as separate original assets.
+
+Command-wheel acceptance is deliberately split by layer:
+
+1. unit: exactly eight unique enum actions; malformed ordinals are ignored; name-chat behavior is unchanged;
+2. protocol: client sends only action ordinals and the server rejects missing-sigil/non-owner requests;
+3. dedicated server: channel registration is side-safe and the full pack reaches `Done`;
+4. client: quick release summons once; hold at eight ticks opens once and does not also summon;
+5. input: remapped hotkey, Escape/no-selection, mouse segment boundaries and GUI-scale 1–4;
+6. state: every server mode synchronizes to its matching overhead emblem for two clients;
+7. accessibility: labels remain readable without color, wheel does not pause, and keyboard/controller
+   follow-up is scoped before production admission;
+8. multiplayer abuse: packet spam, invalid ordinals, stolen sigil, non-owner and dismissed-state probes.
 
 ## Persistent memory and state
 
@@ -106,6 +193,8 @@ Memory domains:
 - semantic: landmarks, known resources, machines, work sites and player preferences;
 - quest: selected quest IDs, status transitions and notable objective progress;
 - personality: agitation and dialogue variation state.
+- lease: current lessee UUID and persisted expiry; expiration cancels unsafe work and leaves the
+  companion waiting for the next token holder.
 
 The model may propose a memory, but Java decides whether it is supported, safe, useful and within
 bounds before saving it.
@@ -148,7 +237,11 @@ it, only bundled static templates are available.
 
 ## Player-like capabilities and permissions
 
-The entity owns an 18-slot inventory plus normal equipment slots. Validated block actions run through a
+The entity owns a persistent, owner-interactable 36-slot carrying layout: 27 main slots and a 9-slot
+hotbar, plus normal equipment slots. Empty-hand interaction opens its container within eight blocks;
+shift-click transfers work in both directions and the server closes access if owner, distance, entity
+or lease validity changes. Eating, potions, crafting, fetching and building all use these same visible
+slots. Validated block actions run through a
 dedicated Forge `FakePlayer` identity so Forge events and protection hooks observe them. The fake player
 never uses the owner's UUID or privileges. Claim checks occur before the vanilla/Forge action path and
 again where needed at execution.
@@ -157,6 +250,32 @@ Player-like capability means using legitimate player interaction paths—not byp
 recipes, inventories, reach, cooldowns or game mode. Direct command execution and arbitrary reflection
 into other mods are prohibited.
 
+Equipment is not cosmetic: understood armor, shields, swords and axes occupy real entity equipment
+slots, so vanilla/Forge attribute modifiers, armor reduction, enchantments, durability and potion
+effects participate in real combat. Native target/melee goals defend an attacked lessee and patrol a
+guard radius; retreat navigation seeks distance from nearby monsters. Unknown or complex modded gear
+is accepted into visible storage after confirmation but is not auto-equipped or activated—the elf
+states that it does not know how to use it safely.
+
+An optional version-1 `CombatProfileProvider` is reserved for full MMO integration. It normalizes
+level, archetype, resources, modifiers and item eligibility while leaving inventory creation,
+permissions, damage execution and equipment changes under companion/Forge authority. No provider is
+registered until the pack owner chooses which MMO mechanics apply to companions and how death/reset,
+leases and player progression should interact.
+
+The current pack does contain a mod identifying itself as `mmorpg`; the safe-mode server log shows its
+server constructor and mixins. That makes it the first concrete adapter candidate, but identification
+alone is not a stable API contract. Integration must use its documented capability/API surface (or a
+small explicit compatibility adapter), never reflective access to internal classes. Until that API is
+audited, ordinary Forge combat remains authoritative and the optional MMO bridge returns no profile.
+
+Death inventory follows the world rule. With `keepInventory=true`, all 36 carrying/hotbar stacks and
+six equipment/hand stacks are stored in the fallen player's binding and restored to the replacement
+after `/alfheimcompanion reset`. With it false, those real stacks spawn at the death location and all
+source slots are cleared to prevent duplication. An optional `GraveIntegrationBridge` can transfer the
+same immutable stack list to a documented grave-mod API before ordinary drops. No grave mod is present
+in the current pack, so no adapter is guessed and no fake player death is fabricated.
+
 ## Chunk loading
 
 The companion will hold a small, moving, ticking Forge chunk ticket centered on its current chunk while
@@ -164,8 +283,8 @@ active. The initial cap is the current chunk plus the minimum neighboring radius
 navigation. Old tickets are released before new tickets are acquired, and all tickets are released on
 dismissal, death and server shutdown. It must not force-load arbitrary goals, entire paths or dimensions.
 
-This controller remains pending until its exact Forge 47.4.10 behavior is verified in a controlled
-server run.
+The 3×3 controller is implemented. Its exact Forge 47.4.10 behavior remains pending until verified
+in a controlled server run.
 
 ## Implemented prototype
 
@@ -190,22 +309,60 @@ server run.
 - bounded 3×3 moving ticking chunk ticket with dismissal, death and shutdown cleanup;
 - low-frequency quest status memory refresh;
 - ten-minute calm-state ambient reflection boundary with dialogue-only output.
+- version-2 typed task persistence with bounded fields and safe migration from version-1 strings;
+- exact installed-version FTB Chunks 2001.3.8 claim adapter using `shouldPreventInteraction`;
+- exact installed-version FTB Quests 2001.4.22 adapter with team status, visibility, descriptions,
+  criteria and live item counts;
+- bounded Continuity Works generation lifecycle with one active request, timeout, proposal shape
+  validation, a fresh world/claim snapshot, owner preview, addressed approve/reject commands and an
+  audit ledger;
+- deterministic blueprint execution capped at one placement per four ticks, with navigation,
+  per-block reach/claim checks, actual inventory consumption and fail-safe pause behavior;
+- restart behavior that converts non-persisted preview/execution lists to `PAUSED` rather than
+  replaying stale destructive work;
+- JUnit regression coverage for addressed parsing, command precedence/count bounds, task migration
+  and blueprint-ledger restart safety.
+- hold-versus-quick-use sigil interaction and remappable `V` command-wheel hotkey;
+- eight bounded server-authoritative wheel actions over an enum-only network packet;
+- client-synchronized companion mode plus built-in-item state emblems above the nameplate;
+- original five-outfit Hollow Court concept sheet and license boundary for the installed elf mod.
 
 ## Next implementation order
 
-1. Replace string task persistence with a versioned typed task codec and resume semantics.
-2. Extend item search from visible drops to remembered, permission-approved container indexes.
-3. Add inventory-backed recipe execution after an explicit craft confirmation.
-4. Implement blueprint request lifecycle, preview, explicit approval and execution ledger.
-5. Add the FTB Chunks and FTB Quests 1.20.1 version-specific adapters.
-6. Measure and tune the 3×3 chunk-ticket radius under representative server load.
-7. Implement a Java-17-compatible tiny-model adapter or isolated bundled Jlama worker.
-8. Add GameTests, dedicated-server tests and tick/memory profiling.
+1. Run controlled dedicated-server registration/boot tests with the exact modpack and repair any
+   side-only, dependency, event-registration or runtime-mapping failures.
+2. Add GameTests for singleton enforcement, summon/dismiss, inventory accounting, claim denial,
+   chunk-ticket cleanup and blueprint interruption.
+3. Extend item search from visible drops to remembered, permission-approved container indexes.
+4. Add inventory-backed recipe execution after an explicit craft confirmation.
+5. Add a property-aware block-state codec and explicit scaffold/obstruction policy to blueprint
+   execution; the current executor resolves block IDs and uses default placement state.
+6. Add an explicit resume/regenerate interaction for a `PAUSED` blueprint after restart.
+7. Measure and tune the 3×3 chunk-ticket radius and blueprint placement cadence under representative
+   server load.
+8. Implement a Java-17-compatible tiny-model adapter or isolated bundled Jlama worker.
 9. Replace the temporary player renderer with approved Hollow Court assets.
 
 ## Acceptance gates
 
-Compilation is only static validation. Production admission additionally requires a dedicated server
+Current automated status: clean Java 17 compilation, reobfuscated production jar build, and thirteen
+unit tests passing. Compilation is only static validation. Production admission additionally requires a dedicated server
 boot, singleton/dimension tests, claim tests, survival inventory accounting, quest compatibility,
 Continuity Works contract tests, chunk-ticket cleanup tests, malformed/stale inference tests, and a
 measured tick/RAM budget under representative modpack load.
+
+## Validation evidence and current blockers
+
+- Clean Java 17 `test build`: thirteen unit tests pass and the Forge production jar reobfuscates.
+- Controlled full-pack dedicated boot `companion-boot-20260908a`: exit 0, reached `Done` in 18.503
+  seconds, both FTB adapters connected, all dimensions saved on clean shutdown.
+- A later singleton command-spawn probe did not reach command execution because concurrently changed
+  pack data declared `alfheim:deepworks_headworks` with a value of 10 outside the allowed `[0:7]`
+  range. That registry failure occurs after the companion and both FTB adapters load and is outside
+  this mod; the singleton rejection still needs a rerun after that pack data stabilizes.
+- Updated safe-mode full-pack boot `companion-wheel-safe-20260908b`: exit 0, reached `Done` in 18.770
+  seconds, both FTB adapters connected, and shut down cleanly. Existing Fabric Connector/MMORPG
+  client-mixin warnings and unrelated data/loot errors remained non-fatal and were not caused by the
+  companion.
+- The command wheel and overhead emotes are clean-build, unit, and dedicated-side validated. Client
+  interaction/visual acceptance remains open after the implementation pass.
