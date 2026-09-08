@@ -3,11 +3,9 @@
 All generation uses unperturbed 2D Alfheim continentalness for membership. Noise
 inside the debris band varies shape; it cannot escape the empty far-field cutoff.
 
-The dry-void contract stays entirely data-driven. Minecraft's aquifer picker hardcodes
-lava below Y=-54 before floodedness noise can veto it, so the void branch uses a
-temporary positive default-block density below that boundary. The existing surface
-rule stage then converts that temporary Livingrock to literal air only in debris/terminal
-void biomes. The safe Void Verge shelf remains solid, and ordinary Alfheim is untouched.
+The dry-void contract stays entirely data-driven. Detached debris is kept above the
+global water table. A sacrificial solid guard covers Minecraft's hardcoded lowest fluid
+band and is stripped by Void surface rules; the safe Void Verge shelf remains solid.
 """
 import json
 from gen_deep_terrain import ROOT, binary, choose, gradient, condition, block, sequence, above, negate
@@ -16,10 +14,13 @@ MASK='mythicbotany:alfheim_continentalness'
 # Leave a narrow intact shore inside the biome transition. If terrain and biome ended
 # on the same continentalness value, interpolation could expose holes beneath the ocean.
 RIM=-0.82
+# Dry the inward shoulder as well as the visible margin so neighbouring water
+# centres cannot bleed through the breakline. Floodedness is evaluated at block
+# coordinates, so it must use the exact shifted continentalness field.
+DRY_AQUIFER_RIM=-0.58
 BIOME_RIM=-0.80
 CLIFF=-0.86
 TERMINAL=-0.925
-EMPTY=-0.94
 BASAL_LAVA_Y=-54
 CATALOG=json.loads((ROOT/'alfheim_reclaimed_design/void/void_catalog.json').read_text())
 VOID_IDS=[b['id'] for b in CATALOG['biomes']]
@@ -27,14 +28,6 @@ DEBRIS_IDS=[id for id in VOID_IDS if id != 'alfheim:void_verge']
 
 def noise(name,y=0,xz=1.0):
     return {'type':'minecraft:noise','noise':'alfheim:void/'+name,'xz_scale':xz,'y_scale':y}
-
-def unary(kind,value):
-    return {'type':'minecraft:'+kind,'argument':value}
-
-def maximum(*values):
-    result=values[0]
-    for value in values[1:]:result=binary('max',result,value)
-    return result
 
 def clamp(value, low, high):
     return {'type':'minecraft:clamp','input':value,'min':low,'max':high}
@@ -45,14 +38,13 @@ def density(normal, shore_normal=None):
     # Void branch and defeat the guarantee that this transition remains supported.
     if shore_normal is None:
         shore_normal=normal
-    # Safe rim: continuous footing, but no longer a slab cut with a ruler. Two
-    # horizontal scales displace the top by several blocks while preserving the
-    # guaranteed solid approach. Its median surface is only a few blocks above sea
-    # level so the transition can make shelves, low slopes and coves before the tall
-    # detached margins begin.
-    rim_relief=binary('add',binary('mul',0.46,noise('relief')),
-                      binary('mul',0.16,noise('detail')))
-    rim=binary('add',gradient((53,83),1,-1),rim_relief)
+    # Safe rim: a quiet, continuous shelf whose lowest noise displacement remains
+    # above sea level. The former 0.62 combined amplitude moved the nominal Y=68
+    # surface down into the global water table and exposed flowing water at the
+    # breakline. Keep only broad, low-amplitude relief around a Y=72 median.
+    rim_relief=binary('add',binary('mul',0.18,noise('relief',0,xz=0.72)),
+                      binary('mul',0.05,noise('detail',0,xz=0.62)))
+    rim=binary('add',gradient((62,82),1,-1),rim_relief)
 
     # The previous final range_choice jumped directly from `normal` density to `rim`
     # at RIM. That discontinuity is the vertical wall in the September field screenshot:
@@ -62,73 +54,14 @@ def density(normal, shore_normal=None):
     shore_t=clamp(binary('mul',1.0/(RIM-CLIFF),binary('add',MASK,-CLIFF)),0.0,1.0)
     shoreline=binary('add',binary('mul',shore_t,shore_normal),
                      binary('mul',binary('add',1.0,binary('mul',-1.0,shore_t)),rim))
-    # Progressive loss of footprint toward the void. Clamped continentalness
-    # makes the taper seed-independent; the hard cutoff guarantees termination.
-    taper=binary('add',binary('mul',8,MASK),7.18)
-    # Shared edge envelope. It controls *where* surviving material is possible, but no
-    # longer supplies one interchangeable blob silhouette to all four lateral biomes.
-    # Each branch below composes its own named landforms inside this envelope.
-    footprint=binary('add',
-        binary('add',binary('mul',1.55,noise('fragments',0.62)),taper),
-        binary('mul',0.34,noise('fracture',1.35)))
-    lower=binary('add',gradient((24,54),-1,1),binary('mul',0.25,noise('shape',0.55)))
-    upper=binary('add',gradient((68,98),1,-1),binary('mul',0.28,noise('shape',0.55)))
-    window=binary('min',lower,upper)
-    # SHATTERFIELDS: broad pressure plates plus sparse, narrow vertical remnants.
-    # The needles have their own elongated 3-D field instead of inheriting the slab
-    # footprint, which makes the horizon vocabulary visibly different from Rootfall.
-    pressure_slabs=binary('min',
-        binary('add',footprint,binary('mul',0.30,noise('pressure_plates',2.4))),window)
-    needle_footprint=binary('add',binary('add',taper,binary('mul',1.75,noise('fault_needles',0.14))),-0.48)
-    needle_window=binary('min',
-        binary('add',gradient((10,48),-1,1),binary('mul',0.12,noise('detail',0.5))),
-        binary('add',gradient((78,126),1,-1),binary('mul',0.14,noise('detail',0.5))))
-    shatter=maximum(pressure_slabs,binary('min',needle_footprint,needle_window))
-
-    # PRISM DRIFT: taller competent cores cut by a separate thin seam field. The
-    # subtraction is bounded, so a seam reads as a split rather than deleting a host.
-    prism_footprint=binary('add',binary('add',taper,binary('mul',1.48,noise('prism_cores',0.32))),-0.20)
-    prism_window=binary('min',
-        binary('add',gradient((12,58),-1,1),binary('mul',0.20,noise('shape',0.42))),
-        binary('add',gradient((82,120),1,-1),binary('mul',0.18,noise('detail',0.62))))
-    seam_distance=unary('abs',noise('split_seams',0.20))
-    seam_cut=clamp(binary('mul',2.5,binary('add',seam_distance,-0.045)),0.0,0.24)
-    prisms=binary('add',binary('min',prism_footprint,prism_window),binary('add',seam_cut,-0.24))
-
-    # ROOTFALL: a surviving crown/shelf is explicitly supported by elongated fossil
-    # ribs. The same root_ribs field owns the Rootfossil material rule below, so the
-    # named stone and the geometry cannot drift back into unrelated random blobs.
-    root_crown=binary('min',footprint,binary('min',
-        binary('add',gradient((38,58),-1,1),binary('mul',0.16,noise('shape',0.65))),
-        binary('add',gradient((76,96),1,-1),binary('mul',0.16,noise('detail',0.85)))))
-    rib_footprint=binary('add',binary('add',taper,binary('mul',1.90,noise('root_ribs',0.10))),-0.42)
-    rib_window=binary('min',
-        binary('add',gradient((-2,46),-1,1),binary('mul',0.10,noise('detail',0.45))),
-        binary('add',gradient((72,96),1,-1),binary('mul',0.12,noise('shape',0.40))))
-    roots=maximum(root_crown,binary('min',rib_footprint,rib_window))
-
-    # SEPULCHRAL REACH: unusually broad, quiet shelves and thick backing volumes.
-    # High vertical frequency is deliberately restrained to shallow bed offsets.
-    memorial_shelf=binary('min',
-        binary('add',footprint,binary('mul',0.18,noise('burial_beds',2.0))),
-        binary('min',
-            binary('add',gradient((28,52),-1,1),binary('mul',0.10,noise('fracture',0.9))),
-            binary('add',gradient((76,92),1,-1),binary('mul',0.10,noise('detail',0.8)))))
-    burial_backing=binary('min',binary('add',footprint,-0.08),binary('min',
-        gradient((18,54),-1,1),gradient((72,106),1,-1)))
-    shelves=maximum(memorial_shelf,burial_backing)
-    fragments=choose('mythicbotany:alfheim_temperature',-100,0,
-        choose('mythicbotany:alfheim_humidity',-100,0,shatter,prisms),
-        choose('mythicbotany:alfheim_humidity',-100,0,roots,shelves))
-    terminal=binary('min',binary('add',footprint,-0.30),binary('min',
-        binary('add',gradient((42,62),-1,1),binary('mul',0.18,noise('shape',0.8))),
-        binary('add',gradient((65,80),1,-1),binary('mul',0.16,noise('detail',1.0)))))
-    void=choose(MASK,-100,EMPTY,-1.0,choose(MASK,-100,TERMINAL,terminal,
-                choose(MASK,-100,CLIFF,fragments,shoreline)))
-    # NoiseBasedChunkGenerator hardcodes lava below Y=-54. Negative density there
-    # would therefore become lava before floodedness can suppress it. Build temporary
-    # default Livingrock instead; surface_rule() turns it back into air in the five
-    # debris/terminal biomes, while Void Verge intentionally keeps its deep support.
+    # The old four-way 3-D debris field is deliberately absent. Even with amplitude
+    # caps, Minecraft's cell interpolation could carry an entire jagged splinter far
+    # beyond its pointwise mask. Keep one continuous, supported shore and clean air
+    # beyond CLIFF; biome-specific forms return later as bounded configured features.
+    void=choose(MASK,-100,CLIFF,-1.0,shoreline)
+    # NoiseBasedChunkGenerator consults its global fluid picker at the lowest ten
+    # levels before routed floodedness can return air. Temporary default stone blocks
+    # that picker; surface_rule() removes it in debris/terminal Void biomes.
     void=choose('minecraft:y',-64,BASAL_LAVA_Y,1.0,void)
     return choose(MASK,-100,RIM,void,normal)
 
@@ -141,10 +74,6 @@ def claims(pt):
             ('alfheim:void_verge',pt((CLIFF,BIOME_RIM)))]
 
 def surface_rule():
-    # This is the second half of the data-only basal-void contract above. Surface
-    # rules run over default stone through the full build height, so sacrificial
-    # Livingrock below the hardcoded lava picker becomes literal air before features.
-    # Void Verge is excluded because its safe approach shelf is intentionally solid.
     rules=[condition({'type':'minecraft:biome','biome_is':DEBRIS_IDS},
                      condition(negate(above(BASAL_LAVA_Y)),block('minecraft:air')))]
     floor={'type':'minecraft:stone_depth','offset':3,'add_surface_depth':False,

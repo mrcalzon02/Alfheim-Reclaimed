@@ -86,6 +86,42 @@ class Piece:
               'final_state': final_state, 'joint': joint}
         self.set(x, y, z, ('minecraft:jigsaw', {'orientation': orientation}), be)
 
+    def prune_orphans(self, keep=()):
+        """Delete blocks that touch nothing on any of their six faces. Returns the count.
+
+        Every generator here takes a finished building apart afterwards -- decay passes,
+        collapse gradients, tier-survival rolls. None of them check connectivity, so a block
+        whose whole neighbourhood was removed is simply left hanging in the interior void. It
+        is the same defect the 2026-09-07 field report called "noise blocks hovering", and a
+        ruin reads worse for it, not more ruined: a lantern in mid-air is a bug, not decay.
+
+        A cell the piece does not own is NOT air -- `place template` leaves whatever is there,
+        so a block resting against unowned space is supported. Only explicit air counts as
+        nothing, which is exactly the rule check_spawn_hub's S11 applies. Because a block is
+        removed only when it has zero neighbours, removing it cannot orphan anything else, so
+        one pass reaches a fixed point.
+        """
+        sx, sy, sz = self.size
+        air = {i for i, e in enumerate(self.palette) if e['Name'] == 'minecraft:air'}
+        keep = set(keep)
+        doomed = []
+        for (x, y, z), (state, _be) in self.blocks.items():
+            if state in air or (x, y, z) in keep:
+                continue
+            for dx, dy, dz in ((1, 0, 0), (-1, 0, 0), (0, 1, 0),
+                               (0, -1, 0), (0, 0, 1), (0, 0, -1)):
+                nx, ny, nz = x + dx, y + dy, z + dz
+                if not (0 <= nx < sx and 0 <= ny < sy and 0 <= nz < sz):
+                    break                                   # the world continues out there
+                neighbour = self.blocks.get((nx, ny, nz))
+                if neighbour is None or neighbour[0] not in air:
+                    break
+            else:
+                doomed.append((x, y, z))
+        for pos in doomed:
+            del self.blocks[pos]
+        return len(doomed)
+
     def to_nbt(self):
         blocks = []
         for (x, y, z), (state, be) in sorted(self.blocks.items()):

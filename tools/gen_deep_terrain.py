@@ -84,7 +84,8 @@ def identity_surface_rule():
 
 
 def build():
-    from gen_void_worldgen import VOID_IDS, MASK, RIM, surface_rule, extra_files
+    from gen_void_worldgen import (VOID_IDS, MASK, RIM, DRY_AQUIFER_RIM,
+                                   surface_rule, extra_files)
     c=config()
     with zipfile.ZipFile(next((ROOT/'mods').glob('MythicBotany*.jar'))) as jar:
         settings=json.loads(jar.read('data/mythicbotany/worldgen/noise_settings/alfheim.json'))
@@ -94,25 +95,21 @@ def build():
     for name,value in c['noises'].items(): emit('alfheim/worldgen/noise/deepworks/'+name+'.json',value)
     emit('alfheim/worldgen/density_function/deepworks/cavities.json',cavity_density())
 
-    # The dry Void needs all aquifer inputs to consume the same continentalness mask.
-    # Floodedness=-1 is the driest supported sample. The fresh-world margin audit still
-    # observes water where nearby aquifer centres cross the high-frequency mask; that is
-    # a separate unresolved spatial-leak defect, not a reason to reverse this polarity
-    # (+1 was runtime-proven to increase the flooding). initial_density=+1 is not terrain:
+    # Floodedness=-1 is the driest supported sample. This input is evaluated at block
+    # coordinates and therefore uses the exact continentalness field; spread and lava
+    # are evaluated at differently divided coordinates and remain upstream-owned.
+    # initial_density=+1 is not terrain:
     # NoiseChunk uses it only for preliminary-surface estimation, and the high value stops
     # the aquifer's early surface shortcut from interpreting removed edge columns as ocean.
-    # spread and lava are inert inside the same region. The separate basal final-density
-    # guard in gen_void_worldgen handles the global Y<-54 lava picker before aquifer noise.
+    # The deliberately broad dry shoulder begins well inside the visible RIM to stop
+    # neighbouring ocean centres leaking through the breakline. The basal density guard
+    # in gen_void_worldgen handles the global lowest fluid band before routed noise.
     old_floodedness=settings['noise_router']['fluid_level_floodedness']
     old_initial=settings['noise_router']['initial_density_without_jaggedness']
-    old_spread=settings['noise_router']['fluid_level_spread']
-    old_lava=settings['noise_router']['lava']
     deep_floodedness=choose('minecraft:y',-60,28,
         choose('alfheim:deepworks/cavities',-100,0,-1.0,old_floodedness),old_floodedness)
-    settings['noise_router']['fluid_level_floodedness']=choose(MASK,-100,RIM,-1.0,deep_floodedness)
-    settings['noise_router']['initial_density_without_jaggedness']=choose(MASK,-100,RIM,1.0,old_initial)
-    settings['noise_router']['fluid_level_spread']=choose(MASK,-100,RIM,0.0,old_spread)
-    settings['noise_router']['lava']=choose(MASK,-100,RIM,0.0,old_lava)
+    settings['noise_router']['fluid_level_floodedness']=choose(MASK,-100,DRY_AQUIFER_RIM,-1.0,deep_floodedness)
+    settings['noise_router']['initial_density_without_jaggedness']=choose(MASK,-100,DRY_AQUIFER_RIM,1.0,old_initial)
 
     # Keep MythicBotany's own vein_gap untouched. The retired custom helper used
     # this otherwise unrelated channel as an opt-in marker; the data-only repair
@@ -158,12 +155,30 @@ def build():
                    for i,id in reversed(list(enumerate(stones[1:])))]
             rules.append(block('alfheim:'+stones[0]))
             return sequence(rules)
+        # UPPER AND LOWER SHARE A BAND SCHEME AND A CONTACT STONE.
+        #
+        # Reported from the field 2026-09-07: the deep stone distribution "across the boundary
+        # is producing boundary caves that are full of noise blocks". Two causes, both here.
+        #
+        # The lower palette used to be ids[2:]+ids[:2] -- five stones against the upper's three.
+        # strata_rule divides its 1.35 range by (len - 1), so the five-stone scheme banded at
+        # 0.3375 and the three-stone scheme at 0.675: no band edge lined up, and inside the
+        # blend a single cave face could show all five stones interleaved per block. Both are
+        # three stones now, so the band edges are identical (-0.68 and -0.005) and at any given
+        # strata value the blend mixes exactly two stones. The palettes also overlap at ids[2],
+        # which is the upper scheme's top band and the lower scheme's bottom band, so one stone
+        # carries through the contact instead of the two sides being wholly disjoint.
+        #
+        # minecraft:vertical_gradient is a per-block random roll, so its span is a dithered
+        # zone, not a line. Spanning -30..-8 put a 22-block-deep salt-and-pepper mixture of two
+        # palettes exactly across cave height. Ten blocks still reads as a contact rather than
+        # a seam, without the interleaving being the dominant thing you see in a cave.
         upper=strata_rule(ids[:3])
-        lower=strata_rule(ids[2:]+ids[:2])
+        lower=strata_rule(ids[2:5])
         rule=sequence([
             condition(threshold('inclusions',0.62),block('alfheim:'+ids[-1])),
             condition(negate(above(-34)),lower),
-            condition(vertical_gradient('deepworks_lower_blend',-30,-8),lower),
+            condition(vertical_gradient('deepworks_lower_blend',-26,-16),lower),
             upper,
         ])
         zones.append(condition({'type':'minecraft:biome','biome_is':biomes},rule) if biomes else rule)

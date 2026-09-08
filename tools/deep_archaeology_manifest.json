@@ -7,38 +7,83 @@
   ],
   "biomes": "#alfheim:deepworks_land",
   "placement": {
-    "spacing": 96,
-    "separation": 48
+    "spacing": 48,
+    "separation": 24
   },
   "families": [
     {
       "id": "deep_quarry",
       "name": "The Deep Quarries",
-      "depth": [-55, -20],
+      "depth": [
+        -55,
+        -20
+      ],
       "pieces": {
-        "centre": [47, 24, 47],
-        "approach": [17, 20, 33],
-        "wing": [47, 24, 47]
+        "centre": [
+          47,
+          24,
+          47
+        ],
+        "approach": [
+          17,
+          20,
+          33
+        ],
+        "wing": [
+          47,
+          24,
+          47
+        ]
       }
     },
     {
       "id": "elder_kings_tomb",
       "name": "The Tombs of the Elder Kings",
-      "depth": [-40, -10],
+      "depth": [
+        -40,
+        -10
+      ],
       "pieces": {
-        "centre": [47, 22, 47],
-        "approach": [17, 18, 33],
-        "wing": [47, 22, 47]
+        "centre": [
+          47,
+          22,
+          47
+        ],
+        "approach": [
+          17,
+          18,
+          33
+        ],
+        "wing": [
+          47,
+          22,
+          47
+        ]
       }
     },
     {
       "id": "faultwork",
       "name": "The Faultworks",
-      "depth": [-58, -40],
+      "depth": [
+        -58,
+        -40
+      ],
       "pieces": {
-        "centre": [47, 28, 47],
-        "approach": [17, 22, 33],
-        "wing": [47, 28, 47]
+        "centre": [
+          47,
+          28,
+          47
+        ],
+        "approach": [
+          17,
+          22,
+          33
+        ],
+        "wing": [
+          47,
+          28,
+          47
+        ]
       }
     }
   ]

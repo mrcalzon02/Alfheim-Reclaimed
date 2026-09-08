@@ -33,12 +33,21 @@ def main():
         original=json.loads(jar.read('data/mythicbotany/worldgen/noise_settings/alfheim.json'))
         old_surface=json.loads(jar.read('data/mythicbotany/libx/surface_rule_set/alfheim_surface.json'))
     settings=json.loads(output['kubejs/data/mythicbotany/worldgen/noise_settings/alfheim.json'])
+    from gen_void_worldgen import MASK, RIM, DRY_AQUIFER_RIM
+    assert RIM < DRY_AQUIFER_RIM < -0.50, 'dry aquifer shoulder must begin safely inside the terrain rim'
     fluids=settings['noise_router']['fluid_level_floodedness']
-    assert fluids['input']==baseline['input'] and fluids['max_exclusive']==baseline['max_exclusive']
+    assert fluids['input']==MASK and fluids['max_exclusive']==DRY_AQUIFER_RIM
     deep_fluids=fluids['when_out_of_range']
     assert deep_fluids['input']=='minecraft:y' and (deep_fluids['min_inclusive'],deep_fluids['max_exclusive'])==(-60,28)
     assert deep_fluids['when_out_of_range']==original['noise_router']['fluid_level_floodedness'], 'Ordinary Alfheim aquifers changed'
-    for key in ('fluid_level_floodedness','initial_density_without_jaggedness','fluid_level_spread','lava'):
+    for key, dry_value in (('fluid_level_floodedness', -1.0),
+                           ('initial_density_without_jaggedness', 1.0)):
+        branch=settings['noise_router'][key]
+        assert branch['input']==MASK and branch['max_exclusive']==DRY_AQUIFER_RIM
+        assert branch['when_in_range']==dry_value
+    assert settings['noise_router']['fluid_level_spread']==original['noise_router']['fluid_level_spread']
+    assert settings['noise_router']['lava']==original['noise_router']['lava']
+    for key in ('fluid_level_floodedness','initial_density_without_jaggedness'):
         settings['noise_router'][key]=original['noise_router'][key]
     assert settings==original, 'Unrelated noise settings changed'
     surface=json.loads(output['kubejs/data/mythicbotany/libx/surface_rule_set/alfheim_surface.json'])
@@ -57,7 +66,8 @@ def main():
             assert targets[0]['target']['predicate_type']=='minecraft:block_match'
             assert targets[-1]['target']['tag']=='alfheim:livingrock_natural'
     print(f'PASS: {len(output)} reproducible files; {len(deep_wrappers)} Deep density branches; '
-          f'Void branch, Hills plateau, upper density, bedrock and unrelated noise/surface settings preserved; {len(land)} land biomes')
+          f'quiet Void branch, dry aquifer shoulder, continuous ordinary upper density, bedrock '
+          f'and unrelated noise/surface settings preserved; {len(land)} land biomes')
 
 
 if __name__=='__main__': main()

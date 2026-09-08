@@ -1,5 +1,114 @@
 # Execution State
 
+## Latest implementation — September 7 twelve-item field review — 2026-09-07
+
+Eight of the twelve reported items have an authoritative repair; four are diagnosed and scoped.
+Five of the eight turned out to be a different defect from the one the symptom named, so the
+diagnosis is recorded with each rather than only the fix. Full table in `BACKLOG.md` B-83.
+
+**Spawn complex.** The amphitheatre had exactly one carved approach — south, to the Greatbole —
+while the three civic wings each drove a seven-wide processional spine into the intact outer
+seating bank. `AISLES` is now the single authority for where the court opens, and all four
+approaches are paved, cheeked and cleared last. Vertical alignment was already correct and was
+verified rather than assumed: the amphitheatre sits at placement -3 with its floor at local y3 and
+the wings at -5 with theirs at local y5, so both land on the surface datum. Separately,
+`courtyard_detail` was placing rubble, moss, drums and vines at computed tier heights with no
+regard for whether the tier survived its collapse roll or had been cut away by an aisle. Every
+scatter is now support-aware, court seats are built down to the tier base course, and vines must
+name a solid neighbour. Blocks hanging at y>=4 in the amphitheatre: 3 before, **0** after.
+Detached vines: 3 of 21 before, **0** of 18 after.
+
+**Claim envelope.** `HUB_RADIUS = 128` was a square centred on the tree, sized for a placement
+probe that no longer exists. The complex is not centred on the tree — it runs Z -120..23 — so the
+claim covered a large empty apron south of it. Replaced by an explicit rectangle derived from the
+placed templates and snapped to chunks: X -80..79, Z -128..31. **Runtime validated:** the fresh
+server reports `FTB ownership verified 100/100 chunks for alfheim_hub`, down from 289.
+
+**Deep geology.** Cave faces were reading as per-block speckle for three independent reasons, all
+now corrected: `inclusions` moved from firstOctave -4 to -6 with a second octave so it forms pods
+rather than confetti; the lower strata palette went from five stones to three so its band edges
+coincide with the upper scheme's and one stone carries through the contact; and the dithered
+upper/lower blend band narrowed from 22 blocks (Y -30..-8, squarely at cave height) to 10.
+
+**Deepworks.** Two separate faults. `ley_scars` kept an `xz_radius` of 16 and produced 20
+`Detected setBlock in a far chunk` errors in the field session; the <=15 reach bound that was
+written for the slag terraces now covers every formation. And the families were undiscoverable
+rather than absent — a save scan found the one `elder_kings_tomb` start the 96-grid predicted
+across the area explored. The grid is now 48/24, and the checker's magic `>=96/>=48` floors are
+replaced by the geometric condition they stood in for: `separation * 16 > 2 * reach` (384 > 232).
+
+**Biome identity.** Infested Warren and Decayed Mire had no identity features whatsoever. A probe
+of the reported save measured the result: 566 of 876 Warren surface samples were plain grass block,
+and the Mire was 82% the same. Together they are a third of that world. Six Alfheim-owned features
+now carry both — root mats, fungal blooms and web snares for the Warren; mud flats, water pools
+and deadfall for the Mire — plus standing dead dreamwood in each.
+
+**Not a pack defect.** The session ended in a system crawl with a clean log and no crash. Distant
+Horizons runs distant generation across nine dimensions with 14 threads at full duty cycle, at the
+same thread priority as the game, with a 256-chunk LOD radius. It left 1,917 chunks at
+`structure_starts` status beside the game's own 3,085 full chunks in thirteen minutes. The client
+config is the user's to change and has not been touched.
+
+**Loose blocks, everywhere they were.** `Piece.prune_orphans` now sweeps anything left touching
+nothing on any of six faces; the decay, collapse and rubble passes in every generator remove blocks
+without asking what rested on them. 47 orphans across the 44 surface pieces. Two findings were real
+geometry faults and were repaired rather than swept: the Elder King's Tomb approach ran its
+corbelled cornice at x=3 with the shell at x=1, so the whole band — 28 walls and 28 slabs — floated,
+and both Faultwork suspended bridges carried their railings one block off a two-wide deck. The
+cornice now rises off the shell; the decks are four wide, two lanes plus a slab under each railing.
+
+**S11's first form was too strict and was narrowed on evidence.** It began by demanding solid
+support directly below and flagged 36 pieces. Inspecting the six-neighbour context showed most were
+corbels hanging under an overhang and stepped debris joined only on a diagonal — both authored ruin
+geometry, which this project builds on purpose. Narrowed to "touches nothing on any of six faces",
+which is never intentional, it flagged 15 pieces; all 15 are now clean.
+
+**Validation.** Static: fifteen checkers pass, including the new `check_spawn_hub` S9 (claim
+envelope derived from `assemble.mcfunction`), S10 (each wing seam clear) and S11/S12 (no unattached
+blocks, no unsupported dressing), plus the generalised `<=15` formation reach in
+`check_deep_formations` and the derived non-overlap condition in `check_deep_archaeology`.
+
+Runtime, three fresh disposable worlds, all exit 0 and all with **zero far-chunk errors**:
+`validation-field-0907e` (seed `alfheim`, 304s), `validation-fellhammer-0907` and
+`validation-fellhammer-0907b` (the reported seed, 304s). The hub assembles, anchors and claims
+100/100 chunks; `check_spawn_hub_claim` reports **5/5 ownership probes returning `alfheim_hub`** at
+the centre and all four corners of the new envelope. In the seed-matched worlds the Warren's new
+features are in the ground: across 1,056 Warren sections, 61 rooted dirt, 58 podzol, 57 coarse dirt,
+37 brown mushroom, 23 cobweb and 4 red mushroom.
+
+Two validator defects were found and fixed while doing this, both of which had made their checks
+unable to pass: `run_server.py` still probed the retired ±128 claim corners, and
+`check_spawn_hub_claim` expected `Location: <dim> [x, z]` when FTB Chunks prints
+`Location: [<dim>:x:z]`. The probe list is now derived from the generator and the parser matches
+the real output; the self-test passes on all four fixtures.
+
+**Acceptance: item 3 runtime validated (5/5 probes); items 1, 5, 12 runtime validated in part;
+items 4, 9, 10 static validated with dedicated invariants; item 2 registered and parsed but its
+biome lies 320 blocks outside the test radius, so its three features have not been observed
+placing. Client visual review is open on all of them.** Items 6, 7 and 8 are diagnosed and scoped,
+not built.
+
+## Latest implementation — terrain smoothing and clean Void reset — 2026-09-07
+
+The September 7 screenshots traced the general terrain regression to a climate-stamped Y=191 Hills
+plateau. Because climate thresholds and LibX's nearest-biome result do not coincide exactly, that
+branch replaced full columns inside neighboring Plains, Silverbark and Starved Reach and produced
+the reported chunky walls. It is removed. Ordinary upper terrain now exactly preserves
+MythicBotany's continuous base density, guarded by a dedicated static invariant.
+
+The Void is reset to a quieter baseline: one continuous low-amplitude shore/Verge blend, then clean
+air beyond the cliff. Independent pressure slabs, fault needles, prism cores, root ribs, burial beds
+and terminal splinters no longer contribute to final density. Their future return must be through
+bounded, support-aware configured features. The aquifer dry shoulder begins at continentalness
+-0.58, using the exact unshifted-in-context terrain field, and the basal ten-block guard handles
+Minecraft's global fluid picker before surface rules remove its temporary stone.
+
+Acceptance is **fresh-world runtime validated; new-client visual review pending**. Disposable world
+`void-margin-20260907-210920` exited 0 and audited 170 columns: all seven Void classifications had
+zero fluid blocks and every continentalness-below--0.94 column had zero playable far-field solids.
+The three Deep controls remained populated/wet as expected. All 126 Void/Deep material blocks and
+126 recipes resolved, and the static terrain/geology/worldgen/reproducibility suites pass.
+
 ## Latest implementation — September 7 field repair — 2026-09-07
 
 Fresh logs confirmed 241 `Detected setBlock in a far chunk` errors, all from the generated

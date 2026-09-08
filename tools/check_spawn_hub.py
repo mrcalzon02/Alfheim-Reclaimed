@@ -130,6 +130,89 @@ def main():
             'alfheim:gloambark_leaves'} <= greatbole_palette:
         fail('S2', 'Greatbole is missing its custom Elder-wood material family')
 
+    # ---- S12: court expansions must be authored rooms with their own terrain beard -------
+    # The first expansion pass technically placed three 48x48 pieces, but all three were the
+    # same sparse four-platform layout on a shallow square slab. In a cliff-side runtime world
+    # that read as a floating plate on the low side and solid hillside on the high side. These
+    # checks make the detail pass measurable: deep support, excavated occupiable volume, clear
+    # ceremonial circulation and a distinct furnishing vocabulary for each wing.
+    annex_specs = {
+        'court/west_residence': {
+            'required': {'alfheim:royal_canopy_bed_head_left',
+                         'alfheim:royal_highback_chair', 'minecraft:bookshelf'},
+            'forbidden': {'minecraft:smoker', 'alfheim:royal_astrolabe_nw'},
+            'axis': 'x',
+        },
+        'court/east_service': {
+            'required': {'minecraft:smoker', 'minecraft:cauldron', 'minecraft:barrel',
+                         'minecraft:brewing_stand'},
+            'forbidden': {'alfheim:royal_canopy_bed_head_left', 'alfheim:royal_astrolabe_nw'},
+            'axis': 'x',
+        },
+        'court/north_council': {
+            'required': {'alfheim:royal_astrolabe_nw', 'alfheim:royal_highback_chair',
+                         'minecraft:lectern'},
+            'forbidden': {'minecraft:smoker', 'alfheim:royal_canopy_bed_head_left'},
+            'axis': 'z',
+        },
+    }
+    for key, spec in annex_specs.items():
+        root = pieces.get(key)
+        if root is None:
+            fail('S12', f'{key}: missing court expansion template')
+            continue
+        palette = [entry['Name'] for entry in root['palette']]
+        names = set(palette)
+        states = {tuple(int(v) for v in b['pos']): palette[int(b['state'])]
+                  for b in root['blocks']}
+        counts = {}
+        for name in states.values():
+            counts[name] = counts.get(name, 0) + 1
+
+        if len(root['blocks']) < 8500 or len(root['palette']) < 28:
+            fail('S12', f'{key}: only {len(root["blocks"])} blocks / '
+                         f'{len(root["palette"])} palette states; high-detail floor is 8500 / 28')
+        missing = spec['required'] - names
+        if missing:
+            fail('S12', f'{key}: missing role-defining detail {", ".join(sorted(missing))}')
+        leaked = spec['forbidden'] & names
+        if leaked:
+            fail('S12', f'{key}: contains another wing\'s role vocabulary '
+                         f'{", ".join(sorted(leaked))}')
+
+        bottom = {pos for pos, name in states.items() if pos[1] == 0 and name != 'minecraft:air'}
+        side_counts = {
+            'west': sum(1 for x, _y, z in bottom if x <= 2 and 7 <= z <= 40),
+            'east': sum(1 for x, _y, z in bottom if x >= 45 and 7 <= z <= 40),
+            'north': sum(1 for x, _y, z in bottom if z <= 2 and 7 <= x <= 40),
+            'south': sum(1 for x, _y, z in bottom if z >= 45 and 7 <= x <= 40),
+        }
+        if len(bottom) < 300 or min(side_counts.values()) < 20:
+            fail('S12', f'{key}: terrain beard is too shallow/sparse '
+                         f'({len(bottom)} bottom supports; sides {side_counts})')
+
+        royal_count = sum(n for name, n in counts.items() if name.startswith('alfheim:royal_'))
+        if royal_count < 55:
+            fail('S12', f'{key}: only {royal_count} Royal Tile Set blocks; expected at least 55')
+
+        if spec['axis'] == 'x':
+            route = ((x, y, z) for x in range(48) for z in range(21, 28)
+                     for y in range(7, 11))
+            floor = ((x, 5, 24) for x in range(48))
+        else:
+            route = ((x, y, z) for z in range(48) for x in range(21, 28)
+                     for y in range(7, 11))
+            floor = ((24, 5, z) for z in range(48))
+        blocked = [pos for pos in route if states.get(pos) != 'minecraft:air']
+        unsupported = [pos for pos in floor if states.get(pos) in (None, 'minecraft:air')]
+        if blocked:
+            fail('S12', f'{key}: {len(blocked)} upper route cells are not explicitly clear')
+        if unsupported:
+            fail('S12', f'{key}: {len(unsupported)} processional floor cells lack support')
+        if a.verbose:
+            print(f'  --   {key:22} detail={len(root["blocks"])} palette={len(root["palette"])} '
+                  f'royal={royal_count} beard={len(bottom)} sides={side_counts}')
+
     # ---- S3: pools a jigsaw points at must exist -----------------------------------------
     pools = {}
     for p in sorted(glob.glob(os.path.join(POOL_DIR, '**', '*.json'), recursive=True)):
@@ -296,6 +379,12 @@ def main():
         for template in templates:
             if f'place template alfheim:{template}' not in assemble_text:
                 fail('S10', f'hub/assemble.mcfunction does not explicitly place {template}')
+        for template, offset in (('west_residence', '~-72 ~-5 ~-72'),
+                                 ('east_service', '~24 ~-5 ~-72'),
+                                 ('north_council', '~-24 ~-5 ~-120')):
+            if f'place template alfheim:court/{template} {offset}' not in assemble_text:
+                fail('S12', f'court/{template} is not placed at its five-course beard datum '
+                            f'({offset})')
         if 'if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run scoreboard players set #already' not in place_text:
             fail('S10', 'hub/place.mcfunction does not snapshot the baked-anchor guard; retries can duplicate the hub')
         if assemble_text.find('place template alfheim:greatbole/base') < assemble_text.find('place template alfheim:court/amphitheatre'):
@@ -385,6 +474,139 @@ def main():
     if a.verbose:
         print('  --   top-level names: '
               + ', '.join(f'{k} {v}' for k, v in counts.items()))
+
+    # ---- S9/S10/S11: the assembled complex ------------------------------------------------
+    # Added 2026-09-07 after a field session found three faults that every existing check
+    # passed over: the civic wings dead-ended against the amphitheatre's intact outer seating,
+    # dressing hung in mid-air above the carved routes, and the FTB claim covered 289 chunks
+    # around a 144-by-144 build. All three are geometry a reader cannot hold in their head, so
+    # they are asserted here rather than re-inspected by eye.
+    assemble = os.path.join(DATA, 'functions', 'hub', 'assemble.mcfunction')
+    placed = {}
+    if os.path.exists(assemble):
+        for m in re.finditer(r'place template (\w+):([\w/]+) ~(-?\d+) ~(-?\d+) ~(-?\d+)',
+                             open(assemble, encoding='utf-8').read()):
+            placed[m.group(2)] = (int(m.group(3)), int(m.group(4)), int(m.group(5)))
+
+    def world_box(key):
+        """The XZ footprint one placed piece occupies, in world blocks, inclusive."""
+        ox, _oy, oz = placed[key]
+        sx, _sy, sz = [int(v) for v in pieces[key]['size']]
+        return ox, ox + sx - 1, oz, oz + sz - 1
+
+    missing = [k for k in placed if k not in pieces]
+    for k in missing:
+        fail('S9', f'assemble.mcfunction places {k}, which has no NBT')
+
+    if placed and not missing:
+        # S9: the claim envelope must contain every placed piece, chunk-snapped and no larger.
+        import gen_spawn_hub
+        boxes = [world_box(k) for k in placed]
+        lo_x, hi_x = min(b[0] for b in boxes), max(b[1] for b in boxes)
+        lo_z, hi_z = min(b[2] for b in boxes), max(b[3] for b in boxes)
+        want = ((lo_x >> 4) * 16, ((hi_x >> 4) + 1) * 16 - 1,
+                (lo_z >> 4) * 16, ((hi_z >> 4) + 1) * 16 - 1)
+        got = (gen_spawn_hub.HUB_MIN_X, gen_spawn_hub.HUB_MAX_X,
+               gen_spawn_hub.HUB_MIN_Z, gen_spawn_hub.HUB_MAX_Z)
+        if got != want:
+            fail('S9', f'claim envelope {got} does not chunk-snap the built footprint '
+                       f'X {lo_x}..{hi_x} Z {lo_z}..{hi_z}; expected {want}')
+        elif a.verbose:
+            chunks = ((want[1] - want[0] + 1) // 16) * ((want[3] - want[2] + 1) // 16)
+            print(f'  --   claim {want[0]}..{want[1]} x {want[2]}..{want[3]} = {chunks} chunks')
+
+        # S10: every wing spine must open into the court.
+        #
+        # The four court pieces are 48 wide and tile flush, so a wing's clear spine and the
+        # amphitheatre's matching approach occupy the same cross span in each piece's own local
+        # coordinates: centre +/- AISLE_HALF. The amphitheatre's paving sits at world Y == the
+        # surface datum, which is its own local y == -placement_y; the walkable column is the
+        # five blocks above that. If any of it is solid the wing dead-ends.
+        amph = pieces.get('court/amphitheatre')
+        if amph is not None and 'court/amphitheatre' in placed:
+            pal = [e['Name'] for e in amph['palette']]
+            grid = {tuple(int(v) for v in b['pos']): pal[b['state']] for b in amph['blocks']}
+            width = int(amph['size'][0])
+            centre = width // 2
+            floor_y = -placed['court/amphitheatre'][1]      # local y of the walking surface
+            half = gen_spawn_hub.AISLE_HALF
+            span = range(centre - half, centre + half + 1)
+            seams = {                                       # wing -> (axis, local seam index)
+                'court/west_residence': ('x', 0),
+                'court/east_service': ('x', width - 1),
+                'court/north_council': ('z', 0),
+            }
+            for wing, (axis, seam) in seams.items():
+                if wing not in placed:
+                    continue
+                blocked = []
+                for cross in span:
+                    lx, lz = (seam, cross) if axis == 'x' else (cross, seam)
+                    for ly in range(floor_y + 1, floor_y + 6):
+                        b = grid.get((lx, ly, lz))
+                        if b is not None and b != 'minecraft:air':
+                            blocked.append((lx, ly, lz, b))
+                if blocked:
+                    fail('S10', f'court/amphitheatre does not open to {wing}: '
+                                f'{len(blocked)} solid block(s) in the seam column, '
+                                f'first {blocked[0]}')
+                elif a.verbose:
+                    print(f'  --   seam to {wing} is clear')
+
+        # S11: no block may be wholly unattached.
+        #
+        # Deliberately the weakest defensible form of this test. A first pass demanded solid
+        # support directly below and flagged 36 pieces -- but inspection showed most were
+        # corbels hanging under an overhang, and stepped debris joined only on a diagonal.
+        # Both are authored ruin geometry, and this project builds ruins on purpose. What is
+        # never intentional is a block touching nothing at all on any of its six faces: that is
+        # always a scatter loop placing at a computed height that its own terrain never
+        # reached. Support-below is asserted where the datum is known, by S12.
+        NEIGHBOURS = ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1))
+        for key, root in sorted(pieces.items()):
+            pal = [e['Name'] for e in root['palette']]
+            grid = {tuple(int(v) for v in b['pos']): pal[b['state']] for b in root['blocks']}
+            size = [int(v) for v in root['size']]
+            floating = []
+            for (x, y, z), name in grid.items():
+                if name in ('minecraft:air', 'minecraft:jigsaw', 'minecraft:vine'):
+                    continue
+                attached = False
+                for dx, dy, dz in NEIGHBOURS:
+                    nx, ny, nz = x + dx, y + dy, z + dz
+                    if not (0 <= nx < size[0] and 0 <= ny < size[1] and 0 <= nz < size[2]):
+                        attached = True       # the piece boundary; the world continues there
+                        break
+                    nb = grid.get((nx, ny, nz))
+                    if nb is None or nb != 'minecraft:air':
+                        # `None` means the piece does not own the cell, so natural terrain
+                        # survives there and the block is resting against it.
+                        attached = True
+                        break
+                if not attached:
+                    floating.append((x, y, z, name))
+            if floating:
+                fail('S11', f'{key}: {len(floating)} block(s) touch nothing on any face, '
+                            f'first {floating[0]}')
+
+        # S12: loose dressing in the court pieces must have something under it. These are the
+        # pieces whose vertical datum is fixed by assemble.mcfunction, so "below" is decidable.
+        SCATTER = ('carpet', 'cobblestone', 'moss_block', 'rubble', 'gravel')
+        for key in sorted(k for k in pieces if k.startswith('court/')):
+            root = pieces[key]
+            pal = [e['Name'] for e in root['palette']]
+            grid = {tuple(int(v) for v in b['pos']): pal[b['state']] for b in root['blocks']}
+            floor_y = -placed[key][1] if key in placed else 0
+            unsupported = []
+            for (x, y, z), name in grid.items():
+                if y <= floor_y or not any(s in name for s in SCATTER):
+                    continue
+                below = grid.get((x, y - 1, z))
+                if below is None or below == 'minecraft:air':
+                    unsupported.append((x, y, z, name))
+            if unsupported:
+                fail('S12', f'{key}: {len(unsupported)} loose dressing block(s) sit above the '
+                            f'floor datum with nothing beneath, first {unsupported[0]}')
 
     print(f'\npieces: {len(pieces)}   jigsaws: {len(jigsaws)}   pools: {len(pools)}')
     print('=' * 68)

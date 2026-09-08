@@ -23,7 +23,9 @@
   },
   "features": [
     [],
-    [],
+    [
+      "alfheim:mire_pool"
+    ],
     [],
     [],
     [
@@ -45,7 +47,10 @@
     [],
     [],
     [
-      "mythicbotany:alfheim_grass"
+      "alfheim:mire_mud_flat",
+      "mythicbotany:alfheim_grass",
+      "mythicbotany:loose_dreamwood_trees",
+      "alfheim:mire_deadfall"
     ],
     []
   ],

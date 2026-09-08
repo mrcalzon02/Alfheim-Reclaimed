@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 import sys
+from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
@@ -31,11 +32,30 @@ def main():
     ]
     placement = shared_set["placement"]
     assert placement["type"] == "minecraft:random_spread"
-    assert placement["spacing"] >= 96 and placement["separation"] >= 48
-    assert placement["spacing"] > placement["separation"]
+    # MUTUAL EXCLUSION, DERIVED RATHER THAN ASSUMED.
+    #
+    # This used to read `spacing >= 96 and separation >= 48`, a pair of magic floors standing in
+    # for "the three families must not overlap". They bought that guarantee at the price of one
+    # start per 1,536 blocks: the 2026-09-07 field session explored 1,232 x 1,456 blocks -- where
+    # a 96-grid predicts 0.76 starts -- and found none, which the player reasonably read as
+    # runaway world generation. A save scan found exactly the one start the grid predicted, so
+    # placement was never broken; the grid was simply far coarser than the play area.
+    #
+    # random_spread places each start at a random offset within [0, spacing - separation), so
+    # two starts in adjacent cells can close to `separation` chunks. Non-overlap therefore needs
+    # separation * 16 > 2 * max_distance_from_center, which is the condition asserted here. The
+    # grid can now be tuned for discoverability without anyone having to rediscover why 96 was
+    # written down.
+    assert placement["spacing"] > placement["separation"] > 0
+    reach = max(read(os.path.join(DATA, "worldgen", "structure", family["id"] + ".json"))
+                ["max_distance_from_center"] for family in manifest["families"])
+    assert placement["separation"] * 16 > 2 * reach, (
+        f'separation {placement["separation"]} chunks ({placement["separation"] * 16} blocks) '
+        f'does not clear two {reach}-block structure reaches; families could overlap')
     assert [placement["spacing"], placement["separation"]] == [
         manifest["placement"]["spacing"], manifest["placement"]["separation"]]
     total_blocks = 0
+    detail_totals = Counter()
     for family in manifest["families"]:
         fid = family["id"]
         structure = read(os.path.join(DATA, "worldgen", "structure", fid + ".json"))
@@ -64,6 +84,28 @@ def main():
             assert not unknown, f"{path}: unknown blocks {unknown}"
             assert "minecraft:spawner" not in names, f"{path}: authored mob spawner"
             assert "minecraft:air" in names, f"{path}: structure cannot open rooms"
+            block_names = [piece["palette"][int(block["state"])]["Name"]
+                           for block in piece["blocks"]]
+            counts = Counter(block_names)
+            detail = {
+                "stairs": sum(count for name, count in counts.items() if name.endswith("_stairs")),
+                "slabs": sum(count for name, count in counts.items() if name.endswith("_slab")),
+                "railings": sum(count for name, count in counts.items() if name.endswith("_wall")),
+                "mana_glass": sum(count for name, count in counts.items() if "mana_glass" in name),
+            }
+            minima = {"stairs": 80, "slabs": 24, "railings": 16, "mana_glass": 24}
+            for category, minimum in minima.items():
+                assert detail[category] >= minimum, \
+                    f"{fid}/{role}: only {detail[category]} {category}; layered-detail floor is {minimum}"
+                detail_totals[category] += detail[category]
+            traversal_levels = {
+                int(block["pos"][1]) for block in piece["blocks"]
+                if int(block["pos"][1]) >= 5 and
+                (piece["palette"][int(block["state"])]["Name"].endswith("_stairs") or
+                 piece["palette"][int(block["state"])]["Name"].endswith("_slab"))
+            }
+            assert len(traversal_levels) >= 4, \
+                f"{fid}/{role}: detailing does not occupy enough traversable elevations"
             jigsaws = [b for b in piece["blocks"] if b.get("nbt", {}).get("id") == "minecraft:jigsaw"]
             expected_jigsaws = {"centre": 4, "approach": 2, "wing": 1}[role]
             assert len(jigsaws) == expected_jigsaws, f"{path}: {len(jigsaws)} jigsaws"
@@ -129,9 +171,12 @@ def main():
     assert set(ignored) == {"alfheim:deep_quarry", "alfheim:elder_kings_tomb", "alfheim:faultwork"}
     subprocess.run([sys.executable, "-B", os.path.join(ROOT, "tools", "gen_deep_archaeology.py"), "--check"],
                    cwd=ROOT, check=True)
-    print(f"PASS: 3 mutually-exclusive underground families on one 96/48 grid; "
+    print(f"PASS: 3 mutually-exclusive underground families on one "
+          f"{placement['spacing']}/{placement['separation']} grid "
+          f"(min gap {placement['separation'] * 16} blocks vs {reach}-block reach); "
           f"three 9-piece ~200-block complexes, {total_blocks} source template blocks; "
-          "7 scaled grave-door bays; random depth bands; no authored mobs; generator closed")
+          "7 scaled grave-door bays; random depth bands; no authored mobs; "
+          f"layered detail {dict(detail_totals)}; generator closed")
 
 
 if __name__ == "__main__":

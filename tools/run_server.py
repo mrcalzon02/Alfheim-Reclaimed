@@ -306,6 +306,26 @@ def run(seed, level_name, heap, commands, timeout):
     return harness_exit
 
 
+def _claim_probes():
+    """`ftbchunks info` at the centre and four corners of the CURRENT claim envelope.
+
+    These used to be five literal +/-128 coordinates. When the envelope became an explicit
+    rectangle on 2026-09-07 the literals kept probing the old square, so the run reported
+    "Chunk not claimed!" at corners that are now correctly outside the claim -- a validator
+    failing because it had drifted from the thing it validates. Read the envelope from the
+    generator instead, so it cannot drift again.
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import gen_spawn_hub as hub
+    lo_x, hi_x = hub.HUB_MIN_X, hub.HUB_MAX_X
+    lo_z, hi_z = hub.HUB_MIN_Z, hub.HUB_MAX_Z
+    corners = [((lo_x + hi_x) // 2, (lo_z + hi_z) // 2),
+               (lo_x, lo_z), (hi_x, lo_z), (lo_x, hi_z), (hi_x, hi_z)]
+    return [(2, f'ftbchunks info {x} {z} {hub.HOME}') for x, z in corners]
+
+
+CLAIM_PROBES = _claim_probes()
+
 DEFAULT_COMMANDS = [
     (90, 'say alfheim validation: startup reached'),
     # Ground truth for every registry. Lang-derived ids are NOT proof of registration --
@@ -401,14 +421,10 @@ DEFAULT_COMMANDS = [
 
     # FTB Chunks claim acceptance needs ownership read-back, not the return value from
     # `claim`. FTB Chunks `info` reports the owning team for the addressed chunk to an
-    # operator/console source. Probe the centre and all four corners of the 128-block square
-    # that 04_spawn_hub.js reconciles so the next headless run records whether the whole
-    # placement envelope belongs to the `alfheim_hub` server team.
-    (2, 'ftbchunks info 0 0 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 128 128 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -128 128 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 128 -128 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -128 -128 mythicbotany:alfheim'),
+    # operator/console source. CLAIM_PROBES addresses the centre and all four corners of
+    # whatever envelope 04_spawn_hub.js currently reconciles, so this run records whether the
+    # whole placement envelope belongs to the `alfheim_hub` server team.
+] + CLAIM_PROBES + [
 
     (60, 'save-all flush'),
     (20, 'stop'),
@@ -436,11 +452,7 @@ HUB_ONLY_COMMANDS = [
     (1, 'execute in mythicbotany:alfheim store result score #hub_court_count alfheim.hub '
         'run execute if entity @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]'),
     (1, 'scoreboard players get #hub_court_count alfheim.hub'),
-    (2, 'ftbchunks info 0 0 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 128 128 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -128 128 mythicbotany:alfheim'),
-    (2, 'ftbchunks info 128 -128 mythicbotany:alfheim'),
-    (2, 'ftbchunks info -128 -128 mythicbotany:alfheim'),
+] + CLAIM_PROBES + [
     (5, 'save-all flush'),
     (5, 'stop'),
 ]

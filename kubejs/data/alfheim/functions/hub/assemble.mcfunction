@@ -14,9 +14,9 @@ scoreboard players set #north_result alfheim.hub 0
 execute store success score #trunk_result alfheim.hub run place template alfheim:greatbole/trunk ~-16 ~28 ~-16 none none 1 0
 execute store success score #crown_result alfheim.hub run place template alfheim:greatbole/crown ~-24 ~52 ~-24 none none 1 0
 execute store success score #court_result alfheim.hub run place template alfheim:court/amphitheatre ~-24 ~-3 ~-72 none none 1 0
-execute store success score #west_result alfheim.hub run place template alfheim:court/west_residence ~-72 ~-3 ~-72 none none 1 0
-execute store success score #east_result alfheim.hub run place template alfheim:court/east_service ~24 ~-3 ~-72 none none 1 0
-execute store success score #north_result alfheim.hub run place template alfheim:court/north_council ~-24 ~-3 ~-120 none none 1 0
+execute store success score #west_result alfheim.hub run place template alfheim:court/west_residence ~-72 ~-5 ~-72 none none 1 0
+execute store success score #east_result alfheim.hub run place template alfheim:court/east_service ~24 ~-5 ~-72 none none 1 0
+execute store success score #north_result alfheim.hub run place template alfheim:court/north_council ~-24 ~-5 ~-120 none none 1 0
 execute store success score #base_result alfheim.hub run place template alfheim:greatbole/base ~-24 ~-20 ~-24 none none 1 0
 # /place template deliberately preserves jigsaw blocks; retire the six authored sockets.
 setblock ~ ~27 ~ air

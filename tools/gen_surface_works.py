@@ -1336,6 +1336,7 @@ def main():
     total_blocks = 0
     drops = []
     encounter_count = 0
+    orphan_total = 0
 
     for st in structures:
         arch = archetypes[st['archetype']]
@@ -1354,6 +1355,12 @@ def main():
             profile = m['encounter_profiles'][encounter['profile']]
             install_encounter(piece, pal, encounter, profile)
             encounter_count += 1
+
+        # The decay and collapse passes remove blocks by noise threshold and never ask what
+        # they were holding up, so anything whose whole neighbourhood went with it is left
+        # hanging in the interior void -- lanterns with no chain, stair treads with no flight.
+        orphans = piece.prune_orphans()
+        orphan_total += orphans
 
         for axis_len in size:
             assert axis_len <= MAX_AXIS, f"{st['id']} is {size} -- over the {MAX_AXIS} limit"
@@ -1432,6 +1439,7 @@ def main():
 
     print(f"\n  {len(structures)} structures, {len(by_arch)} archetypes, "
           f"{total_blocks} blocks, {encounter_count} encounters, "
+          f"{orphan_total} orphans swept, "
           f"{len(chest_tables()) if not a.only else 0} shared chest tables rewritten")
     print('  maps: ' + ', '.join(f'{k}({len(v)})' for k, v in sorted(by_arch.items())))
     worst = max(drops, key=lambda d: d[1], default=None)

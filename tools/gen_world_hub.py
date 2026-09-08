@@ -65,6 +65,7 @@ RETRY_TICKS = 100            # 5s between resolve attempts
 REPLACE_AT = 6               # retry only if the explicit template assembly returned failure
 PROVISIONAL = 24             # ~2 min: give the world SOME spawn rather than none
 RETRIES = 60                 # ~5 min hard stop; deterministic placement should resolve at once
+COURT_ANNEX_EMBED = 5        # matches gen_spawn_hub.COURT_FLOOR_Y; deeper authored beard
 
 AWAIT = 'alfheim_awaiting_hub'  # a player placed provisionally, owed a move to the hub
 BAKED = 'alfheim_hub_baked'  # carried inside greatbole/base.nbt by gen_spawn_hub.hub_anchor
@@ -103,11 +104,11 @@ FILES['assemble'] = header(
     f'execute store success score #court_result {OBJ} run place template '
     f'{NS}:court/amphitheatre ~-24 ~-3 ~-72 none none 1 0',
     f'execute store success score #west_result {OBJ} run place template '
-    f'{NS}:court/west_residence ~-72 ~-3 ~-72 none none 1 0',
+    f'{NS}:court/west_residence ~-72 ~-{COURT_ANNEX_EMBED} ~-72 none none 1 0',
     f'execute store success score #east_result {OBJ} run place template '
-    f'{NS}:court/east_service ~24 ~-3 ~-72 none none 1 0',
+    f'{NS}:court/east_service ~24 ~-{COURT_ANNEX_EMBED} ~-72 none none 1 0',
     f'execute store success score #north_result {OBJ} run place template '
-    f'{NS}:court/north_council ~-24 ~-3 ~-120 none none 1 0',
+    f'{NS}:court/north_council ~-24 ~-{COURT_ANNEX_EMBED} ~-120 none none 1 0',
     f'execute store success score #base_result {OBJ} run place template '
     f'{NS}:greatbole/base ~-24 ~-20 ~-24 none none 1 0',
     '# /place template deliberately preserves jigsaw blocks; retire the six authored sockets.',

@@ -4,6 +4,90 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.21.2-design — 2026-09-07 — twelve-item field review
+
+Eight repairs and four diagnoses, from the 22:08 session on `New World-fellhammer`. Five of the
+eight were a different defect from the one the symptom named, so each is recorded with its cause.
+
+**The court now opens on four sides.** The amphitheatre had exactly one carved approach — south,
+to the Greatbole — while the west, east and north wings each drove a seven-wide processional spine
+into the intact outer seating bank. `AISLES` is now the single authority for where the court opens;
+all four are paved, given broken retaining cheeks, and cleared last so no dressing pass can close
+them. The wings' elevations were already correct and were verified rather than assumed.
+
+**Nothing hangs over the dais.** `courtyard_detail` placed rubble, moss, fallen drums and vines at
+*computed* tier heights whether or not that tier survived its collapse roll or had been cut away by
+an aisle, and the rim columns, colonnade and court seats had the same defect. Every scatter is
+support-aware now, seats are built down to the tier base course, and a vine must name a solid
+neighbour. Amphitheatre blocks hanging at y>=4: 3 before, 0 after. Detached vines: 3 of 21 before,
+0 of 18 after.
+
+**The claim fits the build.** `HUB_RADIUS = 128` was a square centred on the tree, sized for a
+placement probe retired in an earlier pass. The complex runs Z -120..23, so the claim covered a
+large empty apron to the south. It is now an explicit rectangle derived from the placed templates
+and snapped to chunks — X -80..79, Z -128..31 — and a fresh server reports FTB ownership verified
+for 100/100 chunks, down from 289.
+
+**Deep stone reads as rock again.** Three independent causes of the speckled cave faces: the
+`inclusions` noise ran at firstOctave -4, a ~16-block wavelength that scattered single blocks;
+the upper three-stone and lower five-stone strata schemes banded at different widths so no edge
+lined up and a single face could show all five interleaved; and the dithered blend between them
+spanned 22 blocks at Y -30..-8, squarely at cave height. Inclusions are now pod-scaled, both
+schemes are three stones with coincident band edges and a shared contact stone, and the blend is
+ten blocks.
+
+**Deepworks are findable, and stop writing into far chunks.** The `ley_scars` patch kept an
+`xz_radius` of 16 and produced 20 `Detected setBlock in a far chunk` errors; the <=15 reach bound
+written for the slag terraces now covers every formation. Separately, the families were not absent
+but undiscoverable: a scan of the reported save found the single `elder_kings_tomb` start that a
+96-chunk grid predicts across the 77x91 chunks explored. The grid is 48/24, and the checker's
+`>=96/>=48` floors are replaced by the geometric condition they stood in for.
+
+**Two empty biomes have identities.** Infested Warren and Decayed Mire carried a colour palette, a
+mob list and nothing else — 566 of 876 Warren surface samples were plain grass block, and the Mire
+was 82% the same, together a third of the reported world. Six Alfheim-owned features now carry
+them: root mats, fungal blooms and web snares for the Warren; mud flats, water pools and deadfall
+for the Mire, with standing dead dreamwood in both.
+
+**Structures no longer shed loose blocks.** `Piece.prune_orphans` sweeps anything left touching
+nothing on any of six faces — the decay, collapse and rubble passes remove blocks without asking
+what rested on them. 47 orphans across the surface roster. Two real geometry faults were repaired
+rather than swept: the Elder King's Tomb cornice stood two blocks clear of the wall it was
+corbelled from, and both Faultwork bridges carried their railings one block off the deck edge.
+
+**Not a pack defect.** The session's crawl has a clean log and no crash. Distant Horizons runs
+distant generation across nine dimensions with 14 threads at full duty cycle, at the same priority
+as the game, with a 256-chunk LOD radius; in thirteen minutes it left 1,917 chunks at
+`structure_starts` status beside the game's own 3,085 full chunks. The client config is the user's
+and has not been changed.
+
+Static: fifteen checkers pass, including three new spawn-hub invariants — S9 derives the claim
+envelope from `assemble.mcfunction`, S10 asserts each wing seam is clear, S11/S12 forbid unattached
+blocks and unsupported dressing. Runtime: fresh world `validation-field-0907e` exited 0 in 304s
+with zero far-chunk errors; `validation-fellhammer-0907`, on the reported seed, generated the
+Warren's root mats, fungal blooms and web snares (58 rooted dirt, 56 podzol, 35 brown mushroom,
+23 cobweb across 1,056 Warren sections). Decayed Mire lies 320 blocks out and did not generate in
+the test radius, so its three features are registered and parsed but not yet observed placing.
+Client visual review is open on everything here.
+
+## 0.21.1-design — 2026-09-07 — terrain smoothing and clean Void reset
+
+Removed the climate-stamped Y=191 Hills plateau that was replacing complete terrain columns and
+creating the screenshot-visible sheer ranges through Hills, Plains, Silverbark and Starved Reach.
+Ordinary Alfheim now retains MythicBotany's continuous base density; biome identity remains owned by
+surface materials, vegetation and bounded features instead of hard elevation switches.
+
+Reset the Void Margin to one broad, low-amplitude supported shore blend followed by clean empty
+space. The four interpolated 3-D debris branches and Starless terminal mass are no longer part of
+final density; their sharp vocabulary is reserved for later bounded, biome-specific features. A
+broad correctly phased aquifer shoulder, above-water shore datum and basal fluid guard eliminate
+the water curtains without changing ordinary Alfheim's fluid routing.
+
+Fresh disposable world `void-margin-20260907-210920` completed 170 vertical column audits across
+all seven Void classifications and three Deep controls with zero Void fluid errors, zero far-field
+terrain errors, 126/126 material blocks and 126/126 recipes. Static terrain, geology, surface,
+feature-order and reproducibility checks pass. Client review in newly generated chunks remains open.
+
 ## 0.21.0-design — 2026-09-07 — spawn, Deep archaeology, wildlife and Hills repair
 
 Recomposed the Greatbole and Hollow Court as one deterministic origin complex. The generated

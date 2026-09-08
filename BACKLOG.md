@@ -1,10 +1,72 @@
 # Backlog
 
+### B-83 — September 7 field review, twelve items — **PARTIALLY IMPLEMENTED; SEE PER-ITEM STATE**
+
+Twelve field observations from the 22:08 session on `New World-fellhammer`. Each is recorded with
+its diagnosed root cause, because five of the twelve turned out to be a different defect from the
+one the symptom suggested.
+
+| # | Item | Root cause | State |
+|---|---|---|---|
+| 1 | Infested Warren reads as gently rolling hills | Biome had no identity features at all: ores plus `mythicbotany:alfheim_grass`. Save probe: 566 of 876 surface samples were plain grass block | **static implemented** |
+| 2 | Decayed Mire, likewise | Same. Ores, apothecaries, alfheim_grass. 76 of 93 samples plain grass block | **static implemented** |
+| 3 | Claim far too large | `HUB_RADIUS = 128` square centred on the tree, sized for a placement probe retired in an earlier pass. The complex spans X -72..71, Z -120..23 and is centred at Z = -48, so the claim over-reached south and barely cleared the north wing | **runtime validated** — console reports 100/100 chunks, down from 289 |
+| 4 | Boundary caves full of noise blocks | Three causes: `inclusions` noise at firstOctave -4 sprayed single blocks; upper 3-stone and lower 5-stone strata schemes banded at different widths so no edge lined up; and a 22-block randomly dithered blend band sat at Y -30..-8, exactly cave height | **static implemented** |
+| 5 | Surface structures need a high-detail pass | The decay/collapse passes delete blocks without asking what rested on them. S11 found wholly unattached blocks in 15 pieces — floating lanterns in four keeps, detached stairs in several towers, 318 in `faultwork/wing` | **loose blocks repaired; the wider detail pass is still open** |
+| 6 | Ley line conduit shafts never seen | Not a spawn-criteria fault. The worldgen half does not exist: no `alfheim:ley_conduit_node`, no structure, no template pool, no NBT. Only Phase 1 — the status effects and their icons — is built, exactly as `LEY_LINE_CHANNEL_CORRIDORS.md` states | **diagnosed; unbuilt** |
+| 7 | Wooded shoreline biomes, incl. mushroom forests | Not started. Already queued in B-80's later list | **not started** |
+| 8 | Remaining development gaps | See "climate monoculture" below — the largest open gap, and it is upstream of items 1, 2 and 7 | **evidenced** |
+| 9 | Wings do not connect to the central area | The amphitheatre had one carved aisle, south to the Greatbole. The three wings each drive a seven-wide spine at the right elevation into the *intact* outer seating bank: five to six blocks of marble, with a two-block void at the seam | **static implemented, geometry verified** |
+| 10 | Noise blocks hovering over the main dais | `courtyard_detail` ran after the aisle carve and placed rubble, moss and marble at *computed* tier heights whether or not that tier survived the collapse roll or had been cut away. Rim columns, colonnade columns, court seats and vines had the same defect | **static implemented, verified 0 floating** |
+| 11 | System crawled to a halt; no crash | Not a pack error — the log is clean and the single tick overload is world-join. Distant Horizons runs distant generation across **nine dimensions** with 14 threads at `threadRunTimeRatio = 1.0`, `threadPriority = 5` and a 256-chunk LOD radius. In 13 minutes it left **1,917 chunks at `structure_starts` status** beside the game's own 3,085 full chunks | **diagnosed; config change offered, not applied** |
+| 12 | No Deepworks structure found | Not runaway world generation. `alfheim:elder_kings_tomb` did place, at chunk (19, 45), with 126 chunk references. Over the 77x91 chunks explored, a 96-spacing grid predicts 0.76 starts and exactly 1 was found. Every piece is within the 48-block limit. The real causes are the grid pitch and the total absence of a surface entrance | **spacing 48/24; ley_scars far-chunk writes fixed; surface entrance open** |
+
+#### The climate monoculture — item 8's headline
+
+Alfheim's temperature and humidity are `minecraft:temperature` and `minecraft:vegetation` at
+`xz_scale` 0.0625, which stretches them roughly sixteenfold. The consequence is measurable rather
+than theoretical:
+
+- `New World-fellhammer`, 3,085 fully generated chunks: **six** biomes, and `alfheim_lakes` alone
+  is 44.4%. Infested Warren and Decayed Mire are another 34.3% between them, which is why two
+  featureless biomes dominated the whole field session.
+- Seed `alfheim`, headless locate from the origin: `mana_fen` 160 blocks, `silverbark_wood` 340,
+  `sundered_highlands` 891, `void_verge` 951, `hollow_marches` 1,569, `starved_reach` 1,790,
+  `ashen_grove` 1,814, `infested_warren` 2,849, `decayed_mire` 3,106, `bloomfall_vale` **7,178**,
+  and `scorchfell` **not found within locate range at all**.
+
+Eleven authored biomes are not eleven reachable places. This is upstream of items 1, 2 and 7: new
+shoreline forests added to the current climate field would be just as unreachable as Scorchfell.
+Decide the climate scale before authoring more biomes.
+
+#### Open, in priority order
+
+1. Climate scale for temperature/humidity — the decision that gates items 7 and 8.
+2. Surface-structure detail pass. The loose-block sweep is done and S11 is clean; what remains is
+   the actual quality pass on the 44 surface pieces — silhouette, interior legibility, materials.
+3. A surface entrance for the Deepworks families, so a player can find one without caving to Y -40.
+4. Ley line corridors Phase 2: the conduit block, then the jigsaw network.
+5. Wooded shoreline biomes and mushroom forests.
+
+### B-82 — terrain smoothing and clean Void reset — **FRESH-WORLD RUNTIME VALIDATED; CLIENT VISUAL PENDING**
+
+The screenshot-driven smoothing pass is implemented. The erroneous Y=191 climate plateau is gone,
+so Hills, Plains, Silverbark and Starved Reach again share continuous upstream terrain. The Void's
+interpolated multi-noise debris and terminal fields are also removed from final density: one quiet,
+supported shore blend now ends at the cliff, with clean empty space beyond it. A broad aquifer dry
+shoulder and basal picker guard prevent water from cascading into the Void.
+
+Fresh world `void-margin-20260907-210920` passed 170 sampled columns with zero Void fluids and zero
+far-field terrain overflow; all static gates pass. Remaining acceptance is a flight through newly
+generated client chunks. After that, resume the user's next priority: reintroduce each Void biome's
+identity as sparse, bounded, support-aware landmarks and formations, never as unbounded 3-D density
+noise. B-82 supersedes B-81's rejected Hills plateau and B-79's rejected procedural debris field.
+
 ### B-81 — September 7 field repair — **STATIC IMPLEMENTED; FRESH-WORLD ACCEPTANCE PENDING**
 
 The current generator pass addresses the screenshot/log report: exact-origin Greatbole and expanded
 royal complex, API-owned automatic spawn claim, custom Elder-wood roots and shared circulation,
-Hills terrain at Y=191–194, normal Wild Elf habitat, one mutually exclusive Deep archaeology grid,
+the now-superseded Hills terrain experiment, normal Wild Elf habitat, one mutually exclusive Deep archaeology grid,
 scaled tomb-door bays, and bounded Slag Terraces. Dedicated static checks pass. Highest-priority
 remaining gate is one extended fresh-world client run proving no far-chunk errors, exact origin
 geometry/terrain fit, FTB ownership/restart persistence, natural Wild Elves, Hills elevation and

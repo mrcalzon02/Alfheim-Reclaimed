@@ -3,8 +3,8 @@
 
 The rejected state used one generic strata noise to paint all three stones through
 every mass and represented every named formation as a block pile. This check keeps
-the material catalogue, density vocabulary, surface roles and placed feature codecs
-in agreement. It is static; visual acceptance still requires fresh client chunks.
+the material catalogue, quiet shore-only density, surface roles and placed feature
+codecs in agreement. It is static; visual acceptance still requires fresh client chunks.
 """
 from __future__ import annotations
 
@@ -29,7 +29,8 @@ FEATURE_ONLY={
     'alfheim:void_verge':{'alfheim:veilstone_livingrock'},
     'alfheim:sepulchral_reach':{'alfheim:epitaph_livingrock'},
 }
-REQUIRED_DENSITY_NOISES={
+FORBIDDEN_DENSITY_NOISES={
+    'alfheim:void/fragments','alfheim:void/fracture','alfheim:void/shape',
     'alfheim:void/pressure_plates','alfheim:void/fault_needles',
     'alfheim:void/prism_cores','alfheim:void/split_seams',
     'alfheim:void/root_ribs','alfheim:void/burial_beds',
@@ -41,6 +42,13 @@ def strings(value):
         for item in value.values():yield from strings(item)
     elif isinstance(value,list):
         for item in value:yield from strings(item)
+
+def walk(value):
+    if isinstance(value,dict):
+        yield value
+        for item in value.values():yield from walk(item)
+    elif isinstance(value,list):
+        for item in value:yield from walk(item)
 
 def block_names(value):
     return {s for s in strings(value) if s.startswith('alfheim:') and s.endswith('_livingrock')}
@@ -68,8 +76,21 @@ def validate(catalog,out,density):
         if leaked:fail('VG2',f'{biome} feature-only material leaked into the broad surface rule: {sorted(leaked)}')
 
     density_strings=set(strings(density))
-    missing=REQUIRED_DENSITY_NOISES-density_strings
-    if missing:fail('VG3',f'density is missing named landform fields {sorted(missing)}')
+    leaked=FORBIDDEN_DENSITY_NOISES & density_strings
+    if leaked:fail('VG3',f'procedural debris fields returned to final density: {sorted(leaked)}')
+    # Only broad, low-amplitude relief may shape the supported shore. All sharper
+    # vocabulary belongs to bounded configured features beyond the cliff.
+    multipliers={}
+    for node in walk(density):
+        if node.get('type')!='minecraft:mul':continue
+        for scalar,term in ((node.get('argument1'),node.get('argument2')),
+                            (node.get('argument2'),node.get('argument1'))):
+            if isinstance(scalar,(int,float)) and isinstance(term,dict) and term.get('type')=='minecraft:noise':
+                multipliers.setdefault(term.get('noise'),[]).append(abs(float(scalar)))
+    limits={'alfheim:void/relief':0.18,'alfheim:void/detail':0.05}
+    for noise_id,limit in limits.items():
+        if max(multipliers.get(noise_id,[999]))>limit:
+            fail('VG6',f'{noise_id} exceeds quiet gross-terrain amplitude {limit}')
 
     for name,codec in EXPECTED_CODECS.items():
         key=f'kubejs/data/alfheim/worldgen/configured_feature/void/{name}.json'
@@ -106,6 +127,18 @@ def self_test():
     def wrong_direction(c,o,d):
         k='kubejs/data/alfheim/worldgen/configured_feature/void/root_aprons.json';x=json.loads(o[k]);x['config']['feature']['feature']['config']['direction']='up';o[k]=json.dumps(x).encode()
     tests.append(('VG5',wrong_direction))
+    def loud_shore(c,o,d):
+        def mutate(value):
+            if isinstance(value,dict):
+                term=value.get('argument2')
+                if (value.get('type')=='minecraft:mul' and isinstance(term,dict)
+                        and term.get('noise')=='alfheim:void/relief'):
+                    value['argument1']=1.75;return True
+                return any(mutate(v) for v in value.values())
+            if isinstance(value,list):return any(mutate(v) for v in value)
+            return False
+        assert mutate(d)
+    tests.append(('VG6',loud_shore))
     dead=0
     for code,mutate in tests:
         c,o,d=fixture();mutate(c,o,d);hit=any(p.startswith(code) for p in validate(c,o,d))

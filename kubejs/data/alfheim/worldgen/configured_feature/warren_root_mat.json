@@ -6,44 +6,47 @@
       "type": "minecraft:uniform",
       "value": {
         "min_inclusive": 1,
-        "max_inclusive": 3
+        "max_inclusive": 2
       }
     },
-    "vertical_range": 12,
+    "vertical_range": 4,
     "xz_radius": {
       "type": "minecraft:uniform",
       "value": {
-        "min_inclusive": 9,
-        "max_inclusive": 15
+        "min_inclusive": 3,
+        "max_inclusive": 6
       }
     },
-    "extra_bottom_block_chance": 0.35,
-    "extra_edge_column_chance": 0.68,
+    "extra_bottom_block_chance": 0.25,
+    "extra_edge_column_chance": 0.4,
     "ground_state": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
         {
           "data": {
-            "Name": "alfheim:mana_glass_air"
+            "Name": "minecraft:rooted_dirt"
           },
-          "weight": 9
+          "weight": 6
         },
         {
           "data": {
-            "Name": "alfheim:gale_livingrock"
+            "Name": "minecraft:coarse_dirt"
           },
           "weight": 3
         },
         {
           "data": {
-            "Name": "alfheim:budding_galeglass"
+            "Name": "minecraft:podzol",
+            "Properties": {
+              "snowy": "false"
+            }
           },
-          "weight": 1
+          "weight": 2
         }
       ]
     },
-    "replaceable": "#alfheim:deepworks_replaceable",
-    "vegetation_chance": 0.0,
+    "replaceable": "#minecraft:lush_ground_replaceable",
+    "vegetation_chance": 0.3,
     "vegetation_feature": {
       "feature": {
         "type": "minecraft:simple_block",
@@ -51,7 +54,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "alfheim:mana_glass_air"
+              "Name": "minecraft:brown_mushroom"
             }
           }
         }

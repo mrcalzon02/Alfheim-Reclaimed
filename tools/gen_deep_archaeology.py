@@ -161,6 +161,123 @@ def funerary_statue(p, x, y, z, facing="north"):
         p.set(x, y + dy, z, B(f"alfheim:elder_statue_{part}", facing=facing))
 
 
+def stair(name, facing, half="bottom"):
+    return B(name, facing=facing, half=half, shape="straight", waterlogged=False)
+
+
+def slab(name, slab_type="bottom"):
+    return B(name, type=slab_type, waterlogged=False)
+
+
+def pointed_arch_z(p, cx, z, y, half_width, height, depth, masonry, stair_name):
+    """A thick pointed transverse rib; the clear opening remains genuinely vaulted."""
+    spring = y + height - half_width
+    for dz in range(depth):
+        zz = z + dz
+        for side in (-1, 1):
+            x = cx + side * (half_width + 1)
+            box(p, x, y, zz, x, spring, zz, masonry)
+        for step in range(half_width + 1):
+            yy = spring + step
+            left, right = cx - half_width + step, cx + half_width - step
+            p.set(left, yy, zz, stair(stair_name, "east", "top"))
+            p.set(right, yy, zz, stair(stair_name, "west", "top"))
+
+
+def pointed_arch_x(p, x, cz, y, half_width, height, depth, masonry, stair_name):
+    spring = y + height - half_width
+    for dx in range(depth):
+        xx = x + dx
+        for side in (-1, 1):
+            z = cz + side * (half_width + 1)
+            box(p, xx, y, z, xx, spring, z, masonry)
+        for step in range(half_width + 1):
+            yy = spring + step
+            north, south = cz - half_width + step, cz + half_width - step
+            p.set(xx, yy, north, stair(stair_name, "south", "top"))
+            p.set(xx, yy, south, stair(stair_name, "north", "top"))
+
+
+def gantry_rect(p, x0, z0, x1, z1, y, slab_name, rail, support):
+    """Two-wide walkable gallery with an open centre, rails, brackets and load paths."""
+    deck = slab(slab_name, "top")
+    for x in range(x0, x1 + 1):
+        for z in (z0, z0 + 1, z1 - 1, z1):
+            p.set(x, y, z, deck)
+    for z in range(z0 + 2, z1 - 1):
+        for x in (x0, x0 + 1, x1 - 1, x1):
+            p.set(x, y, z, deck)
+    for x in range(x0, x1 + 1, 2):
+        p.set(x, y + 1, z0, rail)
+        p.set(x, y + 1, z1, rail)
+    for z in range(z0 + 2, z1 - 1, 2):
+        p.set(x0, y + 1, z, rail)
+        p.set(x1, y + 1, z, rail)
+    for x, z in ((x0, z0), (x1, z0), (x0, z1), (x1, z1)):
+        box(p, x, 3, z, x, y - 1, z, support)
+        p.set(x + (1 if x == x0 else -1), y - 1, z, stair(slab_name.replace("_slab", "_stairs"),
+                                                            "east" if x == x0 else "west", "top"))
+
+
+def stair_flight_z(p, x, z, y, rise, width, stair_name, facing="south"):
+    dz = 1 if facing == "south" else -1
+    for step in range(rise):
+        for dx in range(width):
+            p.set(x + dx, y + step, z + dz * step, stair(stair_name, facing))
+            if step >= 2:
+                p.set(x + dx, y + step - 2, z + dz * step, B(stair_name.replace("_stairs", "_bricks")))
+
+
+def stair_flight_x(p, x, z, y, rise, width, stair_name, facing="east"):
+    dx = 1 if facing == "east" else -1
+    for step in range(rise):
+        for dz in range(width):
+            p.set(x + dx * step, y + step, z + dz, stair(stair_name, facing))
+            if step >= 2:
+                p.set(x + dx * step, y + step - 2, z + dz, B(stair_name.replace("_stairs", "_bricks")))
+
+
+def alcove_z(p, cx, z, y, inward, masonry, trim_stairs, backing):
+    """A three-block-deep wall niche with a concealed luminous rear plane."""
+    dz = 1 if inward == "south" else -1
+    facing = "north" if inward == "south" else "south"
+    for depth in range(3):
+        box(p, cx - 1, y + 1, z + dz * depth, cx + 1, y + 4, z + dz * depth, AIR)
+    box(p, cx - 1, y, z, cx + 1, y, z, masonry)
+    box(p, cx - 2, y, z, cx - 2, y + 5, z, masonry)
+    box(p, cx + 2, y, z, cx + 2, y + 5, z, masonry)
+    for dx in (-1, 0, 1):
+        p.set(cx + dx, y + 5, z, stair(trim_stairs, facing, "top"))
+    box(p, cx - 1, y + 1, z + dz * 3, cx + 1, y + 4, z + dz * 3, backing)
+
+
+def alcove_x(p, x, cz, y, inward, masonry, trim_stairs, backing):
+    dx = 1 if inward == "east" else -1
+    facing = "west" if inward == "east" else "east"
+    for depth in range(3):
+        box(p, x + dx * depth, y + 1, cz - 1, x + dx * depth, y + 4, cz + 1, AIR)
+    box(p, x, y, cz - 1, x, y, cz + 1, masonry)
+    box(p, x, y, cz - 2, x, y + 5, cz - 2, masonry)
+    box(p, x, y, cz + 2, x, y + 5, cz + 2, masonry)
+    for dz in (-1, 0, 1):
+        p.set(x, y + 5, cz + dz, stair(trim_stairs, facing, "top"))
+    box(p, x + dx * 3, y + 1, cz - 1, x + dx * 3, y + 4, cz + 1, backing)
+
+
+def cornice_rect(p, x0, z0, x1, z1, y, stair_name, slab_name):
+    """Two-depth alternating corbel and slab course below an otherwise flat roof."""
+    for x in range(x0, x1 + 1):
+        p.set(x, y, z0, stair(stair_name, "south", "top") if x % 2 == 0 else slab(slab_name, "top"))
+        p.set(x, y, z1, stair(stair_name, "north", "top") if x % 2 == 0 else slab(slab_name, "top"))
+        p.set(x, y + 1, z0 + 1, slab(slab_name, "top"))
+        p.set(x, y + 1, z1 - 1, slab(slab_name, "top"))
+    for z in range(z0 + 1, z1):
+        p.set(x0, y, z, stair(stair_name, "east", "top") if z % 2 == 0 else slab(slab_name, "top"))
+        p.set(x1, y, z, stair(stair_name, "west", "top") if z % 2 == 0 else slab(slab_name, "top"))
+        p.set(x0 + 1, y + 1, z, slab(slab_name, "top"))
+        p.set(x1 - 1, y + 1, z, slab(slab_name, "top"))
+
+
 def quarry_centre(size, seed):
     p, rng = Piece(*size), random.Random(seed)
     sx, _, sz = size
@@ -182,6 +299,25 @@ def quarry_centre(size, seed):
         p.set(cx + 10, 17, z, B("botania:dreamwood_log", axis="z"))
     for y in range(5, 18):
         p.set(cx, y, cz, B("minecraft:chain", axis="y"))
+    # Overseer's gallery: a complete upper circulation loop rather than a decorative beam ring.
+    gantry_rect(p, 6, 6, sx - 7, sz - 7, 11, "alfheim:rootbound_livingrock_slab",
+                B("alfheim:rootbound_livingrock_wall"), B("botania:dreamwood_log", axis="y"))
+    stair_flight_z(p, 8, 7, 3, 9, 2, "alfheim:rootbound_livingrock_stairs", "south")
+    stair_flight_z(p, sx - 10, sz - 8, 3, 9, 2,
+                   "alfheim:rootbound_livingrock_stairs", "north")
+    for z in (7, 15, 31, 39):
+        pointed_arch_z(p, cx, z, 3, 10, 16, 2, carved,
+                       "alfheim:rootbound_livingrock_stairs")
+    for x in (7, 15, 31, 39):
+        pointed_arch_x(p, x, cz, 3, 10, 16, 2, carved,
+                       "alfheim:rootbound_livingrock_stairs")
+    for x in (12, 34):
+        alcove_z(p, x, 2, 4, "south", brick, "alfheim:rootbound_livingrock_stairs",
+                 B("alfheim:mana_glass_earth"))
+        alcove_z(p, x, sz - 3, 4, "north", brick, "alfheim:rootbound_livingrock_stairs",
+                 B("alfheim:mana_glass_earth"))
+    cornice_rect(p, 3, 3, sx - 4, sz - 4, 19, "alfheim:rootbound_livingrock_stairs",
+                 "alfheim:rootbound_livingrock_slab")
     for _ in range(65):
         p.set(rng.randrange(5, sx - 5), 3, rng.randrange(5, sz - 5),
               rng.choice([stone, brick, B("minecraft:gravel")]))
@@ -204,6 +340,21 @@ def quarry_approach(size, seed):
         for x in (2, sx - 3):
             box(p, x, 3, z, x, 12, z, B("botania:dreamwood_log", axis="y"))
         box(p, 2, 12, z, sx - 3, 12, z, B("botania:dreamwood_log", axis="x"))
+    # Repeated load-bearing ribs, bracket shelves and overhead maintenance ledges.
+    for z in (4, 11, 18, 25):
+        pointed_arch_z(p, cx, z, 3, 5, 10, 2, wall,
+                       "alfheim:rootbound_livingrock_stairs")
+    for z in range(3, sz - 3):
+        for x in (2, 3, sx - 4, sx - 3):
+            p.set(x, 10, z, slab("alfheim:rootbound_livingrock_slab", "top"))
+    for z in range(4, sz - 3, 3):
+        p.set(2, 11, z, B("alfheim:rootbound_livingrock_wall"))
+        p.set(sx - 3, 11, z, B("alfheim:rootbound_livingrock_wall"))
+    for z in (8, 22):
+        alcove_x(p, 2, z, 4, "east", wall, "alfheim:rootbound_livingrock_stairs",
+                 B("alfheim:mana_glass_earth"))
+        alcove_x(p, sx - 3, z, 4, "west", wall, "alfheim:rootbound_livingrock_stairs",
+                 B("alfheim:mana_glass_earth"))
     approach_jigsaws(p, "deep_quarry")
     return p
 
@@ -222,6 +373,19 @@ def quarry_wing(size, seed):
         box(p, x0, 3, 4, x1, 16, 4, stone)
         for y in (7, 12):
             box(p, x0, y, 4, x1, y, 4, brick)
+        gantry_rect(p, x0 + 1, 7, x1 - 1, 36, 10,
+                    "alfheim:rootbound_livingrock_slab",
+                    B("alfheim:rootbound_livingrock_wall"),
+                    B("botania:dreamwood_log", axis="y"))
+        stair_flight_z(p, x0 + 3, 7, 3, 8, 2,
+                       "alfheim:rootbound_livingrock_stairs", "south")
+        for z in (8, 17, 26, 35):
+            pointed_arch_z(p, (x0 + x1) // 2, z, 10, 4, 7, 1, brick,
+                           "alfheim:rootbound_livingrock_stairs")
+        alcove_z(p, (x0 + x1) // 2, 4, 4, "south", brick,
+                 "alfheim:rootbound_livingrock_stairs", B("alfheim:mana_glass_earth"))
+    cornice_rect(p, 3, 3, sx - 4, sz - 4, 19, "alfheim:rootbound_livingrock_stairs",
+                 "alfheim:rootbound_livingrock_slab")
     ores = ["cinderbloom", "verdigris", "palebloom", "sparkroot", "duskbloom",
             "sunbloom", "silverthorn", "grievebloom", "rimebloom", "emberwake"]
     for i, ore in enumerate(ores):
@@ -264,6 +428,24 @@ def tomb_centre(size, seed):
     funerary_tapestry(p, cx, 6, sz - 11, "north")
     p.set(10, 7, 18, B("alfheim:memorial_carving", facing="east"))
     p.set(sx - 11, 7, 28, B("alfheim:memorial_carving", facing="west"))
+    # Royal triforium: stairs reach a bracketed gallery around the Hall of Names.
+    gantry_rect(p, 9, 9, sx - 10, sz - 10, 10, "alfheim:ivory_livingrock_slab",
+                B("alfheim:moonstone_livingrock_wall"),
+                B("feywild:elven_quartz_pillar", axis="y"))
+    stair_flight_z(p, 11, 10, 3, 8, 2, "alfheim:ivory_livingrock_stairs", "south")
+    stair_flight_x(p, sx - 12, sz - 12, 3, 8, 2,
+                   "alfheim:ivory_livingrock_stairs", "west")
+    for z in (7, 18, 29, 39):
+        pointed_arch_z(p, cx, z, 3, 8, 15, 2, wall, "alfheim:ivory_livingrock_stairs")
+    for x in (7, 18, 29, 39):
+        pointed_arch_x(p, x, cz, 3, 8, 15, 2, wall, "alfheim:ivory_livingrock_stairs")
+    for x in (12, 34):
+        alcove_z(p, x, 2, 4, "south", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+        alcove_z(p, x, sz - 3, 4, "north", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+    cornice_rect(p, 3, 3, sx - 4, sz - 4, 17, "alfheim:ivory_livingrock_stairs",
+                 "alfheim:ivory_livingrock_slab")
     grave_door_bay(p, cx - 1, 3, 5, "south")
     grave_door_bay(p, cx + 1, 3, sz - 6, "north")
     grave_door_bay(p, 5, 3, cx + 1, "east")
@@ -291,6 +473,23 @@ def tomb_approach(size, seed):
     for z in (7, 25):
         box(p, 2, 3, z, 4, 10, z + 4, B("feywild:elven_quartz_brick"))
         box(p, sx - 5, 3, z, sx - 3, 10, z + 4, B("feywild:elven_quartz_brick"))
+    for z in (3, 9, 15, 21, 27):
+        pointed_arch_z(p, cx, z, 3, 5, 11, 2, wall, "alfheim:ivory_livingrock_stairs")
+    for z in (6, 16, 26):
+        alcove_x(p, 2, z, 4, "east", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+        alcove_x(p, sx - 3, z, 4, "west", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+    # Corbelled cornice down both flanks of the upper corridor. The bracket has to START on
+    # the shell: it used to stand at x=3 with its slab at x=4, two blocks clear of the wall at
+    # x=1 and surrounded by air on all six faces, so the whole band -- 28 walls and 28 slabs --
+    # hung in the void. The post now rises off the shell face and the slab corbels one step in
+    # off the post, which is the shape the band was always drawing.
+    for z in range(3, sz - 3, 2):
+        for x_post, x_slab in ((2, 3), (sx - 3, sx - 4)):
+            p.set(x_post, 12, z, B("alfheim:moonstone_livingrock_wall"))
+            p.set(x_post, 13, z, B("alfheim:moonstone_livingrock_wall"))
+            p.set(x_slab, 13, z, slab("alfheim:ivory_livingrock_slab", "top"))
     approach_jigsaws(p, "elder_kings_tomb")
     return p
 
@@ -308,6 +507,18 @@ def tomb_wing(size, seed):
         box(p, x0 + 2, 3, z0 + 2, x1 - 2, 12, z1 - 2, AIR)
         box(p, x0 + 4, 3, z0 + 5, x1 - 4, 3, z1 - 3, B("minecraft:smooth_quartz"))
         p.set((x0 + x1) // 2, 4, (z0 + z1) // 2, B("alfheim:mana_glass_light"))
+        # Each burial room has a reachable upper ambulatory and a coffered pointed vault.
+        gantry_rect(p, x0 + 1, z0 + 1, x1 - 1, z1 - 1, 9,
+                    "alfheim:ivory_livingrock_slab", B("alfheim:moonstone_livingrock_wall"),
+                    B("feywild:elven_quartz_pillar", axis="y"))
+        stair_flight_z(p, x0 + 2, z0 + 2, 3, 7, 2,
+                       "alfheim:ivory_livingrock_stairs", "south")
+        room_cx = (x0 + x1) // 2
+        for z in range(z0 + 3, z1 - 2, 6):
+            pointed_arch_z(p, room_cx, z, 9, max(3, (x1 - x0) // 2 - 2), 6, 1,
+                           wall, "alfheim:ivory_livingrock_stairs")
+        cornice_rect(p, x0 + 1, z0 + 1, x1 - 1, z1 - 1, 13,
+                     "alfheim:ivory_livingrock_stairs", "alfheim:ivory_livingrock_slab")
     for inset in (3, 7, 11):
         for x in range(inset, sx - inset):
             if (x + inset) % 9 not in (0, 1):
@@ -328,6 +539,14 @@ def tomb_wing(size, seed):
         p.set(x, 7, z, B("alfheim:memorial_carving", facing=facing))
     for x, z, facing in ((8, 9, "south"), (30, 9, "south"), (18, 29, "east")):
         funerary_statue(p, x, 3, z, facing)
+    for x in (8, 16, 30, 38):
+        alcove_z(p, x, 3, 4, "south", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+    for z in (29, 37):
+        alcove_x(p, 3, z, 4, "east", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_shadow"))
+        alcove_x(p, sx - 4, z, 4, "west", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_shadow"))
     grave_door_bay(p, 11, 3, 5, "south")
     grave_door_bay(p, 33, 3, 5, "south")
     grave_door_bay(p, 22, 3, 25, "south")
@@ -354,6 +573,20 @@ def fault_centre(size, seed):
             p.set(x, 2, z, rng.choice([B("alfheim:mana_glass_shadow"),
                                        B("alfheim:mana_glass_fire"),
                                        B("alfheim:mana_glass_light")]))
+    # A fractured multi-level survey ring crosses the anomaly instead of circling it at floor level.
+    gantry_rect(p, 7, 7, sx - 8, sz - 8, 9, "alfheim:gloam_livingrock_slab",
+                B("alfheim:leyline_livingrock_wall"), B("alfheim:leyline_livingrock_carved"))
+    stair_flight_z(p, 9, 8, 3, 7, 2, "alfheim:gloam_livingrock_stairs", "south")
+    stair_flight_x(p, sx - 10, sz - 10, 3, 7, 2, "alfheim:gloam_livingrock_stairs", "west")
+    for z in (8, 19, 37):
+        pointed_arch_z(p, cx, z, 3, 10, 19, 2, cracked, "alfheim:cracked_livingrock_stairs")
+    for x in (8, 19, 37):
+        pointed_arch_x(p, x, cz, 3, 10, 19, 2, cracked, "alfheim:cracked_livingrock_stairs")
+    for x in (12, 34):
+        alcove_z(p, x, 2, 5, "south", cracked, "alfheim:cracked_livingrock_stairs",
+                 B("alfheim:mana_glass_fire"))
+    cornice_rect(p, 3, 3, sx - 4, sz - 4, 22, "alfheim:cracked_livingrock_stairs",
+                 "alfheim:gloam_livingrock_slab")
     centre_jigsaws(p, "faultwork")
     return p
 
@@ -373,6 +606,24 @@ def fault_approach(size, seed):
         if z % 8 == 3:
             for x in (2, sx - 3):
                 box(p, x, 3, z, x, 15, z, B("alfheim:leyline_livingrock_carved"))
+    for z in (3, 10, 17, 24):
+        pointed_arch_z(p, cx, z, 3, 5, 13, 2, cracked,
+                       "alfheim:cracked_livingrock_stairs")
+    for z in range(3, sz - 3):
+        for x in (2, 3, sx - 4, sx - 3):
+            p.set(x, 11, z, slab("alfheim:leyline_livingrock_slab", "top"))
+        if z % 2 == 0:
+            p.set(2, 12, z, B("alfheim:leyline_livingrock_wall"))
+            p.set(sx - 3, 12, z, B("alfheim:leyline_livingrock_wall"))
+    stair_flight_z(p, 2, 4, 3, 9, 2, "alfheim:leyline_livingrock_stairs", "south")
+    for z in range(5, sz - 4, 5):
+        p.set(cx, 17, z, B("minecraft:chain", axis="y"))
+        p.set(cx, 16, z, B("alfheim:mana_glass_fire" if z % 10 else "alfheim:mana_glass_shadow"))
+    for z in (8, 22):
+        alcove_x(p, 2, z, 4, "east", cracked, "alfheim:cracked_livingrock_stairs",
+                 B("alfheim:mana_glass_shadow"))
+        alcove_x(p, sx - 3, z, 4, "west", cracked, "alfheim:cracked_livingrock_stairs",
+                 B("alfheim:mana_glass_fire"))
     approach_jigsaws(p, "faultwork")
     return p
 
@@ -398,6 +649,33 @@ def fault_wing(size, seed):
                                                B("alfheim:mana_glass_fire")]))
     for radius in (10, 15, 20):
         ring(p, cx, cz, 2 + radius // 5, radius, 1.3, B("minecraft:crying_obsidian"))
+    # Suspended fracture bridges at two elevations, joined by opposing stair towers.
+    #
+    # Both decks used to be two slabs wide with their railings standing one block OUTSIDE the
+    # deck edge, a level up -- nothing under them, nothing beside them, so every post on both
+    # bridges hung in the cavern air. The decks are four wide now: two lanes to walk, and an
+    # outer slab on each side for the railing to stand on.
+    for x in range(6, sx - 6):
+        for z in (cz - 2, cz - 1, cz, cz + 1):
+            p.set(x, 8, z, slab("alfheim:gloam_livingrock_slab", "top"))
+        if x % 2 == 0:
+            p.set(x, 9, cz - 2, B("alfheim:leyline_livingrock_wall"))
+            p.set(x, 9, cz + 1, B("alfheim:leyline_livingrock_wall"))
+    for z in range(6, sz - 6):
+        for x in (cx - 2, cx - 1, cx, cx + 1):
+            p.set(x, 14, z, slab("alfheim:leyline_livingrock_slab", "top"))
+        if z % 2 == 0:
+            p.set(cx - 2, 15, z, B("alfheim:cracked_livingrock_wall"))
+            p.set(cx + 1, 15, z, B("alfheim:cracked_livingrock_wall"))
+    stair_flight_x(p, 7, cz - 1, 3, 6, 2, "alfheim:gloam_livingrock_stairs", "east")
+    stair_flight_z(p, cx - 1, 7, 8, 7, 2, "alfheim:leyline_livingrock_stairs", "south")
+    for x, z in ((8, 8), (38, 8), (8, 36), (38, 36)):
+        box(p, x, 3, z, x, 19, z, B("alfheim:leyline_livingrock_carved"))
+        for y in (7, 12, 17):
+            p.set(x, y, z + (1 if z < cz else -1),
+                  stair("alfheim:cracked_livingrock_stairs", "south" if z < cz else "north", "top"))
+    cornice_rect(p, 3, 3, sx - 4, sz - 4, 22, "alfheim:cracked_livingrock_stairs",
+                 "alfheim:gloam_livingrock_slab")
     for _ in range(140):
         p.set(rng.randrange(3, sx - 3), rng.randrange(3, 11), rng.randrange(3, sz - 3),
               rng.choice([cracked, B("minecraft:crying_obsidian"), B("alfheim:magmatic_livingrock")]))
@@ -485,6 +763,9 @@ def build_outputs(check=False):
             assert max(size) <= MAX_AXIS
             seed = int(hashlib.sha1(f"{fid}:{role}".encode()).hexdigest()[:8], 16)
             piece = BUILDERS[fid][role](tuple(size), seed)
+            # Collapse and rubble passes here remove blocks without asking what rested on
+            # them; sweep anything they left touching nothing on any face.
+            piece.prune_orphans()
             path = os.path.join(STRUCT, fid, role + ".nbt")
             nbt_expected[path] = piece.to_nbt()
             if not check:

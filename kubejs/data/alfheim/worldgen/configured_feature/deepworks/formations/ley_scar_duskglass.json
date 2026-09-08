@@ -14,7 +14,7 @@
       "type": "minecraft:uniform",
       "value": {
         "min_inclusive": 9,
-        "max_inclusive": 16
+        "max_inclusive": 15
       }
     },
     "extra_bottom_block_chance": 0.35,

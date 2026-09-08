@@ -31,9 +31,21 @@ def main():
     alignments = manifest["alignments"]
     assert len(alignments) == 6
     assert {a["element"] for a in alignments} == {"fire", "water", "earth", "air", "shadow", "light"}
-    terraces = manifest["formations"]["slag_terraces"]
-    assert max(terraces["radius"]) + terraces["lava_spread"] <= 15, \
-        "slag terrace patch plus random offset can write beyond the neighboring chunk"
+    # HORIZONTAL REACH. A decoration feature may only write inside the chunk being generated
+    # and its immediate neighbours; anything further is refused with "Detected setBlock in a
+    # far chunk" and the formation is silently truncated at the boundary.
+    #
+    # This bound was added for the slag terraces after they produced 241 such errors in one
+    # session, and it was written naming that one family. The ley scars kept an xz_radius of 16
+    # and went on failing the same way -- 20 more errors in the 2026-09-07 field session, from
+    # `alfheim:deepworks/formations/ley_scars`. The rule now covers every formation, so the
+    # next one to grow is caught by the check rather than by a player.
+    MAX_REACH = 15
+    for name, spec in sorted(manifest["formations"].items()):
+        reach = max(spec["radius"]) + spec.get("lava_spread", 0)
+        assert reach <= MAX_REACH, (
+            f"{name}: horizontal reach {reach} exceeds {MAX_REACH}; the patch can write "
+            "beyond the neighbouring chunk and will be truncated at the boundary")
 
     objects = {name.replace("\\", "/"): json.loads(body)
                for name, body in expected.items() if name.endswith(".json")}

@@ -27,7 +27,9 @@ ServerEvents.loaded(event => {
         if(k==='empty' && c>-.975) continue
         if(k==='starless_reach' && (c<-.938 || c>-.927)) continue
         if(k!=='void_verge' && k!=='empty' && k!=='starless_reach' && (c<-.915 || c>-.88)) continue
-        if(k!=='empty' && k!=='void_verge' && value(router.finalDensity(),x,64,z)<=0) continue
+        // Starless Reach is intentionally allowed to be empty at sea level.
+        // The quieter shared footprint should not be forced to manufacture a
+        // y=64 shelf merely so this audit can choose a representative column.
         found[k]=true;sites.push({x:x,z:z,kind:k,continentalness:c})
       }
     }
@@ -57,20 +59,20 @@ ServerEvents.loaded(event => {
     function tick() {
       var p=sites[site],x=p.x+offset,z=p.z
       if(level.getChunkSource().getChunkNow(Math.floor(x/16),Math.floor(z/16))===null) {server.scheduleInTicks(20,tick);return}
-      var c=value(router.continents(),x,64,z),blocks={},runs=[],last='',count=0,solid=0,fluids=0
+      var c=value(router.continents(),x,64,z),blocks={},runs=[],last='',count=0,solid=0,overflowSolid=0,fluids=0
       var biome=String(level.getBiome(new VoidPos(x,64,z)).unwrapKey().get().location())
       report.biomes[biome]=(report.biomes[biome]||0)+1
       for(var y=-64;y<320;y++) {
         var bs=level.getBlockState(new VoidPos(x,y,z)),id=String(VoidForge.BLOCKS.getKey(bs.getBlock()))
-        if(!bs.isAir()) solid++
+        if(!bs.isAir()) {solid++;if(y>=-54)overflowSolid++}
         if(!bs.getFluidState().isEmpty()) fluids++
         blocks[id]=(blocks[id]||0)+1;report.counts[id]=(report.counts[id]||0)+1
         if(id!==last) {if(count)runs.push([last,count]);last=id;count=1}else count++
       }
       runs.push([last,count])
       if(c<-.80 && fluids) report.errors.push('Void fluid '+x+','+z+': '+fluids)
-      if(c<-.94 && solid) report.errors.push('Far-field blocks '+x+','+z+': '+solid)
-      report.columns.push({site:site,x:x,z:z,c:c,biome:biome,solid:solid,fluids:fluids,runs:runs})
+      if(c<-.94 && overflowSolid) report.errors.push('Far-field blocks '+x+','+z+': '+overflowSolid)
+      report.columns.push({site:site,x:x,z:z,c:c,biome:biome,solid:solid,overflowSolid:overflowSolid,fluids:fluids,runs:runs})
       offset+=2
       if(offset>16){console.info('[VOID AUDIT] SITE '+p.kind);offset=-16;site++}
       if(site<sites.length)server.scheduleInTicks(1,tick)

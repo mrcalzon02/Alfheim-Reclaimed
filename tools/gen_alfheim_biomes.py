@@ -105,7 +105,7 @@ VOID_MOBS = [{'type': 'minecraft:enderman', 'maxCount': 2, 'minCount': 1, 'weigh
 # entry here is a hard error: add it deliberately, in a position MythicBotany allows.
 FEATURE_ORDER = [
     # steps 1/2/4/8/10 used by the strong surface-identity biomes
-    'minecraft:lake_lava_surface', 'alfheim:scorchfell_lava_pool',
+    'minecraft:lake_lava_surface', 'alfheim:scorchfell_lava_pool', 'alfheim:mire_pool',
     'alfheim:starved_ice_spike', 'alfheim:starved_snow_pile',
     'minecraft:spring_lava', 'alfheim:scorchfell_lava_seep',
     # step 4, surface structures
@@ -118,12 +118,17 @@ FEATURE_ORDER = [
     'mythicbotany:dragonstone_ore', 'mythicbotany:gold_ore',
     'mythicbotany:extra_gold_ore',
     # step 9, vegetal decoration
+    # Ground mats run before anything that stands on the ground, so the turf they replace is
+    # already gone when grass, trees and fungus are placed.
+    'alfheim:warren_root_mat', 'alfheim:mire_mud_flat',
     'mythicbotany:alfheim_grass',
     'mythicbotany:wheat_fields',
     'mythicbotany:loose_dreamwood_trees',
     'mythicbotany:dense_dreamwood_trees',
     'mythicbotany:motif_flowers',
     'mythicbotany:mana_crystals',
+    # Fungus and webs come last: they colonise whatever the earlier steps left standing.
+    'alfheim:warren_fungal_bloom', 'alfheim:mire_deadfall', 'alfheim:warren_web_snare',
     'minecraft:patch_dead_bush_badlands',
     'minecraft:warm_ocean_vegetation', 'minecraft:seagrass_warm',
     # Regions Unexplored fixes sea_pickle before kelp_warm in rocky_reef. Matching
@@ -356,18 +361,25 @@ BIOMES = {
         downfall=0.0, temperature=1.2, precipitation=False,
         particle={'options': {'type': 'minecraft:white_ash'}, 'probability': 0.012}),
 
-    # Something moved into the roots and never left.
+    # Something moved into the roots and never left. Root mats break the turf, fungus takes
+    # the shade they make, webs take the rest, and the dead dreamwood is what it moved into.
     'infested_warren': biome(
         fog=0x5A6B3A, sky=0x7A8A4A, water=0x3A5A2A, water_fog=0x1A2A12,
-        features=[[], [], [], [], [], [], ORES, [], [], ['mythicbotany:alfheim_grass']],
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['alfheim:warren_root_mat', 'mythicbotany:alfheim_grass',
+                   'mythicbotany:loose_dreamwood_trees', 'alfheim:warren_fungal_bloom',
+                   'alfheim:warren_web_snare']],
         spawners={'creature': FEY_WARREN, 'monster': INFESTED},
         downfall=0.6, temperature=0.7),
 
-    # Rot, standing water, and whatever is still in it.
+    # Rot, standing water, and whatever is still in it. Mud is the ground, not a decoration;
+    # the pools are where it gave way, and the deadfall is the garden that drowned.
     'decayed_mire': biome(
         fog=0x4A3A4A, sky=0x5A4A5A, water=0x3A2A3A, water_fog=0x1A121A,
-        features=[[], [], [], [], ['mythicbotany:abandoned_apothecaries'], [], ORES, [], [],
-                  ['mythicbotany:alfheim_grass']],
+        features=[[], ['alfheim:mire_pool'], [], [],
+                  ['mythicbotany:abandoned_apothecaries'], [], ORES, [], [],
+                  ['alfheim:mire_mud_flat', 'mythicbotany:alfheim_grass',
+                   'mythicbotany:loose_dreamwood_trees', 'alfheim:mire_deadfall']],
         spawners={'creature': FEY_MIRE + FROGS, 'monster': ROTTEN + HOSTILE_ELVES},
         downfall=0.9, temperature=0.6,
         particle={'options': {'type': 'minecraft:ash'}, 'probability': 0.008}),
@@ -438,36 +450,6 @@ VOID_TERRAIN_MAX = -0.86
 VOID_ISLAND_LOW = (20, 50)
 VOID_ISLAND_HIGH = (110, 150)
 
-# Alfheim Hills owns the remainder of the high-continentalness climate after three explicit
-# claims are removed: Starved Reach (cold), Sundered Highlands (positive weirdness), and Hollow
-# Marches (dry). Repeating those exact boundaries here gives the terrain router the same
-# selection signal even though density functions cannot query the chosen biome directly.
-HILLS_SURFACE_BAND = (191, 194)
-
-
-def hills_plateau_density(normal):
-    plateau = {
-        'type': 'minecraft:range_choice', 'input': 'minecraft:y',
-        'min_inclusive': 128, 'max_exclusive': 256,
-        'when_in_range': {
-            'type': 'minecraft:y_clamped_gradient',
-            'from_y': HILLS_SURFACE_BAND[0], 'to_y': HILLS_SURFACE_BAND[1],
-            'from_value': 1.0, 'to_value': -1.0,
-        },
-        'when_out_of_range': normal,
-    }
-
-    def choose_signal(signal, low, high, yes, no):
-        return {'type': 'minecraft:range_choice', 'input': signal,
-                'min_inclusive': low, 'max_exclusive': high,
-                'when_in_range': yes, 'when_out_of_range': no}
-
-    hills = choose_signal('mythicbotany:alfheim_humidity', -0.3, 100, plateau, normal)
-    hills = choose_signal('mythicbotany:alfheim_weirdness', -100, 0.3, hills, normal)
-    hills = choose_signal('mythicbotany:alfheim_temperature', -0.45, 100, hills, normal)
-    return choose_signal('mythicbotany:alfheim_continentalness', 0.4, 100, hills, normal)
-
-
 def void_final_density(include_deepworks=True):
     from gen_void_worldgen import density
     base_normal = {'type':'minecraft:min','argument1':'mythicbotany:alfheim_initial','argument2':'mythicbotany:alfheim_caves'}
@@ -475,7 +457,13 @@ def void_final_density(include_deepworks=True):
     if include_deepworks:
         from gen_deep_terrain import wrap_density
         normal=wrap_density(normal)
-    normal = hills_plateau_density(normal)
+    # Biome climate fields are broad selectors, not terrain masks. A former Hills
+    # override switched complete columns to a Y=191 plateau at climate thresholds.
+    # Those thresholds do not coincide exactly with LibX's nearest-biome result, so
+    # they stamped sheer ranges through Plains, Silverbark and Starved territory.
+    # Preserve MythicBotany's continuous base density here; Hills identity belongs in
+    # surface material, vegetation and later low-amplitude additions that cannot replace
+    # an entire column.
     return density(normal, base_normal)
 
 
@@ -899,12 +887,132 @@ def ore_files():
     return out
 
 
+                                       # --- warren and mire identity -------------------------
+# Both biomes were authored with a colour palette, a mob list and nothing else. Field report,
+# 2026-09-07: the Infested Warren "still reads as gently rolling hills", and the Decayed Mire
+# "similarly". A save probe agreed and put a number on it -- of 876 surface samples in the
+# Warren, 566 were plain grass block, 184 tall grass and 54 fern; the Mire was 82% grass block.
+# Between them they are a third of the generated world, and that third was a vanilla meadow
+# with tinted fog.
+#
+# These are Alfheim-owned wrappers around vanilla feature types, following the same pattern as
+# the Scorchfell pools and the sparse ocean gardens: we own the id, so the feature can only
+# appear in our biomes and cannot introduce a feature-order cycle against a foreign biome.
+SURFACE_TARGETS = ['minecraft:grass_block', 'minecraft:dirt', 'minecraft:coarse_dirt',
+                   'minecraft:podzol', 'botania:livingrock']
+
+
+def _patch(feature_type, entries, tries=32, xz=7, y=3):
+    """A random_patch of weighted blocks that must stand on the biome's own surface."""
+    return {
+        'type': 'minecraft:random_patch',
+        'config': {
+            'tries': tries, 'xz_spread': xz, 'y_spread': y,
+            'feature': {
+                'feature': {
+                    'type': feature_type,
+                    'config': {'to_place': {
+                        'type': 'minecraft:weighted_state_provider',
+                        'entries': [{'data': {'Name': n}, 'weight': w} for n, w in entries]}},
+                },
+                'placement': [{'type': 'minecraft:block_predicate_filter', 'predicate': {
+                    'type': 'minecraft:all_of', 'predicates': [
+                        {'type': 'minecraft:matching_blocks',
+                         'blocks': ['minecraft:air'], 'offset': [0, 0, 0]},
+                        {'type': 'minecraft:matching_blocks',
+                         'blocks': SURFACE_TARGETS, 'offset': [0, -1, 0]}]}}],
+            },
+        },
+    }
+
+
+def _ground_mat(entries, radius=(3, 6), depth=(1, 2), veg_chance=0.0, veg=None):
+    """A vegetation_patch that re-floors a small area. Reach stays inside one chunk step."""
+    cfg = {
+        'surface': 'floor',
+        'depth': {'type': 'minecraft:uniform',
+                  'value': {'min_inclusive': depth[0], 'max_inclusive': depth[1]}},
+        'vertical_range': 4,
+        'xz_radius': {'type': 'minecraft:uniform',
+                      'value': {'min_inclusive': radius[0], 'max_inclusive': radius[1]}},
+        'extra_bottom_block_chance': 0.25,
+        'extra_edge_column_chance': 0.4,
+        'ground_state': {'type': 'minecraft:weighted_state_provider',
+                         'entries': [{'data': d, 'weight': w} for d, w in entries]},
+        'replaceable': '#minecraft:lush_ground_replaceable',
+        'vegetation_chance': veg_chance,
+        'vegetation_feature': veg or {
+            'feature': {'type': 'minecraft:simple_block', 'config': {'to_place': {
+                'type': 'minecraft:simple_state_provider',
+                'state': {'Name': 'minecraft:brown_mushroom'}}}},
+            'placement': []},
+    }
+    return {'type': 'minecraft:vegetation_patch', 'config': cfg}
+
+
+def _surface_placement(*frequency):
+    return list(frequency) + [{'type': 'minecraft:in_square'},
+                              {'type': 'minecraft:heightmap', 'heightmap': 'WORLD_SURFACE_WG'},
+                              {'type': 'minecraft:biome'}]
+
+
+IDENTITY_CONFIGURED = {
+    # THE WARREN. Something moved into the roots and never left: root mats broke the turf,
+    # fungus took the shade they made, and the webs are the tenant.
+    'warren_root_mat': _ground_mat(
+        [({'Name': 'minecraft:rooted_dirt'}, 6),
+         ({'Name': 'minecraft:coarse_dirt'}, 3),
+         ({'Name': 'minecraft:podzol', 'Properties': {'snowy': 'false'}}, 2)],
+        radius=(3, 6), veg_chance=0.30),
+    'warren_fungal_bloom': _patch('minecraft:simple_block', [
+        ('minecraft:brown_mushroom', 7), ('minecraft:red_mushroom', 2)], tries=26),
+    'warren_web_snare': _patch('minecraft:simple_block', [
+        ('minecraft:cobweb', 1)], tries=10, xz=5, y=2),
+
+    # THE MIRE. Rot and standing water. The mud is the biome; the pools are where it gave way.
+    'mire_pool': {'type': 'minecraft:lake', 'config': {
+        'fluid': {'type': 'minecraft:simple_state_provider',
+                  'state': {'Name': 'minecraft:water', 'Properties': {'level': '0'}}},
+        'barrier': {'type': 'minecraft:simple_state_provider',
+                    'state': {'Name': 'minecraft:mud'}}}},
+    'mire_mud_flat': _ground_mat(
+        [({'Name': 'minecraft:mud'}, 6),
+         ({'Name': 'minecraft:muddy_mangrove_roots', 'Properties': {'axis': 'y'}}, 2),
+         ({'Name': 'minecraft:coarse_dirt'}, 2)],
+        radius=(4, 7), depth=(1, 3), veg_chance=0.22),
+    'mire_deadfall': _patch('minecraft:simple_block', [
+        ('minecraft:dead_bush', 5), ('minecraft:brown_mushroom', 4)], tries=20),
+}
+
+IDENTITY_PLACED = {
+    'warren_root_mat': _surface_placement({'type': 'minecraft:count', 'count': 3}),
+    'warren_fungal_bloom': _surface_placement({'type': 'minecraft:count', 'count': 2}),
+    'warren_web_snare': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 3}),
+    'mire_pool': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 12}),
+    'mire_mud_flat': _surface_placement({'type': 'minecraft:count', 'count': 4}),
+    'mire_deadfall': _surface_placement({'type': 'minecraft:count', 'count': 2}),
+}
+
+
+def identity_files():
+    out = {}
+    for name, doc in IDENTITY_CONFIGURED.items():
+        out[os.path.join(OUT, NS, 'worldgen', 'configured_feature', name + '.json')] = doc
+    for name, placement in IDENTITY_PLACED.items():
+        out[os.path.join(OUT, NS, 'worldgen', 'placed_feature', name + '.json')] = {
+            'feature': f'{NS}:{name}', 'placement': placement}
+    return out
+
+
 def main():
     written = []
     for name, data in BIOMES.items():
         written.append(write(os.path.join(OUT, NS, 'worldgen', 'biome', name + '.json'), data))
 
     for path, data in ore_files().items():
+        written.append(write(path, data))
+
+    for path, data in identity_files().items():
         written.append(write(path, data))
 
     # Override MythicBotany's layer with the expanded one.

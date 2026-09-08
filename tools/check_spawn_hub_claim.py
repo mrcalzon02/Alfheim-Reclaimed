@@ -30,11 +30,15 @@ def protection_contract(path=SCRIPT):
 
     dimension = one(r"const\s+HUB_DIMENSION\s*=\s*'([^']+)'", 'HUB_DIMENSION')
     team = one(r"const\s+HUB_FTB_TEAM\s*=\s*'([^']+)'", 'HUB_FTB_TEAM')
-    radius = int(one(r'const\s+HUB_RADIUS\s*=\s*(\d+)', 'HUB_RADIUS'))
-    blocks = [(0, 0), (radius, radius), (-radius, radius),
-              (radius, -radius), (-radius, -radius)]
+    # The envelope became an explicit rectangle on 2026-09-07: the complex is not centred on
+    # the tree, so a radius both over-claimed to the south and under-claimed to the north.
+    bounds = tuple(int(one(rf'const\s+{name}\s*=\s*(-?\d+)', name)) for name in
+                   ('HUB_MIN_X', 'HUB_MAX_X', 'HUB_MIN_Z', 'HUB_MAX_Z'))
+    min_x, max_x, min_z, max_z = bounds
+    blocks = [((min_x + max_x) // 2, (min_z + max_z) // 2),
+              (min_x, min_z), (max_x, min_z), (min_x, max_z), (max_x, max_z)]
     chunks = [(x >> 4, z >> 4) for x, z in blocks]
-    return dimension, team, radius, chunks
+    return dimension, team, bounds, chunks
 
 
 def latest_console():
@@ -42,11 +46,23 @@ def latest_console():
     return max(paths, key=os.path.getmtime) if paths else None
 
 
+def location_line(dimension, cx, cz):
+    """How FTB Chunks actually prints a chunk address.
+
+    It is `Location: [mythicbotany:alfheim:-1:-4]` -- dimension and both chunk coordinates
+    colon-joined inside one bracket. This validator was written expecting
+    `Location: mythicbotany:alfheim [-1, -4]`, which no FTB Chunks build emits, so every probe
+    read as "no read-back in console" and the check could only ever fail. Caught 2026-09-07,
+    when all five probes in fact reported `Owner: alfheim_hub`.
+    """
+    return f'Location: [{dimension}:{cx}:{cz}]'
+
+
 def validate_text(text, dimension, team, chunks):
     """Return human-readable failures for missing/unowned FTB Chunks read-back probes."""
     problems = []
     for cx, cz in chunks:
-        location = f'Location: {dimension} [{cx}, {cz}]'
+        location = location_line(dimension, cx, cz)
         start = text.find(location)
         if start < 0:
             problems.append(f'{location}: no `ftbchunks info` read-back in console')
@@ -76,7 +92,7 @@ def self_test():
             if pos == omit:
                 continue
             cx, cz = pos
-            out.append(f'[Server thread/INFO] Location: {dimension} [{cx}, {cz}]')
+            out.append(f'[Server thread/INFO] {location_line(dimension, cx, cz)}')
             out.append(f'[Server thread/INFO] Owner: {owner} / 0123456789abcdef')
             out.append('[Server thread/INFO] Force-loaded: false')
         return '\n'.join(out)
@@ -86,7 +102,8 @@ def self_test():
         ('wrong owner', claimed('somebody_else'), 5),
         ('missing corner', claimed(omit=(-12, -12)), 1),
         ('unclaimed centre', claimed().replace(
-            f'Location: {dimension} [0, 0]\n[Server thread/INFO] Owner: {team} / 0123456789abcdef',
+            f'{location_line(dimension, 0, 0)}\n[Server thread/INFO] Owner: {team} '
+            f'/ 0123456789abcdef',
             'Chunk not claimed', 1), 1),
     ]
     bad = 0
@@ -110,7 +127,7 @@ def main():
         return self_test()
 
     try:
-        dimension, team, radius, chunks = protection_contract()
+        dimension, team, bounds, chunks = protection_contract()
     except (OSError, ValueError) as exc:
         print(f'!! {exc}')
         return 2
@@ -122,7 +139,7 @@ def main():
 
     text = open(console, encoding='utf-8', errors='replace').read()
     problems = validate_text(text, dimension, team, chunks)
-    print(f'claim contract: team={team} dimension={dimension} radius={radius} blocks')
+    print(f'claim contract: team={team} dimension={dimension} envelope X {bounds[0]}..{bounds[1]} Z {bounds[2]}..{bounds[3]} ({len(chunks)} probes)')
     print(f'console: {console}')
     for problem in problems:
         print(f'  C1  {problem}')

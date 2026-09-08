@@ -14,7 +14,7 @@ vertically and the civic wings are placed on one fixed origin grid:
     greatbole/trunk   32x48x32   stackable, rollable so segments do not look extruded
     greatbole/crown   48x40x48   canopy
     court/amphitheatre 48x12x48  marble tiers around a sunken stage
-    court/*             3x 48x16x48  residences, service halls and council terrace
+    court/*             3x 48x16x48  detailed residences, service halls and council terrace
 
 The structure NBT format was read off MythicBotany's shipping house.nbt rather than assumed:
 size / entities / blocks / palette / DataVersion, blocks as {pos:[x,y,z], state:int}, and
@@ -39,20 +39,29 @@ DATA = os.path.join('kubejs', 'data', NS)
 STRUCT_DIR = os.path.join(DATA, 'structures')
 SEED = 20260903                # fixed, so every run reproduces the same tree
 HOME = 'mythicbotany:alfheim'
-# HUB_RADIUS must cover the tree WHEREVER the world-hub placement probe puts it. Runtime-reported
-# 2026-09-04: "the spawn area around the Great Tree was never claimed and we didn't spawn
-# inside it."
+# The protection envelope, in block coordinates, inclusive.
 #
-# The former concentric-ring placement failed completely in New World Gamma: 441 force-loaded
-# chunks and 1,200 seconds produced no structure-carried anchor.  gen_world_hub now places the
-# structure explicitly at a safe spread-player probe up to 512 blocks from the origin. The
-# protection envelope therefore covers that displacement, the half-base and the court apron.
+# History: this was a 128-block radius square centred on the tree, sized in 2026-09-04 to cover
+# a placement probe that could displace the whole complex up to 512 blocks from the origin. That
+# probe is gone -- gen_world_hub now places every template at fixed offsets from X=0/Z=0 -- so
+# the allowance became 289 claimed chunks around a 144-by-144 build, most of it empty ground
+# south of the tree. Reported from the field 2026-09-07: "the claimed area is successfully
+# claiming, but much too large an area."
 #
-#     512   maximum placement-probe displacement from the origin
-#   +  48   half the base piece, so the claim reaches the far side of the trunk
-#   +  32   the amphitheatre apron beyond it
-#   = 592, rounded up for a stable chunk boundary
-HUB_RADIUS = 128
+# The envelope is now the union of the seven placed templates, snapped out to chunk boundaries.
+# Derived from the placement table in gen_world_hub.PLACE (offset + size, per piece):
+#
+#     west_residence   X -72..-25    east_service   X  24.. 71
+#     north_council    Z -120..-73   amphitheatre   Z -72..-25
+#     base / crown     X -24.. 23    Z -24.. 23
+#     -------------------------------------------------------
+#     union            X -72.. 71    Z -120.. 23
+#     chunk-snapped    X -80.. 79    Z -128.. 31     = 10 x 10 = 100 chunks
+#
+# check_spawn_hub re-derives this from assemble.mcfunction and fails if the two disagree, so a
+# future piece or a moved offset cannot silently escape the claim.
+HUB_MIN_X, HUB_MAX_X = -80, 79
+HUB_MIN_Z, HUB_MAX_Z = -128, 31
 
 # Every biome in the Alfheim layer, ours and MythicBotany's, read off
 # kubejs/data/mythicbotany/libx/biome_layer/alfheim.json. Listed rather than globbed because
@@ -144,6 +153,28 @@ MOSS_CARPET = ('minecraft:moss_carpet', None)
 RUBBLE = [('minecraft:cobblestone', None), ('minecraft:mossy_cobblestone', None),
           ('minecraft:cracked_stone_bricks', None), ('minecraft:stone_brick_slab', None)]
 
+# Royal Tile Set I / Wave A. These blocks are intentionally used in the worldgen templates,
+# not left isolated in a review grid: the three court wings need to read as inhabited royal
+# architecture at player scale as well as marble masses from a distance.
+ROYAL_CHAIR = ('alfheim:royal_highback_chair', {'facing': 'north'})
+ROYAL_SCONCE_N = ('alfheim:royal_wall_sconce', {'facing': 'north'})
+ROYAL_SCONCE_S = ('alfheim:royal_wall_sconce', {'facing': 'south'})
+ROYAL_SCONCE_E = ('alfheim:royal_wall_sconce', {'facing': 'east'})
+ROYAL_SCONCE_W = ('alfheim:royal_wall_sconce', {'facing': 'west'})
+ROYAL_RUNNER_EW = ('alfheim:royal_carpet_runner', {'facing': 'east'})
+ROYAL_RUNNER_NS = ('alfheim:royal_carpet_runner', {'facing': 'north'})
+ROYAL_BALUSTRADE_N = ('alfheim:royal_balustrade', {'facing': 'north'})
+ROYAL_BALUSTRADE_E = ('alfheim:royal_balustrade', {'facing': 'east'})
+ROYAL_AMPHORA = ('alfheim:royal_lidded_amphora', {'facing': 'north'})
+ROYAL_BANNER_N = ('alfheim:royal_wall_banner', {'facing': 'north'})
+ROYAL_BANNER_S = ('alfheim:royal_wall_banner', {'facing': 'south'})
+ROYAL_BANNER_E = ('alfheim:royal_wall_banner', {'facing': 'east'})
+ROYAL_BANNER_W = ('alfheim:royal_wall_banner', {'facing': 'west'})
+QUARTZ_SLAB = ('minecraft:quartz_slab', {'type': 'bottom', 'waterlogged': 'false'})
+DREAMWOOD = ('botania:dreamwood_planks', None)
+LIVINGROCK = ('botania:livingrock_bricks', None)
+ELF_GLASS = ('botania:elf_glass', None)
+
 
 def vine(face):
     """A vine clinging to the block on the given side of its own position.
@@ -156,6 +187,43 @@ def vine(face):
     props = {d: 'false' for d in ('north', 'south', 'east', 'west', 'up')}
     props[face] = 'true'
     return ('minecraft:vine', props)
+
+
+# --- support tests ----------------------------------------------------------------------------
+# Dressing loops compute where a block *should* sit from the same formula that drew the tiers,
+# then place it whether or not the tier survived. Two things defeat that: the tier collapse
+# roll leaves gaps, and the processional aisles are cut through the seating afterwards. Both
+# leave the decoration hanging in mid-air -- reported from the field 2026-09-07 as "noise
+# detail blocks hovering in the central pathway of the main dais". Every scatter below now
+# asks the piece what is actually there.
+
+def solid_at(p, x, y, z):
+    """True when the piece places a real, non-air block at this position.
+
+    Absent means the structure does not own the position at all -- `place template` leaves
+    whatever terrain is there, which is not something decoration may stand on either.
+    """
+    entry = p.blocks.get((x, y, z))
+    if entry is None:
+        return False
+    return p.palette[entry[0]].get('Name') != 'minecraft:air'
+
+
+def supported(p, x, y, z):
+    """True when something solid sits directly beneath this position."""
+    return solid_at(p, x, y - 1, z)
+
+
+VINE_NEIGHBOUR = {'north': (0, -1), 'south': (0, 1), 'east': (1, 0), 'west': (-1, 0)}
+
+
+def set_vine(p, x, y, z, face):
+    """Place a vine only when the block it claims to cling to is really there."""
+    dx, dz = VINE_NEIGHBOUR[face]
+    if not solid_at(p, x + dx, y, z + dz):
+        return False
+    return p.set(x, y, z, vine(face))
+
 
 FRAME = ('botania:livingrock_bricks', None)
 FRAME_TRIM = ('minecraft:chiseled_quartz_block', None)
@@ -287,7 +355,7 @@ def hub_anchor(c):
 
     This is the fix for "we didn't spawn inside it". The previous scheme summoned a marker at
     0 250 0 and let spreadplayers drop it, which anchors the world spawn to the ORIGIN -- and
-    the origin is not the tree (see HUB_RADIUS). A marker carried inside the structure's own
+    the origin is not the tree (see HUB_MIN_X). A marker carried inside the structure's own
     NBT lands wherever the structure lands, so the anchor cannot desynchronise from the tree no
     matter what the biome search does. Same reason the court is baked in rather than summoned.
 
@@ -415,13 +483,21 @@ def court_entities(c, ground):
     for i, n in enumerate(man['named']):
         posts.append((n['name'], c + (-5 if i % 2 else 5), ground, c + 6, 5 + i))
     # Ambient court scattered up the tiers, on their own seats.
+    #
+    # The arc runs across the northern tiers, which is exactly where the north approach is now
+    # cut. A post left inside an aisle gets a seat block built under it by build_amphitheatre,
+    # and that block lands in mid-air over the carved route -- one of the hovering blocks
+    # reported 2026-09-07. Nudge each post clear of every aisle first, then derive its tier
+    # height from where it actually ended up.
     for i, n in enumerate(man['ambient']):
         ang = math.pi * (0.15 + 0.7 * (i / max(1, len(man['ambient']) - 1)))
         r = 12.0 + (i % 3) * 3.5
         x, z = int(c - math.cos(ang) * r), int(c - math.sin(ang) * r)
+        x, z = clear_of_aisles(x, z)
+        seat_r = math.hypot(x - c, z - c)
         # Ambient court draw from the four unreserved slots, so the crowd is varied without
         # any of them wearing the named pair's art.
-        posts.append((n['name'], x, ground + int((r - 8.0) / 3.5), z, 1 + (i % 4)))
+        posts.append((n['name'], x, ground + int(max(0.0, seat_r - 8.0) / 3.5), z, 1 + (i % 4)))
 
     out = []
     for name, x, y, z, skin in posts:
@@ -441,6 +517,77 @@ def court_entities(c, ground):
             },
         })
     return out, posts
+
+
+# --- the court's four approaches ---------------------------------------------------------------
+# One entry per neighbouring piece, as (name, axis, first, last). `axis` is the direction the
+# aisle runs; the other horizontal axis is always the seven-wide clear span centred on the piece
+# centre, matching the nine-wide spine the wings drive at the same elevation. The spans stop one
+# block short of the stage rim so the seating still closes the circle around the stage itself.
+AISLE_HALF = 3                      # 7 wide clear: c-3 .. c+3
+AISLES = (
+    ('south', 'z', 31, 47),         # the Greatbole gate
+    ('north', 'z', 0, 17),          # court/north_council
+    ('west', 'x', 0, 17),           # court/west_residence
+    ('east', 'x', 31, 47),          # court/east_service
+)
+
+
+AISLE_KEEPOUT = AISLE_HALF + 2      # clear span plus both retaining cheeks
+
+
+def clear_of_aisles(x, z):
+    """Push a point sideways out of any aisle it landed in, to the nearer flank."""
+    c = AMPH_W // 2
+    for _name, axis, first, last in AISLES:
+        run, cross = (x, z) if axis == 'x' else (z, x)
+        if not (first <= run <= last) or abs(cross - c) > AISLE_KEEPOUT:
+            continue
+        cross = c - AISLE_KEEPOUT - 1 if cross <= c else c + AISLE_KEEPOUT + 1
+        x, z = (run, cross) if axis == 'x' else (cross, run)
+    return x, z
+
+
+def aisle_cells(spec):
+    """Every (x, z) in one aisle's clear span, plus its two retaining cheeks."""
+    _name, axis, first, last = spec
+    c = AMPH_W // 2
+    for run in range(first, last + 1):
+        clear = [((run, cross) if axis == 'x' else (cross, run))
+                 for cross in range(c - AISLE_HALF, c + AISLE_HALF + 1)]
+        cheeks = [((run, cross) if axis == 'x' else (cross, run))
+                  for cross in (c - AISLE_HALF - 1, c + AISLE_HALF + 1)]
+        yield run, clear, cheeks
+
+
+def aisle_paving(p, rng, c, ground, spec):
+    """Lay one aisle's floor and its broken retaining cheeks."""
+    walk_y = ground - 1
+    for run, clear, cheeks in aisle_cells(spec):
+        for x, z in clear:
+            paving = ELVEN_MARBLE if (x + z) % 5 else rng.choice(MARBLE_RUINED)
+            p.set(x, walk_y, z, paving)
+        # Broken retaining cheeks make each cut read as authored circulation rather
+        # than seven missing columns through the seating.
+        if run % 4 != 0:
+            for x, z in cheeks:
+                p.set(x, walk_y, z, rng.choice(MARBLE_RUINED))
+
+
+def aisle_clear(p, ground):
+    """Last writer wins: reopen every approach after the dressing passes have run.
+
+    courtyard_detail scatters rubble, moss and fallen drums at computed tier heights, and the
+    column rings stand wherever the ring formula puts them. Both can land inside a carved
+    aisle. Clearing here, after all of it, is what guarantees the four routes are walkable --
+    the same discipline build_royal_annex already applies to its own spine.
+    """
+    walk_y = ground - 1
+    for spec in AISLES:
+        for _run, clear, _cheeks in aisle_cells(spec):
+            for x, z in clear:
+                for y in range(walk_y + 1, AMPH_H):
+                    p.set(x, y, z, AIR)
 
 
 def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
@@ -496,15 +643,20 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
         px, pz = int(c + math.cos(ang) * ring_r), int(c + math.sin(ang) * ring_r)
         fate = rng.random()
         if fate < 0.20:
-            # Gone. Leave the drum it fell as, lying where it landed.
+            # Gone. Leave the drum it fell as, lying where it landed -- but only on ground
+            # that is actually there, so a fallen column cannot bridge the carved aisle.
             ox, oz = int(math.cos(ang) * 2), int(math.sin(ang) * 2)
             axis = COLUMN_FALLEN_X if abs(ox) >= abs(oz) else COLUMN_FALLEN_Z
             for t in range(rng.randint(2, 4)):
-                p.set(px + ox + (t if axis is COLUMN_FALLEN_X else 0), ground,
-                      pz + oz + (0 if axis is COLUMN_FALLEN_X else t), axis)
+                dx = px + ox + (t if axis is COLUMN_FALLEN_X else 0)
+                dz = pz + oz + (0 if axis is COLUMN_FALLEN_X else t)
+                if supported(p, dx, ground, dz):
+                    p.set(dx, ground, dz, axis)
             continue
         h = rng.randint(2, 4) if fate < 0.55 else rng.randint(5, 7)
         base_y = ground
+        if not supported(p, px, base_y, pz):
+            continue
         for y in range(base_y, min(base_y + h, top)):
             p.set(px, y, pz, COLUMN)
         # Only the tall ones kept their capital.
@@ -515,7 +667,7 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
         vx = px + (1 if face == 'west' else -1)
         for y in range(base_y + 1, min(base_y + h, top)):
             if rng.random() < 0.55:
-                p.set(vx, y, pz, vine(face))
+                set_vine(p, vx, y, pz, face)
 
     # --- vines on the rim stumps and the top tier --------------------------------------------
     for k in range(24):
@@ -525,7 +677,7 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
         face = 'west' if math.cos(ang) > 0 else 'east'
         y = ground + int((d - stage_r) / 3.5)
         if rng.random() < 0.5 and y < top:
-            p.set(vx + (1 if face == 'west' else -1), y, vz, vine(face))
+            set_vine(p, vx + (1 if face == 'west' else -1), y, vz, face)
 
     # --- knobbly work: rubble, moss and cracked ground ---------------------------------------
     # Scattered rather than patterned. Rubble sits ON the tiers, so it reads as fallen masonry
@@ -538,13 +690,20 @@ def courtyard_detail(p, c, ground, stage_r, outer_r, rng):
         if y >= top:
             continue
         r = rng.random()
-        if r < 0.42:
-            p.set(x, y, z, rng.choice(RUBBLE))
-        elif r < 0.72:
-            p.set(x, y, z, MOSS_CARPET)
-        elif r < 0.86:
-            p.set(x, y - 1, z, MOSS)
-        else:
+        if r < 0.86:
+            # Rubble, carpet and moss all need a floor. `y` is the tier height this position
+            # *would* have if its tier survived the collapse roll and if no aisle were cut
+            # through it; neither is guaranteed, so ask before placing.
+            if r < 0.42:
+                if supported(p, x, y, z):
+                    p.set(x, y, z, rng.choice(RUBBLE))
+            elif r < 0.72:
+                if supported(p, x, y, z):
+                    p.set(x, y, z, MOSS_CARPET)
+            elif solid_at(p, x, y - 1, z):
+                # Moss replaces the top course of an existing tier rather than adding to it.
+                p.set(x, y - 1, z, MOSS)
+        elif supported(p, x, y, z):
             p.set(x, y, z, rng.choice(MARBLE_RUINED))
 
 
@@ -579,37 +738,47 @@ def build_amphitheatre(rng):
             for y in range(ground - 1, top + 1):
                 p.set(x, y, z, blk)
 
-    # A broad processional aisle enters from the Greatbole connector at the south
-    # edge on the same elevation as the Greatbole gate. This is carved
-    # after the seating so the route cannot be closed by a surviving tier.
-    for z in range(c + int(stage_r) - 1, AMPH_W):
-        walk_y = ground - 1
-        for x in range(c - 3, c + 4):
-            for y in range(walk_y + 1, AMPH_H):
-                p.set(x, y, z, AIR)
-            paving = ELVEN_MARBLE if (x + z) % 5 else rng.choice(MARBLE_RUINED)
-            p.set(x, walk_y, z, paving)
-        # Broken retaining cheeks make the cut read as authored circulation rather
-        # than seven missing columns through the seating.
-        if z % 4 != 0:
-            for x in (c - 4, c + 4):
-                p.set(x, walk_y, z, rng.choice(MARBLE_RUINED))
+    # Four broad processional aisles enter the court on the same elevation as the Greatbole
+    # gate, one per neighbouring piece: south to the Greatbole itself, and north, west and east
+    # to the three civic wings. Each is carved after the seating so the route cannot be closed
+    # by a surviving tier.
+    #
+    # The three wing aisles were missing entirely until 2026-09-07. The wings tile flush against
+    # this piece and each drives a nine-wide spine at exactly this elevation, but the spines
+    # terminated against the intact outer seating bank -- a five-to-six block wall of marble
+    # with a two-block void at the seam. Reported from the field as the wings "not properly
+    # connecting to the central area". AISLES is now the single authority for where the court
+    # opens, and check_spawn_hub asserts all four are clear.
+    for spec in AISLES:
+        aisle_paving(p, rng, c, ground, spec)
 
-    # Column stumps around the rim, broken to differing heights.
+    # Column stumps around the rim, broken to differing heights. A stump whose tier collapsed
+    # or was cut away by an approach has nothing to stand on, so it is simply not raised.
     for k in range(12):
         ang = k * math.pi / 6
         cxp, czp = int(c + math.cos(ang) * (outer_r - 1.5)), int(c + math.sin(ang) * (outer_r - 1.5))
         h = rng.choice([1, 2, 2, 3, 5, 7])
+        base_y = ground + int((outer_r - 1.5 - stage_r) / 3.5)
+        if not supported(p, cxp, base_y, czp):
+            continue
         for y in range(h):
-            p.set(cxp, ground + int((outer_r - 1.5 - stage_r) / 3.5) + y, czp, COLUMN)
+            p.set(cxp, base_y + y, czp, COLUMN)
 
     courtyard_detail(p, c, ground, stage_r, outer_r, rng)
+
+    # Reopen the four approaches last, before the court and the jigsaw are seated -- both of
+    # those sit inside the south aisle and must survive.
+    aisle_clear(p, ground)
 
     # The court itself, seated in the structure rather than summoned at the player.
     ents, posts = court_entities(c, ground)
     p.entities = ents
     for _, x, y, z, _skin in posts:               # a clear seat under each, so none is buried
-        p.set(x, y - 1, z, ELVEN_MARBLE)
+        # Build the seat down to the tier base course rather than laying one block at the
+        # computed tier height: where the collapse roll removed that tier, a single block
+        # would hang in the air with the elf standing on nothing.
+        for sy in range(ground - 1, y):
+            p.set(x, sy, z, ELVEN_MARBLE)
         for dy in range(3):
             if (x, y + dy, z) in p.blocks and dy > 0:
                 del p.blocks[(x, y + dy, z)]
@@ -622,66 +791,325 @@ def build_amphitheatre(rng):
     return p
 
 
-def build_royal_annex(rng, role):
-    """One 48-block civic wing of the ruined palace surrounding the Hollow Court."""
-    p = Piece(48, 16, 48)
-    c = 24
-    floor_y = 3
-    # Buried subfloor plus rising terraces: these give slopes a retaining wall instead of a
-    # floating platform and make the complex read as a palace built into the Greatbole mound.
+COURT_FLOOR_Y = 5
+
+
+def royal(name, facing='north'):
+    return (f'alfheim:{name}', {'facing': facing})
+
+
+def court_foundation(p, rng):
+    """A stepped, buried terrain interface rather than one square floating slab.
+
+    The hub is assembled with `/place template`, so the parent jigsaw's `beard_thin` processor
+    cannot be trusted to grow support under these separately placed wings. Their own bottom five
+    courses therefore form a visible beard: a clipped-corner terrace, continuous retaining
+    walls, deep piers and two lower talus steps. The top course remains at the amphitheatre's
+    world-space floor datum.
+    """
+    fy = COURT_FLOOR_Y
+
+    def in_terrace(x, z):
+        if not (2 <= x <= 45 and 2 <= z <= 45):
+            return False
+        # Clip the corners so the silhouette follows terrain instead of exposing a 48x48 plate.
+        return min(x + z, x + 47 - z, 47 - x + z, 94 - x - z) >= 7
+
     for x in range(48):
         for z in range(48):
-            tier = 0
-            if role == 'north_council':
-                tier = min(3, max(0, (38 - z) // 9))
-            else:
-                tier = min(2, abs(x - c) // 10)
-            top = floor_y + tier
-            if rng.random() < 0.07 and (x < 5 or x > 42 or z < 5 or z > 42):
+            if not in_terrace(x, z):
                 continue
-            for y in range(0, top + 1):
-                p.set(x, y, z, rng.choice(MARBLE_RUINED) if y < top else
-                      (ELVEN_MARBLE if (x + z) % 11 == 0 else rng.choice(MARBLE)))
+            edge = not all(in_terrace(nx, nz) for nx, nz in
+                           ((x - 1, z), (x + 1, z), (x, z - 1), (x, z + 1)))
+            top = ELVEN_MARBLE if (x + z) % 9 == 0 else rng.choice(MARBLE)
+            p.set(x, fy, z, top)
+            p.set(x, fy - 1, z, rng.choice(MARBLE_RUINED))
+            if edge or (x % 8 in (0, 1) and z % 8 in (0, 1)):
+                for y in range(fy - 3, fy - 1):
+                    p.set(x, y, z, rng.choice(MARBLE_RUINED))
+            if edge:
+                for y in range(0, fy - 3):
+                    p.set(x, y, z, rng.choice(MARBLE_RUINED))
 
-    # A broad ceremonial spine aligns every wing with the central court.
+    # Lower courses flare out in irregular runs. From a valley or cliff side these read as
+    # masonry sunk into the slope; from above they read as old collapsed terrace aprons.
+    for edge in ('north', 'south', 'west', 'east'):
+        for u in range(7, 42):
+            if (u * 7 + len(edge)) % 11 == 0:
+                continue
+            for step, level in ((1, fy - 2), (0, fy - 3)):
+                x, z = ((u, step) if edge == 'north' else
+                        (u, 47 - step) if edge == 'south' else
+                        (step, u) if edge == 'west' else (47 - step, u))
+                for y in range(0, level + 1):
+                    p.set(x, y, z, rng.choice(MARBLE_RUINED))
+
+    # Heavy buttresses continue all the way to the template bottom, so the support language is
+    # legible even where the surrounding terrain drops by several blocks.
+    for u in (9, 16, 24, 32, 39):
+        for x, z, dx, dz in ((u, 2, 0, -1), (u, 45, 0, 1),
+                             (2, u, -1, 0), (45, u, 1, 0)):
+            for reach in range(3):
+                h = fy - reach
+                for y in range(0, h + 1):
+                    p.set(x + dx * reach, y, z + dz * reach,
+                          COLUMN if reach == 0 and y >= 2 else rng.choice(MARBLE_RUINED))
+
+
+def court_room(p, rng, x0, z0, x1, z1, doors=(), windows=()):
+    """Build one ruined but readable palace room with layered walls and a broken cornice."""
+    fy = COURT_FLOOR_Y
+    # Explicitly clear the occupied volume. The hub's one shared height datum can put an annex
+    # against a rising slope; omitted template positions preserve that terrain and previously
+    # left the nominal rooms packed solid with hillside. Retaining walls hold the cut outside.
+    for x in range(x0 + 1, x1):
+        for z in range(z0 + 1, z1):
+            for y in range(fy + 1, 15):
+                p.set(x, y, z, AIR)
+    for x in range(x0, x1 + 1):
+        for z in range(z0, z1 + 1):
+            p.set(x, fy, z, ELVEN_MARBLE if (x + z) % 7 == 0 else rng.choice(MARBLE))
+    for y in range(fy + 1, fy + 7):
+        for x in range(x0, x1 + 1):
+            for z in (z0, z1):
+                p.set(x, y, z, LIVINGROCK if (x + y) % 6 else rng.choice(MARBLE_RUINED))
+        for z in range(z0 + 1, z1):
+            for x in (x0, x1):
+                p.set(x, y, z, LIVINGROCK if (z + y) % 6 else rng.choice(MARBLE_RUINED))
+
+    # Pilasters, capitals and a partly collapsed double cornice give every room façade depth.
+    pilasters = {(x0, z0), (x1, z0), (x0, z1), (x1, z1),
+                 ((x0 + x1) // 2, z0), ((x0 + x1) // 2, z1)}
+    for x, z in pilasters:
+        for y in range(fy + 1, fy + 8):
+            p.set(x, y, z, COLUMN)
+        p.set(x, fy + 8, z, CAPITAL)
+    for x in range(x0, x1 + 1):
+        for z in (z0, z1):
+            if (x * 3 + z) % 7 not in (0, 1):
+                p.set(x, fy + 8, z, CAPITAL if x % 4 == 0 else QUARTZ_SLAB)
+    for z in range(z0 + 1, z1):
+        for x in (x0, x1):
+            if (x + z * 3) % 7 not in (0, 1):
+                p.set(x, fy + 8, z, QUARTZ_SLAB)
+
+    # Surviving roof skirts create a layered skyline but leave most of each ruined room open.
+    for x in range(x0 + 1, x1):
+        for z in (z0 + 1, z0 + 2, z1 - 2):
+            if (x * 5 + z) % 9 not in (0, 1):
+                p.set(x, fy + 9, z, QUARTZ_SLAB)
+
+    # Openings are explicit after wall construction. `windows` entries are (axis, fixed, span).
+    for axis, fixed, a, b in windows:
+        for q in range(a, b + 1):
+            for y in range(fy + 3, fy + 6):
+                x, z = (q, fixed) if axis == 'x' else (fixed, q)
+                p.set(x, y, z, ELF_GLASS)
+    for axis, fixed, centre in doors:
+        for q in range(centre - 1, centre + 2):
+            for y in range(fy + 1, fy + 5):
+                x, z = (q, fixed) if axis == 'x' else (fixed, q)
+                p.set(x, y, z, AIR)
+
+
+def place_canopy_bed(p, x, z, facing='north'):
+    names = (('royal_canopy_bed_head_left', 'royal_canopy_bed_head_right'),
+             ('royal_canopy_bed_middle_left', 'royal_canopy_bed_middle_right'),
+             ('royal_canopy_bed_foot_left', 'royal_canopy_bed_foot_right'))
+    for dz, row in enumerate(names):
+        for dx, name in enumerate(row):
+            p.set(x + dx, COURT_FLOOR_Y + 1, z + dz, royal(name, facing))
+
+
+def place_astrolabe(p, x, z):
+    for dz, row in enumerate((('royal_astrolabe_nw', 'royal_astrolabe_ne'),
+                              ('royal_astrolabe_sw', 'royal_astrolabe_se'))):
+        for dx, name in enumerate(row):
+            p.set(x + dx, COURT_FLOOR_Y + 1, z + dz, royal(name))
+
+
+def dress_west_residence(p, rng):
+    fy = COURT_FLOOR_Y
+    rooms = ((5, 5, 20, 18), (27, 5, 42, 18),
+             (5, 29, 20, 42), (27, 29, 42, 42))
+    for i, rect in enumerate(rooms):
+        x0, z0, x1, z1 = rect
+        door_z = z1 if i < 2 else z0
+        court_room(p, rng, *rect, doors=(('x', door_z, (x0 + x1) // 2),),
+                   windows=(('x', z0 if i < 2 else z1, x0 + 4, x0 + 6),))
+
+    # Two private suites, a salon and a dining/library room.
+    place_canopy_bed(p, 8, 8)
+    place_canopy_bed(p, 8, 36, 'south')
+    for x, z, facing in ((31, 9, 'south'), (35, 9, 'south'), (31, 15, 'north'),
+                         (35, 15, 'north'), (31, 34, 'south'), (35, 34, 'south')):
+        p.set(x, fy + 1, z, royal('royal_highback_chair', facing))
+    box(p, 32, fy + 1, 11, 34, fy + 1, 13, DREAMWOOD)
+    box(p, 31, fy + 1, 37, 38, fy + 2, 38, ('minecraft:bookshelf', None))
+    for x, z in ((7, 7), (18, 7), (7, 40), (18, 40), (29, 31), (40, 31)):
+        p.set(x, fy + 1, z, ROYAL_AMPHORA)
+    for x, z, block in ((12, 18, ROYAL_SCONCE_S), (34, 18, ROYAL_SCONCE_S),
+                        (12, 29, ROYAL_SCONCE_N), (34, 29, ROYAL_SCONCE_N)):
+        p.set(x, fy + 4, z, block)
+    for x, z, block in ((16, 5, ROYAL_BANNER_N), (38, 5, ROYAL_BANNER_N),
+                        (16, 42, ROYAL_BANNER_S), (38, 42, ROYAL_BANNER_S)):
+        p.set(x, fy + 4, z, block)
+
+
+def dress_east_service(p, rng):
+    fy = COURT_FLOOR_Y
+    rooms = ((5, 5, 20, 18), (27, 5, 42, 18),
+             (5, 29, 20, 42), (27, 29, 42, 42))
+    for i, rect in enumerate(rooms):
+        x0, z0, x1, z1 = rect
+        door_z = z1 if i < 2 else z0
+        court_room(p, rng, *rect, doors=(('x', door_z, (x0 + x1) // 2),),
+                   windows=(('x', z0 if i < 2 else z1, x0 + 4, x0 + 6),))
+
+    # Kitchen, stillroom, stores and the steward's work room. Dense repetition is deliberate:
+    # service architecture should feel busy and useful rather than ceremonially empty.
+    for x in (7, 10, 13, 16):
+        p.set(x, fy + 1, 7, ('minecraft:smoker' if x % 2 else 'minecraft:furnace', None))
+        p.set(x, fy + 1, 16, ('minecraft:cauldron', None))
+    box(p, 29, fy + 1, 7, 40, fy + 1, 8, ('minecraft:barrel', None))
+    box(p, 7, fy + 1, 31, 18, fy + 2, 32, ('minecraft:bookshelf', None))
+    for x, z, name in ((30, 32, 'minecraft:crafting_table'),
+                       (34, 32, 'minecraft:cartography_table'),
+                       (38, 32, 'minecraft:brewing_stand'),
+                       (30, 39, 'minecraft:barrel'), (34, 39, 'minecraft:barrel'),
+                       (38, 39, 'minecraft:barrel')):
+        p.set(x, fy + 1, z, (name, None))
+    for x, z in ((7, 16), (19, 16), (28, 7), (41, 7), (7, 40), (19, 40)):
+        p.set(x, fy + 1, z, ROYAL_AMPHORA)
+    for x, z, block in ((12, 18, ROYAL_SCONCE_S), (34, 18, ROYAL_SCONCE_S),
+                        (12, 29, ROYAL_SCONCE_N), (34, 29, ROYAL_SCONCE_N)):
+        p.set(x, fy + 4, z, block)
+
+
+def dress_north_council(p, rng):
+    fy = COURT_FLOOR_Y
+    # A single transverse council hall at the far end, with two archive chambers flanking the
+    # processional approach. It no longer shares the residence's four-room plan.
+    court_room(p, rng, 6, 5, 41, 21,
+               doors=(('x', 21, 24),), windows=(('x', 5, 11, 14), ('x', 5, 33, 36)))
+    court_room(p, rng, 5, 28, 19, 42,
+               doors=(('z', 19, 35),), windows=(('z', 5, 32, 35),))
+    court_room(p, rng, 29, 28, 43, 42,
+               doors=(('z', 29, 35),), windows=(('z', 43, 32, 35),))
+
+    # Raised dais, councillors, central astrolabe and paired record rooms.
+    box(p, 15, fy + 1, 8, 33, fy + 1, 14, ELVEN_MARBLE)
+    box(p, 19, fy + 2, 9, 29, fy + 2, 12, CAPITAL)
+    place_astrolabe(p, 23, 15)
+    for x in (17, 21, 27, 31):
+        p.set(x, fy + 2, 11, royal('royal_highback_chair', 'south'))
+    for x in (12, 16, 32, 36):
+        p.set(x, fy + 1, 18, royal('royal_highback_chair', 'north'))
+    for x in list(range(16, 21)) + list(range(28, 33)):
+        p.set(x, fy + 2, 14, ROYAL_BALUSTRADE_N)
+    for z in range(30, 41, 3):
+        p.set(7, fy + 1, z, ('minecraft:bookshelf', None))
+        p.set(17, fy + 1, z, ('minecraft:bookshelf', None))
+        p.set(31, fy + 1, z, ('minecraft:bookshelf', None))
+        p.set(41, fy + 1, z, ('minecraft:bookshelf', None))
+    p.set(9, fy + 1, 40, ('minecraft:lectern', None))
+    p.set(39, fy + 1, 40, ('minecraft:cartography_table', None))
+    for x, z in ((8, 7), (40, 7), (7, 26), (41, 26),
+                 (7, 40), (41, 40)):
+        p.set(x, fy + 1, z, ROYAL_AMPHORA)
+    for x in (10, 24, 38):
+        p.set(x, fy + 5, 21, ROYAL_BANNER_S)
+        p.set(x, fy + 4, 5, ROYAL_SCONCE_N)
+
+
+def build_royal_annex(rng, role):
+    """One high-detail civic wing of the ruined palace surrounding the Hollow Court."""
+    p = Piece(48, 16, 48)
+    c = 24
+    fy = COURT_FLOOR_Y
+    court_foundation(p, rng)
+
+    # A continuous processional spine aligns with the central court at the same world Y. The
+    # custom runner provides close-range detail while the elven-quartz margins carry the route
+    # at long range.
     if role == 'north_council':
-        box(p, c - 4, floor_y, 0, c + 4, floor_y + 3, 47, ELVEN_MARBLE)
-        box(p, 7, floor_y + 4, 5, 40, floor_y + 4, 18, ELVEN_MARBLE)
-        box(p, 11, floor_y + 5, 7, 36, floor_y + 8, 16, AIR)
+        box(p, c - 4, fy, 0, c + 4, fy, 47, ELVEN_MARBLE)
+        for z in range(1, 47):
+            p.set(c, fy + 1, z, ROYAL_RUNNER_NS)
+        dress_north_council(p, rng)
+    elif role == 'west_residence':
+        box(p, 0, fy, c - 4, 47, fy, c + 4, ELVEN_MARBLE)
+        for x in range(1, 47):
+            p.set(x, fy + 1, c, ROYAL_RUNNER_EW)
+        dress_west_residence(p, rng)
+    elif role == 'east_service':
+        box(p, 0, fy, c - 4, 47, fy, c + 4, ELVEN_MARBLE)
+        for x in range(1, 47):
+            p.set(x, fy + 1, c, ROYAL_RUNNER_EW)
+        dress_east_service(p, rng)
     else:
-        box(p, 0, floor_y, c - 4, 47, floor_y + 1, c + 4, ELVEN_MARBLE)
+        raise ValueError(f'unknown court annex role: {role}')
 
-    # Ruined galleries and inhabited/service chambers flank the route.
-    for x0, z0, x1, z1 in ((5, 6, 18, 19), (29, 6, 42, 19),
-                           (5, 29, 18, 42), (29, 29, 42, 42)):
-        box(p, x0, floor_y + 1, z0, x1, floor_y + 1, z1, rng.choice(MARBLE))
-        for x, z in ((x0, z0), (x1, z0), (x0, z1), (x1, z1)):
-            height = rng.choice((4, 5, 7))
-            for dy in range(height):
-                p.set(x, floor_y + 2 + dy, z, COLUMN)
-            if height >= 5:
-                p.set(x, floor_y + 2 + height, z, CAPITAL)
+    # Court-facing entrance loggias frame the route without blocking the 9-wide opening.
+    if role == 'north_council':
+        edge_posts = ((18, 45), (30, 45))
+        for x in range(19, 30):
+            p.set(x, fy + 1, 45, ROYAL_BALUSTRADE_N if x not in range(21, 28) else AIR)
+    else:
+        ex = 45 if role == 'west_residence' else 2
+        edge_posts = ((ex, 18), (ex, 30))
+        for z in list(range(14, 19)) + list(range(30, 35)):
+            p.set(ex, fy + 1, z, ROYAL_BALUSTRADE_E)
+    for x, z in edge_posts:
+        for y in range(fy + 1, fy + 9):
+            p.set(x, y, z, COLUMN)
+        p.set(x, fy + 9, z, CAPITAL)
 
-    # Greatbole roots cross the inner palace edges and visibly bind tree and masonry.
-    root_edge = 47 if role == 'north_council' else (47 if role == 'west_residence' else 0)
+    # Greatbole roots bind the inner palace edge. They stop outside the clear processional
+    # route and descend into the new foundation beard rather than lying on top of the paving.
+    root_edge = 45 if role in ('north_council', 'west_residence') else 2
     for offset in (-13, 12):
-        for step in range(15):
+        for step in range(11):
             if role == 'north_council':
                 x, z = c + offset // 3, root_edge - step
             else:
-                x, z = root_edge - step if role == 'west_residence' else root_edge + step, c + offset
-            y = floor_y + max(0, 3 - step // 4)
+                x = root_edge - step if role == 'west_residence' else root_edge + step
+                z = c + offset
+            y = fy + max(0, 3 - step // 3)
             for w in (-1, 0, 1):
                 xx, zz = (x + w, z) if role == 'north_council' else (x, z + w)
                 p.set(xx, y, zz, ELDER_HEARTWOOD)
 
-    # Intentional decay reads better than perfect symmetry.
-    for _ in range(120):
-        x, z = rng.randrange(3, 45), rng.randrange(3, 45)
-        if rng.random() < 0.55:
-            p.set(x, floor_y + 1, z, rng.choice(RUBBLE))
-        else:
-            p.set(x, floor_y + 1, z, MOSS_CARPET)
+    # Causal decay is concentrated along one outer corner per wing. The rooms, doors and route
+    # remain legible; rubble is evidence of that local collapse rather than uniform noise.
+    collapse = ((7, 8) if role == 'west_residence' else
+                (40, 8) if role == 'east_service' else (39, 9))
+    cx, cz = collapse
+    for radius in range(1, 6):
+        for _ in range(5):
+            x = max(1, min(46, cx + rng.randint(-radius, radius)))
+            z = max(1, min(46, cz + rng.randint(-radius, radius)))
+            # Debris piles two deep near the collapse centre, but only where the first course
+            # actually landed -- otherwise the upper block hangs over the floor it never hit.
+            y = fy + 1
+            if radius < 3 and rng.random() < 0.35 and solid_at(p, x, y, z):
+                y += 1
+            p.set(x, y, z, rng.choice(RUBBLE))
+    for x, z in ((4, 12), (43, 15), (8, 45), (39, 44)):
+        p.set(x, fy + 1, z, MOSS_CARPET)
+
+    # Last writer wins: guarantee the nine-wide spine remains navigable after roots, furniture
+    # and collapse dressing. Carpet occupies y+1, so clearance starts above it.
+    if role == 'north_council':
+        for z in range(48):
+            for x in range(c - 3, c + 4):
+                for y in range(fy + 2, 16):
+                    p.set(x, y, z, AIR)
+    else:
+        for x in range(48):
+            for z in range(c - 3, c + 4):
+                for y in range(fy + 2, 16):
+                    p.set(x, y, z, AIR)
     return p
 
 
@@ -782,7 +1210,7 @@ def main():
                   'w', encoding='utf-8') as f:
             f.write(protection_script())
     print(f'  protection            kubejs/server_scripts/04_spawn_hub.js  '
-          f'radius {HUB_RADIUS}, {HOME}')
+          f'X {HUB_MIN_X}..{HUB_MAX_X}, Z {HUB_MIN_Z}..{HUB_MAX_Z}, {HOME}')
 
     total = sum(len(p.blocks) for p in pieces.values())
     print(f'\n  {len(pieces)} pieces, {total} blocks, tree {ASSEMBLED_HEIGHT} blocks tall '
@@ -794,7 +1222,11 @@ def protection_script():
     """Render the checked-in API implementation; the generator owns only stable constants."""
     template = os.path.join('tools', 'templates', 'spawn_hub_protection.js')
     text = open(template, encoding='utf-8').read()
-    return text.replace('__HOME_DIMENSION__', HOME).replace('__HUB_RADIUS__', str(HUB_RADIUS))
+    text = text.replace('__HOME_DIMENSION__', HOME)
+    for token, value in (('__HUB_MIN_X__', HUB_MIN_X), ('__HUB_MAX_X__', HUB_MAX_X),
+                         ('__HUB_MIN_Z__', HUB_MIN_Z), ('__HUB_MAX_Z__', HUB_MAX_Z)):
+        text = text.replace(token, str(value))
+    return text
 
 
 if __name__ == '__main__':

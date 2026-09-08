@@ -4,9 +4,15 @@
 // Design: alfheim_reclaimed_design/SPAWN_HUB_PROTECTION.md.
 
 const HUB_DIMENSION = 'mythicbotany:alfheim'
-const HUB_X = 0
-const HUB_Z = 0
-const HUB_RADIUS = 128
+// An explicit rectangle, not a radius. The complex is not centred on the origin: the tree
+// stands at X=0/Z=0 but the court and its three wings extend north, so the built footprint
+// runs Z -120..+23 while X stays symmetric. A square centred on the tree therefore claimed a
+// large empty apron to the south and clipped the north wing -- reported from the field
+// 2026-09-07 as the claim being "much too large an area".
+const HUB_MIN_X = -80
+const HUB_MAX_X = 79
+const HUB_MIN_Z = -128
+const HUB_MAX_Z = 31
 const HUB_FTB_TEAM = 'alfheim_hub'
 const PROTECT_FROM_PLAYERS = true
 
@@ -17,7 +23,7 @@ function inHub(level, x, z) {
     } catch (e) {
         return false
     }
-    return Math.abs(x - HUB_X) <= HUB_RADIUS && Math.abs(z - HUB_Z) <= HUB_RADIUS
+    return x >= HUB_MIN_X && x <= HUB_MAX_X && z >= HUB_MIN_Z && z <= HUB_MAX_Z
 }
 
 function rejectHubEdit(event) {
@@ -134,10 +140,10 @@ ServerEvents.loaded(event => {
         const claimedChunkManager = $ClaimedChunkManager.getInstance()
         const chunkData = claimedChunkManager.getOrCreateData(team)
         const teamId = team.getId()
-        const minChunkX = Math.floor((HUB_X - HUB_RADIUS) / 16)
-        const maxChunkX = Math.floor((HUB_X + HUB_RADIUS) / 16)
-        const minChunkZ = Math.floor((HUB_Z - HUB_RADIUS) / 16)
-        const maxChunkZ = Math.floor((HUB_Z + HUB_RADIUS) / 16)
+        const minChunkX = Math.floor(HUB_MIN_X / 16)
+        const maxChunkX = Math.floor(HUB_MAX_X / 16)
+        const minChunkZ = Math.floor(HUB_MIN_Z / 16)
+        const maxChunkZ = Math.floor(HUB_MAX_Z / 16)
         const expectedClaims = (maxChunkX - minChunkX + 1) * (maxChunkZ - minChunkZ + 1)
         let claimPosition = null
         let existingClaim = null
