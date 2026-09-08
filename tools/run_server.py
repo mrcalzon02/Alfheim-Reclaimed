@@ -464,6 +464,52 @@ HUB_ONLY_COMMANDS = [
 # configured biome holder, so each disposable test site receives a tiny matching biome patch at
 # the requested Y before placement. The sites are well outside the Great Bole's protected envelope
 # and far enough apart that their 33-block islands cannot interact.
+# --- biome reachability survey ----------------------------------------------------------------
+#
+# The acceptance question the user actually asked, 2026-09-08: "increase the likeliness that with
+# a given random noise generator we ... are getting all of our different biomes within a
+# reasonable distance of one days travel range, naturally excluding our void biomes as those
+# require flight to traverse."
+#
+# `locate biome` answers exactly that, and it answers it about the real generator rather than a
+# model of it. One origin is one sample of a noisy field, so this probes from a spread of origins
+# in the same world: a biome that is 300 blocks from one and 5,000 from another is not reliably
+# within a day's walk, and a single lucky probe would have said it was.
+#
+# Void biomes are surveyed too, but reported separately -- they are reached by flight, so their
+# distances are information rather than a gate.
+SURVEY_BIOMES = [
+    'alfheim:ashen_grove', 'alfheim:silverbark_wood', 'alfheim:bloomfall_vale',
+    'alfheim:mana_fen', 'alfheim:sundered_highlands', 'alfheim:hollow_marches',
+    'alfheim:starved_reach', 'alfheim:scorchfell', 'alfheim:infested_warren',
+    'alfheim:decayed_mire', 'alfheim:alfheim_ocean', 'alfheim:tidewood_shore',
+    'alfheim:mistbark_shore', 'alfheim:sporebank_shore',
+    'mythicbotany:alfheim_hills', 'mythicbotany:alfheim_lakes',
+    'mythicbotany:alfheim_plains', 'mythicbotany:dreamwood_forest',
+    'mythicbotany:golden_fields',
+    # reported separately; reached by flight
+    'alfheim:void_verge', 'alfheim:starless_reach', 'alfheim:shatterfields',
+    'alfheim:prism_drift', 'alfheim:rootfall', 'alfheim:sepulchral_reach',
+]
+
+SURVEY_ORIGINS = [(0, 0), (3000, 1500), (-2500, 2800), (1800, -3200), (-3400, -1600)]
+
+
+def _survey_commands():
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import gen_spawn_hub as hub
+    out = [(90, 'say alfheim survey: startup reached')]
+    for ox, oz in SURVEY_ORIGINS:
+        out.append((1, f'say --- survey origin {ox} {oz} ---'))
+        for b in SURVEY_BIOMES:
+            out.append((1, f'execute in {hub.HOME} positioned {ox} 100 {oz} '
+                           f'run locate biome {b}'))
+    out.append((5, 'stop'))
+    return out
+
+
+SURVEY_COMMANDS = _survey_commands()
+
 PIXIE_ONLY_COMMANDS = [
     (75, 'say alfheim pixie-settlement validation: startup reached'),
     (2, 'execute in mythicbotany:alfheim run forceload add 2032 2032 2079 2079'),
@@ -491,6 +537,8 @@ def main():
     ap.add_argument('--run', action='store_true')
     ap.add_argument('--hub-only', action='store_true',
                     help='run the short Great Bole placement proof instead of the full suite')
+    ap.add_argument('--survey', action='store_true',
+                    help='biome reachability only: locate every biome from several origins')
     ap.add_argument('--pixie-only', action='store_true',
                     help='place and assemble one of each seasonal pixie sky hamlet')
     ap.add_argument('--seed', default='alfheim')
@@ -506,7 +554,8 @@ def main():
     if a.run:
         if a.hub_only and a.pixie_only:
             ap.error('--hub-only and --pixie-only are mutually exclusive')
-        cmds = list(PIXIE_ONLY_COMMANDS if a.pixie_only else
+        cmds = list(SURVEY_COMMANDS if a.survey else
+                    PIXIE_ONLY_COMMANDS if a.pixie_only else
                     HUB_ONLY_COMMANDS if a.hub_only else DEFAULT_COMMANDS)
         if a.export:
             cmds.insert(1, (5, 'kubejs export'))

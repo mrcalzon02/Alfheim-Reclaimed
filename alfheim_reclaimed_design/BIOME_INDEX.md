@@ -49,54 +49,55 @@ Amplification multiplies before a clamp to ±1, widening the tails so a band dec
 
 ## 3. The index
 
-**25 biomes** generate here, across **42 disjoint climate bands**. 20 are ours; 5 are MythicBotany's, kept because they carry the mod's own identity where we have not claimed anything.
+**25 biomes** generate here, across **43 disjoint climate bands**. 20 are ours; 5 are MythicBotany's, kept because they carry the mod's own identity where we have not claimed anything.
 
 A biome with several bands is one place selected by several disjoint climate boxes — the partition splits a claim wherever an earlier claim already took part of it. Bands are listed exactly as emitted.
 
 | Biome | Owner | Bands | Climate condition |
 |---|---|---:|---|
 | `alfheim:alfheim_ocean` | ours | 1 | `cont` -0.8‥-0.28 |
-| `alfheim:ashen_grove` | ours | 1 | `cont` 0.15‥0.45, `temp` -0.3‥0.32, `humid` -1‥-0.4 |
-| `alfheim:bloomfall_vale` | ours | 2 | `cont` 0.15‥0.45, `weird` -0.3‥1, `temp` 0.2‥0.32, `humid` -0.4‥1 |
-| | | | `cont` 0.15‥0.45, `weird` -1‥-0.3, `temp` 0.2‥0.32, `humid` -0.4‥0.5 |
-| `alfheim:decayed_mire` | ours | 1 | `cont` 0.15‥0.45, `weird` -1‥-0.3, `temp` -1‥0.32, `humid` 0.5‥1 |
-| `alfheim:hollow_marches` | ours | 1 | `cont` 0.45‥1, `weird` -1‥0.3, `temp` -0.45‥1, `humid` -1‥-0.3 |
-| `alfheim:infested_warren` | ours | 1 | `cont` 0‥0.15, `weird` -1‥-0.3, `humid` 0.45‥1 |
-| `alfheim:mana_fen` | ours | 2 | `cont` 0.03‥0.15, `weird` -0.3‥1, `humid` 0.35‥1 |
-| | | | `cont` 0.03‥0.15, `weird` -1‥-0.3, `humid` 0.35‥0.45 |
-| `alfheim:mistbark_shore` | ours | 3 | `cont` -0.15‥0, `temp` -1‥-0.15, `humid` -1‥0.4 |
-| | | | `cont` 0‥0.03, `weird` -0.3‥1, `temp` -1‥-0.15, `humid` -1‥0.4 |
-| | | | `cont` 0‥0.03, `weird` -1‥-0.3, `temp` -1‥-0.15, `humid` -1‥0.4 |
+| `alfheim:ashen_grove` | ours | 1 | `cont` 0.3‥0.45, `temp` -1‥0.05, `humid` -1‥0 |
+| `alfheim:bloomfall_vale` | ours | 1 | `cont` 0.3‥0.45, `temp` -1‥0.05, `humid` 0‥1 |
+| `alfheim:decayed_mire` | ours | 1 | `cont` 0.18‥0.3, `weird` -1‥-0.3, `humid` 0.42‥1 |
+| `alfheim:hollow_marches` | ours | 1 | `cont` 0.45‥1, `weird` -1‥0.3, `temp` -0.35‥1, `humid` -1‥-0.2 |
+| `alfheim:infested_warren` | ours | 1 | `cont` 0‥0.18, `weird` -1‥-0.2, `humid` 0.42‥1 |
+| `alfheim:mana_fen` | ours | 2 | `cont` 0.05‥0.15, `weird` -0.2‥1, `humid` 0.35‥1 |
+| | | | `cont` 0.05‥0.15, `weird` -1‥-0.2, `humid` 0.35‥0.42 |
+| `alfheim:mistbark_shore` | ours | 3 | `cont` -0.18‥0, `temp` -1‥-0.15, `humid` -1‥0.4 |
+| | | | `cont` 0‥0.05, `weird` -0.2‥1, `temp` -1‥-0.15, `humid` -1‥0.4 |
+| | | | `cont` 0‥0.05, `weird` -1‥-0.2, `temp` -1‥-0.15, `humid` -1‥0.4 |
 | `alfheim:prism_drift` | ours | 1 | `cont` -0.925‥-0.86, `temp` -1‥0, `humid` 0‥1 |
 | `alfheim:rootfall` | ours | 1 | `cont` -0.925‥-0.86, `temp` 0‥1, `humid` -1‥0 |
-| `alfheim:scorchfell` | ours | 1 | `cont` 0.15‥0.45, `temp` 0.32‥1 |
+| `alfheim:scorchfell` | ours | 1 | `cont` 0.3‥0.45, `temp` 0.05‥1 |
 | `alfheim:sepulchral_reach` | ours | 1 | `cont` -0.925‥-0.86, `temp` 0‥1, `humid` 0‥1 |
 | `alfheim:shatterfields` | ours | 1 | `cont` -0.925‥-0.86, `temp` -1‥0, `humid` -1‥0 |
-| `alfheim:silverbark_wood` | ours | 2 | `cont` 0.15‥0.45, `weird` -0.3‥1, `temp` -1‥-0.3 |
-| | | | `cont` 0.15‥0.45, `weird` -1‥-0.3, `temp` -1‥-0.3, `humid` -1‥0.5 |
-| `alfheim:sporebank_shore` | ours | 3 | `cont` -0.15‥0, `humid` 0.4‥1 |
-| | | | `cont` 0‥0.03, `weird` -0.3‥1, `humid` 0.4‥1 |
-| | | | `cont` 0‥0.03, `weird` -1‥-0.3, `humid` 0.4‥0.45 |
+| `alfheim:silverbark_wood` | ours | 4 | `cont` 0.18‥0.3, `weird` -0.3‥1, `temp` -1‥-0.3 |
+| | | | `cont` 0.18‥0.3, `weird` -1‥-0.3, `temp` -1‥-0.3, `humid` -1‥0.42 |
+| | | | `cont` 0.15‥0.18, `weird` -0.2‥1, `temp` -1‥-0.3 |
+| | | | `cont` 0.15‥0.18, `weird` -1‥-0.2, `temp` -1‥-0.3, `humid` -1‥0.42 |
+| `alfheim:sporebank_shore` | ours | 3 | `cont` -0.18‥0, `humid` 0.4‥1 |
+| | | | `cont` 0‥0.05, `weird` -0.2‥1, `humid` 0.4‥1 |
+| | | | `cont` 0‥0.05, `weird` -1‥-0.2, `humid` 0.4‥0.42 |
 | `alfheim:starless_reach` | ours | 1 | `cont` -1‥-0.925 |
-| `alfheim:starved_reach` | ours | 1 | `cont` 0.45‥1, `temp` -1‥-0.45 |
-| `alfheim:sundered_highlands` | ours | 1 | `cont` 0.45‥1, `weird` 0.3‥1, `temp` -0.45‥1 |
-| `alfheim:tidewood_shore` | ours | 3 | `cont` -0.15‥0, `temp` -0.15‥1, `humid` -1‥0.4 |
-| | | | `cont` 0‥0.03, `weird` -0.3‥1, `temp` -0.15‥1, `humid` -1‥0.4 |
-| | | | `cont` 0‥0.03, `weird` -1‥-0.3, `temp` -0.15‥1, `humid` -1‥0.4 |
+| `alfheim:starved_reach` | ours | 1 | `cont` 0.45‥1, `temp` -1‥-0.35 |
+| `alfheim:sundered_highlands` | ours | 1 | `cont` 0.45‥1, `weird` 0.3‥1, `temp` -0.35‥1 |
+| `alfheim:tidewood_shore` | ours | 3 | `cont` -0.18‥0, `temp` -0.15‥1, `humid` -1‥0.4 |
+| | | | `cont` 0‥0.05, `weird` -0.2‥1, `temp` -0.15‥1, `humid` -1‥0.4 |
+| | | | `cont` 0‥0.05, `weird` -1‥-0.2, `temp` -0.15‥1, `humid` -1‥0.4 |
 | `alfheim:void_verge` | ours | 1 | `cont` -0.86‥-0.8 |
-| `mythicbotany:alfheim_hills` | MythicBotany | 3 | `cont` 0.4‥0.45, `weird` -0.3‥1, `temp` -0.3‥0.2, `humid` -0.4‥1 |
-| | | | `cont` 0.4‥0.45, `weird` -1‥-0.3, `temp` -0.3‥0.2, `humid` -0.4‥0.5 |
-| | | | `cont` 0.45‥1, `weird` -1‥0.3, `temp` -0.45‥1, `humid` -0.3‥1 |
-| `mythicbotany:alfheim_lakes` | MythicBotany | 3 | `cont` -0.28‥-0.15 |
-| | | | `cont` 0.03‥0.1, `eros` -1‥0, `weird` -0.3‥1, `humid` -1‥0.35 |
-| | | | `cont` 0.03‥0.1, `eros` -1‥0, `weird` -1‥-0.3, `humid` -1‥0.35 |
-| `mythicbotany:alfheim_plains` | MythicBotany | 4 | `cont` 0.1‥0.15, `eros` -1‥0, `weird` -0.3‥1, `humid` -1‥0.35 |
-| | | | `cont` 0.1‥0.15, `eros` -1‥0, `weird` -1‥-0.3, `humid` -1‥0.35 |
-| | | | `cont` 0.03‥0.15, `eros` 0‥1, `weird` -0.3‥1, `humid` -1‥0.35 |
-| | | | `cont` 0.03‥0.15, `eros` 0‥1, `weird` -1‥-0.3, `humid` -1‥0.35 |
-| `mythicbotany:dreamwood_forest` | MythicBotany | 2 | `cont` 0.15‥0.4, `weird` -0.3‥0, `temp` -0.3‥0.2, `humid` -0.4‥1 |
-| | | | `cont` 0.15‥0.4, `weird` -1‥-0.3, `temp` -0.3‥0.2, `humid` -0.4‥0.5 |
-| `mythicbotany:golden_fields` | MythicBotany | 1 | `cont` 0.15‥0.4, `weird` 0‥1, `temp` -0.3‥0.2, `humid` -0.4‥1 |
+| `mythicbotany:alfheim_hills` | MythicBotany | 1 | `cont` 0.45‥1, `weird` -1‥0.3, `temp` -0.35‥1, `humid` -0.2‥1 |
+| `mythicbotany:alfheim_lakes` | MythicBotany | 3 | `cont` -0.28‥-0.18 |
+| | | | `cont` 0.05‥0.1, `eros` -1‥0, `weird` -0.2‥1, `humid` -1‥0.35 |
+| | | | `cont` 0.05‥0.1, `eros` -1‥0, `weird` -1‥-0.2, `humid` -1‥0.35 |
+| `mythicbotany:alfheim_plains` | MythicBotany | 4 | `cont` 0.1‥0.15, `eros` -1‥0, `weird` -0.2‥1, `humid` -1‥0.35 |
+| | | | `cont` 0.1‥0.15, `eros` -1‥0, `weird` -1‥-0.2, `humid` -1‥0.35 |
+| | | | `cont` 0.05‥0.15, `eros` 0‥1, `weird` -0.2‥1, `humid` -1‥0.35 |
+| | | | `cont` 0.05‥0.15, `eros` 0‥1, `weird` -1‥-0.2, `humid` -1‥0.35 |
+| `mythicbotany:dreamwood_forest` | MythicBotany | 4 | `cont` 0.18‥0.3, `weird` -0.3‥0, `temp` -0.3‥1 |
+| | | | `cont` 0.18‥0.3, `weird` -1‥-0.3, `temp` -0.3‥1, `humid` -1‥0.42 |
+| | | | `cont` 0.15‥0.18, `weird` -0.2‥0, `temp` -0.3‥1 |
+| | | | `cont` 0.15‥0.18, `weird` -1‥-0.2, `temp` -0.3‥1, `humid` -1‥0.42 |
+| `mythicbotany:golden_fields` | MythicBotany | 1 | `cont` 0.15‥0.3, `weird` 0‥1, `temp` -0.3‥1 |
 
 ## 4. What each biome contains
 
@@ -117,10 +118,11 @@ A biome with several bands is one place selected by several disjoint climate box
 
 - **Climate** — temperature 0.5, downfall 0.3, precipitation True
 - **Colours** — sky color `#8A93A0`, fog color `#6B6F6A`, water color `#4A5550`, water fog color `#27302C`
+- **Particle** — `minecraft:white_ash` at probability 0.006
 - **Features**
     - `surface_structures` — `mythicbotany:abandoned_apothecaries`
     - `underground_ores` — 10 ore/stone features (the shared Alfheim ore column)
-    - `vegetal_decoration` — `mythicbotany:loose_dreamwood_trees`
+    - `vegetal_decoration` — `alfheim:grove_ash_drift`, `alfheim:grove_cinder_boulder`, `mythicbotany:loose_dreamwood_trees`, `alfheim:grove_charred_stumps`, `alfheim:grove_deadfall`
 - **Spawns** — *creature* — `feywild:autumn_pixie`, `feywild:bellsnickel`; *monster* — `minecraft:spider`, `richs_races_wood_elves:wood_elf`
 - **Structures** — `ashwatch_keep`, `grey_barrow`, `pixie_autumn_hamlet`
 - **Deep geology** — `cinder_livingrock`, `cracked_livingrock`, `embervein_livingrock`, `obsidian_livingrock`, `gloam_livingrock`
@@ -154,9 +156,11 @@ A biome with several bands is one place selected by several disjoint climate box
 
 - **Climate** — temperature 0.3, downfall 0.2, precipitation False
 - **Colours** — sky color `#5C5766`, fog color `#4E4A55`, water color `#33303B`, water fog color `#16141A`
+- **Particle** — `minecraft:ash` at probability 0.011
 - **Features**
     - `surface_structures` — `mythicbotany:abandoned_apothecaries`
     - `underground_ores` — 10 ore/stone features (the shared Alfheim ore column)
+    - `vegetal_decoration` — `alfheim:marches_hollow_ground`, `alfheim:marches_hollow_boulder`, `alfheim:marches_witherwood`, `alfheim:marches_bonefield`
 - **Spawns** — *creature* — `feywild:winter_pixie`, `feywild:bellsnickel`, `minecraft:frog`; *monster* — `minecraft:spider`, `richs_races_wood_elves:wood_elf`
 - **Structures** — `hollow_bastion`, `marchfall_crater`
 - **Deep geology** — `gloam_livingrock`, `storm_livingrock`, `frost_livingrock`, `cracked_livingrock`, `abyssal_livingrock`
@@ -303,9 +307,10 @@ A biome with several bands is one place selected by several disjoint climate box
 
 - **Climate** — temperature 0.4, downfall 0.4, precipitation True
 - **Colours** — sky color `#7E8794`, fog color `#9A8F86`, water color `#40525C`, water fog color `#1A2429`
+- **Particle** — `minecraft:ash` at probability 0.004
 - **Features**
     - `underground_ores` — 11 ore/stone features (the shared Alfheim ore column)
-    - `vegetal_decoration` — `mythicbotany:alfheim_grass`
+    - `vegetal_decoration` — `alfheim:highland_scree`, `alfheim:highland_torn_boulder`, `mythicbotany:alfheim_grass`, `alfheim:highland_tufts`
 - **Spawns** — *creature* — `feywild:autumn_pixie`, `feywild:autumn_tree_ent`; *monster* — `minecraft:spider`, `richs_races_wood_elves:wood_elf`
 - **Structures** — `riven_hold`, `sundered_quarry`
 - **Deep geology** — `cracked_livingrock`, `obsidian_livingrock`, `starfleck_livingrock`, `moonstone_livingrock`, `embervein_livingrock`
@@ -395,12 +400,12 @@ A biome with several bands is one place selected by several disjoint climate box
 
 Computed, not asserted. The Void biomes are exempt from vegetation by doctrine — "nothing grows" is absolute there — so they are counted separately rather than flagged.
 
-- **Land biomes with no vegetal decoration at all:** `alfheim:hollow_marches`
-- **Land biomes with a single vegetal feature:** `alfheim:ashen_grove`, `alfheim:sundered_highlands`, `mythicbotany:golden_fields`
+- **Land biomes with no vegetal decoration at all:** *none*
+- **Land biomes with a single vegetal feature:** `mythicbotany:golden_fields`
 - **Biomes with no natural structure:** *none*
 - **Land biomes with no five-stone deep geology:** *none*
 - **Void biomes (vegetation intentionally absent):** `alfheim:prism_drift`, `alfheim:rootfall`, `alfheim:sepulchral_reach`, `alfheim:shatterfields`, `alfheim:starless_reach`, `alfheim:void_verge`
 
 ---
 
-Generated from 25 biomes, 42 layer bands, 57 biome-structure assignments and 19 deep geology families.
+Generated from 25 biomes, 43 layer bands, 57 biome-structure assignments and 19 deep geology families.

@@ -1,5 +1,91 @@
 # Backlog
 
+### B-85 — biome distribution, and the three thin biomes — **SURVEY-MEASURED; CLIENT REVIEW PENDING**
+
+Asked 2026-09-08: distribute the biomes better so a given seed is likelier to put all of them
+within one day's travel, keep them large enough to feel significant, and give Ashen Grove,
+Sundered Highlands and Hollow Marches real depth. Void biomes are excluded from the travel
+target — they need flight.
+
+#### A measurement, not a model
+
+`tools/run_server.py --run --survey` runs `locate biome` for all 25 biomes from five spread
+origins in one world; `tools/read_biome_survey.py` pools several worlds and reports median and
+**worst case** per biome. Worst case is the gate: a biome 300 blocks from spawn and 5,000 from a
+point 3 km east is not reliably within a day's walk, and a single probe from the origin would
+have called it fine.
+
+A day of sprinting is about 6,700 blocks, so the target is 3,000 out with time to look around.
+
+#### What the survey found
+
+Widening a biome's temperature or humidity slice moved its **median** but barely touched its
+**worst case**. The reason is visible when the same numbers are grouped by continentalness
+instead: seven biomes shared `cont 0.15..0.45` and every one came back 1,810–2,583 blocks, while
+bands holding one or two came back 452–1,450. The journey is dominated by reaching that
+continentalness region at all, not by finding the right climate inside it.
+
+The nominal share of the climate cube predicts almost nothing here — `infested_warren` holds
+0.72% of it and measured 24% of a real world — so this had to be measured.
+
+#### What changed
+
+The midland was split in two, geographically rather than arbitrarily: the cool and the wet sit
+lower, nearer the water they need, and the burnt and the bright sit higher.
+
+| Band | Before | After |
+|---|---|---|
+| `cont 0.15‥0.45` | 7 biomes | *(split)* |
+| `cont 0.15‥0.30` | — | decayed_mire, silverbark_wood, dreamwood_forest, golden_fields |
+| `cont 0.30‥0.45` | — | ashen_grove, bloomfall_vale, scorchfell |
+
+Eight tail-gated bands were also widened: `starved_reach` −0.45→−0.35 temperature,
+`decayed_mire` 0.5→0.42 humidity, `ashen_grove` −0.4→0.0, `bloomfall_vale` 0.2→0.05 then freed
+entirely, `hollow_marches` −0.3→−0.2, the shore belt −0.15..0.03→−0.18..0.05, and
+`infested_warren` relaxed from three tight axes to `cont 0..0.18, weird ≤ −0.2, hum ≥ 0.42`.
+
+#### Measured result, one seed, same five origins
+
+| | before | after |
+|---|---|---|
+| median of all worst cases | 1,917 | **1,629** |
+| biomes worse than 2,000 blocks | 9 of 19 | **6 of 19** |
+| biomes never found | 0 | 0 |
+
+Typical travel roughly halved for the redistributed biomes: `bloomfall_vale` median 1,142→362,
+`ashen_grove` 1,631→712, `dreamwood_forest` 973→390, `golden_fields` 1,350→676,
+`decayed_mire` 1,174→770, `scorchfell` 601→394.
+
+Pooled over two seeds and ten origins, all 19 land biomes were found from every origin, with
+medians of 90–880 blocks.
+
+#### The three thin biomes
+
+`BIOME_INDEX.md` §5 now reports no land biome without vegetal decoration. Each got ground,
+standing evidence and air:
+
+- **Ashen Grove** — ash drifts of gravel and cinder livingrock, cinder boulders, charred
+  gloambark stumps, dead scrub; white ash falling at 0.006, a fraction of Scorchfell's.
+- **Sundered Highlands** — scree of cracked and starfleck livingrock, torn obsidian boulders,
+  hardy tufts; wind-borne grit at 0.004.
+- **Hollow Marches** — dead ground of gloam livingrock and soul soil, hollow boulders, standing
+  witherwood, bone fields; the heaviest ash fall in the pack outside Scorchfell at 0.011,
+  because precipitation is off here and the air has to carry the biome.
+
+**Topography is done with features, not density.** B-82 removed a climate-stamped terrain branch
+because thresholds and LibX's nearest-biome result do not coincide, so full columns were replaced
+inside neighbouring biomes and the seams read as chunky walls. Boulders, scree patches and
+re-floored ground are bounded, local and support-aware; a density branch is none of those.
+
+#### Open
+
+- Client visual review of all three, and of the redistributed geography.
+- `mythicbotany:golden_fields` is the last biome with a single vegetal feature. It is the mod's
+  own and may be right as shipped; it needs a decision rather than a fix.
+- The remaining six biomes over 2,000 blocks are all bounded by continentalness region size
+  (1,422 blocks). Tightening further means raising `CONT_SCALE`, which shrinks continents — a
+  direct trade against "large enough to feel significant" and a decision, not a defect.
+
 ### B-84 — wooded shores and the climate-scale correction — **RUNTIME MEASURED; CLIENT REVIEW PENDING**
 
 Two pieces of work, the second discovered while doing the first.

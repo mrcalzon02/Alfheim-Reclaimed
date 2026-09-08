@@ -1,5 +1,58 @@
 # Execution State
 
+## Latest implementation — biome distribution and the three thin biomes — 2026-09-08
+
+The question was whether a given seed reliably puts every biome within a day's travel. It is now
+measured rather than argued: `run_server.py --run --survey` runs `locate biome` for all 25 biomes
+from five spread origins in one world, and `read_biome_survey.py` pools worlds and reports median
+and worst case. Worst case is the gate — a biome 300 blocks from spawn and 5,000 from a point 3 km
+east is not reliably reachable, and a single probe from the origin would have called it fine.
+
+**The survey overturned the obvious fix.** Widening a biome's temperature or humidity slice moved
+its median and barely touched its worst case. Grouping the same numbers by continentalness showed
+why: seven biomes shared `cont 0.15..0.45` and every one came back 1,810-2,583 blocks, while bands
+holding one or two came back 452-1,450. Reaching the continentalness region dominates; finding the
+right climate inside it does not. The nominal share of the climate cube predicts almost nothing
+here — `infested_warren` holds 0.72% of it and measured 24% of a real world.
+
+**So the midland was split, geographically rather than arbitrarily:** the cool and the wet sit
+lower (`0.15..0.30` — decayed_mire, silverbark_wood, dreamwood_forest, golden_fields), the burnt
+and the bright sit higher (`0.30..0.45` — ashen_grove, bloomfall_vale, scorchfell). No band now
+carries more than four biomes. Eight tail-gated thresholds were also widened, and
+`infested_warren` was relaxed from three tight axes at once.
+
+**Measured, one seed, same five origins:** median of all worst cases 1,917 -> 1,629; biomes worse
+than 2,000 blocks 9 of 19 -> 6 of 19; none ever unfound. Typical travel roughly halved for the
+redistributed biomes — bloomfall_vale median 1,142 -> 362, ashen_grove 1,631 -> 712,
+dreamwood_forest 973 -> 390, golden_fields 1,350 -> 676, scorchfell 601 -> 394.
+
+**Pooled over two seeds and eight origins, all 19 land biomes are found from every origin, worst
+case 2,715 blocks against a 3,000 target, medians 48-880.** The one biome that failed an earlier
+pooled run (`infested_warren`, 3,192 from one origin) is 1,632 after being relaxed.
+
+**The three thin biomes now have ground, standing evidence and air.** Ashen Grove gets ash drifts,
+cinder boulders, charred gloambark stumps and dead scrub under falling white ash at 0.006.
+Sundered Highlands gets scree, torn obsidian boulders and hardy tufts under wind-borne grit at
+0.004. Hollow Marches gets dead ground of gloam livingrock and soul soil, hollow boulders,
+standing witherwood and bone fields under the heaviest ash fall in the pack outside Scorchfell —
+precipitation is off there, so the air has to carry the biome. `BIOME_INDEX.md` §5 now reports no
+land biome without vegetal decoration.
+
+**Topography is done with features, not density.** B-82 removed a climate-stamped terrain branch
+because climate thresholds and LibX's nearest-biome result do not coincide, so full columns were
+replaced inside neighbouring biomes and the seams read as chunky walls. Boulders, scree patches
+and re-floored ground are bounded, local and support-aware; a density branch is none of those.
+
+**Validation.** Sixteen static checkers pass, and the biome index regenerates clean. The climate
+cube remains exactly covered — 43 disjoint bands, total measure 1.000000, no gaps and no overlaps.
+Four survey worlds exited 0.
+
+**Acceptance: survey-measured across two seeds and eight origins. Client visual review is open on
+all three biomes and on the redistributed geography.** The remaining six biomes over 2,000 blocks
+are bounded by continentalness region size (1,422 blocks); tightening further means raising
+`CONT_SCALE`, which shrinks continents — a trade against "large enough to feel significant", and a
+decision rather than a defect.
+
 ## Latest implementation — wooded shores and the climate-scale correction — 2026-09-08
 
 Field item 7 asked for the wooded shorelines. Doing it surfaced the cause of item 8, which turns

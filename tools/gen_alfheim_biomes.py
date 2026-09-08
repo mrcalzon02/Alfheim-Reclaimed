@@ -121,6 +121,9 @@ FEATURE_ORDER = [
     # Ground mats run before anything that stands on the ground, so the turf they replace is
     # already gone when grass, trees and fungus are placed.
     'alfheim:warren_root_mat', 'alfheim:mire_mud_flat', 'alfheim:shore_spore_bed',
+    'alfheim:grove_ash_drift', 'alfheim:highland_scree', 'alfheim:marches_hollow_ground',
+    'alfheim:grove_cinder_boulder', 'alfheim:highland_torn_boulder',
+    'alfheim:marches_hollow_boulder',
     'mythicbotany:alfheim_grass',
     'mythicbotany:wheat_fields',
     'mythicbotany:loose_dreamwood_trees',
@@ -132,6 +135,8 @@ FEATURE_ORDER = [
     'alfheim:shore_tidewood_canopy', 'alfheim:shore_mistbark_canopy',
     'alfheim:shore_sporecaps', 'alfheim:shore_spore_scatter',
     # Fungus and webs come last: they colonise whatever the earlier steps left standing.
+    'alfheim:grove_charred_stumps', 'alfheim:marches_witherwood',
+    'alfheim:marches_bonefield', 'alfheim:grove_deadfall', 'alfheim:highland_tufts',
     'alfheim:warren_fungal_bloom', 'alfheim:mire_deadfall', 'alfheim:warren_web_snare',
     'minecraft:patch_dead_bush_badlands',
     'minecraft:warm_ocean_vegetation', 'minecraft:seagrass_warm',
@@ -310,9 +315,14 @@ BIOMES = {
     'ashen_grove': biome(
         fog=0x6B6F6A, sky=0x8A93A0, water=0x4A5550, water_fog=0x27302C,
         features=[[], [], [], [], ['mythicbotany:abandoned_apothecaries'], [], ORES, [], [],
-                  ['mythicbotany:loose_dreamwood_trees']],
+                  ['alfheim:grove_ash_drift', 'alfheim:grove_cinder_boulder',
+                   'mythicbotany:loose_dreamwood_trees', 'alfheim:grove_charred_stumps',
+                   'alfheim:grove_deadfall']],
         spawners={'creature': FEY_ASH, 'monster': HOSTILE + HOSTILE_ELVES},
-        downfall=0.3, temperature=0.5),
+        downfall=0.3, temperature=0.5,
+        # Ash still in the air, a fraction of Scorchfell's fall. Scorchfell is the fire;
+        # this is the week after it.
+        particle={'options': {'type': 'minecraft:white_ash'}, 'probability': 0.006}),
 
     # Pale, cold, sparse. Dreamwood that survived by going quiet.
     'silverbark_wood': biome(
@@ -334,9 +344,13 @@ BIOMES = {
     'sundered_highlands': biome(
         fog=0x9A8F86, sky=0x7E8794, water=0x40525C, water_fog=0x1A2429,
         features=[[], [], [], [], [], [], ORES + ['mythicbotany:extra_gold_ore'], [], [],
-                  ['mythicbotany:alfheim_grass']],
+                  ['alfheim:highland_scree', 'alfheim:highland_torn_boulder',
+                   'mythicbotany:alfheim_grass', 'alfheim:highland_tufts']],
         spawners={'creature': FEY_HIGH, 'monster': HOSTILE + HOSTILE_ELVES},
-        downfall=0.4, temperature=0.4),
+        downfall=0.4, temperature=0.4,
+        # Wind-borne grit off the broken ground. Sparse: this is exposed upland, not a
+        # dust storm.
+        particle={'options': {'type': 'minecraft:ash'}, 'probability': 0.004}),
 
     # Still alive. What the elves are trying to get back to.
     'bloomfall_vale': biome(
@@ -350,9 +364,14 @@ BIOMES = {
     # Where it went worst. Era IX territory.
     'hollow_marches': biome(
         fog=0x4E4A55, sky=0x5C5766, water=0x33303B, water_fog=0x16141A,
-        features=[[], [], [], [], ['mythicbotany:abandoned_apothecaries'], [], ORES, [], [], []],
+        features=[[], [], [], [], ['mythicbotany:abandoned_apothecaries'], [], ORES, [], [],
+                  ['alfheim:marches_hollow_ground', 'alfheim:marches_hollow_boulder',
+                   'alfheim:marches_witherwood', 'alfheim:marches_bonefield']],
         spawners={'creature': FEY_COLD + FROGS_SPARSE, 'monster': HOSTILE + HOSTILE_ELVES},
-        downfall=0.2, temperature=0.3, precipitation=False),
+        downfall=0.2, temperature=0.3, precipitation=False,
+        # The heaviest fall in the pack outside Scorchfell. Nothing falls as rain here --
+        # precipitation is off -- so the air itself has to carry the biome.
+        particle={'options': {'type': 'minecraft:ash'}, 'probability': 0.011}),
 
     # --- the five deficiencies -------------------------------------------------------
     #
@@ -808,6 +827,17 @@ def assert_disjoint(bands):
 # Priority order: most specific first. MythicBotany's originals come last and keep the
 # remainder, so their world is still recognisably theirs where we have not claimed anything.
 CLAIMS = [
+    # SPREAD ACROSS CONTINENTALNESS, NOT JUST ACROSS CLIMATE. Measured 2026-09-08 with
+    # `run_server.py --survey`: worst-case distance tracks how many biomes share a
+    # continentalness band far more than it tracks any biome's own share of the climate cube.
+    # Seven biomes sat in 0.15..0.45 and every one of them came back 1,810-2,583 blocks; the
+    # bands holding one or two came back 452-1,450. Widening a temperature slice inside a
+    # crowded band moved the median but barely touched the worst case, because the journey is
+    # dominated by reaching that continentalness region at all.
+    #
+    # So the midland is split in two, and the split is geographic rather than arbitrary: the
+    # cool and the wet sit lower, nearer the water they need, and the burnt and the bright sit
+    # higher. Each half now carries three biomes instead of seven.
     # --- the five deficiencies: declared first so they carve their pockets out ------------
     #
     # WIDENED 2026-09-04 after probing a live world with `locate biome`. The first version
@@ -819,13 +849,13 @@ CLAIMS = [
     #
     # Two constraining axes each, moderately narrow. Still pockets rather than terrain to
     # cross, but pockets that exist.
-    (f'{NS}:starved_reach',   pt((0.45, 1.0), temp=(-1.0, -0.45))),
+    (f'{NS}:starved_reach',   pt((0.45, 1.0), temp=(-1.0, -0.35))),
     # Lowered twice, measured each time: at 0.55 and again at 0.45 `locate biome`
     # still reported "Could not find". bloomfall_vale IS found at temp 0.2..0.45,
     # so the noise reaches the low 0.4s and no further in this continentalness band.
-    (f'{NS}:scorchfell',      pt((0.15, 0.45), temp=(0.32, 1.0))),
-    (f'{NS}:infested_warren', pt((0.0, 0.15), weird=(-1.0, -0.3), hum=(0.45, 1.0))),
-    (f'{NS}:decayed_mire',    pt((0.15, 0.45), weird=(-1.0, -0.3), hum=(0.5, 1.0))),
+    (f'{NS}:scorchfell',      pt((0.30, 0.45), temp=(0.05, 1.0))),
+    (f'{NS}:infested_warren', pt((0.0, 0.18), weird=(-1.0, -0.2), hum=(0.42, 1.0))),
+    (f'{NS}:decayed_mire',    pt((0.15, 0.30), weird=(-1.0, -0.3), hum=(0.42, 1.0))),
     * __import__('gen_void_worldgen').claims(pt),
     (f'{NS}:alfheim_ocean',      pt((-0.80, -0.28))),
 
@@ -838,25 +868,25 @@ CLAIMS = [
     # (temp >= 0.2) is 7,178 blocks out and scorchfell (temp >= 0.32) is not found at all on
     # either seed tested. So the warm/cool split uses -0.15, which is inside the range the
     # noise actually reaches, rather than a threshold the field can never satisfy.
-    (f'{NS}:sporebank_shore', pt((-0.15, 0.03), hum=(0.4, 1.0))),
-    (f'{NS}:tidewood_shore',  pt((-0.15, 0.03), temp=(-0.15, 1.0))),
-    (f'{NS}:mistbark_shore',  pt((-0.15, 0.03))),
+    (f'{NS}:sporebank_shore', pt((-0.18, 0.05), hum=(0.4, 1.0))),
+    (f'{NS}:tidewood_shore',  pt((-0.18, 0.05), temp=(-0.15, 1.0))),
+    (f'{NS}:mistbark_shore',  pt((-0.18, 0.05))),
 
     # --- ours: the six that carry the pack's own geography --------------------------------
-    (f'{NS}:silverbark_wood',    pt((0.15, 0.45), temp=(-1.0, -0.3))),
-    (f'{NS}:ashen_grove',        pt((0.15, 0.45), hum=(-1.0, -0.4))),
-    (f'{NS}:bloomfall_vale',     pt((0.15, 0.45), temp=(0.2, 1.0))),
+    (f'{NS}:silverbark_wood',    pt((0.15, 0.30), temp=(-1.0, -0.3))),
+    (f'{NS}:ashen_grove',        pt((0.30, 0.45), hum=(-1.0, 0.0))),
+    (f'{NS}:bloomfall_vale',     pt((0.30, 0.45))),
     (f'{NS}:mana_fen',           pt((0.0, 0.15), hum=(0.35, 1.0))),
     (f'{NS}:sundered_highlands', pt((0.45, 1.0), weird=(0.3, 1.0))),
-    (f'{NS}:hollow_marches',     pt((0.45, 1.0), hum=(-1.0, -0.3))),
+    (f'{NS}:hollow_marches',     pt((0.45, 1.0), hum=(-1.0, -0.2))),
 
     # --- MythicBotany's originals: they keep everything left over -------------------------
     ('mythicbotany:alfheim_lakes',    pt((-1.0, 0.0))),
     ('mythicbotany:alfheim_lakes',    pt((0.0, 0.1), ero=(-1.0, 0.0))),
     ('mythicbotany:alfheim_plains',   pt((0.1, 0.15), ero=(-1.0, 0.0))),
     ('mythicbotany:alfheim_plains',   pt((0.0, 0.15), ero=(0.0, 1.0))),
-    ('mythicbotany:dreamwood_forest', pt((0.15, 0.4), weird=(-1.0, 0.0))),
-    ('mythicbotany:golden_fields',    pt((0.15, 0.4), weird=(0.0, 1.0))),
+    ('mythicbotany:dreamwood_forest', pt((0.15, 0.30), weird=(-1.0, 0.0))),
+    ('mythicbotany:golden_fields',    pt((0.15, 0.30), weird=(0.0, 1.0))),
     ('mythicbotany:alfheim_hills',    pt((0.4, 1.0))),
 ]
 
@@ -1196,6 +1226,83 @@ SHORE_CANOPY_FEATURE = {
     'shore_sporecaps': f'{NS}:shore_sporecaps',
 }
 
+                                       # --- the three thin biomes ---------------------------
+# BIOME_INDEX.md §5 measured the gap and the user named the biomes, 2026-09-08: Ashen Grove and
+# Sundered Highlands were down to a single vegetal feature, and Hollow Marches had none at all --
+# the same state Infested Warren and Decayed Mire were in when the field review called them
+# "gently rolling hills".
+#
+# Each gets ground, standing evidence and air. TOPOGRAPHY IS DONE WITH FEATURES, NOT DENSITY.
+# B-82 removed a climate-stamped terrain branch because thresholds and LibX's nearest-biome
+# result do not coincide, so full columns were being replaced inside neighbouring biomes and the
+# seams read as chunky walls. Boulders, scree patches and re-floored ground are bounded, local
+# and support-aware; a density branch is none of those.
+
+def _boulder(states, chance):
+    """minecraft:forest_rock -- vanilla's taiga boulder, in our own stone."""
+    return {'type': 'minecraft:forest_rock',
+            'config': {'state': {'Name': states}}}, [
+        {'type': 'minecraft:rarity_filter', 'chance': chance},
+        {'type': 'minecraft:in_square'},
+        {'type': 'minecraft:heightmap', 'heightmap': 'MOTION_BLOCKING'},
+        {'type': 'minecraft:biome'}]
+
+
+THIN_CONFIGURED = {
+    # ASHEN GROVE -- it burned, and the ash settled. Grey drifts, charred stumps, dead scrub.
+    'grove_ash_drift': _ground_mat(
+        [({'Name': 'minecraft:gravel'}, 5),
+         ({'Name': 'alfheim:cinder_livingrock'}, 3),
+         ({'Name': 'minecraft:coarse_dirt'}, 3)],
+        radius=(3, 6), depth=(1, 2)),
+    'grove_charred_stumps': _patch('minecraft:simple_block', [
+        ('alfheim:gloambark_log', 5), ('minecraft:dead_bush', 3)], tries=12, xz=6, y=1),
+    'grove_deadfall': _patch('minecraft:simple_block', [
+        ('minecraft:dead_bush', 6), ('minecraft:brown_mushroom', 2),
+        ('minecraft:fern', 2)], tries=24),
+
+    # SUNDERED HIGHLANDS -- the ground was torn open. Exposed scree and blocks that came out
+    # of it and stayed where they landed.
+    'highland_scree': _ground_mat(
+        [({'Name': 'alfheim:cracked_livingrock'}, 5),
+         ({'Name': 'minecraft:gravel'}, 4),
+         ({'Name': 'alfheim:starfleck_livingrock'}, 2)],
+        radius=(4, 7), depth=(1, 3)),
+    'highland_tufts': _patch('minecraft:simple_block', [
+        ('minecraft:grass', 5), ('minecraft:fern', 4), ('minecraft:dead_bush', 2)], tries=26),
+
+    # HOLLOW MARCHES -- where it went worst. Dead ground, standing dead wood, bone.
+    'marches_hollow_ground': _ground_mat(
+        [({'Name': 'alfheim:gloam_livingrock'}, 5),
+         ({'Name': 'minecraft:coarse_dirt'}, 3),
+         ({'Name': 'minecraft:soul_soil'}, 2)],
+        radius=(4, 8), depth=(1, 3)),
+    'marches_witherwood': _patch('minecraft:simple_block', [
+        ('alfheim:gloambark_log', 6), ('minecraft:dead_bush', 3)], tries=10, xz=6, y=1),
+    'marches_bonefield': _patch('minecraft:simple_block', [
+        ('minecraft:bone_block', 3), ('minecraft:dead_bush', 5)], tries=14, xz=6, y=1),
+}
+_GROVE_ROCK, _GROVE_ROCK_PLACE = _boulder('alfheim:cinder_livingrock', 14)
+_HIGH_ROCK, _HIGH_ROCK_PLACE = _boulder('alfheim:obsidian_livingrock', 8)
+_MARCH_ROCK, _MARCH_ROCK_PLACE = _boulder('alfheim:gloam_livingrock', 12)
+THIN_CONFIGURED['grove_cinder_boulder'] = _GROVE_ROCK
+THIN_CONFIGURED['highland_torn_boulder'] = _HIGH_ROCK
+THIN_CONFIGURED['marches_hollow_boulder'] = _MARCH_ROCK
+
+THIN_PLACED = {
+    'grove_ash_drift': _surface_placement({'type': 'minecraft:count', 'count': 3}),
+    'grove_charred_stumps': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 3}),
+    'grove_deadfall': _surface_placement({'type': 'minecraft:count', 'count': 3}),
+    'grove_cinder_boulder': _GROVE_ROCK_PLACE,
+    'highland_scree': _surface_placement({'type': 'minecraft:count', 'count': 4}),
+    'highland_tufts': _surface_placement({'type': 'minecraft:count', 'count': 3}),
+    'highland_torn_boulder': _HIGH_ROCK_PLACE,
+    'marches_hollow_ground': _surface_placement({'type': 'minecraft:count', 'count': 4}),
+    'marches_witherwood': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 4}),
+    'marches_bonefield': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 6}),
+    'marches_hollow_boulder': _MARCH_ROCK_PLACE,
+}
+
 IDENTITY_PLACED = {
     'warren_root_mat': _surface_placement({'type': 'minecraft:count', 'count': 3}),
     'warren_fungal_bloom': _surface_placement({'type': 'minecraft:count', 'count': 2}),
@@ -1208,9 +1315,11 @@ IDENTITY_PLACED = {
 
 def identity_files():
     out = {}
-    for name, doc in list(IDENTITY_CONFIGURED.items()) + list(SHORE_CONFIGURED.items()):
+    for name, doc in (list(IDENTITY_CONFIGURED.items()) + list(SHORE_CONFIGURED.items())
+                      + list(THIN_CONFIGURED.items())):
         out[os.path.join(OUT, NS, 'worldgen', 'configured_feature', name + '.json')] = doc
-    for name, placement in list(IDENTITY_PLACED.items()) + list(SHORE_PLACED.items()):
+    for name, placement in (list(IDENTITY_PLACED.items()) + list(SHORE_PLACED.items())
+                            + list(THIN_PLACED.items())):
         # A canopy placement points at an existing tree elsewhere in the namespace; everything
         # else wraps a configured feature of its own name.
         feature = SHORE_CANOPY_FEATURE.get(name, f'{NS}:{name}')
