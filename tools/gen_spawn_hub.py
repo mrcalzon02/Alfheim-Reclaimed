@@ -73,6 +73,7 @@ LAYER_BIOMES = [
     f'{NS}:sundered_highlands', f'{NS}:alfheim_ocean', f'{NS}:void_verge',
     f'{NS}:shatterfields', f'{NS}:prism_drift', f'{NS}:rootfall',
     f'{NS}:sepulchral_reach', f'{NS}:starless_reach',
+    f'{NS}:tidewood_shore', f'{NS}:mistbark_shore', f'{NS}:sporebank_shore',
     'mythicbotany:alfheim_hills', 'mythicbotany:alfheim_lakes',
     'mythicbotany:alfheim_plains', 'mythicbotany:dreamwood_forest',
     'mythicbotany:golden_fields',

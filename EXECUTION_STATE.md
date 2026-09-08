@@ -1,5 +1,49 @@
 # Execution State
 
+## Latest implementation — wooded shores and the climate-scale correction — 2026-09-08
+
+Field item 7 asked for the wooded shorelines. Doing it surfaced the cause of item 8, which turns
+out to be one line, and the two are recorded together in `BACKLOG.md` B-84.
+
+**Three coastal biomes** sit on continentalness -0.15..0.03, the strip where the lake and ocean
+floor rises out of the water. The band straddles the waterline on purpose: trees need a dry
+heightmap column and zero water depth, so the belt places itself along whatever part of the band
+is land in a given chunk rather than following a guessed radius. `tidewood_shore` is the warm
+Gloambark coast, `mistbark_shore` the pale Hushbark one, and `sporebank_shore` carries all six
+Feywild cap colours as a real canopy over a mycelium bed. The band is taken from
+`mythicbotany:alfheim_lakes`, which measured 44% and 77% of two field worlds. Six new coastal
+structures keep the manifest's two-per-biome rule.
+
+**The climate scale was one constant applied to four different noises.** `CLIMATE_SCALE = 0.0625`
+fed `minecraft:temperature` (base period 1024), `vegetation` (256), `ridge` (128) and
+`badlands_surface` (64). Region size is base period / xz_scale, so the axes came out at 16,384,
+4,096, 2,048 and 1,422 blocks respectively. Continentalness at 1.4 km always worked; temperature
+at 16 km meant a world held roughly one thermal band. That is B-83's monoculture, and it is also
+why two earlier attempts failed: both moved a threshold or widened the tails, when the defect was
+the period. Each axis now gets the scale its own base period needs — temperature 4,096, humidity
+2,048, weirdness 1,024 — preserving the nesting vanilla intends instead of flattening it.
+Weirdness also gained the 1.8 amplification it was the only axis to lack, which matters because
+28 of the layer's 42 bands split on it.
+
+**Measured on one seed across three worlds.** `locate biome` from the origin: scorchfell and
+bloomfall_vale went from **not found at all** to 2,458 and 2,234 blocks; ashen_grove 5,376 ->
+1,810; hollow_marches 5,077 -> 1,697; tidewood_shore 6,324 -> 2,013. The four
+continentalness-driven biomes (starved_reach, void_verge, decayed_mire, infested_warren) are
+byte-identical across all three worlds, exactly as predicted since that axis was not touched.
+Full table in B-84.
+
+**Validation.** All sixteen static checkers pass, including `check_surface_works` W10, which
+caught the three new biomes having no structures and drove the six coastal additions, and the new
+`check_spawn_hub` S13, which asserts `has_greatbole` covers every biome the layer can place.
+Three fresh worlds on the reported seed exited 0 with zero far-chunk errors; run C reported 5/5
+hub ownership probes. The mushroom canopy is in the ground: 457 blue, 433 purple and 387 pink cap
+sections plus 525 mycelium sections in run B's 529 chunks.
+
+**Acceptance: fresh-world runtime measured for reachability and for the shore features; client
+visual review pending on all three shores and the six coastal structures.** One caveat worth a
+second seed: `sporebank_shore` is 56% of the 529 chunks around this seed's spawn, which is one
+humidity region rather than a defect, but the three-way split is not yet shown to be balanced.
+
 ## Latest implementation — September 7 twelve-item field review — 2026-09-07
 
 Eight of the twelve reported items have an authoritative repair; four are diagnosed and scoped.

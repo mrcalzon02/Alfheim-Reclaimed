@@ -331,6 +331,276 @@
       }
     },
     {
+      "biome": "alfheim:sporebank_shore",
+      "parameters": {
+        "continentalness": [
+          -0.15,
+          0.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          0.4,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:sporebank_shore",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.03
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          0.4,
+          1.0
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:sporebank_shore",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.03
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          1.0
+        ],
+        "humidity": [
+          0.4,
+          0.45
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:tidewood_shore",
+      "parameters": {
+        "continentalness": [
+          -0.15,
+          0.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -0.15,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:tidewood_shore",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.03
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -0.15,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:tidewood_shore",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.03
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -0.15,
+          1.0
+        ],
+        "humidity": [
+          -1.0,
+          0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:mistbark_shore",
+      "parameters": {
+        "continentalness": [
+          -0.15,
+          0.0
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          -0.15
+        ],
+        "humidity": [
+          -1.0,
+          0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:mistbark_shore",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.03
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -0.3,
+          1.0
+        ],
+        "temperature": [
+          -1.0,
+          -0.15
+        ],
+        "humidity": [
+          -1.0,
+          0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
+      "biome": "alfheim:mistbark_shore",
+      "parameters": {
+        "continentalness": [
+          0.0,
+          0.03
+        ],
+        "erosion": [
+          -1.0,
+          1.0
+        ],
+        "weirdness": [
+          -1.0,
+          -0.3
+        ],
+        "temperature": [
+          -1.0,
+          -0.15
+        ],
+        "humidity": [
+          -1.0,
+          0.4
+        ],
+        "depth": [
+          -1.0,
+          1.0
+        ],
+        "offset": 0.0
+      }
+    },
+    {
       "biome": "alfheim:silverbark_wood",
       "parameters": {
         "continentalness": [
@@ -484,7 +754,7 @@
       "biome": "alfheim:mana_fen",
       "parameters": {
         "continentalness": [
-          0.0,
+          0.03,
           0.15
         ],
         "erosion": [
@@ -514,7 +784,7 @@
       "biome": "alfheim:mana_fen",
       "parameters": {
         "continentalness": [
-          0.0,
+          0.03,
           0.15
         ],
         "erosion": [
@@ -605,7 +875,7 @@
       "parameters": {
         "continentalness": [
           -0.28,
-          0.0
+          -0.15
         ],
         "erosion": [
           -1.0,
@@ -634,7 +904,7 @@
       "biome": "mythicbotany:alfheim_lakes",
       "parameters": {
         "continentalness": [
-          0.0,
+          0.03,
           0.1
         ],
         "erosion": [
@@ -664,7 +934,7 @@
       "biome": "mythicbotany:alfheim_lakes",
       "parameters": {
         "continentalness": [
-          0.0,
+          0.03,
           0.1
         ],
         "erosion": [
@@ -754,7 +1024,7 @@
       "biome": "mythicbotany:alfheim_plains",
       "parameters": {
         "continentalness": [
-          0.0,
+          0.03,
           0.15
         ],
         "erosion": [
@@ -784,7 +1054,7 @@
       "biome": "mythicbotany:alfheim_plains",
       "parameters": {
         "continentalness": [
-          0.0,
+          0.03,
           0.15
         ],
         "erosion": [

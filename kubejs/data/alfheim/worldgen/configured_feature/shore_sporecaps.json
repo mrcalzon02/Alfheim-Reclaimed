@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "alfheim:shore_sporecap_0",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:shore_sporecap_1",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:shore_sporecap_2",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:shore_sporecap_3",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:shore_sporecap_4",
+        "placement": []
+      },
+      {
+        "feature": "alfheim:shore_sporecap_5",
+        "placement": []
+      }
+    ]
+  }
+}

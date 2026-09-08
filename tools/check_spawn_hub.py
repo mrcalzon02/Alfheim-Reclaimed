@@ -475,6 +475,23 @@ def main():
         print('  --   top-level names: '
               + ', '.join(f'{k} {v}' for k, v in counts.items()))
 
+    # ---- S13: the placement tag must cover the whole biome layer --------------------------
+    # `/place structure` evaluates the structure's biome holder set, so has_greatbole has to
+    # name every biome the layer can produce. gen_spawn_hub keeps that list by hand; a biome
+    # added to the layer and forgotten here becomes a silent placement miss on some seeds.
+    layer_path = os.path.join('kubejs', 'data', 'mythicbotany', 'libx', 'biome_layer',
+                              'alfheim.json')
+    tag_path = os.path.join(DATA, 'tags', 'worldgen', 'biome', 'has_greatbole.json')
+    if os.path.exists(layer_path) and os.path.exists(tag_path):
+        layer = {e['biome'] for e in json.load(open(layer_path, encoding='utf-8'))['biomes']}
+        tagged = set(json.load(open(tag_path, encoding='utf-8'))['values'])
+        for missing in sorted(layer - tagged):
+            fail('S13', f'has_greatbole does not cover {missing}, which the biome layer places')
+        for extra in sorted(tagged - layer):
+            fail('S13', f'has_greatbole names {extra}, which the biome layer never places')
+        if a.verbose and layer == tagged:
+            print(f'  --   has_greatbole covers all {len(layer)} layer biomes')
+
     # ---- S9/S10/S11: the assembled complex ------------------------------------------------
     # Added 2026-09-07 after a field session found three faults that every existing check
     # passed over: the civic wings dead-ended against the amphitheatre's intact outer seating,

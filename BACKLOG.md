@@ -1,5 +1,84 @@
 # Backlog
 
+### B-84 — wooded shores and the climate-scale correction — **RUNTIME MEASURED; CLIENT REVIEW PENDING**
+
+Two pieces of work, the second discovered while doing the first.
+
+#### The wooded shores (field item 7, design item I12)
+
+Three coastal biomes on continentalness -0.15..0.03, the strip where the lake and ocean floor
+rises out of the water. The band deliberately straddles the waterline: trees require a dry
+heightmap column and zero water depth, so the belt places itself along whatever part of the band
+is land in a given chunk. It follows the coast because the coast is what defines it.
+
+| Biome | Split on | Canopy | Floor |
+|---|---|---|---|
+| `alfheim:tidewood_shore` | temperature >= -0.15 | Gloambark, dense | undergrowth, driftwood, motif flowers |
+| `alfheim:mistbark_shore` | the remainder | Hushbark, pale | undergrowth, driftwood, ferns |
+| `alfheim:sporebank_shore` | humidity >= 0.4 | six Feywild cap colours as a real canopy | mycelium/podzol bed, spore scatter |
+
+The band is taken from `mythicbotany:alfheim_lakes`, which measured 44% of one field world and
+77% of another. Six new coastal structures keep the two-per-biome rule: Tidewatch and the
+Driftwood Span, the Mistfall Shrine and Hushbark Causeway, the Sporebank Hall and Capfall Barrow.
+
+#### The climate-scale correction (field item 8)
+
+One constant, `CLIMATE_SCALE = 0.0625`, was applied to four vanilla noises whose base periods
+span a 16x range. Region size is base period / xz_scale, so the four axes came out wildly
+different:
+
+| Axis | Noise | Base | Region produced |
+|---|---|---|---|
+| temperature | `minecraft:temperature` | 1024 | **16,384 blocks** |
+| humidity | `minecraft:vegetation` | 256 | 4,096 blocks |
+| weirdness | `minecraft:ridge` | 128 | 2,048 blocks |
+| continentalness | `minecraft:badlands_surface` | 64 | 1,422 blocks |
+
+That single fact explains B-83's monoculture. Continentalness varies on a 1.4 km scale, so ocean,
+land and the Void rim always worked. Temperature varied on a 16 km scale, so a world contained
+about one thermal band.
+
+It also explains why two earlier attempts failed: both moved a *threshold* (scorchfell's floor
+0.55 -> 0.45 -> 0.32) and `CLIMATE_AMPLIFY` widened the *tails*. Amplitude was never the problem.
+A 16 km period means few independent samples per world, so widening a rare band does not make it
+less rare.
+
+Each axis now gets the scale its own base period needs, keeping the nesting vanilla intends —
+broad thermal zones, humidity variation inside them, weirdness variants inside that:
+temperature 4,096, humidity 2,048, weirdness 1,024 blocks. Weirdness also gained the 1.8
+amplification it was the only axis to lack, which matters because 28 of the layer's 42 bands
+split on it at -0.3, 0.0 and +0.3.
+
+#### Measured, three worlds, one seed (-6479222785550481610)
+
+`locate biome` from the origin. A is the old shared 0.0625; B a uniform 2,048-block target;
+C the shipped hierarchy.
+
+| Biome | A | B | C |
+|---|---|---|---|
+| scorchfell | **not found** | 1,324 | **2,458** |
+| bloomfall_vale | **not found** | 1,154 | **2,234** |
+| tidewood_shore | 6,324 | 1,024 | 2,013 |
+| ashen_grove | 5,376 | 2,492 | 1,810 |
+| hollow_marches | 5,077 | 1,831 | 1,697 |
+| sundered_highlands | 2,805 | 1,131 | 1,154 |
+| starved_reach | 618 | 618 | 618 |
+| mistbark_shore | 659 | 484 | 484 |
+| void_verge / decayed_mire / infested_warren | 389 / 320 / 101 | unchanged | unchanged |
+
+The four continentalness-driven biomes are identical across all three, exactly as predicted:
+continentalness was not touched. Every temperature- or humidity-driven biome improved, and the
+two that could not be found at all now exist.
+
+#### Open
+
+- Client visual review of all three shores, and of the six new coastal structures in place.
+- The shore band is 56% `sporebank_shore` within 529 chunks of this seed's spawn. That is one
+  humidity region, not a bug, but it is worth a second seed before calling the three-way split
+  balanced.
+- `CLIMATE_AMPLIFY = 1.8` predates this analysis and may now be doing less work than it was;
+  worth re-measuring once the period is right.
+
 ### B-83 — September 7 field review, twelve items — **PARTIALLY IMPLEMENTED; SEE PER-ITEM STATE**
 
 Twelve field observations from the 22:08 session on `New World-fellhammer`. Each is recorded with

@@ -357,6 +357,9 @@ DEFAULT_COMMANDS = [
     (2, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:infested_warren'),
     (2, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:decayed_mire'),
     (2, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:void_verge'),
+    (2, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:tidewood_shore'),
+    (2, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:mistbark_shore'),
+    (2, 'execute in mythicbotany:alfheim positioned 0 100 0 run locate biome alfheim:sporebank_shore'),
     # --- MIDGARD: does Continuity Works actually reach the Overworld? -----------------------
     #
     # Reported by the user 2026-09-04: "overall still had vanilla biomes not continuity works."

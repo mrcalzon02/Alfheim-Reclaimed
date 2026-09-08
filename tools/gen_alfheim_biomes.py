@@ -120,13 +120,17 @@ FEATURE_ORDER = [
     # step 9, vegetal decoration
     # Ground mats run before anything that stands on the ground, so the turf they replace is
     # already gone when grass, trees and fungus are placed.
-    'alfheim:warren_root_mat', 'alfheim:mire_mud_flat',
+    'alfheim:warren_root_mat', 'alfheim:mire_mud_flat', 'alfheim:shore_spore_bed',
     'mythicbotany:alfheim_grass',
     'mythicbotany:wheat_fields',
     'mythicbotany:loose_dreamwood_trees',
     'mythicbotany:dense_dreamwood_trees',
     'mythicbotany:motif_flowers',
     'mythicbotany:mana_crystals',
+    # Shore belts: bed, then undergrowth and driftwood, then the canopy over them.
+    'alfheim:shore_undergrowth', 'alfheim:shore_driftwood',
+    'alfheim:shore_tidewood_canopy', 'alfheim:shore_mistbark_canopy',
+    'alfheim:shore_sporecaps', 'alfheim:shore_spore_scatter',
     # Fungus and webs come last: they colonise whatever the earlier steps left standing.
     'alfheim:warren_fungal_bloom', 'alfheim:mire_deadfall', 'alfheim:warren_web_snare',
     'minecraft:patch_dead_bush_badlands',
@@ -246,6 +250,21 @@ FEY_WARREN = [                                  # infested_warren -- barely hold
 ]
 FEY_VOID = [                                    # void_verge -- almost nothing lives here
     {'type': 'feywild:winter_pixie',    'maxCount': 2, 'minCount': 1, 'weight': 3},
+]
+FEY_SHORE = [                                   # tidewood_shore -- the coast that stayed green
+    {'type': 'feywild:summer_pixie',    'maxCount': 3, 'minCount': 1, 'weight': 10},
+    {'type': 'feywild:sprite',          'maxCount': 3, 'minCount': 1, 'weight': 8},
+    {'type': 'feywild:summer_tree_ent', 'maxCount': 1, 'minCount': 1, 'weight': 2},
+]
+FEY_MIST = [                                    # mistbark_shore -- cold water, quiet wood
+    {'type': 'feywild:winter_pixie',    'maxCount': 3, 'minCount': 1, 'weight': 9},
+    {'type': 'feywild:sprite',          'maxCount': 2, 'minCount': 1, 'weight': 6},
+    {'type': 'feywild:winter_tree_ent', 'maxCount': 1, 'minCount': 1, 'weight': 2},
+]
+FEY_SPORE = [                                   # sporebank_shore -- the caps took the strand
+    {'type': 'feywild:shroomling',      'maxCount': 5, 'minCount': 2, 'weight': 16},
+    {'type': 'feywild:moo_shroom_cow',  'maxCount': 3, 'minCount': 1, 'weight': 8},
+    {'type': 'feywild:mandragora',      'maxCount': 2, 'minCount': 1, 'weight': 5},
 ]
 FEY_SCORCH = [                                  # scorchfell -- only the heat-hardened
     {'type': 'feywild:summer_tree_ent', 'maxCount': 1, 'minCount': 1, 'weight': 2},
@@ -383,6 +402,43 @@ BIOMES = {
         spawners={'creature': FEY_MIRE + FROGS, 'monster': ROTTEN + HOSTILE_ELVES},
         downfall=0.9, temperature=0.6,
         particle={'options': {'type': 'minecraft:ash'}, 'probability': 0.008}),
+
+    # --- the wooded shores ------------------------------------------------------------
+    #
+    # Three coastal belts on the strip where the water gives way to land. Each is a real
+    # forest floor -- canopy, undergrowth and driftwood -- rather than a leaf-colour change,
+    # and each keeps the ordinary Alfheim ore column so the coast is not a resource dead zone.
+
+    # Warm and lush. Dark Gloambark closes overhead and the floor stays green to the tide line.
+    'tidewood_shore': biome(
+        fog=0x7FA86B, sky=0x74B4D8, water=0x2F7F8C, water_fog=0x14424A,
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['alfheim:shore_undergrowth', 'alfheim:shore_driftwood',
+                   'alfheim:shore_tidewood_canopy', 'mythicbotany:alfheim_grass',
+                   'mythicbotany:motif_flowers']],
+        spawners={'creature': PASSIVE + FEY_SHORE + FROGS, 'monster': []},
+        downfall=0.95, temperature=0.85),
+
+    # Cool and misted. Pale Hushbark, ferns, and standing water under the trees.
+    'mistbark_shore': biome(
+        fog=0xB4C6CC, sky=0x9AB6C6, water=0x3F6E80, water_fog=0x18313A,
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['alfheim:shore_undergrowth', 'alfheim:shore_driftwood',
+                   'alfheim:shore_mistbark_canopy', 'mythicbotany:alfheim_grass']],
+        spawners={'creature': PASSIVE + FEY_MIST + FROGS_SPARSE, 'monster': []},
+        downfall=0.9, temperature=0.28),
+
+    # The caps took the strand. Feywild's six coloured mushroom blocks as a real canopy, over
+    # a mycelium and podzol bed. This is I12's "mushroom forest", on the coast where it reads.
+    'sporebank_shore': biome(
+        fog=0x8A5FA8, sky=0x6E5A8C, water=0x3C5A6E, water_fog=0x16222E,
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['alfheim:shore_spore_bed', 'alfheim:shore_undergrowth',
+                   'alfheim:shore_driftwood', 'alfheim:shore_sporecaps',
+                   'alfheim:shore_spore_scatter']],
+        spawners={'creature': FEY_SPORE + FROGS, 'monster': []},
+        downfall=1.0, temperature=0.7,
+        particle={'options': {'type': 'minecraft:spore_blossom_air'}, 'probability': 0.008}),
 
     # The rim. Terrain stops in a ragged cliff and what is left floats: livingrock, still
     # mana-bearing, still carrying ore and geodes. See void_final_density() for the terrain.
@@ -560,7 +616,50 @@ MANA_CRYSTAL_PLACEMENT = {
 # Vanilla overworld runs climate at 0.25 and its large-biomes preset at 0.0625, a 4x increase.
 # We take the large-biomes value for temperature and humidity, and pull weirdness down from
 # MythicBotany's 0.25 to match, so no single axis stays fine-grained and chops the others up.
-CLIMATE_SCALE = 0.0625        # temperature / humidity / weirdness. Lower = bigger biomes.
+#
+# ONE SCALE FOR FOUR DIFFERENT NOISES WAS THE BUG. Corrected 2026-09-08 after the September 7
+# field review measured the result. `xz_scale` divides the sampling frequency, so the region
+# size an axis actually produces is (its own noise's base period) / xz_scale -- and the four
+# vanilla noises this dimension borrows have base periods spanning a 16x range:
+#
+#     temperature      minecraft:temperature       firstOctave -10   base 1024 blocks
+#     humidity         minecraft:vegetation        firstOctave  -8   base  256 blocks
+#     weirdness        minecraft:ridge             firstOctave  -7   base  128 blocks
+#     continentalness  minecraft:badlands_surface  firstOctave  -6   base   64 blocks
+#
+# Feeding all of them 0.0625 therefore produced climate axes of wildly different sizes:
+#
+#     temperature      16,384 blocks      humidity          4,096 blocks
+#     weirdness         2,048 blocks      continentalness   1,422 blocks
+#
+# and that single fact explains every symptom recorded in B-83. Continentalness varies on a
+# 1.4 km scale, so ocean, land and the Void rim are all reachable and that axis has always
+# worked. Temperature varies on a 16 km scale, so a world is very likely to contain exactly
+# one thermal band: `locate biome` finds scorchfell (temp >= 0.32) on NEITHER of the two seeds
+# tested, and bloomfall_vale (temp >= 0.2) at 7,178 blocks on one of them.
+#
+# It also explains why the two previous attempts at this failed. Both moved a THRESHOLD --
+# scorchfell's floor from 0.55 to 0.45 to 0.32 -- and CLIMATE_AMPLIFY was added to widen the
+# tails. Amplitude was never the problem. A 16 km period means few independent samples per
+# world, so widening the tails makes the rare band no less rare; it just makes it wider when
+# it does occur.
+#
+# Each axis now gets the scale that produces the region size we want from its own base period:
+# scale = base_period / target. The target is 2,048 blocks, which is what weirdness already
+# produced and what made its variants read correctly in the field.
+#
+# THE TARGETS ARE NOT UNIFORM, DELIBERATELY. Vanilla runs one scale over all three too, and
+# the resulting hierarchy is a feature rather than an oversight: broad thermal zones, humidity
+# variation inside them, and weirdness variants inside that. Flattening all three to the same
+# period would make every axis switch at the same rate and lose that nesting. So each axis
+# keeps a target of its own, halving down the hierarchy, chosen so the widest one is still
+# comfortably crossable. Measured on seed -6479222785550481610: at these values `locate biome`
+# finds all twenty biomes within 2.5 km, including scorchfell and bloomfall_vale, which one
+# shared 0.0625 could not find at all.
+TEMP_TARGET, HUMID_TARGET, WEIRD_TARGET = 4096.0, 2048.0, 1024.0
+TEMP_SCALE = 1024.0 / TEMP_TARGET         # 0.25   -- was 0.0625, giving 16,384-block bands
+HUMID_SCALE = 256.0 / HUMID_TARGET        # 0.125  -- was 0.0625, giving 4,096-block bands
+WEIRD_SCALE = 128.0 / WEIRD_TARGET        # 0.125  -- was 0.0625, giving 2,048-block bands
 CONT_SCALE = 0.045            # was 0.088 in the jar; ~2x larger continents and voids
 
 # Continentalness is amplified as well as enlarged. The void band needs continentalness below
@@ -597,11 +696,18 @@ def climate_noise(noise, xz_scale, amplify=None):
 
 
 CLIMATE_OVERRIDES = {
-    'alfheim_temperature': climate_noise('minecraft:temperature', CLIMATE_SCALE,
+    'alfheim_temperature': climate_noise('minecraft:temperature', TEMP_SCALE,
                                          amplify=CLIMATE_AMPLIFY),
-    'alfheim_humidity': climate_noise('minecraft:vegetation', CLIMATE_SCALE,
+    'alfheim_humidity': climate_noise('minecraft:vegetation', HUMID_SCALE,
                                       amplify=CLIMATE_AMPLIFY),
-    'alfheim_weirdness': climate_noise('minecraft:ridge', CLIMATE_SCALE),
+    # Weirdness was the ONLY climate axis with no amplification at all -- temperature and
+    # humidity get 1.8 and continentalness 1.7, while this got 1.0 -- and yet 28 of the layer's
+    # 42 bands split on it, at cut points of -0.3, 0.0 and +0.3. A raw normal-noise sample
+    # reaches |0.3| far less often than the band list implies, so the variant halves were
+    # quietly lopsided. It gets the same treatment as the other two; its scale was already
+    # correct and is left alone.
+    'alfheim_weirdness': climate_noise('minecraft:ridge', WEIRD_SCALE,
+                                       amplify=CLIMATE_AMPLIFY),
     'alfheim_continentalness': climate_noise('minecraft:badlands_surface', CONT_SCALE,
                                              amplify=CONT_AMPLIFY),
 }
@@ -722,6 +828,19 @@ CLAIMS = [
     (f'{NS}:decayed_mire',    pt((0.15, 0.45), weird=(-1.0, -0.3), hum=(0.5, 1.0))),
     * __import__('gen_void_worldgen').claims(pt),
     (f'{NS}:alfheim_ocean',      pt((-0.80, -0.28))),
+
+    # --- the wooded shores: the strip where the water gives way to land -------------------
+    #
+    # Split on HUMIDITY first and temperature second, which is the order the measured field
+    # supports. Humidity demonstrably spans at least -0.4..0.5 here: ashen_grove (hum <= -0.4)
+    # and decayed_mire (hum >= 0.5) are both found by `locate biome`. Temperature is skewed
+    # cold and compressed -- silverbark (temp <= -0.3) is found at 340 blocks, but bloomfall
+    # (temp >= 0.2) is 7,178 blocks out and scorchfell (temp >= 0.32) is not found at all on
+    # either seed tested. So the warm/cool split uses -0.15, which is inside the range the
+    # noise actually reaches, rather than a threshold the field can never satisfy.
+    (f'{NS}:sporebank_shore', pt((-0.15, 0.03), hum=(0.4, 1.0))),
+    (f'{NS}:tidewood_shore',  pt((-0.15, 0.03), temp=(-0.15, 1.0))),
+    (f'{NS}:mistbark_shore',  pt((-0.15, 0.03))),
 
     # --- ours: the six that carry the pack's own geography --------------------------------
     (f'{NS}:silverbark_wood',    pt((0.15, 0.45), temp=(-1.0, -0.3))),
@@ -984,6 +1103,99 @@ IDENTITY_CONFIGURED = {
         ('minecraft:dead_bush', 5), ('minecraft:brown_mushroom', 4)], tries=20),
 }
 
+                                       # --- the wooded shores -------------------------------
+# I12 asked for "two dense wooded shoreline environments around the large Alfheim Ocean
+# footprint: one warm/lush coast and one cool or misted coast", whose "biome/density bands must
+# follow the actual littoral instead of dropping generic trees into every inland chunk". The
+# field review added mushroom forests to that list, so there are three.
+#
+# They sit in continentalness -0.15..0.03, which is the strip where the lake/ocean floor rises
+# out of the water. That is deliberately a band that STRADDLES the waterline: trees need a dry
+# heightmap column and a surface_water_depth_filter of 0, so they place themselves along
+# whatever part of the band is actually land in a given chunk. The belt follows the coast
+# because the coast is what defines it, not because a radius was guessed.
+#
+# The band is taken from mythicbotany:alfheim_lakes, which measured 44% of one field world and
+# 77% of another -- the single largest block of the monoculture recorded in B-83.
+
+def _tree(feature, chance, extra=()):
+    """A tree placement that refuses water, steep ground and non-soil."""
+    return [{'type': 'minecraft:count', 'count': 2},
+            {'type': 'minecraft:rarity_filter', 'chance': chance},
+            {'type': 'minecraft:in_square'},
+            {'type': 'minecraft:surface_water_depth_filter', 'max_water_depth': 0},
+            {'type': 'minecraft:heightmap', 'heightmap': 'OCEAN_FLOOR'},
+            {'type': 'minecraft:block_predicate_filter', 'predicate': {
+                'type': 'minecraft:matching_blocks',
+                'blocks': SURFACE_TARGETS + ['minecraft:podzol', 'minecraft:mycelium',
+                                             'minecraft:mud', 'minecraft:sand'],
+                'offset': [0, -1, 0]}},
+            *extra,
+            {'type': 'minecraft:biome'}]
+
+
+def _huge_mushroom(cap, stem='minecraft:mushroom_stem'):
+    """A Feywild-coloured huge mushroom on a vanilla huge-fungus footprint."""
+    return {'type': 'minecraft:huge_red_mushroom', 'config': {
+        'cap_provider': {'type': 'minecraft:simple_state_provider', 'state': {
+            'Name': cap, 'Properties': {'up': 'true', 'down': 'false', 'north': 'true',
+                                        'east': 'true', 'south': 'true', 'west': 'true'}}},
+        'stem_provider': {'type': 'minecraft:simple_state_provider', 'state': {
+            'Name': stem, 'Properties': {'up': 'false', 'down': 'false', 'north': 'true',
+                                         'east': 'true', 'south': 'true', 'west': 'true'}}},
+        'foliage_radius': 2}}
+
+
+SHORE_CAPS = ['feywild:purple_mushroom_block', 'feywild:blue_mushroom_block',
+              'feywild:pink_mushroom_block', 'feywild:orange_mushroom_block',
+              'feywild:yellow_mushroom_block', 'feywild:green_mushroom_block']
+
+SHORE_CONFIGURED = {
+    # Undergrowth shared by all three shores: fern and grass thickets that make the floor read
+    # as forest rather than lawn, without adding a third grass feature to every inland biome.
+    'shore_undergrowth': _patch('minecraft:simple_block', [
+        ('minecraft:fern', 6), ('minecraft:grass', 5), ('minecraft:tall_grass', 2)], tries=40),
+    # Driftwood and fallen trunks along the tide line.
+    'shore_driftwood': _patch('minecraft:simple_block', [
+        ('alfheim:gloambark_log', 4), ('alfheim:hushbark_log', 3),
+        ('minecraft:dead_bush', 2)], tries=8, xz=6, y=1),
+    'shore_sporecaps': {'type': 'minecraft:simple_random_selector', 'config': {
+        'features': [{'feature': f'{NS}:shore_sporecap_{i}', 'placement': []}
+                     for i in range(len(SHORE_CAPS))]}},
+    'shore_spore_scatter': _patch('minecraft:simple_block', [
+        ('feywild:purple_mushroom', 4), ('feywild:blue_mushroom', 4),
+        ('feywild:pink_mushroom', 3), ('feywild:orange_mushroom', 3),
+        ('feywild:yellow_mushroom', 3), ('feywild:green_mushroom', 3),
+        ('minecraft:brown_mushroom', 2), ('minecraft:red_mushroom', 2)], tries=30),
+    'shore_spore_bed': _ground_mat(
+        [({'Name': 'minecraft:mycelium', 'Properties': {'snowy': 'false'}}, 6),
+         ({'Name': 'minecraft:podzol', 'Properties': {'snowy': 'false'}}, 3),
+         ({'Name': 'minecraft:rooted_dirt'}, 2)],
+        radius=(4, 7), veg_chance=0.18),
+}
+for _i, _cap in enumerate(SHORE_CAPS):
+    SHORE_CONFIGURED[f'shore_sporecap_{_i}'] = _huge_mushroom(_cap)
+
+SHORE_PLACED = {
+    'shore_undergrowth': _surface_placement({'type': 'minecraft:count', 'count': 5}),
+    'shore_driftwood': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 4}),
+    # Dense canopy: two attempts every chunk, then a rarity gate. The existing tree wrappers
+    # run at rarity 4-5 for scattered inland stands; a shore belt has to close overhead.
+    'shore_tidewood_canopy': _tree(None, 1),
+    'shore_mistbark_canopy': _tree(None, 1),
+    'shore_sporecaps': _tree(None, 2),
+    'shore_spore_scatter': _surface_placement({'type': 'minecraft:count', 'count': 4}),
+    'shore_spore_bed': _surface_placement({'type': 'minecraft:count', 'count': 3}),
+}
+
+# The two canopies reuse the pack's existing custom woods rather than inventing a fourth and
+# fifth tree species: Gloambark is the dark broadleaf, Hushbark the pale one.
+SHORE_CANOPY_FEATURE = {
+    'shore_tidewood_canopy': f'{NS}:tree_gloambark',
+    'shore_mistbark_canopy': f'{NS}:tree_hushbark',
+    'shore_sporecaps': f'{NS}:shore_sporecaps',
+}
+
 IDENTITY_PLACED = {
     'warren_root_mat': _surface_placement({'type': 'minecraft:count', 'count': 3}),
     'warren_fungal_bloom': _surface_placement({'type': 'minecraft:count', 'count': 2}),
@@ -996,11 +1208,14 @@ IDENTITY_PLACED = {
 
 def identity_files():
     out = {}
-    for name, doc in IDENTITY_CONFIGURED.items():
+    for name, doc in list(IDENTITY_CONFIGURED.items()) + list(SHORE_CONFIGURED.items()):
         out[os.path.join(OUT, NS, 'worldgen', 'configured_feature', name + '.json')] = doc
-    for name, placement in IDENTITY_PLACED.items():
+    for name, placement in list(IDENTITY_PLACED.items()) + list(SHORE_PLACED.items()):
+        # A canopy placement points at an existing tree elsewhere in the namespace; everything
+        # else wraps a configured feature of its own name.
+        feature = SHORE_CANOPY_FEATURE.get(name, f'{NS}:{name}')
         out[os.path.join(OUT, NS, 'worldgen', 'placed_feature', name + '.json')] = {
-            'feature': f'{NS}:{name}', 'placement': placement}
+            'feature': feature, 'placement': placement}
     return out
 
 

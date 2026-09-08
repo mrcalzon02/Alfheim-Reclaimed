@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:surface/driftwood_span",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:surface/driftwood_span",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 30,
+    "xz_spread": 7,
+    "y_spread": 3,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "feywild:purple_mushroom"
+                },
+                "weight": 4
+              },
+              {
+                "data": {
+                  "Name": "feywild:blue_mushroom"
+                },
+                "weight": 4
+              },
+              {
+                "data": {
+                  "Name": "feywild:pink_mushroom"
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "feywild:orange_mushroom"
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "feywild:yellow_mushroom"
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "feywild:green_mushroom"
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "minecraft:brown_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "minecraft:red_mushroom"
+                },
+                "weight": 2
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ],
+                "offset": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:grass_block",
+                  "minecraft:dirt",
+                  "minecraft:coarse_dirt",
+                  "minecraft:podzol",
+                  "botania:livingrock"
+                ],
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

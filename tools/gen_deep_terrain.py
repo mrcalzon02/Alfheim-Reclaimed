@@ -142,6 +142,11 @@ def build():
         'alfheim:infested_warren':['rootbound_livingrock','gloam_livingrock','moss_livingrock','petrified_livingrock','amethyst_livingrock'],
         'alfheim:decayed_mire':['abyssal_livingrock','moss_livingrock','gloam_livingrock','tide_livingrock','amethyst_livingrock'],
         'mythicbotany:alfheim_hills':['cracked_livingrock','storm_livingrock','gale_livingrock','moonstone_livingrock','obsidian_livingrock'],
+        # The three wooded shores read as littoral rock: tide and storm stone shading into the
+        # root- and moss-bound stone of the wood that stands on it.
+        'alfheim:tidewood_shore':['tide_livingrock','rootbound_livingrock','moss_livingrock','amber_livingrock','fern_livingrock'],
+        'alfheim:mistbark_shore':['tide_livingrock','frost_livingrock','silvermist_livingrock','fern_livingrock','moonstone_livingrock'],
+        'alfheim:sporebank_shore':['moss_livingrock','tide_livingrock','amethyst_livingrock','rootbound_livingrock','gloam_livingrock'],
     }
     assert all(set(ids)<=known for ids in biome_palettes.values())
     palettes=[([biome],ids) for biome,ids in biome_palettes.items()]
