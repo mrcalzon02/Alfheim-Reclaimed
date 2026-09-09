@@ -1,0 +1,13 @@
+[
+	"#ars_nouveau:archwood_biome",
+	"minecraft:meadow",
+	"minecraft:plains",
+	"regions_unexplored:deciduous_forest?",
+	"regions_unexplored:eucalyptus_forest?",
+	"regions_unexplored:grassland?",
+	"regions_unexplored:highland_fields?",
+	"regions_unexplored:prairie?",
+	"regions_unexplored:rocky_meadow?",
+	"regions_unexplored:temperate_grove?",
+	"regions_unexplored:willow_forest?"
+]

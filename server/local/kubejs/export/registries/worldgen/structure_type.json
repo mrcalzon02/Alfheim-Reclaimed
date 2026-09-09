@@ -1,0 +1,22 @@
+{
+	"minecraft:mineshaft": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:igloo": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:shipwreck": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:ruined_portal": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:ocean_ruin": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:buried_treasure": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:desert_pyramid": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:stronghold": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:jigsaw": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:swamp_hut": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"ars_nouveau:wilden_den": "com.hollingsworth.arsnouveau.setup.registry.StructureRegistry$$Lambda$20730/0x000002012d9f3a60",
+	"minecraft:ocean_monument": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"ars_nouveau:wilden_guardian_den": "com.hollingsworth.arsnouveau.setup.registry.StructureRegistry$$Lambda$20731/0x000002012d9f3c78",
+	"minecraft:fortress": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:nether_fossil": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecraft:woodland_mansion": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"minecolonies:empty_colony": "com.minecolonies.core.structures.MineColoniesStructures$$Lambda$20732/0x000002012d9f1000",
+	"minecraft:jungle_temple": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60",
+	"supplementaries:way_sign": "net.mehvahdjukaar.supplementaries.common.worldgen.WaySignStructure$Type",
+	"minecraft:end_city": "net.minecraft.world.level.levelgen.structure.StructureType$$Lambda$3586/0x000002012bb9bd60"
+}

@@ -1,0 +1,7 @@
+[
+	"minecraft:frozen_river",
+	"minecraft:river",
+	"regions_unexplored:cold_river?",
+	"regions_unexplored:muddy_river?",
+	"regions_unexplored:tropical_river?"
+]

@@ -1,0 +1,10 @@
+[
+	"create:blaze_burner",
+	"create:lit_blaze_burner",
+	"minecraft:campfire",
+	"minecraft:fire",
+	"minecraft:lava",
+	"minecraft:lava_cauldron",
+	"minecraft:soul_campfire",
+	"minecraft:soul_fire"
+]

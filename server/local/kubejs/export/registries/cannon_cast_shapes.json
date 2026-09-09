@@ -1,0 +1,15 @@
+{
+	"createbigcannons:very_small": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:small": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:medium": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:large": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:very_large": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:cannon_end": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:sliding_breech": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:screw_breech": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:drop_mortar_end": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:autocannon_barrel": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:autocannon_barrel_flanged": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:autocannon_breech": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape",
+	"createbigcannons:autocannon_recoil_spring": "rbasamoyai.createbigcannons.crafting.casting.CannonCastShape"
+}

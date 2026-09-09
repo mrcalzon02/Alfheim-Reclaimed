@@ -1,0 +1,10 @@
+{
+	"libx:noise": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"dungeon_realm:dungeon_chunk_gen": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecraft:flat": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"ancient_obelisks:obelisk_chunk_gen": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecraft:noise": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"the_harvest:harvest_chunk_gen": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecraft:debug": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"botania:skyblock": "com.mojang.serialization.MapCodec$MapCodecCodec"
+}

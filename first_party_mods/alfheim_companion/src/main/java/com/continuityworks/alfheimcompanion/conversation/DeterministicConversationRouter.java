@@ -22,6 +22,11 @@ public final class DeterministicConversationRouter {
         else if (containsAny(question, "thank you", "thanks", "much appreciated")) response = ConversationResponse.GRATITUDE;
         else if (containsAny(question, "who are you", "what are you")) response = ConversationResponse.SELF_INTRODUCTION;
         else if (containsAny(question, "what can you do", "how can you help", "your capabilities")) response = ConversationResponse.CAPABILITIES;
+        else if (containsAny(question, "next base step", "what happens next with the base", "base next")) response = ConversationResponse.BASE_NEXT_STEP;
+        else if (containsAny(question, "base status", "your base", "our base")) response = ConversationResponse.BASE_STATUS;
+        else if (containsAny(question, "behavior preset", "your preset", "how are you configured")) response = ConversationResponse.BEHAVIOR_PRESET;
+        else if (containsAny(question, "need my approval", "build without approval", "construction permission")) response = ConversationResponse.APPROVAL_BOUNDARY;
+        else if (containsAny(question, "what can you choose", "available actions", "activity options")) response = ConversationResponse.ACTIVITY_OPTIONS;
         else if (containsAny(question, "where are we", "what biome", "our location")) response = ConversationResponse.LOCATION_SUMMARY;
         else if (containsAny(question, "what time", "weather", "conditions here")) response = ConversationResponse.CONDITIONS_SUMMARY;
         else if (containsAny(question, "how are you", "your health", "your stamina", "are you hungry")) response = ConversationResponse.COMPANION_WELLBEING;
@@ -43,6 +48,7 @@ public final class DeterministicConversationRouter {
             else if (containsAny(question, "cost", "mana", "energy", "resource")) response = ConversationResponse.SKILL_COST;
             else if (containsAny(question, "ready", "can use", "requirement", "requires"))
                 response = candidate.get().ready() ? ConversationResponse.SKILL_CONSTRAINT : ConversationResponse.SKILL_NOT_READY;
+            else response = ConversationResponse.SKILL_RECOMMENDATION;
         }
         if (response == null) return Optional.empty();
         String dialogue = ConversationCatalog.render(response, snapshot, skill, "", "");

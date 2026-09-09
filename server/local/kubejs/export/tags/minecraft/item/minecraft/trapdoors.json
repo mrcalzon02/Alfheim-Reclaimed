@@ -1,0 +1,16 @@
+[
+	"#libx:impl_trapdoors",
+	"#minecraft:wooden_trapdoors",
+	"ars_nouveau:archwood_trapdoor",
+	"create:framed_glass_trapdoor",
+	"create:train_trapdoor",
+	"feywild:autumn_tree_planks_trapdoor",
+	"feywild:spring_tree_planks_trapdoor",
+	"feywild:summer_tree_planks_trapdoor",
+	"feywild:winter_tree_planks_trapdoor",
+	"framedblocks:framed_iron_trapdoor",
+	"framedblocks:framed_trapdoor",
+	"minecraft:iron_trapdoor",
+	"supplementaries:gold_trapdoor",
+	"supplementaries:netherite_trapdoor"
+]

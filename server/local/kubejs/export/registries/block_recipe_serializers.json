@@ -1,0 +1,5 @@
+{
+	"createbigcannons:cannon_casting": "rbasamoyai.createbigcannons.crafting.casting.CannonCastingRecipe$Serializer",
+	"createbigcannons:built_up_heating": "rbasamoyai.createbigcannons.crafting.builtup.BuiltUpHeatingRecipe$Serializer",
+	"createbigcannons:drill_boring": "rbasamoyai.createbigcannons.crafting.boring.DrillBoringBlockRecipe$Serializer"
+}

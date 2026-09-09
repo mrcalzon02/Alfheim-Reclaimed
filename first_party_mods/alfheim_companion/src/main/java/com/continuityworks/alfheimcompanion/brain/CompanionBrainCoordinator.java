@@ -5,6 +5,8 @@ import com.continuityworks.alfheimcompanion.entity.ElvenCompanionEntity;
 import com.continuityworks.alfheimcompanion.memory.CompanionMode;
 import com.continuityworks.alfheimcompanion.memory.CompanionSavedData;
 import com.continuityworks.alfheimcompanion.service.CompanionSummonService;
+import com.continuityworks.alfheimcompanion.service.DelegatedClaimService;
+import com.continuityworks.alfheimcompanion.service.AutonomousActivityService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -31,6 +33,8 @@ public final class CompanionBrainCoordinator {
     private static final AtomicBoolean IN_FLIGHT = new AtomicBoolean();
     private static final ConcurrentLinkedQueue<CompletedPlan> RESULTS = new ConcurrentLinkedQueue<>();
     private static final ConcurrentLinkedQueue<CompletedAmbient> AMBIENT_RESULTS = new ConcurrentLinkedQueue<>();
+    private static final ConcurrentLinkedQueue<CompletedClaimDecision> CLAIM_RESULTS = new ConcurrentLinkedQueue<>();
+    private static final ConcurrentLinkedQueue<CompletedActivityDecision> ACTIVITY_RESULTS = new ConcurrentLinkedQueue<>();
     private static volatile TinyBrainEngine engine = new RuleBasedTinyBrainEngine();
     private static long lastAmbientGameTime;
 
@@ -44,6 +48,8 @@ public final class CompanionBrainCoordinator {
         IN_FLIGHT.set(false);
         RESULTS.clear();
         AMBIENT_RESULTS.clear();
+        CLAIM_RESULTS.clear();
+        ACTIVITY_RESULTS.clear();
         AlfheimCompanion.LOGGER.info("Installed tiny-brain engine {}", replacement.engineId());
     }
 
@@ -51,6 +57,8 @@ public final class CompanionBrainCoordinator {
         CompanionSavedData data = CompanionSavedData.get(server);
         applyCompleted(server, data);
         applyAmbient(server, data);
+        applyClaimDecisions(server, data);
+        applyActivityDecisions(server, data);
         if (server.getTickCount() % 200 == 0) maybeRequestAmbient(server, data);
     }
 
@@ -68,6 +76,46 @@ public final class CompanionBrainCoordinator {
         String bounded = question.strip();
         if (bounded.length() > 240) bounded = bounded.substring(0, 240);
         return request(server, bounded);
+    }
+
+    public static boolean requestClaimDistrictDecision(ClaimDistrictSnapshot snapshot) {
+        if (snapshot == null || IN_FLIGHT.get()) return false;
+        if (!IN_FLIGHT.compareAndSet(false, true)) return false;
+        try {
+            engine.activate();
+            engine.chooseClaimDistrict(snapshot).orTimeout(INFERENCE_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+                    .whenComplete((decision, error) -> {
+                        if (error == null && decision != null)
+                            CLAIM_RESULTS.offer(new CompletedClaimDecision(snapshot, decision, snapshot.requestId()));
+                        else if (!(error instanceof CompletionException))
+                            AlfheimCompanion.LOGGER.debug("Claim district decision dropped", error);
+                        IN_FLIGHT.set(false);
+                    });
+            return true;
+        } catch (RuntimeException error) {
+            IN_FLIGHT.set(false);
+            return false;
+        }
+    }
+
+    public static boolean requestAutonomousActivityDecision(AutonomousActivitySnapshot snapshot) {
+        if (snapshot == null || IN_FLIGHT.get()) return false;
+        if (!IN_FLIGHT.compareAndSet(false, true)) return false;
+        try {
+            engine.activate();
+            engine.chooseAutonomousActivity(snapshot).orTimeout(INFERENCE_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+                    .whenComplete((decision, error) -> {
+                        if (error == null && decision != null)
+                            ACTIVITY_RESULTS.offer(new CompletedActivityDecision(snapshot, decision));
+                        else if (!(error instanceof CompletionException))
+                            AlfheimCompanion.LOGGER.debug("Autonomous activity decision dropped", error);
+                        IN_FLIGHT.set(false);
+                    });
+            return true;
+        } catch (RuntimeException error) {
+            IN_FLIGHT.set(false);
+            return false;
+        }
     }
 
     private static boolean request(MinecraftServer server, String question) {
@@ -97,6 +145,8 @@ public final class CompanionBrainCoordinator {
     public static void deactivate() {
         RESULTS.clear();
         AMBIENT_RESULTS.clear();
+        CLAIM_RESULTS.clear();
+        ACTIVITY_RESULTS.clear();
         IN_FLIGHT.set(false);
         engine.deactivate();
     }
@@ -111,6 +161,8 @@ public final class CompanionBrainCoordinator {
 
     public static void clear(UUID companionUuid) {
         RESULTS.clear();
+        CLAIM_RESULTS.clear();
+        ACTIVITY_RESULTS.clear();
         IN_FLIGHT.set(false);
     }
 
@@ -265,6 +317,26 @@ public final class CompanionBrainCoordinator {
         }
     }
 
+    private static void applyClaimDecisions(MinecraftServer server, CompanionSavedData data) {
+        CompletedClaimDecision completed;
+        while ((completed = CLAIM_RESULTS.poll()) != null) {
+            if (completed.decision().requestId() != data.latestRequestId()) continue;
+            DelegatedClaimService.applyDistrictDecision(server, completed.snapshot(), completed.decision());
+        }
+    }
+
+    private static void applyActivityDecisions(MinecraftServer server, CompanionSavedData data) {
+        CompletedActivityDecision completed;
+        while ((completed = ACTIVITY_RESULTS.poll()) != null) {
+            if (completed.decision().requestId() != data.latestRequestId()) continue;
+            AutonomousActivityService.applyDecision(server, completed.snapshot(), completed.decision());
+        }
+    }
+
     private record CompletedPlan(BrainDecision decision, long issuedGameTime) {}
     private record CompletedAmbient(long requestId, long issuedGameTime, String line) {}
+    private record CompletedClaimDecision(ClaimDistrictSnapshot snapshot,
+                                          ClaimDistrictDecision decision, long requestId) {}
+    private record CompletedActivityDecision(AutonomousActivitySnapshot snapshot,
+                                             AutonomousActivityDecision decision) {}
 }

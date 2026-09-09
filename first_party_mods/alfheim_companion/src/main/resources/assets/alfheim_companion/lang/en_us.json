@@ -1,5 +1,6 @@
 {
   "item.alfheim_companion.companion_sigil": "Sigil of the Hollow Court",
+  "item.alfheim_companion.companion_claim_paper": "Companion Claim Paper",
   "message.alfheim_companion.summoned": "%s answers the summons.",
   "message.alfheim_companion.dismissed": "%s returns to the Hollow Court.",
   "message.alfheim_companion.summon_failed": "The companion could not enter this world.",

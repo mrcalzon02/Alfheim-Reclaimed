@@ -1,0 +1,11 @@
+{
+	"irons_spellbooks:fire": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:ice": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:lightning": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:holy": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:ender": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:blood": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:evocation": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:nature": "io.redspace.ironsspellbooks.api.spells.SchoolType",
+	"irons_spellbooks:eldritch": "io.redspace.ironsspellbooks.api.spells.SchoolType"
+}

@@ -2,7 +2,7 @@
 
 **Role:** authoritative implementation record for the civilization-wide reusable asset system introduced by the September 5, 2026 Noble Houses / Fey Stones / Cultural Generation design record.
 
-**Status:** the first Royal macro-asset source slice exists but has not completed repository/runtime acceptance. Royal Tile Set I — Court & Residence is now the authoritative first decorative-object design set; it is design only until its registered models/textures are built and reviewed.
+**Status:** the first Royal macro-asset source slice exists but has not completed repository/runtime acceptance. Royal Tile Set I Wave A now has all 17 semantic assets registered/generated and statically checked; client visual acceptance remains pending. Functional furnishing work is governed by `FUNCTIONAL_ELVEN_FURNISHINGS.md`.
 
 **Extends:** `THE_SURFACE.md`, `ANCIENT_ELVEN_STRUCTURE_ROSTER.md`, `LIVINGROCK_LIBRARY.md`.
 
@@ -82,4 +82,4 @@ The first six house identities and exact six fixed bearings remain uncanonized b
 
 ## 8. Next exact action
 
-Implement the Royal Tile Set I **Wave A pipeline pilot**: Highback Chair, Wall Sconce, Carpet Runner, Balustrade Segment, Lidded Amphora, Canopy Bed, Wall Banner and Astrolabe. Those eight deliberately exercise the major representation problems—single custom furniture, wall lighting, connectable floor tiles, connectable architecture, small props, multi-block furniture, house-substitution textiles and complex hero geometry. Register, texture, generate a review atlas and validate those eight before completing the remaining Wave A families or consuming them in the Greatbole/court refinement pass.
+Runtime-review the complete Royal Tile Set I Wave A gallery, including the original eight-object pipeline pilot and the nine added identity primitives. Then build the functional chest/crate/vessel families around the accepted Manna Stone Storage container foundation and begin consuming accepted tiles in Greatbole/court refinement.

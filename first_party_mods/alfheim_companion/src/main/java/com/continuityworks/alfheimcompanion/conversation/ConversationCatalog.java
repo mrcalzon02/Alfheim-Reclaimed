@@ -3,6 +3,7 @@ package com.continuityworks.alfheimcompanion.conversation;
 import com.continuityworks.alfheimcompanion.brain.BrainSnapshot;
 import com.continuityworks.alfheimcompanion.brain.QuestContext;
 import com.continuityworks.alfheimcompanion.brain.SkillChoice;
+import com.continuityworks.alfheimcompanion.brain.ActivityAffordanceCatalog;
 
 import java.util.Map;
 import java.util.List;
@@ -86,7 +87,17 @@ public final class ConversationCatalog {
             case GRATITUDE -> choose(snapshot, "Gladly.", "You are welcome.", "Of course. We share the road.");
             case SELF_INTRODUCTION -> "I am " + snapshot.companionName()
                     + ", your bonded elven companion and careful witness to our work.";
-            case CAPABILITIES -> "I can follow, guard, defend, retreat, find and carry items, advise on crafting and quests, and prepare bounded build proposals.";
+            case CAPABILITIES -> "I can follow, guard, defend, retreat, handle bounded item tasks, advise on crafting and quests, and establish an approved base in stages.";
+            case BASE_STATUS -> snapshot.basePhase().equals("NONE")
+                    ? "I do not have a base objective yet."
+                    : "My base objective is in the " + readableId(snapshot.basePhase()) + " phase.";
+            case BASE_NEXT_STEP -> "The next base step is " + baseNextStep(snapshot.basePhase()) + ".";
+            case BEHAVIOR_PRESET -> "My current behavior preset is " + readableId(snapshot.behaviorPreset())
+                    + "; it changes preferences, never safety or permission rules.";
+            case APPROVAL_BOUNDARY -> "I may survey and plan autonomously, but every construction proposal requires your approval before any block changes.";
+            case ACTIVITY_OPTIONS -> "My legal choices here are " + String.join(", ",
+                    ActivityAffordanceCatalog.optionsFor(snapshot).stream()
+                            .map(option -> readableId(option.id())).toList()) + ".";
             case MEMORY_UNAVAILABLE -> "I do not hold that in my bounded memory. Tell me directly, and I can remember a concise fact.";
             case LORE_BOUNDARY -> "I can answer only from the quest ledger, verified modpack context, and memories available to me here.";
             case NEED_MORE_CONTEXT -> "I do not have enough verified quest or modpack context to answer that yet.";
@@ -103,7 +114,8 @@ public final class ConversationCatalog {
         List<ConversationResponse> options = new ArrayList<>(List.of(NEED_MORE_CONTEXT,
                 STATUS_SUMMARY, TASK_SUMMARY, COMPANION_WELLBEING, OWNER_WELLBEING,
                 LOCATION_SUMMARY, CONDITIONS_SUMMARY, KNOWN_FACT, MEMORY_UNAVAILABLE,
-                LORE_BOUNDARY, GREETING, GRATITUDE, SELF_INTRODUCTION, CAPABILITIES));
+                LORE_BOUNDARY, GREETING, GRATITUDE, SELF_INTRODUCTION, CAPABILITIES,
+                BASE_STATUS, BASE_NEXT_STEP, BEHAVIOR_PRESET, APPROVAL_BOUNDARY, ACTIVITY_OPTIONS));
         if (!snapshot.activeTask().isBlank()) options.addAll(List.of(ACKNOWLEDGE_TASK, CONTINUE_TASK));
         if (!snapshot.quests().isEmpty()) options.addAll(List.of(QUEST_SUMMARY, QUEST_OBJECTIVE,
                 QUEST_MISSING_ITEMS, QUEST_MATERIALS_READY, QUEST_BLOCKED, QUEST_COMPLETE));
@@ -134,6 +146,19 @@ public final class ConversationCatalog {
     private static String taskNone(BrainSnapshot snapshot) {
         return choose(snapshot, "I have no unfinished task.", "My hands are free at present.",
                 "No task is currently bound to our ledger.");
+    }
+
+    private static String baseNextStep(String phase) {
+        return switch (phase == null ? "NONE" : phase) {
+            case "SURVEY" -> "a dry, sufficiently level, claim-safe site survey";
+            case "PROPOSING" -> "generation and validation of a bounded proposal";
+            case "AWAITING_APPROVAL" -> "your explicit blueprint approval or rejection";
+            case "BUILDING" -> "claim-checked, inventory-backed placement of the approved shell";
+            case "FURNISHING" -> "a separately approved functional furnishing proposal";
+            case "MAINTAINING" -> "guarding the anchor and proposing future repairs before changing it";
+            case "PAUSED" -> "resolving the reported blocker or choosing a new site";
+            default -> "an explicit request to establish a base";
+        };
     }
 
     private static String choose(BrainSnapshot snapshot, String... variants) {

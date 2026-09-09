@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PEP",
+    "ACA",
+    "PEP"
+  ],
+  "key": {
+    "P": { "item": "minecraft:paper" },
+    "E": { "item": "minecraft:emerald" },
+    "A": { "item": "minecraft:amethyst_shard" },
+    "C": { "item": "minecraft:compass" }
+  },
+  "result": {
+    "item": "alfheim_companion:companion_claim_paper",
+    "count": 4
+  }
+}

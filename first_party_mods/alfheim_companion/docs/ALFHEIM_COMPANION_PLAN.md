@@ -63,6 +63,7 @@ Typed Java tasks cover:
 - fetch a requested quantity for a quest or direct request;
 - explain and assist with crafting an item using actual known recipes and inventories;
 - request, preview and execute a named construction blueprint;
+- establish a persistent base of operations through survey, shell, furnishing and maintenance phases;
 - resume, suspend, cancel and report task progress.
 
 Searches are bounded and claim-aware. Container extraction requires permission and a real matching
@@ -76,19 +77,140 @@ drop-in engine satisfying the same `TinyBrainEngine` contract. The inference sub
 than 1 GB of disk and working memory, with a 512-token context, at most 64 output tokens and one active
 request globally.
 
-Because current Jlama requires Java 21 preview features while Forge 1.20.1 officially targets Java 17,
-Jlama cannot simply be shaded into the Forge mod. The adapter must either be a separately bundled local
-Java 21 worker or be replaced by a verified Java-17-compatible engine. Until then, a deterministic rule
-engine implements the interface.
+Because Jlama requires Java 21 preview features while Forge 1.20.1 targets Java 17, inference runs in a
+separately bundled, loopback-only Java 21 worker. The installed worker uses Jlama 0.8.4 and
+`tjake/Qwen2.5-0.5B-Instruct-JQ4`, with a 512 MiB heap ceiling. The Forge-side adapter starts it only
+while needed and falls back to deterministic rules after malformed, late or unavailable results.
 
-The model receives candidate choices, not raw chunks or unrestricted control. A compact result names a
-known task, template, site and parameters. Java parses, validates and executes it. Invalid, late or stale
-results are discarded.
+The model receives candidate choices, not raw chunks or unrestricted control. Its compact result selects
+only offered action, skill, response-template and fact IDs. Model-authored directive and entity-target
+fields are ignored; Java derives both from the selected registered action. Invalid, late or stale results
+are discarded.
+
+Behavior presets (`balanced`, `warden`, `wayfinder`, `artisan`, `steward`) weight combat, quest,
+construction and recovery preferences without weakening safety. Each decision menu is assembled from
+fixed baselines: safety, owner protection, recovery, explicit objective, quest progress, base
+stewardship and companionship. The model cannot create a new affordance.
+
+### Optional advanced reasoning providers (planned)
+
+The installed 0.5B Jlama worker remains the default classifier. A provider-neutral
+`AdvancedReasoningProvider` may optionally supply a more capable second-stage model through either a
+loopback local service or an explicitly enabled HTTPS cloud service. Both routes receive the same
+bounded evidence objects and return the same action, skill, response-template and fact identifiers;
+neither receives direct command or world-mutation authority.
+
+Planned provider modes:
+
+- `disabled` (default): deterministic routing, the bundled 0.5B worker and rules fallback only;
+- `local_openai_compatible`: an owner-supplied loopback endpoint such as a local model server;
+- `cloud_openai_compatible`: an explicit HTTPS endpoint and model name, disabled until separately
+  opted in;
+- later named adapters may be added when a service requires authentication or request semantics that
+  cannot be represented safely by the compatible transport.
+
+The advanced provider is an escalation lane, not an automatic replacement for ordinary behavior.
+Java decides whether a request is eligible before making a call. Eligible cases are ambiguous quest
+comparison, multi-stage construction planning, selecting among several legal MMO strategies and
+unmatched questions with adequate verified context. Greetings, status, ordinary quest facts, combat,
+movement, farming ticks, mining ticks and ambient chatter do not escalate. Malformed local output does
+not automatically trigger a billable cloud retry; it falls back deterministically unless the owner has
+separately enabled retry escalation.
+
+Suggested configuration surface (names provisional):
+
+```properties
+advanced.enabled=false
+advanced.provider=disabled
+advanced.endpoint=https://provider.example/v1/chat/completions
+advanced.model=
+advanced.api_key_env=ALFHEIM_COMPANION_API_KEY
+advanced.timeout_seconds=30
+advanced.max_input_tokens=2048
+advanced.max_output_tokens=128
+advanced.requests_per_minute=2
+advanced.requests_per_session=20
+advanced.daily_token_budget=20000
+advanced.allow_retry_escalation=false
+advanced.allow_coordinates=false
+advanced.log_prompts=false
+```
+
+API credentials are never stored in a tracked modpack configuration, save file, chat message or log.
+Cloud credentials are read from the named environment variable or a future operating-system secret
+store. Cloud mode requires HTTPS, rejects redirects to a different host, applies an endpoint allowlist
+and has independent timeout, request-count and token budgets. Loopback mode accepts only
+`127.0.0.1`, `localhost` or `::1`, matching the existing worker boundary.
+
+Before any remote request, Java builds a privacy-minimized transfer object. Exact coordinates,
+player UUIDs, player names, raw inventories, unrestricted memories and unrelated chat are excluded by
+default. The request contains only the bounded current question, coarse location when permitted,
+offered action/template IDs and the minimum relevant quest, skill and fact summaries. Prompt logging
+is off by default; diagnostics retain provider, latency, token counts, result category and rejection
+reason without retaining conversation text.
+
+The fallback chain is deterministic:
+
+1. Java conversation/command router;
+2. bundled 0.5B local classifier;
+3. optional advanced provider only for an eligible, budget-approved request;
+4. deterministic rules and a grounded "need more context" response.
+
+Every provider response passes through the existing fail-closed parser. Unknown IDs, stale requests,
+unoffered actions, invalid skills and any attempt to change mode from a question are rejected. Advanced
+models may improve selection and planning depth, but they cannot expand their own permissions.
+
+### Single-player delegated claim papers
+
+`companion_claim_paper` is a crafted, non-stack-generating permission token. In an integrated
+single-player world only, one paper in the companion's real inventory authorizes exactly one successful
+new FTB Chunks claim. Failed, duplicate, protected or already-claimed attempts consume nothing. The
+feature is disabled on dedicated servers by default and never grants operator or creative authority.
+
+The companion selects one base-district center from terrain it has already observed at full chunk
+status. Eligible claims must be in the same dimension and within Chebyshev distance two of that center,
+giving a maximum 5×5 district. Selection never loads or generates a chunk merely to inspect it. A
+bounded observed-chunk ledger, populated during normal player/companion travel, is the authority for
+"already spawned world." Candidates outside the world border, in protected hub space, containing an
+existing claim, or failing the FTB permission adapter are rejected before inventory is touched.
+
+FTB Chunks stores claims against teams rather than arbitrary mobs, so companion-created claims are
+made on the current owner's team and separately recorded as delegated companion claims. That ledger
+stores dimension, chunk coordinates, base objective, activity purpose and consumed paper identity. It
+allows status/audit output and ensures the companion never unclaims or repurposes a pre-existing player
+claim by mistake. Changing to a new district center requires a new explicit base objective; ordinary
+self-direction cannot walk the 5×5 window across the map.
+
+Inside delegated chunks, self-directed work remains typed and budgeted. `CLAIM_NEXT_CHUNK`,
+`KEEP_DISTRICT` and `RELOCATE_DISTRICT` are implemented first. Farming, mining, repair and storage
+affordances remain subsequent activity executors. Java supplies
+bounded candidates and performs every action through existing reach, claims, inventory, recipe,
+tool, hazard and blueprint-approval checks. "Whatever it desires" therefore means choosing among
+legal activities and locations, never inventing commands, blocks, recipes or permissions.
+
+When a maintained district already has delegated claims and the companion receives a new batch of
+Claim Papers, Java compares the current district with the best non-overlapping observed candidate.
+The local inference engine sees only bounded value scores and reasons and may return only
+`KEEP_DISTRICT` or `RELOCATE_DISTRICT`. Values within ten points keep the existing district by default;
+the deterministic fallback uses the same keep-biased threshold. Relocation first simulates and then
+claims the new center, consumes one paper after success, and releases only claims recorded in the old
+companion-delegation ledger. Ordinary player claims are never released.
+
+Claim expansion order is deterministic after the model selects a purpose: prefer the center, then
+cardinally adjacent chunks, then remaining chunks by site score and stable coordinate tie-break. This
+prevents noisy checkerboard claiming. Construction still requires an approved blueprint; farming and
+mining receive separate per-cycle block/action budgets and stop on owner logout, lease loss, danger,
+missing tools, full inventory or a failed permission recheck.
 
 ## Passive context and dialogue
 
 Routine conversation comes from bounded preset banks of adjectives, summon/dismiss lines, activity
 comments and interaction responses. This avoids spending inference on predictable speech.
+
+Addressed questions first pass through a deterministic conversation tree covering identity,
+capabilities, location, conditions, health, threats, quests, skills, task/base status, next base phase,
+behavior preset and approval policy. The response catalog parameterizes those templates from verified
+state. Only unmatched questions reach the local model, and free-form wording is disabled by default.
 
 Every selectable name has one explicit, stable `PersonalityProfile`: temperament, cadence, core
 value, humor style, favorite terrain, food, color and activity, favored path adjective,
@@ -313,6 +435,12 @@ in a controlled server run.
 - bounded 3×3 moving ticking chunk ticket with dismissal, death and shutdown cleanup;
 - low-frequency quest status memory refresh;
 - ten-minute calm-state ambient reflection boundary with dialogue-only output.
+- loopback-only Jlama 0.8.4 worker, packaged Java 21 runtime and Qwen2.5 0.5B JQ4 model;
+- fail-closed action/template/skill/fact selection with Java-derived directives and targets;
+- deterministic modular conversation routing for common quest, skill, status, base and policy questions;
+- persistent behavior presets and a registered activity-affordance menu;
+- owner-requested base workflow with claim-aware survey, separate shell/furnishing proposals and
+  approval before either construction phase.
 - version-2 typed task persistence with bounded fields and safe migration from version-1 strings;
 - exact installed-version FTB Chunks 2001.3.8 claim adapter using `shouldPreventInteraction`;
 - exact installed-version FTB Quests 2001.4.22 adapter with team status, visibility, descriptions,
@@ -333,25 +461,41 @@ in a controlled server run.
 
 ## Next implementation order
 
+The detailed autonomy sequence and invariants are maintained in `docs/AUTONOMOUS_ACTIVITY_MAP.md`.
+Stage A and Stage B are now implemented: the companion can make a bounded inference choice among
+recovery, delegated-claim patrol, district survey and base inspection, persist that plan, navigate to
+a Java-derived loaded target, record observations and yield immediately to owner tasks or safety.
+These initial activities are deliberately read-only; farming, mining and construction executors remain
+behind the later claim, quota, inventory and approval gates described in that map.
+
 1. Run controlled dedicated-server registration/boot tests with the exact modpack and repair any
    side-only, dependency, event-registration or runtime-mapping failures.
 2. Add GameTests for singleton enforcement, summon/dismiss, inventory accounting, claim denial,
    chunk-ticket cleanup and blueprint interruption.
-3. Extend item search from visible drops to remembered, permission-approved container indexes.
-4. Add inventory-backed recipe execution after an explicit craft confirmation.
-5. Add a property-aware block-state codec and explicit scaffold/obstruction policy to blueprint
+3. Add integrated-server GameTests for actual FTB claim success, paper consumption, the 5×5 district
+   bound, existing claims, world border, lease transfer, owner logout and zero-consumption failures.
+4. Add explicit delegated-claim audit output and recovery handling for a third-party claim change
+   between relocation simulation and mutation.
+5. Extend item search from visible drops to remembered, permission-approved container indexes.
+6. Add inventory-backed recipe execution after an explicit craft confirmation.
+7. Add a property-aware block-state codec and explicit scaffold/obstruction policy to blueprint
    execution; the current executor resolves block IDs and uses default placement state.
-6. Add an explicit resume/regenerate interaction for a `PAUSED` blueprint after restart.
-7. Measure and tune the 3×3 chunk-ticket radius and blueprint placement cadence under representative
+8. Add an explicit resume/regenerate interaction for a `PAUSED` blueprint after restart.
+9. Measure and tune the 3×3 chunk-ticket radius and blueprint placement cadence under representative
    server load.
-8. Implement a Java-17-compatible tiny-model adapter or isolated bundled Jlama worker.
-9. Replace the temporary player renderer with approved Hollow Court assets.
-10. Add an explicit Curios-backed companion jewelry harness before enabling Mine and Slash rings or
+10. Measure worker cold-start, response latency and combined process memory under representative
+   multiplayer load, then tune the bounded prompt menus from captured malformed-response rates.
+11. Add the provider-neutral advanced-reasoning interface, disabled-by-default configuration,
+   privacy-minimized request builder, HTTPS/loopback endpoint policy, budgets and mock-provider tests.
+12. Add local-compatible transport first; admit cloud transport only after secret-redaction,
+   redirect-denial, billing-budget and malformed-response integration tests pass.
+13. Replace the temporary player renderer with approved Hollow Court assets.
+14. Add an explicit Curios-backed companion jewelry harness before enabling Mine and Slash rings or
     necklaces; they are recognized but safely stored in the current six-slot equipment model.
 
 ## Acceptance gates
 
-Current automated status: clean Java 17 compilation, reobfuscated production jar build, and thirteen
+Current automated status: clean Java 17 compilation, reobfuscated production jar build, and twenty-four
 unit tests passing. Compilation is only static validation. Production admission additionally requires a dedicated server
 boot, singleton/dimension tests, claim tests, survival inventory accounting, quest compatibility,
 Continuity Works contract tests, chunk-ticket cleanup tests, malformed/stale inference tests, and a

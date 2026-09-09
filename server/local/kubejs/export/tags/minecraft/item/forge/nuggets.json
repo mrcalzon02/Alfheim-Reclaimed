@@ -1,0 +1,16 @@
+[
+	"#forge:nuggets/elementium",
+	"#forge:nuggets/gold",
+	"#forge:nuggets/iesnium",
+	"#forge:nuggets/iron",
+	"#forge:nuggets/manasteel",
+	"#forge:nuggets/silver",
+	"#forge:nuggets/terrasteel",
+	"create:brass_nugget",
+	"create:copper_nugget",
+	"create:experience_nugget",
+	"create:zinc_nugget",
+	"create_wizardry:mithril_nugget",
+	"minecraft:gold_nugget",
+	"minecraft:iron_nugget"
+]

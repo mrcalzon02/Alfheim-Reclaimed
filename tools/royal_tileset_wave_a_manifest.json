@@ -14,7 +14,16 @@
     "lidded_amphora",
     "canopy_bed",
     "wall_banner",
-    "astrolabe"
+    "astrolabe",
+    "lineage_stele",
+    "audience_bench",
+    "writing_desk",
+    "tall_cabinet",
+    "mana_brazier",
+    "goblet_service",
+    "finial",
+    "pedestal_planter",
+    "weapon_rack"
   ],
   "texture_contract": {
     "wood": "botania:block/dreamwood_planks",
@@ -77,9 +86,85 @@
           "royal_astrolabe_se"
         ]
       ]
+    },
+    "lineage_stele": {
+      "footprint": [1, 3],
+      "facing": "north",
+      "rows": [["royal_lineage_stele_base"], ["royal_lineage_stele_mid"], ["royal_lineage_stele_crown"]]
+    },
+    "audience_bench": {
+      "footprint": [2, 1],
+      "facing": "north",
+      "rows": [["royal_audience_bench_left", "royal_audience_bench_right"]]
+    },
+    "writing_desk": {
+      "footprint": [2, 1],
+      "facing": "north",
+      "rows": [["royal_writing_desk_left", "royal_writing_desk_right"]]
+    },
+    "weapon_rack": {
+      "footprint": [2, 1],
+      "facing": "north",
+      "rows": [["royal_weapon_rack_left", "royal_weapon_rack_right"]]
     }
   },
   "blocks": [
+    {
+      "id": "alfheim:royal_lineage_stele_base", "semantic_asset": "lineage_stele", "module": "base", "builder": "cardinal", "model_kind": "lineage_stele_base", "display_name": "Royal Lineage Stele Module",
+      "collision_boxes": [[3,0,3,13,16,13]], "light": 0, "item": false, "sound": "stone", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_lineage_stele_mid", "semantic_asset": "lineage_stele", "module": "mid", "builder": "cardinal", "model_kind": "lineage_stele_mid", "display_name": "Royal Lineage Stele Module",
+      "collision_boxes": [[5,0,5,11,16,11]], "light": 0, "item": false, "sound": "stone", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_lineage_stele_crown", "semantic_asset": "lineage_stele", "module": "crown", "builder": "cardinal", "model_kind": "lineage_stele_crown", "display_name": "Royal Lineage Stele Module",
+      "collision_boxes": [[3,0,3,13,12,13]], "light": 4, "item": false, "sound": "stone", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_audience_bench_left", "semantic_asset": "audience_bench", "module": "left", "builder": "cardinal", "model_kind": "audience_bench_left", "display_name": "Royal Audience Bench Module",
+      "collision_boxes": [[1,0,3,16,9,13]], "light": 0, "item": false, "sound": "wood", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_audience_bench_right", "semantic_asset": "audience_bench", "module": "right", "builder": "cardinal", "model_kind": "audience_bench_right", "display_name": "Royal Audience Bench Module",
+      "collision_boxes": [[0,0,3,15,9,13]], "light": 0, "item": false, "sound": "wood", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_writing_desk_left", "semantic_asset": "writing_desk", "module": "left", "builder": "cardinal", "model_kind": "writing_desk_left", "display_name": "Royal Writing Desk Module",
+      "collision_boxes": [[2,0,3,16,12,13]], "light": 0, "item": false, "sound": "wood", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_writing_desk_right", "semantic_asset": "writing_desk", "module": "right", "builder": "cardinal", "model_kind": "writing_desk_right", "display_name": "Royal Writing Desk Module",
+      "collision_boxes": [[0,0,3,14,12,13]], "light": 0, "item": false, "sound": "wood", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_tall_cabinet", "semantic_asset": "tall_cabinet", "module": "single", "builder": "cardinal", "model_kind": "tall_cabinet", "display_name": "Royal Tall Cabinet",
+      "collision_boxes": [[2,0,5,14,16,16]], "light": 0, "item": true, "sound": "wood", "render_type": "solid", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_mana_brazier", "semantic_asset": "mana_brazier", "module": "single", "builder": "cardinal", "model_kind": "mana_brazier", "display_name": "Royal Mana Brazier",
+      "collision_boxes": [[3,0,3,13,12,13]], "light": 12, "item": true, "sound": "metal", "render_type": "cutout", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_goblet_service", "semantic_asset": "goblet_service", "module": "single", "builder": "cardinal", "model_kind": "goblet_service", "display_name": "Royal Goblet Service",
+      "collision_boxes": [[2,0,2,14,2,14]], "light": 0, "item": true, "sound": "metal", "render_type": "cutout", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_finial", "semantic_asset": "finial", "module": "single", "builder": "cardinal", "model_kind": "finial", "display_name": "Royal Leaf Finial",
+      "collision_boxes": [[4,0,4,12,16,12]], "light": 0, "item": true, "sound": "metal", "render_type": "cutout", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_pedestal_planter", "semantic_asset": "pedestal_planter", "module": "single", "builder": "cardinal", "model_kind": "pedestal_planter", "display_name": "Royal Pedestal Planter",
+      "collision_boxes": [[2,0,2,14,13,14]], "light": 0, "item": true, "sound": "stone", "render_type": "cutout", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_weapon_rack_left", "semantic_asset": "weapon_rack", "module": "left", "builder": "cardinal", "model_kind": "weapon_rack_left", "display_name": "Royal Weapon Rack Module",
+      "collision_boxes": [[0,1,13,16,16,16]], "light": 0, "item": false, "sound": "wood", "render_type": "cutout", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
+    {
+      "id": "alfheim:royal_weapon_rack_right", "semantic_asset": "weapon_rack", "module": "right", "builder": "cardinal", "model_kind": "weapon_rack_right", "display_name": "Royal Weapon Rack Module",
+      "collision_boxes": [[0,1,13,16,16,16]], "light": 0, "item": false, "sound": "wood", "render_type": "cutout", "tags": ["alfheim:royal_tileset","alfheim:royal_tileset_wave_a"]
+    },
     {
       "id": "alfheim:royal_highback_chair",
       "semantic_asset": "highback_chair",

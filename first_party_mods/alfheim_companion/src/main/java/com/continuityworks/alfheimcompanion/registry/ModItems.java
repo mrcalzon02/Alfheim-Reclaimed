@@ -14,6 +14,9 @@ public final class ModItems {
     public static final RegistryObject<Item> COMPANION_SIGIL = REGISTRY.register(
             "companion_sigil", () -> new CompanionSigilItem(new Item.Properties().stacksTo(1))
     );
+    public static final RegistryObject<Item> COMPANION_CLAIM_PAPER = REGISTRY.register(
+            "companion_claim_paper", () -> new Item(new Item.Properties().stacksTo(64))
+    );
 
     private ModItems() {}
 }

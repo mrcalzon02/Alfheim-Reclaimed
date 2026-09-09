@@ -966,6 +966,19 @@ DETAIL_TUNING = {
 # The floor of every authored room sits at y=3; the shell and its bedding are below that.
 DETAIL_GROUND = 3
 
+# The headworks is the half of the complex a player can see without caving to Y -40, so it is
+# the piece that has to advertise what is underneath it. It is above ground, so the light can
+# use wall brackets and the weather is rain rather than groundwater.
+HEADWORKS_KIT = dict(
+    stone="alfheim:cracked_livingrock", brick="alfheim:ivory_livingrock_bricks",
+    floor="alfheim:ivory_livingrock_polished", accent="alfheim:moonstone_livingrock_carved",
+    stairs="alfheim:ivory_livingrock_stairs", slab="alfheim:ivory_livingrock_slab",
+    wall="alfheim:ivory_livingrock_wall", pillar="botania:dreamwood_log",
+    crystal="alfheim:rootglass_cluster", timber="botania:dreamwood_log",
+    plank="botania:dreamwood_planks", fence="botania:dreamwood_fence",
+    light="minecraft:lantern",
+    rubble=["minecraft:gravel", "alfheim:cracked_livingrock", "minecraft:cobblestone"])
+
 
 def detail_family(piece, fid, seed):
     """Hang the light, leave the tools, and let three centuries of water in."""
@@ -987,6 +1000,7 @@ def build_outputs(check=False):
             assert max(size) <= MAX_AXIS
             seed = int(hashlib.sha1(f"{fid}:{role}".encode()).hexdigest()[:8], 16)
             piece = BUILDERS[fid][role](tuple(size), seed)
+            counts = detail_family(piece, fid, seed)
             # Collapse and rubble passes here remove blocks without asking what rested on
             # them; sweep anything they left touching nothing on any face.
             piece.prune_orphans()
@@ -995,7 +1009,11 @@ def build_outputs(check=False):
             if not check:
                 os.makedirs(os.path.dirname(path), exist_ok=True)
                 nbt.save(path, "", piece.to_nbt())
-            print(f"  {fid:18} {role:9} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks")
+            cen = sd.census(piece)
+            print(f"  {fid:18} {role:9} {size[0]}x{size[1]}x{size[2]}  "
+                  f"{len(piece.blocks):6} blocks  detail {cen['share'] * 100:4.1f}% "
+                  f"over {cen['names']:>2} ids  "
+                  + ' '.join(f'{k}={v}' for k, v in sorted(counts.items()) if v))
 
     # The headworks: two pieces, shared by all three families.
     for role, builder in HEADWORKS_BUILDERS.items():
@@ -1003,13 +1021,27 @@ def build_outputs(check=False):
         assert max(size) <= MAX_AXIS
         seed = int(hashlib.sha1(f"headworks:{role}".encode()).hexdigest()[:8], 16)
         piece = builder(tuple(size), seed)
+        kit = sd.Kit(**HEADWORKS_KIT)
+        counts = sd.dress(piece, seed, kit, ground=1, corbel=0.30, opening=0.50,
+                          conduit=0.55, sockets=2, sconce=0.70, sconce_spacing=4,
+                          furniture=0.45, floor_litter=0.08)
+        # The shaft is a hole in the ground with a ladder in it: no rain reaches the bottom,
+        # so its water arrives the same way the complex below it gets its water.
+        counts.update(sd.aftermath(piece, seed, kit, ground=1, rubble=0.12, reach=2,
+                                   weathering=0.12, seep="damp", seep_rate=0.12,
+                                   roots=0.10, hang="drip", roofed_ok=(role == "shaft"),
+                                   webs=0.03))
         piece.prune_orphans()
         path = os.path.join(STRUCT, "headworks", role + ".nbt")
         nbt_expected[path] = piece.to_nbt()
         if not check:
             os.makedirs(os.path.dirname(path), exist_ok=True)
             nbt.save(path, "", piece.to_nbt())
-        print(f"  {'headworks':18} {role:9} {size[0]}x{size[1]}x{size[2]}  {len(piece.blocks):6} blocks")
+        cen = sd.census(piece)
+        print(f"  {'headworks':18} {role:9} {size[0]}x{size[1]}x{size[2]}  "
+              f"{len(piece.blocks):6} blocks  detail {cen['share'] * 100:4.1f}% "
+              f"over {cen['names']:>2} ids  "
+              + ' '.join(f'{k}={v}' for k, v in sorted(counts.items()) if v))
 
         base = f"{NS}:deepworks_archaeology/{fid}"
         for role in ("centre", "approach", "wing"):

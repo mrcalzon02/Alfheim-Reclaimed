@@ -1,0 +1,17 @@
+[
+	"#minecraft:is_badlands",
+	"#minecraft:is_jungle",
+	"#minecraft:is_nether",
+	"#minecraft:is_savanna",
+	"minecraft:desert",
+	"minecraft:mangrove_swamp",
+	"minecraft:warm_ocean",
+	"regions_unexplored:bamboo_forest?",
+	"regions_unexplored:fungal_fen?",
+	"regions_unexplored:joshua_desert?",
+	"regions_unexplored:marsh?",
+	"regions_unexplored:old_growth_bayou?",
+	"regions_unexplored:outback?",
+	"regions_unexplored:saguaro_desert?",
+	"regions_unexplored:tropics?"
+]

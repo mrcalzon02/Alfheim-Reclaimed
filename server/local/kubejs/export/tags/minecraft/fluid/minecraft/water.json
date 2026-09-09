@@ -1,0 +1,10 @@
+[
+	"create_cola_factory:carbon_dioxide",
+	"create_cola_factory:coca_cola",
+	"create_cola_factory:coca_cola_zero",
+	"create_cola_factory:flowing_carbon_dioxide",
+	"create_cola_factory:flowing_coca_cola",
+	"create_cola_factory:flowing_coca_cola_zero",
+	"minecraft:flowing_water",
+	"minecraft:water"
+]

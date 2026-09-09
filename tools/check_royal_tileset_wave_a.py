@@ -16,7 +16,9 @@ REVIEW=ROOT/"kubejs"/"data"/"alfheim"/"functions"/"royal_tileset_wave_a"/"review
 
 EXPECTED_SEMANTIC={
     "highback_chair","wall_sconce","carpet_runner","balustrade_segment",
-    "lidded_amphora","canopy_bed","wall_banner","astrolabe"
+    "lidded_amphora","canopy_bed","wall_banner","astrolabe","lineage_stele",
+    "audience_bench","writing_desk","tall_cabinet","mana_brazier","goblet_service",
+    "finial","pedestal_planter","weapon_rack"
 }
 FORBIDDEN_WORDS=("fey_stone","inventory","blockentity","block_entity","loot_table","quest")
 Z_FIGHT_REPAIRS={"carpet_runner","balustrade","wall_sconce"}
@@ -44,8 +46,8 @@ def main():
     if semantic!=EXPECTED_SEMANTIC:
         fail(f"semantic pilot drift: {sorted(semantic)}")
     blocks=data.get("blocks",[])
-    if len(blocks)!=16:
-        fail(f"expected 16 physical blocks, found {len(blocks)}")
+    if len(blocks)!=30:
+        fail(f"expected 30 physical blocks, found {len(blocks)}")
     ids=[b.get("id") for b in blocks]
     if len(ids)!=len(set(ids)):
         fail("duplicate physical block id")
@@ -97,7 +99,9 @@ def main():
                         fail(f"{b.get('id')}: same-facing coplanar overlap axis={axis} side={side} plane={plane}")
 
     # Multi-block semantic assets must be complete rectangular local-module matrices.
-    for name, expected in (("canopy_bed",(2,3)),("astrolabe",(2,2))):
+    for name, expected in (("canopy_bed",(2,3)),("astrolabe",(2,2)),
+                           ("lineage_stele",(1,3)),("audience_bench",(2,1)),
+                           ("writing_desk",(2,1)),("weapon_rack",(2,1))):
         a=data.get("assemblies",{}).get(name,{})
         rows=a.get("rows",[])
         w,h=expected

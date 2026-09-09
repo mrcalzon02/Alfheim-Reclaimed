@@ -17,6 +17,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraft.world.item.CreativeModeTabs;
 import com.continuityworks.alfheimcompanion.service.CompanionChunkTickets;
 import com.continuityworks.alfheimcompanion.integration.ftb.FtbIntegrationBootstrap;
 import com.continuityworks.alfheimcompanion.integration.mmo.MineAndSlashIntegrationBootstrap;
@@ -36,6 +38,7 @@ public final class AlfheimCompanion {
         ModMenus.REGISTRY.register(modBus);
         modBus.addListener(this::registerAttributes);
         modBus.addListener(this::commonSetup);
+        modBus.addListener(this::addCreativeItems);
         MinecraftForge.EVENT_BUS.register(CompanionEvents.class);
     }
 
@@ -51,6 +54,13 @@ public final class AlfheimCompanion {
             MineAndSlashIntegrationBootstrap.registerIfAvailable();
             InferenceBootstrap.installConfiguredEngine();
         });
+    }
+
+    private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.COMPANION_SIGIL);
+            event.accept(ModItems.COMPANION_CLAIM_PAPER);
+        }
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

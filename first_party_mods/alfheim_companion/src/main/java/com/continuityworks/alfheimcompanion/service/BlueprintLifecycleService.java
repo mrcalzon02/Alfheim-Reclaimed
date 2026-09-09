@@ -108,7 +108,7 @@ public final class BlueprintLifecycleService {
         pending = null;
         data.setBlueprintLedger(ledgerWith(data, BlueprintLedger.State.REJECTED,
                 ledger.completedPlacements(), "Owner rejected", owner.level().getGameTime()));
-        BaseOperationsService.onBlueprintInterrupted(data, owner.level().getGameTime());
+        BaseOperationsService.onBlueprintInterrupted(data, ledger.purpose(), owner.level().getGameTime());
         data.setTask(ActiveTask.NONE, null);
         reply(owner, data, "The blueprint has been rejected. No further blocks will be changed.");
     }
@@ -120,9 +120,11 @@ public final class BlueprintLifecycleService {
             if (ledger.requestId() != null) provider.cancel(ledger.requestId());
         });
         pending = null;
-        if (ledger.active()) data.setBlueprintLedger(ledgerWith(data, BlueprintLedger.State.REJECTED,
-                ledger.completedPlacements(), "Cancelled", server.overworld().getGameTime()));
-        BaseOperationsService.onBlueprintInterrupted(data, server.overworld().getGameTime());
+        if (ledger.active()) {
+            data.setBlueprintLedger(ledgerWith(data, BlueprintLedger.State.REJECTED,
+                    ledger.completedPlacements(), "Cancelled", server.overworld().getGameTime()));
+            BaseOperationsService.onBlueprintInterrupted(data, ledger.purpose(), server.overworld().getGameTime());
+        }
     }
 
     public static void tick(MinecraftServer server) {
@@ -139,7 +141,7 @@ public final class BlueprintLifecycleService {
             String completedPurpose = data.blueprintLedger().purpose();
             data.setBlueprintLedger(ledgerWith(data, BlueprintLedger.State.COMPLETE, pending.index, "Complete",
                     level.getGameTime()));
-            if (data.baseObjective().active() || data.baseObjective().established())
+            if (BaseOperationsService.isBasePurpose(completedPurpose))
                 BaseOperationsService.onBlueprintComplete(data, owner, completedPurpose, level.getGameTime());
             else
                 data.setTask(ActiveTask.NONE, pending.proposal.blueprintId());
@@ -197,7 +199,7 @@ public final class BlueprintLifecycleService {
         data.setBlueprintLedger(new BlueprintLedger(request.requestId(), proposal.blueprintId(),
                 BlueprintLedger.State.PREVIEW, request.purpose(), proposal.integrityHash(),
                 proposal.placements().size(), 0, validation.message, owner.level().getGameTime()));
-        BaseOperationsService.onBlueprintPreview(data, owner.level().getGameTime());
+        BaseOperationsService.onBlueprintPreview(data, request.purpose(), owner.level().getGameTime());
         reply(owner, data, "Blueprint preview ready: " + proposal.placements().size() + " blocks, "
                 + proposal.materials().size() + " material types. Say ‘" + data.companionName()
                 + ", approve blueprint’ or ‘reject blueprint’. " + validation.message);
@@ -288,7 +290,7 @@ public final class BlueprintLifecycleService {
         data.setBlueprintLedger(ledgerWith(data, BlueprintLedger.State.PAUSED, pending.index, message,
                 owner.level().getGameTime()));
         reply(owner, data, message + ". The build is paused; ask for it again after resolving this.");
-        BaseOperationsService.onBlueprintInterrupted(data, owner.level().getGameTime());
+        BaseOperationsService.onBlueprintInterrupted(data, data.blueprintLedger().purpose(), owner.level().getGameTime());
         pending = null;
     }
 
@@ -296,7 +298,7 @@ public final class BlueprintLifecycleService {
         data.setBlueprintLedger(ledgerWith(data, BlueprintLedger.State.FAILED, 0, message,
                 owner.level().getGameTime()));
         data.setTask(ActiveTask.NONE, null);
-        BaseOperationsService.onBlueprintInterrupted(data, owner.level().getGameTime());
+        BaseOperationsService.onBlueprintInterrupted(data, data.blueprintLedger().purpose(), owner.level().getGameTime());
         pending = null;
         reply(owner, data, message);
     }

@@ -1,0 +1,7 @@
+{
+	"occultengineering:enspirit": "io.github.irishgreencitrus.occultengineering.content.kinetics.fan.processing.FanEnspiritType",
+	"create:haunting": "com.simibubi.create.content.kinetics.fan.processing.AllFanProcessingTypes$HauntingType",
+	"create:smoking": "com.simibubi.create.content.kinetics.fan.processing.AllFanProcessingTypes$SmokingType",
+	"create:splashing": "com.simibubi.create.content.kinetics.fan.processing.AllFanProcessingTypes$SplashingType",
+	"create:blasting": "com.simibubi.create.content.kinetics.fan.processing.AllFanProcessingTypes$BlastingType"
+}

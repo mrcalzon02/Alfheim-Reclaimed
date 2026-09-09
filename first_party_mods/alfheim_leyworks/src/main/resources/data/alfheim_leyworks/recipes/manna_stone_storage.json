@@ -1,0 +1,11 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "pattern":["EGE","DQD","EEE"],
+  "key":{
+    "E":{"item":"botania:elementium_ingot"},
+    "G":{"item":"botania:mana_diamond"},
+    "D":{"item":"botania:dreamwood"},
+    "Q":{"item":"botania:elf_quartz"}
+  },
+  "result":{"item":"alfheim_leyworks:manna_stone_storage"}
+}

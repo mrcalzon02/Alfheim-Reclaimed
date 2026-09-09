@@ -1,0 +1,16 @@
+[
+	"continuityworks_biomes:flowering_meadow",
+	"minecraft:meadow",
+	"minecraft:plains",
+	"minecraft:snowy_plains",
+	"minecraft:sunflower_plains",
+	"regions_unexplored:barley_fields?",
+	"regions_unexplored:clover_plains?",
+	"regions_unexplored:flower_fields?",
+	"regions_unexplored:grassland?",
+	"regions_unexplored:poppy_fields?",
+	"regions_unexplored:prairie?",
+	"regions_unexplored:pumpkin_fields?",
+	"regions_unexplored:rocky_meadow?",
+	"regions_unexplored:shrubland?"
+]

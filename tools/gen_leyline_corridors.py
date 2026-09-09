@@ -40,6 +40,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
+import structure_detail as sd  # noqa: E402
 from structure_nbt import MAX_AXIS, Piece  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -279,6 +280,51 @@ PIECES = {
 SECTION_WEIGHTS = [('straight', 8), ('bend', 3), ('junction', 2), ('terminal', 2)]
 
 
+# --- the detail pass ----------------------------------------------------------------------------
+#
+# The corridors already carried the ley vocabulary -- channel, collars, relays, dormant nodes --
+# and the census still put `bend`, `terminal` and `hub` at a flat zero detail share, because all
+# of the hanging light lived in `channel_line` and only the straights call it. What every piece
+# lacked was age INSIDE the tunnel: nothing on the deck, nothing coming through the roof, and no
+# corner a spider had ever found.
+#
+# Two deliberate omissions. The channel IS the conduit, so `conduits` and `crystal_sockets` are
+# off -- adding a second ley run beside the real one would say the opposite of what the design
+# says. And the light is hung, never bracketed: a wall torch in a sealed stone corridor reads as
+# a mine, and this is not one.
+
+LEY_KIT = dict(
+    stone=f'{NS}:leyline_livingrock', brick=f'{NS}:leyline_livingrock_bricks',
+    brick_cracked=f'{NS}:cracked_livingrock',
+    floor=f'{NS}:leyline_livingrock_polished', accent=f'{NS}:leyline_livingrock_carved',
+    stairs=f'{NS}:leyline_livingrock_stairs', slab=f'{NS}:leyline_livingrock_slab',
+    wall=f'{NS}:leyline_livingrock_wall', pillar=f'{NS}:moonstone_livingrock_bricks',
+    timber='botania:dreamwood_log', plank='botania:dreamwood_planks',
+    fence='botania:dreamwood_fence', light='minecraft:lantern',
+    rubble=[f'{NS}:cracked_livingrock', 'minecraft:gravel', f'{NS}:leyline_livingrock'])
+
+
+def detail_section(piece, seed, name='straight'):
+    """Light the pieces `channel_line` never reaches, and let three centuries into all of them.
+
+    The hub is the one piece a player is meant to stand still in -- it is where four arteries
+    meet and the only room in the network with floor to spare -- so it carries the denser
+    tuning. Everything else is corridor and stays sparse: a maintenance run that is knee-deep
+    in its own rubble is not a route.
+    """
+    kit = sd.Kit(**LEY_KIT)
+    grand = (name == 'hub')
+    counts = sd.dress(piece, seed, kit, ground=FLOOR + 1, bracket_light=False,
+                      sconce=0.80 if grand else 0.55, sconce_spacing=4 if grand else 6,
+                      furniture=0.35 if grand else 0.12,
+                      furniture_allow=None if grand else ('crate',),
+                      floor_litter=0.08 if grand else 0.05)
+    counts.update(sd.aftermath(piece, seed, kit, ground=FLOOR + 1, rubble=0.10, reach=1,
+                               heap=2, seep='damp', seep_rate=0.07, roots=0.10, hang='drip',
+                               roofed_ok=True, webs=0.03))
+    return counts
+
+
 def pools():
     out = {}
     out[os.path.join(POOL, 'section.json')] = {
@@ -340,6 +386,7 @@ def main():
         assert max(size) <= MAX_AXIS, f'{name} exceeds the {MAX_AXIS}-block limit'
         seed = int(hashlib.sha1(f'leyline:{name}'.encode()).hexdigest()[:8], 16)
         piece = builder(tuple(size), seed)
+        detail_section(piece, seed, name)
         piece.prune_orphans()
         path = os.path.join(ROOT, STRUCT, name + '.nbt')
         payload = piece.to_nbt()

@@ -17,6 +17,8 @@ import com.continuityworks.alfheimcompanion.service.CraftingAdvisor;
 import com.continuityworks.alfheimcompanion.service.ItemTaskService;
 import com.continuityworks.alfheimcompanion.service.BlueprintLifecycleService;
 import com.continuityworks.alfheimcompanion.service.BaseOperationsService;
+import com.continuityworks.alfheimcompanion.service.DelegatedClaimService;
+import com.continuityworks.alfheimcompanion.service.AutonomousActivityService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -73,12 +75,15 @@ public final class CompanionCommandService {
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
                     + "/100, mood " + data.moodIndex() + "."
                     + CombatProfileBridge.statusSuffix(player, companion)
-                    + baseStatus(data)
+                    + claimStatus(data, player, companion)
+                    + baseStatus(data) + AutonomousActivityService.statusSuffix(data)
                     : "My current task is " + data.activeTask() + ". Blueprint state: "
                     + data.blueprintLedger().state().name().toLowerCase(Locale.ROOT)
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
                     + "/100, mood " + data.moodIndex() + "."
-                    + CombatProfileBridge.statusSuffix(player, companion) + baseStatus(data));
+                    + CombatProfileBridge.statusSuffix(player, companion)
+                    + claimStatus(data, player, companion) + baseStatus(data)
+                    + AutonomousActivityService.statusSuffix(data));
             case APPROVE_BLUEPRINT -> BlueprintLifecycleService.approve(player, companion);
             case REJECT_BLUEPRINT -> BlueprintLifecycleService.reject(player);
             case DEFEND -> {
@@ -183,6 +188,12 @@ public final class CompanionCommandService {
                 ? " Behavior preset: " + data.behaviorPreset().id() + "."
                 : " Base objective: " + data.baseObjective().phase().name().toLowerCase(Locale.ROOT)
                 .replace('_', ' ') + ". Behavior preset: " + data.behaviorPreset().id() + ".";
+    }
+
+    private static String claimStatus(CompanionSavedData data, ServerPlayer owner,
+                                      ElvenCompanionEntity companion) {
+        return " Delegated claims: " + DelegatedClaimService.delegatedCount(data, owner)
+                + "; Claim Papers carried: " + DelegatedClaimService.paperCount(companion) + ".";
     }
 
     private static String safe(String value) {

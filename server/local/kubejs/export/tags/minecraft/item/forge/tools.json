@@ -1,0 +1,16 @@
+[
+	"#forge:tools/axes",
+	"#forge:tools/bows",
+	"#forge:tools/crossbows",
+	"#forge:tools/fishing_rods",
+	"#forge:tools/knives",
+	"#forge:tools/pickaxes",
+	"#forge:tools/shields",
+	"#forge:tools/shovels",
+	"#forge:tools/tridents",
+	"#minecraft:axes",
+	"#minecraft:hoes",
+	"#minecraft:pickaxes",
+	"#minecraft:shovels",
+	"#minecraft:swords"
+]

@@ -4,6 +4,75 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.23.0-design — 2026-09-08 — the structure detail pass
+
+Every structure the pack ships — 105 templates in six families — went through the hero-detail pass
+`THE_SURFACE.md` has had open since the first field review. It was scoped by measuring rather than
+by eye, and the measurement is the durable part.
+
+**The census said what the review had said in words.** `structure_detail.census()` counts what
+share of a piece's solid blocks are small-scale articulation rather than bulk mass. Twenty-nine of
+the hundred and five pieces came in under four per cent. `greatbole/trunk` — the tree a player
+wakes up beside — was three block ids repeated 6,645 times. Every leyline bend, terminal and hub
+measured zero, because all of the hanging light lived in a function only the straight sections
+call.
+
+**One vocabulary, five generators.** `tools/structure_detail.py` implements the five layers of
+`THE_SURFACE.md` §3.2 as passes over a finished piece, and no pass is ever told where the rooms
+are: a wall face is a solid with a free cell beside it, a floor is a solid with headroom over it,
+an overhang is a solid with nothing under it. That is why the same `sconces()` call works on a
+castle keep, a mine drift and a pixie cottage, and it is the same argument that moved `Piece` into
+`structure_nbt.py` — a second caller needed it, and a copy would have been a second answer.
+
+**The ordering is causal.** `dress()` runs before each builder's decay pass, `aftermath()` after
+it. Detail laid down first is what the building HAD, so the decay gradient eats it in the same
+places it eats the walls and what survives reads as residue. Detail added afterwards is what the
+collapse DID: debris heaped at the foot of the wall it fell from, moss on floors the roof stopped
+covering, roots through what nobody sweeps.
+
+| Family | n | Worst detail share | Median | Fewest block ids |
+|---|--:|---|---|---|
+| surface | 50 | 0.0% -> 4.2% | 16.5% -> 27.5% | 7 -> 8 |
+| deepworks archaeology | 11 | 2.0% -> 5.1% | 5.8% -> 14.0% | 5 -> 13 |
+| court | 4 | 1.3% -> 2.7% | 4.0% -> 7.2% | 16 -> 20 |
+| greatbole | 3 | 0.0% -> 1.1% | 0.0% -> 1.3% | 3 -> 5 |
+| leyline | 5 | 0.0% -> 3.2% | 0.0% -> 5.9% | 7 -> 13 |
+| pixie | 32 | 1.2% -> 1.3% | 14.4% -> 20.8% | 6 -> 6 |
+
+Detail blocks 22,891 -> 50,646 across 303,605 -> 336,689 solid blocks.
+
+**Four findings, none of them the thing being built.**
+
+- **A pixie house had no way in.** The leaf-capped tree home put its doorway three blocks up with
+  no stair anywhere in the piece — and it was the only one of the four variants to measure zero
+  while its siblings ran 22 to 58 per cent. A ladder now climbs the trunk and comes up through the
+  deck.
+- **The metric could not see plants.** A kitchen garden of crops scored zero because none of it is
+  stone. In this pack the crop row and the flowers at a doorstep *are* the residue layer; counting
+  them moved the pixie median from 14.4% to 20.8% on its own.
+- **Two checkers disagreed about one palette.** `minecraft:wall_torch` has no item, so the spawn
+  hub's S2 called it unregistered while the surface checker had exempted it since it was written.
+  The same item-registry proxy had already hidden `minecraft:water` once.
+- **The first debris pass carpeted the halls.** An even scatter of one fragment per broken wall
+  top reads as texture, not as a building that fell over — the same mistake `Noise3` exists to
+  prevent one level up. It drops heaps now.
+
+**Discovery value, as §6.1 asked.** Every quarry carries stockpiles of Era I-IV bloom ore and
+half-worked seams that stop mid-vein; every crater carries a severed ley run that comes in over
+the rim and stops short of the centre with its last node still lit. Both are world geometry, so
+neither shortens an era.
+
+**Validation.** New `tools/check_structure_detail.py` holds a per-family floor, each set below
+what the set measures so it fires on regression rather than describing an aspiration;
+`--self-test` proves 6/6 of its checks fail on corrupted input. Every structure-relevant checker
+passes, including the pack-wide S11 attachment sweep across all 105 pieces and the deepworks
+generator-closure check. All five generators re-run to identical decompressed payloads.
+
+**Acceptance: static validated.** Nothing in this release has been seen in a client or a fresh
+world; that gate is open for all six families.
+
+---
+
 ## 0.22.0-design — 2026-09-08 — the Ley Conduit Node
 
 The corridors shipped in 0.21.x with the node deliberately absent, on the grounds that no mod in
@@ -1613,3 +1682,15 @@ Continuity Works 0.3.0-rc.2 is installed and loads. It needs re-aiming at Midgar
 
 Initial instance assembly. 26 pinned core mods, design documents, inert KubeJS scaffolds. A further
 70 mods were added on 1–2 September without documentation; reconciling them is backlog item B-03.
+# 2026-09-09 — Complete Royal Wave A and begin functional elven storage
+
+- Expanded Royal Tile Set I Wave A from 8 to all 17 planned semantic assets: 30 physical custom-model blocks and 34 deterministic generated files.
+- Added lineage stele, audience bench, writing desk, tall cabinet, mana brazier, goblet service, finial, pedestal planter and weapon rack, including proper local-module assemblies for oversized pieces.
+- Added the first functional furnishing, **Manna Stone Storage**, to Alfheim Leyworks: 27 base slots plus three direct-gem upgrades of 27 slots each, a synchronized 108-slot vault interface, persistent contents/upgrades, comparator support and recoverable installed gems.
+- Added the functional-furnishings contract for future chests, crates, vases, pots, urns, statues, large crystal plinths and gemstone embellishments.
+- Planned **Alfheim Golems** as a separate first-party mod: twelve Worker/Artisan/Sentinel elemental forms, reusable Manna Stone orders, recursive Simple/Advanced/Combat cores, wild Deep salvage and four consumable temporary-combat summon vessels. Added B-92, a durable goal ledger and staged G0-G8 implementation/acceptance plan whose runtime and client evidence is entirely automated; no mod content or jar is claimed.
+- Static validation: Royal generator/checker pass; Alfheim Leyworks Java 17 build passes; dependency ranges and feature order report zero blocking issues. Runtime/client acceptance remains pending.
+- Expanded the functional furnishing implementation with seven capacity-honest containers: Royal Elven Chest, Gemstone Coffer, three Dreamwood crate roles, Tall Elven Vase and Memorial Urn. Added 38 deterministic model/blockstate/item/loot/recipe/tag/review resources and a dedicated checker.
+- Added 12 physical sculptural-detail blocks: three two-block statues, a two-block Large Crystal Plinth, Observatory Prism Stand, and three gemstone embellishments. Added a deterministic generator and disposable review gallery.
+- Completed Royal Tile Set I Wave B: all 19 room-completion semantics represented by 28 physical blocks and 32 deterministic outputs.
+- Added a 32-object exotic elven home catalog and implemented its first eight representatives: Starbell Chandelier, Moonpool Lamp, Whisper Harp, Moonmirror, Levitating Planter, Nectar Fountain, Bottled Aurora and Miniature Ley Garden.

@@ -17,6 +17,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
+import structure_detail as sd  # noqa: E402
 from structure_nbt import MAX_AXIS, Piece  # noqa: E402
 
 NS = 'alfheim'
@@ -309,6 +310,24 @@ def house_piece(kind, c, variant):
                 if math.hypot(x - 3, z - 3) <= 3.6:
                     p.set(x, 5 + (1 if abs(x - 3) + abs(z - 3) < 3 else 0), z,
                           B(c['leaves'][(x + z) % len(c['leaves'])], persistent=True, distance=1))
+        # A way in, and an eave. The first draft put this variant's doorway three blocks off
+        # the ground with nothing under it and no stair anywhere in the piece -- which is also
+        # why it was the only one of the four houses to measure a flat zero on the detail
+        # census while its siblings ran 22 to 58 per cent. A tree home is entered through its
+        # trunk: the ladder climbs the log it is built around and comes up through the deck,
+        # so the opening at the front is a balcony rather than a door onto thin air.
+        for y in range(0, 3):
+            p.set(3, y, 2, B('minecraft:ladder', facing='north', waterlogged=False))
+        for x in range(1, 6):
+            for z in (1, 5):
+                if (x, z) not in ((1, 1), (5, 1), (1, 5), (5, 5)):
+                    p.set(x, 4, z, slab)
+        for z in range(2, 5):
+            p.set(1, 4, z, slab); p.set(5, 4, z, slab)
+        p.set(2, 3, 1, B(c['wood'] + '_fence', north=False, south=False, east=True,
+                         west=False, waterlogged=False))
+        p.set(4, 3, 1, B(c['wood'] + '_fence', north=False, south=False, east=False,
+                         west=True, waterlogged=False))
     else:  # low communal pantry
         box(p, 0, 0, 1, 6, 0, 5, wood)
         for x in range(0, 7):
@@ -384,6 +403,35 @@ def tree_piece(kind, c):
     return p
 
 
+# --- the detail pass ----------------------------------------------------------------------------
+#
+# The hamlets came out of the census in better shape than the number suggested: a pixie house
+# is 22 to 58 per cent detail blocks, because a 7x8x7 cottage is almost all stair, fence and
+# trapdoor. What the census DID find is that the island itself is a plate -- 2,937 solid blocks
+# of soil with a flat underside and nothing hanging off it.
+#
+# So this pass is deliberately narrow. No masonry vocabulary goes near a pixie hamlet: no
+# cornices, no ley channels, no rubble heaps. What the island gets is the two things that make
+# a floating landmass read as afloat instead of as a disc -- a fringe of roots trailing off the
+# underside into open air, and a few crystal seams in the stone doing the lifting. The vault,
+# its spawner and every jigsaw socket are protected by the detail module's own rules.
+
+DETAIL_KITS = {kind: dict(
+    stone='botania:livingrock', brick='botania:livingrock_bricks',
+    floor=c['soil'], accent=c['accent'], crystal=f'{NS}:rootglass_cluster',
+    timber=c['log'], plank=c['wood'], light='minecraft:lantern',
+    rubble=['minecraft:moss_block', c['soil']]) for kind, c in CULTURES.items()}
+
+
+def detail_island(piece, kind, seed):
+    """Trail the roots and seat the crystal: why the island is up there, in two passes."""
+    kit = sd.Kit(**DETAIL_KITS[kind])
+    counts = {'sockets': sd.crystal_sockets(piece, seed, kit, count=3)}
+    counts.update(sd.aftermath(piece, seed, kit, ground=0, seep='moss', seep_rate=0.0,
+                               roots=0.11, hang='roots', into_world=True))
+    return counts
+
+
 def pool(name, locations):
     return {'name': name, 'fallback': 'minecraft:empty', 'elements': [
         {'weight': weight, 'element': {'location': location, 'processors': 'minecraft:empty',
@@ -408,6 +456,8 @@ def main():
             'tree': tree_piece(kind, c),
         }
         for i in range(4): pieces[f'house_{i + 1}'] = house_piece(kind, c, i)
+        detail_island(pieces['core'], kind,
+                      int(hashlib.sha1(f'pixie:{kind}'.encode()).hexdigest()[:8], 16))
         for name, piece in pieces.items():
             save_piece(os.path.join(base, name + '.nbt'), piece)
             total += len(piece.blocks)

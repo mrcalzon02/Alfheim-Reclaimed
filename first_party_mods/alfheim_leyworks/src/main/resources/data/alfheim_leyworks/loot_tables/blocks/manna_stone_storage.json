@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"rolls":1,"entries":[{"type":"minecraft:item","name":"alfheim_leyworks:manna_stone_storage"}],"conditions":[{"condition":"minecraft:survives_explosion"}]}]}

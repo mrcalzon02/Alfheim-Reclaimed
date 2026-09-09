@@ -1,5 +1,92 @@
 # Backlog
 
+### B-92 — Alfheim Golems — **IMPLEMENTATION PLANNED 2026-09-09; NO MOD SCAFFOLD OR CONTENT YET**
+
+Build a separately versioned first-party `alfheim_golems` mod for deterministic workshop assistants,
+not an extension of the singleton conversational companion. The complete gameplay contract is
+`alfheim_reclaimed_design/ELVEN_GOLEMS.md`; the wave-by-wave source plan is
+`first_party_mods/alfheim_golems/docs/ALFHEIM_GOLEMS_PLAN.md`.
+
+**Scope:** three chassis (single-block Worker, player-height Artisan, temporary/wild Sentinel) x four
+elements (Fire, Water, Earth, Air); reusable Manna Stone Command Gem; real inventory transfer,
+furnaces, 2x2/3x3 recipes and audited machine adapters; Simple, Advanced and Combat core families;
+four consumable combat-summon vessels; and all twelve wild variants in the Deep as a salvage route.
+
+**Economy:** the deterministic craft path is deliberately prodigious and recursive—Advanced consumes
+Simple, Combat consumes Advanced—and crosses both magic spines. Wild golems yield bulk aligned
+materials, parts, fragments and rare damaged cores, not routine pristine finished cores. Restoration
+still requires the current era's processes, so exploration reduces cost without skipping knowledge.
+
+**Progression proposal:** Worker/Command Gem in Era III, basic crafting/routes in IV, Artisan and
+first machine adapters in V, wider sequences in VI, consumable Sentinels in VII. Reconcile these
+placements against actual recipe IDs before registering recipes.
+
+**First exact action (G0):** scaffold an independent Forge 47.4.10/Java 17 project with Forge-only
+hard dependency, closed element/disposition/order enums, transfer interfaces, tests and jar metadata.
+Do not copy companion inference or make either mod depend on the other.
+
+**Acceptance:** staged goals G0-G8 in the mod-local plan. Critical invariants are no item creation or
+loss, no forced chunk loading, execution-time claim checks, explicit machine adapters, bounded global
+scheduling, fresh-world Deep spawn/loot measurement and exactly-once consumable summon behavior.
+All gates are Codex-run and automated; no owner-run playtest or manual visual review is required.
+
+### B-91 — The structure detail pass, all six families — **STATIC IMPLEMENTED 2026-09-08; CLIENT REVIEW PENDING**
+
+`THE_SURFACE.md` pass 5 (hero detail) and pass 7 (quarry discovery value), plus the same treatment
+for the five sets that were never in that document's scope. Closes B-83 item 5.
+
+**Scope.** 105 shipping templates across six families: 50 surface, 32 pixie, 11 deepworks
+archaeology, 5 leyline corridor, 4 court, 3 greatbole.
+
+**What was actually wrong.** A census of the shipping `.nbt` files found 29 pieces under a 4%
+detail-block share, `greatbole/trunk` built from three block ids repeated 6,645 times, and every
+leyline bend, terminal and hub at zero. The five layers `THE_SURFACE.md` §3.2 names — monumental
+massing, architectural logic, elven technology, causal decay, human-scale residue — were, four of
+five, absent from every generator in the pack.
+
+**What was built.** `tools/structure_detail.py`, the shared detail vocabulary, wired into
+`gen_surface_works.py` (all ten archetypes), `gen_deep_archaeology.py` (three families plus the
+headworks), `gen_spawn_hub.py` (four court pieces, and a tree-specific pass for the bole),
+`gen_leyline_corridors.py` and `gen_pixie_settlements.py`. Each pass reads the finished piece's
+geometry rather than being handed a floor plan, which is why one implementation serves five
+generators. `dress()` runs before each builder's decay pass and `aftermath()` after it, so what
+survives is residue and what arrives is consequence.
+
+| Family | n | Worst share | Median share | Fewest ids |
+|---|--:|---|---|---|
+| surface | 50 | 0.0% -> 4.2% | 16.5% -> 27.5% | 7 -> 8 |
+| deepworks_archaeology | 11 | 2.0% -> 5.1% | 5.8% -> 14.0% | 5 -> 13 |
+| court | 4 | 1.3% -> 2.7% | 4.0% -> 7.2% | 16 -> 20 |
+| greatbole | 3 | 0.0% -> 1.1% | 0.0% -> 1.3% | 3 -> 5 |
+| leyline | 5 | 0.0% -> 3.2% | 0.0% -> 5.9% | 7 -> 13 |
+| pixie | 32 | 1.2% -> 1.3% | 14.4% -> 20.8% | 6 -> 6 |
+
+Detail blocks 22,891 -> 50,646; pieces under a 4% share 29 -> 9.
+
+**Defects found and repaired on the way.**
+
+- `pixie/house_3` put its doorway three blocks off the ground with nothing to climb. It now has a
+  ladder up the trunk through the deck, an eave course and a balcony rail.
+- The detail metric ignored plants, scoring a pixie kitchen garden at zero. Crops, saplings,
+  flowers and potted plants are the human-scale residue layer in a botanical pack and now count.
+- `check_spawn_hub.py` S2 rejected `minecraft:wall_torch` as unregistered because its list of
+  itemless blocks was missing the wall-mounted torch variants; `check_surface_works.py` had
+  exempted them all along. The two checkers disagreeing about one palette was the defect.
+- The first debris pass carpeted hall floors evenly. It drops heaps now.
+
+**Also delivered: §6.1 discovery value.** Every quarry gained stockpiles of Era I-IV bloom ore and
+half-worked seams; every crater gained a severed ley run that comes in over the rim and stops short
+of the centre.
+
+**Validation.** New `tools/check_structure_detail.py` holds a per-family floor set below the
+measured value, with `--self-test` proving 6/6 checks fire. Every structure-relevant checker passes,
+including the pack-wide S11 attachment sweep over all 105 pieces. All five generators re-run to
+identical decompressed payloads.
+
+**Open.** No piece has been seen in a client or a fresh world. Client visual review is the next gate
+for all six families, and `THE_SURFACE.md` pass 6 (named interior rooms) and pass 8 (density tuning
+against a real walk) remain untouched.
+
 ### B-90 — Crystal clusters had no orientation state — **REPAIRED (static) 2026-09-08**
 
 User report, from a geode screenshot: *"our custom crystals do not correctly have orientation
@@ -612,7 +699,7 @@ one the symptom suggested.
 | 2 | Decayed Mire, likewise | Same. Ores, apothecaries, alfheim_grass. 76 of 93 samples plain grass block | **static implemented** |
 | 3 | Claim far too large | `HUB_RADIUS = 128` square centred on the tree, sized for a placement probe retired in an earlier pass. The complex spans X -72..71, Z -120..23 and is centred at Z = -48, so the claim over-reached south and barely cleared the north wing | **runtime validated** — console reports 100/100 chunks, down from 289 |
 | 4 | Boundary caves full of noise blocks | Three causes: `inclusions` noise at firstOctave -4 sprayed single blocks; upper 3-stone and lower 5-stone strata schemes banded at different widths so no edge lined up; and a 22-block randomly dithered blend band sat at Y -30..-8, exactly cave height | **static implemented** |
-| 5 | Surface structures need a high-detail pass | The decay/collapse passes delete blocks without asking what rested on them. S11 found wholly unattached blocks in 15 pieces — floating lanterns in four keeps, detached stairs in several towers, 318 in `faultwork/wing` | **loose blocks repaired; the wider detail pass is still open** |
+| 5 | Surface structures need a high-detail pass | The decay/collapse passes delete blocks without asking what rested on them. S11 found wholly unattached blocks in 15 pieces — floating lanterns in four keeps, detached stairs in several towers, 318 in `faultwork/wing` | **CLOSED 2026-09-08 by B-91** — loose blocks repaired earlier; the detail pass now covers all six families, statically |
 | 6 | Ley line conduit shafts never seen | Not a spawn-criteria fault. The worldgen half does not exist: no `alfheim:ley_conduit_node`, no structure, no template pool, no NBT. Only Phase 1 — the status effects and their icons — is built, exactly as `LEY_LINE_CHANNEL_CORRIDORS.md` states | **diagnosed; unbuilt** |
 | 7 | Wooded shoreline biomes, incl. mushroom forests | Not started. Already queued in B-80's later list | **not started** |
 | 8 | Remaining development gaps | See "climate monoculture" below — the largest open gap, and it is upstream of items 1, 2 and 7 | **evidenced** |
@@ -642,8 +729,8 @@ Decide the climate scale before authoring more biomes.
 #### Open, in priority order
 
 1. Climate scale for temperature/humidity — the decision that gates items 7 and 8.
-2. Surface-structure detail pass. The loose-block sweep is done and S11 is clean; what remains is
-   the actual quality pass on the 44 surface pieces — silhouette, interior legibility, materials.
+2. ~~Surface-structure detail pass.~~ **Done 2026-09-08, B-91**, and widened to all six structure
+   families. Client visual review is the remaining gate.
 3. A surface entrance for the Deepworks families, so a player can find one without caving to Y -40.
 4. Ley line corridors Phase 2: the conduit block, then the jigsaw network.
 5. Wooded shoreline biomes and mushroom forests.

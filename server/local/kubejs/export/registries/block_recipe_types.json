@@ -1,0 +1,5 @@
+{
+	"createbigcannons:cannon_casting": "rbasamoyai.createbigcannons.crafting.BlockRecipeType$Simple",
+	"createbigcannons:built_up_heating": "rbasamoyai.createbigcannons.crafting.BlockRecipeType$Simple",
+	"createbigcannons:drill_boring": "rbasamoyai.createbigcannons.crafting.BlockRecipeType$Simple"
+}

@@ -1,0 +1,23 @@
+{
+	"farmersdelight:add_item": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"farmersdelight:replace_item": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"farmersdelight:add_loot_table": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"farmersdelight:pastry_slicing": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"libx:addition": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"libx:removal": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"knightlib:add_item": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"ars_nouveau:dungeon_loot": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"mythicbotany:dispose": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"mythicbotany:fimbultyr": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"moonlight:add_item": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"moonlight:replace_item": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"moonlight:add_loot_table": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"knightquest:add_item": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"supplementaries:replace_rope": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"irons_spellbooks:append_loot": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"miners_delight:add_items": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"miners_delight:replace_items": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecolonies:supplyship_loot": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecolonies:supplycamp_loot": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"occultism:add_item": "com.mojang.serialization.MapCodec$MapCodecCodec"
+}

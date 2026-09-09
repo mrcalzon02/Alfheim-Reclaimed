@@ -1,0 +1,7 @@
+{
+	"createdieselgenerators:plantoil": "com.jesz.createdieselgenerators.fuel_type.FuelType",
+	"createdieselgenerators:diesel": "com.jesz.createdieselgenerators.fuel_type.FuelType",
+	"createdieselgenerators:biodiesel": "com.jesz.createdieselgenerators.fuel_type.FuelType",
+	"createdieselgenerators:ethanol": "com.jesz.createdieselgenerators.fuel_type.FuelType",
+	"createdieselgenerators:gasoline": "com.jesz.createdieselgenerators.fuel_type.FuelType"
+}

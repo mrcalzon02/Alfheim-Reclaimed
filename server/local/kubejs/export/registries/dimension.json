@@ -1,0 +1,11 @@
+{
+	"the_harvest:harvest": "net.minecraft.world.level.dimension.LevelStem",
+	"mmorpg:dungeon": "net.minecraft.world.level.dimension.LevelStem",
+	"minecraft:the_end": "net.minecraft.world.level.dimension.LevelStem",
+	"mythicbotany:alfheim": "net.minecraft.world.level.dimension.LevelStem",
+	"ancient_obelisks:obelisk": "net.minecraft.world.level.dimension.LevelStem",
+	"irons_spellbooks:pocket_dimension": "net.minecraft.world.level.dimension.LevelStem",
+	"dungeon_realm:dungeon": "net.minecraft.world.level.dimension.LevelStem",
+	"minecraft:overworld": "net.minecraft.world.level.dimension.LevelStem",
+	"minecraft:the_nether": "net.minecraft.world.level.dimension.LevelStem"
+}

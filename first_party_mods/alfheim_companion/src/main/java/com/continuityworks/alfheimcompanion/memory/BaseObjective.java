@@ -26,8 +26,10 @@ public record BaseObjective(Phase phase, String dimensionId, BlockPos anchor, St
     }
 
     public boolean active() {
-        return phase != Phase.NONE && phase != Phase.MAINTAINING;
+        return phase != Phase.NONE && phase != Phase.MAINTAINING && phase != Phase.PAUSED;
     }
+
+    public boolean exists() { return phase != Phase.NONE; }
 
     public boolean established() {
         return phase == Phase.FURNISHING || phase == Phase.MAINTAINING;

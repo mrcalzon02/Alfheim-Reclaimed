@@ -1,0 +1,9 @@
+[
+	"#minecraft:campfires",
+	"#minecraft:fire",
+	"create:blaze_burner",
+	"create:lit_blaze_burner",
+	"farmersdelight:stove",
+	"minecraft:lava",
+	"minecraft:magma_block"
+]

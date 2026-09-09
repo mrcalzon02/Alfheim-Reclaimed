@@ -1,0 +1,12 @@
+{
+	"minecraft:sequence": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"moonlight:optional_item": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"libx:all": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:loot_table": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:group": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:alternatives": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:item": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:dynamic": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:tag": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType",
+	"minecraft:empty": "net.minecraft.world.level.storage.loot.entries.LootPoolEntryType"
+}

@@ -1,0 +1,8 @@
+{
+	"create:potion_effect": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"create:food_effects": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"create:chorus_teleport": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"create:set_on_fire": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"create:cure_zombie_villager": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"create:suspicious_stew": "com.mojang.serialization.MapCodec$MapCodecCodec"
+}

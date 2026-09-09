@@ -1,0 +1,12 @@
+{
+	"minecraft:diamond": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:iron": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:copper": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:amethyst": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:gold": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:lapis": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:redstone": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:quartz": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:netherite": "net.minecraft.world.item.armortrim.TrimMaterial",
+	"minecraft:emerald": "net.minecraft.world.item.armortrim.TrimMaterial"
+}

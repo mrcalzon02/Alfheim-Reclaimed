@@ -1,5 +1,99 @@
 # Execution State
 
+## Latest planning — Alfheim Golems — 2026-09-09
+
+B-92 now owns a separate planned first-party mod, `alfheim_golems`. No Gradle scaffold, registered
+content or jar exists yet. The durable contract is `alfheim_reclaimed_design/ELVEN_GOLEMS.md` and the
+implementation waves are in `first_party_mods/alfheim_golems/docs/ALFHEIM_GOLEMS_PLAN.md`.
+
+Settled scope: Worker, Artisan and Sentinel chassis; Fire/Water/Earth/Air versions of each; Manna
+Stone Command Gem orders; real inventory, furnace, crafting and audited machine work; recursive
+Simple/Advanced/Combat cores; wild Deep variants providing costly-route salvage; and four consumed
+Sentinel Vessels that summon owner-allied combat golems for an initial target of 120 seconds. Wild
+salvage may remove bulk cost but does not commonly drop pristine cores or bypass era processes.
+
+Current acceptance: **planned only**. Next gate is G0, the independent Java 17/Forge scaffold and
+pure contracts; it must not inherit companion inference or claim implementation by copy. The owner
+will not perform runtime validation: every golem gate must use automated tests, scripted servers,
+fresh-world surveys or automated client interaction/capture.
+
+## Latest implementation — the structure detail pass, all six families — 2026-09-08
+
+`THE_SURFACE.md` pass 5 has been open since the first field review: *"the hero-detail/slow-decay
+pass across every archetype."* It is now implemented for every structure set in the pack, not only
+the surface one, because the census built to scope it found the same gap everywhere.
+
+**The measurement came first, and it disagreed with the eye.** `structure_detail.census()` counts
+what share of a piece's solid blocks are small-scale articulation rather than bulk mass. Over the
+105 shipping templates at `9b393f2`: 29 pieces under a 4% detail share, `greatbole/trunk` built
+from **three** block ids repeated 6,645 times, and every leyline bend, terminal and hub at a flat
+**zero** — because all of the hanging light lived in `channel_line`, which only the straights call.
+
+**One vocabulary, five generators, and it is never told where the rooms are.**
+`tools/structure_detail.py` implements the five layers of `THE_SURFACE.md` §3.2 as passes over a
+finished `Piece`, deriving every candidate from geometry: a wall face is a solid with a free cell
+beside it, a floor is a solid with headroom over it, an overhang is a solid with nothing under it.
+The same `sconces()` call therefore works on a castle keep, a mine drift and a pixie cottage. It
+was extracted for the reason `structure_nbt.py` was — a second generator needed it, and copying it
+would have made two divergent answers to one question.
+
+**The order is the mechanism.** `dress()` runs before each builder's decay pass and `aftermath()`
+after it: detail laid down first is what the building had, so decay eats it where it eats the
+walls; detail added after is what the collapse did — debris heaped at the foot of the wall it fell
+from, moss where the roof stopped keeping rain out, roots through the floor nobody sweeps.
+
+**Measured, same metric on both trees:**
+
+| Family | n | Worst share | Median share | Fewest ids |
+|---|--:|---|---|---|
+| surface | 50 | 0.0% -> 4.2% | 16.5% -> 27.5% | 7 -> 8 |
+| deepworks_archaeology | 11 | 2.0% -> 5.1% | 5.8% -> 14.0% | 5 -> 13 |
+| court | 4 | 1.3% -> 2.7% | 4.0% -> 7.2% | 16 -> 20 |
+| greatbole | 3 | 0.0% -> 1.1% | 0.0% -> 1.3% | 3 -> 5 |
+| leyline | 5 | 0.0% -> 3.2% | 0.0% -> 5.9% | 7 -> 13 |
+| pixie | 32 | 1.2% -> 1.3% | 14.4% -> 20.8% | 6 -> 6 |
+
+Detail blocks 22,891 -> 50,646 over 303,605 -> 336,689 solids; pieces under a 4% share 29 -> 9,
+and the nine are the tree, the canopy, the pixie saplings and the open-air amphitheatre, which are
+mass by nature.
+
+**Four things the pass found rather than added.**
+
+1. **A pixie house had no way in.** `house_3`, the leaf-capped tree home, put its doorway three
+   blocks off the ground with no stair anywhere in the piece — and it was the only one of the four
+   variants to measure a flat zero while its siblings ran 22 to 58 per cent. It now has a ladder up
+   the trunk that comes through the deck, an eave course, and a balcony rail; 0.0% -> 18.0%.
+2. **The metric was blind to plants.** A pixie kitchen garden scored zero because none of it is
+   made of stone. In a botanical-magic pack the crop row, the sapling and the two flowers at a
+   doorstep ARE the human-scale residue layer, so `is_detail` counts them. The pixie median moved
+   14.4% -> 20.8% on that correction alone, which says how badly the first metric read that set.
+3. **Two checkers disagreed about one palette.** `minecraft:wall_torch` has no item, so
+   `check_spawn_hub.py` S2 called it unregistered while `check_surface_works.py` NO_ITEM had
+   exempted it since it was written. S2's itemless-block list gained the two wall-torch variants;
+   the same proxy had already hidden `minecraft:water` once.
+4. **Debris carpeted the halls.** The first run placed one fragment per broken wall top at a 0.45
+   rate and covered every hall floor evenly — the same failure `Noise3` exists to prevent one level
+   up. It now drops heaps: a tenth of the tops, three or four blocks each, tapering outward.
+
+**Two structures also got the discovery-value work `THE_SURFACE.md` §6.1 asked for.** Every quarry
+now carries stockpiles of Era I-IV bloom ore and half-worked seams that stop mid-vein, so a player
+who follows a map to a rare quarry leaves with a haul and still cannot skip an era. Every crater
+carries a severed ley run coming in over the rim on a fixed bearing and stopping short of the
+centre with its last node still lit — an answer to "what was here" that is geometry rather than a
+chest.
+
+**Validation.** `tools/check_structure_detail.py` is new and holds a floor per family, each set
+below what the set measures so it fires on regression; `--self-test` proves 6/6 of its checks fire
+on corrupted input. All structure-relevant checkers pass: `check_structure_detail`,
+`check_surface_works`, `check_spawn_hub` (S1-S13, including the pack-wide S11 attachment sweep over
+all 105 pieces), `check_deep_archaeology`, `check_hollow_court`, `check_pixie_settlements`,
+`check_pixie_runtime`, `check_funerary_set`, `check_worldgen`, `check_feature_order`, `check_spawn`.
+Reproducibility: all five generators re-run and all 105 decompressed payloads are identical
+(`gzip` stamps the header clock, so the files never are).
+
+**Acceptance: static validated. No piece in this pass has been seen in a client or a fresh world.**
+That is the next gate and it is open for all six families.
+
 ## Latest implementation — the Ley Conduit Node — 2026-09-08
 
 The last piece of `LEY_LINE_CHANNEL_CORRIDORS.md` that a datapack could not express. B-88 shipped
@@ -3015,3 +3109,14 @@ Direction expanded materially. Three changes, all doctrine-level:
   Alfheim generator overriding the Overworld preset. **Superseded the same day** — Continuity Works
   requires TerraBlender, so the design moved to a vanilla multi-noise Overworld with Alfheim injected
   as a TerraBlender region. See the Continuity Works section above and `WORLD_STRUCTURE.md` §3.
+# Session — Royal Wave A completion and Manna Stone Storage, 2026-09-09
+
+Royal Tile Set I Wave A now covers all 17 planned semantics as 30 registered custom-model blocks. The deterministic generator emits 34 files and its checker passes. The review function places the complete gallery, including all six multi-block assemblies.
+
+`alfheim_leyworks:manna_stone_storage` is the first functional elven furnishing. It stores 27 slots at base and consumes up to three items in `alfheim_leyworks:manna_storage_gems`, adding 27 slots per gem to a 108-slot maximum. Contents and installed gems persist separately; breaking returns both. The custom 18×6 interface visibly locks unavailable capacity. Comparator output and Spine-of-Leaf crafting are present.
+
+Evidence: Royal checker `PASS semantics=17 blocks=30 generated=34`; Alfheim Leyworks `gradlew test build` passes on Java 17; installed client/server jars are byte-identical; dependency-range and feature-order checkers both report zero blocking issues. Static only: client rendering, interaction, save/reload, shift-click, comparator and multiplayer synchronization remain runtime-pending.
+
+Expansion in the same session: seven fixed-capacity functional containers now share the Manna storage screen and persistence foundation—Royal Chest 54, Gemstone Coffer 18, Dreamwood/Provision/Scroll Crates 27 each, Tall Vase 9 and Memorial Urn 9. `tools/check_functional_elven_containers.py` passes over 38 deterministic resources, including a complete review function. The sculptural-detail generator adds 12 physical blocks for Ancestor/Oathkeeper/Mourning statues, Large Crystal Plinth, Observatory Prism Stand and three gemstone embellishments; its 16 outputs reproduce byte-for-byte and its startup script passes Node syntax. Runtime status is unchanged: pending client restart and field review.
+
+Further household expansion: Royal Wave B now implements all 19 catalogued room-completion semantics as 28 physical blocks; its checker passes over 32 deterministic outputs. A new 32-object exotic-home catalog supplies seven families of specifically non-human domestic design. Eight pilot objects are registered in 12 deterministic outputs: Starbell Chandelier, Moonpool Lamp, Whisper Harp, Moonmirror, Levitating Planter, Nectar Fountain, Bottled Aurora and Miniature Ley Garden. Total new decorative/functional physical blocks across the current furnishing pass: 86. Runtime status remains pending restart and gallery inspection.

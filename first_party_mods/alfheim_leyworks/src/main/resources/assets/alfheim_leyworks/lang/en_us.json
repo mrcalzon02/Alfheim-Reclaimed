@@ -1,4 +1,15 @@
 {
   "block.alfheim_leyworks.ley_conduit_node": "Ley Conduit Node",
-  "block.alfheim_leyworks.ley_conduit_node_dormant": "Dormant Ley Conduit Node"
+  "block.alfheim_leyworks.ley_conduit_node_dormant": "Dormant Ley Conduit Node",
+  "block.alfheim_leyworks.manna_stone_storage": "Manna Stone Storage",
+  "block.alfheim_leyworks.royal_chest": "Royal Elven Chest",
+  "block.alfheim_leyworks.gemstone_coffer": "Gemstone Coffer",
+  "block.alfheim_leyworks.dreamwood_crate": "Dreamwood Crate",
+  "block.alfheim_leyworks.provision_crate": "Provision Crate",
+  "block.alfheim_leyworks.scroll_crate": "Scroll Crate",
+  "block.alfheim_leyworks.tall_vase": "Tall Elven Vase",
+  "block.alfheim_leyworks.memorial_urn": "Memorial Urn",
+  "container.alfheim_leyworks.manna_stone_storage": "Manna Stone Storage",
+  "container.alfheim_leyworks.storage_capacity": "%s slots / %s chests",
+  "message.alfheim_leyworks.manna_storage_full": "Every gemstone cradle is already occupied."
 }

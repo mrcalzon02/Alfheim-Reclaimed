@@ -1,0 +1,13 @@
+[
+	"#forge:is_desert",
+	"#forge:is_dry",
+	"#minecraft:has_structure/desert_pyramid",
+	"#minecraft:is_nether",
+	"#minecraft:is_savanna",
+	"minecraft:badlands",
+	"minecraft:desert",
+	"minecraft:eroded_badlands",
+	"minecraft:savanna",
+	"minecraft:savanna_plateau",
+	"minecraft:windswept_savanna"
+]

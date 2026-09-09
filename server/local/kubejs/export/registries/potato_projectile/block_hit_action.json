@@ -1,0 +1,4 @@
+{
+	"create:place_block_on_ground": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"create:plant_crop": "com.mojang.serialization.MapCodec$MapCodecCodec"
+}

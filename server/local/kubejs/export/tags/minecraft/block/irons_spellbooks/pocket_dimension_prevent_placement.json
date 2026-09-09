@@ -1,0 +1,10 @@
+[
+	"#minecraft:beds",
+	"#waystones:portstones?",
+	"#waystones:sharestones?",
+	"#waystones:waystones?",
+	"ae2:spatial_pylon?",
+	"irons_spellbooks:portal_frame",
+	"minecraft:respawn_anchor",
+	"waystones:warp_plate?"
+]

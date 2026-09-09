@@ -21,6 +21,8 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import com.continuityworks.alfheimcompanion.command.CompanionAdminCommands;
 import com.continuityworks.alfheimcompanion.service.CompanionDeathInventoryService;
 import com.continuityworks.alfheimcompanion.service.BaseOperationsService;
+import com.continuityworks.alfheimcompanion.service.DelegatedClaimService;
+import com.continuityworks.alfheimcompanion.service.AutonomousActivityService;
 
 public final class CompanionEvents {
     private CompanionEvents() {}
@@ -82,6 +84,8 @@ public final class CompanionEvents {
         CompanionBrainCoordinator.tick(event.getServer());
         BlueprintLifecycleService.tick(event.getServer());
         BaseOperationsService.tick(event.getServer());
+        DelegatedClaimService.tick(event.getServer());
+        AutonomousActivityService.tick(event.getServer());
         if (event.getServer().getTickCount() % 20 == 0) {
             CompanionSavedData leaseData = CompanionSavedData.get(event.getServer());
             if (leaseData.expireLease(event.getServer().overworld().getGameTime())) {
@@ -110,6 +114,8 @@ public final class CompanionEvents {
         CompanionBrainCoordinator.deactivate();
         BlueprintLifecycleService.cancel(event.getServer());
         WheelActionService.clearRateLimits();
+        DelegatedClaimService.clearRuntime();
+        AutonomousActivityService.clearRuntime();
         CompanionChunkTickets.releaseAll(event.getServer());
     }
 }

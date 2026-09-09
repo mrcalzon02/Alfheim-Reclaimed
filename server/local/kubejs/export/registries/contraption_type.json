@@ -1,0 +1,16 @@
+{
+	"createbigcannons:mounted_autocannon": "com.simibubi.create.api.contraption.ContraptionType",
+	"createbigcannons:cannon_builder": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:gantry": "com.simibubi.create.api.contraption.ContraptionType",
+	"createbigcannons:cannon_loader": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:piston": "com.simibubi.create.api.contraption.ContraptionType",
+	"createbigcannons:cannon_drill": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:clockwork": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:carriage": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:elevator": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:mounted": "com.simibubi.create.api.contraption.ContraptionType",
+	"createbigcannons:mounted_cannon": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:bearing": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:pulley": "com.simibubi.create.api.contraption.ContraptionType",
+	"create:stabilized": "com.simibubi.create.api.contraption.ContraptionType"
+}

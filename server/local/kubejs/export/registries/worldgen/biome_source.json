@@ -1,0 +1,7 @@
+{
+	"minecraft:multi_noise": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecraft:checkerboard": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"libx:layered": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecraft:the_end": "com.mojang.serialization.MapCodec$MapCodecCodec",
+	"minecraft:fixed": "com.mojang.serialization.MapCodec$MapCodecCodec"
+}

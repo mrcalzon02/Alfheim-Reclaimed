@@ -1,0 +1,10 @@
+[
+	"#forge:chests/ender",
+	"#forge:chests/trapped",
+	"#forge:chests/wooden",
+	"ars_nouveau:archwood_chest",
+	"framedblocks:framed_chest",
+	"minecraft:chest",
+	"minecraft:ender_chest",
+	"minecraft:trapped_chest"
+]

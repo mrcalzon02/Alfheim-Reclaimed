@@ -24,6 +24,7 @@ DataVersion 3465 for 1.20.1.
     python tools/gen_spawn_hub.py --dry-run
 """
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -32,6 +33,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
+import structure_detail as sd  # noqa: E402
 from structure_nbt import ADAPTATION_MARGIN, DATA_VERSION, Piece  # noqa: E402
 
 NS = 'alfheim'
@@ -1132,6 +1134,169 @@ def write_json(path, obj, dry):
         f.write('\n')
 
 
+# --- the detail pass ---------------------------------------------------------------------------
+#
+# The hub is the first thing a player sees and the census that opened this pass put the
+# Greatbole at a **zero** detail-block share across 49,000 solids: three ids in the trunk,
+# four in the crown. It is not that the tree needed cornices -- it is that nothing in it said
+# anyone had ever been there. The court wings measured 3.8 to 4.7 per cent, which is high mass
+# rather than low quality, but they had no hung light and no water coming in.
+#
+# `structure_detail.py` owns the vocabulary. What is here is the tuning and, more importantly,
+# the ROUTE EXCLUSION: both builders end with a "last writer wins" clear that reopens the
+# processional spine after their own dressing, and a detail pass that ran afterwards would put
+# a lantern back in the corridor S10 asserts is empty. Rather than repeat either clearing loop,
+# the same cells are handed to the detail module as off-limits.
+
+TREE_KIT = dict(
+    stone=f'{NS}:gloambark_log', brick=f'{NS}:hushbark_log',
+    floor='botania:livingrock', accent='minecraft:chiseled_quartz_block',
+    slab='minecraft:quartz_slab', pillar=f'{NS}:gloambark_log',
+    crystal=f'{NS}:rootglass_cluster', timber='botania:dreamwood_log',
+    plank='botania:dreamwood_planks', fence='botania:dreamwood_fence',
+    light='minecraft:lantern',
+    rubble=['minecraft:moss_block', 'minecraft:cobblestone', 'minecraft:gravel'])
+
+COURT_KIT = dict(
+    stone='minecraft:calcite', brick='feywild:elven_quartz_block',
+    brick_cracked='minecraft:cracked_stone_bricks',
+    brick_mossy='minecraft:mossy_stone_bricks', pillar='minecraft:quartz_pillar',
+    floor='minecraft:smooth_quartz', accent='minecraft:chiseled_quartz_block',
+    stairs='minecraft:quartz_stairs', slab='minecraft:quartz_slab',
+    wall='minecraft:mossy_stone_brick_wall', crystal=f'{NS}:dawnglass_cluster',
+    timber='botania:dreamwood_log', plank='botania:dreamwood_planks',
+    fence='botania:dreamwood_fence', glass='botania:elf_glass',
+    light='minecraft:lantern',
+    rubble=['minecraft:cobblestone', 'minecraft:mossy_cobblestone', 'minecraft:gravel'])
+
+
+def route_cells(name):
+    """Every cell the assembled complex guarantees is walkable, as the builders clear them.
+
+    Read straight off the two clearing loops rather than approximated: the amphitheatre
+    reopens `aisle_cells` above its walking surface, and each wing reopens the seven-wide
+    spine from two above its floor to the top of the piece.
+    """
+    if name == 'court/amphitheatre':
+        walk_y = 4 - 1
+        return {(x, y, z) for spec in AISLES
+                for _run, clear, _cheeks in aisle_cells(spec)
+                for (x, z) in clear
+                for y in range(walk_y + 1, AMPH_H)}
+    if name.startswith('court/'):
+        c, fy = 24, COURT_FLOOR_Y
+        span = range(c - 3, c + 4)
+        if name.endswith('north_council'):
+            return {(x, y, z) for z in range(48) for x in span
+                    for y in range(fy + 2, 16)}
+        return {(x, y, z) for x in range(48) for z in span
+                for y in range(fy + 2, 16)}
+    return set()
+
+
+def bark_and_growth(p, seed, part):
+    """The tree's own detail, which is not the masonry vocabulary at all.
+
+    The generic passes are built for buildings, and running all of them on a tree produced
+    exactly the artefact that argument predicts: `debris` dropped three hundred cobbles into
+    the canopy, because an exposed leaf top is a "broken wall top" to a pass that only knows
+    walls. So the bole gets its own short pass and takes only what applies.
+
+    Four things, all read off the geometry the trunk builder already produced:
+
+    * **bark mottling** -- a second wood species streaked through the surface course, which is
+      what turns three block ids into something with grain. This is the whole reason the trunk
+      measured a flat zero: it was one log, repeated 6,645 times.
+    * **moss** on upward-facing bark below the canopy line, where rain running down the bole
+      actually collects.
+    * **hanging roots and vines** under overhangs and boughs -- the underside of a root arch
+      and the underside of a canopy are the two places a colossal tree shows its age.
+    * **heartwood crystal**, sparse, in the deep wood: the Greatbole is the ley anchor of the
+      whole hub and nothing in it said so.
+    """
+    rng = random.Random(seed ^ 0xBA2C)
+    mottle, moss, roots, crystal, vines = 0, 0, 0, 0, 0
+    surface = []
+    for (x, y, z), (idx, be) in sorted(p.blocks.items()):
+        if be is not None:
+            continue
+        name = p.palette[idx]['Name']
+        if name not in (ELDER_BARK[0], ELDER_HEARTWOOD[0]):
+            continue
+        exposed = any(sd.free(p, x + dx, y + dy, z + dz)
+                      for dx, dy, dz in sd.FACES6 if sd.inside(p, x + dx, y + dy, z + dz))
+        if exposed:
+            surface.append((x, y, z, name))
+
+    for (x, y, z, name) in surface:
+        # Mottling: streaks rather than static, so the swap is keyed to a coarse cell of the
+        # bole instead of rolled per block.
+        if ((x // 3) * 7 + (y // 5) * 13 + (z // 3) * 5 + seed) % 11 < 3:
+            p.set(x, y, z, ELDER_HEARTWOOD if name == ELDER_BARK[0] else ELDER_BARK)
+            mottle += 1
+        if sd.free(p, x, y + 1, z) and rng.random() < 0.14:
+            if sd.place(p, x, y + 1, z, (MOSS_CARPET[0], None)):
+                moss += 1
+        if sd.inside(p, x, y - 1, z) and sd.is_air(p, x, y - 1, z) and rng.random() < 0.10:
+            if sd.place(p, x, y - 1, z, ('minecraft:hanging_roots', {'waterlogged': 'false'})):
+                roots += 1
+
+    if part == 'crown':
+        # Vines hang off the canopy, not roots -- and they hang on its SIDES, which is the one
+        # place `vine`'s per-face state has to be right or it drops on the first block update.
+        for (x, y, z), (idx, be) in sorted(p.blocks.items()):
+            if be is not None or p.palette[idx]['Name'] != LEAVES[0]:
+                continue
+            for face, (dx, dz) in VINE_NEIGHBOUR.items():
+                if rng.random() > 0.05:
+                    continue
+                nx, nz = x + dx, z + dz
+                if sd.inside(p, nx, y, nz) and sd.free(p, nx, y, nz):
+                    set_vine(p, nx, y, nz, {'north': 'south', 'south': 'north',
+                                            'east': 'west', 'west': 'east'}[face])
+                    vines += 1
+    else:
+        heart = [s for s in surface if s[3] == ELDER_HEARTWOOD[0]]
+        rng.shuffle(heart)
+        seen = []
+        for (x, y, z, _n) in heart:
+            if crystal >= (5 if part == 'base' else 2):
+                break
+            if any(abs(x - a) + abs(y - b) + abs(z - c) < 7 for (a, b, c) in seen):
+                continue
+            # Face it out of the bole: the open side is where it broke through the bark.
+            out = next((f for f, (dx, dz) in sorted(VINE_NEIGHBOUR.items())
+                        if sd.free(p, x + dx, y, z + dz)), 'up')
+            p.set(x, y, z, (f'{NS}:rootglass_cluster',
+                            {'facing': out, 'waterlogged': 'false'}))
+            seen.append((x, y, z))
+            crystal += 1
+    return {'bark': mottle, 'moss': moss, 'roots': roots, 'crystal': crystal, 'vines': vines}
+
+
+def detail_hub(name, p, seed):
+    """Hang the light, let the weather in, and give the tree somewhere people stood."""
+    p.detail_forbidden = route_cells(name)
+    if name.startswith('greatbole/'):
+        counts = bark_and_growth(p, seed, name.split('/')[1])
+        if name.endswith('base'):
+            # Only the base has hollows big enough to stand in, so only the base gets the
+            # light and the traces of the people who used them.
+            kit = sd.Kit(**TREE_KIT)
+            counts.update(sd.dress(p, seed, kit, ground=ROOT_EMBED, sconce=0.45,
+                                   sconce_spacing=6, furniture=0.20, floor_litter=0.04))
+        return counts
+    kit = sd.Kit(**COURT_KIT)
+    ground = 4 if name.endswith('amphitheatre') else COURT_FLOOR_Y
+    counts = sd.dress(p, seed, kit, ground=ground, corbel=0.25, opening=0.45,
+                      conduit=0.50, sockets=3, sconce=0.55, sconce_spacing=6,
+                      furniture=0.30, floor_litter=0.05)
+    counts.update(sd.aftermath(p, seed, kit, ground=ground, rubble=0.10, reach=3,
+                               rubble_on_solid=True, weathering=0.12, seep='moss',
+                               seep_rate=0.16, roots=0.10, webs=0.02))
+    return counts
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--dry-run', action='store_true')
@@ -1150,13 +1315,21 @@ def main():
     }
 
     for name, p in pieces.items():
+        salt = int(hashlib.sha1(name.encode()).hexdigest()[:8], 16)
+        counts = detail_hub(name, p, SEED ^ salt)
+        # The detail passes place only against existing mass, but the collapse dressing that
+        # ran before them did not; sweep anything left touching nothing on any face.
+        p.prune_orphans()
         path = os.path.join(STRUCT_DIR, name + '.nbt')
         if not dry:
             os.makedirs(os.path.dirname(path), exist_ok=True)
             nbt.save(path, '', p.to_nbt())
         size = os.path.getsize(path) if (not dry and os.path.exists(path)) else 0
+        cen = sd.census(p)
         print(f'  {name:22} {p.size[0]}x{p.size[1]}x{p.size[2]}  '
-              f'{len(p.blocks):>6} blocks  {len(p.palette):>3} palette  {size / 1024:6.1f} KB')
+              f'{len(p.blocks):>6} blocks  {len(p.palette):>3} palette  {size / 1024:6.1f} KB'
+              f'  detail {cen["share"] * 100:4.1f}% over {cen["names"]:>2} ids  '
+              + ' '.join(f'{k}={v}' for k, v in sorted(counts.items()) if v))
 
     # --- template pools
     write_json(os.path.join(DATA, 'worldgen', 'template_pool', 'greatbole', 'base.json'),

@@ -1,0 +1,23 @@
+{
+	"occultengineering:dimensional_storage": "io.github.irishgreencitrus.occultengineering.content.kinetics.mechanicalArm.BlockArmInteractionPoint",
+	"create:crushing_wheels": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$CrushingWheelsType",
+	"occultengineering:stable_wormhole": "io.github.irishgreencitrus.occultengineering.content.kinetics.mechanicalArm.BlockArmInteractionPoint",
+	"create:saw": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$SawType",
+	"create:crafter": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$CrafterType",
+	"create:funnel": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$FunnelType",
+	"create:depot": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$DepotType",
+	"create:blaze_burner": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$BlazeBurnerType",
+	"create:composter": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$ComposterType",
+	"create:jukebox": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$JukeboxType",
+	"create:belt": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$BeltType",
+	"create:millstone": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$MillstoneType",
+	"create:deployer": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$DeployerType",
+	"occultengineering:sacrificial_bowl": "io.github.irishgreencitrus.occultengineering.content.kinetics.mechanicalArm.BlockArmInteractionPoint",
+	"createbigcannons:cannon_mount": "rbasamoyai.createbigcannons.index.CBCArmInteractionPointTypes$CannonMountType",
+	"create:packager": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$PackagerType",
+	"create:respawn_anchor": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$RespawnAnchorType",
+	"create:chute": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$ChuteType",
+	"create:basin": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$BasinType",
+	"create:campfire": "com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPointTypes$CampfireType",
+	"occultengineering:mechanical_chamber": "io.github.irishgreencitrus.occultengineering.content.kinetics.mechanicalArm.MechanicalChamberInteractionPoint"
+}

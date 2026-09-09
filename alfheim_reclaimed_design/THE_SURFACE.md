@@ -2,7 +2,8 @@
 
 **Role:** design record for Alfheim's surface structures and the map shop that sells directions
 to them.
-**Status:** `runtime sampled` 2026-09-04 — the thirty-two-structure set is built and statically
+**Status:** `static validated` 2026-09-08 for the detail pass (§3.3); `runtime sampled`
+2026-09-04 for placement — the fifty-structure set is built and statically
 validated, and representative structures have now been seen in a real world. The first field
 review confirms the concepts but opens a **terrain-integration, detail-density and discovery-value
 refinement pass** before the set can be considered production quality.
@@ -156,6 +157,54 @@ Every hero structure therefore needs multiple readable layers at once:
 | **Elven technology and magic** | Mana conduits, crystal sockets, ritual machinery, rune channels, broken mechanisms, light wells or other remnants show that this was an advanced society, not merely medieval masonry with a different palette. |
 | **Causal decay** | Collapse has direction and history: failed supports, water ingress, root pressure, storm damage, fire, subsidence, missing roofs, repaired sections and later collapses. Random block removal is not enough. |
 | **Human-scale residue** | Broken paving, railings, benches, work areas, storage, debris, furnishings, loading points and other traces make the grand architecture feel inhabited rather than sculptural. |
+
+### 3.3 The detail pass, and the number that made it checkable
+
+**Implemented 2026-09-08.** The five layers above were a standard nothing measured, so the first
+thing this pass built was the measurement: `structure_detail.census()` counts the share of a
+piece's solid blocks that are small-scale articulation — stair, slab, wall, fence, pane, carpet,
+chain, lantern, cluster, pot, crop, flower, sapling — rather than bulk mass. Run over the shipping
+templates at `9b393f2` it said plainly what the field review had said in words:
+
+| Family | Pieces | Worst share | Median | Fewest block ids |
+|---|--:|--:|--:|--:|
+| surface | 50 | 0.0% | 16.5% | 7 |
+| deepworks_archaeology | 11 | 2.0% | 5.8% | 5 |
+| court | 4 | 1.3% | 4.0% | 16 |
+| greatbole | 3 | **0.0%** | **0.0%** | **3** |
+| leyline | 5 | **0.0%** | **0.0%** | 7 |
+| pixie | 32 | 1.2% | 14.4% | 6 |
+
+Twenty-nine of the hundred and five shipping pieces carried under a four per cent detail share.
+`greatbole/trunk` was three block ids repeated 6,645 times.
+
+**The vocabulary is shared, and it reads the piece rather than being told about it.**
+`tools/structure_detail.py` implements the five layers as passes over a finished `Piece`, and no
+pass is ever handed a floor plan: a wall face is a solid with a free cell beside it, a floor is a
+solid with headroom over it, an overhang is a solid with nothing under it. That is why one
+`sconces()` call works on a keep, a mine drift and a pixie cottage, and why the same module
+serves five generators instead of five divergent copies.
+
+**The order is causal, and it is the point.** `dress()` runs *before* the decay pass and
+`aftermath()` runs *after* it. Detail laid down first is what the building **had**, so the decay
+gradient eats it in the same places it eats the walls and what survives reads as residue rather
+than as decoration. Detail added afterwards is what the collapse **did** — debris heaped at the
+foot of the wall it fell from, moss on the floors the roof stopped covering, roots through what
+nobody sweeps any more.
+
+Three invariants hold by construction, because checkers assert them: nothing is placed that
+touches nothing (`check_spawn_hub.py` S11), nothing overwrites a block entity or a jigsaw, and
+nothing replaces anything but plain masonry — which is what keeps a crystal socket from eating the
+carved frame `check_deep_archaeology.py` counts around every grave door.
+
+After the pass, over the same hundred and five pieces: detail blocks 22,891 → 50,646, pieces under
+a four per cent share 29 → 9, and the nine are the tree, the canopy, the pixie saplings and the
+open-air amphitheatre — mass by nature. `tools/check_structure_detail.py` now holds a floor per
+family, set below what the set measures so it fires on regression, with a self-test proving all
+six of its checks can fail.
+
+**What it is not.** It is not a runtime claim. Every number above is read off the `.nbt` on disk;
+no structure in this pass has been walked in a client. That gate is open.
 
 The **ocean and shore structures are specifically retained as concepts** — the first field review
 liked them as thematic finds. Their next pass is depth, not replacement: layered waterlines,
@@ -356,9 +405,9 @@ repair. The highest-priority passes are now terrain incorporation and hero-level
 | 2 | Fresh-world proof: `locate structure` each of the thirty-two and inspect representative examples | **in progress — representative structures observed 2026-09-04** |
 | 3 | Buy one map of each of the ten and confirm it fills rather than coming back blank | deferred, runtime |
 | **4** | **Terrain-integration repair across the whole set (§4.2), using `starveling_pit` as the positive reference** | **open, priority** |
-| **5** | **Hero-detail/slow-decay pass across every archetype (§3.2), with shore/ocean/water-edge structures explicitly included** | **open, priority** |
-| 6 | Interiors — named rooms, spawners where appropriate, circulation and the one thing worth taking per archetype | first encounter slice: 12 bounded Knight Quest spawners; broader interiors open |
-| 7 | Quarry discovery-value pass — increase era-safe exposed resources and useful material yield (§6.1) | open |
+| **5** | **Hero-detail/slow-decay pass across every archetype (§3.2), with shore/ocean/water-edge structures explicitly included** | **static implemented 2026-09-08 — see §3.3; client visual review open** |
+| 6 | Interiors — named rooms, spawners where appropriate, circulation and the one thing worth taking per archetype | encounter slice: 12 bounded Knight Quest spawners; furniture, light and floor residue now generated per §3.3; named rooms still open |
+| 7 | Quarry discovery-value pass — increase era-safe exposed resources and useful material yield (§6.1) | **static implemented 2026-09-08** — stockpiles and half-worked seams in every quarry |
 | 8 | Density tuning against a real walk | not started |
 
 ### 7.1 What the first runtime sample changed

@@ -1,0 +1,26 @@
+{
+	id: "28fd7118-c24a-4bbf-b945-11c207f107f6"
+	type: "server"
+	ranks: { }
+	properties: {
+		"ftbteams:display_name": "alfheim_hub"
+		"ftbteams:description": "Protected Greatbole, Hollow Court, and royal spawn grounds"
+		"ftbteams:color": "#63A95A"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+		"ftbchunks:allow_explosions": 0b
+		"ftbchunks:allow_mob_griefing": 0b
+		"ftbchunks:allow_fake_players": 0b
+		"ftbchunks:allow_named_fake_players": [ ]
+		"ftbchunks:allow_fake_players_by_id": 1b
+		"ftbchunks:allow_pvp": 0b
+		"ftbchunks:block_edit_mode": "private"
+		"ftbchunks:block_interact_mode": "private"
+		"ftbchunks:entity_interact_mode": "private"
+		"ftbchunks:nonliving_entity_attack_mode": "private"
+		"ftbchunks:claim_visibility": "public"
+		"ftbchunks:location_mode": "allies"
+	}
+	message_history: [ ]
+	extra: { }
+}

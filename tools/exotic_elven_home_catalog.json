@@ -1,0 +1,21 @@
+{
+  "schema":"alfheim:exotic_elven_home/v1",
+  "status":"design_catalog",
+  "rules":{"decorative_by_default":true,"mechanics_require_separate_contract":true,"persistent_display_entities":false,"house_variation_by_substitution":true},
+  "families":[
+    {"id":"light_and_song","assets":["starbell_chandelier","moonpool_lamp","whisper_harp","silverleaf_wind_chime","songglass_resonator"]},
+    {"id":"reflection_and_memory","assets":["moonmirror","dream_clock","memory_basin","scrying_screen"]},
+    {"id":"living_botanical","assets":["levitating_planter","rootwoven_cradle","pollen_censer","dew_collector","vine_loom"]},
+    {"id":"hospitality","assets":["blossom_decanter","nectar_fountain","orbiting_tea_tray","fruit_reliquary"]},
+    {"id":"textile_and_repose","assets":["dream_canopy","mothsilk_screen","constellation_rug","rune_pillow"]},
+    {"id":"scholarly_curios","assets":["levitating_book_cradle","miniature_ley_garden","bottled_aurora","fey_terrarium","celestial_map_globe"]},
+    {"id":"domestic_service","assets":["self_warming_hearth","fragrance_cabinet","cleansing_fountain","garment_tree"]}
+  ],
+  "counts":{"families":7,"semantic_assets":32},
+  "interaction_candidates":{
+    "sound":["whisper_harp","silverleaf_wind_chime","songglass_resonator"],
+    "display":["moonmirror","scrying_screen","celestial_map_globe","bottled_aurora"],
+    "planting":["levitating_planter","rootwoven_cradle","fey_terrarium"],
+    "household":["vine_loom","self_warming_hearth","fragrance_cabinet","cleansing_fountain"]
+  }
+}

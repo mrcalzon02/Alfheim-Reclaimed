@@ -1,0 +1,14 @@
+{
+  "parent":"minecraft:block/block",
+  "ambientocclusion":false,
+  "textures":{"gold":"minecraft:block/gold_block","stone":"minecraft:block/quartz_block_side","gem":"minecraft:block/amethyst_block","dark":"minecraft:block/polished_blackstone","particle":"minecraft:block/gold_block"},
+  "elements":[
+    {"from":[2,0,2],"to":[14,3,14],"faces":{"north":{"texture":"#gold"},"south":{"texture":"#gold"},"east":{"texture":"#gold"},"west":{"texture":"#gold"},"up":{"texture":"#gold"},"down":{"texture":"#gold"}}},
+    {"from":[4,3,4],"to":[12,8,12],"faces":{"north":{"texture":"#stone"},"south":{"texture":"#stone"},"east":{"texture":"#stone"},"west":{"texture":"#stone"},"up":{"texture":"#stone"},"down":{"texture":"#stone"}}},
+    {"from":[1,8,1],"to":[15,11,15],"faces":{"north":{"texture":"#gold"},"south":{"texture":"#gold"},"east":{"texture":"#gold"},"west":{"texture":"#gold"},"up":{"texture":"#gold"},"down":{"texture":"#gold"}}},
+    {"from":[5,11,5],"to":[11,16,11],"rotation":{"origin":[8,13,8],"axis":"y","angle":45,"rescale":true},"faces":{"north":{"texture":"#gem"},"south":{"texture":"#gem"},"east":{"texture":"#gem"},"west":{"texture":"#gem"},"up":{"texture":"#gem"},"down":{"texture":"#gem"}}},
+    {"from":[2,11,7],"to":[4,13,9],"rotation":{"origin":[3,12,8],"axis":"y","angle":45,"rescale":true},"faces":{"north":{"texture":"#gem"},"south":{"texture":"#gem"},"east":{"texture":"#gem"},"west":{"texture":"#gem"},"up":{"texture":"#gem"},"down":{"texture":"#gem"}}},
+    {"from":[12,11,7],"to":[14,13,9],"rotation":{"origin":[13,12,8],"axis":"y","angle":45,"rescale":true},"faces":{"north":{"texture":"#gem"},"south":{"texture":"#gem"},"east":{"texture":"#gem"},"west":{"texture":"#gem"},"up":{"texture":"#gem"},"down":{"texture":"#gem"}}},
+    {"from":[7,11,2],"to":[9,13,4],"rotation":{"origin":[8,12,3],"axis":"y","angle":45,"rescale":true},"faces":{"north":{"texture":"#gem"},"south":{"texture":"#gem"},"east":{"texture":"#gem"},"west":{"texture":"#gem"},"up":{"texture":"#gem"},"down":{"texture":"#gem"}}}
+  ]
+}

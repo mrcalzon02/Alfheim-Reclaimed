@@ -1,0 +1,13 @@
+[
+	"create:package",
+	"minecraft:chicken",
+	"minecraft:cod",
+	"minecraft:cow",
+	"minecraft:pig",
+	"minecraft:player",
+	"minecraft:salmon",
+	"minecraft:sheep",
+	"minecraft:tropical_fish",
+	"minecraft:villager",
+	"minecraft:wandering_trader"
+]

@@ -1,0 +1,8 @@
+{
+	"minecraft:legacy_single_pool_element": "net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType$$Lambda$4197/0x000002012bc27ac0",
+	"minecraft:single_pool_element": "net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType$$Lambda$4197/0x000002012bc27ac0",
+	"irons_spellbooks:individual_terrain_element": "io.redspace.ironsspellbooks.registries.StructureElementRegistry$$Lambda$20779/0x000002012d9ff050",
+	"minecraft:empty_pool_element": "net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType$$Lambda$4197/0x000002012bc27ac0",
+	"minecraft:list_pool_element": "net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType$$Lambda$4197/0x000002012bc27ac0",
+	"minecraft:feature_pool_element": "net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType$$Lambda$4197/0x000002012bc27ac0"
+}

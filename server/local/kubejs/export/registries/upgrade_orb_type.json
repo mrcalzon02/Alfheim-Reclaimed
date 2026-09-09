@@ -1,0 +1,16 @@
+{
+	"irons_spellbooks:mana": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:holy_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:spell_resistance": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:fire_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:melee_damage": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:evocation_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:cooldown": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:nature_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:melee_speed": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:ice_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:health": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:blood_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:lightning_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType",
+	"irons_spellbooks:ender_power": "io.redspace.ironsspellbooks.item.armor.UpgradeOrbType"
+}

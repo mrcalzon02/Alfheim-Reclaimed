@@ -214,18 +214,34 @@ def supported(p, x, y, z):
     return False
 
 
+def forbidden(p, x, y, z):
+    """Cells a caller has declared off limits to every pass in this module.
+
+    Set `piece.detail_forbidden` to a set of `(x, y, z)` before calling `dress` or
+    `aftermath`. The spawn hub needs it: `check_spawn_hub.py` S10 and S12 assert that the
+    processional route through each civic wing is *explicitly* `minecraft:air` for its whole
+    cross-section, so one hanging lantern in the wrong corridor cell fails a gate that exists
+    because a field session found the wings dead-ended. A pass cannot discover that rule from
+    geometry -- the cells look like an ordinary room -- so the caller states it.
+    """
+    keep = getattr(p, 'detail_forbidden', None)
+    return bool(keep) and (x, y, z) in keep
+
+
 def place(p, x, y, z, block, protect_be=True):
     """Place a detail block, refusing every case a pass must never win.
 
-    Returns True when the block went in. The four refusals are the invariants in the module
-    docstring plus the piece bound, and having them in one function is what keeps eight
-    passes from each re-deriving them slightly differently.
+    Returns True when the block went in. The five refusals are the invariants in the module
+    docstring plus the piece bound and the caller's declared exclusions, and having them in
+    one function is what keeps eight passes from each re-deriving them slightly differently.
     """
     if not inside(p, x, y, z):
         return False
     if protect_be and has_be(p, x, y, z):
         return False
     if name_at(p, x, y, z) == 'minecraft:jigsaw':
+        return False
+    if forbidden(p, x, y, z):
         return False
     if not supported(p, x, y, z):
         return False
@@ -480,8 +496,11 @@ def conduits(p, seed, kit, rate=0.6, node_every=5, min_run=4, y0=None, y1=None):
         for i, (x, fy, z) in enumerate(cells):
             if has_be(p, x, fy, z) or name_at(p, x, fy, z) not in plain:
                 continue
+            if forbidden(p, x, fy, z):
+                continue
             if i % node_every == node_every // 2:
-                p.set(x, fy, z, (kit.crystal, None))
+                # A node in the floor channel grows upward out of it.
+                p.set(x, fy, z, _b(kit.crystal, facing='up', waterlogged=False))
             else:
                 p.set(x, fy, z, (kit.accent, None))
             n += 1
@@ -524,14 +543,19 @@ def crystal_sockets(p, seed, kit, count=3, y0=None):
         return 0
     rng.shuffle(faces)
     placed, seen = 0, []
-    for (pos, _face) in faces:
+    for (pos, face) in faces:
         if placed >= count:
             break
         if has_be(p, *pos):
             continue
         if any(abs(pos[0] - s[0]) + abs(pos[1] - s[1]) + abs(pos[2] - s[2]) < 5 for s in seen):
             continue
-        p.set(pos[0], pos[1], pos[2], (kit.crystal, None))
+        if forbidden(p, *pos):
+            continue
+        # B-90 gave our clusters a real `facing`, so a socket points OUT of the wall it is set
+        # into rather than defaulting upright. `wall_faces` already reports the direction of
+        # the open side, which is the direction the crystal grew toward.
+        p.set(pos[0], pos[1], pos[2], _b(kit.crystal, facing=face, waterlogged=False))
         seen.append(pos)
         placed += 1
     return placed
@@ -683,7 +707,8 @@ def litter(p, seed, kit, density=0.05, y0=None, y1=None):
 #   causal decay -- everything below runs AFTER the decay pass
 
 
-def debris(p, seed, kit, ground, collapse=None, rate=0.12, reach=3, heap=3):
+def debris(p, seed, kit, ground, collapse=None, rate=0.12, reach=3, heap=3,
+           on_solid=False):
     """What fell, at the foot of what it fell from, drifting the way the building went.
 
     The decay pass deletes blocks and never asks where the mass went, so a collapsed keep
@@ -716,14 +741,21 @@ def debris(p, seed, kit, ground, collapse=None, rate=0.12, reach=3, heap=3):
         return (pick, None)
 
     def drop(tx, tz):
-        """Land one fragment on the first thing at (tx, tz) that can hold it."""
+        """Land one fragment on the first thing at (tx, tz) that can hold it.
+
+        `on_solid` is the stricter rule the assembled hub needs. Out in the world a fragment
+        resting on a cell the template does not own is resting on terrain, which is why the
+        default accepts it -- but the hub's court pieces are placed at a datum
+        `assemble.mcfunction` fixes, so "below" is decidable there and `check_spawn_hub.py`
+        S12 decides it. Under that rule, unowned is nothing.
+        """
         if not inside(p, tx, ground, tz):
             return 0
         for ty in range(ground + 1, max(-1, ground - 4), -1):
             if not free(p, tx, ty, tz):
                 continue
             below_solid = is_solid(p, tx, ty - 1, tz)
-            below_world = ty - 1 < 0 or unowned(p, tx, ty - 1, tz)
+            below_world = (not on_solid) and (ty - 1 < 0 or unowned(p, tx, ty - 1, tz))
             if not (below_solid or below_world):
                 continue
             return 1 if place(p, tx, ty, tz, fragment()) else 0
@@ -752,7 +784,7 @@ def debris(p, seed, kit, ground, collapse=None, rate=0.12, reach=3, heap=3):
 
 
 def ingress(p, seed, kit, ground, mode='moss', rate=0.22, roots=0.12, hang='roots',
-            roofed_ok=False):
+            roofed_ok=False, into_world=False):
     """Water, root and weather damage arriving through the hole the roof used to fill.
 
     `mode` picks the agent: `moss` for anywhere it rains, `damp` for the fens and lakes,
@@ -791,7 +823,12 @@ def ingress(p, seed, kit, ground, mode='moss', rate=0.22, roots=0.12, hang='root
         for (x, y, z), (idx, be) in sorted(p.blocks.items()):
             if be is not None or p.palette[idx]['Name'] in NON_SOLID:
                 continue
-            if y <= ground or not inside(p, x, y - 1, z) or not is_air(p, x, y - 1, z):
+            # The cell a root hangs into is normally carved interior air. `into_world`
+            # relaxes that to any free cell, which is what a floating island needs: the space
+            # under its underside is untouched world, and a fringe of roots trailing into it
+            # is the whole reason the thing reads as afloat rather than as a plate.
+            below_open = (free if into_world else is_air)(p, x, y - 1, z)
+            if y <= ground or not inside(p, x, y - 1, z) or not below_open:
                 continue
             if rng.random() > roots:
                 continue
@@ -799,7 +836,7 @@ def ingress(p, seed, kit, ground, mode='moss', rate=0.22, roots=0.12, hang='root
                 # A stalactite: one tip, or a frustum with a tip under it where there is
                 # room. Those two lengths are the only ones whose `thickness` values are
                 # unambiguous, and a wrong value here degrades silently to the default.
-                long = is_air(p, x, y - 2, z) and rng.random() < 0.45
+                long = (free if into_world else is_air)(p, x, y - 2, z) and rng.random() < 0.45
                 if long:
                     if place(p, x, y - 1, z, _b('minecraft:pointed_dripstone',
                                                 vertical_direction='down',
@@ -835,7 +872,7 @@ def wear(p, seed, kit, ground, rate=0.18):
             continue
         if name_at(p, x, y, z) not in ours:
             continue
-        if has_be(p, x, y, z):
+        if has_be(p, x, y, z) or forbidden(p, x, y, z):
             continue
         p.set(x, y, z, slab(kit.slab, 'bottom'))
         n += 1
@@ -864,7 +901,8 @@ def cobwebs(p, seed, rate=0.05, y0=None):
 
 def dress(p, seed, kit, *, ground, cornice=(), trim_rate=0.85, corbel=0.0, opening=0.0,
           conduit=0.0, sockets=0, sconce=0.0, sconce_spacing=5, soul_light=False,
-          bracket_light=True, furniture=0.0, floor_litter=0.0, interior_y=None):
+          bracket_light=True, furniture=0.0, furniture_allow=None, floor_litter=0.0,
+          interior_y=None):
     """Everything the building HAD, applied before the decay pass takes it apart.
 
     Returns a dict of counts, which every generator prints and `check_structure_detail.py`
@@ -886,25 +924,27 @@ def dress(p, seed, kit, *, ground, cornice=(), trim_rate=0.85, corbel=0.0, openi
         out['sconces'] = sconces(p, seed, kit, spacing=sconce_spacing, rate=sconce,
                                  y0=y0, y1=y1, soul=soul_light, bracket=bracket_light)
     if furniture:
-        out['furniture'] = furnish(p, seed, kit, density=furniture, y0=y0, y1=y1)
+        out['furniture'] = furnish(p, seed, kit, density=furniture, y0=y0, y1=y1,
+                                   allow=furniture_allow)
     if floor_litter:
         out['litter'] = litter(p, seed, kit, density=floor_litter, y0=y0, y1=y1)
     return out
 
 
 def aftermath(p, seed, kit, *, ground, collapse=None, rubble=0.0, reach=3, heap=3,
-              weathering=0.0, seep='none', seep_rate=0.22, roots=0.12, hang='roots',
-              roofed_ok=False, webs=0.0):
+              rubble_on_solid=False, weathering=0.0, seep='none', seep_rate=0.22, roots=0.12,
+              hang='roots', roofed_ok=False, into_world=False, webs=0.0):
     """Everything the collapse DID, applied after the decay pass has decided what fell."""
     out = {}
     if rubble:
         out['debris'] = debris(p, seed, kit, ground, collapse=collapse, rate=rubble,
-                               reach=reach, heap=heap)
+                               reach=reach, heap=heap, on_solid=rubble_on_solid)
     if weathering:
         out['wear'] = wear(p, seed, kit, ground, rate=weathering)
     if seep != 'none':
         out['ingress'] = ingress(p, seed, kit, ground, mode=seep, rate=seep_rate,
-                                 roots=roots, hang=hang, roofed_ok=roofed_ok)
+                                 roots=roots, hang=hang, roofed_ok=roofed_ok,
+                                 into_world=into_world)
     if webs:
         out['webs'] = cobwebs(p, seed, rate=webs, y0=ground)
     return out
@@ -931,13 +971,37 @@ DETAIL_EXACT = frozenset({
 })
 
 
+# The plant class, and it is not a rounding error in this pack. Alfheim's decorative
+# vocabulary IS botanical -- a tended crop row, a sapling by the path and two flowers at a
+# doorstep are the human-scale residue layer in vegetable form, and the first version of this
+# metric scored a pixie kitchen garden at exactly zero because none of it was made of stone.
+# Counting them is a correction to the measurement, not a relaxation of the bar: every entry
+# here is small-scale articulation and none of it is bulk mass.
+PLANT_SUFFIX = ('_sapling', '_mushroom', '_flower', '_bush', '_fern', '_tulip', '_orchid',
+                '_daisy', '_lily', '_sprouts', '_stem', '_petals', '_seagrass')
+PLANT_EXACT = frozenset({
+    'minecraft:wheat', 'minecraft:carrots', 'minecraft:potatoes', 'minecraft:beetroots',
+    'minecraft:cocoa', 'minecraft:sugar_cane', 'minecraft:bamboo', 'minecraft:cake',
+    'minecraft:dandelion', 'minecraft:poppy', 'minecraft:allium', 'minecraft:azure_bluet',
+    'minecraft:cornflower', 'minecraft:torchflower', 'minecraft:sunflower',
+    'minecraft:lilac', 'minecraft:peony', 'minecraft:short_grass', 'minecraft:grass',
+    'minecraft:tall_grass', 'minecraft:vine', 'minecraft:glow_lichen',
+    'minecraft:melon', 'minecraft:pumpkin', 'minecraft:carved_pumpkin',
+})
+
+
 def is_detail(name):
     """Is this block small-scale articulation rather than bulk mass?
 
     Suffix matching keeps it agnostic about which mod owns the family, which matters in a
-    pack where the masonry is Feywild's and the timber is Botania's.
+    pack where the masonry is Feywild's, the timber is Botania's and half the flowers are
+    ours.
     """
-    return name in DETAIL_EXACT or name.endswith(DETAIL_SUFFIX)
+    if name in DETAIL_EXACT or name in PLANT_EXACT:
+        return True
+    if name.startswith('minecraft:potted_'):
+        return True
+    return name.endswith(DETAIL_SUFFIX) or name.endswith(PLANT_SUFFIX)
 
 
 def census(p):

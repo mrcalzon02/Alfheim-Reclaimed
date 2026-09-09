@@ -22,10 +22,12 @@ import net.minecraft.world.entity.EquipmentSlot;
 
 public final class CompanionSavedData extends SavedData {
     private static final String DATA_NAME = "alfheim_companion_state";
-    private static final int DATA_VERSION = 4;
+    private static final int DATA_VERSION = 7;
     public static final List<String> OUTFITS = List.of("wayfinder", "warden", "gardener", "ashen_scout", "winter_envoy");
     private static final int MAX_EPISODES = 50;
     private static final int MAX_FACTS = 64;
+    private static final int MAX_OBSERVED_CHUNKS = 512;
+    private static final int MAX_DELEGATED_CLAIMS = 128;
 
     private UUID companionUuid;
     private UUID ownerUuid;
@@ -45,10 +47,14 @@ public final class CompanionSavedData extends SavedData {
     private long leaseExpiresGameTime;
     private int moodIndex;
     private long lastMoodUpdate;
+    private int lastClaimPaperBalance;
+    private AutonomousActivityPlan autonomousActivity = AutonomousActivityPlan.NONE;
     private final ArrayDeque<MemoryEntry> episodes = new ArrayDeque<>();
     private final LinkedHashMap<String, String> facts = new LinkedHashMap<>();
     private final LinkedHashMap<UUID, PlayerCompanionBinding> playerBindings = new LinkedHashMap<>();
     private final LinkedHashMap<UUID, FallenInventory> fallenInventories = new LinkedHashMap<>();
+    private final LinkedHashMap<String, ObservedChunk> observedChunks = new LinkedHashMap<>();
+    private final LinkedHashMap<String, DelegatedClaim> delegatedClaims = new LinkedHashMap<>();
 
     public static CompanionSavedData get(MinecraftServer server) {
         return server.overworld().getDataStorage().computeIfAbsent(
@@ -76,6 +82,10 @@ public final class CompanionSavedData extends SavedData {
     public Map<String, String> facts() { return Collections.unmodifiableMap(facts); }
     public long leaseExpiresGameTime() { return leaseExpiresGameTime; }
     public int moodIndex() { return moodIndex; }
+    public List<ObservedChunk> observedChunks() { return List.copyOf(observedChunks.values()); }
+    public List<DelegatedClaim> delegatedClaims() { return List.copyOf(delegatedClaims.values()); }
+    public int lastClaimPaperBalance() { return lastClaimPaperBalance; }
+    public AutonomousActivityPlan autonomousActivity() { return autonomousActivity; }
     public Optional<PlayerCompanionBinding> playerBinding(UUID playerUuid) {
         return Optional.ofNullable(playerBindings.get(playerUuid));
     }
@@ -185,6 +195,9 @@ public final class CompanionSavedData extends SavedData {
         if (leaseExpiresGameTime == 0 || gameTime < leaseExpiresGameTime) return false;
         leaseExpiresGameTime = 0;
         activeTask = ActiveTask.NONE;
+        if (autonomousActivity.active()) autonomousActivity = autonomousActivity.advance(
+                AutonomousActivityPlan.State.PAUSED, autonomousActivity.progress(), gameTime,
+                "lease expired");
         setDirty();
         return true;
     }
@@ -200,6 +213,7 @@ public final class CompanionSavedData extends SavedData {
         facts.keySet().removeIf(key -> key.startsWith("quest:") || key.equals("guard_anchor"));
         activeTask = ActiveTask.NONE;
         baseObjective = BaseObjective.NONE;
+        autonomousActivity = AutonomousActivityPlan.NONE;
         setDirty();
     }
 
@@ -271,6 +285,46 @@ public final class CompanionSavedData extends SavedData {
         setDirty();
     }
 
+    public void observeChunk(String dimensionId, int chunkX, int chunkZ, long gameTime) {
+        ObservedChunk observed = new ObservedChunk(dimensionId, chunkX, chunkZ, gameTime);
+        ObservedChunk previous = observedChunks.get(observed.key());
+        if (previous != null && gameTime - previous.observedGameTime() < 1200L) return;
+        observedChunks.remove(observed.key());
+        observedChunks.put(observed.key(), observed);
+        while (observedChunks.size() > MAX_OBSERVED_CHUNKS)
+            observedChunks.remove(observedChunks.keySet().iterator().next());
+        setDirty();
+    }
+
+    public boolean hasObservedChunk(String dimensionId, int chunkX, int chunkZ) {
+        return observedChunks.containsKey(ObservedChunk.key(dimensionId, chunkX, chunkZ));
+    }
+
+    public void recordDelegatedClaim(DelegatedClaim claim) {
+        if (claim == null) return;
+        delegatedClaims.remove(claim.key());
+        delegatedClaims.put(claim.key(), claim);
+        while (delegatedClaims.size() > MAX_DELEGATED_CLAIMS)
+            delegatedClaims.remove(delegatedClaims.keySet().iterator().next());
+        setDirty();
+    }
+
+    public void removeDelegatedClaim(String dimensionId, int chunkX, int chunkZ) {
+        if (delegatedClaims.remove(DelegatedClaim.key(dimensionId, chunkX, chunkZ)) != null) setDirty();
+    }
+
+    public void setLastClaimPaperBalance(int count) {
+        int bounded = Math.max(0, Math.min(1728, count));
+        if (lastClaimPaperBalance == bounded) return;
+        lastClaimPaperBalance = bounded;
+        setDirty();
+    }
+
+    public void setAutonomousActivity(AutonomousActivityPlan plan) {
+        this.autonomousActivity = plan == null ? AutonomousActivityPlan.NONE : plan;
+        setDirty();
+    }
+
     public void remember(MemoryEntry memory) {
         episodes.addLast(memory);
         while (episodes.size() > MAX_EPISODES) episodes.removeFirst();
@@ -290,6 +344,9 @@ public final class CompanionSavedData extends SavedData {
         mode = CompanionMode.DISMISSED;
         activeTask = ActiveTask.NONE;
         activeBlueprintId = null;
+        if (autonomousActivity.active()) autonomousActivity = autonomousActivity.advance(
+                AutonomousActivityPlan.State.PAUSED, autonomousActivity.progress(),
+                autonomousActivity.updatedGameTime(), "companion dismissed");
         setDirty();
     }
 
@@ -314,6 +371,8 @@ public final class CompanionSavedData extends SavedData {
         tag.putLong("leaseExpires", leaseExpiresGameTime);
         tag.putInt("mood", moodIndex);
         tag.putLong("lastMoodUpdate", lastMoodUpdate);
+        tag.putInt("lastClaimPaperBalance", lastClaimPaperBalance);
+        tag.put("autonomousActivity", autonomousActivity.save());
 
         ListTag episodeTags = new ListTag();
         episodes.forEach(memory -> episodeTags.add(memory.save()));
@@ -342,6 +401,12 @@ public final class CompanionSavedData extends SavedData {
             fallenTags.add(entry);
         });
         tag.put("fallenInventories", fallenTags);
+        ListTag observedTags = new ListTag();
+        observedChunks.values().forEach(observed -> observedTags.add(observed.save()));
+        tag.put("observedChunks", observedTags);
+        ListTag delegatedTags = new ListTag();
+        delegatedClaims.values().forEach(claim -> delegatedTags.add(claim.save()));
+        tag.put("delegatedClaims", delegatedTags);
         return tag;
     }
 
@@ -371,6 +436,10 @@ public final class CompanionSavedData extends SavedData {
         data.leaseExpiresGameTime = Math.max(0, tag.getLong("leaseExpires"));
         data.moodIndex = Math.max(-100, Math.min(100, tag.getInt("mood")));
         data.lastMoodUpdate = Math.max(0, tag.getLong("lastMoodUpdate"));
+        data.lastClaimPaperBalance = Math.max(0, Math.min(1728, tag.getInt("lastClaimPaperBalance")));
+        data.autonomousActivity = tag.contains("autonomousActivity", Tag.TAG_COMPOUND)
+                ? AutonomousActivityPlan.load(tag.getCompound("autonomousActivity"))
+                : AutonomousActivityPlan.NONE;
 
         ListTag episodes = tag.getList("episodes", Tag.TAG_COMPOUND);
         for (int i = Math.max(0, episodes.size() - MAX_EPISODES); i < episodes.size(); i++) {
@@ -404,6 +473,16 @@ public final class CompanionSavedData extends SavedData {
             Map<String, ItemStack> equipment = new LinkedHashMap<>();
             for (String slot : equipmentTag.getAllKeys()) equipment.put(slot, ItemStack.of(equipmentTag.getCompound(slot)));
             data.fallenInventories.put(entry.getUUID("player"), new FallenInventory(stacks, equipment));
+        }
+        ListTag observed = tag.getList("observedChunks", Tag.TAG_COMPOUND);
+        for (int i = Math.max(0, observed.size() - MAX_OBSERVED_CHUNKS); i < observed.size(); i++) {
+            ObservedChunk chunk = ObservedChunk.load(observed.getCompound(i));
+            if (chunk != null) data.observedChunks.put(chunk.key(), chunk);
+        }
+        ListTag delegated = tag.getList("delegatedClaims", Tag.TAG_COMPOUND);
+        for (int i = Math.max(0, delegated.size() - MAX_DELEGATED_CLAIMS); i < delegated.size(); i++) {
+            DelegatedClaim claim = DelegatedClaim.load(delegated.getCompound(i));
+            if (claim != null) data.delegatedClaims.put(claim.key(), claim);
         }
         return data;
     }

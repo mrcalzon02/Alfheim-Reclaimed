@@ -1,0 +1,9 @@
+[
+	"#forge:is_desert",
+	"#forge:is_plains",
+	"#minecraft:is_forest",
+	"#minecraft:is_hill",
+	"minecraft:savanna",
+	"minecraft:savanna_plateau",
+	"minecraft:windswept_savanna"
+]

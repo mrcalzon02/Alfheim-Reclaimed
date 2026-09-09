@@ -66,13 +66,15 @@ public final class BaseOperationsService {
         }
     }
 
-    public static void onBlueprintPreview(CompanionSavedData data, long gameTime) {
+    public static void onBlueprintPreview(CompanionSavedData data, String purpose, long gameTime) {
+        if (!isBasePurpose(purpose)) return;
         BaseObjective objective = data.baseObjective();
         if (!objective.active()) return;
         update(data, objective.advance(BaseObjective.Phase.AWAITING_APPROVAL, gameTime));
     }
 
     public static void onBlueprintApproved(CompanionSavedData data, String purpose, long gameTime) {
+        if (!isBasePurpose(purpose)) return;
         BaseObjective objective = data.baseObjective();
         if (!objective.active()) return;
         BaseObjective.Phase phase = purpose != null && purpose.startsWith(FURNISHING_PREFIX)
@@ -96,14 +98,20 @@ public final class BaseOperationsService {
         }
     }
 
-    public static void onBlueprintInterrupted(CompanionSavedData data, long gameTime) {
+    public static void onBlueprintInterrupted(CompanionSavedData data, String purpose, long gameTime) {
+        if (!isBasePurpose(purpose)) return;
         BaseObjective objective = data.baseObjective();
         if (objective.active()) update(data, objective.advance(BaseObjective.Phase.PAUSED, gameTime));
     }
 
     public static void cancelObjective(MinecraftServer server) {
         CompanionSavedData data = CompanionSavedData.get(server);
-        if (data.baseObjective().active()) data.setBaseObjective(BaseObjective.NONE);
+        if (data.baseObjective().exists() && !data.baseObjective().established())
+            data.setBaseObjective(BaseObjective.NONE);
+    }
+
+    public static boolean isBasePurpose(String purpose) {
+        return purpose != null && (purpose.startsWith(SHELL_PREFIX) || purpose.startsWith(FURNISHING_PREFIX));
     }
 
     private static void survey(ServerPlayer owner, ElvenCompanionEntity companion, ServerLevel level,

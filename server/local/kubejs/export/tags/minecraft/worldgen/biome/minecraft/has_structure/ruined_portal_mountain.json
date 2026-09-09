@@ -1,0 +1,9 @@
+[
+	"#minecraft:is_badlands",
+	"#minecraft:is_hill",
+	"#minecraft:is_mountain",
+	"minecraft:savanna_plateau",
+	"minecraft:stony_shore",
+	"minecraft:windswept_savanna",
+	"regions_unexplored:chalk_cliffs?"
+]

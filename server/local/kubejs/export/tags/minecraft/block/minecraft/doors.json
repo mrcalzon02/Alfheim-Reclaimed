@@ -1,0 +1,21 @@
+[
+	"#libx:impl_doors",
+	"#minecraft:wooden_doors",
+	"ars_nouveau:archwood_door",
+	"create:andesite_door",
+	"create:brass_door",
+	"create:copper_door",
+	"create:framed_glass_door",
+	"create:train_door",
+	"domum_ornamentum:fancy_door",
+	"domum_ornamentum:vanilla_doors_compat",
+	"feywild:autumn_tree_planks_door",
+	"feywild:spring_tree_planks_door",
+	"feywild:summer_tree_planks_door",
+	"feywild:winter_tree_planks_door",
+	"framedblocks:framed_door",
+	"framedblocks:framed_iron_door",
+	"minecraft:iron_door",
+	"supplementaries:gold_door",
+	"supplementaries:netherite_door"
+]

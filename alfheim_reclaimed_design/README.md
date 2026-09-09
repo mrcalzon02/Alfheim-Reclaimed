@@ -30,6 +30,7 @@ player touches the world — combat, expedition, gear and reward.
 
 | File | Role |
 |---|---|
+| `ELVEN_GOLEMS.md` | **Planned 2026-09-09:** separate first-party Worker/Artisan/Sentinel golem system; four elements, Manna Stone orders, layered core economy, wild Deep salvage and consumable combat summons. |
 | `VOID_MARGINS.md` | **Design expansion 2026-09-05:** six void environments, 18 proposed stone families, architectural examples and a concept board; dry-rim repair remains required. |
 | `DEEP_TERRAIN.md` | **Terrain implementation 2026-09-05:** colossal-cavern field, natural Livingrock geology, basal lava and native deep-bloom supplements; measured against the same seed without the changes. Section 8 formations are implemented in `DEEPWORKS.md`. |
 | `LIVINGROCK_LIBRARY.md` | **Implemented foundation 2026-09-05:** 24 stone families, 175 blocks, architectural palettes and the continued Deep cavern/ore/archaeology design. |

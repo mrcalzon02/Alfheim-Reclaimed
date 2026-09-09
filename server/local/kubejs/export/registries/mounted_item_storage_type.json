@@ -1,0 +1,10 @@
+{
+	"create:simple": "com.simibubi.create.api.contraption.storage.item.simple.SimpleMountedStorageType$Impl",
+	"create:depot": "com.simibubi.create.content.logistics.depot.storage.DepotMountedStorageType",
+	"create:toolbox": "com.simibubi.create.content.equipment.toolbox.ToolboxMountedStorageType",
+	"create:dispenser": "com.simibubi.create.content.contraptions.behaviour.dispenser.storage.DispenserMountedStorageType",
+	"create:chest": "com.simibubi.create.api.contraption.storage.item.chest.ChestMountedStorageType",
+	"create:vault": "com.simibubi.create.content.logistics.vault.ItemVaultMountedStorageType",
+	"create:creative_crate": "com.simibubi.create.content.logistics.crate.CreativeCrateMountedStorageType",
+	"create:fallback": "com.simibubi.create.impl.contraption.storage.FallbackMountedStorageType"
+}

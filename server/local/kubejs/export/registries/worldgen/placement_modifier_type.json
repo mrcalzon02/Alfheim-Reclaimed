@@ -1,0 +1,23 @@
+{
+	"farmersdelight:biome_tag": "vectorwing.farmersdelight.common.registry.ModPlacementModifiers$$Lambda$20736/0x000002012d9f1ae0",
+	"minecraft:carving_mask": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:height_range": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:in_square": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:surface_water_depth_filter": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"moonlight:below_heightmaps": "net.mehvahdjukaar.moonlight.core.misc.CaveFilter$Type",
+	"libx:inverted": "org.moddingx.libx.sandbox.placement.InvertPlacementFilter$$Lambda$20742/0x000002012d9f8b18",
+	"minecraft:count_on_every_layer": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:noise_threshold_count": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:surface_relative_threshold_filter": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"libx:height_filter": "org.moddingx.libx.sandbox.placement.HeightPlacementFilter$$Lambda$20747/0x000002012d9f9820",
+	"create:config_filter": "com.simibubi.create.infrastructure.worldgen.AllPlacementModifiers$$Lambda$20749/0x000002012d9f9e60",
+	"minecraft:heightmap": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:block_predicate_filter": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:count": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:environment_scan": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:noise_based_count": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:random_offset": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:rarity_filter": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"minecraft:biome": "net.minecraft.world.level.levelgen.placement.PlacementModifierType$$Lambda$3648/0x000002012bbae640",
+	"mythicbotany:alfheim_ground": "mythicbotany.alfheim.worldgen.placement.AlfheimGroundModifier$$Lambda$20748/0x000002012d9f9c48"
+}

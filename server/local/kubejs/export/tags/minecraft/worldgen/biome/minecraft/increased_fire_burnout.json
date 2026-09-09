@@ -1,0 +1,22 @@
+[
+	"minecraft:bamboo_jungle",
+	"minecraft:frozen_peaks",
+	"minecraft:jagged_peaks",
+	"minecraft:jungle",
+	"minecraft:mangrove_swamp",
+	"minecraft:mushroom_fields",
+	"minecraft:snowy_slopes",
+	"minecraft:swamp",
+	"regions_unexplored:bamboo_forest?",
+	"regions_unexplored:bayou?",
+	"regions_unexplored:eucalyptus_forest?",
+	"regions_unexplored:fen?",
+	"regions_unexplored:fungal_fen?",
+	"regions_unexplored:marsh?",
+	"regions_unexplored:old_growth_bayou?",
+	"regions_unexplored:rainforest?",
+	"regions_unexplored:redwoods?",
+	"regions_unexplored:rocky_reef?",
+	"regions_unexplored:sparse_rainforest?",
+	"regions_unexplored:sparse_redwoods?"
+]

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north,gems=0": {"model":"alfheim_leyworks:block/manna_stone_storage","y":0},
+    "facing=east,gems=0": {"model":"alfheim_leyworks:block/manna_stone_storage","y":90},
+    "facing=south,gems=0": {"model":"alfheim_leyworks:block/manna_stone_storage","y":180},
+    "facing=west,gems=0": {"model":"alfheim_leyworks:block/manna_stone_storage","y":270},
+    "facing=north,gems=1": {"model":"alfheim_leyworks:block/manna_stone_storage","y":0},
+    "facing=east,gems=1": {"model":"alfheim_leyworks:block/manna_stone_storage","y":90},
+    "facing=south,gems=1": {"model":"alfheim_leyworks:block/manna_stone_storage","y":180},
+    "facing=west,gems=1": {"model":"alfheim_leyworks:block/manna_stone_storage","y":270},
+    "facing=north,gems=2": {"model":"alfheim_leyworks:block/manna_stone_storage","y":0},
+    "facing=east,gems=2": {"model":"alfheim_leyworks:block/manna_stone_storage","y":90},
+    "facing=south,gems=2": {"model":"alfheim_leyworks:block/manna_stone_storage","y":180},
+    "facing=west,gems=2": {"model":"alfheim_leyworks:block/manna_stone_storage","y":270},
+    "facing=north,gems=3": {"model":"alfheim_leyworks:block/manna_stone_storage","y":0},
+    "facing=east,gems=3": {"model":"alfheim_leyworks:block/manna_stone_storage","y":90},
+    "facing=south,gems=3": {"model":"alfheim_leyworks:block/manna_stone_storage","y":180},
+    "facing=west,gems=3": {"model":"alfheim_leyworks:block/manna_stone_storage","y":270}
+  }
+}

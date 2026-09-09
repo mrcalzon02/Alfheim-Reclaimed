@@ -1,0 +1,4 @@
+{
+	"minecraft:fixed": "net.minecraft.world.level.storage.loot.providers.score.LootScoreProviderType",
+	"minecraft:context": "net.minecraft.world.level.storage.loot.providers.score.LootScoreProviderType"
+}

@@ -1,0 +1,10 @@
+{
+	"supplementaries:notice_board_display_target": "net.mehvahdjukaar.supplementaries.integration.create.NoticeBoardDisplayTarget",
+	"create:nixie_tube": "com.simibubi.create.content.redstone.displayLink.target.NixieTubeDisplayTarget",
+	"supplementaries:blackboard_display_target": "net.mehvahdjukaar.supplementaries.integration.create.BlackboardDisplayTarget",
+	"create:sign": "com.simibubi.create.content.redstone.displayLink.target.SignDisplayTarget",
+	"supplementaries:speaker_block_display_target": "net.mehvahdjukaar.supplementaries.integration.create.SpeakerBlockDisplayTarget",
+	"supplementaries:text_holder_display_target": "net.mehvahdjukaar.supplementaries.integration.create.TextHolderDisplayTarget",
+	"create:display_board": "com.simibubi.create.content.redstone.displayLink.target.DisplayBoardTarget",
+	"create:lectern": "com.simibubi.create.content.redstone.displayLink.target.LecternDisplayTarget"
+}

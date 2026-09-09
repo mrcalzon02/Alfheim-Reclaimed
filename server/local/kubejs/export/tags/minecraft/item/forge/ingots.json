@@ -1,0 +1,21 @@
+[
+	"#create:create_ingots",
+	"#forge:ingots/brick",
+	"#forge:ingots/copper",
+	"#forge:ingots/elementium",
+	"#forge:ingots/gold",
+	"#forge:ingots/iesnium",
+	"#forge:ingots/iron",
+	"#forge:ingots/manasteel",
+	"#forge:ingots/mithril",
+	"#forge:ingots/nether_brick",
+	"#forge:ingots/netherite",
+	"#forge:ingots/pyrium",
+	"#forge:ingots/silver",
+	"#forge:ingots/terrasteel",
+	"irons_spellbooks:arcane_ingot",
+	"minecraft:copper_ingot",
+	"minecraft:gold_ingot",
+	"minecraft:iron_ingot",
+	"minecraft:netherite_ingot"
+]

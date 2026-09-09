@@ -1,0 +1,16 @@
+{
+	"minecraft:blob_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:spruce_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:pine_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:acacia_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:bush_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:fancy_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:jungle_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:mega_pine_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:dark_oak_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:random_spread_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"minecraft:cherry_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"regions_unexplored:willow_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"regions_unexplored:sakura_foliage_placer": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType",
+	"mythicbotany:random_foliage": "net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType"
+}

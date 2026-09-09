@@ -1,6 +1,6 @@
 # Royal Tile Set I — Wave A implementation
 
-**Role:** implementation record for the first eight-object pilot selected by `ROYAL_TILESET_I.md`.
+**Role:** implementation record for the complete seventeen-object Wave A selected by `ROYAL_TILESET_I.md`.
 
 **Status:** **static source/generated validated**. Registration and model source exists and reproduces byte-for-byte. Minecraft/KubeJS startup, client rendering, collision, rotation, seams, and visual acceptance are still pending.
 
@@ -10,7 +10,7 @@
 
 ## 1. Implemented semantic assets
 
-The pilot implements the eight deliberately different Wave A test cases selected by the parent design:
+The original pipeline pilot implements eight deliberately different Wave A test cases selected by the parent design:
 
 - Royal Highback Chair — single-block directional furniture;
 - Royal Wall Sconce — wall-mounted directional light with glass/glow geometry;
@@ -21,7 +21,7 @@ The pilot implements the eight deliberately different Wave A test cases selected
 - Royal Wall Banner — directional heraldic textile;
 - Royal Astrolabe — four-module 2x2 scholarly hero object.
 
-These eight semantics compile into **16 physical block registrations** because the bed and astrolabe are deliberately modular. Internal assembly modules have no item form and exist for structure/room assembly, not creative-tab clutter.
+The completed identity-primitives batch adds lineage stele, audience bench, writing desk, tall cabinet, mana brazier, goblet service, finial, pedestal planter and weapon rack. Wave A now contains **17 semantic assets and 30 physical block registrations**. The stele, bench, desk and weapon rack join the bed and astrolabe as explicit local-module assemblies. Internal assembly modules have no item form and exist for structure/room assembly, not creative-tab clutter.
 
 ## 2. Model and material contract
 
@@ -60,7 +60,7 @@ The visible storage/display language remains decorative until a structure explic
 
 ## 5. Generated review surface
 
-`alfheim:royal_tileset_wave_a/review` is a disposable review function that places the six stand-alone examples, the complete 2x3 canopy bed and the complete 2x2 astrolabe. It is not worldgen and is not called automatically.
+`alfheim:royal_tileset_wave_a/review` is a disposable review function that places every stand-alone example and every complete multi-block assembly. It is not worldgen and is not called automatically.
 
 After a client restart, run:
 
@@ -72,8 +72,8 @@ in a disposable flat review area. Inspect silhouette, scale, texture mapping, fa
 
 Observed in the source workspace before repository admission:
 
-- `python tools/check_royal_tileset_wave_a.py` -> `ROYAL TILESET WAVE A: PASS semantics=8 blocks=16 generated=20`;
-- `python tools/gen_royal_tileset_wave_a.py --check` -> `20 files byte-identical`;
+- `python tools/check_royal_tileset_wave_a.py` -> `ROYAL TILESET WAVE A: PASS semantics=17 blocks=30 generated=34`;
+- `python tools/gen_royal_tileset_wave_a.py --check` -> `34 files byte-identical`;
 - Python compilation of generator/checker -> pass;
 - Node syntax check of `21_royal_tileset_wave_a.js` -> pass;
 - all generated model/tag JSON parses -> pass.
@@ -82,4 +82,4 @@ These checks establish the **static source/generated contract only**. They do no
 
 ## 7. Next exact action
 
-Restart the client and inspect the Wave A review grid. Reject or revise weak geometry before producing bespoke Royal textures or expanding the remaining 40 semantic assets. Once these eight are visually accepted, apply the same pipeline to the rest of Wave A and begin using accepted Royal tiles in the Greatbole/court refinement rather than creating one-off decoration there.
+Restart the client and inspect the complete Wave A review gallery. Reject or revise weak geometry before producing bespoke Royal textures or expanding into Wave B. Once the set is visually accepted, begin using accepted Royal tiles in the Greatbole/court refinement rather than creating one-off decoration there.

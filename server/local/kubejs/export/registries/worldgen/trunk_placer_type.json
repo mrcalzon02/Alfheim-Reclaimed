@@ -1,0 +1,14 @@
+{
+	"minecraft:cherry_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:fancy_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:mega_jungle_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:straight_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"mythicbotany:shattered_trunk": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:bending_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"jaffabricate:priority_straight_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:upwards_branching_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:forking_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"ars_nouveau:magic_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:giant_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType",
+	"minecraft:dark_oak_trunk_placer": "net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType"
+}

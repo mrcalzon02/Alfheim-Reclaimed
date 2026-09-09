@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,6 +16,11 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.common.extensions.IForgeMenuType;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraft.client.gui.screens.MenuScreens;
 
 /**
  * Alfheim Leyworks: the Ley Conduit Node.
@@ -42,6 +48,8 @@ public final class Leyworks {
             DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
+    public static final DeferredRegister<MenuType<?>> MENUS =
+            DeferredRegister.create(ForgeRegistries.MENU_TYPES, MOD_ID);
 
     /** Inert. What worldgen places, and what the player finds. */
     public static final RegistryObject<Block> DORMANT_NODE = BLOCKS.register(
@@ -68,17 +76,64 @@ public final class Leyworks {
             "ley_conduit_node",
             () -> new BlockItem(ACTIVE_NODE.get(), new Item.Properties()));
 
+    /** A gold-held storage crystal whose inventory grows by one chest per installed gem. */
+    public static final RegistryObject<Block> MANNA_STONE_STORAGE = BLOCKS.register(
+            "manna_stone_storage",
+            () -> new MannaStoneStorageBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.GOLD)
+                    .strength(4.0F, 12.0F)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 5 + state.getValue(MannaStoneStorageBlock.GEMS) * 2)));
+
+    public static final RegistryObject<Item> MANNA_STONE_STORAGE_ITEM = ITEMS.register(
+            "manna_stone_storage",
+            () -> new BlockItem(MANNA_STONE_STORAGE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Block> ROYAL_CHEST = registerContainer("royal_chest", ElvenContainerBlock.Style.ROYAL_CHEST, MapColor.GOLD);
+    public static final RegistryObject<Block> GEMSTONE_COFFER = registerContainer("gemstone_coffer", ElvenContainerBlock.Style.GEMSTONE_COFFER, MapColor.COLOR_PURPLE);
+    public static final RegistryObject<Block> DREAMWOOD_CRATE = registerContainer("dreamwood_crate", ElvenContainerBlock.Style.DREAMWOOD_CRATE, MapColor.COLOR_BROWN);
+    public static final RegistryObject<Block> PROVISION_CRATE = registerContainer("provision_crate", ElvenContainerBlock.Style.PROVISION_CRATE, MapColor.COLOR_GREEN);
+    public static final RegistryObject<Block> SCROLL_CRATE = registerContainer("scroll_crate", ElvenContainerBlock.Style.SCROLL_CRATE, MapColor.TERRACOTTA_WHITE);
+    public static final RegistryObject<Block> TALL_VASE = registerContainer("tall_vase", ElvenContainerBlock.Style.TALL_VASE, MapColor.QUARTZ);
+    public static final RegistryObject<Block> MEMORIAL_URN = registerContainer("memorial_urn", ElvenContainerBlock.Style.MEMORIAL_URN, MapColor.COLOR_LIGHT_GRAY);
+
+    public static final RegistryObject<Item> ROYAL_CHEST_ITEM = registerBlockItem("royal_chest", ROYAL_CHEST);
+    public static final RegistryObject<Item> GEMSTONE_COFFER_ITEM = registerBlockItem("gemstone_coffer", GEMSTONE_COFFER);
+    public static final RegistryObject<Item> DREAMWOOD_CRATE_ITEM = registerBlockItem("dreamwood_crate", DREAMWOOD_CRATE);
+    public static final RegistryObject<Item> PROVISION_CRATE_ITEM = registerBlockItem("provision_crate", PROVISION_CRATE);
+    public static final RegistryObject<Item> SCROLL_CRATE_ITEM = registerBlockItem("scroll_crate", SCROLL_CRATE);
+    public static final RegistryObject<Item> TALL_VASE_ITEM = registerBlockItem("tall_vase", TALL_VASE);
+    public static final RegistryObject<Item> MEMORIAL_URN_ITEM = registerBlockItem("memorial_urn", MEMORIAL_URN);
+
     public static final RegistryObject<BlockEntityType<LeyConduitNodeBlockEntity>> NODE_ENTITY =
             BLOCK_ENTITIES.register("ley_conduit_node",
                     () -> BlockEntityType.Builder
                             .of(LeyConduitNodeBlockEntity::new, ACTIVE_NODE.get())
                             .build(null));
 
+    public static final RegistryObject<BlockEntityType<MannaStoneStorageBlockEntity>> MANNA_STORAGE_ENTITY =
+            BLOCK_ENTITIES.register("manna_stone_storage",
+                    () -> BlockEntityType.Builder
+                            .of(MannaStoneStorageBlockEntity::new, MANNA_STONE_STORAGE.get())
+                            .build(null));
+
+    public static final RegistryObject<BlockEntityType<ElvenContainerBlockEntity>> ELVEN_CONTAINER_ENTITY =
+            BLOCK_ENTITIES.register("elven_container",
+                    () -> BlockEntityType.Builder.of(ElvenContainerBlockEntity::new,
+                            ROYAL_CHEST.get(), GEMSTONE_COFFER.get(), DREAMWOOD_CRATE.get(),
+                            PROVISION_CRATE.get(), SCROLL_CRATE.get(), TALL_VASE.get(), MEMORIAL_URN.get())
+                            .build(null));
+
+    public static final RegistryObject<MenuType<MannaStoneStorageMenu>> MANNA_STORAGE_MENU =
+            MENUS.register("manna_stone_storage",
+                    () -> IForgeMenuType.create(MannaStoneStorageMenu::fromNetwork));
+
     public Leyworks() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
         BLOCK_ENTITIES.register(bus);
+        MENUS.register(bus);
         bus.addListener(this::addCreativeTabItems);
     }
 
@@ -86,6 +141,33 @@ public final class Leyworks {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(DORMANT_NODE_ITEM.get());
             event.accept(ACTIVE_NODE_ITEM.get());
+            event.accept(MANNA_STONE_STORAGE_ITEM.get());
+            event.accept(ROYAL_CHEST_ITEM.get());
+            event.accept(GEMSTONE_COFFER_ITEM.get());
+            event.accept(DREAMWOOD_CRATE_ITEM.get());
+            event.accept(PROVISION_CRATE_ITEM.get());
+            event.accept(SCROLL_CRATE_ITEM.get());
+            event.accept(TALL_VASE_ITEM.get());
+            event.accept(MEMORIAL_URN_ITEM.get());
+        }
+    }
+
+    private static RegistryObject<Block> registerContainer(String name, ElvenContainerBlock.Style style, MapColor color) {
+        return BLOCKS.register(name, () -> new ElvenContainerBlock(BlockBehaviour.Properties.of()
+                .mapColor(color).strength(2.5F, 6.0F), style));
+    }
+
+    private static RegistryObject<Item> registerBlockItem(String name, RegistryObject<Block> block) {
+        return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static final class ClientEvents {
+        private ClientEvents() {}
+
+        @net.minecraftforge.eventbus.api.SubscribeEvent
+        public static void registerScreens(FMLClientSetupEvent event) {
+            event.enqueueWork(() -> MenuScreens.register(MANNA_STORAGE_MENU.get(), MannaStoneStorageScreen::new));
         }
     }
 }

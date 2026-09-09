@@ -517,6 +517,10 @@ DEFAULT_COMMANDS = [
 # only wait for startup, read its four piece results and runtime entities, then stop cleanly.
 HUB_ONLY_COMMANDS = [
     (35, 'say alfheim hub-only validation: startup reached'),
+    # First-party Golem foundation probe. The command is operator-only, read-only, and touching it
+    # creates/loads the versioned empty SavedData envelope before save-all. Running this profile a
+    # second time against the same level therefore proves the envelope reload path automatically.
+    (1, 'alfheimgolems debug summary'),
     (5, 'function alfheim:hub/status'),
     (1, 'scoreboard players get #place_result alfheim.hub'),
     (1, 'scoreboard players get #base_result alfheim.hub'),

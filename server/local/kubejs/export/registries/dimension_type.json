@@ -1,0 +1,12 @@
+{
+	"ancient_obelisks:obelisk": "net.minecraft.world.level.dimension.DimensionType",
+	"mythicbotany:alfheim": "net.minecraft.world.level.dimension.DimensionType",
+	"dungeon_realm:dungeon": "net.minecraft.world.level.dimension.DimensionType",
+	"mmorpg:dungeon": "net.minecraft.world.level.dimension.DimensionType",
+	"minecraft:the_end": "net.minecraft.world.level.dimension.DimensionType",
+	"minecraft:the_nether": "net.minecraft.world.level.dimension.DimensionType",
+	"irons_spellbooks:pocket_dimension_type": "net.minecraft.world.level.dimension.DimensionType",
+	"minecraft:overworld": "net.minecraft.world.level.dimension.DimensionType",
+	"minecraft:overworld_caves": "net.minecraft.world.level.dimension.DimensionType",
+	"the_harvest:harvest": "net.minecraft.world.level.dimension.DimensionType"
+}

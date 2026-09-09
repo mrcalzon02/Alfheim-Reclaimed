@@ -1,0 +1,15 @@
+[
+	"#forge:dusts/redstone",
+	"#forge:ores/redstone",
+	"#forge:storage_blocks/redstone",
+	"#minecolonies:storage_blocks",
+	"minecraft:amethyst_shard",
+	"minecraft:blaze_rod",
+	"minecraft:dried_kelp_block",
+	"minecraft:ender_eye",
+	"minecraft:ender_pearl",
+	"minecraft:glowstone_dust",
+	"minecraft:gunpowder",
+	"minecraft:redstone_torch",
+	"minecraft:slime_ball"
+]
