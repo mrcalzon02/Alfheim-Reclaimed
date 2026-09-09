@@ -33,4 +33,21 @@ class AddressedCommandParserTest {
         assertEquals(AddressedCommandParser.Verb.APPROVE_BLUEPRINT,
                 AddressedCommandParser.parse("Aelara", "Aelara; approve blueprint").orElseThrow().verb());
     }
+
+    @Test
+    void routesUnmatchedAddressedSpeechAsAQuestion() {
+        var parsed = AddressedCommandParser.parse("Aelara",
+                "Aelara, which skill best supports our current quest?").orElseThrow();
+        assertEquals(AddressedCommandParser.Verb.ASK, parsed.verb());
+        assertEquals("which skill best supports our current quest?", parsed.target());
+    }
+
+    @Test
+    void recognizesBaseObjectiveAndBehaviorPreset() {
+        assertEquals(AddressedCommandParser.Verb.BASE,
+                AddressedCommandParser.parse("Aelara", "Aelara, establish a base").orElseThrow().verb());
+        var preset = AddressedCommandParser.parse("Aelara", "Aelara, use preset artisan").orElseThrow();
+        assertEquals(AddressedCommandParser.Verb.PRESET, preset.verb());
+        assertEquals("artisan", preset.target());
+    }
 }

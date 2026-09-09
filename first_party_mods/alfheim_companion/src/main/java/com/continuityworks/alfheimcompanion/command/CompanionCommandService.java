@@ -9,12 +9,14 @@ import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.memory.CompanionMode;
 import com.continuityworks.alfheimcompanion.memory.ActiveTask;
 import com.continuityworks.alfheimcompanion.memory.CompanionSavedData;
+import com.continuityworks.alfheimcompanion.memory.BehaviorPreset;
 import com.continuityworks.alfheimcompanion.memory.MemoryEntry;
 import com.continuityworks.alfheimcompanion.personality.DialogueBank;
 import com.continuityworks.alfheimcompanion.service.CompanionSummonService;
 import com.continuityworks.alfheimcompanion.service.CraftingAdvisor;
 import com.continuityworks.alfheimcompanion.service.ItemTaskService;
 import com.continuityworks.alfheimcompanion.service.BlueprintLifecycleService;
+import com.continuityworks.alfheimcompanion.service.BaseOperationsService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -61,6 +63,7 @@ public final class CompanionCommandService {
             }
             case CANCEL -> {
                 BlueprintLifecycleService.cancel(player.server);
+                BaseOperationsService.cancelObjective(player.server);
                 data.setTask(ActiveTask.NONE, null);
                 companion.setMode(CompanionMode.FOLLOWING);
                 reply(player, data, "I have set the task aside.");
@@ -70,11 +73,12 @@ public final class CompanionCommandService {
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
                     + "/100, mood " + data.moodIndex() + "."
                     + CombatProfileBridge.statusSuffix(player, companion)
+                    + baseStatus(data)
                     : "My current task is " + data.activeTask() + ". Blueprint state: "
                     + data.blueprintLedger().state().name().toLowerCase(Locale.ROOT)
                     + ". Nutrition " + companion.nutrition() + "/20, stamina " + companion.stamina()
                     + "/100, mood " + data.moodIndex() + "."
-                    + CombatProfileBridge.statusSuffix(player, companion));
+                    + CombatProfileBridge.statusSuffix(player, companion) + baseStatus(data));
             case APPROVE_BLUEPRINT -> BlueprintLifecycleService.approve(player, companion);
             case REJECT_BLUEPRINT -> BlueprintLifecycleService.reject(player);
             case DEFEND -> {
@@ -89,6 +93,12 @@ public final class CompanionCommandService {
                         player.level().getGameTime(), data.companionName(), data.moodIndex()));
             }
             case QUEST -> describeQuest(player, data, command.target());
+            case ASK -> {
+                if (!CompanionBrainCoordinator.requestQuestion(player.server, command.target()))
+                    reply(player, data, "I am still considering the previous question.");
+                else
+                    reply(player, data, "Let me weigh that against our quest and what I can verify here.");
+            }
             case BUILD -> {
                 String task = "build|" + safe(command.target());
                 data.setTask(new ActiveTask(ActiveTask.Kind.BUILD, "", command.target(), 1,
@@ -102,6 +112,12 @@ public final class CompanionCommandService {
                     reply(player, data, "I will study the site and prepare a bounded blueprint proposal.");
                 }
             }
+            case BASE -> BaseOperationsService.begin(player, companion, command.target());
+            case PRESET -> BehaviorPreset.parse(command.target()).ifPresentOrElse(preset -> {
+                data.setBehaviorPreset(preset);
+                reply(player, data, "Behavior preset set to " + preset.id()
+                        + ". Safety, claims, recipes, reach, and blueprint approval still take priority.");
+            }, () -> reply(player, data, "Unknown preset. Available presets: balanced, warden, wayfinder, artisan, steward."));
             case CRAFT -> {
                 String task = "craft|" + command.count() + "|" + safe(command.target());
                 data.setTask(new ActiveTask(ActiveTask.Kind.CRAFT, "", command.target(), command.count(),
@@ -160,6 +176,13 @@ public final class CompanionCommandService {
 
     private static void reply(ServerPlayer player, CompanionSavedData data, String message) {
         player.sendSystemMessage(Component.literal("§d[" + data.companionName() + "] §f" + message));
+    }
+
+    private static String baseStatus(CompanionSavedData data) {
+        return data.baseObjective().phase() == com.continuityworks.alfheimcompanion.memory.BaseObjective.Phase.NONE
+                ? " Behavior preset: " + data.behaviorPreset().id() + "."
+                : " Base objective: " + data.baseObjective().phase().name().toLowerCase(Locale.ROOT)
+                .replace('_', ' ') + ". Behavior preset: " + data.behaviorPreset().id() + ".";
     }
 
     private static String safe(String value) {

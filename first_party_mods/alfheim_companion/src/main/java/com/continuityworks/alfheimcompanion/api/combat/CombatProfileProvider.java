@@ -1,7 +1,10 @@
 package com.continuityworks.alfheimcompanion.api.combat;
 
 import java.util.Map;
+import java.util.List;
 import java.util.Optional;
+
+import com.continuityworks.alfheimcompanion.brain.SkillChoice;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,6 +25,14 @@ public interface CombatProfileProvider {
 
     /** Invalidates the MMO system's calculated gear cache after a legitimate slot mutation. */
     void onEquipmentChanged(LivingEntity companion);
+
+    /**
+     * Returns only skills that deterministic game code can validate for this companion. An empty
+     * list is safer than describing player-only or otherwise non-executable skills.
+     */
+    default List<SkillChoice> availableSkills(ServerPlayer lessee, LivingEntity companion) {
+        return List.of();
+    }
 
     record CombatProfile(String systemId, int level, String archetype,
                          Map<String, Integer> resources, Map<String, Double> modifiers) {

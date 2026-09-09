@@ -23,9 +23,11 @@ import java.util.Optional;
 import com.continuityworks.alfheimcompanion.integration.QuestAwarenessBridge;
 import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.personality.PersonalityProfiles;
+import com.continuityworks.alfheimcompanion.api.quest.QuestProvider;
 
 public final class CompanionBrainCoordinator {
     private static final int MAX_RESULT_AGE_TICKS = 100;
+    private static final int INFERENCE_TIMEOUT_SECONDS = 15;
     private static final AtomicBoolean IN_FLIGHT = new AtomicBoolean();
     private static final ConcurrentLinkedQueue<CompletedPlan> RESULTS = new ConcurrentLinkedQueue<>();
     private static final ConcurrentLinkedQueue<CompletedAmbient> AMBIENT_RESULTS = new ConcurrentLinkedQueue<>();
@@ -57,6 +59,18 @@ public final class CompanionBrainCoordinator {
      * Combat, following, waiting and scripted interactions must not call this method.
      */
     public static boolean requestComplexPlan(MinecraftServer server) {
+        return request(server, "");
+    }
+
+    /** Answers an addressed question without granting the model permission to change entity mode. */
+    public static boolean requestQuestion(MinecraftServer server, String question) {
+        if (question == null || question.isBlank()) return false;
+        String bounded = question.strip();
+        if (bounded.length() > 240) bounded = bounded.substring(0, 240);
+        return request(server, bounded);
+    }
+
+    private static boolean request(MinecraftServer server, String question) {
         if (IN_FLIGHT.get()) return false;
         CompanionSavedData data = CompanionSavedData.get(server);
 
@@ -67,11 +81,11 @@ public final class CompanionBrainCoordinator {
         if (owner == null || owner.level() != companion.level()) return false;
 
         long requestId = data.nextRequestId();
-        BrainSnapshot snapshot = snapshot(requestId, companion, owner, data);
+        BrainSnapshot snapshot = snapshot(requestId, companion, owner, data, question);
         if (!IN_FLIGHT.compareAndSet(false, true)) return false;
 
         engine.activate();
-        engine.plan(snapshot).orTimeout(4, TimeUnit.SECONDS).whenComplete((result, error) -> {
+        engine.plan(snapshot).orTimeout(INFERENCE_TIMEOUT_SECONDS, TimeUnit.SECONDS).whenComplete((result, error) -> {
             if (error == null && result != null) RESULTS.offer(new CompletedPlan(result, snapshot.gameTime()));
             else if (!(error instanceof CompletionException))
                 AlfheimCompanion.LOGGER.debug("Tiny-brain plan dropped", error);
@@ -87,13 +101,21 @@ public final class CompanionBrainCoordinator {
         engine.deactivate();
     }
 
+    /** Starts optional local resources after summon without spending an inference request. */
+    public static void warmup() {
+        try { engine.activate(); }
+        catch (RuntimeException error) {
+            AlfheimCompanion.LOGGER.warn("Local inference warmup deferred: {}", error.getMessage());
+        }
+    }
+
     public static void clear(UUID companionUuid) {
         RESULTS.clear();
         IN_FLIGHT.set(false);
     }
 
     private static BrainSnapshot snapshot(long requestId, ElvenCompanionEntity companion,
-                                          ServerPlayer owner, CompanionSavedData data) {
+                                          ServerPlayer owner, CompanionSavedData data, String question) {
         AABB area = companion.getBoundingBox().inflate(12.0D, 6.0D, 12.0D);
         List<BrainSnapshot.Threat> threats = companion.level()
                 .getEntitiesOfClass(Monster.class, area, Entity::isAlive).stream()
@@ -104,12 +126,60 @@ public final class CompanionBrainCoordinator {
                 .toList();
         int hp = owner.getMaxHealth() <= 0 ? 0
                 : Math.round(owner.getHealth() * 100.0F / owner.getMaxHealth());
+        int companionHp = companion.getMaxHealth() <= 0 ? 0
+                : Math.round(companion.getHealth() * 100.0F / companion.getMaxHealth());
+        String biome = companion.level().getBiome(companion.blockPosition()).unwrapKey()
+                .map(key -> key.location().toString()).orElse("unknown");
+        String time = companion.level().isNight() ? "night"
+                : (companion.level().getDayTime() % 24000L < 2000L ? "dawn" : "day");
+        String weather = companion.level().isThundering() ? "thunder"
+                : (companion.level().isRaining() ? "rain" : "clear");
         return new BrainSnapshot(requestId, companion.level().getGameTime(), companion.getUUID(),
-                owner.getUUID(), companion.level().dimension().location().toString(),
-                companion.blockPosition(), owner.blockPosition(), hp, threats,
-                data.activeTask(), PersonalityProfiles.forName(data.companionName()).promptSummary()
+                owner.getUUID(), data.companionName(), companion.level().dimension().location().toString(),
+                biome, time, weather, companion.mode().name().toLowerCase(),
+                companion.blockPosition(), owner.blockPosition(), hp, companionHp,
+                companion.nutrition(), companion.stamina(), threats,
+                data.activeTask(), data.baseObjective().phase().name(), data.behaviorPreset().id(), question,
+                PersonalityProfiles.forName(data.companionName()).promptSummary()
                 + "; mood_index=" + data.moodIndex(),
-                CombatProfileBridge.statusSuffix(owner, companion).trim(), data.facts());
+                CombatProfileBridge.statusSuffix(owner, companion).trim(), questContexts(owner),
+                CombatProfileBridge.availableSkills(owner, companion), data.facts());
+    }
+
+    private static List<QuestContext> questContexts(ServerPlayer owner) {
+        Optional<com.continuityworks.alfheimcompanion.api.quest.QuestProvider> provider = QuestAwarenessBridge.provider();
+        if (provider.isEmpty()) return List.of();
+        try {
+            return provider.get().questsFor(owner).stream()
+                    .filter(quest -> quest.status() == QuestProvider.Status.ACTIVE
+                            || quest.status() == QuestProvider.Status.AVAILABLE
+                            || quest.status() == QuestProvider.Status.COMPLETED)
+                    .sorted(Comparator.comparingInt(CompanionBrainCoordinator::questPriority))
+                    .limit(3).map(CompanionBrainCoordinator::questContext).toList();
+        } catch (RuntimeException | LinkageError error) {
+            AlfheimCompanion.LOGGER.warn("Quest context unavailable for local inference", error);
+            return List.of();
+        }
+    }
+
+    private static int questPriority(QuestProvider.QuestView quest) {
+        return switch (quest.status()) {
+            case ACTIVE -> 0;
+            case AVAILABLE -> 1;
+            case COMPLETED -> 2;
+            default -> 3;
+        };
+    }
+
+    private static QuestContext questContext(QuestProvider.QuestView quest) {
+        List<String> objectives = quest.objectives().stream().filter(objective -> !objective.complete())
+                .limit(4).map(objective -> objective.description() + " " + objective.current()
+                        + "/" + objective.required()).toList();
+        List<String> missing = quest.ingredients().stream()
+                .filter(ingredient -> ingredient.available() < ingredient.required()).limit(4)
+                .map(ingredient -> ingredient.itemOrTagId() + " " + ingredient.available()
+                        + "/" + ingredient.required()).toList();
+        return new QuestContext(quest.id(), quest.name(), quest.status().name(), quest.goal(), objectives, missing);
     }
 
     private static void applyCompleted(MinecraftServer server, CompanionSavedData data) {
@@ -173,7 +243,7 @@ public final class CompanionBrainCoordinator {
         if (!IN_FLIGHT.compareAndSet(false, true)) return;
         lastAmbientGameTime = now;
         engine.activate();
-        engine.reflect(snapshot).orTimeout(4, TimeUnit.SECONDS).whenComplete((line, error) -> {
+        engine.reflect(snapshot).orTimeout(INFERENCE_TIMEOUT_SECONDS, TimeUnit.SECONDS).whenComplete((line, error) -> {
             if (error == null && line != null && line.isPresent() && !line.get().isBlank()) {
                 AMBIENT_RESULTS.offer(new CompletedAmbient(requestId, now,
                         line.get().substring(0, Math.min(120, line.get().length()))));

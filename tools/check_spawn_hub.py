@@ -69,7 +69,13 @@ def main():
             'minecraft:pumpkin_stem', 'minecraft:melon_stem',
             'minecraft:potted_fern', 'minecraft:potted_dandelion',
             'minecraft:potted_poppy', 'minecraft:potted_blue_orchid',
-            'minecraft:potted_allium'}
+            'minecraft:potted_allium',
+            # The wall-mounted torch variants, added 2026-09-08 with the structure detail
+            # pass. A torch bracket is `minecraft:wall_torch`; the ITEM is `minecraft:torch`,
+            # so the same item-registry proxy that hid `minecraft:water` hides these too.
+            # `check_surface_works.py` NO_ITEM has exempted them since it was written, and
+            # the two checkers disagreeing about the same palette is the actual defect here.
+            'minecraft:wall_torch', 'minecraft:soul_wall_torch'}
 
     # ---- S1/S2/S3: the pieces ------------------------------------------------------------
     pieces, jigsaws = {}, []

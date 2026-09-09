@@ -20,6 +20,8 @@
   "palettes": {
     "elven_marble": {
       "_note": "The Court's own stone. The only family in the load path that ships pre-cracked and pre-mossed.",
+      "_seep": "moss",
+      "crystal": "alfheim:dawnglass_cluster",
       "stone": "feywild:elven_quartz_block",
       "brick": "feywild:elven_quartz_brick",
       "brick_cracked": "feywild:elven_quartz_cracked_brick",
@@ -43,6 +45,8 @@
     },
     "livingrock": {
       "_note": "The dimension's own default_block. A livingrock ruin reads as quarried here.",
+      "_seep": "moss",
+      "crystal": "alfheim:rootglass_cluster",
       "stone": "botania:livingrock",
       "brick": "botania:livingrock_bricks",
       "brick_cracked": "minecraft:cracked_stone_bricks",
@@ -66,6 +70,8 @@
     },
     "sourcestone": {
       "_note": "The Spine of Song's masonry. Where the building was magical rather than military.",
+      "_seep": "moss",
+      "crystal": "alfheim:galeglass_cluster",
       "stone": "ars_nouveau:sourcestone",
       "brick": "ars_nouveau:sourcestone_large_bricks",
       "brick_cracked": "minecraft:cracked_stone_bricks",
@@ -89,6 +95,8 @@
     },
     "burnt": {
       "_note": "Scorchfell and the craters. Nothing here is mossy; nothing that burned came back.",
+      "_seep": "ash",
+      "crystal": "alfheim:emberglass_cluster",
       "stone": "minecraft:blackstone",
       "brick": "minecraft:polished_blackstone_bricks",
       "brick_cracked": "minecraft:cracked_polished_blackstone_bricks",
@@ -112,6 +120,8 @@
     },
     "drowned": {
       "_note": "The fen, the mire and the lakes. Wet stone, and the light is cold.",
+      "_seep": "damp",
+      "crystal": "alfheim:tidewake_cluster",
       "stone": "minecraft:prismarine",
       "brick": "minecraft:prismarine_bricks",
       "brick_cracked": "minecraft:mossy_cobblestone",
@@ -135,6 +145,8 @@
     },
     "bone": {
       "_note": "The Starved Reach and the Golden Fields. Pale, dry, and nothing is growing on it.",
+      "_seep": "dust",
+      "crystal": "alfheim:duskglass_cluster",
       "stone": "minecraft:calcite",
       "brick": "minecraft:stone_bricks",
       "brick_cracked": "minecraft:cracked_stone_bricks",
@@ -158,6 +170,8 @@
     },
     "void": {
       "_note": "The rim. Livingrock that never fell, and obsidian where the ley-line earthed out.",
+      "_seep": "dust",
+      "crystal": "alfheim:duskglass_cluster",
       "stone": "botania:livingrock",
       "brick": "botania:livingrock_bricks",
       "brick_cracked": "minecraft:cracked_stone_bricks",

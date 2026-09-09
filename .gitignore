@@ -32,6 +32,7 @@ mods/*
 !mods/alfheim_companion-*.jar
 !mods/alfheim_leyworks-*.jar
 tools/vendor/
+alfheim_companion/inference/
 
 # Generated build output
 .gradle/

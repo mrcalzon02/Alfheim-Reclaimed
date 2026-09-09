@@ -15,6 +15,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
+import structure_detail as sd  # noqa: E402
 from structure_nbt import MAX_AXIS, Piece  # noqa: E402
 
 NS = "alfheim"
@@ -885,6 +886,96 @@ def faultwork_loot():
                            {"type": "minecraft:item", "name": "botania:mana_powder", "weight": 2,
                             "functions": [{"function": "minecraft:set_count", "count": {"min": 1.0, "max": 3.0}}]}
                        ]}]}
+
+
+# --- the detail pass -----------------------------------------------------------------------
+#
+# The three families were already the most architectural geometry in the pack -- pointed
+# arches, alcoves, cornices, gantries, sarcophagi -- and still measured 4.5 to 7.8 per cent
+# detail blocks, because a hall carved out of rock is mostly rock. What they had none of was
+# occupation: no hung light, no tools left where somebody put them down, and no sign that
+# three hundred years of groundwater has been coming through the ceiling. Those are the
+# layers `structure_detail.py` owns, so the families ask for them here rather than growing a
+# fourth copy of the same code.
+#
+# Two constraints are specific to underground work and are why the tuning is not the
+# surface's. `check_deep_archaeology.py` validates every palette entry against an ITEM
+# registry, and `minecraft:wall_torch` has no item -- so the light is hung on chains and the
+# bracket form is switched off. And down here every floor is roofed, which the weather test
+# in `ingress()` would read as "dry": `roofed_ok` inverts it, and the water arrives as
+# dripstone through the rock instead of as rain through a missing roof.
+
+DETAIL_KITS = {
+    "deep_quarry": dict(
+        stone="alfheim:rootbound_livingrock", brick="alfheim:rootbound_livingrock_bricks",
+        floor="alfheim:rootbound_livingrock_polished",
+        accent="alfheim:rootbound_livingrock_carved",
+        stairs="alfheim:rootbound_livingrock_stairs",
+        slab="alfheim:rootbound_livingrock_slab",
+        wall="alfheim:rootbound_livingrock_wall", pillar="botania:dreamwood_log",
+        crystal="alfheim:rootglass_cluster", timber="botania:dreamwood_log",
+        plank="botania:dreamwood_planks", fence="botania:dreamwood_fence",
+        light="minecraft:lantern",
+        rubble=["alfheim:rootbound_livingrock", "minecraft:gravel",
+                "alfheim:cracked_livingrock"]),
+    "elder_kings_tomb": dict(
+        stone="alfheim:ivory_livingrock", brick="alfheim:ivory_livingrock_bricks",
+        floor="alfheim:moonstone_livingrock_polished",
+        accent="alfheim:ivory_livingrock_polished",
+        stairs="alfheim:ivory_livingrock_stairs", slab="alfheim:ivory_livingrock_slab",
+        wall="alfheim:ivory_livingrock_wall", pillar="alfheim:moonstone_livingrock_polished",
+        crystal="alfheim:duskglass_cluster", timber="botania:dreamwood_log",
+        plank="botania:dreamwood_planks", fence="botania:dreamwood_fence",
+        light="minecraft:soul_lantern",
+        rubble=["alfheim:ivory_livingrock", "minecraft:gravel",
+                "alfheim:cracked_livingrock"]),
+    "faultwork": dict(
+        stone="alfheim:cracked_livingrock", brick="alfheim:gloam_livingrock_bricks",
+        floor="alfheim:gloam_livingrock_polished",
+        accent="alfheim:leyline_livingrock_carved",
+        stairs="alfheim:gloam_livingrock_stairs", slab="alfheim:gloam_livingrock_slab",
+        wall="alfheim:gloam_livingrock_wall", pillar="alfheim:leyline_livingrock_polished",
+        crystal="alfheim:emberglass_cluster", timber="botania:dreamwood_log",
+        plank="botania:dreamwood_planks", fence="botania:dreamwood_fence",
+        light="minecraft:soul_lantern",
+        rubble=["alfheim:cracked_livingrock", "minecraft:gravel", "minecraft:blackstone"]),
+}
+
+# A quarry was worked, a tomb was sealed and a faultwork failed, so they do not get the same
+# residue: crates and haulage below, offerings and cobwebs in the tomb, and in the faultwork
+# the ley crystal that was the reason anyone dug there.
+DETAIL_TUNING = {
+    "deep_quarry": dict(
+        dress=dict(corbel=0.22, conduit=0.45, sockets=3, sconce=0.60, sconce_spacing=6,
+                   furniture=0.45, floor_litter=0.06),
+        settle=dict(rubble=0.10, reach=3, weathering=0.08, seep="dust", seep_rate=0.09,
+                    roots=0.09, webs=0.02)),
+    "elder_kings_tomb": dict(
+        dress=dict(corbel=0.25, conduit=0.55, sockets=4, sconce=0.70, sconce_spacing=5,
+                   furniture=0.30, furniture_allow=("pot", "bench", "table", "shelf"),
+                   floor_litter=0.05),
+        settle=dict(rubble=0.07, reach=2, weathering=0.06, seep="damp", seep_rate=0.10,
+                    roots=0.10, webs=0.06)),
+    "faultwork": dict(
+        dress=dict(corbel=0.20, conduit=0.60, sockets=5, sconce=0.55, sconce_spacing=6,
+                   furniture=0.35, floor_litter=0.07),
+        settle=dict(rubble=0.13, reach=3, weathering=0.10, seep="damp", seep_rate=0.11,
+                    roots=0.13, webs=0.04)),
+}
+
+# The floor of every authored room sits at y=3; the shell and its bedding are below that.
+DETAIL_GROUND = 3
+
+
+def detail_family(piece, fid, seed):
+    """Hang the light, leave the tools, and let three centuries of water in."""
+    kit = sd.Kit(**DETAIL_KITS[fid])
+    tuning = DETAIL_TUNING[fid]
+    counts = sd.dress(piece, seed, kit, ground=DETAIL_GROUND, bracket_light=False,
+                      **tuning["dress"])
+    counts.update(sd.aftermath(piece, seed, kit, ground=DETAIL_GROUND, hang="drip",
+                               roofed_ok=True, **tuning["settle"]))
+    return counts
 
 
 def build_outputs(check=False):

@@ -6,8 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class AddressedCommandParser {
-    public enum Verb { FOLLOW, GUARD, SHOW_ITEM, FETCH_ITEM, LEAD_TO_ITEM, CRAFT, BUILD, QUEST,
-        APPROVE_BLUEPRINT, REJECT_BLUEPRINT, DEFEND, RETREAT, CANCEL, STATUS }
+    public enum Verb { FOLLOW, GUARD, SHOW_ITEM, FETCH_ITEM, LEAD_TO_ITEM, CRAFT, BUILD, BASE, PRESET, QUEST,
+        ASK, APPROVE_BLUEPRINT, REJECT_BLUEPRINT, DEFEND, RETREAT, CANCEL, STATUS }
     public record Parsed(Verb verb, String target, int count) {}
 
     private static final Pattern COUNT = Pattern.compile("^(\\d+)\\s+(.+)$");
@@ -38,8 +38,14 @@ public final class AddressedCommandParser {
             return parsed(Verb.APPROVE_BLUEPRINT, "", 1);
         if (body.equals("reject blueprint") || body.equals("reject build"))
             return parsed(Verb.REJECT_BLUEPRINT, "", 1);
+        if (body.equals("establish a base") || body.equals("establish base")
+                || body.equals("set up a base") || body.equals("build your own base")
+                || body.equals("make this your base"))
+            return parsed(Verb.BASE, "base of operations", 1);
 
         Optional<Parsed> matched;
+        matched = target(body, Verb.PRESET, "behavior preset ", "use behavior ", "use preset ");
+        if (matched.isPresent()) return matched;
         matched = target(body, Verb.LEAD_TO_ITEM, "bring me to ", "lead me to ", "take me to ");
         if (matched.isPresent()) return matched;
         matched = target(body, Verb.FETCH_ITEM, "bring me ", "fetch ", "get me ", "go get ");
@@ -50,7 +56,8 @@ public final class AddressedCommandParser {
         if (matched.isPresent()) return matched;
         matched = target(body, Verb.BUILD, "help me build ", "build ");
         if (matched.isPresent()) return matched;
-        return target(body, Verb.QUEST, "quest ", "tell me about quest ", "what quest ");
+        matched = target(body, Verb.QUEST, "quest ", "tell me about quest ", "what quest ");
+        return matched.isPresent() ? matched : parsed(Verb.ASK, body, 1);
     }
 
     private static Optional<Parsed> target(String body, Verb verb, String... prefixes) {

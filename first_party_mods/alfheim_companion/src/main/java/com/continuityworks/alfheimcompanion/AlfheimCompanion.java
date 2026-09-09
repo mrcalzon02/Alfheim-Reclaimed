@@ -21,6 +21,7 @@ import com.continuityworks.alfheimcompanion.service.CompanionChunkTickets;
 import com.continuityworks.alfheimcompanion.integration.ftb.FtbIntegrationBootstrap;
 import com.continuityworks.alfheimcompanion.integration.mmo.MineAndSlashIntegrationBootstrap;
 import com.continuityworks.alfheimcompanion.network.CompanionNetwork;
+import com.continuityworks.alfheimcompanion.brain.InferenceBootstrap;
 import org.slf4j.Logger;
 
 @Mod(AlfheimCompanion.MOD_ID)
@@ -48,6 +49,7 @@ public final class AlfheimCompanion {
             CompanionNetwork.register();
             FtbIntegrationBootstrap.registerAvailableAdapters();
             MineAndSlashIntegrationBootstrap.registerIfAvailable();
+            InferenceBootstrap.installConfiguredEngine();
         });
     }
 

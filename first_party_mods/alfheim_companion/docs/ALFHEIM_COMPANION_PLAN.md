@@ -372,6 +372,10 @@ measured tick/RAM budget under representative modpack load.
   companion.
 - The command wheel and overhead emotes are clean-build, unit, and dedicated-side validated. Client
   interaction/visual acceptance remains open after the implementation pass.
+- Final MMO-enabled safe-mode boot `companion-mmo-safe-20260908c`: exit 0, reached `Done` in 28.620
+  seconds on the repeat run, connected FTB Chunks, FTB Quests, and the Mine and Slash 6.4.x adapter,
+  then shut down cleanly. Live-player gear requirement, calculated-damage, and client equipment-screen
+  acceptance tests remain open because the dedicated server harness has no authenticated player.
 - MMO-enabled safe-mode full-pack boot `companion-mmo-safe-20260908c`: exit 0; FTB Chunks, FTB Quests,
   and the direct Mine and Slash 6.4.x adapter all connected before the server reached `Done` and shut
   down cleanly. Live-player acceptance for level synchronization, requirement-denied gear, calculated

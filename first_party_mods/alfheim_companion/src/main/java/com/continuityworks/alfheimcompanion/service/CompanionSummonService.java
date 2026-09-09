@@ -95,6 +95,7 @@ public final class CompanionSummonService {
         }
         owner.sendSystemMessage(Component.translatable("message.alfheim_companion.summoned", data.companionName()));
         QuestMemoryService.refresh(owner, data);
+        CompanionBrainCoordinator.warmup();
         DialogueBank.Moment moment = agitation >= 3
                 ? DialogueBank.Moment.SUMMON_CRANKY : DialogueBank.Moment.SUMMON;
         owner.sendSystemMessage(Component.literal("§d[" + data.companionName() + "] §f"

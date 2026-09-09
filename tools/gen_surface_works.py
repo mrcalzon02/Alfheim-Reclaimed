@@ -56,6 +56,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
+import structure_detail as sd  # noqa: E402
 from structure_nbt import ADAPTATION_MARGIN, MAX_AXIS, Piece  # noqa: E402
 
 NS = 'alfheim'
@@ -415,6 +416,40 @@ def connect(p):
         p.blocks[(x, y, z)] = (p._state(name, props), be)
 
 
+# --------------------------------------------------------------------------- detailing
+#
+# The five layers of THE_SURFACE.md 3.2 live in `structure_detail.py`, shared with every
+# other structure generator in the pack. What belongs HERE is the tuning: how much of each
+# layer a keep carries versus a mine, which is a statement about the archetype rather than
+# about the vocabulary. Each builder makes both calls itself, because the split is causal --
+# `dress` is what the building had and must be laid down before the decay pass takes it
+# apart; `settle` is what the collapse did and can only be known afterwards.
+
+
+def dress(p, seed, pal, ground, **kw):
+    """Lay the intact building's own detail: trim, openings, ley channels, light, furniture."""
+    kit = sd.Kit.from_surface_palette(pal)
+    tally(p, sd.dress(p, seed, kit, ground=ground, **kw))
+    return kit
+
+
+def settle(p, seed, pal, ground, **kw):
+    """Everything the collapse caused: debris at the wall foot, erosion, weather ingress."""
+    kit = pal if isinstance(pal, sd.Kit) else sd.Kit.from_surface_palette(pal)
+    kw.setdefault('seep', pal.get('_seep', 'moss') if isinstance(pal, dict) else 'moss')
+    tally(p, sd.aftermath(p, seed, kit, ground=ground, **kw))
+    return kit
+
+
+def tally(p, counts):
+    """Accumulate a piece's detail counts so main() can print and a checker can read them."""
+    got = getattr(p, 'detail_counts', None)
+    if got is None:
+        got = p.detail_counts = {}
+    for k, v in counts.items():
+        got[k] = got.get(k, 0) + v
+
+
 # --------------------------------------------------------------------------- the archetypes
 #
 # Every builder takes (pal, shape, ground, size, seed) and returns a Piece. `ground` is the
@@ -544,8 +579,18 @@ def build_castle(pal, s, ground, size, seed):
     for pos in ((kx0 + 3, ground + 1, kz0 + 3), (kx1 - 3, ground + 1, kz1 - 3)):
         p.set(pos[0], pos[1], pos[2], B(pal['light'], hanging=False, waterlogged=False))
 
+    # A keep is the pack's most monumental silhouette and had the most people in it, so it
+    # carries every layer: a moulded course at the wall walkway and another at the keep's
+    # eaves, brackets under the machicolation, framed openings, a ley channel through the
+    # ground floor, and light and furniture in the rooms that had both.
+    dress(p, seed, pal, ground,
+          cornice=(wall_h - 2, ground + kh - 1), corbel=0.30, opening=0.70,
+          conduit=0.55, sockets=3, sconce=0.70, furniture=0.55, floor_litter=0.05)
+
     keep_solid = {(x, ground - 1, z) for x in range(sx) for z in range(sz)}
     decay(p, seed, s['ruin'], ground, sy - 1, s['collapse'], keep=keep_solid)
+    settle(p, seed, pal, ground, collapse=s['collapse'], rubble=0.13, reach=3,
+           weathering=0.20, seep_rate=0.18, webs=s.get('webs', 0.0) * 0.4)
     weather(p, seed, pal)
     scatter_rubble(p, seed, pal, ground - 1,
                    [(x, z) for x in range(x0 - 3, x1 + 4) for z in range(z0 - 3, z1 + 4)
@@ -650,7 +695,42 @@ def build_quarry(pal, s, ground, size, seed, ores=()):
                     if math.hypot(x - cx, z - cz) <= radius_at(y) - 1:
                         p.set(x, y, z, WATER)
 
+    # --- what the elves were taking out, left where they stacked it.
+    #
+    # THE_SURFACE.md 6.1: the first field review called the quarry one of the strongest
+    # structures in the set and also said it was not worth the walk. The fix it asks for is
+    # explicitly world geometry rather than a richer chest -- exposed faces, half-worked
+    # seams and stockpiles of ordinary material -- so a player who follows a map to a rare
+    # quarry leaves with a haul and still cannot skip an era. Every id here is an Era I-IV
+    # bloom, which is the same material the bench faces already expose.
+    if ores:
+        for i in range(3):
+            a = rng.uniform(0, math.tau)
+            hx = cx + (5.0 + step_r * 0.6) * math.cos(a)
+            hz = cz + (5.0 + step_r * 0.6) * math.sin(a)
+            ore = ores[i % len(ores)]
+            for y in range(rng.randint(1, 2) + 1):
+                disc(p, hx, hz, floor_y + y, 2.2 - y * 0.9, (ore, None))
+        # Half-worked seams: a cut that stops mid-vein, on the bench the shift was on.
+        for b in range(1, benches + 1):
+            y = floor_y + b * step_h
+            a = rng.uniform(0, math.tau)
+            r = 5.0 + step_r * b - 1.0
+            for j in range(rng.randint(3, 6)):
+                aa = a + j * 0.06
+                p.set(int(round(cx + r * math.cos(aa))), y,
+                      int(round(cz + r * math.sin(aa))), (rng.choice(ores), None))
+
     p.set(int(cx - 4), floor_y, int(cz + 4), *barrel('up', 'surface_common'))
+
+    # A working mine is timber, lamps and mess, and the pit had none of it: the census before
+    # this pass put `hillcut_quarry` at 0.6% detail blocks in 2,084 solids. Shoring on the
+    # benches, light down the ramp and crates on the floor are what make it read as a place
+    # people worked rather than a hole of the right shape.
+    dress(p, seed, pal, ground, corbel=0.35, conduit=0.30, sockets=2,
+          sconce=0.55, sconce_spacing=6, furniture=0.35, floor_litter=0.08)
+    settle(p, seed, pal, floor_y, rubble=0.11, reach=3, weathering=0.12,
+           seep='dust', seep_rate=0.10, roots=0.05)
     connect(p)
     return p
 
@@ -716,11 +796,43 @@ def build_crater(pal, s, ground, size, seed):
                     if b is not None and ground - int(round(b)) + y < ground - depth + 3:
                         p.set(x, ground - int(round(b)) + 1 + y, z, LAVA)
 
+    # --- the ley run that let go, and the exact place it stopped
+    #
+    # A crater with nothing in it is a hole; the question a player asks standing on the glass
+    # is *what was here*. This answers it in one line of geometry: a channel comes in over
+    # the rim on a fixed bearing, crosses the debris apron, and ends short of the centre with
+    # its last node still lit. The generator lays it on whatever surface it crosses rather
+    # than at a computed height, which is the defect B-83 item 10 paid for at the hub.
+    crystal = pal.get('crystal')
+    if crystal:
+        a = (seed % 360) * math.pi / 180.0
+        for i in range(int(R * 1.35), int(R * 0.5), -1):
+            x = int(round(cx + i * math.cos(a)))
+            z = int(round(cz + i * math.sin(a)))
+            if not (0 <= x < sx and 0 <= z < sz):
+                continue
+            top = None
+            for y in range(min(sy - 1, ground + s['rim'] + 2), 0, -1):
+                if name_at(p, x, y, z) is not None and is_solid(p, x, y, z):
+                    top = y + 1
+                    break
+            if top is None or top >= sy:
+                continue
+            node = (i % 5 == 0)
+            p.set(x, top, z, (crystal if node else pal['accent'], None))
+
     # --- one chest, half buried in the rim, because somebody came back to look
     bx, bz = int(cx + R * 0.75), int(cz - R * 0.35)
     box(p, bx - 1, ground - 1, bz - 1, bx + 1, ground + 1, bz + 1, (pal['brick_cracked'], None))
     box(p, bx, ground, bz, bx, ground + 1, bz, AIR)
     p.set(bx, ground, bz, *chest('east', 'surface_uncommon'))
+
+    # Fused glass, exposed strata and a shattered rim: the detail here is geological, so the
+    # sockets go into the crater wall and the weathering is ash rather than moss.
+    dress(p, seed, pal, ground - depth, corbel=0.10, sockets=4, sconce=0.0,
+          floor_litter=0.05)
+    settle(p, seed, pal, ground - depth, rubble=0.08, reach=4, weathering=0.15,
+           seep_rate=0.08, roots=0.0)
     connect(p)
     return p
 
@@ -799,7 +911,16 @@ def build_tower(pal, s, ground, size, seed):
     p.set(int(cx - 1), top - 7, int(cz - 1), *barrel('up', 'surface_common'))
     p.set(int(cx), ground + 2, int(cz), B(pal['light'], hanging=True, waterlogged=False))
 
+    # A watchtower is a stair, a signal and somewhere to stand a long watch. The corbel rate
+    # is the highest in the set because the balcony ring is one block proud of the shaft and
+    # reads as cantilevered without brackets under it.
+    dress(p, seed, pal, ground,
+          cornice=(top - 5, top - 1), corbel=0.45, opening=0.75,
+          conduit=0.60, sockets=2, sconce=0.80, sconce_spacing=4,
+          furniture=0.40, floor_litter=0.06)
+
     decay(p, seed, s['ruin'], ground + int(h * 0.35), sy - 1, 'none')
+    settle(p, seed, pal, ground, rubble=0.12, reach=4, weathering=0.25, seep_rate=0.16)
     weather(p, seed, pal)
     drape(p, seed, pal, chance=0.09)
     connect(p)
@@ -876,9 +997,18 @@ def build_hall(pal, s, ground, size, seed):
     p.set(x0 + 2, ground, z0 + 2, *chest('east', 'surface_uncommon'))
     p.set(x1 - 2, ground, z1 - 2, *chest('west', 'surface_common'))
 
+    # The moot hall is the pack's most inhabited interior: one long room that held a whole
+    # settlement's argument. It gets the highest furniture density and a full ley channel
+    # down both skirtings, so the hearth line is not the only thing in it.
+    dress(p, seed, pal, ground,
+          cornice=(ground + H - 1,), corbel=0.30, opening=0.80,
+          conduit=0.75, sockets=3, sconce=0.80, furniture=0.70, floor_litter=0.06)
+
     keep_floor = {(x, ground - 1, z) for x in range(sx) for z in range(sz)}
     decay(p, seed, s['roof'], ground + H, sy - 1, 'none')
     decay(p, seed ^ 0x11, s['roof'] * 0.4, ground, ground + H - 1, 'none', keep=keep_floor)
+    settle(p, seed, pal, ground, rubble=0.12, reach=3, weathering=0.20, seep_rate=0.18,
+           webs=0.03)
     weather(p, seed, pal)
     drape(p, seed, pal, chance=0.12)
     connect(p)
@@ -936,7 +1066,14 @@ def build_aqueduct(pal, s, ground, size, seed):
                     for dz in range(-2, 3)], density=0.3)
 
     p.set(x0 + 1, ground, cz + 3, *chest('south', 'surface_common'))
+
+    # An aqueduct is infrastructure, so its detail is engineering rather than habitation:
+    # brackets under the deck overhang, a moulded course at the springing line, and the
+    # channel itself carrying the ley run that the water once did.
+    dress(p, seed, pal, ground, cornice=(deck - 1,), corbel=0.50, opening=0.40,
+          conduit=0.45, sockets=2, sconce=0.25, furniture=0.10)
     decay(p, seed, 0.22, deck, sy - 1, 'none')
+    settle(p, seed, pal, ground, rubble=0.16, reach=4, weathering=0.20, seep_rate=0.22)
     weather(p, seed, pal)
     drape(p, seed, pal, chance=0.16)
     connect(p)
@@ -981,7 +1118,13 @@ def build_span(pal, s, ground, size, seed):
                    [(x, cz + dz) for x in range(brk - 2, min(sx, brk + 8))
                     for dz in range(-4, 5)], density=0.4)
     p.set(1, deck + 1, cz + 1, *chest('west', 'surface_common'))
+
+    # A span carries a road, and the interesting half of it is underneath: brackets on the
+    # piers, a moulded edge under the deck, and the debris of the part that is not there.
+    dress(p, seed, pal, ground, cornice=(deck - 1,), corbel=0.45, opening=0.20,
+          conduit=0.30, sockets=1, sconce=0.20)
     decay(p, seed, 0.25, deck, sy - 1, 'none')
+    settle(p, seed, pal, ground, rubble=0.18, reach=4, weathering=0.22, seep_rate=0.14)
     weather(p, seed, pal)
     drape(p, seed, pal, chance=0.14)
     connect(p)
@@ -1053,6 +1196,14 @@ def build_barrow(pal, s, ground, size, seed):
             box(p, mx, ground - 2, mz, mx, ground + h, mz, pillar(pal['pillar']))
             p.set(mx, ground + h + 1, mz, (pal['slab'], None))
 
+    # The chamber under the mound is the only enclosed room in the archetype, so the light,
+    # the grave goods and the webs all belong down there rather than out on the ring. The
+    # ley channel matters here more than anywhere: a barrow is where the elves earthed one.
+    dress(p, seed, pal, ground, corbel=0.20, opening=0.50,
+          conduit=0.65, sockets=2, sconce=0.85, sconce_spacing=4,
+          furniture=0.40, floor_litter=0.09)
+    settle(p, seed, pal, ground, rubble=0.08, reach=2, weathering=0.15, seep_rate=0.12,
+           webs=0.06)
     weather(p, seed, pal)
     drape(p, seed, pal, chance=0.10)
     connect(p)
@@ -1125,6 +1276,14 @@ def build_wreck(pal, s, ground, size, seed):
                    [(x, z) for x in range(x0 + int(L * s['broken']), min(sx, x0 + L + 6))
                     for z in range(int(cz) - 6, int(cz) + 7)], density=0.28)
 
+    # A sky-barge came down because the mana went out of it, so the crystal sockets are the
+    # story rather than the decoration -- this is the drive, and it is still in the hull.
+    # The hold gets cargo and lamps; nothing here gets a stone cornice, because none of it
+    # is stone.
+    dress(p, seed, pal, ground, corbel=0.25, conduit=0.50, sockets=3,
+          sconce=0.45, furniture=0.65, floor_litter=0.10)
+    settle(p, seed, pal, ground, rubble=0.13, reach=3, weathering=0.10, seep_rate=0.20,
+           webs=0.04)
     weather(p, seed, pal)
     drape(p, seed, pal, chance=0.20)
     connect(p)
@@ -1191,9 +1350,18 @@ def build_shrine(pal, s, ground, size, seed):
     p.set(int(cx), base + 3, int(cz), B(pal['light'], hanging=False, waterlogged=False))
     p.set(int(cx) + 2, base + 1, int(cz) + 2, *chest('west', 'surface_common'))
 
+    # A wayshrine is small, so its detail has to be dense to register at all: the ritual
+    # channel runs the full deck, the colonnade gets an entablature course, and the altar
+    # keeps its light. Furniture stays low -- nobody lived here, they stopped here.
+    dress(p, seed, pal, ground,
+          cornice=(base + colonnade_h + 2,), corbel=0.40, opening=0.35,
+          conduit=0.85, sockets=3, sconce=0.70, sconce_spacing=4,
+          furniture=0.20, floor_litter=0.06)
+
     keep_deck = {(x, y, z) for x in range(sx) for z in range(sz)
                  for y in (ground - 1, base)}
     decay(p, seed, s['ruin'], base + 1, sy - 1, 'none', keep=keep_deck)
+    settle(p, seed, pal, ground, rubble=0.09, reach=3, weathering=0.20, seep_rate=0.16)
     weather(p, seed, pal)
     scatter_rubble(p, seed, pal, ground - 1,
                    [(x, z) for x in range(sx) for z in range(sz)
@@ -1333,6 +1501,7 @@ def main():
     palettes, archetypes, bands = m['palettes'], m['archetypes'], m['bands']
     structures = [s for s in m['structures'] if not a.only or s['id'] == a.only]
     by_arch = {}
+    detail_totals = {'share': []}
     total_blocks = 0
     drops = []
     encounter_count = 0
@@ -1376,10 +1545,16 @@ def main():
         # ratio near 1 means real geometry was clipped and nothing said so.
         ratio = piece.dropped / max(1, len(piece.blocks))
         drops.append((st['id'], ratio))
+        cen = sd.census(piece)
+        detail_totals['share'].append(cen['share'])
+        for k, v in getattr(piece, 'detail_counts', {}).items():
+            detail_totals[k] = detail_totals.get(k, 0) + v
         print(f"  {st['id']:20} {st['archetype']:9} {size[0]}x{size[1]}x{size[2]}  "
               f"{len(piece.blocks):>6} blocks  {len(piece.palette):>3} palette  "
-              f"{kb:6.1f} KB  overdraw {ratio:4.2f}"
-              + ("  <-- CLIPPED" if ratio > 0.60 else ""))
+              f"{kb:6.1f} KB  overdraw {ratio:4.2f}  detail {cen['share'] * 100:4.1f}%"
+              f" over {cen['names']:>2} block ids"
+              + ("  <-- CLIPPED" if ratio > 0.60 else "")
+              + ("  <-- THIN" if cen['share'] < 0.04 else ""))
 
         # --- template pool: one element, no jigsaw blocks. `size: 1` on the structure means
         # the start piece is the whole structure, which is what a single-piece ruin wants.
@@ -1442,6 +1617,12 @@ def main():
           f"{orphan_total} orphans swept, "
           f"{len(chest_tables()) if not a.only else 0} shared chest tables rewritten")
     print('  maps: ' + ', '.join(f'{k}({len(v)})' for k, v in sorted(by_arch.items())))
+    shares = detail_totals.pop('share')
+    if shares:
+        thin = sum(1 for v in shares if v < 0.04)
+        print(f'  detail: mean {sum(shares) / len(shares) * 100:.1f}%, '
+              f'worst {min(shares) * 100:.1f}%, {thin} piece(s) under the 4% floor')
+        print('  layers: ' + ', '.join(f'{k} {v}' for k, v in sorted(detail_totals.items())))
     worst = max(drops, key=lambda d: d[1], default=None)
     if worst:
         print(f'  worst overdraw ratio {worst[1]:.2f} ({worst[0]})')

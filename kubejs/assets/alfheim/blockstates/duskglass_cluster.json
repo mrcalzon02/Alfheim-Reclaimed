@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "alfheim:block/duskglass_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "alfheim:block/duskglass_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "alfheim:block/duskglass_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "alfheim:block/duskglass_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "alfheim:block/duskglass_cluster"
+    },
+    "facing=west": {
+      "model": "alfheim:block/duskglass_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

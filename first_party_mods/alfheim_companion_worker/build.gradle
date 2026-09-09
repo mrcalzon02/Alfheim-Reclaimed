@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.continuityworks.alfheimcompanion'
+version = '0.1.0'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.tjake:jlama-core:0.8.4'
+    runtimeOnly 'com.github.tjake:jlama-native:0.8.4:windows-x86_64'
+    implementation 'com.google.code.gson:gson:2.11.0'
+}
+
+application {
+    mainClass = 'com.continuityworks.alfheimcompanion.worker.WorkerMain'
+    applicationDefaultJvmArgs = [
+            '--enable-preview',
+            '--add-modules=jdk.incubator.vector',
+            '--enable-native-access=ALL-UNNAMED',
+            '-Xms128m',
+            '-Xmx512m'
+    ]
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['--enable-preview', '--add-modules', 'jdk.incubator.vector']
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+    jvmArgs '--enable-preview', '--add-modules=jdk.incubator.vector'
+}
+
+tasks.named('run', JavaExec).configure {
+    standardInput = System.in
+}

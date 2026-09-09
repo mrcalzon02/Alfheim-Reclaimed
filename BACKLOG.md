@@ -1,5 +1,50 @@
 # Backlog
 
+### B-90 — Crystal clusters had no orientation state — **REPAIRED (static) 2026-09-08**
+
+User report, from a geode screenshot: *"our custom crystals do not correctly have orientation
+states. They have a correct model, they do not have correct orientations."* Exactly right, and the
+model was never the problem — `minecraft:block/cross` is what vanilla's own `amethyst_cluster`
+uses too. The six cluster blocks simply had **no blockstate properties at all**, so each had
+exactly one state and every cluster rendered upright whichever face it grew from.
+
+Two callers had been addressing a property that did not exist, and both failed silently:
+
+| Caller | Asked for | What happened |
+|---|---|---|
+| `growCluster` in `13_crystals.js` | `{ facing: face }` on the grown cluster | dropped — the bud's chosen face never reached the block |
+| 28 `inner_placements` across 14 geode features | `facing` + `waterlogged` | dropped — for a propertyless block `StateHolder`'s codec is `Codec.unit`, which ignores `Properties` without logging |
+
+**Repaired at `tools/gen_crystals.py`, not in its output.** Three coordinated changes:
+
+1. cluster blocks declare `BlockProperties.FACING` and `BlockProperties.WATERLOGGED`. Verified
+   against KubeJS 2001.6.5, where `BlockBuilder.property` feeds
+   `BasicBlockJS.createBlockStateDefinition` and `BasicBlockJS` already implements
+   `SimpleWaterloggedBlock` — the property was the only missing piece.
+2. a six-facing blockstate per cluster, rotations taken from vanilla's
+   `assets/minecraft/blockstates/amethyst_cluster.json` in the 1.20.1 client jar. Real files under
+   `kubejs/assets/` overwrite the builder's generated simple variant, because
+   `GeneratedResourcePack` walks that folder *after* `generate()` — the same mechanism the block
+   and budding cube variants already depend on.
+3. `placementState(orientCluster)`, so a hand-placed cluster points out of the face it was placed
+   against. It sets waterlogged as well, because `getStateForPlacement` skips its automatic
+   waterlogging as soon as a placement callback exists.
+
+`waterlogged` is deliberately absent from the blockstate keys: a variant key matches any state
+whose listed properties agree, so six entries cover all twelve states — which is exactly what
+vanilla ships.
+
+**Evidence.** `gen_crystals.py --check` reproduces. The cross-artifact check reads 6 blocks
+declaring no properties, 28 geode placements asserting properties the block did not have, and 0
+cluster blockstate files at `HEAD`; after the change, 6 blocks declaring both, 28 placements
+satisfied, and 6 blockstates of exactly six facings each whose models resolve. `node --check`
+parses the generated script.
+
+**Deferred to runtime:** that a geode now shows clusters on walls, floor and ceiling in their own
+orientations. Blockstate rotation is client-side and cannot be read from a dedicated server. The
+server half is provable without a client — `setblock ... alfheim:emberglass_cluster[facing=north]`
+followed by `data get block` fails to parse outright if the property is missing.
+
 ### B-89 — The Ley Conduit Node — **PYRAMID RULES RUNTIME-PROVEN; CLIENT REVIEW PENDING**
 
 B-88 shipped the corridors and recorded the node as deliberately absent, because "a block entity

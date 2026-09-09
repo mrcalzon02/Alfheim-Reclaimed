@@ -124,6 +124,31 @@ def _write_cube_variants(name,texture_names,dry,check):
     _write_json(os.path.join(BLOCKSTATE,name+'.json'),{'variants':{'':alternatives}},dry,check)
 
 
+# Vanilla's own amethyst_cluster rotations, read out of
+# assets/minecraft/blockstates/amethyst_cluster.json in the 1.20.1 client jar. The cross model
+# stands upright inside the block, so facing=up is the unrotated one and every other face is
+# reached by rotating that single model. `waterlogged` is deliberately absent from the keys: a
+# variant key matches any state whose listed properties agree, so one entry per facing covers
+# both waterlogged values -- which is exactly what vanilla ships.
+CLUSTER_FACING_ROTATIONS={
+    'down':{'x':180},
+    'east':{'x':90,'y':90},
+    'north':{'x':90},
+    'south':{'x':90,'y':180},
+    'up':{},
+    'west':{'x':90,'y':270},
+}
+
+
+def _write_cluster_variants(name,dry,check):
+    variants={}
+    for facing,rotation in CLUSTER_FACING_ROTATIONS.items():
+        entry={'model':f'{NS}:block/{name}'}
+        entry.update(rotation)
+        variants[f'facing={facing}']=entry
+    _write_json(os.path.join(BLOCKSTATE,name+'.json'),{'variants':variants},dry,check)
+
+
 def _generate_visuals(crystals,dry,check):
     catalog=[]
     for c in crystals:
@@ -143,6 +168,9 @@ def _generate_visuals(crystals,dry,check):
                 _write_json(os.path.join(MODEL_BLOCK,name+'.json'),{
                     'parent':'minecraft:block/cross','textures':{'cross':f'{NS}:block/{name}'}
                 },dry,check)
+                # One model, six orientations. Without this the block has a single state and
+                # every cluster renders pointing up, whichever face it actually grew from.
+                _write_cluster_variants(name,dry,check)
         shard=f"{c['id']}_shard"
         image=render_crystal_texture(c,'shard',0)
         _write(os.path.join(TEX_ITEM,shard+'.png'),_png(image),dry,check)
@@ -178,12 +206,23 @@ def _generate_startup(crystals,dry,check):
                  f".soundType('amethyst_cluster').hardness(1.5).resistance(1.5)"
                  f".requiresTool(true).defaultTranslucent().notSolid().lightLevel(0.4)"
                  f".tagBlock('minecraft:mineable/pickaxe').tagBlock('{NS}:crystal_clusters')"
+                 f".property(BlockProperties.FACING).property(BlockProperties.WATERLOGGED)"
+                 f".placementState(orientCluster)"
                  f".model('{NS}:block/{cid}_cluster')")
     L+=['})','',"StartupEvents.registry('item', event => {"]
     for c in crystals:
         L.append(f"    event.create('{NS}:{c['id']}_shard').displayName('{c['name']} Shard')"
                  f".tooltip('{c.get('tooltip', c['name'] + ' crystal shard.')}').rarity('uncommon').tag('{NS}:crystal_shards')")
     L+=['})','',
+        '// Point a placed cluster out of the face it was placed against, the way vanilla amethyst',
+        '// does. BasicBlockJS.getStateForPlacement skips its automatic waterlogging as soon as a',
+        '// placement callback exists, so this sets both properties, not only the one it came for.',
+        'function orientCluster(e) {',
+        '    e.setValue(BlockProperties.FACING, e.getClickedFace())',
+        '    e.waterlogged()',
+        '}','',
+        '// A grown cluster points the way it grew: the bud offsets by `face`, and the cluster that',
+        '// lands there faces the same way, so it leans out of the bud rather than into it.',
         'function growCluster(ctx, clusterId) {',
         '    if (ctx.random.nextFloat() > 0.2) return',
         "    const faces = ['up', 'down', 'north', 'south', 'east', 'west']",

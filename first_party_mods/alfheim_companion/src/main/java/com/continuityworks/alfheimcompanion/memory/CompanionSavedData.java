@@ -22,7 +22,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 
 public final class CompanionSavedData extends SavedData {
     private static final String DATA_NAME = "alfheim_companion_state";
-    private static final int DATA_VERSION = 3;
+    private static final int DATA_VERSION = 4;
     public static final List<String> OUTFITS = List.of("wayfinder", "warden", "gardener", "ashen_scout", "winter_envoy");
     private static final int MAX_EPISODES = 50;
     private static final int MAX_FACTS = 64;
@@ -37,6 +37,8 @@ public final class CompanionSavedData extends SavedData {
     private UUID activeBlueprintId;
     private ActiveTask activeTask = ActiveTask.NONE;
     private BlueprintLedger blueprintLedger = BlueprintLedger.NONE;
+    private BaseObjective baseObjective = BaseObjective.NONE;
+    private BehaviorPreset behaviorPreset = BehaviorPreset.BALANCED;
     private int agitation;
     private long lastSummonGameTime = Long.MIN_VALUE;
     private long lastAgitationUpdate;
@@ -64,6 +66,8 @@ public final class CompanionSavedData extends SavedData {
     public String activeTask() { return activeTask.display(); }
     public ActiveTask task() { return activeTask; }
     public BlueprintLedger blueprintLedger() { return blueprintLedger; }
+    public BaseObjective baseObjective() { return baseObjective; }
+    public BehaviorPreset behaviorPreset() { return behaviorPreset; }
     public int agitation(long gameTime) {
         decayAgitation(gameTime);
         return agitation;
@@ -195,6 +199,7 @@ public final class CompanionSavedData extends SavedData {
         episodes.removeIf(memory -> memory.type().equals("request") || memory.type().equals("quest"));
         facts.keySet().removeIf(key -> key.startsWith("quest:") || key.equals("guard_anchor"));
         activeTask = ActiveTask.NONE;
+        baseObjective = BaseObjective.NONE;
         setDirty();
     }
 
@@ -256,6 +261,16 @@ public final class CompanionSavedData extends SavedData {
         setDirty();
     }
 
+    public void setBaseObjective(BaseObjective objective) {
+        this.baseObjective = objective == null ? BaseObjective.NONE : objective;
+        setDirty();
+    }
+
+    public void setBehaviorPreset(BehaviorPreset preset) {
+        this.behaviorPreset = preset == null ? BehaviorPreset.BALANCED : preset;
+        setDirty();
+    }
+
     public void remember(MemoryEntry memory) {
         episodes.addLast(memory);
         while (episodes.size() > MAX_EPISODES) episodes.removeFirst();
@@ -291,6 +306,8 @@ public final class CompanionSavedData extends SavedData {
         if (activeBlueprintId != null) tag.putUUID("blueprint", activeBlueprintId);
         tag.put("activeTask", activeTask.save());
         tag.put("blueprintLedger", blueprintLedger.save());
+        tag.put("baseObjective", baseObjective.save());
+        tag.putString("behaviorPreset", behaviorPreset.name());
         tag.putInt("agitation", agitation);
         tag.putLong("lastSummon", lastSummonGameTime);
         tag.putLong("lastAgitationUpdate", lastAgitationUpdate);
@@ -343,6 +360,10 @@ public final class CompanionSavedData extends SavedData {
                 : ActiveTask.migrate(tag.getString("task"));
         data.blueprintLedger = tag.contains("blueprintLedger", Tag.TAG_COMPOUND)
                 ? BlueprintLedger.load(tag.getCompound("blueprintLedger")) : BlueprintLedger.NONE;
+        data.baseObjective = tag.contains("baseObjective", Tag.TAG_COMPOUND)
+                ? BaseObjective.load(tag.getCompound("baseObjective")) : BaseObjective.NONE;
+        data.behaviorPreset = BehaviorPreset.parse(tag.getString("behaviorPreset"))
+                .orElse(BehaviorPreset.BALANCED);
         data.agitation = Math.max(0, Math.min(10, tag.getInt("agitation")));
         data.lastSummonGameTime = tag.contains("lastSummon", Tag.TAG_LONG)
                 ? tag.getLong("lastSummon") : Long.MIN_VALUE;

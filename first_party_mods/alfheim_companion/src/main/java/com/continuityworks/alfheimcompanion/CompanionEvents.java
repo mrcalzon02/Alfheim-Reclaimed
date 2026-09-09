@@ -20,6 +20,7 @@ import com.continuityworks.alfheimcompanion.service.WheelActionService;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import com.continuityworks.alfheimcompanion.command.CompanionAdminCommands;
 import com.continuityworks.alfheimcompanion.service.CompanionDeathInventoryService;
+import com.continuityworks.alfheimcompanion.service.BaseOperationsService;
 
 public final class CompanionEvents {
     private CompanionEvents() {}
@@ -80,6 +81,7 @@ public final class CompanionEvents {
         if (event.phase != TickEvent.Phase.END) return;
         CompanionBrainCoordinator.tick(event.getServer());
         BlueprintLifecycleService.tick(event.getServer());
+        BaseOperationsService.tick(event.getServer());
         if (event.getServer().getTickCount() % 20 == 0) {
             CompanionSavedData leaseData = CompanionSavedData.get(event.getServer());
             if (leaseData.expireLease(event.getServer().overworld().getGameTime())) {

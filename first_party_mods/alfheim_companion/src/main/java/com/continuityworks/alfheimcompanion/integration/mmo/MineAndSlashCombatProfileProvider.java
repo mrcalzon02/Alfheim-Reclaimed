@@ -1,6 +1,8 @@
 package com.continuityworks.alfheimcompanion.integration.mmo;
 
 import com.continuityworks.alfheimcompanion.api.combat.CombatProfileProvider;
+import com.continuityworks.alfheimcompanion.brain.BrainDirective;
+import com.continuityworks.alfheimcompanion.brain.SkillChoice;
 import com.robertx22.mine_and_slash.capability.entity.EntityData;
 import com.robertx22.mine_and_slash.capability.player.PlayerData;
 import com.robertx22.mine_and_slash.itemstack.ExileStack;
@@ -14,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.List;
 import java.util.Optional;
 
 /** Direct, version-pinned adapter for Mine and Slash 1.20.1-6.4.x public APIs. */
@@ -70,6 +73,23 @@ public final class MineAndSlashCombatProfileProvider implements CombatProfilePro
     @Override
     public void onEquipmentChanged(LivingEntity companion) {
         EntityData.get(companion).setEquipsChanged();
+    }
+
+    @Override
+    public List<SkillChoice> availableSkills(ServerPlayer lessee, LivingEntity companion) {
+        boolean ableToFight = companion.isAlive() && companion.getHealth() > 0.0F;
+        boolean ableToRetreat = ableToFight && companion.getHealth() < companion.getMaxHealth();
+        return List.of(
+                new SkillChoice("mmorpg:basic_attack", "MMO basic attack", "single target damage",
+                        BrainDirective.DEFEND, ableToFight, "attack cooldown", 0,
+                        "a hostile target within melee reach; damage remains owned by Mine and Slash hooks"),
+                new SkillChoice("alfheim:defend_owner", "Defend owner", "protection and threat control",
+                        BrainDirective.DEFEND, ableToFight, "stamina", 0,
+                        "a verified nearby hostile threat"),
+                new SkillChoice("alfheim:tactical_retreat", "Tactical retreat", "survival and recovery",
+                        BrainDirective.RETREAT, ableToRetreat, "stamina", 0,
+                        "a safe navigable route away from nearby threats")
+        );
     }
 
     private static Optional<GearItemData> gear(ItemStack stack) {

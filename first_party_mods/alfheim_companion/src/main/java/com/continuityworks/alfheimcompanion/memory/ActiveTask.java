@@ -7,7 +7,7 @@ import java.util.Locale;
 
 /** Versioned, bounded task state. Unknown/corrupt values safely become NONE. */
 public record ActiveTask(Kind kind, String action, String target, int count, long createdGameTime) {
-    public enum Kind { NONE, FOLLOW, GUARD, ITEM, CRAFT, BUILD }
+    public enum Kind { NONE, FOLLOW, GUARD, ITEM, CRAFT, BUILD, BASE }
 
     public static final ActiveTask NONE = new ActiveTask(Kind.NONE, "", "", 0, 0);
 
@@ -29,6 +29,7 @@ public record ActiveTask(Kind kind, String action, String target, int count, lon
             case ITEM -> action + " " + count + " " + target;
             case CRAFT -> "help craft " + count + " " + target;
             case BUILD -> "help build " + target;
+            case BASE -> "establish base: " + action.toLowerCase(Locale.ROOT).replace('_', ' ');
         };
     }
 
@@ -59,6 +60,8 @@ public record ActiveTask(Kind kind, String action, String target, int count, lon
             return switch (parts[0]) {
                 case "guard" -> new ActiveTask(Kind.GUARD, "", "", 1, 0);
                 case "build" -> new ActiveTask(Kind.BUILD, "", parts.length > 1 ? parts[1] : "", 1, 0);
+                case "base" -> new ActiveTask(Kind.BASE, parts.length > 1 ? parts[1] : "SURVEY",
+                        parts.length > 2 ? parts[2] : "base of operations", 1, 0);
                 case "craft" -> new ActiveTask(Kind.CRAFT, "", parts.length > 2 ? parts[2] : "",
                         parts.length > 1 ? Integer.parseInt(parts[1]) : 1, 0);
                 case "item" -> new ActiveTask(Kind.ITEM, parts.length > 1 ? parts[1] : "show",

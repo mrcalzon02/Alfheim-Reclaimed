@@ -7,8 +7,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.Objects;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
+import com.continuityworks.alfheimcompanion.brain.SkillChoice;
 
 public final class CombatProfileBridge {
     private static final AtomicReference<CombatProfileProvider> PROVIDER = new AtomicReference<>();
@@ -65,6 +67,17 @@ public final class CombatProfileBridge {
             return " " + profile.systemId() + " level " + profile.level() + ", " + profile.archetype() + ".";
         } catch (RuntimeException | LinkageError ignored) {
             return " MMO profile unavailable.";
+        }
+    }
+
+    public static List<SkillChoice> availableSkills(ServerPlayer lessee, LivingEntity companion) {
+        CombatProfileProvider provider = PROVIDER.get();
+        if (provider == null) return List.of();
+        try {
+            return provider.availableSkills(lessee, companion).stream()
+                    .filter(Objects::nonNull).limit(8).toList();
+        } catch (RuntimeException | LinkageError ignored) {
+            return List.of();
         }
     }
 }
