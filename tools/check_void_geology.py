@@ -29,11 +29,19 @@ FEATURE_ONLY={
     'alfheim:void_verge':{'alfheim:veilstone_livingrock'},
     'alfheim:sepulchral_reach':{'alfheim:epitaph_livingrock'},
 }
+# Surface-rule and configured-feature vocabulary. These describe what a face is MADE of and
+# where a formation stands; none of them may move terrain, so none may reach final density.
 FORBIDDEN_DENSITY_NOISES={
-    'alfheim:void/fragments','alfheim:void/fracture','alfheim:void/shape',
     'alfheim:void/pressure_plates','alfheim:void/fault_needles',
     'alfheim:void/prism_cores','alfheim:void/split_seams',
     'alfheim:void/root_ribs','alfheim:void/burial_beds',
+}
+# The debris field restored 2026-09-09. VG3 used to forbid these outright, which was a proxy
+# for the two things actually at stake -- a fragment escaping its mask, and a far field that
+# is only empty by tuning. Both are now asserted directly below, which is strictly stronger:
+# the old rule would have passed an unbounded debris field written from any other noise.
+DEBRIS_DENSITY_NOISES={
+    'alfheim:void/fragments','alfheim:void/fracture','alfheim:void/shape',
 }
 
 def strings(value):
@@ -77,7 +85,69 @@ def validate(catalog,out,density):
 
     density_strings=set(strings(density))
     leaked=FORBIDDEN_DENSITY_NOISES & density_strings
-    if leaked:fail('VG3',f'procedural debris fields returned to final density: {sorted(leaked)}')
+    if leaked:fail('VG3',f'surface/feature vocabulary reached final density: {sorted(leaked)}')
+
+    # VG3a -- the far field is empty BY CONSTRUCTION. Somewhere in the void branch there must
+    # be a range_choice on continentalness whose in-range value is a literal -1.0 and whose
+    # bound is at or below the declared FRINGE. A threshold that merely happens to exclude
+    # everything is not the same guarantee and does not satisfy this.
+    from gen_void_worldgen import FRINGE,CLIFF,DEBRIS_Y_RISE
+    hard_zero=[n for n in walk(density)
+               if n.get('type')=='minecraft:range_choice'
+               and n.get('input')=='mythicbotany:alfheim_continentalness'
+               and n.get('when_in_range')==-1.0
+               and isinstance(n.get('max_exclusive'),(int,float))
+               and n['max_exclusive']<=FRINGE]
+    if not hard_zero:
+        fail('VG3a',f'no literal -1.0 far-field cutoff at or below continentalness {FRINGE}; '
+                    'the empty far field would depend on tuning rather than structure')
+
+    # VG3b -- debris shaping noise may appear ONLY inside the branch beyond the cliff. If it
+    # leaks into the shore expression it would break up the supported Verge shelf, which is
+    # the one piece of ground the player is promised.
+    # Structural, not set-difference: the same noise id legitimately appears inside the branch,
+    # so membership has to be decided per occurrence rather than per name.
+    def noises_outside(node,sheltered):
+        if isinstance(node,dict):
+            if (node.get('type')=='minecraft:range_choice'
+                    and node.get('input')=='mythicbotany:alfheim_continentalness'
+                    and node.get('max_exclusive')==CLIFF):
+                yield from noises_outside(node.get('when_out_of_range'),sheltered)
+                yield from noises_outside(node.get('when_in_range'),True)
+                return
+            if node.get('type')=='minecraft:noise' and not sheltered:
+                yield node.get('noise')
+            for key,value in node.items():
+                if key!='type': yield from noises_outside(value,sheltered)
+        elif isinstance(node,list):
+            for item in node: yield from noises_outside(item,sheltered)
+    cliff_branches=[n for n in walk(density)
+                    if n.get('type')=='minecraft:range_choice'
+                    and n.get('input')=='mythicbotany:alfheim_continentalness'
+                    and n.get('max_exclusive')==CLIFF]
+    if not cliff_branches:
+        fail('VG3b',f'no continentalness branch at the cliff ({CLIFF}); debris containment '
+                    'cannot be established')
+    else:
+        escaped=DEBRIS_DENSITY_NOISES & set(noises_outside(density,False))
+        if escaped:
+            fail('VG3b',f'debris shaping noise reaches the supported shore: {sorted(escaped)}')
+
+    # VG3c -- the debris field is bounded in Y by a gradient envelope that starts above sea
+    # level, so no fragment can hang into the water table below or stack into a tower above.
+    envelopes=[n for n in walk(density)
+               if n.get('type')=='minecraft:min'
+               and isinstance(n.get('argument1'),dict)
+               and n['argument1'].get('type')=='minecraft:min'
+               and all(isinstance(a,dict) and a.get('type')=='minecraft:y_clamped_gradient'
+                       for a in (n['argument1'].get('argument1'),n['argument1'].get('argument2')))]
+    if DEBRIS_DENSITY_NOISES & density_strings:
+        if not envelopes:
+            fail('VG3c','the debris field is not bounded by a y_clamped_gradient envelope; '
+                        'fragments could reach the water table or stack without limit')
+        elif DEBRIS_Y_RISE[0]<64:
+            fail('VG3c',f'debris envelope opens at y{DEBRIS_Y_RISE[0]}, at or below sea level 64; '
+                        'detached debris must stay dry')
     # Only broad, low-amplitude relief may shape the supported shore. All sharper
     # vocabulary belongs to bounded configured features beyond the cliff.
     multipliers={}
@@ -110,12 +180,16 @@ def validate(catalog,out,density):
         fail('VG5','root_aprons materials are not exactly Rootfossil plus Resinshale')
     return problems
 
+_ORIGINAL_DENSITY='{}'
+
 def fixture():
     from gen_void_worldgen import CATALOG,density
     from gen_deep_terrain import build
     return copy.deepcopy(CATALOG),build(),density('mythicbotany:alfheim_final')
 
 def self_test():
+    global _ORIGINAL_DENSITY
+    _ORIGINAL_DENSITY=json.dumps(fixture()[2])
     tests=[]
     def duplicate(c,o,d):c['biomes'][0]['terrain_grammar'][1]['feature']=c['biomes'][0]['terrain_grammar'][0]['feature']
     tests.append(('VG1',duplicate))
@@ -139,6 +213,43 @@ def self_test():
             return False
         assert mutate(d)
     tests.append(('VG6',loud_shore))
+    def no_far_cutoff(c,o,d):
+        # Turn the literal far-field -1.0 into a merely-very-negative constant.
+        def mutate(value):
+            if isinstance(value,dict):
+                if (value.get('type')=='minecraft:range_choice'
+                        and value.get('input')=='mythicbotany:alfheim_continentalness'
+                        and value.get('when_in_range')==-1.0):
+                    value['when_in_range']=-0.999;return True
+                return any(mutate(v) for v in value.values())
+            if isinstance(value,list):return any(mutate(v) for v in value)
+            return False
+        assert mutate(d)
+    tests.append(('VG3a',no_far_cutoff))
+    def debris_on_the_shore(c,o,d):
+        # Add a fragment term to the top level, outside the cliff branch.
+        d.clear();d.update({'type':'minecraft:add','argument1':json.loads(_ORIGINAL_DENSITY),
+                            'argument2':{'type':'minecraft:mul','argument1':0.2,
+                                         'argument2':{'type':'minecraft:noise',
+                                                      'noise':'alfheim:void/fragments',
+                                                      'xz_scale':1.0,'y_scale':1.0}}})
+    tests.append(('VG3b',debris_on_the_shore))
+    def unbounded_debris(c,o,d):
+        # Drop the vertical envelope: replace the min(min(grad,grad),field) with just the field.
+        def mutate(value):
+            if isinstance(value,dict):
+                a=value.get('argument1')
+                if (value.get('type')=='minecraft:min' and isinstance(a,dict)
+                        and a.get('type')=='minecraft:min'
+                        and all(isinstance(g,dict) and g.get('type')=='minecraft:y_clamped_gradient'
+                                for g in (a.get('argument1'),a.get('argument2')))):
+                    replacement=value['argument2']
+                    value.clear();value.update(replacement);return True
+                return any(mutate(v) for v in value.values())
+            if isinstance(value,list):return any(mutate(v) for v in value)
+            return False
+        assert mutate(d)
+    tests.append(('VG3c',unbounded_debris))
     dead=0
     for code,mutate in tests:
         c,o,d=fixture();mutate(c,o,d);hit=any(p.startswith(code) for p in validate(c,o,d))

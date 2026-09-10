@@ -13,7 +13,16 @@ from gen_deep_terrain import ROOT, binary, choose, gradient, condition, block, s
 MASK='mythicbotany:alfheim_continentalness'
 # Leave a narrow intact shore inside the biome transition. If terrain and biome ended
 # on the same continentalness value, interpolation could expose holes beneath the ocean.
-RIM=-0.82
+# Outer bound of the Void terrain branch. Measured 2026-09-09, the old -0.82 left the outer
+# third of the void_verge biome on ordinary ocean density and 75% of Verge columns generated
+# at Y 1..40 -- a sunken basin, not the dry plain VOID_MARGINS.md specifies. The shelf now
+# holds all the way out to SHORE_START and the descent into the sea happens in the last
+# sliver of the Verge biome, so the plain meets its own coast. RIM stays strictly inside
+# BIOME_RIM: check_worldgen W7 requires that, because void-shaped terrain under an ordinary
+# biome reads as corruption rather than as the edge of the world.
+RIM=-0.802
+# Where the dry shelf starts descending to the sea floor. Inside the Verge biome by design.
+SHORE_START=-0.81
 # Dry the inward shoulder as well as the visible margin so neighbouring water
 # centres cannot bleed through the breakline. Floodedness is evaluated at block
 # coordinates, so it must use the exact shifted continentalness field.
@@ -21,6 +30,25 @@ DRY_AQUIFER_RIM=-0.58
 BIOME_RIM=-0.80
 CLIFF=-0.86
 TERMINAL=-0.925
+# Absolute debris limit. Beyond it the branch returns a literal -1.0, so "zero terrain in the
+# far field" is a structural property of the function rather than a tuning outcome. The strip
+# check_void_surface_support.py reserves for terminal landings (-0.94..-0.925) stays inside it.
+FRINGE=-0.99
+# Detached debris lives above the global water table, around the same height as the Verge
+# shelf it broke away from, so a fragment reads as the land that used to continue.
+DEBRIS_Y_RISE=(66,74)
+DEBRIS_Y_FALL=(86,100)
+# Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
+# welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
+# that get rarer AND smaller together, because raising a threshold on smooth noise trims the
+# blob's shoulders as it removes whole blobs.
+# Three control points rather than one line: the belt has to fall away fast just outside the
+# cliff and then keep a long thin tail, because check_void_surface_support.py reserves
+# -0.94..-0.925 for terminal landings and a single linear ramp either floods the middle belt
+# or leaves that strip with no host rock at all. Measured both ways before settling here.
+CUT_INNER=-0.18
+CUT_TERM=0.46
+CUT_FAR=0.95
 BASAL_LAVA_Y=-54
 CATALOG=json.loads((ROOT/'alfheim_reclaimed_design/void/void_catalog.json').read_text())
 VOID_IDS=[b['id'] for b in CATALOG['biomes']]
@@ -31,6 +59,62 @@ def noise(name,y=0,xz=1.0):
 
 def clamp(value, low, high):
     return {'type':'minecraft:clamp','input':value,'min':low,'max':high}
+
+def ramp(src, lo, hi):
+    """0 at `lo`, 1 at `hi`, clamped. Continuous, so it never steps terrain."""
+    return clamp({'type':'minecraft:mul','argument1':1.0/(hi-lo),
+                  'argument2':binary('add',src,-lo)},0.0,1.0)
+
+
+def debris_field():
+    """The broken belt between the cliff and the empty far field.
+
+    Restored 2026-09-09. It was removed with the note that "Minecraft's cell interpolation
+    could carry an entire jagged splinter far beyond its pointwise mask". That premise was
+    measured false on 2026-09-08 while calibrating the Golden Fields terraces: the
+    `minecraft:interpolated` markers live inside `alfheim_height` and `alfheim_caves`, not on
+    this branch, so an expression written at the `alfheim_final` level is evaluated per block
+    at full resolution -- which is why a 4-block sawtooth survived there, and why
+    size_vertical 1 vs 2 changed the on-tread share by 0.1 points. The mask and the shape are
+    read at the same block, so a fragment cannot outrun its own mask.
+    """
+    # Two nested ramps: `belt` spans the debris band, `tail` the terminal fringe beyond it.
+    # Every outward property derives from these, so "fragments get smaller and rarer outward"
+    # cannot drift out of step with itself.
+    belt=ramp(MASK,TERMINAL,CLIFF)
+    tail=ramp(MASK,FRINGE,TERMINAL)
+
+    # Low frequency carries the mass, higher frequencies only break its edges. Flattened in Y
+    # (y_scale below xz_scale) so the field parts into slabs and shelves rather than boulders.
+    frag=binary('add',binary('add',
+        binary('mul',0.55,noise('fragments',0.45,0.50)),
+        binary('mul',0.30,noise('shape',0.70,0.95))),
+        binary('mul',0.16,noise('fracture',1.20,1.70)))
+
+    # Climate, not biome. The four debris biomes are claimed by temperature and humidity in
+    # claims(); reading the same two fields here gives each one its own density without a
+    # biome test moving terrain -- the failure B-82 had to revert.
+    t_hi=ramp('mythicbotany:alfheim_temperature',0.0,0.20)
+    h_hi=ramp('mythicbotany:alfheim_humidity',0.0,0.20)
+    #   shatterfields  (cold, dry)   +0.00  angular slabs close to the rim
+    #   prism_drift    (cold, humid) +0.18  an uncommon pocket with conspicuous gaps
+    #   rootfall       (warm, dry)   -0.04  broken shelves that can carry root undersides
+    #   sepulchral     (warm, humid) -0.08  the quiet stable shelves, most continuous
+    bias=binary('add',binary('mul',0.18,h_hi),
+         binary('add',binary('mul',-0.22,binary('mul',t_hi,h_hi)),
+                      binary('mul',-0.04,t_hi)))
+    # CUT_FAR at the limit, CUT_TERM where the belt ends, CUT_INNER at the cliff.
+    cut=binary('add',binary('add',binary('add',CUT_FAR,
+        binary('mul',CUT_TERM-CUT_FAR,tail)),
+        binary('mul',CUT_INNER-CUT_TERM,belt)),bias)
+
+    # A trapezoid in Y. Outside it the min() returns the envelope, which is negative, so no
+    # fragment can reach the water table below or stack into a tower above.
+    envelope=binary('min',gradient(DEBRIS_Y_RISE,-1,1),gradient(DEBRIS_Y_FALL,1,-1))
+    field=binary('min',envelope,binary('add',frag,binary('mul',-1.0,cut)))
+    # Hard zero past the limit: the far field is empty by construction, not by threshold.
+    return choose(MASK,-100,FRINGE,-1.0,field)
+
 
 def density(normal, shore_normal=None):
     # Deepworks wraps ordinary Alfheim density with cavern carving. The littoral blend needs
@@ -51,14 +135,12 @@ def density(normal, shore_normal=None):
     # punching noise holes into it cannot turn it into a coast. Blend the complete normal
     # density into the low rim across CLIFF..RIM instead. Continentalness already has broad,
     # curved contours; relief/detail give the target shore local ledges and inlets.
-    shore_t=clamp(binary('mul',1.0/(RIM-CLIFF),binary('add',MASK,-CLIFF)),0.0,1.0)
+    # Blend from SHORE_START outward, not from CLIFF: the Verge is then a dry plain across
+    # almost its whole band and only its last sliver slopes into the sea.
+    shore_t=clamp(binary('mul',1.0/(RIM-SHORE_START),binary('add',MASK,-SHORE_START)),0.0,1.0)
     shoreline=binary('add',binary('mul',shore_t,shore_normal),
                      binary('mul',binary('add',1.0,binary('mul',-1.0,shore_t)),rim))
-    # The old four-way 3-D debris field is deliberately absent. Even with amplitude
-    # caps, Minecraft's cell interpolation could carry an entire jagged splinter far
-    # beyond its pointwise mask. Keep one continuous, supported shore and clean air
-    # beyond CLIFF; biome-specific forms return later as bounded configured features.
-    void=choose(MASK,-100,CLIFF,-1.0,shoreline)
+    void=choose(MASK,-100,CLIFF,debris_field(),shoreline)
     # NoiseBasedChunkGenerator consults its global fluid picker at the lowest ten
     # levels before routed floodedness can return air. Temporary default stone blocks
     # that picker; surface_rule() removes it in debris/terminal Void biomes.
