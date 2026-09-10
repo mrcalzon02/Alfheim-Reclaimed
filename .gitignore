@@ -61,3 +61,7 @@ server/leyline-probe/
 server/leyworks*/
 # Add the prefix here when tools/run_server.py --level-name gains a new family; every
 # world it generates is disposable evidence, never source.
+
+# Per-run output from tools/run_void_validation.py, one file per generation. The site list it
+# reads (tools/deep_terrain_treatment.json) is tracked because it is an input; these are not.
+tools/void-report-*.json
