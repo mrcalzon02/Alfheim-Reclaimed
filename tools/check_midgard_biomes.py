@@ -66,14 +66,22 @@ def static_contract():
         if actual[key] != wanted:
             problems.append(f'{key}={actual[key]}, expected {wanted} for cw-only Midgard')
 
+    # Read the harness's resolved command list, not its source text. Every Midgard probe is
+    # written as two implicitly concatenated string literals on two lines, so a substring
+    # search of the source misses all six of them while the harness issues every one.
     try:
-        harness = open(RUN_SERVER, encoding='utf-8').read()
-    except OSError as exc:
-        problems.append(str(exc))
+        sys.path.insert(0, os.path.dirname(os.path.abspath(RUN_SERVER)))
+        import run_server
+    except Exception as exc:
+        problems.append(f'{RUN_SERVER}: cannot import harness: {exc}')
         return problems
+    issued = []
+    for entry in run_server.DEFAULT_COMMANDS:
+        parts = entry if isinstance(entry, (tuple, list)) else (entry,)
+        issued.extend(part for part in parts if isinstance(part, str))
     for biome in ALL_PROBES:
         command = f'locate biome {biome}'
-        if command not in harness:
+        if not any(command in text for text in issued):
             problems.append(f'{RUN_SERVER}: missing probe `{command}`')
     return problems
 

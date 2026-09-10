@@ -138,7 +138,13 @@ def main() -> int:
             fail("A4", f"{avenue}: generated avenue member missing")
     if source.count('"type": "minecraft:random_spread"') != 1:
         fail("A4", "generator must contain exactly one random-spread placement declaration")
-    if "subordinate homes, roads, cistern/trace edges" not in source:
+    # Assert that the contract is stated, not that it is worded one exact way. The generator
+    # has said "subordinate members are jigsaw-only" since ed204d76; the sentence this guard
+    # used to demand has never appeared in it, so A4 could not pass on any commit.
+    states_contract = any(
+        "subordinate" in line and "jigsaw-only" in line for line in source.splitlines()
+    )
+    if not states_contract:
         fail("A4", "generator no longer states its subordinate jigsaw-only contract")
 
     # A5 — set-dressing vocabulary is complete and consumed by the generator.

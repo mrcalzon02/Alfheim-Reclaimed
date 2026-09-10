@@ -24,6 +24,19 @@ EXPECTED_GENERATED_FILES = EXPECTED_CREATURES * 4 + 3 + 32
 LANG = Path("kubejs/assets/alfheim/lang/en_us.json")
 MANIFEST = Path("tools/fey_manifest.json")
 GENERATOR = Path("tools/gen_fey_wildlife.py")
+
+# The game owns the form of this directory. FTB Quests rewrites config/ftbquests/ on every world
+# load -- alphabetising keys, adding quest_links and minting its own ids -- so the shipping file
+# is the game's normalisation of what the generator wrote, not the generator's own bytes.
+# INSTRUCTIONS.md section 5 already settles this: read the game's form. Byte equality here would
+# assert something the project has decided is false, so presence is still required and only the
+# comparison is dropped. Every other file this generator owns is still compared byte for byte.
+GAME_NORMALISED = Path("config/ftbquests")
+
+
+def game_normalised(rel: Path) -> bool:
+    """True when the running game, not the generator, decides this file's final bytes."""
+    return GAME_NORMALISED == rel or GAME_NORMALISED in rel.parents
 FEY_MODIFIER_DIR = Path("kubejs/data/alfheim/forge/biome_modifier")
 
 
@@ -75,7 +88,7 @@ def seed_shared_language(reference_root: Path, generated_root: Path, roster: lis
         shipping.pop(key, None)
     target = generated_root / LANG
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(shipping, indent=2) + "\n", encoding="utf-8")
+    target.write_text(json.dumps(shipping, indent=2) + "\n", encoding="utf-8", newline='\n')
 
 
 def compare_language(reference_root: Path, generated_root: Path, roster: list[dict]) -> list[str]:
@@ -117,15 +130,17 @@ def compare_outputs(reference_root: Path, generated_root: Path) -> list[str]:
         expected = reference_root / rel
         actual = generated_root / rel
         if not expected.is_file():
-            problems.append(f"generated output missing from repository: {rel}")
+            problems.append(f"generated output missing from repository: {rel.as_posix()}")
+            continue
+        if game_normalised(rel):
             continue
         if expected.read_bytes() != actual.read_bytes():
-            problems.append(f"generator/source drift: {rel}")
+            problems.append(f"generator/source drift: {rel.as_posix()}")
 
     expected_modifiers = generated_fey_modifiers(generated_root)
     shipping_modifiers = generated_fey_modifiers(reference_root)
     for rel in sorted(shipping_modifiers - expected_modifiers):
-        problems.append(f"stale generator-owned fey biome modifier in repository: {rel}")
+        problems.append(f"stale generator-owned fey biome modifier in repository: {rel.as_posix()}")
     return problems
 
 
@@ -202,7 +217,7 @@ def self_test() -> int:
             (generated / rel).write_bytes(payload)
         assert compare_outputs(root, generated) == []
 
-        (generated / "out/000.json").write_text("drift\n", encoding="utf-8")
+        (generated / "out/000.json").write_text("drift\n", encoding="utf-8", newline='\n')
         assert compare_outputs(root, generated) == ["generator/source drift: out/000.json"]
         (generated / "out/000.json").write_bytes((root / "out/000.json").read_bytes())
 
@@ -212,7 +227,7 @@ def self_test() -> int:
 
         stale = root / FEY_MODIFIER_DIR / "fey_retired_species.json"
         stale.parent.mkdir(parents=True, exist_ok=True)
-        stale.write_text("{}\n", encoding="utf-8")
+        stale.write_text("{}\n", encoding="utf-8", newline='\n')
         assert compare_outputs(root, generated) == [
             "stale generator-owned fey biome modifier in repository: "
             "kubejs/data/alfheim/forge/biome_modifier/fey_retired_species.json"
@@ -233,11 +248,12 @@ def self_test() -> int:
                 )
                 + "\n",
                 encoding="utf-8",
+                newline="\n",
             )
         assert compare_language(root, generated, roster) == []
         generated_lang = json.loads((generated / LANG).read_text(encoding="utf-8"))
         generated_lang.pop("entity.alfheim.test_fey")
-        (generated / LANG).write_text(json.dumps(generated_lang, indent=2) + "\n", encoding="utf-8")
+        (generated / LANG).write_text(json.dumps(generated_lang, indent=2) + "\n", encoding="utf-8", newline='\n')
         assert compare_language(root, generated, roster) == [
             "generator did not recreate fey language entry: entity.alfheim.test_fey"
         ]

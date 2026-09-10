@@ -1,5 +1,115 @@
 # Execution State
 
+## Latest implementation — the line endings were never this project's to choose — 2026-09-10
+
+Three byte-equality guards were failing and none of them could say why. `check_deepworks`
+reported 414 drifting models, `check_material_textures` a drifting texture, `check_fey_generation`
+a drifting quest chapter. **Not one character of content had changed in any of them.**
+
+Git's `core.autocrlf=true` is set in the *system* config — `C:/Program Files/Git/etc/gitconfig`,
+not in this repository and not by anyone working on it — and there was no `.gitattributes` to
+overrule it. Every commit stored LF; every checkout wrote CRLF; every generator under `tools/`
+emits LF. So 8,786 tracked files differed from their own blobs by one byte per line and nothing
+else, and level 6 of the ladder had been asserting against the wrong bytes for as long as that
+was true.
+
+**A byte-equality check cannot tell a re-encoded file from a re-authored one.** That is the point
+of level 6 and also its blind spot, and the diagnosis had to come from outside the guards:
+`git cat-file blob HEAD:<path>` against the worktree, for all 29,534 tracked files at once. It
+separated cleanly — 8,786 CRLF-only, 45 genuinely different, and those 45 were exactly the staged
+`server/` mirror and runtime-config churn that was already known about.
+
+### What was repaired
+
+| target | repair |
+|---|---|
+| `.gitattributes` | new; `* text=auto eol=lf`, `*.bat`/`*.cmd` pinned CRLF, 14 binary suffixes declared |
+| repo-local git config | `core.autocrlf=false` |
+| 8,782 worktree files | rewritten CRLF to LF, each only where the result provably equalled its blob |
+| 63 call sites in 36 tools | `newline='\n'` pinned on every text-mode write |
+| `tools/run_fey_validation.py` | unresolved merge-conflict markers removed, committed at HEAD |
+| 16 void-material textures | regenerated; every one proven pixel-identical before writing |
+| `tools/check_midgard_biomes.py` | M0 reads the harness's resolved commands, not its source text |
+| `tools/check_ancient_districts.py` | A4 asserts the contract is stated, not one exact sentence |
+| `tools/check_fey_generation.py` | `config/ftbquests/` excluded from byte comparison; reported paths made posix |
+
+**The generators disagreed with each other, and the repository was hiding it.** `gen_deepworks`
+and `gen_void_materials` build `bytes` and write LF. Thirty-six other tools used
+`Path.write_text()` or a text-mode `open()`, which on Windows turns every LF into CRLF on the way
+out. While the worktree was CRLF the second group matched and the first did not; normalising to LF
+swapped which half was broken — `check_fey_generation` went from 1 problem to 106 — and proved the
+real defect: **the same generator emitted different bytes on Windows than it would on Linux.**
+Pinning `newline` at all 63 sites is what makes level 6 mean anything on more than one machine.
+
+### Two guards that had never asserted their invariant
+
+`check_midgard_biomes` M0 searched `run_server.py`'s **source text** for
+`locate biome continuityworks_biomes:temperate_grove`. All six probes are written as two
+implicitly concatenated string literals across two lines, so the substring was never present and
+never could be, while the harness issued every probe correctly. It now reads
+`run_server.DEFAULT_COMMANDS` — all six FOUND.
+
+`check_ancient_districts` A4 required the generator to contain the sentence
+*"subordinate homes, roads, cistern/trace edges"*. `git log -S` finds that string only in the
+checker, on `b6c303c6`, and never once in `gen_ancient_districts.py`, which has said
+*"subordinate members are jigsaw-only"* since `ed204d76`. **A4 could not pass on any commit in
+this repository's history.** It now asserts that the contract is stated rather than how it is
+worded.
+
+That is the same defect shape B-93 recorded three times on 2026-09-09 — a guard measuring a proxy
+instead of the invariant — found twice more, in guards nobody had reason to doubt because they had
+simply always been red.
+
+### The fey guard compared bytes against a file the game rewrites
+
+`check_fey_generation` byte-compared `config/ftbquests/quests/chapters/ref_fey_wildlife.snbt`
+against generator output. INSTRUCTIONS.md section 5 already states that FTB rewrites that
+directory on every world load, and the shipping file is visibly the game's form: keys
+alphabetised, `quest_links` added, IDs the game minted itself — `73373E92A355D7DC` on disk
+against `C2FB7BDD0D32592A` from the generator — 433 lines against 363.
+
+**Owner decision, 2026-09-10: exclude `config/ftbquests/` from the comparison.** Presence is still
+required, so the chapter cannot silently disappear; only its bytes are no longer asserted. Every
+other file this generator owns is still compared byte for byte, and the guard now passes at 107
+files reconciled.
+
+**Its self-test had never passed on this machine either.** The fixtures expect
+`generator/source drift: out/000.json` while the message interpolated a `Path`, which renders a
+Windows separator here. Green on Linux, red on this machine, for exactly the reason the generators
+emitted different bytes on the two platforms. Reported paths now go through `as_posix()`, and the
+self-test passes.
+
+### Evidence
+
+| field | value |
+|---|---|
+| Repository | `mrcalzon02/Alfheim-Reclaimed`, `main`, HEAD `e677905e` unchanged |
+| Checker suite | **33 pass / 10 fail → 37 pass / 6 fail** |
+| Repaired | `check_deepworks` (1,486 files byte-identical), `check_material_textures`, `check_ancient_districts`, `check_fey_generation` |
+| Compilation | all 88 tools compile; 2 were failing, 1 from committed conflict markers |
+| Conflict markers | none remain anywhere in the repository |
+| Object store | `git fsck --connectivity-only` clean — dangling blobs only, no missing or broken objects |
+| Worktree | 89 real changes (16 textures, 38 tools, 35 `.pyc`); staged churn of 64 untouched |
+| Commit | **none — unstaged, uncommitted** |
+
+### Deliberately not resolved
+
+**`check_royal_assets` — a validator for content that does not exist.**
+`kubejs/data/alfheim/structures/royal_assets/` has never been tracked, `tools/royal_asset_metrics.json`
+is absent, and neither BACKLOG.md nor this document mentions the Royal / Noble Cultural Asset
+Library anywhere. `tools/gen_royal_assets.py` and `tools/royal_asset_manifest.json` exist. Running
+a generator that writes a structure library into `kubejs/` is not a repair, so it was not run.
+
+**`check_midgard_biomes` M1 — deferred, not failing.** The static contract now passes. M1 wants a
+console carrying the six probes; the newest, `server/console-20260909-140525.log`, has zero
+`locate biome` lines because it came from a different harness. Resumption: one `tools/run_server.py`
+run.
+
+**The object store carries garbage from an interrupted `gc`.** Twelve `.pack` files have no `.idx`
+and 17 `tmp_obj_*` files sit in `.git/objects/`, together about 260 MB. `fsck` proves nothing
+depends on them. Left alone: `git gc` is the correct cleaner and is a long mutating operation on a
+1.1 GB store.
+
 ## Latest implementation — the September 9 field review, three worldgen regressions — 2026-09-09
 
 A client walk of `saves/New World Cherish` rejected three shipped systems at once. All three were
