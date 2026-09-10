@@ -431,7 +431,7 @@ def art(dry):
             mdl = os.path.join(MODEL_OUT, t['id'] + '.json')
             if not dry:
                 img.save(tex)
-                with open(mdl, 'w', encoding='utf-8') as f:
+                with open(mdl, 'w', encoding='utf-8', newline='\n') as f:
                     json.dump({'parent': 'minecraft:item/generated',
                                'textures': {'layer0': f'{NS}:item/{t["id"]}'}}, f, indent=2)
             made += [tex, mdl]
@@ -459,7 +459,7 @@ def tags():
 def write(path, data, dry):
     if not dry:
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(path, 'w', encoding='utf-8', newline='\n') as f:
             json.dump(data, f, indent=2)
     return path
 
@@ -487,7 +487,7 @@ def main():
     ):
         if not dry:
             os.makedirs(os.path.dirname(path), exist_ok=True)
-            with open(path, 'w', encoding='utf-8') as f:
+            with open(path, 'w', encoding='utf-8', newline='\n') as f:
                 f.write(text)
         files.append(path)
         print(f'  script     {path}')

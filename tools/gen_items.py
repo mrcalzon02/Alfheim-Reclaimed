@@ -76,7 +76,7 @@ def main():
 
         model = {'parent': 'minecraft:item/generated',
                  'textures': {'layer0': f'{NS}:item/{it["id"]}'}}
-        with open(os.path.join(MODEL_OUT, it['id'] + '.json'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(MODEL_OUT, it['id'] + '.json'), 'w', encoding='utf-8', newline='\n') as f:
             json.dump(model, f, indent=2)
 
         tip = it.get('tooltip')
@@ -90,7 +90,7 @@ def main():
 
     lines += ['})', '']
     os.makedirs(os.path.dirname(SCRIPT_OUT), exist_ok=True)
-    with open(SCRIPT_OUT, 'w', encoding='utf-8') as f:
+    with open(SCRIPT_OUT, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(lines))
 
     jar.close()

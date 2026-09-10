@@ -213,7 +213,7 @@ def write_properties(seed, level_name):
         'sync-chunk-writes': 'false',
         'motd': 'Alfheim Reclaimed - headless validation',
     }
-    with open(os.path.join(SERVER, 'server.properties'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(SERVER, 'server.properties'), 'w', encoding='utf-8', newline='\n') as f:
         for k, v in sorted(props.items()):
             f.write(f'{k}={v}\n')
     return props
@@ -256,7 +256,7 @@ def run(seed, level_name, heap, commands, timeout):
     console = os.path.join(SERVER, f'console-{stamp}.log')
     started = time.time()
     harness_exit = 0
-    with open(console, 'w', encoding='utf-8', errors='replace') as log:
+    with open(console, 'w', encoding='utf-8', errors='replace', newline='\n') as log:
         p = subprocess.Popen(cmd, cwd=SERVER, stdin=subprocess.PIPE, stdout=log,
                              stderr=subprocess.STDOUT, text=True, bufsize=1)
         # Commands are fed on stdin after a delay rather than on a "Done" match, because a
@@ -300,7 +300,7 @@ def run(seed, level_name, heap, commands, timeout):
         'commands': [c for _, c in commands],
         'console': os.path.basename(console),
     }
-    with open(os.path.join(SERVER, f'manifest-{stamp}.json'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(SERVER, f'manifest-{stamp}.json'), 'w', encoding='utf-8', newline='\n') as f:
         json.dump(manifest, f, indent=2)
     print(f'\nexit {p.returncode} after {elapsed}s; harness exit {harness_exit}; console -> {console}')
     return harness_exit

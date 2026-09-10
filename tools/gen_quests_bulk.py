@@ -473,7 +473,7 @@ def main():
 
     for path, content in files.items():
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(path, 'w', encoding='utf-8', newline='\n') as f:
             f.write(content)
 
     total = sum(len(e['quests']) for e in gen_quests.ERAS)

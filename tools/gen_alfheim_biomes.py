@@ -910,7 +910,7 @@ LAYER = {
 
 def write(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(obj, f, indent=2)
         f.write('\n')
     return path

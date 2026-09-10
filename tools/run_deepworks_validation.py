@@ -23,7 +23,7 @@ if __name__ == '__main__':
     run_server.write_properties('alfheim-deepworks-materials-20260905', 'deepworks-validation')
     path = server/time.strftime('deepworks-console-%Y%m%d-%H%M%S.log')
     try:
-        with path.open('w', encoding='utf-8') as log:
+        with path.open('w', encoding='utf-8', newline='\n') as log:
             process = subprocess.Popen([run_server.JAVA17, '-Xmx6G', '-Xms4G',
                 '@libraries/net/minecraftforge/forge/1.20.1-47.4.10/win_args.txt', 'nogui'],
                 cwd=server, stdin=subprocess.PIPE, stdout=log, stderr=subprocess.STDOUT, text=True)

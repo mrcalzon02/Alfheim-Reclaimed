@@ -79,7 +79,7 @@ CLASSES = {
 
 
 def write_json(name, value):
-    (OUT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    (OUT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
 
 
 def main():
@@ -179,7 +179,7 @@ def main():
     header += 'A visual form does not grant its vanilla behavior. See the main specification for compatibility.\n\n'
     header += '| Elven affinity | Vanilla form or visual ancestor | Simple I–II | Refined III–VI | Intricate VII–X | MMO base |\n'
     header += '|---|---|---|---|---|---|\n'
-    (OUT / 'WEAPON_FAMILIES.md').write_text(header + '\n'.join(rows) + '\n', encoding='utf-8')
+    (OUT / 'WEAPON_FAMILIES.md').write_text(header + '\n'.join(rows) + '\n', encoding='utf-8', newline='\n')
     for name in ['CLASS_ARMORY.md', 'PROFESSIONS_AND_MMO.md']:
         doc = OUT.parent / name
         if doc.exists():

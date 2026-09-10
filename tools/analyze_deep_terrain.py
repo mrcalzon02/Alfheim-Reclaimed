@@ -112,7 +112,7 @@ def main():
             'added_cavity_samples':summary['totals']['treatment']['air_samples']>summary['totals']['baseline']['air_samples'],
             'richer_ore_in_solid_rock':summary['totals']['treatment']['ores_per_thousand_solid']>
                                     summary['totals']['baseline']['ores_per_thousand_solid']}
-    path=ROOT/'tools/deep_terrain_summary.json'; path.write_text(json.dumps(summary,indent=2)+'\n')
+    path=ROOT/'tools/deep_terrain_summary.json'; path.write_text(json.dumps(summary,indent=2)+'\n',newline='\n')
     sheet.save(ROOT/'tools/deep_terrain_sections.png')
     print(json.dumps(summary,indent=2))
     if baseline and not all(summary['checks'].values()): raise SystemExit(1)

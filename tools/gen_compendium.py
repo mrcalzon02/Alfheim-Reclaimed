@@ -517,7 +517,7 @@ def main():
             print(f'   [dry] {path}  ({n} entries, {len(content)} bytes)')
         else:
             os.makedirs(os.path.dirname(path), exist_ok=True)
-            open(path, 'w', encoding='utf-8').write(content)
+            open(path, 'w', encoding='utf-8', newline='\n').write(content)
             print(f'   wrote {path}  ({n} entries)')
     print(f'\n  {len(files) - 1} reference chapters, {total} entries')
     return 0

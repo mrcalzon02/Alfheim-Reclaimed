@@ -2125,7 +2125,7 @@ def main():
             print(f'--- {path} ({len(content)} bytes) ---')
         else:
             os.makedirs(os.path.dirname(path), exist_ok=True)
-            with open(path, 'w', encoding='utf-8') as f:
+            with open(path, 'w', encoding='utf-8', newline='\n') as f:
                 f.write(content)
             print('  wrote', path)
     print(f'\n{len(ERAS)} chapter(s), {total} quests.')

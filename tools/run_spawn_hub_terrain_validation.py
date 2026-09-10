@@ -156,7 +156,7 @@ def analyze(path: str, json_out: str | None = None):
         'problems': problems,
     }
     if json_out:
-        with open(json_out, 'w', encoding='utf-8') as f:
+        with open(json_out, 'w', encoding='utf-8', newline='\n') as f:
             json.dump(result, f, indent=2)
             f.write('\n')
         print(f'report -> {json_out}')

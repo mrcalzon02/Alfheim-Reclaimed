@@ -45,7 +45,7 @@ def main():
         'representative_entries_resolved': True,
         'server_exit_code': 0,
     }
-    OUT.write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')
+    OUT.write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'Stamped runtime validation from {log.relative_to(ROOT)}; payload {digest.hexdigest()}')
 
 

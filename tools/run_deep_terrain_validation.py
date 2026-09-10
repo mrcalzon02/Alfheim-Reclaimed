@@ -32,12 +32,12 @@ def main():
             assert target.is_relative_to(server/'kubejs/data')
             target.unlink()
         path=server/'kubejs/data/mythicbotany/worldgen/density_function/alfheim_final.json'
-        path.write_text(json.dumps(void_final_density(False),indent=2)+'\n')
+        path.write_text(json.dumps(void_final_density(False),indent=2)+'\n',newline='\n')
     shutil.copy2('tools/deep_terrain_probe.js',server/'kubejs/server_scripts/99_deep_terrain_probe.js')
     centers=[]
     if args.mode=='baseline':
         centers=json.loads((root/'tools/deep_terrain_treatment.json').read_text())['centers']
-    (server/'kubejs/deep_terrain_options.json').write_text(json.dumps({'mode':args.mode,'centers':centers}))
+    (server/'kubejs/deep_terrain_options.json').write_text(json.dumps({'mode':args.mode,'centers':centers}),newline='\n')
     prop=server/'server.properties'; old=prop.read_bytes()
     stamp=time.strftime('%Y%m%d-%H%M%S')
     world='deep-terrain-'+args.mode+'-'+stamp
@@ -45,7 +45,7 @@ def main():
     run_server.write_properties(gen_deep_terrain.config()['seed'],world)
     path=server/f'deep-terrain-{args.mode}-{stamp}.log'
     try:
-        with path.open('w',encoding='utf-8') as log:
+        with path.open('w',encoding='utf-8',newline='\n') as log:
             process=subprocess.Popen([run_server.JAVA17,'-Xmx6G','-Xms4G',
                 '@libraries/net/minecraftforge/forge/1.20.1-47.4.10/win_args.txt','nogui'],
                 cwd=server,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,text=True)
@@ -79,7 +79,7 @@ def main():
     if passed:
         report=json.loads((server/'kubejs/deep_terrain_result.json').read_text())
         report.update(world=world,console=path.name)
-        (root/f'tools/deep_terrain_{args.mode}.json').write_text(json.dumps(report,separators=(',',':'))+'\n')
+        (root/f'tools/deep_terrain_{args.mode}.json').write_text(json.dumps(report,separators=(',',':'))+'\n',newline='\n')
     # The baseline was only a development-mirror experiment. Restore the source's
     # worldgen after shutdown, so a later manual server launch uses the real pack.
     if args.mode=='baseline':

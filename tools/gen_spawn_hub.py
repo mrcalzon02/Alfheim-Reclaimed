@@ -1129,7 +1129,7 @@ def write_json(path, obj, dry):
     if dry:
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(obj, f, indent=2)
         f.write('\n')
 
@@ -1380,7 +1380,7 @@ def main():
 
     if not dry:
         with open(os.path.join('kubejs', 'server_scripts', '04_spawn_hub.js'),
-                  'w', encoding='utf-8') as f:
+                  'w', encoding='utf-8', newline='\n') as f:
             f.write(protection_script())
     print(f'  protection            kubejs/server_scripts/04_spawn_hub.js  '
           f'X {HUB_MIN_X}..{HUB_MAX_X}, Z {HUB_MIN_Z}..{HUB_MAX_Z}, {HOME}')

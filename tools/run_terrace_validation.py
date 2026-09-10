@@ -68,7 +68,7 @@ def main():
         from gen_alfheim_biomes import void_final_density
         target = (server / 'kubejs/data/mythicbotany/worldgen/density_function'
                          / 'alfheim_final.json')
-        target.write_text(json.dumps(void_final_density(include_terraces=False), indent=2) + '\n')
+        target.write_text(json.dumps(void_final_density(include_terraces=False), indent=2) + '\n', newline='\n')
         print('  baseline: terrace addend removed from the server mirror', flush=True)
 
     prop = server / 'server.properties'
@@ -81,7 +81,7 @@ def main():
 
     found, requested, stopped = {}, False, False
     try:
-        with path.open('w', encoding='utf-8') as log:
+        with path.open('w', encoding='utf-8', newline='\n') as log:
             process = subprocess.Popen(
                 [run_server.JAVA17, '-Xmx6G', '-Xms4G',
                  '@libraries/net/minecraftforge/forge/1.20.1-47.4.10/win_args.txt', 'nogui'],

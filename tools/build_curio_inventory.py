@@ -135,7 +135,7 @@ def main():
         'wearables': sorted(wearables.values(), key=lambda x: (x['slots'], x['id'])),
         'relevant_jar_sha256': jar_hashes,
     }
-    (OUT / 'installed_curios_inventory.json').write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    (OUT / 'installed_curios_inventory.json').write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
 
     grouped = defaultdict(list)
     for row in data['wearables']:
@@ -152,7 +152,7 @@ def main():
         for row in grouped[slot]:
             lines.append(f"| {row['name']} | `{row['id']}` | {len(row['recipes'])} |")
         lines.append('')
-    (OUT / 'INSTALLED_CURIOS.md').write_text('\n'.join(lines), encoding='utf-8')
+    (OUT / 'INSTALLED_CURIOS.md').write_text('\n'.join(lines), encoding='utf-8', newline='\n')
     print(f"Curios inventory: {data['wearable_count']} wearable IDs ({data['functional_count']} functional, {data['cosmetic_count']} cosmetic), {len(data['slot_definitions'])} slot definitions, 14 live slot types.")
 
 

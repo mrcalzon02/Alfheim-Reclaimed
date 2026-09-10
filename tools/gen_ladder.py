@@ -450,14 +450,14 @@ def main():
     if a.dry_run:
         return 0
 
-    with open(MANIFEST, 'w', encoding='utf-8') as f:
+    with open(MANIFEST, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(manifest, f, indent=2)
         f.write('\n')
     print(f'\n  +{len(new)} manifest entries')
 
     for L in LADDER:
         p = os.path.join(SCRIPTS, f"2{L['era']}_era{L['era']}_tier_ladder.js")
-        with open(p, 'w', encoding='utf-8') as f:
+        with open(p, 'w', encoding='utf-8', newline='\n') as f:
             f.write(build_script(L))
         print('  wrote', p)
     return 0

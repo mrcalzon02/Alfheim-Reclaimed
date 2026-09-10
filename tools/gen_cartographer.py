@@ -254,7 +254,7 @@ def main():
         print(f'   [dry] {path} ({len(content)} bytes, {len(entries)} entries)')
     else:
         os.makedirs(OUT, exist_ok=True)
-        open(path, 'w', encoding='utf-8').write(content)
+        open(path, 'w', encoding='utf-8', newline='\n').write(content)
         print(f'   wrote {path} ({len(entries)} entries)')
     n_buy = len(entries) - 2
     print(f'\n  1 chapter, {n_buy} repeatable purchases, 2 guides')

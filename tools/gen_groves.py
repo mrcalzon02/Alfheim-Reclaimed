@@ -88,7 +88,7 @@ def write(path, content, dry):
         print(f'   [dry] {path}')
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)
 
 
@@ -171,7 +171,7 @@ def build_trees(trees, jar, dry):
             for name, im in imgs.items():
                 im.save(os.path.join(TEX_BLOCK, name + '.png'))
             with open(os.path.join(MODEL_ITEM, f'{tid}_sapling.json'), 'w',
-                      encoding='utf-8') as f:
+                      encoding='utf-8', newline='\n') as f:
                 json.dump({'parent': 'minecraft:item/generated',
                            'textures': {'layer0': f'{NS}:block/{tid}_sapling'}}, f, indent=2)
 

@@ -84,7 +84,7 @@ def generate(root, assets, data, roster, write):
     startup+=['})','']
     startup_path=root/'kubejs/startup_scripts/19_fey_drops.js'
     startup_path.parent.mkdir(parents=True,exist_ok=True)
-    startup_path.write_text('\n'.join(startup),encoding='utf-8')
+    startup_path.write_text('\n'.join(startup),encoding='utf-8',newline='\n')
     for name,r in RECIPES.items():
         result={'item':r['output'],'count':r['count']}
         if r['method']=='shapeless':
@@ -126,4 +126,4 @@ def generate(root, assets, data, roster, write):
     path=root/'config/ftbquests/quests/chapters/ref_fey_wildlife.snbt'
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(chapter('ref_fey_wildlife',20,'The Fey Bestiary','Habitats, hostile elves and creature drops',
-                           'alfheim:hart_antler',pages),encoding='utf-8')
+                           'alfheim:hart_antler',pages),encoding='utf-8', newline='\n')

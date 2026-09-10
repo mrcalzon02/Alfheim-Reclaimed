@@ -31,7 +31,7 @@ def main():
     assert not (server/world).exists()
     run_server.write_properties(args.seed,world);path=server/(world+'.log')
     try:
-        with path.open('w',encoding='utf-8') as log:
+        with path.open('w',encoding='utf-8',newline='\n') as log:
             process=subprocess.Popen([run_server.JAVA17,'-Xmx6G','-Xms4G','@libraries/net/minecraftforge/forge/1.20.1-47.4.10/win_args.txt','nogui'],cwd=server,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,text=True)
             print('Console:',path,flush=True);deadline=time.monotonic()+1800;requested=False;stopped=False
             while process.poll() is None and time.monotonic()<deadline:
@@ -68,7 +68,7 @@ def main():
     passed=process.returncode==0 and '[VOID AUDIT] COMPLETE errors=0' in content
     if '[VOID AUDIT] COMPLETE' in content:
         report=json.loads((server/'kubejs/void_terrain_result.json').read_text());report.update(world=world,seed=args.seed,console=path.name)
-        (root/'tools'/('void-report-'+stamp+'.json')).write_text(json.dumps(report,indent=2)+'\n')
+        (root/'tools'/('void-report-'+stamp+'.json')).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
     for name in ['startup','server']:
         if '[ERROR]' in (server/f'logs/kubejs/{name}.log').read_text(encoding='utf-8',errors='replace'):passed=False
     print('exit=',process.returncode,'audit=',passed,flush=True)

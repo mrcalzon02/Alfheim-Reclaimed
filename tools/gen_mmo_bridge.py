@@ -147,7 +147,7 @@ def main():
         print(script[:1400])
     else:
         os.makedirs(os.path.dirname(OUT), exist_ok=True)
-        open(OUT, 'w', encoding='utf-8').write(script)
+        open(OUT, 'w', encoding='utf-8', newline='\n').write(script)
         print('wrote', OUT)
     shards = {s for s, *_ in OUTWARD}
     print(f'\n  {len(OUTWARD)} outward ({len(shards)}/6 crystal alignments), '

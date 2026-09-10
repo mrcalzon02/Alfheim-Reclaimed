@@ -1,0 +1,38 @@
+# Line endings are a property of this project, not of the machine that clones it.
+#
+# Every generator under tools/ writes LF. Git's system-level core.autocrlf=true
+# checked text files out as CRLF, so 8,786 tracked files differed from their own
+# blobs by one byte per line and nothing else. That silently broke level 6 of the
+# validation ladder -- source-to-shipping equality -- because a byte-equality
+# check cannot tell a re-encoded file from a re-authored one: check_deepworks
+# reported 414 drifting models, check_material_textures a drifting texture and
+# check_fey_generation a drifting quest chapter, and not one character of content
+# had changed in any of them.
+#
+# Pinned here so a fresh clone on any machine holds the bytes the generators emit.
+
+*                   text=auto eol=lf
+
+# Windows batch is the one text format that genuinely wants CRLF, and every
+# gradlew.bat in first_party_mods/ ships that way.
+*.bat               text eol=crlf
+*.cmd               text eol=crlf
+
+# Binary. Git's heuristic classifies all of these correctly today; declaring it
+# makes it a contract rather than a lucky NUL sniff of the first 8 KB. A CRLF
+# pass over an .nbt or an .mca is not a defect anyone notices until a structure
+# fails to place or a world will not load.
+*.png               binary
+*.nbt               binary
+*.mca               binary
+*.dat               binary
+*.dat_old           binary
+*.jar               binary
+*.zip               binary
+*.docx              binary
+*.pyc               binary
+*.sqlite            binary
+*.sqlite-shm        binary
+*.sqlite-wal        binary
+*.ogg               binary
+*.gz                binary

@@ -371,7 +371,7 @@ def generate(only=None):
                         "dropped":p.dropped,"sha256_decompressed":canonical_digest(loaded)})
         print(f"{a['id']}: blocks={len(p.blocks)} palette={len(p.palette)} dropped={p.dropped}")
     if not only:
-        METRICS.write_text(json.dumps({"schema":"alfheim:royal_asset_metrics/v1","assets":records},indent=2)+"\n")
+        METRICS.write_text(json.dumps({"schema":"alfheim:royal_asset_metrics/v1","assets":records},indent=2)+"\n",newline='\n')
         make_review(records)
     return records
 

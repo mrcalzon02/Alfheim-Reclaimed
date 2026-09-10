@@ -249,7 +249,7 @@ def base_type(template,new_id,items,weapon=None):
     return d
 
 def write(path,data):
-    path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 
 def main(check=False):
     catalog=json.loads((ROOT/'alfheim_reclaimed_design/armory/equipment_catalog.json').read_text(encoding='utf-8'))
@@ -405,7 +405,7 @@ def main(check=False):
         armor_fractions.append(hist[0]/(64*32)); armor_binary=armor_binary and not any(hist[1:255])
     assert len(armor_fractions)==120 and armor_binary and min(armor_fractions)>.5
     if not check:
-        STARTUP.write_text('\n'.join(startup),encoding='utf-8');write(LANG,lang)
+        STARTUP.write_text('\n'.join(startup),encoding='utf-8',newline='\n');write(LANG,lang)
         write(MANIFEST_OUT,{
             'status':'generated and static validated; runtime evidence must be refreshed after regeneration',
             'sources':source_meta,

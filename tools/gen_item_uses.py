@@ -307,7 +307,7 @@ def main():
         print(f'\n{len(items)} items, {total} use-recipes')
         return 0
 
-    with open(OUT, 'w', encoding='utf-8') as f:
+    with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
         f.write(script)
     print(f'{len(items)} items -> {total} use-recipes')
     print('wrote', OUT)

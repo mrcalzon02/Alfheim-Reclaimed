@@ -226,7 +226,7 @@ def write_json(path, obj, dry):
     if dry:
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(obj, f, indent=2, ensure_ascii=False)
         f.write('\n')
 
@@ -300,12 +300,12 @@ def main():
 
     # ---------------------------------------------------------------- scripts
     if not dry:
-        with open(os.path.join(STARTUP, '14_sealed_gate.js'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(STARTUP, '14_sealed_gate.js'), 'w', encoding='utf-8', newline='\n') as f:
             f.write(startup_script())
-        with open(os.path.join(SERVER, '03_hollow_court.js'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(SERVER, '03_hollow_court.js'), 'w', encoding='utf-8', newline='\n') as f:
             f.write(court_script())
     if not dry:
-        with open(os.path.join(SERVER, '06_expedition_gate.js'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(SERVER, '06_expedition_gate.js'), 'w', encoding='utf-8', newline='\n') as f:
             f.write(expedition_gate_script())
     print(f'  scripts               {STARTUP}/14_sealed_gate.js, {SERVER}/03_hollow_court.js, '
           f'{SERVER}/06_expedition_gate.js')

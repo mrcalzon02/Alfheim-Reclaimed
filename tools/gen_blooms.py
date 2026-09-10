@@ -119,7 +119,7 @@ def write(path, content, dry):
         print(f'   [dry] {path} ({len(content)} bytes)')
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)
 
 
@@ -162,7 +162,7 @@ def build_textures(blooms, jar, dry):
                 os.makedirs(MODEL_ITEM, exist_ok=True)
                 out.save(os.path.join(TEX_ITEM, f'{prefix}_{oid}.png'))
                 with open(os.path.join(MODEL_ITEM, f'{prefix}_{oid}.json'), 'w',
-                          encoding='utf-8') as f:
+                          encoding='utf-8', newline='\n') as f:
                     json.dump({'parent': 'minecraft:item/generated',
                                'textures': {'layer0': f'{NS}:item/{prefix}_{oid}'}}, f, indent=2)
         print(f"   texture  {oid}_ore, raw_{oid}, quickened_{oid}")
