@@ -13,12 +13,19 @@ def main():
     parser.add_argument('--seed',default='alfheim-deep-terrain-20260905')
     parser.add_argument('--radius',type=int,default=192,
                         help='half-width in blocks generated around each void site')
+    parser.add_argument('--probe',default='void_terrain_probe.js',
+                        choices=['void_terrain_probe.js','void_landing_probe.js'],
+                        help='void_landing_probe.js surveys the continentalness field for a '
+                             'place where a terminal landing can exist at all')
     args=parser.parse_args()
     root=Path.cwd().resolve();server=root/'server'
     assert 'eula=true' in (server/'eula.txt').read_text().lower()
     assert not run_server.running_servers(),'Validation server already running'
     run_server.mirror_instance()
-    shutil.copy2(root/'tools/void_terrain_probe.js',server/'kubejs/server_scripts/99_void_audit.js')
+    # Which probe runs is the only difference between the ordinary margin audit and the
+    # terminal-landing survey; both emit the same SITES marker, so the force-generation
+    # and reporting path below is shared.
+    shutil.copy2(root/'tools'/args.probe,server/'kubejs/server_scripts/99_void_audit.js')
     shutil.copy2(root/'tools/deep_terrain_treatment.json',server/'kubejs/void_prior_deep.json')
     prop=server/'server.properties';old=prop.read_bytes();stamp=time.strftime('%Y%m%d-%H%M%S');world='void-margin-'+stamp
     assert not (server/world).exists()

@@ -264,12 +264,24 @@ wanting `feywild:lesser_fey_gem` from a mod the pack does not install — unrela
   The terracing is +4.0 points over its control on a hilly, fragmented patch; whether that reads
   as "gradual laid out terraces" is a judgement the metric cannot make, and the ramps are the
   knob if it wants to be stronger.
-- **The terminal landing in Starless Reach is an area problem, not a density one.** That biome
-  occupies 143 columns of the sampled area against the Verge's 76,146, so
-  `check_void_surface_support`'s 14×8×14 requirement has no host at any density. It needs a wide
-  survey for a shallow continentalness gradient, not another density edit. A broad `landing_swell`
-  term was tried and removed the same day: at an ~800-block period it was a constant offset
-  inside a 384-block patch and changed nothing measurable.
+- **DECISION NEEDED — the terminal landing contract.** Surveyed 2026-09-10 over 24,576 × 24,576
+  blocks via `tools/void_landing_probe.js`: the reserved band −0.94…−0.925 holds 309 of 148,225
+  lattice points (0.21%), and only 10 have a 15×15 neighbourhood at least 72% in band. All six
+  best sites were force-generated. They carry real ground — mainlands of 600–3,200 columns,
+  islands past 1,100 — but **no 14×14 landing lies wholly inside the band at any of them**; one
+  has a 2,691-column fragment with a 16×16 square that touches it.
+
+  That is the design pulling against the contract rather than a defect in the belt. `VOID_MARGINS`
+  §2 requires the terminal field to be sparse, and a 1,800-block landing needs the density it
+  forbids. §2's own wording — a final fleck seen *"from the last substantial landing"* — puts the
+  landing at the inner edge with the empty field beyond, which is what (3200, 1984) looks like.
+
+  **Two ways out, and the choice is the owner's:** relax `check_void_surface_support` for
+  `last_watch` and `starless_orrery` from "wholly inside −0.94…−0.925" to "clears 14×14 and
+  touches the band", or move both structures to the inner debris belt, where the shatterfields
+  and rootfall segments each carry two to four fragments clearing 14×14. Do not make the terminal
+  band denser to satisfy the contract as written — that contradicts §2, and the one density term
+  tried for it (`landing_swell`) measured as a no-op and was removed the same day.
 - The six structure families still need the visual review B-91 was waiting on.
 - Volume-checked terminal landings in the void: the belt now supplies roughly 10% solid in the
   strip `check_void_surface_support` reserves, but no landing has been confirmed in a real chunk.

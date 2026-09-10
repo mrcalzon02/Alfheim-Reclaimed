@@ -342,17 +342,52 @@ region, so the "accidental walkable road" §2 warns about has not appeared.
 
 ### Still open
 
-- **The terminal landing is an area problem, not a density one, and this is the finding that
-  matters for §5.6.** `check_void_surface_support` reserves continentalness −0.94…−0.925 for
-  `last_watch` and `starless_orrery` at 1,800 solid blocks and 14×8×14. Starless Reach occupies
-  **143 columns of the sampled area against the Verge's 76,146** — there is no area to land on
-  at any density, because the band is a thin tail of the continentalness distribution and the
-  reserved strip is the inner 0.015 of it. A `landing_swell` term was tried on 2026-09-09 to
-  lift whole neighbourhoods over the cut; at firstOctave −7 its period is on the order of 800
-  blocks, so inside a 384-block patch it was indistinguishable from a constant offset and every
-  island statistic came back identical. It was removed the same day. **Confirming or refusing
-  this requirement needs a wide survey for a place where the continentalness gradient is shallow
-  enough to hold that strip across 14 blocks — not another density edit.**
+### The terminal landing: surveyed, and the contract is the thing that does not fit
+
+**Asked and answered 2026-09-10.** `check_void_surface_support` reserves continentalness
+−0.94…−0.925 for `last_watch` and `starless_orrery` at 1,800 solid blocks and 14×8×14. The first
+verification pass could not tell whether that was satisfiable, because Starless Reach occupied
+143 columns of a 384-block patch against the Verge's 76,146. A density edit cannot answer it —
+that is a property of the continentalness field — so `tools/void_landing_probe.js` asks the
+field directly, over a 24,576 × 24,576 block survey:
+
+| | |
+|---|--:|
+| lattice points sampled | 148,225 |
+| inside the reserved band | 309 — **0.21%** |
+| with a 15×15 neighbourhood ≥72% in band | **10** |
+
+So the band exists and occasionally widens. The six best were force-generated and measured:
+
+| candidate | continentalness | persistence | terrain found | 14×14 landing touching the band |
+|---|--:|--:|---|---|
+| 6144, −7680 | −0.9335 | 86% | 603-col mainland, 10 islands | none |
+| −5568, 4608 | −0.9344 | 83% | 3,241-col mainland, island of 906 | none |
+| 576, −2112 | −0.9310 | 83% | 1,103-col mainland, 26 islands | none |
+| 64, −6016 | −0.9270 | 81% | 1,259-col mainland, island of 1,161 | none |
+| 3200, 1984 | −0.9305 | 75% | — | **2,691 cols, a 16×16 square, touching by 5 columns** |
+
+**There is substantial ground out there — mainlands of 600 to 3,200 columns and islands past
+1,100 — but a 14×14 landing lying WHOLLY inside −0.94…−0.925 did not occur at any of the six.**
+That is not a failure of the belt. Terrain that far out is sparse because §2 requires it to be:
+"only isolated small pieces remain", "no deposits, ore features, geodes or structures in the
+guaranteed-empty far field". A 1,800-block landing needs exactly the density the design forbids
+there, so the requirement and the design pull against each other.
+
+**And §2's own wording suggests the contract is what is mis-set.** It says the player sees a
+final Astralite fleck *"from the last substantial landing"* — the landing is the last solid
+ground, and the fleck is what lies beyond it. That places the landing at the INNER edge of
+Starless Reach, around −0.930…−0.925, with the empty field outward of it. The 2,691-column
+fragment at (3200, 1984) with a 16×16 buildable square, touching the band at continentalness
+−0.9305, is a good description of that scene.
+
+**This needs a decision, not a tune.** Either `check_void_surface_support`'s host contract for
+those two structures changes from "wholly inside −0.94…−0.925" to "clears 14×14 and touches the
+band", or the two structures move to the inner debris belt where hosts are plentiful — the
+shatterfields and rootfall segments each carry two to four fragments clearing 14×14. Making the
+terminal band dense enough to satisfy the contract as written would contradict §2, and no
+density edit should be attempted for it. A `landing_swell` term tried on 2026-09-09 for exactly
+that purpose measured as a no-op and was removed the same day.
 - The eighteen stone classes of §3 remain a proposal; the belt currently wears the grammars in
   `void_catalog.json` over existing Livingrock.
 - Client traversal: nobody has walked any of this.
