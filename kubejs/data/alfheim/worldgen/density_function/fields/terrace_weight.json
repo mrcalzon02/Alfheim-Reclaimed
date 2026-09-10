@@ -28,7 +28,7 @@
             "argument2": {
               "type": "minecraft:add",
               "argument1": "mythicbotany:alfheim_continentalness",
-              "argument2": -0.155
+              "argument2": -0.17
             }
           },
           "min": 0.0,
@@ -44,11 +44,11 @@
               "type": "minecraft:clamp",
               "input": {
                 "type": "minecraft:mul",
-                "argument1": 40.00000000000006,
+                "argument1": 33.33333333333331,
                 "argument2": {
                   "type": "minecraft:add",
                   "argument1": "mythicbotany:alfheim_continentalness",
-                  "argument2": -0.265
+                  "argument2": -0.235
                 }
               },
               "min": 0.0,
@@ -58,18 +58,35 @@
         }
       },
       "argument2": {
-        "type": "minecraft:clamp",
-        "input": {
-          "type": "minecraft:mul",
-          "argument1": 16.666666666666668,
-          "argument2": {
-            "type": "minecraft:add",
-            "argument1": "mythicbotany:alfheim_weirdness",
-            "argument2": -0.02
-          }
+        "type": "minecraft:mul",
+        "argument1": {
+          "type": "minecraft:clamp",
+          "input": {
+            "type": "minecraft:mul",
+            "argument1": 14.285714285714285,
+            "argument2": {
+              "type": "minecraft:add",
+              "argument1": "mythicbotany:alfheim_weirdness",
+              "argument2": -0.03
+            }
+          },
+          "min": 0.0,
+          "max": 1.0
         },
-        "min": 0.0,
-        "max": 1.0
+        "argument2": {
+          "type": "minecraft:clamp",
+          "input": {
+            "type": "minecraft:mul",
+            "argument1": 9.999999999999996,
+            "argument2": {
+              "type": "minecraft:add",
+              "argument1": "mythicbotany:alfheim_temperature",
+              "argument2": 0.28
+            }
+          },
+          "min": 0.0,
+          "max": 1.0
+        }
       }
     }
   }

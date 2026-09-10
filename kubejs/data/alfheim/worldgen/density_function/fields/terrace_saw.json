@@ -1,30 +1,47 @@
 {
-  "type": "minecraft:clamp",
-  "input": {
-    "type": "minecraft:add",
+  "type": "minecraft:mul",
+  "argument1": {
+    "type": "minecraft:min",
     "argument1": {
+      "type": "minecraft:y_clamped_gradient",
+      "from_y": 52,
+      "to_y": 56,
+      "from_value": 0.0,
+      "to_value": 1.0
+    },
+    "argument2": {
+      "type": "minecraft:y_clamped_gradient",
+      "from_y": 144,
+      "to_y": 148,
+      "from_value": 1.0,
+      "to_value": 0.0
+    }
+  },
+  "argument2": {
+    "type": "minecraft:clamp",
+    "input": {
       "type": "minecraft:add",
       "argument1": {
-        "type": "minecraft:mul",
-        "argument1": 0.25,
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:mul",
+          "argument1": 0.25,
+          "argument2": {
+            "type": "minecraft:add",
+            "argument1": {
+              "type": "minecraft:y_clamped_gradient",
+              "from_y": -64,
+              "to_y": 320,
+              "from_value": -64,
+              "to_value": 320
+            },
+            "argument2": -56
+          }
+        },
         "argument2": {
-          "type": "minecraft:add",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": -64,
-            "to_y": 320,
-            "from_value": -64,
-            "to_value": 320
-          },
-          "argument2": -56
-        }
-      },
-      "argument2": {
-        "type": "minecraft:mul",
-        "argument1": -1.0,
-        "argument2": {
-          "type": "minecraft:add",
-          "argument1": {
+          "type": "minecraft:mul",
+          "argument1": -1.0,
+          "argument2": {
             "type": "minecraft:add",
             "argument1": {
               "type": "minecraft:add",
@@ -65,184 +82,187 @@
                                                 "argument1": {
                                                   "type": "minecraft:add",
                                                   "argument1": {
-                                                    "type": "minecraft:y_clamped_gradient",
-                                                    "from_y": 60,
-                                                    "to_y": 61,
-                                                    "from_value": 0.0,
-                                                    "to_value": 1.0
+                                                    "type": "minecraft:add",
+                                                    "argument1": {
+                                                      "type": "minecraft:y_clamped_gradient",
+                                                      "from_y": 60,
+                                                      "to_y": 61,
+                                                      "from_value": 0.0,
+                                                      "to_value": 1.0
+                                                    },
+                                                    "argument2": {
+                                                      "type": "minecraft:y_clamped_gradient",
+                                                      "from_y": 64,
+                                                      "to_y": 65,
+                                                      "from_value": 0.0,
+                                                      "to_value": 1.0
+                                                    }
                                                   },
                                                   "argument2": {
                                                     "type": "minecraft:y_clamped_gradient",
-                                                    "from_y": 64,
-                                                    "to_y": 65,
+                                                    "from_y": 68,
+                                                    "to_y": 69,
                                                     "from_value": 0.0,
                                                     "to_value": 1.0
                                                   }
                                                 },
                                                 "argument2": {
                                                   "type": "minecraft:y_clamped_gradient",
-                                                  "from_y": 68,
-                                                  "to_y": 69,
+                                                  "from_y": 72,
+                                                  "to_y": 73,
                                                   "from_value": 0.0,
                                                   "to_value": 1.0
                                                 }
                                               },
                                               "argument2": {
                                                 "type": "minecraft:y_clamped_gradient",
-                                                "from_y": 72,
-                                                "to_y": 73,
+                                                "from_y": 76,
+                                                "to_y": 77,
                                                 "from_value": 0.0,
                                                 "to_value": 1.0
                                               }
                                             },
                                             "argument2": {
                                               "type": "minecraft:y_clamped_gradient",
-                                              "from_y": 76,
-                                              "to_y": 77,
+                                              "from_y": 80,
+                                              "to_y": 81,
                                               "from_value": 0.0,
                                               "to_value": 1.0
                                             }
                                           },
                                           "argument2": {
                                             "type": "minecraft:y_clamped_gradient",
-                                            "from_y": 80,
-                                            "to_y": 81,
+                                            "from_y": 84,
+                                            "to_y": 85,
                                             "from_value": 0.0,
                                             "to_value": 1.0
                                           }
                                         },
                                         "argument2": {
                                           "type": "minecraft:y_clamped_gradient",
-                                          "from_y": 84,
-                                          "to_y": 85,
+                                          "from_y": 88,
+                                          "to_y": 89,
                                           "from_value": 0.0,
                                           "to_value": 1.0
                                         }
                                       },
                                       "argument2": {
                                         "type": "minecraft:y_clamped_gradient",
-                                        "from_y": 88,
-                                        "to_y": 89,
+                                        "from_y": 92,
+                                        "to_y": 93,
                                         "from_value": 0.0,
                                         "to_value": 1.0
                                       }
                                     },
                                     "argument2": {
                                       "type": "minecraft:y_clamped_gradient",
-                                      "from_y": 92,
-                                      "to_y": 93,
+                                      "from_y": 96,
+                                      "to_y": 97,
                                       "from_value": 0.0,
                                       "to_value": 1.0
                                     }
                                   },
                                   "argument2": {
                                     "type": "minecraft:y_clamped_gradient",
-                                    "from_y": 96,
-                                    "to_y": 97,
+                                    "from_y": 100,
+                                    "to_y": 101,
                                     "from_value": 0.0,
                                     "to_value": 1.0
                                   }
                                 },
                                 "argument2": {
                                   "type": "minecraft:y_clamped_gradient",
-                                  "from_y": 100,
-                                  "to_y": 101,
+                                  "from_y": 104,
+                                  "to_y": 105,
                                   "from_value": 0.0,
                                   "to_value": 1.0
                                 }
                               },
                               "argument2": {
                                 "type": "minecraft:y_clamped_gradient",
-                                "from_y": 104,
-                                "to_y": 105,
+                                "from_y": 108,
+                                "to_y": 109,
                                 "from_value": 0.0,
                                 "to_value": 1.0
                               }
                             },
                             "argument2": {
                               "type": "minecraft:y_clamped_gradient",
-                              "from_y": 108,
-                              "to_y": 109,
+                              "from_y": 112,
+                              "to_y": 113,
                               "from_value": 0.0,
                               "to_value": 1.0
                             }
                           },
                           "argument2": {
                             "type": "minecraft:y_clamped_gradient",
-                            "from_y": 112,
-                            "to_y": 113,
+                            "from_y": 116,
+                            "to_y": 117,
                             "from_value": 0.0,
                             "to_value": 1.0
                           }
                         },
                         "argument2": {
                           "type": "minecraft:y_clamped_gradient",
-                          "from_y": 116,
-                          "to_y": 117,
+                          "from_y": 120,
+                          "to_y": 121,
                           "from_value": 0.0,
                           "to_value": 1.0
                         }
                       },
                       "argument2": {
                         "type": "minecraft:y_clamped_gradient",
-                        "from_y": 120,
-                        "to_y": 121,
+                        "from_y": 124,
+                        "to_y": 125,
                         "from_value": 0.0,
                         "to_value": 1.0
                       }
                     },
                     "argument2": {
                       "type": "minecraft:y_clamped_gradient",
-                      "from_y": 124,
-                      "to_y": 125,
+                      "from_y": 128,
+                      "to_y": 129,
                       "from_value": 0.0,
                       "to_value": 1.0
                     }
                   },
                   "argument2": {
                     "type": "minecraft:y_clamped_gradient",
-                    "from_y": 128,
-                    "to_y": 129,
+                    "from_y": 132,
+                    "to_y": 133,
                     "from_value": 0.0,
                     "to_value": 1.0
                   }
                 },
                 "argument2": {
                   "type": "minecraft:y_clamped_gradient",
-                  "from_y": 132,
-                  "to_y": 133,
+                  "from_y": 136,
+                  "to_y": 137,
                   "from_value": 0.0,
                   "to_value": 1.0
                 }
               },
               "argument2": {
                 "type": "minecraft:y_clamped_gradient",
-                "from_y": 136,
-                "to_y": 137,
+                "from_y": 140,
+                "to_y": 141,
                 "from_value": 0.0,
                 "to_value": 1.0
               }
             },
             "argument2": {
               "type": "minecraft:y_clamped_gradient",
-              "from_y": 140,
-              "to_y": 141,
+              "from_y": 144,
+              "to_y": 145,
               "from_value": 0.0,
               "to_value": 1.0
             }
-          },
-          "argument2": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": 144,
-            "to_y": 145,
-            "from_value": 0.0,
-            "to_value": 1.0
           }
         }
-      }
+      },
+      "argument2": -0.5
     },
-    "argument2": -0.5
-  },
-  "min": -0.5,
-  "max": 0.5
+    "min": -0.5,
+    "max": 0.5
+  }
 }

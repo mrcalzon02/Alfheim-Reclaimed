@@ -37,25 +37,20 @@ DF = os.path.join('kubejs', 'data', NS, 'worldgen', 'density_function', 'fields'
 # --- the tread geometry -----------------------------------------------------------------------
 STEP = 4                     # tread height, in blocks. Asked for 2026-09-08.
 
-# THE CEILING ON THIS TECHNIQUE IS THE INTERPOLATION CELL, NOT THE AMPLITUDE.
-# alfheim's noise settings use size_vertical 2, so Minecraft samples final_density on an
-# 8-BLOCK-TALL grid and interpolates linearly between those samples. A 4-block sawtooth is a
-# half-cell signal: the interpolator cannot represent it and averages most of it away. Measured
-# in fresh worlds, forceloading a real Golden Fields patch each time:
+# THE INTERPOLATION-CELL THEORY WAS TESTED AND IT WAS WRONG. It is recorded here because the
+# numbers below were read under it and would otherwise mislead. alfheim_final contains no
+# `minecraft:interpolated` -- the markers live inside alfheim_height and alfheim_caves -- so it
+# is evaluated per block at full resolution and the 8-block cell grid never touched the sawtooth.
+# The size_vertical 1 probe on 2026-09-08 confirmed it: 49.8% on-tread against 49.9% at 2.
+# Measured in fresh worlds, forceloading a real Golden Fields patch each time:
 #
 #     N=4, amplitude 0.22   42.0% of columns on a tread   (uniform 25%)   1.7x
 #     N=4, amplitude 0.60   49.9%                          (uniform 25%)   2.0x
 #     N=8, amplitude 0.60   36.0%                          (uniform 12.5%) 2.9x
 #
-# Tripling the amplitude bought 8 points, which is what a resolution limit looks like rather
-# than a tuning problem. N=8 matches the cell height and pins relatively harder, but its absolute
+# Tripling the amplitude bought 8 points because on-tread share is a saturating measure, not
+# because a cell grid was eating the signal. N=8 pins harder in relative terms but its absolute
 # flatness is worse and an 8-block riser is not a walkable agricultural step. N=4 is kept.
-#
-# The result is a real, measurable softening of the terrain into broad stepped shelves -- not the
-# crisp geometric terracing of the offline prototype, which had no interpolation grid to fight.
-# Getting that would mean size_vertical 1 for the whole dimension: four-block cells, twice the
-# density samples per chunk, and a change to every biome's terrain rather than to Golden Fields.
-# That is a dimension-wide performance and terrain decision, and it is the user's to make.
 BAND_LO, BAND_HI = 56, 144   # the Y band that gets treads; 22 risers at N=4
 WORLD_LO, WORLD_HI = -64, 320
 
@@ -64,10 +59,21 @@ WORLD_LO, WORLD_HI = -64, 320
 # own fall over a whole tread, and that slope belongs to MythicBotany's noise router rather than
 # to anything here.
 #
-# CALIBRATED, not guessed. A fresh world at 0.22 put 42.0% of Golden Fields surface columns
-# exactly on a tread against 25% for an untreaded control -- a real signal, but far from the
-# prototype's 100%, so 0.22 was under the pinning threshold. Raised and re-measured.
-AMPLITUDE = 0.60
+# LOWERED 2026-09-09 after the field review. 0.60 was chosen to push the on-tread share up,
+# and it did: measured on the shipped world, 68.7% of Golden Fields columns sat on one residue
+# against a 25% uniform baseline, 2.75x. That is what the review saw and rejected -- "the effect
+# of multiple floors stacked on top of each other rather than gradual laid out terraces over a
+# large terrain distance". On-tread share rewards exactly the failure mode: a number that rises
+# as EVERY column gets quantised cannot tell terracing from a staircase, and chasing it built
+# one.
+#
+# The intent is occasional worked shelves on ground gentle enough to farm, with steeper ground
+# left wild behind them. Whether a column pins depends on the sawtooth's rise per block,
+# AMPLITUDE/STEP, against the final density's own fall per block: at 0.60 that is 0.15 and
+# overwhelms the natural fall everywhere the weight is non-zero. At 0.20 it is 0.05, the same
+# order as the terrain's own gradient, so the surface pins where the ground is already gentle
+# and is left alone where it is not. The selectivity is the point, not the average.
+AMPLITUDE = 0.20
 
 # --- the climate window -----------------------------------------------------------------------
 # Golden Fields occupies cont 0.15..0.30, weird 0..1 (see BIOME_INDEX.md §3). The terracing is
@@ -75,16 +81,24 @@ AMPLITUDE = 0.60
 # continuous and wild behind the farms. Every edge is inset from the biome's own boundary.
 CONT = 'mythicbotany:alfheim_continentalness'
 WEIRD = 'mythicbotany:alfheim_weirdness'
+TEMP = 'mythicbotany:alfheim_temperature'
 
-CONT_IN = (0.155, 0.175)     # fade up across the biome's lower edge
-CONT_OUT = (0.265, 0.290)    # fade back down before its upper edge at 0.30
-WEIRD_IN = (0.020, 0.080)    # weirdness 0 is the dreamwood/golden split; stay clear of it
+# NARROWED BACK 2026-09-09. These were widened on 2026-09-08 to lift the aggregate on-tread
+# share from 49.8% to 59.7%. It worked by saturating the weight over more of the biome, which
+# is the same thing as "they apply far too persistently" -- the metric went up because the
+# defect got worse. Restored to values that terrace a core and leave the edges alone.
+CONT_IN = (0.170, 0.190)     # fade up across the biome's lower edge
+CONT_OUT = (0.235, 0.265)    # fade back down well before its upper edge at 0.30
+WEIRD_IN = (0.030, 0.100)    # weirdness 0 is the dreamwood/golden split; stay clear of it
 
-# WIDENED 2026-09-08 on measurement. The first pass saturated the weight only in a narrow core,
-# and the probe showed the cost precisely: risers 83.0% on-tread and plot interiors 59.5%, but
-# unclaimed grass columns only 32.9% against a 25% baseline. The soft aggregate was coverage, not
-# resolution -- so each ramp now saturates sooner, while every edge stays inset from the biome's
-# own climate box so `check_golden_terraces` G3 still finds an exact zero outside it.
+# THE AXIS THE WEIGHT WAS MISSING. Golden Fields and Silverbark Wood share the whole of
+# continentalness 0.15..0.30 and overlap in weirdness; the only climate field that separates
+# them is TEMPERATURE, at -0.3 (BIOME_INDEX.md). The weight read the two axes they share and
+# not the one that tells them apart, so the terracing crossed the boundary: measured on the
+# shipped world, 59.3% of Silverbark Wood columns on one residue against Golden Fields' 68.7%.
+# A climate ramp is not the biome test B-82 had to revert -- it is the same kind of continuous
+# fade the other three factors already are, and it reaches exactly zero on the cold side.
+TEMP_IN = (-0.280, -0.180)
 
 # Plot cells. 1.20.1 has no Voronoi, but the two things the algorithm needs from one are a
 # cell-edge distance and cells that tile the plane. |ridge| gives both: its zero contours are
@@ -131,10 +145,27 @@ def terrace_saw():
         staircase = binary('add', staircase, r)
     frac = binary('mul', 1.0 / STEP, binary('add', y, -BAND_LO))
     saw = binary('add', binary('add', frac, binary('mul', -1.0, staircase)), -0.5)
-    # The sawtooth is only meaningful inside the treaded band; outside it the staircase is
-    # saturated and `frac` would ramp away without bound. Clamping keeps the addend bounded
-    # everywhere, which is what makes the amplitude a true ceiling on the disturbance.
-    return clamp(saw, -0.5, 0.5), len(risers)
+    # OUTSIDE THE BAND THE SAWTOOTH MUST BE ZERO, NOT MERELY BOUNDED. The previous version
+    # clamped and stopped there, which left a CONSTANT -0.5 on every block from Y 53 down to
+    # bedrock and +0.5 above Y 148 -- `frac` saturates against a staircase that has run out of
+    # risers, and clamp() turns a runaway into a constant rather than into nothing. The weight
+    # is a flat_cache with no vertical term, so that constant applied down the whole column.
+    #
+    # At AMPLITUDE 0.60 it was a -0.30 density subtraction through 118 blocks of deep rock, and
+    # the field review found it. Measured on the shipped world, the deep band Y -64..48:
+    #
+    #     under golden_fields      42.2% void, 2.03% lava
+    #     under dreamwood_forest   25.3% void, 1.22% lava
+    #     under alfheim_plains     19.4% void, 0.89% lava
+    #
+    # Subterranean caverns and opened lava under a surface feature with no business below Y 56.
+    # G5 never saw it because it asserts the +/-0.5 BOUND and the tread peaks, both of which a
+    # saturated constant satisfies. A window fixes it at the source: the addend is now exactly
+    # 0.0 outside BAND_LO..BAND_HI, fading over one tread at each end so the outermost treads
+    # are not cut off with a step.
+    band = binary('min', gradient((BAND_LO - STEP, BAND_LO), 0.0, 1.0),
+                  gradient((BAND_HI, BAND_HI + STEP), 1.0, 0.0))
+    return binary('mul', band, clamp(saw, -0.5, 0.5)), len(risers)
 
 
 # --- deliverable 2: the weight -----------------------------------------------------------------
@@ -147,11 +178,17 @@ def plot_edge():
 
 
 def terrace_weight():
-    """edge blend x continentalness window x weirdness ramp, all continuous, all 2-D."""
+    """edge blend x continentalness window x weirdness ramp x temperature ramp.
+
+    All four factors are continuous and 2-D, and any one of them reaching zero zeroes the
+    whole weight, which is what lets G3 find an exact 0.0 outside the biome's climate box.
+    """
     edge = ramp(ref('plot_edge'), *EDGE_IN)
     window = binary('mul', ramp(CONT, *CONT_IN), ramp_down(CONT, *CONT_OUT))
     weird = ramp(WEIRD, *WEIRD_IN)
-    return flat_cache(binary('mul', edge, binary('mul', window, weird)))
+    temp = ramp(TEMP, *TEMP_IN)
+    climate = binary('mul', window, binary('mul', weird, temp))
+    return flat_cache(binary('mul', edge, climate))
 
 
 # --- deliverable 3: the injection --------------------------------------------------------------
