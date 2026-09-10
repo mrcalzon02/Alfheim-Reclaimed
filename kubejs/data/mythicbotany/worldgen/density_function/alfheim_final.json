@@ -104,7 +104,7 @@
                       "argument1": 0.95,
                       "argument2": {
                         "type": "minecraft:mul",
-                        "argument1": -0.48999999999999994,
+                        "argument1": -0.32999999999999996,
                         "argument2": {
                           "type": "minecraft:clamp",
                           "input": {
@@ -123,7 +123,7 @@
                     },
                     "argument2": {
                       "type": "minecraft:mul",
-                      "argument1": -0.64,
+                      "argument1": -0.32,
                       "argument2": {
                         "type": "minecraft:clamp",
                         "input": {

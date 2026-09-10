@@ -305,14 +305,57 @@ every top — 74% of Shatterfields columns came back at exactly Y 92. A belt pla
 is a table, not a break. The fall now spans 40 blocks and carries a bounded low-frequency offset,
 so the belt has a skyline; `CEILING_WANDER` is declared and VG3c fails if any offset exceeds it.
 
+### The belt as landforms, and the threshold that had to move
+
+Terrain coverage alone said the belt was working. Measuring it as *landforms* said it was not.
+`tools/probe_void_fragments.py` reads generated chunks as 4-connected patches, and at the first
+tuning it found **103,440 of 103,937 void columns in a single connected mass welded to the
+Verge**, against 413 columns of detached debris in 23 specks, none more than 31 blocks from
+solid ground. That is a shelf with a ragged edge, not §1's "attached shelves give way to
+detached blocks, smaller fragments and finally empty space".
+
+The cause was the solidity threshold. Correlated noise percolates far more readily than an
+uncorrelated fraction suggests, so a belt that is 35–60% solid is simply one landmass with
+holes. `CUT_INNER` went from −0.18 to 0.30 and `CUT_TERM` from 0.46 to 0.62, and the belt came
+apart. Coverage at the settled values, over a 384-block patch at each located site:
+
+| biome | columns | with terrain | median surface |
+|---|--:|--:|--:|
+| void_verge | 76,146 | **98%** | Y 71 |
+| sepulchral_reach | 3,295 | 65% | Y 68 |
+| shatterfields | 4,080 | 48% | Y 63 |
+| prism_drift | 4,127 | 45% | Y 63 |
+| rootfall | 1,901 | 36% | Y 74 |
+| starless_reach | 143 | 69% | Y 63 |
+
+### Three separated rim segments, as §5.7 asks
+
+| segment | mainland | islands | clearing 14×14 | furthest island |
+|---|--:|--:|--:|--:|
+| shatterfields | 5,295 cols, 93×124 | 31, median 32, largest 4,230 | 2 | 156 blocks |
+| prism drift / verge | 15,913 cols, 272×252 | 39, median 16, largest 13,989 | 2 | 161 blocks |
+| rootfall / starless | 11,101 cols, 216×176 | 73, median 33, largest 5,541 | 4 | 264 blocks |
+
+Each segment is one broad landmass with a scatter of detached islands around it, several of
+them large enough to carry a structure. No segment is a single fragment spanning the sampled
+region, so the "accidental walkable road" §2 warns about has not appeared.
+
 ### Still open
 
-- §5.6's **volume-checked structures**: `check_void_surface_support` reserves continentalness
-  −0.94…−0.925 for terminal landings and the belt now supplies roughly 10% solid there, but no
-  landing has been confirmed to satisfy the 1,800-block, 14×8×14 requirement in a real chunk.
-- §5.7's **three separated rim segments** and the client traversal that goes with them.
+- **The terminal landing is an area problem, not a density one, and this is the finding that
+  matters for §5.6.** `check_void_surface_support` reserves continentalness −0.94…−0.925 for
+  `last_watch` and `starless_orrery` at 1,800 solid blocks and 14×8×14. Starless Reach occupies
+  **143 columns of the sampled area against the Verge's 76,146** — there is no area to land on
+  at any density, because the band is a thin tail of the continentalness distribution and the
+  reserved strip is the inner 0.015 of it. A `landing_swell` term was tried on 2026-09-09 to
+  lift whole neighbourhoods over the cut; at firstOctave −7 its period is on the order of 800
+  blocks, so inside a 384-block patch it was indistinguishable from a constant offset and every
+  island statistic came back identical. It was removed the same day. **Confirming or refusing
+  this requirement needs a wide survey for a place where the continentalness gradient is shallow
+  enough to hold that strip across 14 blocks — not another density edit.**
 - The eighteen stone classes of §3 remain a proposal; the belt currently wears the grammars in
   `void_catalog.json` over existing Livingrock.
+- Client traversal: nobody has walked any of this.
 - **The approach is still across water.** The biome bands run land → ocean → verge → debris, so
   the Verge is reached by sea rather than by the dry country §1 describes. That is the standing
   `DEFICIENT_BIOMES.md` rejection, it needs the biome geography reordered rather than the density

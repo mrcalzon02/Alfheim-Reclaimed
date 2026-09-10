@@ -62,6 +62,22 @@ tenths of a point; the climate ramps decide almost everything. B-86 had the same
 a coverage effect, and the 2026-09-08 ramp widening — not the amplitude — is what shipped the
 stacked floors. Recorded in `gen_golden_terraces` so the next person widens the right knob.
 
+**Second verification pass, 2026-09-09/10.** Six headless generations across five worlds, all
+exit 0, KubeJS at zero errors. It overturned one of the claims above and confirmed the other two.
+
+| claim | how it held up |
+|---|---|
+| terracing repaired | **overturned, then repaired properly.** A control world showed the addend was contributing nothing: treatment 27.7% on one residue against a baseline 27.8%, deep void 3.42% against 3.42%. The climate ramps carry the coverage and had been narrowed to zero effect; restored, the treatment now reads +4.0 points over its own control with Silverbark and Dreamwood unmoved and the deep band untouched. |
+| detail pass repaired | **confirmed at runtime.** 8,040 generated chunks contain 94 bookshelves, 70 barrels, 3 cauldrons, 1 lectern and zero decorated pots — the hand-placed set exactly. 16 structure types placed across 40 starts. |
+| debris belt built | **confirmed, then corrected.** Coverage said it worked; measuring it as landforms found 103,440 of 103,937 void columns in one mass welded to the Verge. Correlated noise percolates, so the cut moved and the belt came apart into a mainland plus 31–73 islands per rim segment. |
+
+**The reusable lesson, and it cost two calibration cycles: a metric with no meaningful zero
+cannot tell a working feature from an absent one.** On-tread share returns 27.8% on terrain that
+was never touched, and terrain coverage returns 98% for a shelf and for a debris belt alike.
+Both now have a stated control — `run_terrace_validation --mode baseline` for the first,
+`probe_void_fragments` reading connected components for the second — and both controls found a
+defect on their first run.
+
 **Next gate: a client walk.** Every number in B-93 is read from region files; nobody has stood in
 any of it. Three things need eyes rather than metrics:
 

@@ -66,8 +66,18 @@ RIM_BASE_WANDER=0.5
 # cliff and then keep a long thin tail, because check_void_surface_support.py reserves
 # -0.94..-0.925 for terminal landings and a single linear ramp either floods the middle belt
 # or leaves that strip with no host rock at all. Measured both ways before settling here.
-CUT_INNER=-0.18
-CUT_TERM=0.46
+# RAISED 2026-09-09 after measuring the belt as landforms rather than as a density. At
+# -0.18/0.46 the field was solid enough to PERCOLATE: probe_void_fragments found 103,440 of
+# 103,937 void columns in one connected mass welded to the Verge shelf, against 413 columns of
+# detached debris in 23 specks, every one of them within 31 blocks of solid ground. That is a
+# shelf with a ragged edge, not the "attached shelves give way to detached blocks, smaller
+# fragments and finally empty space" of VOID_MARGINS.md section 1.
+#
+# Correlated noise connects far more readily than an uncorrelated fraction suggests, so the
+# threshold has to sit well below half for pieces to separate at all. The Verge itself supplies
+# the attached land the design asks for; the belt beyond the cliff is meant to come apart.
+CUT_INNER=0.30
+CUT_TERM=0.62
 CUT_FAR=0.95
 BASAL_LAVA_Y=-54
 CATALOG=json.loads((ROOT/'alfheim_reclaimed_design/void/void_catalog.json').read_text())
@@ -106,6 +116,15 @@ def debris_field():
 
     # Low frequency carries the mass, higher frequencies only break its edges. Flattened in Y
     # (y_scale below xz_scale) so the field parts into slabs and shelves rather than boulders.
+    # A 'landing_swell' term was tried here on 2026-09-09 and removed the same day, because it
+    # measured as a no-op and the thing it was meant to fix turned out not to be a density
+    # problem. It was a very broad, flat noise meant to lift whole neighbourhoods over the cut
+    # so the terminal band could carry the substantial landing check_void_surface_support wants.
+    # At firstOctave -7 and xz_scale 0.16 its period is on the order of 800 blocks, so inside a
+    # 384-block generated patch it is indistinguishable from a constant offset: island counts,
+    # medians and maxima came back identical to two significant figures. And the reason Starless
+    # Reach carries no landing is that it occupies 142 columns of the sampled area against the
+    # Verge's 76,146 -- there is no area to land on, at any density. See VOID_MARGINS section 6.
     frag=binary('add',binary('add',
         binary('mul',0.55,noise('fragments',0.45,0.50)),
         binary('mul',0.30,noise('shape',0.70,0.95))),

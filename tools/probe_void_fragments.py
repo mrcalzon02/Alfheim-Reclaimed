@@ -111,64 +111,80 @@ def main():
     ap.add_argument('region_dir')
     ap.add_argument('--min-area', type=int, default=4,
                     help='ignore patches smaller than this (single-block noise)')
+    ap.add_argument('--near', metavar='X,Z,R',
+                    help='restrict to one rim segment: blocks within R of (X, Z). The void '
+                         'audit locates several sites thousands of blocks apart and generates '
+                         'a patch at each, so a whole-world run reports other sites as '
+                         '"islands 1,863 blocks out". VOID_MARGINS 5.7 asks for at least three '
+                         'separated rim segments; this is how you look at one.')
     a = ap.parse_args()
 
     cells = collect(a.region_dir)
+    if a.near:
+        nx, nz, nr = (int(v) for v in a.near.split(','))
+        cells = {c: v for c, v in cells.items()
+                 if (c[0] - nx) ** 2 + (c[1] - nz) ** 2 <= nr * nr}
+        print(f'restricted to {nr} blocks around ({nx}, {nz})')
     if not cells:
         print('no void columns with terrain found'); return 1
     patches = [p for p in fragments(cells) if len(p) >= a.min_area]
     print(f'void columns with terrain: {len(cells)}   fragments >= {a.min_area} columns: '
           f'{len(patches)}\n')
 
-    # ATTACHED OR DETACHED, which is the distinction VOID_MARGINS actually draws: "Attached
-    # shelves give way to detached blocks, smaller fragments and finally empty space." Grouping
-    # by majority biome instead hid the belt entirely -- the inner debris is CONNECTED to the
-    # Verge shelf, so a flood fill merges the two and the verge's column count swallows it.
-    attached, detached = [], []
-    for patch in patches:
-        if any(cells[c][1] == 'alfheim:void_verge' for c in patch):
-            attached.append(patch)
-        else:
-            detached.append(patch)
+    # THE MAINLAND IS THE LARGEST CONNECTED PIECE, and everything else is an island. An
+    # earlier version called a fragment "attached" when it merely contained a void_verge
+    # column, which is a biome test rather than a connectivity test: as the belt broke up, its
+    # separate landmasses kept their verge columns and went on being counted as attached. A
+    # connected component is already the answer to "is this one landform"; the only question
+    # left is which component is the shore you walked in from.
+    main = max(patches, key=len)
+    main_set = set(main)
+    islands = [g for g in patches if g is not main]
 
     def summarise(label, group):
         if not group:
-            print(f'{label:24s} none')
+            print(f'{label:26s} {"none":>6}')
             return
         areas = sorted(len(g) for g in group)
         big = sum(1 for g in group
                   if len(g) >= LANDING_AREA and largest_square(set(g)) >= LANDING_SIDE)
-        print(f'{label:24s} {len(group):6d} {sum(areas):9d} {areas[len(areas) // 2]:7d} '
+        print(f'{label:26s} {len(group):6d} {sum(areas):9d} {areas[len(areas) // 2]:7d} '
               f'{areas[-1]:8d} {big:8d}')
 
-    print(f"{'':24s} {'frags':>6} {'columns':>9} {'median':>7} {'largest':>8} {'>=14x14':>8}")
-    summarise('attached to the Verge', attached)
-    summarise('detached fragments', detached)
+    xs = [c[0] for c in main]; zs = [c[1] for c in main]
+    print(f"{'':26s} {'pieces':>6} {'columns':>9} {'median':>7} {'largest':>8} {'>=14x14':>8}")
+    summarise('mainland (1 piece)', [main])
+    summarise('islands', islands)
+    print(f'  mainland bbox {max(xs) - min(xs) + 1} x {max(zs) - min(zs) + 1} blocks')
 
-    # Does the belt actually thin outward? Distance from the nearest attached landmass is the
-    # honest proxy: continentalness is not stored in the chunk, but "how far from solid ground"
-    # is exactly what the player experiences.
-    if attached and detached:
-        anchor = set()
-        for g in attached:
-            anchor.update(g)
+    # Does the belt thin outward? Distance from the MAINLAND edge, which is what the player
+    # crosses. VOID_MARGINS section 1: "Fragments become smaller and rarer outward. Their
+    # disappearance is part of the landscape."
+    if islands:
+        edge = [c for c in main_set
+                if any((c[0] + dx, c[1] + dz) not in main_set
+                       for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)))]
         buckets = collections.defaultdict(list)
-        for g in detached:
+        for g in islands:
             cx = sum(c[0] for c in g) / len(g)
             cz = sum(c[1] for c in g) / len(g)
-            best = min(((cx - ax) ** 2 + (cz - az) ** 2) for ax, az in anchor)
-            d = int(best ** 0.5)
-            buckets[min(d // 32, 6)].append(len(g))
-        print(f"\n{'distance from solid ground':30s} {'frags':>6} {'median area':>12} "
+            d = min((cx - ax) ** 2 + (cz - az) ** 2 for ax, az in edge) ** 0.5
+            buckets[min(int(d) // 24, 5)].append(len(g))
+        print(f"\n{'distance from the mainland':28s} {'islands':>8} {'median area':>12} "
               f"{'largest':>8}")
         for k in sorted(buckets):
             areas = sorted(buckets[k])
-            lo = k * 32
-            label = f'{lo}-{lo + 31} blocks' if k < 6 else '192+ blocks'
-            print(f'{label:30s} {len(areas):6d} {areas[len(areas) // 2]:12d} {areas[-1]:8d}')
+            lo = k * 24
+            label = f'{lo}-{lo + 23} blocks' if k < 5 else '120+ blocks'
+            print(f'{label:28s} {len(areas):8d} {areas[len(areas) // 2]:12d} {areas[-1]:8d}')
+        far = max(
+            min((sum(c[0] for c in g) / len(g) - ax) ** 2
+                + (sum(c[1] for c in g) / len(g) - az) ** 2 for ax, az in edge) ** 0.5
+            for g in islands)
+        print(f'furthest island from the mainland: {far:.0f} blocks')
 
     # Terminal landings: check_void_surface_support wants 1,800 solid blocks and 14x8x14 in
-    # Starless Reach. Report whether any fragment there could host one.
+    # Starless Reach, inside continentalness -0.94..-0.925.
     terminal = [g for g in patches
                 if collections.Counter(cells[c][1] for c in g).most_common(1)[0][0]
                 == 'alfheim:starless_reach']
@@ -177,15 +193,7 @@ def main():
     if not any(len(g) >= LANDING_AREA and largest_square(set(g)) >= LANDING_SIDE
                for g in terminal):
         print('  NO fragment there clears the 14x14 footprint last_watch and starless_orrery '
-              'need\n  (check_void_surface_support: 1,800 solid blocks, 14x8x14, '
-              'continentalness -0.94..-0.925)')
-
-    biggest = max(patches, key=len)
-    xs = [c[0] for c in biggest]; zs = [c[1] for c in biggest]
-    print(f'\nlargest fragment overall: {len(biggest)} columns, bbox '
-          f'{max(xs) - min(xs) + 1} x {max(zs) - min(zs) + 1} blocks '
-          f'-- one fragment spanning the whole sampled region would be the '
-          f'"accidental walkable road" VOID_MARGINS warns against')
+              'need')
     return 0
 
 

@@ -211,11 +211,65 @@ surface rules are gated on the biome and the plot noise, not on the terrace weig
 Static: 13 guards pass, including `check_golden_terraces` G1–G7, `check_void_geology` 8/8
 self-tested, `check_structure_detail` 0 problems, `check_worldgen` W7.
 
+#### The second verification pass, 2026-09-09/10 — and what it overturned
+
+**The terracing was doing nothing, and only a control world could show it.** The repair above
+reported 27.7% of Golden Fields columns on one residue, down from a rejected 68.7%, and read
+that as gentle terracing. A baseline world — same seed, same patch, generated from
+`void_final_density(include_terraces=False)` — returns **27.8%**, and a deep-void share of
+**3.42%** against the treatment's 3.42%. Identical. On-tread share has no meaningful zero:
+untouched terrain returns 27.8% here, so every reading between 27 and 28 looked like a result.
+
+The climate ramps carry the coverage, so they are restored to their 2026-09-08 values, and the
+amplitude stays at half the rejected build's. Every row below is against its own control:
+
+| amplitude | ramps | on one residue | delta |
+|---|---|--:|--:|
+| (none) | — | 27.8% | 0 — the control |
+| 0.20 / 0.30 / 0.45 | narrow | 27.4 / 27.7 / 28.0% | −0.4 / −0.1 / +0.2 — indistinguishable |
+| **0.30** | **wide** | **31.8%** | **+4.0 — shipped** |
+| 0.45 | wide | 33.8% | +6.0 |
+| 0.60 | wide | 68.7% | +41 — the rejected build, different seed |
+
+Containment holds with the ramps restored, because the temperature ramp added in this repair is
+what the 2026-09-08 build lacked: **Silverbark Wood 25.5% treatment against 25.6% control**,
+Dreamwood 25.4% against 25.4%, deep band 3.42% either way.
+
+**And the field decoration is decoupled from the terrain entirely.** Golden Fields surface
+composition, treatment against control: dirt path 34.7% / 34.4%, farmland 16.4% / 16.4%, wheat
+7.3% / 7.3%, moonstone retaining-wall brick 4.2% / 4.1%. The surface rules read the biome and
+the plot noise, not the terrace weight, so the fields read as worked country regardless of how
+the density addend is tuned. Whatever the amplitude ends up being, that look is stable.
+
+**The structure repair, confirmed at runtime.** Across 8,040 generated chunks the entire world
+contains 94 bookshelves, 70 barrels, 3 cauldrons, 1 lectern, 1 crafting table, 1 brewing stand
+and **zero decorated pots** — exactly the hand-placed set, each appearing once. Before the
+repair a single `faultwork/wing` template carried 157 furniture blocks. 16 structure types
+placed across 40 starts, so nothing stopped generating.
+
+**The void belt was one landmass, and the threshold had to move.** Coverage said it was working;
+measuring it as landforms said otherwise — 103,440 of 103,937 void columns in a single mass
+welded to the Verge, against 413 columns of detached debris. Correlated noise percolates, so the
+cut went from −0.18/0.46 to 0.30/0.62 and the belt came apart. Three separated rim segments now
+each show one broad landmass plus 31–73 detached islands, 2–4 of them clearing a 14×14 footprint,
+reaching 156–264 blocks out. Detail in `VOID_MARGINS.md` §6.
+
+**The load boundary is clean.** Six headless server generations, every one exit 0, KubeJS
+startup and server logs at zero errors. The single warning is a pre-existing MythicBotany recipe
+wanting `feywild:lesser_fey_gem` from a mod the pack does not install — unrelated, spun off.
+
 **Still open.**
 
 - **A client walk.** Every number above is read from region files. Nobody has stood in any of it.
-  The terracing in particular is now subtle by measurement, and whether that reads as "gradual
-  laid out terraces" or as "no terraces" is a judgement the metric cannot make.
+  The terracing is +4.0 points over its control on a hilly, fragmented patch; whether that reads
+  as "gradual laid out terraces" is a judgement the metric cannot make, and the ramps are the
+  knob if it wants to be stronger.
+- **The terminal landing in Starless Reach is an area problem, not a density one.** That biome
+  occupies 143 columns of the sampled area against the Verge's 76,146, so
+  `check_void_surface_support`'s 14×8×14 requirement has no host at any density. It needs a wide
+  survey for a shallow continentalness gradient, not another density edit. A broad `landing_swell`
+  term was tried and removed the same day: at an ~800-block period it was a constant offset
+  inside a 384-block patch and changed nothing measurable.
 - The six structure families still need the visual review B-91 was waiting on.
 - Volume-checked terminal landings in the void: the belt now supplies roughly 10% solid in the
   strip `check_void_surface_support` reserves, but no landing has been confirmed in a real chunk.
