@@ -1,5 +1,80 @@
 # Execution State
 
+## Latest implementation — the September 9 field review, three worldgen regressions — 2026-09-09
+
+A client walk of `saves/New World Cherish` rejected three shipped systems at once. All three were
+reproduced against that save before anything changed — 22,800 chunks read straight out of the
+region files — so the diagnosis describes the world the reviewer was standing in. B-93 carries the
+full record; this is the operational state.
+
+**All three shared one shape of defect: a guard that measured a proxy instead of the invariant.**
+
+| system | the guard said | what it did not assert |
+|---|---|---|
+| terraces | the sawtooth stays within ±0.5 (G5) | that it returns to **zero** outside its band — a saturated constant satisfies a bound |
+| terraces | the weight is 0.0 outside the climate box (G3) | it swept continentalness and weirdness, the two axes Golden Fields and Silverbark Wood **share**, and not temperature, the one that separates them |
+| void | the debris shaping noises are absent from final density (VG3) | that the far field is empty and fragments stay masked — the rule would have passed an unbounded field written from any other noise |
+| structures | per-family detail floors (D1/D2) | *what* the detail was; 1,622 misplaced blocks raised the share it measures |
+
+Each guard was repaired to assert the invariant directly, and each repair is proven to fire against
+the pre-fix input: G7 catches the old saw at 290 block levels, VG3a/VG3b/VG3c are covered by
+`check_void_geology --self-test` at 8/8, and G3 now sweeps temperature.
+
+**Three commits, each a bounded unit.**
+
+| commit | change |
+|---|---|
+| `7d591b12` | the debris belt gets terrain; the Verge gets its dry plain at Y 71 |
+| `d8cdbf52` | `dress()` can no longer choose what a building contains; 1,622 → 150 blocks |
+| `bca3c54e` | the saw returns to zero, the weight gains temperature, amplitude cut |
+| `22ac3b9f` | the belt gets a skyline; two measurement tools the project lacked |
+| *(head)* | the belt drops to shelf level, the Verge gets an underside, amplitude settled at 0.30 on four measured points |
+
+**One premise unblocked another repair.** The debris field had been removed on the grounds that
+cell interpolation could carry a splinter past its mask. B-86 disproved that on 2026-09-08 —
+`alfheim_final` holds no `minecraft:interpolated`, the markers are inside `alfheim_height` and
+`alfheim_caves`, so the branch is evaluated per block — but the finding was recorded only in
+`gen_deep_terrain` and never carried back to `gen_void_worldgen`. Rebuilding the belt was possible
+because a measurement from one target was applied to another.
+
+**Current acceptance: fresh-world validated for the two terrain systems; static for the
+structures.** 13 guards pass. Six server generations across four worlds.
+
+**What the generated worlds added that static checking could not.** Three defects, all of them
+invisible to a density-function reading and obvious in a cross-section:
+
+1. *A flat lid on the debris belt.* The envelope's upper edge was steeper than the fragment noise
+   and therefore decided every top — 74% of shatterfields columns at exactly Y 92.
+2. *Islands in the sky.* The belt sat Y 85–110 above a Verge shelf at Y 71, so the fragments read
+   as sky islands over intact ground rather than as land coming apart.
+3. *The fins in the screenshots.* The Verge had no underside at all, solid from the basal guard at
+   Y −54 to its surface, so a narrow continentalness footprint generated a 130-block curtain wall.
+
+All three are repaired and re-measured. The lesson worth keeping: **a density function can be
+correct at every sampled point and still produce the wrong landform.** The cross-section renderer
+in the scratchpad found in one image what four static probes did not.
+
+**And the terracing's dominant term was not the one the project thought.** Four fresh worlds on one
+seed reading the same patch: amplitude 0.20 → 1.10×, 0.30 → 1.11×, 0.45 → 1.12×, against the
+rejected 0.60-with-wide-ramps at 2.75×. More than doubling the amplitude moves the result by six
+tenths of a point; the climate ramps decide almost everything. B-86 had the same measurement
+("tripling the amplitude bought eight points") and read it as an interpolation-cell ceiling. It was
+a coverage effect, and the 2026-09-08 ramp widening — not the amplitude — is what shipped the
+stacked floors. Recorded in `gen_golden_terraces` so the next person widens the right knob.
+
+**Next gate: a client walk.** Every number in B-93 is read from region files; nobody has stood in
+any of it. Three things need eyes rather than metrics:
+
+1. Whether the terracing at 1.11× reads as "gradual laid out terraces" or as no terraces at all.
+   It is deliberately subtle now, and the metric cannot make that call. The ramps are the knob.
+2. The void margin as a place — cliff readability, whether the buttes read as a broken edge, and
+   whether the debris is reachable and worth reaching.
+3. The six structure families, which is the review B-91 was already waiting on.
+
+**Known and deliberately out of scope.** The biome bands still run land → ocean → verge → debris,
+so the void is reached across water rather than from a dry approach. That is the standing
+`DEFICIENT_BIOMES.md` rejection; it needs the biome geography reordered and was not touched here.
+
 ## Latest planning — Alfheim Golems — 2026-09-09
 
 B-92 now owns a separate planned first-party mod, `alfheim_golems`. No Gradle scaffold, registered

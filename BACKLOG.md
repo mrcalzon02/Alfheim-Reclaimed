@@ -1,5 +1,227 @@
 # Backlog
 
+### B-93 — The September 9 field review: three worldgen regressions — **REPAIRED; FRESH-WORLD MEASURED; CLIENT WALK PENDING**
+
+Reported from a client walk of `saves/New World Cherish`, in the reviewer's own priority order:
+the void biomes generating wrongly, the structure detail pass adding blocks that do not belong,
+and the terracing applying too persistently and too vertically. All three reproduced against that
+save before anything was changed — 22,800 chunks read straight out of the region files, so every
+number below describes the world the reviewer was standing in, not a prediction.
+
+#### 1. Four void biomes had no terrain at all
+
+`alfheim_final` returned a literal `-1.0` for every continentalness below `CLIFF` −0.86, while the
+biome layer places `shatterfields`, `prism_drift`, `rootfall` and `sepulchral_reach` in
+−0.925…−0.86 — entirely inside that air. Measured surface heights:
+
+| biome | columns | surface at or below Y −54 |
+|---|--:|--:|
+| shatterfields | 1,664 | 82% |
+| rootfall | 1,003 | 81% |
+| prism_drift | 609 | 79% |
+| sepulchral_reach | 460 | 66% |
+| starless_reach | 349 | 62% |
+
+The whole debris belt of `VOID_MARGINS.md` was empty void down to the basal guard slab. Separately
+`void_verge` had 75% of its columns at Y 1–40: a sunken basin, not the "broad dry plain" §2 asks
+for, because the shore blend ran from `CLIFF` and left the outer third of the biome on ocean
+density.
+
+**Why it was empty, and why that reason no longer holds.** `gen_void_worldgen.density()` carried
+the note that the debris field was removed because "Minecraft's cell interpolation could carry an
+entire jagged splinter far beyond its pointwise mask". B-86 measured that premise false on
+2026-09-08 and the measurement was recorded in `gen_deep_terrain` but never carried back here: the
+`minecraft:interpolated` markers live inside `alfheim_height` and `alfheim_caves`, not on this
+branch, so an expression at the `alfheim_final` level is evaluated per block at full resolution.
+That is why a 4-block sawtooth survived there and why `size_vertical` 1 against 2 moved the
+on-tread share by 0.1 points. Mask and shape are read at the same block; a fragment cannot outrun
+its own mask.
+
+**Built.** A pointwise-masked fragment field on the three void shaping noises, bounded in Y by a
+trapezoid envelope that opens above sea level, with the solidity threshold interpolated across
+three control points — `CUT_INNER` at the cliff, `CUT_TERM` where the belt ends, `CUT_FAR` at the
+limit. One linear ramp could not do it: it either floods the middle belt or leaves the −0.94…−0.925
+strip that `check_void_surface_support` reserves for terminal landings with no host rock.
+
+| continentalness | solid | zone |
+|---|--:|---|
+| −0.865 | 59.1% | attached shelves welding to the cliff |
+| −0.880 | 48.9% | inner debris |
+| −0.900 | 34.9% | mid debris |
+| −0.925 | 17.5% | terminal band begins |
+| −0.940 | 9.5% | terminal landings |
+| −0.950 | 4.2% | last fragments |
+| −0.990 | literal −1.0 | absolute limit |
+
+Character comes from temperature and humidity — the same two fields `claims()` uses — so
+`prism_drift` reads sparsest at 22.2% and `sepulchral_reach` most continuous at 40.6%, without a
+biome test moving terrain. The Verge shelf now holds Y 71 across its whole band, with the descent
+into the sea in the last sliver of its own biome and `RIM` still strictly inside `BIOME_RIM` for
+`check_worldgen` W7.
+
+**Guard repaired, not weakened.** VG3 forbade the three shaping noises outright, which was a proxy
+for two invariants and would have passed an unbounded debris field written from any other noise.
+It is replaced by the invariants themselves: **VG3a** a literal −1.0 far-field cutoff at or below
+`FRINGE`; **VG3b** a structural tree walk proving no debris noise reaches the supported shore
+(set-difference cannot decide this — the same id legitimately appears inside the branch);
+**VG3c** the vertical envelope exists and opens above sea level. `--self-test` 8/8.
+
+**Not addressed, and it is not new.** The biome bands still run land → ocean → verge → debris, so
+the void is reached across water rather than from a dry approach. That is the `DEFICIENT_BIOMES.md`
+rejection, it needs the biome geography reordered, and it was out of scope for this repair.
+
+#### 2. The detail pass chose what buildings contain
+
+> "podiums and crafting blocks and anvils and all kinds of blocks added all over to all kinds of
+> structures where they definitely do not belong ... making all of the structures much much just
+> noisier not necessarily more detailed."
+
+The five layers derive their **candidates** from geometry, which is the property that lets one
+`sconces()` call work on a keep, a mine drift and a pixie cottage. `furnish()` inherited that and
+also made its **vocabulary** universal — bench, table, pot, cauldron, shelf, lectern, crate — and
+16 of the 18 call sites left `allow` unset. Censused over the 105 shipped templates:
+
+| | |
+|---|--:|
+| bookshelf | 496 |
+| decorated pot | 432 |
+| cauldron | 333 |
+| lectern | 309 |
+| everything else | 52 |
+| **total** | **1,622 in 48 of 105 templates** |
+
+Worst pieces: `faultwork/wing` 157, `deep_quarry/centre` 152, `deep_quarry/wing` 150,
+`elder_kings_tomb/wing` 91. A quarry with 150 bookshelves; 147 lecterns across the tombs.
+`floor_litter` compounded it at one loose block per floor cell at a flat rate — the same mistake
+`debris()`'s own docstring records being fixed one level up, an even scatter reading as texture
+rather than as a building that fell over.
+
+**Fixed at the source.** Geometry may choose *where*; it may not choose *what*. `dress()` now
+raises if `furniture` is passed without an explicit `furniture_allow`, so the blind default is
+unrepresentable rather than merely unused, and `floor_litter` is gone from the orchestrator. 32
+kwargs removed across five generators. **Result: 150 blocks in 23 templates, every one of them
+hand-placed** — the hub library's 94 bookshelves, 48 loot barrels, the single deliberate lectern.
+
+`debris()` stays. It walks the broken wall tops the decay pass left and drops heaps at the foot of
+the wall they fell from, in the collapse direction, from the piece's own rubble palette. It is
+content-aware by construction and it is what makes a ruin read as ruined.
+
+**Three pieces then fell under the detail floor, having been meeting it on the furniture. No floor
+was lowered.** Each got detail its own geometry can carry:
+
+| piece | share | what it got |
+|---|---|---|
+| `leyline/hub` | 2.5% → 3.0% | `LEY_KIT` had no `crystal` role, so `conduits()` and `crystal_sockets()` returned 0 on sight — in the one family whose whole premise is a mana channel |
+| `surface/harvest_crater` | 3.7% → 6.0% | corbels on a shattered rim; its own comment already said the detail here is geological |
+| `headworks/shaft` | 4.3% → 5.5% | a 4×4 chimney has no floor to furnish, no overhang to corbel and no wall run long enough for a conduit — what three centuries leave in an abandoned shaft is root, drip and web |
+
+#### 3. The terracing carved the deep and crossed the biome line
+
+**The sawtooth never returned to zero.** Outside Y 56…144 `frac` saturates against a staircase
+that has run out of risers, and the code clamped it — which turns a runaway into a *constant*, not
+into nothing. The saw sat at a flat −0.5 from Y 53 to bedrock and +0.5 above Y 148, and because
+the weight is a `flat_cache` with no vertical term, that constant applied down the whole column:
+−0.30 density through 118 blocks of deep rock. Measured, deep band Y −64…48:
+
+| surface biome | void | lava |
+|---|--:|--:|
+| golden_fields | **42.2%** | 2.03% |
+| dreamwood_forest | 25.3% | 1.22% |
+| alfheim_plains | 19.4% | 0.89% |
+
+That is the reviewer's "subterranean elements under lava pits". G5 never caught it because it
+asserts the ±0.5 **bound** and the tread peaks, and a saturated constant satisfies both. The saw is
+now windowed to exactly 0.0 outside the band. New **G7** asserts the absence and fires on the
+pre-fix saw at 290 block levels.
+
+**The weight read the two axes the biomes share and not the one that separates them.** Golden
+Fields and Silverbark Wood both span continentalness 0.15…0.30 and overlap in weirdness; only
+**temperature** tells them apart, at −0.3. There was no temperature term, so terracing crossed the
+boundary — 59.3% of Silverbark Wood columns on one residue against Golden Fields' 68.7%. A
+temperature ramp is added and G3 now sweeps that axis, so it can see a crossing it previously
+could not.
+
+**The amplitude was tuned against a metric that rewards the defect.** On-tread share rises as
+*every* column gets quantised, so it cannot tell terracing from a staircase. 0.60 put 68.7% of
+columns on one residue, 2.75× uniform, and the 2026-09-08 ramp widening lifted the aggregate
+further by saturating the weight over more of the biome — which is exactly "they apply far too
+persistently". `AMPLITUDE` 0.60 → 0.20 and the ramps are narrowed back. The sawtooth's rise per
+block goes 0.15 → 0.05, the same order as the terrain's own fall, so the surface pins where the
+ground is already gentle and is left alone where it is not. Worst-case disturbance anywhere in the
+world: 0.200 span, was 0.600.
+
+Also corrected: the interpolation-cell doctrine at the top of `gen_golden_terraces`, which the
+`size_vertical` probe disproved on 2026-09-08 and which was still being read as the reason the
+amplitude had to be high.
+
+#### Validation — fresh worlds
+
+Two new harnesses, because both measurements were being made by hand and one was not being made
+at all: `tools/run_terrace_validation.py` (the server locates and force-generates its own Golden
+Fields *and* Silverbark Wood patches) and `tools/probe_terraces.py` (on-tread share per biome,
+deep-void share per **surface** biome — the second is what caught the sawtooth reaching bedrock,
+and nothing in the repo measured it).
+
+**The void, seed `alfheim-deep-terrain-20260905`.** Share of columns carrying terrain:
+
+| | before | after |
+|---|--:|--:|
+| shatterfields | 18% | **93%** |
+| rootfall | 19% | **96%** |
+| prism_drift | 21% | **93%** |
+| sepulchral_reach | 34% | **92%** |
+| void_verge | 13% | **100%**, median Y 71 |
+
+**Three defects the generated worlds found that the static model could not.**
+
+1. *A flat lid.* The debris envelope's upper edge spanned 14 blocks and was far steeper than the
+   fragment noise, so it decided every top: 74% of shatterfields columns at exactly Y 92. Widened
+   to 40 blocks with a bounded low-frequency offset — 74% → 15%, range Y 71–111.
+2. *Islands in the sky.* The band sat Y 85–110 while the Verge shelf it broke off sits at Y 71,
+   so the fragments read as sky islands over intact ground. Lowered to straddle the shelf.
+3. *The fins from the screenshots.* The Verge had no underside — solid from the basal guard at
+   Y −54 to its surface — so wherever its continentalness footprint was narrow it generated a
+   130-block curtain wall. It now has a wandering base around Y 13, leaving roughly 60 blocks of
+   ground and a deep cliff. `VG6` bounds the wander so it cannot eat the support structures need.
+
+**The terracing, seed `alfheim-terrace-20260909`, same patch at (−64, 0), 1,432 columns each:**
+
+| amplitude | ramps | on one residue | | |
+|---|---|--:|--:|---|
+| 0.60 | wide | 68.7% | 2.75× | rejected — "multiple floors stacked" |
+| 0.20 | narrow | 27.4% | 1.10× | |
+| 0.30 | narrow | 27.7% | 1.11× | **shipped** |
+| 0.45 | narrow | 28.0% | 1.12× | |
+
+**And the amplitude was never the dominant term.** More than doubling it moves the on-tread share
+by six tenths of a point. The climate ramps decide almost everything, which means the 2026-09-08
+widening — not the amplitude rise that accompanied it — is what produced the stacked floors. B-86
+measured this itself ("tripling the amplitude bought eight points") and read it as an
+interpolation-cell ceiling; it was a coverage effect. To make the terraces more visible, widen the
+ramps a little at a time with a measurement each time, and leave the amplitude alone.
+
+Containment holds: **Silverbark Wood 59.3% → 25.4%**, against a 25.0% uniform baseline, on 18,648
+columns. Dreamwood Forest 25.4%, Alfheim Plains 26.6% — the whole rest of the world is untouched.
+The deep-void anomaly is gone: no biome now reads anywhere near the 42.2% Golden Fields showed.
+
+The surface decoration is unaffected and still reads as worked country — 34.4% dirt path, 22.4%
+coarse dirt, 16.5% farmland, 7.3% wheat, 4.1% moonstone retaining-wall brick — because those
+surface rules are gated on the biome and the plot noise, not on the terrace weight.
+
+Static: 13 guards pass, including `check_golden_terraces` G1–G7, `check_void_geology` 8/8
+self-tested, `check_structure_detail` 0 problems, `check_worldgen` W7.
+
+**Still open.**
+
+- **A client walk.** Every number above is read from region files. Nobody has stood in any of it.
+  The terracing in particular is now subtle by measurement, and whether that reads as "gradual
+  laid out terraces" or as "no terraces" is a judgement the metric cannot make.
+- The six structure families still need the visual review B-91 was waiting on.
+- Volume-checked terminal landings in the void: the belt now supplies roughly 10% solid in the
+  strip `check_void_surface_support` reserves, but no landing has been confirmed in a real chunk.
+- The approach to the void is still across water — the standing `DEFICIENT_BIOMES.md` rejection,
+  which needs the biome geography reordered rather than the density adjusted.
+
 ### B-92 — Alfheim Golems — **IMPLEMENTATION PLANNED 2026-09-09; NO MOD SCAFFOLD OR CONTENT YET**
 
 Build a separately versioned first-party `alfheim_golems` mod for deterministic workshop assistants,
@@ -30,7 +252,12 @@ loss, no forced chunk loading, execution-time claim checks, explicit machine ada
 scheduling, fresh-world Deep spawn/loot measurement and exactly-once consumable summon behavior.
 All gates are Codex-run and automated; no owner-run playtest or manual visual review is required.
 
-### B-91 — The structure detail pass, all six families — **STATIC IMPLEMENTED 2026-09-08; CLIENT REVIEW PENDING**
+### B-91 — The structure detail pass, all six families — **REJECTED AT CLIENT REVIEW 2026-09-09; REPAIRED UNDER B-93**
+
+> The client review this item was waiting for happened on 2026-09-09 and rejected the pass's
+> fifth layer. The vocabulary was universal where the placement was geometric, so 1,622 blocks
+> landed in structures that have no use for them. The architectural layers below stand; the
+> human-scale residue layer does not. See **B-93 §2** for the measurement and the repair.
 
 `THE_SURFACE.md` pass 5 (hero detail) and pass 7 (quarry discovery value), plus the same treatment
 for the five sets that were never in that document's scope. Closes B-83 item 5.
@@ -374,7 +601,14 @@ dimensional, so the two checks can in principle disagree and leave a mine head o
 Whether that actually happens needs a wider sample than two placements. Client visual review of
 the head, the shaft descent and the junction with the complex is also open.
 
-### B-86 — Golden Fields terracing — **CALIBRATED IN FRESH WORLDS; CLIENT REVIEW PENDING**
+### B-86 — Golden Fields terracing — **REJECTED AT CLIENT REVIEW 2026-09-09; REPAIRED UNDER B-93**
+
+> The client review this item was waiting for happened on 2026-09-09 and rejected the result.
+> Three defects: the sawtooth returned to a bounded constant rather than to zero and carved
+> 118 blocks of deep rock; the weight had no temperature term and so could not tell Golden
+> Fields from Silverbark Wood; and the amplitude had been tuned against on-tread share, a
+> metric that rises as the defect worsens. See **B-93 §3**. The numbers recorded below were
+> read under the interpolation-cell theory, which was later disproved — read them with that.
 
 Asked 2026-09-08, via a design brief: rework Golden Fields from "a vaguely hilly biome with
 random stamps of wheat smashed into the surface" into terraced, organised fields integrated with

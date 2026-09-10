@@ -4,6 +4,41 @@ Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EX
 
 ---
 
+## 0.23.1-design — 2026-09-09
+
+Repairs the three worldgen regressions found in the September 9 field review. Static validation
+only; none of the three has been seen in a fresh world yet.
+
+- **The void debris belt has terrain again.** `shatterfields`, `prism_drift`, `rootfall` and
+  `sepulchral_reach` were generating as empty void down to the bedrock guard slab — 82%, 79%, 81%
+  and 66% of their columns had their surface at or below Y −54. They now carry a fragment field
+  that welds to the cliff at 59% solid and fades to a literal −1.0 by continentalness −0.99, with
+  each biome's density set by the same temperature and humidity that claim it.
+- **The Void Verge is a dry plain again.** It had 75% of its columns at Y 1–40, a sunken basin;
+  the shelf now holds Y 71 across the whole biome and meets the sea in its own last sliver.
+- **Structures no longer receive furniture they have no use for.** The detail pass placed 1,622
+  blocks across 48 of 105 templates from one universal catalogue — 309 lecterns, 496 bookshelves,
+  333 cauldrons, 432 decorated pots, including a quarry with 150 bookshelves and 147 lecterns
+  through the tombs. Down to 150, and every remaining one is hand-placed. The architectural and
+  decay layers are untouched.
+- **The Golden Fields terracing no longer reaches the deep.** Its sawtooth held a constant −0.5
+  below Y 53 instead of returning to zero, which subtracted 0.30 density through 118 blocks of
+  rock and left the deep band under Golden Fields 42.2% void against 25.3% under Dreamwood Forest,
+  with lava exposure nearly doubled. It is now exactly zero outside its band.
+- **The terracing stays inside Golden Fields.** Its weight had no temperature term, the only
+  climate axis separating Golden Fields from Silverbark Wood, so 59.3% of Silverbark columns were
+  being quantised too.
+- **The terracing is much gentler.** The climate ramps are narrowed back and the amplitude is
+  0.30, measured across four fresh worlds: Golden Fields goes from 68.7% of columns pinned to one
+  residue down to 27.7%, against a 25.0% uniform baseline. Silverbark Wood, which was being
+  terraced at 59.3%, is back to 25.4%. The worked-ground look is unaffected — paths, farmland and
+  retaining walls are painted by surface rules that read the biome, not the terrain.
+- **The Void Verge is land rather than a curtain.** It had no underside, so where its footprint
+  was narrow it generated as a 130-block wall from bedrock up — the vertical fins in the field
+  review's screenshots. It now has a wandering base around Y 13.
+- **The debris sits where it broke from.** The belt first generated at Y 85–110, above the Y 71
+  shelf, which read as sky islands over intact ground. It now straddles the shelf, and its ceiling
+  wanders instead of planing every fragment to one height.
 ## 0.23.0-design — 2026-09-08 — the structure detail pass
 
 Every structure the pack ships — 105 templates in six families — went through the hero-detail pass

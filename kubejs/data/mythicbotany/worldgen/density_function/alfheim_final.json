@@ -28,8 +28,8 @@
               "type": "minecraft:min",
               "argument1": {
                 "type": "minecraft:y_clamped_gradient",
-                "from_y": 68,
-                "to_y": 78,
+                "from_y": 64,
+                "to_y": 70,
                 "from_value": -1,
                 "to_value": 1
               },
@@ -37,8 +37,8 @@
                 "type": "minecraft:add",
                 "argument1": {
                   "type": "minecraft:y_clamped_gradient",
-                  "from_y": 84,
-                  "to_y": 124,
+                  "from_y": 68,
+                  "to_y": 96,
                   "from_value": 1,
                   "to_value": -1
                 },
@@ -271,34 +271,57 @@
               }
             },
             "argument2": {
-              "type": "minecraft:add",
+              "type": "minecraft:min",
               "argument1": {
-                "type": "minecraft:y_clamped_gradient",
-                "from_y": 62,
-                "to_y": 82,
-                "from_value": 1,
-                "to_value": -1
+                "type": "minecraft:add",
+                "argument1": {
+                  "type": "minecraft:y_clamped_gradient",
+                  "from_y": 62,
+                  "to_y": 82,
+                  "from_value": 1,
+                  "to_value": -1
+                },
+                "argument2": {
+                  "type": "minecraft:add",
+                  "argument1": {
+                    "type": "minecraft:mul",
+                    "argument1": 0.18,
+                    "argument2": {
+                      "type": "minecraft:noise",
+                      "noise": "alfheim:void/relief",
+                      "xz_scale": 0.72,
+                      "y_scale": 0
+                    }
+                  },
+                  "argument2": {
+                    "type": "minecraft:mul",
+                    "argument1": 0.05,
+                    "argument2": {
+                      "type": "minecraft:noise",
+                      "noise": "alfheim:void/detail",
+                      "xz_scale": 0.62,
+                      "y_scale": 0
+                    }
+                  }
+                }
               },
               "argument2": {
                 "type": "minecraft:add",
                 "argument1": {
-                  "type": "minecraft:mul",
-                  "argument1": 0.18,
-                  "argument2": {
-                    "type": "minecraft:noise",
-                    "noise": "alfheim:void/relief",
-                    "xz_scale": 0.72,
-                    "y_scale": 0
-                  }
+                  "type": "minecraft:y_clamped_gradient",
+                  "from_y": 4,
+                  "to_y": 22,
+                  "from_value": -1,
+                  "to_value": 1
                 },
                 "argument2": {
                   "type": "minecraft:mul",
-                  "argument1": 0.05,
+                  "argument1": 0.5,
                   "argument2": {
                     "type": "minecraft:noise",
-                    "noise": "alfheim:void/detail",
-                    "xz_scale": 0.62,
-                    "y_scale": 0
+                    "noise": "alfheim:void/rim_base",
+                    "xz_scale": 0.22,
+                    "y_scale": 0.0
                   }
                 }
               }
@@ -333,7 +356,7 @@
     "argument1": "alfheim:fields/terrace_weight",
     "argument2": {
       "type": "minecraft:mul",
-      "argument1": 0.2,
+      "argument1": 0.3,
       "argument2": "alfheim:fields/terrace_saw"
     }
   }

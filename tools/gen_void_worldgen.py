@@ -43,9 +43,21 @@ FRINGE=-0.99
 # prism_drift, 49% of rootfall. A debris belt planed off to one height is a table, not a break.
 # The fall now spans 40 blocks rather than 14, so the fragment field's own vertical variation
 # is the larger term, and CEILING_WANDER moves the crossing itself by roughly +/-9 blocks.
-DEBRIS_Y_RISE=(68,78)
-DEBRIS_Y_FALL=(84,124)
+# LOWERED after the first cross-section. At (68,78)/(84,124) the belt sat Y 85..110 while the
+# Verge shelf it is meant to have broken off sits at Y 71, so the fragments read as islands in
+# the sky above intact ground rather than as the land coming apart. The band now straddles the
+# shelf: solid from about Y 67 to about Y 82, tops wandering Y 73..91.
+DEBRIS_Y_RISE=(64,70)
+DEBRIS_Y_FALL=(68,96)
 CEILING_WANDER=0.45
+# The Verge is land, not a curtain. Without a base the shelf was solid from the basal guard at
+# Y -54 all the way to its surface, so wherever its continentalness footprint was narrow it
+# generated as a 130-block wall -- the vertical fins the September 9 field review photographed.
+# It now has an underside around Y 13, wandering, which leaves a deep cliff face and a slab of
+# ground roughly 60 blocks thick: enough to carry the structures check_void_surface_support
+# requires, and little enough to read as the edge of a broken world.
+RIM_BASE=(4,22)
+RIM_BASE_WANDER=0.5
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
 # that get rarer AND smaller together, because raising a threshold on smooth noise trims the
@@ -139,7 +151,13 @@ def density(normal, shore_normal=None):
     # breakline. Keep only broad, low-amplitude relief around a Y=72 median.
     rim_relief=binary('add',binary('mul',0.18,noise('relief',0,xz=0.72)),
                       binary('mul',0.05,noise('detail',0,xz=0.62)))
-    rim=binary('add',gradient((62,82),1,-1),rim_relief)
+    rim_top=binary('add',gradient((62,82),1,-1),rim_relief)
+    # min() with a rising base turns the shelf from a full-depth curtain into a slab of land.
+    # The wander keeps the underside from being a machined plane, which is the same mistake
+    # the debris ceiling made and the same fix.
+    rim_base=binary('add',gradient(RIM_BASE,-1,1),
+                    binary('mul',RIM_BASE_WANDER,noise('rim_base',0.0,0.22)))
+    rim=binary('min',rim_top,rim_base)
 
     # The previous final range_choice jumped directly from `normal` density to `rim`
     # at RIM. That discontinuity is the vertical wall in the September field screenshot:
@@ -215,7 +233,11 @@ def extra_files():
                              ('shape',-4,[1,0.5]),('pressure_plates',-4,[1,0.5]),
                              ('fault_needles',-3,[1,0.45]),('prism_cores',-4,[1,0.55]),
                              ('split_seams',-3,[1,0.5]),('root_ribs',-3,[1,0.48]),
-                             ('burial_beds',-5,[1,0.45]),('astralite_flecks',-2,[1,0.35])]:
+                             ('burial_beds',-5,[1,0.45]),('astralite_flecks',-2,[1,0.35]),
+                             # Its own channel: the debris shaping noises are barred from the
+                             # supported shore by VG3b, and rightly -- reusing one here would
+                             # break up the shelf the player is promised.
+                             ('rim_base',-6,[1,0.4])]:
         emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
     emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
     # REMOVE phase runs after all ADD modifiers. Conventional liquid pools must

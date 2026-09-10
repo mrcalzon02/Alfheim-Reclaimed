@@ -73,7 +73,30 @@ WORLD_LO, WORLD_HI = -64, 320
 # overwhelms the natural fall everywhere the weight is non-zero. At 0.20 it is 0.05, the same
 # order as the terrain's own gradient, so the surface pins where the ground is already gentle
 # and is left alone where it is not. The selectivity is the point, not the average.
-AMPLITUDE = 0.20
+#
+# CALIBRATED IN FRESH WORLDS. Four points, all on seed alfheim-terrace-20260909 reading the
+# same Golden Fields patch at (-64, 0), 1,432 surface columns each, via
+# run_terrace_validation.py + probe_terraces.py:
+#
+#     0.60, WIDE ramps      68.7% on one residue   2.75x   REJECTED: "multiple floors stacked"
+#     0.20, narrow ramps    27.4%                  1.10x
+#     0.30, narrow ramps    27.7%                  1.11x
+#     0.45, narrow ramps    28.0%                  1.12x
+#
+# AND THE AMPLITUDE IS NOT THE DOMINANT TERM. Between 0.20 and 0.45 -- more than doubling it --
+# the on-tread share moves by six tenths of a point. The climate ramps decide almost everything:
+# the 2026-09-08 widening, not the amplitude rise that accompanied it, is what turned mild
+# terracing into the stacked floors the review rejected. That is consistent with B-86's own
+# measurement, which recorded that tripling the amplitude bought eight points, and it was
+# misread at the time as an interpolation-cell ceiling.
+#
+# So the amplitude is set to the middle of the tested range rather than the top of it: past
+# roughly 0.30 the extra density disturbance buys nothing measurable, and the whole point of a
+# small addend is that it cannot move terrain it was not meant to touch.
+#
+# TO MAKE THE TERRACES MORE VISIBLE, WIDEN THE RAMPS, NOT THIS. And do it a little at a time,
+# with a fresh-world measurement each time, because that is the knob that produced the defect.
+AMPLITUDE = 0.30
 
 # --- the climate window -----------------------------------------------------------------------
 # Golden Fields occupies cont 0.15..0.30, weird 0..1 (see BIOME_INDEX.md §3). The terracing is

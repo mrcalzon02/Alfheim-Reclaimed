@@ -180,7 +180,11 @@ def validate(catalog,out,density):
                             (node.get('argument2'),node.get('argument1'))):
             if isinstance(scalar,(int,float)) and isinstance(term,dict) and term.get('type')=='minecraft:noise':
                 multipliers.setdefault(term.get('noise'),[]).append(abs(float(scalar)))
-    limits={'alfheim:void/relief':0.18,'alfheim:void/detail':0.05}
+    from gen_void_worldgen import RIM_BASE_WANDER
+    limits={'alfheim:void/relief':0.18,'alfheim:void/detail':0.05,
+            # The shelf's underside may wander, but only within its declared bound -- an
+            # unbounded term here would eat the support structures stand on.
+            'alfheim:void/rim_base':RIM_BASE_WANDER}
     for noise_id,limit in limits.items():
         if max(multipliers.get(noise_id,[999]))>limit:
             fail('VG6',f'{noise_id} exceeds quiet gross-terrain amplitude {limit}')
