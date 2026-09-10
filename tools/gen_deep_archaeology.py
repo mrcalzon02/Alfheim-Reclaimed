@@ -946,19 +946,15 @@ DETAIL_KITS = {
 # the ley crystal that was the reason anyone dug there.
 DETAIL_TUNING = {
     "deep_quarry": dict(
-        dress=dict(corbel=0.22, conduit=0.45, sockets=3, sconce=0.60, sconce_spacing=6,
-                   furniture=0.45, floor_litter=0.06),
+        dress=dict(corbel=0.22, conduit=0.45, sockets=3, sconce=0.60, sconce_spacing=6),
         settle=dict(rubble=0.10, reach=3, weathering=0.08, seep="dust", seep_rate=0.09,
                     roots=0.09, webs=0.02)),
     "elder_kings_tomb": dict(
-        dress=dict(corbel=0.25, conduit=0.55, sockets=4, sconce=0.70, sconce_spacing=5,
-                   furniture=0.30, furniture_allow=("pot", "bench", "table", "shelf"),
-                   floor_litter=0.05),
+        dress=dict(corbel=0.25, conduit=0.55, sockets=4, sconce=0.70, sconce_spacing=5),
         settle=dict(rubble=0.07, reach=2, weathering=0.06, seep="damp", seep_rate=0.10,
                     roots=0.10, webs=0.06)),
     "faultwork": dict(
-        dress=dict(corbel=0.20, conduit=0.60, sockets=5, sconce=0.55, sconce_spacing=6,
-                   furniture=0.35, floor_litter=0.07),
+        dress=dict(corbel=0.20, conduit=0.60, sockets=5, sconce=0.55, sconce_spacing=6),
         settle=dict(rubble=0.13, reach=3, weathering=0.10, seep="damp", seep_rate=0.11,
                     roots=0.13, webs=0.04)),
 }
@@ -1022,15 +1018,30 @@ def build_outputs(check=False):
         seed = int(hashlib.sha1(f"headworks:{role}".encode()).hexdigest()[:8], 16)
         piece = builder(tuple(size), seed)
         kit = sd.Kit(**HEADWORKS_KIT)
-        counts = sd.dress(piece, seed, kit, ground=1, corbel=0.30, opening=0.50,
-                          conduit=0.55, sockets=2, sconce=0.70, sconce_spacing=4,
-                          furniture=0.45, floor_litter=0.08)
+        # Role-aware, because the two headworks pieces are not the same kind of place. The
+        # shaft is a vertical drop with a ladder in it: what it carries is bracing, conduit
+        # down the wall and light at every landing, not room articulation.
+        deep_shaft = (role == "shaft")
+        counts = sd.dress(piece, seed, kit, ground=1,
+                          corbel=0.80 if deep_shaft else 0.30,
+                          opening=0.75 if deep_shaft else 0.50,
+                          conduit=0.80 if deep_shaft else 0.55,
+                          sockets=6 if deep_shaft else 2,
+                          sconce=0.85 if deep_shaft else 0.70, sconce_spacing=3)
         # The shaft is a hole in the ground with a ladder in it: no rain reaches the bottom,
         # so its water arrives the same way the complex below it gets its water.
+        #
+        # It also gets the heavier decay, and that is not a metric dodge. A 4x4 chimney has
+        # no floor to furnish, no overhang to corbel and no wall run long enough to carry a
+        # conduit -- corbels, conduits and openings all returned 0 on it. What three hundred
+        # years actually leaves on the inside of an abandoned shaft is root, drip and web
+        # down every face, and that is the one layer its geometry can carry.
         counts.update(sd.aftermath(piece, seed, kit, ground=1, rubble=0.12, reach=2,
-                                   weathering=0.12, seep="damp", seep_rate=0.12,
-                                   roots=0.10, hang="drip", roofed_ok=(role == "shaft"),
-                                   webs=0.03))
+                                   weathering=0.12, seep="damp",
+                                   seep_rate=0.34 if deep_shaft else 0.12,
+                                   roots=0.30 if deep_shaft else 0.10, hang="drip",
+                                   roofed_ok=deep_shaft,
+                                   webs=0.12 if deep_shaft else 0.03))
         piece.prune_orphans()
         path = os.path.join(STRUCT, "headworks", role + ".nbt")
         nbt_expected[path] = piece.to_nbt()

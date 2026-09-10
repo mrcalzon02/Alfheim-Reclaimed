@@ -585,7 +585,7 @@ def build_castle(pal, s, ground, size, seed):
     # ground floor, and light and furniture in the rooms that had both.
     dress(p, seed, pal, ground,
           cornice=(wall_h - 2, ground + kh - 1), corbel=0.30, opening=0.70,
-          conduit=0.55, sockets=3, sconce=0.70, furniture=0.55, floor_litter=0.05)
+          conduit=0.55, sockets=3, sconce=0.70)
 
     keep_solid = {(x, ground - 1, z) for x in range(sx) for z in range(sz)}
     decay(p, seed, s['ruin'], ground, sy - 1, s['collapse'], keep=keep_solid)
@@ -728,7 +728,7 @@ def build_quarry(pal, s, ground, size, seed, ores=()):
     # benches, light down the ramp and crates on the floor are what make it read as a place
     # people worked rather than a hole of the right shape.
     dress(p, seed, pal, ground, corbel=0.35, conduit=0.30, sockets=2,
-          sconce=0.55, sconce_spacing=6, furniture=0.35, floor_litter=0.08)
+          sconce=0.55, sconce_spacing=6)
     settle(p, seed, pal, floor_y, rubble=0.11, reach=3, weathering=0.12,
            seep='dust', seep_rate=0.10, roots=0.05)
     connect(p)
@@ -829,9 +829,8 @@ def build_crater(pal, s, ground, size, seed):
 
     # Fused glass, exposed strata and a shattered rim: the detail here is geological, so the
     # sockets go into the crater wall and the weathering is ash rather than moss.
-    dress(p, seed, pal, ground - depth, corbel=0.10, sockets=4, sconce=0.0,
-          floor_litter=0.05)
-    settle(p, seed, pal, ground - depth, rubble=0.08, reach=4, weathering=0.15,
+    dress(p, seed, pal, ground - depth, corbel=0.55, sockets=7, sconce=0.0)
+    settle(p, seed, pal, ground - depth, rubble=0.08, reach=4, weathering=0.26,
            seep_rate=0.08, roots=0.0)
     connect(p)
     return p
@@ -916,8 +915,7 @@ def build_tower(pal, s, ground, size, seed):
     # reads as cantilevered without brackets under it.
     dress(p, seed, pal, ground,
           cornice=(top - 5, top - 1), corbel=0.45, opening=0.75,
-          conduit=0.60, sockets=2, sconce=0.80, sconce_spacing=4,
-          furniture=0.40, floor_litter=0.06)
+          conduit=0.60, sockets=2, sconce=0.80, sconce_spacing=4)
 
     decay(p, seed, s['ruin'], ground + int(h * 0.35), sy - 1, 'none')
     settle(p, seed, pal, ground, rubble=0.12, reach=4, weathering=0.25, seep_rate=0.16)
@@ -1002,7 +1000,7 @@ def build_hall(pal, s, ground, size, seed):
     # down both skirtings, so the hearth line is not the only thing in it.
     dress(p, seed, pal, ground,
           cornice=(ground + H - 1,), corbel=0.30, opening=0.80,
-          conduit=0.75, sockets=3, sconce=0.80, furniture=0.70, floor_litter=0.06)
+          conduit=0.75, sockets=3, sconce=0.80)
 
     keep_floor = {(x, ground - 1, z) for x in range(sx) for z in range(sz)}
     decay(p, seed, s['roof'], ground + H, sy - 1, 'none')
@@ -1071,7 +1069,7 @@ def build_aqueduct(pal, s, ground, size, seed):
     # brackets under the deck overhang, a moulded course at the springing line, and the
     # channel itself carrying the ley run that the water once did.
     dress(p, seed, pal, ground, cornice=(deck - 1,), corbel=0.50, opening=0.40,
-          conduit=0.45, sockets=2, sconce=0.25, furniture=0.10)
+          conduit=0.45, sockets=2, sconce=0.25)
     decay(p, seed, 0.22, deck, sy - 1, 'none')
     settle(p, seed, pal, ground, rubble=0.16, reach=4, weathering=0.20, seep_rate=0.22)
     weather(p, seed, pal)
@@ -1200,8 +1198,7 @@ def build_barrow(pal, s, ground, size, seed):
     # the grave goods and the webs all belong down there rather than out on the ring. The
     # ley channel matters here more than anywhere: a barrow is where the elves earthed one.
     dress(p, seed, pal, ground, corbel=0.20, opening=0.50,
-          conduit=0.65, sockets=2, sconce=0.85, sconce_spacing=4,
-          furniture=0.40, floor_litter=0.09)
+          conduit=0.65, sockets=2, sconce=0.85, sconce_spacing=4)
     settle(p, seed, pal, ground, rubble=0.08, reach=2, weathering=0.15, seep_rate=0.12,
            webs=0.06)
     weather(p, seed, pal)
@@ -1281,7 +1278,7 @@ def build_wreck(pal, s, ground, size, seed):
     # The hold gets cargo and lamps; nothing here gets a stone cornice, because none of it
     # is stone.
     dress(p, seed, pal, ground, corbel=0.25, conduit=0.50, sockets=3,
-          sconce=0.45, furniture=0.65, floor_litter=0.10)
+          sconce=0.45)
     settle(p, seed, pal, ground, rubble=0.13, reach=3, weathering=0.10, seep_rate=0.20,
            webs=0.04)
     weather(p, seed, pal)
@@ -1355,8 +1352,7 @@ def build_shrine(pal, s, ground, size, seed):
     # keeps its light. Furniture stays low -- nobody lived here, they stopped here.
     dress(p, seed, pal, ground,
           cornice=(base + colonnade_h + 2,), corbel=0.40, opening=0.35,
-          conduit=0.85, sockets=3, sconce=0.70, sconce_spacing=4,
-          furniture=0.20, floor_litter=0.06)
+          conduit=0.85, sockets=3, sconce=0.70, sconce_spacing=4)
 
     keep_deck = {(x, y, z) for x in range(sx) for z in range(sz)
                  for y in (ground - 1, base)}

@@ -1284,13 +1284,12 @@ def detail_hub(name, p, seed):
             # light and the traces of the people who used them.
             kit = sd.Kit(**TREE_KIT)
             counts.update(sd.dress(p, seed, kit, ground=ROOT_EMBED, sconce=0.45,
-                                   sconce_spacing=6, furniture=0.20, floor_litter=0.04))
+                                   sconce_spacing=6))
         return counts
     kit = sd.Kit(**COURT_KIT)
     ground = 4 if name.endswith('amphitheatre') else COURT_FLOOR_Y
     counts = sd.dress(p, seed, kit, ground=ground, corbel=0.25, opening=0.45,
-                      conduit=0.50, sockets=3, sconce=0.55, sconce_spacing=6,
-                      furniture=0.30, floor_litter=0.05)
+                      conduit=0.50, sockets=3, sconce=0.55, sconce_spacing=6)
     counts.update(sd.aftermath(p, seed, kit, ground=ground, rubble=0.10, reach=3,
                                rubble_on_solid=True, weathering=0.12, seep='moss',
                                seep_rate=0.16, roots=0.10, webs=0.02))

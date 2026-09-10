@@ -901,13 +901,32 @@ def cobwebs(p, seed, rate=0.05, y0=None):
 
 def dress(p, seed, kit, *, ground, cornice=(), trim_rate=0.85, corbel=0.0, opening=0.0,
           conduit=0.0, sockets=0, sconce=0.0, sconce_spacing=5, soul_light=False,
-          bracket_light=True, furniture=0.0, furniture_allow=None, floor_litter=0.0,
+          bracket_light=True, furniture=0.0, furniture_allow=None,
           interior_y=None):
     """Everything the building HAD, applied before the decay pass takes it apart.
 
     Returns a dict of counts, which every generator prints and `check_structure_detail.py`
     reads back off the shipped NBT.
+
+    NO CONTENT-BLIND LAYER RUNS FROM HERE. Field review 2026-09-09: the five layers below
+    derive their CANDIDATES from geometry, which is the property that lets one `sconces()`
+    call work on a keep, a mine drift and a pixie cottage. `furnish()` inherited that and
+    also made its VOCABULARY universal, and 16 of the 18 call sites left `allow` unset, so
+    every structure drew from the same list. The shipped result was 1,622 blocks across 48
+    of 105 templates -- 309 lecterns, 496 bookshelves, 333 cauldrons and 432 decorated pots,
+    including 147 lecterns through the tombs and a fault working carrying 157 of them.
+
+    Geometry may choose WHERE. It may not choose WHAT. `furniture` therefore requires an
+    explicit `furniture_allow`, so a caller that has not decided what belongs in this
+    particular building cannot get furniture by default. `floor_litter` is gone entirely:
+    it scattered one loose block per floor cell at a flat rate, which is the mistake
+    `debris()`'s own docstring records being fixed one level up -- an even scatter reads as
+    texture, not as a building that fell over.
     """
+    if furniture and furniture_allow is None:
+        raise ValueError(
+            'furniture requires an explicit furniture_allow: name what belongs in this '
+            'structure. A quarry does not have a lectern.')
     y0, y1 = interior_y if interior_y else (None, None)
     out = {}
     if cornice:
@@ -926,8 +945,6 @@ def dress(p, seed, kit, *, ground, cornice=(), trim_rate=0.85, corbel=0.0, openi
     if furniture:
         out['furniture'] = furnish(p, seed, kit, density=furniture, y0=y0, y1=y1,
                                    allow=furniture_allow)
-    if floor_litter:
-        out['litter'] = litter(p, seed, kit, density=floor_litter, y0=y0, y1=y1)
     return out
 
 

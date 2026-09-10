@@ -301,6 +301,10 @@ LEY_KIT = dict(
     wall=f'{NS}:leyline_livingrock_wall', pillar=f'{NS}:moonstone_livingrock_bricks',
     timber='botania:dreamwood_log', plank='botania:dreamwood_planks',
     fence='botania:dreamwood_fence', light='minecraft:lantern',
+    # The kit had no crystal role, so conduits() and crystal_sockets() both returned 0 on
+    # sight -- in the one family whose entire premise is a mana channel. Dawnglass is the
+    # corridor network's own alignment.
+    crystal=f'{NS}:dawnglass_cluster',
     rubble=[f'{NS}:cracked_livingrock', 'minecraft:gravel', f'{NS}:leyline_livingrock'])
 
 
@@ -314,11 +318,13 @@ def detail_section(piece, seed, name='straight'):
     """
     kit = sd.Kit(**LEY_KIT)
     grand = (name == 'hub')
+    # The hub carried its share on furniture until 2026-09-09. What a junction of four ley
+    # arteries actually has is conduit and node: the run continues across the room instead of
+    # stopping at the door, and the couplings that carry it are the detail.
     counts = sd.dress(piece, seed, kit, ground=FLOOR + 1, bracket_light=False,
                       sconce=0.80 if grand else 0.55, sconce_spacing=4 if grand else 6,
-                      furniture=0.35 if grand else 0.12,
-                      furniture_allow=None if grand else ('crate',),
-                      floor_litter=0.08 if grand else 0.05)
+                      conduit=0.55 if grand else 0.0, sockets=3 if grand else 0,
+                      corbel=0.30 if grand else 0.0)
     counts.update(sd.aftermath(piece, seed, kit, ground=FLOOR + 1, rubble=0.10, reach=1,
                                heap=2, seep='damp', seep_rate=0.07, roots=0.10, hang='drip',
                                roofed_ok=True, webs=0.03))
