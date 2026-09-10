@@ -135,19 +135,42 @@ def validate(catalog,out,density):
 
     # VG3c -- the debris field is bounded in Y by a gradient envelope that starts above sea
     # level, so no fragment can hang into the water table below or stack into a tower above.
-    envelopes=[n for n in walk(density)
-               if n.get('type')=='minecraft:min'
-               and isinstance(n.get('argument1'),dict)
-               and n['argument1'].get('type')=='minecraft:min'
-               and all(isinstance(a,dict) and a.get('type')=='minecraft:y_clamped_gradient'
-                       for a in (n['argument1'].get('argument1'),n['argument1'].get('argument2')))]
+    # The floor must be a bare gradient -- nothing may lift debris toward the water table. The
+    # ceiling may carry an offset, because a fixed one planes the whole belt to a single height
+    # (measured 2026-09-09: 74% of shatterfields tops at exactly Y 92), but that offset has to
+    # be bounded or the envelope stops bounding anything.
+    from gen_void_worldgen import CEILING_WANDER
+    envelopes=[]
+    for node in walk(density):
+        if node.get('type')!='minecraft:min': continue
+        inner=node.get('argument1')
+        if not (isinstance(inner,dict) and inner.get('type')=='minecraft:min'): continue
+        rise,ceiling=inner.get('argument1'),inner.get('argument2')
+        if not (isinstance(rise,dict) and rise.get('type')=='minecraft:y_clamped_gradient'): continue
+        if not any(isinstance(g,dict) and g.get('type')=='minecraft:y_clamped_gradient'
+                   for g in walk(ceiling)): continue
+        envelopes.append(ceiling)
     if DEBRIS_DENSITY_NOISES & density_strings:
         if not envelopes:
-            fail('VG3c','the debris field is not bounded by a y_clamped_gradient envelope; '
-                        'fragments could reach the water table or stack without limit')
+            fail('VG3c','the debris field is not bounded by a rising y_clamped_gradient floor '
+                        'and a falling ceiling; fragments could reach the water table or stack '
+                        'without limit')
         elif DEBRIS_Y_RISE[0]<64:
             fail('VG3c',f'debris envelope opens at y{DEBRIS_Y_RISE[0]}, at or below sea level 64; '
                         'detached debris must stay dry')
+        else:
+            for ceiling in envelopes:
+                for node in walk(ceiling):
+                    if node.get('type')!='minecraft:mul': continue
+                    for scalar,term in ((node.get('argument1'),node.get('argument2')),
+                                        (node.get('argument2'),node.get('argument1'))):
+                        if (isinstance(scalar,(int,float)) and isinstance(term,dict)
+                                and term.get('type')=='minecraft:noise'
+                                and abs(float(scalar))>CEILING_WANDER):
+                            fail('VG3c',f"ceiling offset on {term.get('noise')} is "
+                                        f"{abs(float(scalar))}, above the declared "
+                                        f"CEILING_WANDER {CEILING_WANDER}; an unbounded "
+                                        f"offset defeats the envelope")
     # Only broad, low-amplitude relief may shape the supported shore. All sharper
     # vocabulary belongs to bounded configured features beyond the cliff.
     multipliers={}
@@ -241,8 +264,8 @@ def self_test():
                 a=value.get('argument1')
                 if (value.get('type')=='minecraft:min' and isinstance(a,dict)
                         and a.get('type')=='minecraft:min'
-                        and all(isinstance(g,dict) and g.get('type')=='minecraft:y_clamped_gradient'
-                                for g in (a.get('argument1'),a.get('argument2')))):
+                        and isinstance(a.get('argument1'),dict)
+                        and a['argument1'].get('type')=='minecraft:y_clamped_gradient'):
                     replacement=value['argument2']
                     value.clear();value.update(replacement);return True
                 return any(mutate(v) for v in value.values())

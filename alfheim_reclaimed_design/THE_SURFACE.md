@@ -206,6 +206,66 @@ six of its checks can fail.
 **What it is not.** It is not a runtime claim. Every number above is read off the `.nbt` on disk;
 no structure in this pass has been walked in a client. That gate is open.
 
+### 3.4 Geometry may choose where. It may not choose what.
+
+**Corrected 2026-09-09, after the client review §3.3 said was open.** The review rejected the
+fifth layer and named the failure exactly: "podiums and crafting blocks and anvils and all kinds
+of blocks added all over to all kinds of structures where they definitely do not belong ... making
+all of the structures much much just noisier not necessarily more detailed."
+
+The cause is a good idea applied one step too far. §3.3's central property — *no pass is ever
+handed a floor plan* — is what lets one implementation serve five generators, and it is right for
+**candidates**: a wall face is a wall face in a keep and in a mine drift. It is wrong for
+**vocabulary**. `furnish()` carried a single fixed catalogue — bench, table, pot, cauldron, shelf,
+lectern, crate — and took an `allow` filter that sixteen of its eighteen call sites never passed.
+Censused over the 105 shipping templates:
+
+| block | placed |
+|---|--:|
+| bookshelf | 496 |
+| decorated pot | 432 |
+| cauldron | 333 |
+| lectern | 309 |
+| everything else | 52 |
+| **total** | **1,622, in 48 of 105 templates** |
+
+A quarry with 150 bookshelves. A fault working with 157 pieces of furniture. 147 lecterns
+distributed through the royal tombs. `floor_litter` compounded it by dropping one loose block per
+floor cell at a flat rate — the same even scatter that §3.3's own account of `debris()` records
+being corrected one level up, because *damage is contiguous* and a uniform sprinkle reads as
+texture rather than as a building that fell over.
+
+**The rule this adds to §3.2.** The five layers describe what a ruin must *read* as. Four of them
+are properties of the structure's own fabric and geometry — massing, logic, technology, decay —
+and a geometric pass can supply them anywhere. The fifth is not. Human-scale residue is a claim
+about *who used this room and for what*, and that is knowledge only the generator that built the
+room has. A layer that asserts occupancy must be told the occupancy.
+
+So: `dress()` now refuses `furniture` unless the caller also names `furniture_allow`, and
+`floor_litter` is gone from the orchestrator entirely. The blind default is unrepresentable rather
+than merely unused. After the change, 150 blocks in 23 templates, all of them hand-placed by a
+generator that meant them — the hub library's bookshelves, the loot barrels, one deliberate
+lectern.
+
+`debris()` is untouched and belongs where it is. It walks the broken wall tops the decay pass
+left, drops heaps at the foot of the wall they fell from in the collapse direction, and draws from
+the piece's own rubble palette. It never had to be told anything, because a collapse is a fact
+about the fabric.
+
+**A floor is not a target, and three pieces proved it.** Removing the furniture dropped
+`leyline/hub`, `surface/harvest_crater` and `headworks/shaft` below their family detail floors —
+they had been meeting them on the misplaced blocks. No floor was lowered. Each was given detail
+its own geometry can actually carry, and finding it exposed a real defect in two of the three:
+
+| piece | | |
+|---|---|---|
+| `leyline/hub` | 2.5% → 3.0% | `LEY_KIT` declared no `crystal` role, so `conduits()` and `crystal_sockets()` returned 0 on sight — in the one family whose entire premise is a mana channel |
+| `surface/harvest_crater` | 3.7% → 6.0% | corbels on a shattered rim; the builder's own comment already said the detail here is geological |
+| `headworks/shaft` | 4.3% → 5.5% | a 4×4 chimney has no floor to furnish, no overhang to corbel and no wall run long enough for a conduit — what three centuries leave inside an abandoned shaft is root, drip and web |
+
+Pass 6 (named interior rooms) is where the fifth layer properly belongs: once a generator knows a
+room is a kitchen, it can furnish it as one.
+
 The **ocean and shore structures are specifically retained as concepts** — the first field review
 liked them as thematic finds. Their next pass is depth, not replacement: layered waterlines,
 eroded foundations, drowned lower rooms, silt/debris, collapsed piers or seawalls, storm-broken
@@ -405,7 +465,7 @@ repair. The highest-priority passes are now terrain incorporation and hero-level
 | 2 | Fresh-world proof: `locate structure` each of the thirty-two and inspect representative examples | **in progress — representative structures observed 2026-09-04** |
 | 3 | Buy one map of each of the ten and confirm it fills rather than coming back blank | deferred, runtime |
 | **4** | **Terrain-integration repair across the whole set (§4.2), using `starveling_pit` as the positive reference** | **open, priority** |
-| **5** | **Hero-detail/slow-decay pass across every archetype (§3.2), with shore/ocean/water-edge structures explicitly included** | **static implemented 2026-09-08 — see §3.3; client visual review open** |
+| **5** | **Hero-detail/slow-decay pass across every archetype (§3.2), with shore/ocean/water-edge structures explicitly included** | **layers 1-4 static implemented 2026-09-08 (§3.3); layer 5 rejected at client review 2026-09-09 and gated behind an explicit per-structure vocabulary (§3.4); client walk still open** |
 | 6 | Interiors — named rooms, spawners where appropriate, circulation and the one thing worth taking per archetype | encounter slice: 12 bounded Knight Quest spawners; furniture, light and floor residue now generated per §3.3; named rooms still open |
 | 7 | Quarry discovery-value pass — increase era-safe exposed resources and useful material yield (§6.1) | **static implemented 2026-09-08** — stockpiles and half-worked seams in every quarry |
 | 8 | Density tuning against a real walk | not started |

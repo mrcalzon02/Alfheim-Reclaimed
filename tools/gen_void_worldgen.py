@@ -36,8 +36,16 @@ TERMINAL=-0.925
 FRINGE=-0.99
 # Detached debris lives above the global water table, around the same height as the Verge
 # shelf it broke away from, so a fragment reads as the land that used to continue.
-DEBRIS_Y_RISE=(66,74)
-DEBRIS_Y_FALL=(86,100)
+#
+# THE CEILING IS WIDE AND IT WANDERS, and the first fresh world is why. With the fall spanning
+# 86..100 the envelope crossed zero at a fixed Y 93 and, being far steeper than the fragment
+# noise, decided every top: 74% of shatterfields columns came back at exactly Y 92, 55% of
+# prism_drift, 49% of rootfall. A debris belt planed off to one height is a table, not a break.
+# The fall now spans 40 blocks rather than 14, so the fragment field's own vertical variation
+# is the larger term, and CEILING_WANDER moves the crossing itself by roughly +/-9 blocks.
+DEBRIS_Y_RISE=(68,78)
+DEBRIS_Y_FALL=(84,124)
+CEILING_WANDER=0.45
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
 # that get rarer AND smaller together, because raising a threshold on smooth noise trims the
@@ -109,8 +117,11 @@ def debris_field():
         binary('mul',CUT_INNER-CUT_TERM,belt)),bias)
 
     # A trapezoid in Y. Outside it the min() returns the envelope, which is negative, so no
-    # fragment can reach the water table below or stack into a tower above.
-    envelope=binary('min',gradient(DEBRIS_Y_RISE,-1,1),gradient(DEBRIS_Y_FALL,1,-1))
+    # fragment can reach the water table below or stack into a tower above. The upper edge
+    # carries a broad, low-frequency offset so the belt has a skyline instead of a lid.
+    ceiling=binary('add',gradient(DEBRIS_Y_FALL,1,-1),
+                   binary('mul',CEILING_WANDER,noise('shape',0.0,0.25)))
+    envelope=binary('min',gradient(DEBRIS_Y_RISE,-1,1),ceiling)
     field=binary('min',envelope,binary('add',frag,binary('mul',-1.0,cut)))
     # Hard zero past the limit: the far field is empty by construction, not by threshold.
     return choose(MASK,-100,FRINGE,-1.0,field)

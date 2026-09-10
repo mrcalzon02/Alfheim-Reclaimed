@@ -1,6 +1,6 @@
 # The Void Margins — environments, stone classes and examples
 
-**Design expansion, 2026-09-05. Status: draft, ready for material prototyping.**
+**Design expansion, 2026-09-05. Status: draft for materials; the debris terrain of §2 is built and fresh-world verified as of 2026-09-09 — see §6.**
 Requested scope: extend the definition of the Void Verge and related void biomes, give concrete
 examples, and define their own custom stone classes. This record and its companion catalog are
 design artifacts; they do not register new biomes, blocks or mechanics.
@@ -235,6 +235,88 @@ the homeland, which is the reason to author complete construction families.
 7. Sample at least three separated rim segments in fresh worlds. Check dry space below sea level,
    cliff readability, outward falloff, terminal zero terrain, support volumes and Deep compatibility.
    Client traversal and visibility remain required alongside headless block measurements.
+
+## 6. Build status — the debris belt, 2026-09-09
+
+**The margin had no debris at all, and the record above did not say so.** A client walk on
+2026-09-09 reported the void generating wrongly, and the region files of the world it was walked
+in said exactly how much: `shatterfields`, `prism_drift`, `rootfall` and `sepulchral_reach` had
+82%, 79%, 81% and 66% of their columns with a surface at or below Y −54 — the bedrock guard slab.
+Four of the six environments described in §2 were registered, given surface grammars in §3 and
+given placed features, over open air. `void_verge` was no better off in kind: 75% of its columns
+generated at Y 1–40, so the "broad dry plain" of §2 was a sunken basin.
+
+### Why it was empty
+
+`gen_void_worldgen.density()` returned a literal −1.0 for everything beyond `CLIFF`, under a note
+that a 3-D debris field was unsafe because "Minecraft's cell interpolation could carry an entire
+jagged splinter far beyond its pointwise mask". That premise was disproved on 2026-09-08 while
+calibrating the Golden Fields terraces, and the disproof was recorded in `gen_deep_terrain` and
+nowhere else: `alfheim_final` contains no `minecraft:interpolated` — the markers live inside
+`alfheim_height` and `alfheim_caves` — so an expression written at that level is evaluated per
+block at full resolution. The mask and the shape are read at the same block, and a fragment
+cannot outrun its own mask.
+
+### What §2's shared invariants became, in numbers
+
+"Fragments become smaller and rarer outward. Their disappearance is part of the landscape" is now
+a single ramp that every outward property derives from, so the belt cannot drift out of step with
+itself. Measured statically at Y 78:
+
+| continentalness | solid | reads as |
+|---|--:|---|
+| −0.865 | 59% | the attached shelves of §2, welded to the cliff |
+| −0.900 | 35% | the inner debris belt |
+| −0.925 | 18% | Starless Reach begins |
+| −0.940 | 10% | the terminal-landing strip |
+| −0.950 | 4% | last fragments |
+| −0.990 | **literal −1.0** | "beyond the debris limit, zero terrain" |
+
+The far-field guarantee is structural rather than a tuning outcome: a range choice returns −1.0,
+and `check_void_geology` VG3a fails if that literal is absent or its bound moves outward.
+
+"Regional variants along that boundary ... not six consecutive rings" is honoured by taking
+character from **temperature and humidity** — the same two fields `claims()` already uses to
+allocate the four laterally — rather than from distance out. Prism Drift reads sparsest at 22%
+solid, Sepulchral Reach most continuous at 41%, with Shatterfields and Rootfall between them.
+
+"Dry approach, abrupt cliff, no ocean, lava sea or submerged floor" required moving the shore
+blend off `CLIFF`: the Verge shelf now holds Y 71 across its whole band and descends into the sea
+only in the last sliver of its own biome, with the terrain band still strictly inside the biome
+band so no ordinary biome sits over void-shaped ground.
+
+### Verified in a fresh world
+
+`tools/run_void_validation.py`, seed `alfheim-deep-terrain-20260905`, sites located by the probe
+and force-generated. Share of columns with terrain in the debris band, against the same
+measurement on the rejected world:
+
+| environment | before | after |
+|---|--:|--:|
+| shatterfields | 18% | **91%** |
+| rootfall | 19% | **96%** |
+| prism_drift | 21% | **91%** |
+| sepulchral_reach | 34% | **74%** |
+| void_verge (Y 70–95) | 13% | **86%**, median Y 71 |
+
+One defect the first fresh world found and the static model could not: with the envelope's upper
+edge spanning only 14 blocks it was far steeper than the fragment noise and therefore decided
+every top — 74% of Shatterfields columns came back at exactly Y 92. A belt planed to one height
+is a table, not a break. The fall now spans 40 blocks and carries a bounded low-frequency offset,
+so the belt has a skyline; `CEILING_WANDER` is declared and VG3c fails if any offset exceeds it.
+
+### Still open
+
+- §5.6's **volume-checked structures**: `check_void_surface_support` reserves continentalness
+  −0.94…−0.925 for terminal landings and the belt now supplies roughly 10% solid there, but no
+  landing has been confirmed to satisfy the 1,800-block, 14×8×14 requirement in a real chunk.
+- §5.7's **three separated rim segments** and the client traversal that goes with them.
+- The eighteen stone classes of §3 remain a proposal; the belt currently wears the grammars in
+  `void_catalog.json` over existing Livingrock.
+- **The approach is still across water.** The biome bands run land → ocean → verge → debris, so
+  the Verge is reached by sea rather than by the dry country §1 describes. That is the standing
+  `DEFICIENT_BIOMES.md` rejection, it needs the biome geography reordered rather than the density
+  adjusted, and nothing in this build addresses it.
 
 The four-band values in `DEFICIENT_BIOMES.md` remain the initial tuning reference. They are climate
 signal bands, not fixed distances in blocks; do not promise a particular walk or gap length from
