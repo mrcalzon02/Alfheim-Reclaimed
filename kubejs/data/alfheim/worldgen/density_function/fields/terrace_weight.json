@@ -28,7 +28,7 @@
             "argument2": {
               "type": "minecraft:add",
               "argument1": "mythicbotany:alfheim_continentalness",
-              "argument2": -0.17
+              "argument2": -0.155
             }
           },
           "min": 0.0,
@@ -44,11 +44,11 @@
               "type": "minecraft:clamp",
               "input": {
                 "type": "minecraft:mul",
-                "argument1": 33.33333333333331,
+                "argument1": 40.00000000000006,
                 "argument2": {
                   "type": "minecraft:add",
                   "argument1": "mythicbotany:alfheim_continentalness",
-                  "argument2": -0.235
+                  "argument2": -0.265
                 }
               },
               "min": 0.0,
@@ -63,11 +63,11 @@
           "type": "minecraft:clamp",
           "input": {
             "type": "minecraft:mul",
-            "argument1": 14.285714285714285,
+            "argument1": 16.666666666666668,
             "argument2": {
               "type": "minecraft:add",
               "argument1": "mythicbotany:alfheim_weirdness",
-              "argument2": -0.03
+              "argument2": -0.02
             }
           },
           "min": 0.0,

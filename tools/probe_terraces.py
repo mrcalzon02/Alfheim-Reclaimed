@@ -14,10 +14,24 @@ Two numbers, both read from chunks the game built rather than from the density f
 
 ON-TREAD SHARE IS NOT A TARGET, AND B-86 LEARNED THAT THE EXPENSIVE WAY. It rises as EVERY
 column gets quantised, so it cannot tell terracing from a staircase; the amplitude was tuned
-up against it until the result read as stacked floors. Use it to confirm the terracing is
-PRESENT in Golden Fields and ABSENT everywhere else, not to maximise.
+up against it until the result read as stacked floors.
 
-    python tools/probe_terraces.py server/<world>/dimensions/mythicbotany/alfheim/region
+AND IT HAS NO MEANINGFUL ZERO, WHICH COST A SECOND CALIBRATION CYCLE. Terrain that was never
+terraced at all still returns roughly 1/STEP, and on real terrain it returns rather more than
+that -- Golden Fields reads 27.8% with the addend removed entirely. A reading of 27.7% was
+taken as "gentle terracing" on 2026-09-09 and it was the feature contributing nothing: a
+baseline world on the same seed matched it to a tenth of a point on this number and to two
+decimals on the deep-void share.
+
+SO ALWAYS READ THIS AGAINST A BASELINE WORLD, never against the previous treatment:
+
+    python tools/run_terrace_validation.py --mode treatment
+    python tools/run_terrace_validation.py --mode baseline
+    python tools/probe_terraces.py server/terrace-treatment-<stamp>/dimensions/... --deep
+    python tools/probe_terraces.py server/terrace-baseline-<stamp>/dimensions/... --deep
+
+What matters is the DELTA between them, per biome: it should be clearly positive in Golden
+Fields, zero in Silverbark Wood and Dreamwood Forest, and zero in the deep band everywhere.
 """
 import argparse
 import collections
@@ -206,21 +220,32 @@ def main():
                 residues[bi][top % STEP] += 1
                 heights[bi].append(top)
             if a.deep:
-                centre = biome_at(secs, vals[8 * 16 + 8] + MIN_Y - 1, 8, 8)
-                if centre:
-                    for s_ in secs:
-                        y0 = s_.get('Y', 0) * 16
-                        if y0 < DEEP_LO or y0 > DEEP_HI:
+                # PER COLUMN, NOT PER CHUNK. Attributing a whole chunk to the biome under its
+                # centre column threw away every chunk whose centre happened to miss -- which
+                # is most of them for a fragmented biome, and it is exactly why Golden Fields
+                # fell under the reporting threshold on 2026-09-09 and its deep-void share went
+                # unmeasured after the repair. Each column now carries its own surface biome.
+                col_biome = [None] * 256
+                for idx in range(256):
+                    z, x = divmod(idx, 16)
+                    col_biome[idx] = biome_at(secs, vals[idx] + MIN_Y - 1, x, z)
+                for s_ in secs:
+                    y0 = s_.get('Y', 0) * 16
+                    if y0 < DEEP_LO or y0 > DEEP_HI:
+                        continue
+                    blocks = section_blocks(s_)
+                    if blocks is None:
+                        continue
+                    for i, name in enumerate(blocks):
+                        bi = col_biome[(i & 255)]
+                        if not bi:
                             continue
-                        blocks = section_blocks(s_)
-                        if blocks is None:
-                            continue
-                        for name in blocks:
-                            deep[centre]['n'] += 1
-                            if name in AIRISH:
-                                deep[centre]['air'] += 1
-                            if name == 'minecraft:lava':
-                                deep[centre]['lava'] += 1
+                        c = deep[bi]
+                        c['n'] += 1
+                        if name in AIRISH:
+                            c['air'] += 1
+                        if name == 'minecraft:lava':
+                            c['lava'] += 1
 
     print(f'chunks read: {read}   uniform baseline: {100 / STEP:.0f}%\n')
     print(f"{'biome':38s} {'cols':>7} {'peak':>7} {'enrich':>7} {'medY':>6}")
@@ -238,7 +263,7 @@ def main():
     if a.deep:
         print(f"\n{'surface biome':38s} {'blocks':>12} {'deep void':>10} {'lava':>8}")
         for b, c in sorted(deep.items(), key=lambda kv: -kv[1]['air'] / max(1, kv[1]['n'])):
-            if c['n'] < 200000:
+            if c['n'] < 50000:
                 continue
             print(f"{b:38s} {c['n']:12d} {100 * c['air'] / c['n']:9.2f}% "
                   f"{100 * c['lava'] / c['n']:7.3f}%")

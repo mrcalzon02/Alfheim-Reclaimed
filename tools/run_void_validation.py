@@ -9,7 +9,11 @@ import time
 import run_server
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--seed',default='alfheim-deep-terrain-20260905');args=parser.parse_args()
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--seed',default='alfheim-deep-terrain-20260905')
+    parser.add_argument('--radius',type=int,default=192,
+                        help='half-width in blocks generated around each void site')
+    args=parser.parse_args()
     root=Path.cwd().resolve();server=root/'server'
     assert 'eula=true' in (server/'eula.txt').read_text().lower()
     assert not run_server.running_servers(),'Validation server already running'
@@ -22,7 +26,7 @@ def main():
     try:
         with path.open('w',encoding='utf-8') as log:
             process=subprocess.Popen([run_server.JAVA17,'-Xmx6G','-Xms4G','@libraries/net/minecraftforge/forge/1.20.1-47.4.10/win_args.txt','nogui'],cwd=server,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,text=True)
-            print('Console:',path,flush=True);deadline=time.monotonic()+720;requested=False;stopped=False
+            print('Console:',path,flush=True);deadline=time.monotonic()+1800;requested=False;stopped=False
             while process.poll() is None and time.monotonic()<deadline:
                 content=path.read_text(encoding='utf-8',errors='replace')
                 match=re.search(r'\[VOID AUDIT\] SITES (\[.*\])',content)
@@ -32,7 +36,15 @@ def main():
                         # decoder may therefore return e.g. -1856.0. Minecraft's command
                         # parser requires integer tokens even when the value is integral.
                         x,z=int(p['x']),int(p['z'])
-                        process.stdin.write(f'execute in mythicbotany:alfheim run forceload add {x-16} {z} {x+16} {z}\n')
+                        # A SQUARE, NOT A LINE. This was `add {x-16} {z} {x+16} {z}` -- a 33x1 strip,
+                        # which is enough to sample a column and not enough to see a landform. Every
+                        # fragment measured out of such a world is clipped by the generated boundary,
+                        # so probe_void_fragments.py reported the belt as rubble when the question was
+                        # whether it carries the 14x14 landing check_void_surface_support requires.
+                        for bx in range(x-args.radius,x+args.radius,128):
+                            for bz in range(z-args.radius,z+args.radius,128):
+                                process.stdin.write('execute in mythicbotany:alfheim run forceload '
+                                                    f'add {bx} {bz} {bx+127} {bz+127}\n')
                     process.stdin.flush();requested=True
                 if 'Failed to start the minecraft server' in content:process.terminate();process.wait(timeout=20);break
                 if not stopped and any(s in content for s in ['[VOID AUDIT] COMPLETE','Error in scheduled task','Error occurred while handling scheduled event callback']):

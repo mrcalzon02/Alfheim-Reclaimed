@@ -14,10 +14,25 @@ loads only Golden Fields cannot see the terracing cross the boundary, which is h
     python tools/run_terrace_validation.py
     python tools/probe_terraces.py server/<world>/dimensions/mythicbotany/alfheim/region
 
+TREATMENT AND BASELINE, because a cross-biome comparison cannot answer the question. The deep
+void share under Golden Fields was 42.2% in the world the field review rejected and 3.4% after
+the repair -- but those are different seeds, and a biome whose surface sits at Y 91 has a very
+different deep band from one at Y 63. Only the same seed with the terrace addend removed
+isolates what the terracing itself does.
+
+    python tools/run_terrace_validation.py --mode treatment
+    python tools/run_terrace_validation.py --mode baseline
+    python tools/probe_terraces.py server/<world>/dimensions/mythicbotany/alfheim/region --deep
+
+`--mode baseline` rewrites the density function in the SERVER MIRROR only, from
+`void_final_density(include_terraces=False)`. The source tree is never touched, and the mirror
+is rebuilt from it on the next run.
+
 Never touches a player save: each run gets its own timestamped world directory.
 """
 from pathlib import Path
 import argparse
+import json
 import re
 import subprocess
 import time
@@ -34,6 +49,7 @@ LOCATE = re.compile(r'The nearest (\S+) is at \[(-?\d+), (?:~|-?\d+), (-?\d+)\]'
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument('--mode', choices=['treatment', 'baseline'], default='treatment')
     ap.add_argument('--seed', default='alfheim-terrace-20260909')
     ap.add_argument('--radius', type=int, default=384,
                     help='half-width in blocks of the patch generated around each biome')
@@ -46,10 +62,19 @@ def main():
     assert not run_server.running_servers(), 'Validation server already running'
     run_server.mirror_instance()
 
+    if a.mode == 'baseline':
+        # Mirror only. gen_alfheim_biomes owns the source; this is the same
+        # untouched-density expression with the terrace addend never appended.
+        from gen_alfheim_biomes import void_final_density
+        target = (server / 'kubejs/data/mythicbotany/worldgen/density_function'
+                         / 'alfheim_final.json')
+        target.write_text(json.dumps(void_final_density(include_terraces=False), indent=2) + '\n')
+        print('  baseline: terrace addend removed from the server mirror', flush=True)
+
     prop = server / 'server.properties'
     old = prop.read_bytes()
     stamp = time.strftime('%Y%m%d-%H%M%S')
-    world = 'terrace-' + stamp
+    world = 'terrace-' + a.mode + '-' + stamp
     assert not (server / world).exists()
     run_server.write_properties(a.seed, world)
     path = server / (world + '.log')

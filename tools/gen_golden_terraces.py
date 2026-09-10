@@ -78,24 +78,41 @@ WORLD_LO, WORLD_HI = -64, 320
 # same Golden Fields patch at (-64, 0), 1,432 surface columns each, via
 # run_terrace_validation.py + probe_terraces.py:
 #
-#     0.60, WIDE ramps      68.7% on one residue   2.75x   REJECTED: "multiple floors stacked"
-#     0.20, narrow ramps    27.4%                  1.10x
-#     0.30, narrow ramps    27.7%                  1.11x
-#     0.45, narrow ramps    28.0%                  1.12x
+# Seed alfheim-terrace-20260909, the Golden Fields patch at (-64, 0), 1,432 surface columns,
+# every row measured against a BASELINE world generated on the same seed from
+# void_final_density(include_terraces=False):
 #
-# AND THE AMPLITUDE IS NOT THE DOMINANT TERM. Between 0.20 and 0.45 -- more than doubling it --
-# the on-tread share moves by six tenths of a point. The climate ramps decide almost everything:
-# the 2026-09-08 widening, not the amplitude rise that accompanied it, is what turned mild
-# terracing into the stacked floors the review rejected. That is consistent with B-86's own
-# measurement, which recorded that tripling the amplitude bought eight points, and it was
-# misread at the time as an interpolation-cell ceiling.
+#     amplitude   ramps    on one residue   delta over its own control
+#     ---------   ------   --------------   --------------------------
+#     (none)      --       27.8%             0      the control itself
+#     0.20        narrow   27.4%            -0.4    indistinguishable from the control
+#     0.30        narrow   27.7%            -0.1    indistinguishable from the control
+#     0.45        narrow   28.0%            +0.2    indistinguishable from the control
+#     0.30        WIDE     31.8%            +4.0
+#     0.45        WIDE     33.8%            +6.0
+#     0.60        WIDE     68.7%           +41      the rejected build, on a different seed
 #
-# So the amplitude is set to the middle of the tested range rather than the top of it: past
-# roughly 0.30 the extra density disturbance buys nothing measurable, and the whole point of a
-# small addend is that it cannot move terrain it was not meant to touch.
+# TWO THINGS THIS SETTLED, BOTH OF WHICH COST A CALIBRATION CYCLE TO LEARN.
 #
-# TO MAKE THE TERRACES MORE VISIBLE, WIDEN THE RAMPS, NOT THIS. And do it a little at a time,
-# with a fresh-world measurement each time, because that is the knob that produced the defect.
+# First, the narrow-ramp rows ARE the control. On-tread share has no meaningful zero -- untouched
+# terrain still returns 27.8% here -- so 27.7% was read as "gentle terracing" when the addend was
+# contributing nothing at all. The deep-void share agreed to two decimals as well. Never read
+# this metric except as a delta against a baseline world.
+#
+# Second, the amplitude selects SLOPE, and that is the whole reason the number is low. A column
+# pins when the sawtooth's rise per block, AMPLITUDE/STEP, exceeds the terrain's own density fall
+# there. Flat ground has a gentle fall and pins easily; a hillside does not. Raising the
+# amplitude therefore does not deepen the terraces so much as extend them ONTO SLOPES, which is
+# precisely the "multiple floors stacked on top of each other" the field review rejected. 0.30
+# keeps them on ground already flat enough to farm.
+#
+# The patch measured above is hilly and fragmented, so +4.0 is what selectivity looks like when
+# there is little flat ground to claim; the rejected build's 68.7% was read on a much larger and
+# flatter patch in another seed, and the two numbers are not directly comparable. What is
+# comparable is each row against its own control.
+#
+#   python tools/run_terrace_validation.py --mode treatment
+#   python tools/run_terrace_validation.py --mode baseline
 AMPLITUDE = 0.30
 
 # --- the climate window -----------------------------------------------------------------------
@@ -106,13 +123,18 @@ CONT = 'mythicbotany:alfheim_continentalness'
 WEIRD = 'mythicbotany:alfheim_weirdness'
 TEMP = 'mythicbotany:alfheim_temperature'
 
-# NARROWED BACK 2026-09-09. These were widened on 2026-09-08 to lift the aggregate on-tread
-# share from 49.8% to 59.7%. It worked by saturating the weight over more of the biome, which
-# is the same thing as "they apply far too persistently" -- the metric went up because the
-# defect got worse. Restored to values that terrace a core and leave the edges alone.
-CONT_IN = (0.170, 0.190)     # fade up across the biome's lower edge
-CONT_OUT = (0.235, 0.265)    # fade back down well before its upper edge at 0.30
-WEIRD_IN = (0.030, 0.100)    # weirdness 0 is the dreamwood/golden split; stay clear of it
+# NARROWED, THEN RESTORED, AND THE A/B IS WHY. Narrowing these to (0.170,0.190)/(0.235,0.265)/
+# (0.030,0.100) did stop the over-persistence -- it stopped everything. A baseline world on the
+# same seed with the terrace addend removed entirely returned Golden Fields at 27.8% on one
+# residue and 3.42% deep void, against the treatment's 27.7% and 3.42%: identical to within
+# noise, which means the feature was contributing nothing whatsoever.
+#
+# The coverage lives here, so this is where it has to come from. What made the 2026-09-08 build
+# read as stacked floors was wide ramps AND amplitude 0.60 together; the amplitude is now a
+# third of that, and the temperature ramp below stops the bleed that the widening used to cause.
+CONT_IN = (0.155, 0.175)     # fade up across the biome's lower edge
+CONT_OUT = (0.265, 0.290)    # fade back down before its upper edge at 0.30
+WEIRD_IN = (0.020, 0.080)    # weirdness 0 is the dreamwood/golden split; stay clear of it
 
 # THE AXIS THE WEIGHT WAS MISSING. Golden Fields and Silverbark Wood share the whole of
 # continentalness 0.15..0.30 and overlap in weirdness; the only climate field that separates
