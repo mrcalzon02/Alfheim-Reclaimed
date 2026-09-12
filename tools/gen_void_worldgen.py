@@ -25,8 +25,25 @@ MASK='mythicbotany:alfheim_continentalness'
 # than it is wide can only read as a curtain. Continentalness is 1.7x badlands_surface and
 # then clamped, so it is steep exactly here, and widening a band costs ocean at 1:1.
 #
-# The breakline. Outward of it the ground has already come apart.
+# The breakline, as the BIOME layer draws it. Outward of this the four debris biomes begin.
 CLIFF=-0.86
+# And where the TERRAIN actually hands over from the shelf to the floating belt, which is not
+# the same contour and should never have been.
+#
+# THE WALL THAT SURVIVED THE EROSION PASS WAS THIS BRANCH. `plain` spans roughly Y 15..76 and the
+# debris envelope opens at Y 64, so at a single continentalness value the ground went from a
+# sixty-block slab to a band that only exists above sea level. They do not overlap, so no amount
+# of shaping on either side could close it: measured on void-margin-20260911-175908, the body
+# carve moved runs per column from 1.21 to 1.35 and fins from 10.4% to 8.3% and left the share of
+# adjacent pairs that are a 30+ block wall against nothing at 5.3%, exactly where it started.
+#
+# The handover happens 0.03 further out now, and the carved shelf covers the gap. What fills it
+# is solid rock broken into stacks and benches, not floating fragments -- which is both the
+# "attached shelves give way to detached blocks" of VOID_MARGINS.md section 1 and the answer to
+# "give us actual terrain to attach features and structures to". Solid rock below sea level also
+# DISPLACES the air the aquifer would otherwise have filled, so this direction cannot make the
+# standing water problem worse.
+BREAK=-0.89
 # Outer bound of the Void terrain branch and inland edge of the Verge plain proper. RIM stays
 # strictly inside BIOME_RIM: check_worldgen W7 requires that, because void-shaped terrain
 # under an ordinary biome reads as corruption rather than as the edge of the world.
@@ -79,7 +96,7 @@ CEILING_WANDER=0.45
 # ground roughly 60 blocks thick: enough to carry the structures check_void_surface_support
 # requires, and little enough to read as the edge of a broken world.
 RIM_BASE=(4,22)
-RIM_BASE_WANDER=0.5
+RIM_BASE_WANDER=0.6
 # AND THE UNDERCUT IS LOCAL TO THE LIP NOW, BECAUSE THE 2026-09-09 REPAIR CUT BOTH FACES.
 # rim_base was applied across the whole Verge band, including the side facing the sea, so the
 # shelf stood free on both faces: at z=223 in `New World Ferngale` the seabed at x=-113 is
@@ -97,16 +114,42 @@ RIM_BASE_WANDER=0.5
 # Erosion only reads as the ground coming apart where the ground is already a slab. VG8 asserts
 # the containment now; the analytic sweep in measure_void_edge.py cannot see it, because it
 # samples one column at a time and a fin and a butte look identical from inside one column.
-UNDERCUT=0.12
+UNDERCUT=0.13
 # How hard `attach` pushes the underside down outside the lip. It has to clear the underside
 # gradient's own floor (-1.0) plus its wander, or "rooted" is only rooted on average.
 ATTACH_BIAS=2.0
 # The plain's surface. A band five times wider than the old ribbon can carry real relief --
 # but never enough to reach the water table, and VG7 asserts that from these three numbers
 # rather than capping each amplitude separately and hoping the sum behaves.
-RIM_TOP=(64,88)
-RIM_RELIEF=0.30
-RIM_DETAIL=0.10
+RIM_RELIEF=0.34
+RIM_DETAIL=0.14
+# The approach's surface at three declared heights, INTERPOLATED BETWEEN GRADIENTS rather than
+# offset by a scalar. An offset cannot move a y_clamped_gradient's crossing further than its own
+# span: outside the span it saturates at +/-1, so subtracting more than 1 makes the term negative
+# at EVERY height and the column disappears. Measured on the first attempt at this -- an elevation
+# of -2.2 against a 24-block span left continentalness -0.52..-0.48 with no solid block anywhere
+# in the column. It is the same trap as the underside lift, which cost the same measurement, and
+# the same fix: interpolating two gradients moves the surface the term describes, an offset only
+# moves its value. Every span is 24 blocks so a given relief amplitude displaces the surface by
+# the same distance wherever it is applied.
+RIM_TOP_BREAK=(77,101)   # ~Y89 at the breakline: the approach is highest where the world ends
+RIM_TOP_DRY=(62,86)      # ~Y74 at the dry-aquifer rim, and VG6 bounds the dried band from here
+RIM_TOP_SEA=(22,46)      # ~Y34 where ordinary density takes over, well under the sea floor
+# --- and the approach carries its own elevation ------------------------------------------
+#
+# THE COAST WAS A STEP FUNCTION WEARING A BLEND'S CLOTHES. `approach` used to interpolate two
+# DENSITIES -- coast*normal + (1-coast)*plain -- and between the two surfaces both are saturated:
+# `normal` sits at -1 everywhere above its own crossing and `plain` at +1 everywhere below its
+# own. Through that whole band the mix evaluates to 1 - 2*coast, which does not depend on Y.
+# The surface cannot travel from one height to the other; it JUMPS when coast passes 0.5. That is
+# the sheer wall where the Void Shore meets the sea in the 2026-09-11 screenshots, and it is the
+# same saturation defect as the knife-cut faces, in a third place.
+#
+# One surface now, with its height carried by the mask. Two segments, because one cannot do both
+# jobs: the approach must stay clear of the water table across the entire dried band -- every
+# column the aquifer dries has to be land, VG7 -- and then reach the sea floor quickly enough
+# that the last stretch reads as a beach rather than a plateau rim.
+
 # --- the breakline, which was a contour line and is now a coast ---------------------------
 #
 # EVERY POINT AT THE SAME CONTINENTALNESS USED TO HAVE THE SAME PROFILE, and that is the whole
@@ -122,9 +165,9 @@ RIM_DETAIL=0.10
 # notches the face itself into ledges, alcoves and standing stacks rather than only lowering
 # the top. Erosion is clamped at zero: it may remove the lip, never add to it.
 EDGE_WIDTH=0.09
-EDGE_BITE=0.45
-EDGE_SWING=1.15
-EDGE_SPALL=0.45
+EDGE_BITE=0.40
+EDGE_SWING=0.80
+EDGE_SPALL=0.70
 # AND THE UNDERSIDE COMES UP TO MEET IT, BECAUSE CUTTING THE TOP ALONE IS NOT ENOUGH.
 # Measured before this term existed: erosion on its own moved the median face height from 69
 # to 62 blocks -- a distribution with a tail rather than a constant, but still a wall for most
@@ -144,9 +187,42 @@ EDGE_SPALL=0.45
 # deletes the rim outright; measured on the first attempt, which drove the median face from 69
 # to 123 blocks by pushing the min() the other way entirely. Interpolating between a deep
 # underside and a shallow one moves the surface the term describes instead of the value.
-RIM_BASE_LIP=(30,52)
-EDGE_LIFT=0.50
-EDGE_LIFT_SWING=0.90
+#
+# AND IT HAS TO REACH THE BELT'S OWN HEIGHT BAND, WHICH IS WHERE THE LAST WALL WAS HIDING.
+# The debris envelope opens at Y 64, so a shelf whose underside stops at Y 41 presents about
+# 26 blocks of face below anything the belt can put beside it -- the two sides overlap only
+# between Y 64 and the shelf top, and everything under that is a wall by construction whatever
+# the erosion does to the top. Lifting the outer underside to about Y 43 at the typical sample
+# leaves roughly twenty blocks instead of sixty, and the shelf hands over to the belt inside a
+# shared band rather than above one.
+RIM_BASE_LIP=(44,60)
+EDGE_LIFT=0.75
+EDGE_LIFT_SWING=0.80
+# --- and the body of the shelf, which until 2026-09-11 could not be shaped at all -------------
+#
+# THE FACES WERE KNIFE CUTS BECAUSE THE DENSITY SATURATES. rim_top and the underside are both
+# y_clamped_gradients, so from roughly Y 25 to Y 65 each returns +1 and min() returns +1.0
+# whatever any noise does. Erosion could only ever work the two transition bands at the top and
+# the bottom; to remove anything between them it had to clear 1.0 in a single sample, which makes
+# the answer for a whole column all-or-nothing. A field of all-or-nothing columns reads as a
+# sliced cake however much its top and bottom wander, and that is measurable: on
+# void-margin-20260911-172920, 5.3% of adjacent pairs at the break are a 30+ block wall against
+# nothing, the mean column holds 1.21 solid runs, and 10.4% still reach bedrock.
+#
+# `body` is a third min() term that is NOT saturated -- a three-dimensional field centred near
+# zero -- so it cuts alcoves, overhangs, arches and detached pieces through the shelf itself
+# rather than only trimming its edges. That is also what gives the void margin ground worth
+# attaching a feature or a structure to: a ledge is somewhere to stand, a slice is not.
+#
+# BODY_SHELTER is what keeps it off the plain. The carve can only reach where
+#   BODY_LEVEL + BODY_SWING*n + BODY_SHELTER*(1 - reach) < 0,
+# so at the breakline it bites about a third of samples and by two thirds of the way inland it
+# cannot bite at all, whatever the noise does. The plain the player crosses is untouched by
+# construction, not by tuning.
+BODY_WIDTH=0.13
+BODY_LEVEL=0.34
+BODY_SWING=0.92
+BODY_SHELTER=1.20
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
 # that get rarer AND smaller together, because raising a threshold on smooth noise trims the
@@ -200,7 +276,7 @@ def debris_field():
     # Two nested ramps: `belt` spans the debris band, `tail` the terminal fringe beyond it.
     # Every outward property derives from these, so "fragments get smaller and rarer outward"
     # cannot drift out of step with itself.
-    belt=ramp(MASK,TERMINAL,CLIFF)
+    belt=ramp(MASK,TERMINAL,BREAK)
     tail=ramp(MASK,FRINGE,TERMINAL)
 
     # Low frequency carries the mass, higher frequencies only break its edges. Flattened in Y
@@ -258,25 +334,32 @@ def density(normal):
     # rim_top crosses zero at the midpoint of RIM_TOP with slope 2/span per block, so the
     # surface sits at 76 +/- (RIM_RELIEF + RIM_DETAIL) / slope. VG7 does that arithmetic.
     rim_relief=binary('add',binary('mul',RIM_RELIEF,noise('relief',0,xz=0.72)),
-                      binary('mul',RIM_DETAIL,noise('detail',0,xz=0.62)))
-    rim_top=binary('add',gradient(RIM_TOP,1,-1),rim_relief)
+                      binary('mul',RIM_DETAIL,noise('detail',0.22,xz=0.62)))
+    def lerp(t,a,b):
+        return binary('add',binary('mul',binary('add',1.0,binary('mul',-1.0,t)),a),
+                      binary('mul',t,b))
+    inland=ramp(MASK,BREAK,DRY_AQUIFER_RIM)
+    seaward=ramp(MASK,DRY_AQUIFER_RIM,COAST_TOE)
+    top=lerp(seaward,lerp(inland,gradient(RIM_TOP_BREAK,1,-1),gradient(RIM_TOP_DRY,1,-1)),
+             gradient(RIM_TOP_SEA,1,-1))
+    rim_top=binary('add',top,rim_relief)
     # min() with a rising base turns the shelf from a full-depth curtain into a slab of land.
     # The wander keeps the underside from being a machined plane, which is the same mistake
     # the debris ceiling made and the same fix. `attach` reaches 1.0 UNDERCUT inside the
     # cliff, and rim_base + 2.0 is then positive at every Y, so the plain is rooted to bedrock
     # everywhere except the lip -- which is the only place a cliff face belongs.
-    attach=ramp(MASK,CLIFF,CLIFF+UNDERCUT)
+    attach=ramp(MASK,BREAK,BREAK+UNDERCUT)
     # The lip comes apart. `edge` is 1.0 at the breakline and 0.0 EDGE_WIDTH inland, so every
     # term below is exactly zero across the plain the player crosses and across the shore
     # beyond it -- VG8 asserts that, and asserts that the eroded band stays inside the dry
     # aquifer shoulder, because a lip cut below sea level in wet ground would fill.
-    edge=binary('add',1.0,binary('mul',-1.0,ramp(MASK,CLIFF,CLIFF+EDGE_WIDTH)))
+    edge=binary('add',1.0,binary('mul',-1.0,ramp(MASK,BREAK,BREAK+EDGE_WIDTH)))
     lift=binary('mul',edge,clamp(binary('add',EDGE_LIFT,
                 binary('mul',EDGE_LIFT_SWING,noise('breakline',0.0,0.14))),0.0,1.0))
     rim_base=binary('add',binary('add',
                 binary('mul',binary('add',1.0,binary('mul',-1.0,lift)),gradient(RIM_BASE,-1,1)),
                 binary('mul',lift,gradient(RIM_BASE_LIP,-1,1))),
-                binary('mul',RIM_BASE_WANDER,noise('rim_base',0.0,0.22)))
+                binary('mul',RIM_BASE_WANDER,noise('rim_base',0.30,0.22)))
     plain=binary('min',rim_top,binary('add',rim_base,binary('mul',ATTACH_BIAS,attach)))
 
     appetite=binary('add',EDGE_BITE,binary('mul',EDGE_SWING,noise('breakline',0.0,0.18)))
@@ -284,7 +367,15 @@ def density(normal):
                                     binary('mul',EDGE_SPALL,noise('spall',0.80,0.90))))
     plain=binary('add',plain,binary('mul',-1.0,binary('mul',edge,erosion)))
 
-    void=choose(MASK,-100,CLIFF,debris_field(),plain)
+    # The body carve. `reach` is 1.0 at the breakline and 0.0 BODY_WIDTH inland; the shelter term
+    # is 0 there and BODY_SHELTER on the plain, where it holds `body` permanently positive so the
+    # min() cannot bite. Only this term can remove material from the middle of the shelf.
+    reach=binary('add',1.0,binary('mul',-1.0,ramp(MASK,BREAK,BREAK+BODY_WIDTH)))
+    body=binary('add',binary('add',BODY_LEVEL,binary('mul',BODY_SWING,noise('body',0.85,0.55))),
+                binary('mul',BODY_SHELTER,binary('add',1.0,binary('mul',-1.0,reach))))
+    plain=binary('min',plain,body)
+
+    void=choose(MASK,-100,BREAK,debris_field(),plain)
     # NoiseBasedChunkGenerator consults its global fluid picker at the lowest ten
     # levels before routed floodedness can return air. Temporary default stone blocks
     # that picker; surface_rule() removes it in debris/terminal Void biomes.
@@ -295,12 +386,14 @@ def density(normal):
     # this field's gradient is about TWO BLOCKS. The measured result is a step, not a shore:
     # at z=223 the ground goes from seabed top Y28 to plain top Y71 across six columns while
     # the underside drops 64 blocks in one. The plain now simply continues past RIM as
-    # ordinary ground and only turns into sea floor between COAST_RIM and COAST_TOE, ~0.09
-    # wide. `coast` is 0.0 outward of COAST_RIM, which is what keeps every dried column on
-    # the plain, and 1.0 inland of COAST_TOE, where this returns `normal` unchanged.
-    coast=ramp(MASK,COAST_RIM,COAST_TOE)
-    approach=binary('add',binary('mul',coast,normal),
-                    binary('mul',binary('add',1.0,binary('mul',-1.0,coast)),plain))
+    # ordinary ground and only turns into sea floor between DRY_AQUIFER_RIM and COAST_TOE,
+    # carried by `elev` above. COAST_RIM is now purely a BIOME boundary -- where Alfheim Ocean
+    # takes over from Void Shore -- and VG7 still requires it inland of the dry rim so that no
+    # column the aquifer dries is ever claimed by an ocean.
+    # The plain simply continues inland as one surface until its own elevation has taken it below
+    # the sea floor, and only then does ordinary density take over. The outer branch still ends at
+    # RIM, so check_worldgen W7 reads the same bound it always did.
+    approach=choose(MASK,-100,COAST_TOE,plain,normal)
     return choose(MASK,-100,RIM,void,approach)
 
 COAST_ID='alfheim:void_shore'
@@ -323,7 +416,13 @@ def claims(pt):
             (COAST_ID,pt((BIOME_RIM,COAST_RIM)))]
 
 def surface_rule():
-    rules=[condition({'type':'minecraft:biome','biome_is':DEBRIS_IDS},
+    # THE GUARD IS STRIPPED UNDER THE WHOLE MARGIN NOW, VOID VERGE INCLUDED. It exists only to
+    # deny Minecraft's hardcoded lowest fluid band an air block to fill, and while the Verge was
+    # solid to bedrock nobody could see it. The Verge is a shelf with open air beneath it now, so
+    # leaving it solid there hangs a flat pale plate ten blocks thick across the floor of the
+    # abyss -- one more hard horizontal slice, in the one place the player looks down into.
+    # It cannot reach the shelf: the rule fires only at or below y BASAL_LAVA_Y.
+    rules=[condition({'type':'minecraft:biome','biome_is':VOID_IDS},
                      condition(negate(above(BASAL_LAVA_Y)),block('minecraft:air')))]
     floor={'type':'minecraft:stone_depth','offset':3,'add_surface_depth':False,
            'secondary_depth_range':0,'surface_type':'floor'}
@@ -400,7 +499,10 @@ def extra_files():
                              ('breakline',-6,[1,0.5,0.25]),
                              # And the local one, read in three dimensions so it cuts the face
                              # and not only the top.
-                             ('spall',-3,[1,0.55,0.3])]:
+                             ('spall',-3,[1,0.55,0.3]),
+                             # Alcove-scale: about 30 blocks across and 19 tall at the scales it
+                             # is read at, so it carves recesses and arches rather than pitting.
+                             ('body',-4,[1,0.6,0.3])]:
         emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
     emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
     # REMOVE phase runs after all ADD modifiers. Conventional liquid pools must

@@ -209,6 +209,47 @@ small first-party worldgen hook that uses the same 2D mask to return air for aqu
 inside the void region. That is the only acceptable code fallback because it repairs the source
 fluid decision directly; it is not permission for a post-process scrubber.
 
+### 2.7 The residue, measured 2026-09-11: a mask-keyed band cannot guarantee a distance
+
+The dry-aquifer contract above is doing its job and there is still water in the void. Measured on
+`server/void-margin-20260911-175908`, over 75,164 generated void columns:
+
+| biome | columns | carrying water or lava | share |
+|---|---:|---:|---:|
+| `sepulchral_reach` | 2,494 | 228 | **9.1%** |
+| `shatterfields` | 4,628 | 260 | 5.6% |
+| `prism_drift` | 4,152 | 220 | 5.3% |
+| `void_verge` | 56,244 | 793 | 1.4% |
+| `starless_reach` | 5,486 | 18 | 0.3% |
+| `rootfall` | 2,160 | 0 | 0.0% |
+| **total** | **75,164** | **1,519** | **2.0%** |
+
+**Proximity is the whole explanation, and it separates cleanly.** Distance to the nearest ocean or
+lake column: wet void columns median **28 blocks, 100% within 60**; dry void columns median **84
+blocks, only 22.9% within 60**. The water sits with its bottom around Y 25..49 and its top at
+exactly Y 63 — a sea surface, not a spring.
+
+The mechanism is the one shortcut in `Aquifer.NoiseBasedAquifer` that routed floodedness cannot
+reach. Before consulting the floodedness noise it samples `preliminarySurfaceLevel` at chunk
+offsets spanning `-3..+1` and, if any of those neighbours reports a surface at or below Y 56,
+returns the global fluid status — water at sea level — for the block being decided. Our band
+defeats that by pinning `initial_density_without_jaggedness` to 1.0 below `DRY_AQUIFER_RIM`, which
+makes the preliminary surface resolve to the build limit. It works for every column whose
+NEIGHBOURS are also inside the band.
+
+**It cannot work where the band is narrower on the ground than the sampling reach.**
+`alfheim_continentalness` is `1.7 x badlands_surface` and then clamped, and in its steepest
+stretches it crosses the entire margin in a few tens of blocks. There the ocean comes within 28
+blocks of a debris biome and the shortcut fires across the gap. No value of `DRY_AQUIFER_RIM`
+fixes this: the requirement is a *distance*, the band is expressed as a *value*, and the field's
+gradient is not ours to set. Widening the band far enough to cover the steepest stretches would
+need more continentalness than the axis contains.
+
+This is the sharpest argument for **B-96**, a dedicated void field whose gain we choose: a margin
+that is a fixed width in blocks can hold the sampling reach open everywhere instead of only where
+the terrain happens to be gentle. Until then the residue is 2.0% of void columns and it is
+recorded here rather than tuned at.
+
 ### 2.7 No void sea
 
 The former "maybe add a void-sea mod" branch is closed. The runtime result demonstrated exactly why

@@ -91,7 +91,7 @@ def validate(catalog,out,density):
     # be a range_choice on continentalness whose in-range value is a literal -1.0 and whose
     # bound is at or below the declared FRINGE. A threshold that merely happens to exclude
     # everything is not the same guarantee and does not satisfy this.
-    from gen_void_worldgen import FRINGE,CLIFF,DEBRIS_Y_RISE
+    from gen_void_worldgen import FRINGE,BREAK,DEBRIS_Y_RISE
     hard_zero=[n for n in walk(density)
                if n.get('type')=='minecraft:range_choice'
                and n.get('input')=='mythicbotany:alfheim_continentalness'
@@ -111,7 +111,7 @@ def validate(catalog,out,density):
         if isinstance(node,dict):
             if (node.get('type')=='minecraft:range_choice'
                     and node.get('input')=='mythicbotany:alfheim_continentalness'
-                    and node.get('max_exclusive')==CLIFF):
+                    and node.get('max_exclusive')==BREAK):
                 yield from noises_outside(node.get('when_out_of_range'),sheltered)
                 yield from noises_outside(node.get('when_in_range'),True)
                 return
@@ -124,9 +124,9 @@ def validate(catalog,out,density):
     cliff_branches=[n for n in walk(density)
                     if n.get('type')=='minecraft:range_choice'
                     and n.get('input')=='mythicbotany:alfheim_continentalness'
-                    and n.get('max_exclusive')==CLIFF]
+                    and n.get('max_exclusive')==BREAK]
     if not cliff_branches:
-        fail('VG3b',f'no continentalness branch at the cliff ({CLIFF}); debris containment '
+        fail('VG3b',f'no continentalness branch at the terrain break ({BREAK}); debris containment '
                     'cannot be established')
     else:
         escaped=DEBRIS_DENSITY_NOISES & set(noises_outside(density,False))
@@ -182,55 +182,66 @@ def validate(catalog,out,density):
     # displacement remains above sea level", after the 0.62 combined amplitude put the
     # surface into the global water table and exposed flowing water at the breakline.
     #
-    # rim_top is gradient(RIM_TOP, 1, -1) + relief, so it crosses zero at
-    #     y = lo + (hi - lo) * (1 + r) / 2
-    # and the lowest surface the plain can produce is that at r = -(RIM_RELIEF + RIM_DETAIL).
-    from gen_void_worldgen import (RIM_TOP, RIM_RELIEF, RIM_DETAIL, RIM_BASE,
-                                   RIM_BASE_WANDER, UNDERCUT, COAST_RIM, DRY_AQUIFER_RIM,
-                                   ATTACH_BIAS, CLIFF, RIM, EDGE_WIDTH, EDGE_BITE,
-                                   EDGE_SWING, EDGE_SPALL, EDGE_LIFT, EDGE_LIFT_SWING,
-                                   RIM_BASE_LIP)
+    # rim_top interpolates three same-span gradients and adds the relief, so within any one of
+    # them it crosses zero at  y = lo + (hi - lo) * (1 + r) / 2. RIM_TOP_DRY is the one that
+    # governs: it is exactly the surface at DRY_AQUIFER_RIM, and outward of that the
+    # interpolation only ever rises toward RIM_TOP_BREAK, so bounding it bounds the whole dried
+    # band. RIM_TOP_SEA is allowed below sea level -- inward of the dry rim it IS sea floor.
+    from gen_void_worldgen import (RIM_TOP_BREAK, RIM_TOP_DRY, RIM_TOP_SEA, RIM_RELIEF,
+                                   RIM_DETAIL, RIM_BASE, RIM_BASE_WANDER, UNDERCUT, COAST_RIM,
+                                   DRY_AQUIFER_RIM, ATTACH_BIAS, BREAK, RIM, EDGE_WIDTH,
+                                   EDGE_BITE, EDGE_SWING, EDGE_SPALL, EDGE_LIFT,
+                                   EDGE_LIFT_SWING, RIM_BASE_LIP, BODY_WIDTH, BODY_LEVEL,
+                                   BODY_SWING, BODY_SHELTER)
     SEA_LEVEL=64
-    # Read out of the SHIPPED density, not out of the generator's constants: this is the one
-    # assertion standing between the approach and a water table inside it, so it reads the
-    # bytes the game will load. rim_top is the add() of a 1 -> -1 gradient and the two quiet
-    # plain noises, which no other node in this tree has the shape of.
-    tops=[]
+    swing=RIM_RELIEF+RIM_DETAIL
+    if swing>=1.0:
+        fail('VG6',f'plain relief {swing} saturates the surface gradients; the surface would no '
+                   'longer track them at all')
+    spans={'RIM_TOP_BREAK':RIM_TOP_BREAK,'RIM_TOP_DRY':RIM_TOP_DRY,'RIM_TOP_SEA':RIM_TOP_SEA}
+    widths={name:hi-lo for name,(lo,hi) in spans.items()}
+    if len(set(widths.values()))!=1:
+        fail('VG6',f'the surface gradients have different spans {widths}: the same relief would '
+                   'displace the surface by different distances along the approach')
+    lo,hi=RIM_TOP_DRY
+    lowest=lo+(hi-lo)*(1.0-swing)/2.0
+    if lowest<=SEA_LEVEL:
+        fail('VG6',f'at the dry-aquifer rim the approach can fall to y{lowest:.1f}, at or below '
+                   f'sea level {SEA_LEVEL}: relief totalling {swing} over gradient y{lo}..y{hi}. '
+                   'Every column the aquifer dries has to be land.')
+    if not RIM_TOP_SEA[1]<RIM_TOP_BREAK[0]:
+        fail('VG6',f'the surface at the sea end y{RIM_TOP_SEA} is not below the surface at the '
+                   f'breakline y{RIM_TOP_BREAK}; the approach would not descend to the coast')
+    # And the three must actually be in the shipped bytes, since this is the one assertion
+    # standing between the approach and a water table inside it.
+    shipped={(n.get('from_y'),n.get('to_y')) for n in walk(density)
+             if n.get('type')=='minecraft:y_clamped_gradient'
+             and n.get('from_value')==1 and n.get('to_value')==-1}
+    for name,span in spans.items():
+        if span not in shipped:
+            fail('VG6',f'{name} {span} is not present in the shipped density; the surface the '
+                       'generator describes is not the surface the game will build')
+    # The sea-level arithmetic above is done on the declared amplitudes, so the shipped ones
+    # have to match them or the arithmetic describes a different surface than the game builds.
+    shipped_amp={}
     for node in walk(density):
-        if node.get('type')!='minecraft:add': continue
-        grad,relief=node.get('argument1'),node.get('argument2')
-        if not (isinstance(grad,dict) and grad.get('type')=='minecraft:y_clamped_gradient'
-                and grad.get('from_value')==1 and grad.get('to_value')==-1): continue
-        amps={}
-        for sub in walk(relief):
-            if sub.get('type')!='minecraft:mul': continue
-            for scalar,term in ((sub.get('argument1'),sub.get('argument2')),
-                                (sub.get('argument2'),sub.get('argument1'))):
-                if (isinstance(scalar,(int,float)) and isinstance(term,dict)
-                        and term.get('type')=='minecraft:noise'):
-                    amps[term.get('noise')]=abs(float(scalar))
-        if set(amps)=={'alfheim:void/relief','alfheim:void/detail'}:
-            tops.append((grad.get('from_y'),grad.get('to_y'),sum(amps.values())))
-    if not tops:
-        fail('VG6','no Verge plain surface found in final density: an add() of a 1 -> -1 '
-                   'y_clamped_gradient and the relief/detail noises. Its height cannot be '
-                   'bounded, so nothing stops the approach reaching the water table.')
-    for lo,hi,swing in tops:
-        if swing>=1.0:
-            fail('VG6',f'plain relief {swing} saturates the y{lo}..y{hi} gradient; the '
-                       'surface would no longer track the gradient at all')
-            continue
-        lowest=lo+(hi-lo)*(1.0-swing)/2.0
-        if lowest<=SEA_LEVEL:
-            fail('VG6',f'the Verge plain can fall to y{lowest:.1f}, at or below sea level '
-                       f'{SEA_LEVEL}: relief totalling {swing} over gradient y{lo}..y{hi}. '
-                       'A dry approach cannot have its own water table in it.')
-    if RIM_RELIEF+RIM_DETAIL!=max(t[2] for t in tops) or RIM_TOP!=tops[0][:2]:
-        fail('VG6','the shipped plain surface does not match the generator constants')
-    # And the terms that shape it must be the quiet ones. Which noises, not how loud:
-    # the sharper vocabulary belongs to bounded configured features beyond the cliff.
+        if node.get('type')!='minecraft:mul': continue
+        for scalar,term in ((node.get('argument1'),node.get('argument2')),
+                            (node.get('argument2'),node.get('argument1'))):
+            if (isinstance(scalar,(int,float)) and isinstance(term,dict)
+                    and term.get('type')=='minecraft:noise'
+                    and term.get('noise') in ('alfheim:void/relief','alfheim:void/detail')):
+                shipped_amp.setdefault(term.get('noise'),set()).add(abs(float(scalar)))
+    for noise_id,declared in (('alfheim:void/relief',RIM_RELIEF),('alfheim:void/detail',RIM_DETAIL)):
+        got=shipped_amp.get(noise_id,set())
+        if got!={declared}:
+            fail('VG6',f'{noise_id} ships at {sorted(got) or "nothing"} against a declared '
+                       f'{declared}; the surface bound above is computed from the declared value '
+                       'and would not describe the shipped one')
+
+    # Only the quiet noises may shape it. Which noises, not how loud.
     plain_noises={'alfheim:void/relief','alfheim:void/detail','alfheim:void/rim_base',
-                  'alfheim:void/breakline','alfheim:void/spall'}
+                  'alfheim:void/breakline','alfheim:void/spall','alfheim:void/body'}
     multipliers={}
     for node in walk(density):
         if node.get('type')!='minecraft:mul':continue
@@ -238,9 +249,8 @@ def validate(catalog,out,density):
                             (node.get('argument2'),node.get('argument1'))):
             if isinstance(scalar,(int,float)) and isinstance(term,dict) and term.get('type')=='minecraft:noise':
                 multipliers.setdefault(term.get('noise'),[]).append(abs(float(scalar)))
-    for noise_id,amps in multipliers.items():
-        if noise_id in plain_noises: continue
-        if noise_id in DEBRIS_DENSITY_NOISES: continue
+    for noise_id in multipliers:
+        if noise_id in plain_noises or noise_id in DEBRIS_DENSITY_NOISES: continue
         fail('VG6',f'{noise_id} shapes gross terrain but is neither a declared plain noise '
                    f'nor a debris noise')
 
@@ -278,7 +288,7 @@ def validate(catalog,out,density):
     # it is the term that stops the edge being a contour line with the same profile at every
     # point along it. Three things have to stay true of it, and none of them is a matter of
     # taste.
-    edge_end=CLIFF+EDGE_WIDTH
+    edge_end=BREAK+EDGE_WIDTH
     if not edge_end<RIM:
         fail('VG8',f'erosion reaches {edge_end:.3f}, at or inland of the void terrain band '
                    f'{RIM}: it would eat the Verge plain and the Void Shore beyond it, which '
@@ -307,8 +317,8 @@ def validate(catalog,out,density):
                    f'{UNDERCUT}: between them the break removes columns from a shelf still '
                    'rooted to bedrock, and what survives is a full-depth fin rather than a '
                    'butte -- measured at z=-704 x=-1711, solid -53..76 with nothing either side')
-    if CLIFF+UNDERCUT>RIM:
-        fail('VG8',f'the undercut reaches {CLIFF+UNDERCUT:.3f}, past the void terrain band '
+    if BREAK+UNDERCUT>RIM:
+        fail('VG8',f'the undercut reaches {BREAK+UNDERCUT:.3f}, past the void terrain band '
                    f'{RIM}: the Void Shore would be hollow under the player as well')
     if EDGE_SPALL<=0:
         fail('VG8','no three-dimensional spall term; the erosion would only lower the top '
@@ -319,13 +329,67 @@ def validate(catalog,out,density):
     if RIM_BASE_LIP[0]<=RIM_BASE[1]:
         fail('VG8',f'the lip underside y{RIM_BASE_LIP} does not clear the plain underside '
                    f'y{RIM_BASE}; the shelf would present its full section at the break')
-    if RIM_BASE_LIP[1]>=RIM_TOP[0]:
+    if RIM_BASE_LIP[1]>=RIM_TOP_BREAK[0]:
         fail('VG8',f'the lip underside rises to y{RIM_BASE_LIP[1]}, into the plain surface '
-                   f'band y{RIM_TOP}; the rim would thin to nothing and detach entirely')
+                   f'band y{RIM_TOP_BREAK}; the rim would thin to nothing and detach entirely')
     if EDGE_LIFT+EDGE_LIFT_SWING<=0 or EDGE_LIFT_SWING<=0:
         fail('VG8','the underside lift cannot vary along the rim; every stretch would thin '
                    'by the same amount and the break would be a lower curtain, not a broken '
                    'one')
+
+    # VG9 -- THE BODY OF THE SHELF CAN BE SHAPED, AND ONLY AT THE BREAK.
+    #
+    # Without a third min() term the density saturates at +1 through the middle of the slab and
+    # every column is all-or-nothing, which is a sliced cake however the top and bottom wander.
+    # Measured on void-margin-20260911-172920 before this existed: 5.3% of adjacent pairs at the
+    # break were a 30+ block wall against nothing and the mean column held 1.21 solid runs.
+    if BODY_SWING<=BODY_LEVEL:
+        fail('VG9',f'body swing {BODY_SWING} never overcomes level {BODY_LEVEL}: the carve can '
+                   'never go negative, so it removes nothing and the shelf stays saturated')
+    if BODY_WIDTH<=0 or BREAK+BODY_WIDTH>RIM:
+        fail('VG9',f'the body carve reaches {BREAK+BODY_WIDTH:.3f} against a terrain band ending '
+                   f'at {RIM}: it would hollow the Void Shore, which is the ground the ocean '
+                   'ends against')
+    # And it has to be shut off before the plain. Solve for where it can still bite:
+    #   BODY_LEVEL + BODY_SWING*n + BODY_SHELTER*(1 - reach) < 0  at the worst sample n = -1.
+    if BODY_SHELTER<=0:
+        fail('VG9','no body shelter term; the carve would reach the whole approach at full '
+                   'strength and there would be no plain left to walk in on')
+    bite_reach=1.0-(BODY_SWING-BODY_LEVEL)/BODY_SHELTER
+    if bite_reach<=0.0:
+        fail('VG9',f'body shelter {BODY_SHELTER} is too weak to stop the carve anywhere inside '
+                   f'the band; it would cut the plain as well as the lip')
+    from gen_void_worldgen import CLIFF as _CLIFF, TERMINAL as _TERMINAL
+    if not _TERMINAL<BREAK<_CLIFF:
+        fail('VG9',f'the terrain handover {BREAK} is not between the terminal band {_TERMINAL} '
+                   f'and the biome contour {_CLIFF}: outward of the contour it leaves the shelf '
+                   'ending at a wall again, inward of it there is no floating belt left')
+
+    # VG10 -- THE COAST IS A SLOPE, AND IT ACTUALLY REACHES THE SEA FLOOR.
+    #
+    # It used to be `coast*normal + (1-coast)*plain`, an interpolation of two DENSITIES. Between
+    # the two surfaces both saturate, so the mix is 1 - 2*coast with no Y dependence at all and
+    # the surface jumps rather than travels -- the sheer Void Shore wall of 2026-09-11. The
+    # replacement carries the height on the mask instead, so what has to be checked is that the
+    # taper spans far enough in both directions.
+    SEA=64
+    if not RIM_TOP_BREAK[0]>RIM_TOP_DRY[0]:
+        fail('VG10',f'the approach does not rise toward the break ({RIM_TOP_BREAK} against '
+                    f'{RIM_TOP_DRY}); it would be one flat table from the sea to the cliff, '
+                    'which is the plateau the field review rejected')
+    sea_crossing=(RIM_TOP_SEA[0]+RIM_TOP_SEA[1])/2.0
+    if sea_crossing>=SEA:
+        fail('VG10',f'the coast bottoms out at y{sea_crossing:.1f}, at or above sea level {SEA}: '
+                    'ordinary density takes over while the approach is still standing above the '
+                    'water, which puts the step straight back')
+
+    # Three dimensions, or it is another heightfield and cuts no overhangs.
+    flat=[n for n in walk(density)
+          if n.get('type')=='minecraft:noise' and n.get('noise')=='alfheim:void/body'
+          and not n.get('y_scale')]
+    if flat:
+        fail('VG9','the body carve is read with y_scale 0: a two-dimensional field cuts a '
+                   'silhouette, not an alcove, and the faces stay vertical')
 
     for name,codec in EXPECTED_CODECS.items():
         key=f'kubejs/data/alfheim/worldgen/configured_feature/void/{name}.json'
@@ -405,6 +469,36 @@ def self_test():
         import gen_void_worldgen as g
         g.UNDERCUT=0.06
     tests.append(('VG8',fins))
+    def saturated_body(c,o,d):
+        import gen_void_worldgen as g
+        g.BODY_SWING=0.10
+    tests.append(('VG9',saturated_body))
+    def carve_reaches_the_shore(c,o,d):
+        import gen_void_worldgen as g
+        g.BODY_WIDTH=0.30
+    tests.append(('VG9',carve_reaches_the_shore))
+    def handover_back_at_the_contour(c,o,d):
+        import gen_void_worldgen as g
+        g.BREAK=g.CLIFF
+    tests.append(('VG9',handover_back_at_the_contour))
+    def plateau_to_the_waterline(c,o,d):
+        import gen_void_worldgen as g
+        g.RIM_TOP_SEA=(62,86)
+    tests.append(('VG10',plateau_to_the_waterline))
+    def flat_approach(c,o,d):
+        import gen_void_worldgen as g
+        g.RIM_TOP_BREAK=g.RIM_TOP_DRY
+    tests.append(('VG10',flat_approach))
+    def flat_carve(c,o,d):
+        def mutate(value):
+            if isinstance(value,dict):
+                if value.get('noise')=='alfheim:void/body':
+                    value['y_scale']=0.0;return True
+                return any(mutate(v) for v in value.values())
+            if isinstance(value,list):return any(mutate(v) for v in value)
+            return False
+        assert mutate(d)
+    tests.append(('VG9',flat_carve))
     def full_section_at_the_break(c,o,d):
         import gen_void_worldgen as g
         g.RIM_BASE_LIP=(4,22)
@@ -455,9 +549,11 @@ def self_test():
     # be put back between tests or one fixture silently decides the next one's verdict.
     import gen_void_worldgen as _g
     baseline={k:getattr(_g,k) for k in ('COAST_RIM','DRY_AQUIFER_RIM','ATTACH_BIAS',
-                                        'UNDERCUT','RIM_TOP','RIM_RELIEF','RIM_DETAIL',
+                                        'UNDERCUT','RIM_TOP_BREAK','RIM_TOP_DRY','RIM_TOP_SEA','RIM_RELIEF','RIM_DETAIL',
                                         'EDGE_WIDTH','EDGE_BITE','EDGE_SWING','EDGE_SPALL',
-                                        'EDGE_LIFT','EDGE_LIFT_SWING','RIM_BASE_LIP')}
+                                        'EDGE_LIFT','EDGE_LIFT_SWING','RIM_BASE_LIP',
+                                        'BODY_WIDTH','BODY_LEVEL','BODY_SWING','BODY_SHELTER','BREAK',
+                                        )}
     for code,mutate in tests:
         try:
             c,o,d=fixture();mutate(c,o,d);hit=any(p.startswith(code) for p in validate(c,o,d))

@@ -188,13 +188,153 @@ def section_blocks(sec):
             for i in unpack_bits(bs.get('data'), bits, 4096)]
 
 
+def step_signature(region_dir, step=STEP, minimum=3000):
+    """THE MEASUREMENT ON-TREAD SHARE COULD NEVER MAKE, AND IT HAS A REAL ZERO.
+
+    On-tread share saturates and returns ~27.8% on terrain nobody touched, which is how a build
+    contributing nothing was read as "gentle terracing" on 2026-09-09. This looks instead for the
+    structural signature of a staircase: the histogram of height jumps between adjacent columns,
+    restricted to ground that is ALREADY SLOPING, where a terrace has no business being.
+
+    A sawtooth of tread height N puts a spike at exactly N in that histogram. Smooth terrain
+    decays monotonically through it. And the zero is measured, not assumed: every biome whose
+    terrace weight is provably 0.000 supplies the background rate for the same bucket, so
+    "how much of the spike is the feature" is a subtraction rather than a judgement.
+
+    Measured 2026-09-11 on `New World yellowhome` at AMPLITUDE 0.30: golden_fields 9.0% at a jump
+    of exactly 4 against a 1.6..2.2% background in dreamwood_forest, alfheim_hills and
+    starved_reach, with 57.7% of its sloping pairs flat against their 33..38%.
+    """
+    top, bio = {}, {}
+    for path in sorted(glob.glob(os.path.join(region_dir, '*.mca'))):
+        for ch in chunks(path):
+            if not ch:
+                continue
+            hm = (ch.get('Heightmaps') or {}).get('WORLD_SURFACE')
+            secs = ch.get('sections') or []
+            cx, cz = ch.get('xPos'), ch.get('zPos')
+            if not hm or cx is None:
+                continue
+            vals = unpack_bits(hm, 9, 256)
+            for idx in range(256):
+                z, x = divmod(idx, 16)
+                t = vals[idx] + MIN_Y - 1
+                b = biome_at(secs, max(t, MIN_Y), x, z)
+                if b:
+                    top[(cx * 16 + x, cz * 16 + z)] = t
+                    bio[(cx * 16 + x, cz * 16 + z)] = b
+    hist = collections.defaultdict(collections.Counter)
+    for (x, z), t in top.items():
+        b = bio[(x, z)]
+        far = top.get((x + 16, z))
+        # sloping only: a terrace on ground that was already flat is a field, not a staircase
+        if far is None or bio.get((x + 16, z)) != b or abs(far - t) < 5:
+            continue
+        for d in range(16):
+            a, c = top.get((x + d, z)), top.get((x + d + 1, z))
+            if a is None or c is None or bio.get((x + d + 1, z)) != b:
+                break
+            hist[b][min(abs(c - a), 12)] += 1
+    rows = []
+    for b, h in hist.items():
+        n = sum(h.values())
+        if n >= minimum:
+            rows.append((100 * h[step] / n, 100 * h[0] / n, n, b))
+    if not rows:
+        print('no biome had %d sloping pairs' % minimum)
+        return 1
+    rows.sort(reverse=True)
+    background = sorted(r[0] for r in rows)[len(rows) // 2]
+    print('jump of exactly %d between adjacent columns, on sloping ground only' % step)
+    print('%-30s %9s %9s %9s' % ('biome', 'at %d' % step, 'flat', 'pairs'))
+    for spike, flat, n, b in rows:
+        mark = '   <-- %+.1f points over background' % (spike - background) if spike > background * 2 else ''
+        print('%-30s %8.1f%% %8.1f%% %9d%s' % (b.split(':')[-1], spike, flat, n, mark))
+    print()
+    print('background (median biome): %.1f%% -- biomes with no terrace weight cannot be '
+          'terraced, so this is the real zero' % background)
+    return 0
+
+
+def pin_excess(treatment_dir, control_dir, biome='mythicbotany:golden_fields', step=STEP):
+    """THE FIRST TERRACE METRIC IN THIS PROJECT WITH A CONTROL THAT MEANS ANYTHING.
+
+    Both previous instruments failed, in opposite directions and for the same reason -- no zero:
+
+      on-tread share  saturates. It returns ~27.8% on terrain nobody touched, which is how a
+                      build contributing literally nothing was accepted as "gentle terracing".
+      flat-on-slope   is INSENSITIVE. Halving the amplitude from 0.30 to 0.12 moved it from
+                      42.7% to 42.6%, and reading that alone would say the amplitude does
+                      nothing at all.
+
+    This compares the SAME COLUMNS in a treatment world and a control world generated on the
+    same seed, and reports how far the surface has been pinned onto one residue mod `step`
+    beyond where the control already sat. The control supplies the zero by construction, and the
+    response is monotonic in amplitude -- measured 2026-09-11 over 1,008 Golden Fields columns:
+
+        control          20.3% on residue 0        excess   0.0
+        amplitude 0.12   35.1%                     excess +14.8
+        amplitude 0.30   52.2%                     excess +31.9
+
+    Build the control by replacing alfheim_final with upstream's own
+    min(alfheim_initial, alfheim_caves) and generating on the same seed.
+    """
+    def heights(region_dir):
+        out = {}
+        for path in sorted(glob.glob(os.path.join(region_dir, '*.mca'))):
+            for ch in chunks(path):
+                if not ch or ch.get('Status') != 'minecraft:full':
+                    continue
+                hm = (ch.get('Heightmaps') or {}).get('WORLD_SURFACE')
+                secs = ch.get('sections') or []
+                cx, cz = ch.get('xPos'), ch.get('zPos')
+                if not hm or cx is None:
+                    continue
+                vals = unpack_bits(hm, 9, 256)
+                for idx in range(256):
+                    z, x = divmod(idx, 16)
+                    t = vals[idx] + MIN_Y - 1
+                    if biome_at(secs, max(t, MIN_Y), x, z) == biome:
+                        out[(cx * 16 + x, cz * 16 + z)] = t
+        return out
+    treat, ctrl = heights(treatment_dir), heights(control_dir)
+    common = set(treat) & set(ctrl)
+    if len(common) < 200:
+        print('only %d columns of %s in both worlds; need the same seed and overlapping sites'
+              % (len(common), biome))
+        return 1
+    tr = collections.Counter(treat[k] % step for k in common)
+    co = collections.Counter(ctrl[k] % step for k in common)
+    n = len(common)
+    residue = max(range(step), key=lambda r: tr[r])
+    excess = 100 * (tr[residue] - co[residue]) / n
+    print('%s, %d columns shared with the control' % (biome, n))
+    print()
+    print('%-12s %s' % ('world', ' '.join('res %d' % r for r in range(step))))
+    print('%-12s %s' % ('control', ' '.join('%5.1f%%' % (100 * co[r] / n) for r in range(step))))
+    print('%-12s %s' % ('treatment', ' '.join('%5.1f%%' % (100 * tr[r] / n) for r in range(step))))
+    print()
+    print('terraced onto residue %d: %+.1f points over the control' % (residue, excess))
+    print('  0 means the feature is doing nothing; the 2026-09-11 stacked-floor build read +31.9')
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('region_dir')
     ap.add_argument('--min-columns', type=int, default=400)
+    ap.add_argument('--pin', metavar='CONTROL_REGION_DIR',
+                    help='terrace pinning against a control world on the same seed')
+    ap.add_argument('--steps', action='store_true',
+                    help='staircase signature: jump histogram on sloping ground, against the '
+                         'background rate from biomes that cannot be terraced')
     ap.add_argument('--deep', action='store_true',
                     help='also read block states for the deep-void share (much slower)')
     a = ap.parse_args()
+    if a.pin:
+        return pin_excess(a.region_dir, a.pin)
+    if a.steps:
+        return step_signature(a.region_dir)
 
     residues = collections.defaultdict(collections.Counter)
     heights = collections.defaultdict(list)

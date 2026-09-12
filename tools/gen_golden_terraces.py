@@ -113,7 +113,28 @@ WORLD_LO, WORLD_HI = -64, 320
 #
 #   python tools/run_terrace_validation.py --mode treatment
 #   python tools/run_terrace_validation.py --mode baseline
-AMPLITUDE = 0.30
+# MEASURED AGAINST A CONTROL WORLD, 2026-09-11, AND 0.30 IS A STAIRCASE.
+#
+# The paragraph above has the mechanism right and the number wrong. `probe_terraces.py --pin`
+# compares the SAME COLUMNS against a control generated on the same seed with alfheim_final
+# replaced by upstream's own min(alfheim_initial, alfheim_caves), so the zero is built rather
+# than assumed. Over 1,008 shared Golden Fields columns, surface height mod STEP:
+#
+#     control          20.3% on residue 0        excess    0.0
+#     AMPLITUDE 0.12   35.1%                     excess  +14.8
+#     AMPLITUDE 0.30   52.2%                     excess  +31.8   <- shipped, and photographed
+#                                                                   as floors with sheer walls
+#
+# THE TWO EARLIER INSTRUMENTS BOTH FAILED, IN OPPOSITE DIRECTIONS, AND BOTH FAILURES ARE ON
+# RECORD ABOVE AND BELOW THIS LINE. On-tread share saturates and returns ~27.8% on terrain
+# nobody touched, which is how a build contributing nothing was accepted as gentle terracing.
+# Flat-share-on-slopes is insensitive the other way: it read 42.7% at 0.30 and 42.6% at 0.12,
+# which would say the amplitude does nothing at all. Only a same-seed control column-for-column
+# responds monotonically, and it is what this number is now set against.
+#
+# 0.175 interpolates to roughly +20 points, which is terracing you can see against terrain you
+# can still walk up. Move it with the pin excess, never with either of the other two.
+AMPLITUDE = 0.175
 
 # --- the climate window -----------------------------------------------------------------------
 # Golden Fields occupies cont 0.15..0.30, weird 0..1 (see BIOME_INDEX.md §3). The terracing is
