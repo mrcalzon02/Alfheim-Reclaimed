@@ -187,7 +187,9 @@ def validate(catalog,out,density):
     # and the lowest surface the plain can produce is that at r = -(RIM_RELIEF + RIM_DETAIL).
     from gen_void_worldgen import (RIM_TOP, RIM_RELIEF, RIM_DETAIL, RIM_BASE,
                                    RIM_BASE_WANDER, UNDERCUT, COAST_RIM, DRY_AQUIFER_RIM,
-                                   ATTACH_BIAS)
+                                   ATTACH_BIAS, CLIFF, RIM, EDGE_WIDTH, EDGE_BITE,
+                                   EDGE_SWING, EDGE_SPALL, EDGE_LIFT, EDGE_LIFT_SWING,
+                                   RIM_BASE_LIP)
     SEA_LEVEL=64
     # Read out of the SHIPPED density, not out of the generator's constants: this is the one
     # assertion standing between the approach and a water table inside it, so it reads the
@@ -227,7 +229,8 @@ def validate(catalog,out,density):
         fail('VG6','the shipped plain surface does not match the generator constants')
     # And the terms that shape it must be the quiet ones. Which noises, not how loud:
     # the sharper vocabulary belongs to bounded configured features beyond the cliff.
-    plain_noises={'alfheim:void/relief','alfheim:void/detail','alfheim:void/rim_base'}
+    plain_noises={'alfheim:void/relief','alfheim:void/detail','alfheim:void/rim_base',
+                  'alfheim:void/breakline','alfheim:void/spall'}
     multipliers={}
     for node in walk(density):
         if node.get('type')!='minecraft:mul':continue
@@ -268,6 +271,53 @@ def validate(catalog,out,density):
     if RIM_BASE[0]<=-64:
         fail('VG7',f'the underside gradient opens at y{RIM_BASE[0]}, at or below the world '
                    'floor; the lip would have no cliff face at all')
+
+    # VG8 -- THE LIP MAY COME APART, THE APPROACH MAY NOT.
+    #
+    # The breakline erosion is the one term in this function allowed to remove the plain, and
+    # it is the term that stops the edge being a contour line with the same profile at every
+    # point along it. Three things have to stay true of it, and none of them is a matter of
+    # taste.
+    edge_end=CLIFF+EDGE_WIDTH
+    if not edge_end<RIM:
+        fail('VG8',f'erosion reaches {edge_end:.3f}, at or inland of the void terrain band '
+                   f'{RIM}: it would eat the Verge plain and the Void Shore beyond it, which '
+                   'are the ground the player is promised')
+    if not edge_end<DRY_AQUIFER_RIM:
+        fail('VG8',f'erosion reaches {edge_end:.3f}, at or inland of the dry-aquifer rim '
+                   f'{DRY_AQUIFER_RIM}: a lip cut below sea level in wet ground fills, and '
+                   'water at the breakline is the defect DEFICIENT_BIOMES.md rejected')
+    # It must be clamped, or a negative noise sample would ADD material at the breakline and
+    # the term would be a displacement rather than an erosion.
+    clamped=[n for n in walk(density)
+             if n.get('type')=='minecraft:max'
+             and 0.0 in (n.get('argument1'),n.get('argument2'))]
+    if not clamped:
+        fail('VG8','breakline erosion is not clamped at zero; a negative sample would build '
+                   'the lip back up instead of removing it')
+    # And it has to be able to cut deeper in some places than others, or the rim comes down
+    # to one new height and the result is a lower curtain rather than a broken one. The swing
+    # is what buys headlands and bays; without it EDGE_BITE alone is a uniform trim.
+    if EDGE_SWING<=EDGE_BITE:
+        fail('VG8',f'erosion swing {EDGE_SWING} does not exceed its baseline bite '
+                   f'{EDGE_BITE}; every stretch of rim would be cut by nearly the same '
+                   'amount and the breakline would stay a contour')
+    if EDGE_SPALL<=0:
+        fail('VG8','no three-dimensional spall term; the erosion would only lower the top '
+                   'and the face itself would stay a smooth vertical sheet')
+    # And the slab has to thin, not just shorten. Lowering a 63-block section by ten blocks
+    # leaves a 53-block wall; measured, erosion alone moved the median face from 69 to 62.
+    # The lip underside has to sit above the plain's, or the term is decorative.
+    if RIM_BASE_LIP[0]<=RIM_BASE[1]:
+        fail('VG8',f'the lip underside y{RIM_BASE_LIP} does not clear the plain underside '
+                   f'y{RIM_BASE}; the shelf would present its full section at the break')
+    if RIM_BASE_LIP[1]>=RIM_TOP[0]:
+        fail('VG8',f'the lip underside rises to y{RIM_BASE_LIP[1]}, into the plain surface '
+                   f'band y{RIM_TOP}; the rim would thin to nothing and detach entirely')
+    if EDGE_LIFT+EDGE_LIFT_SWING<=0 or EDGE_LIFT_SWING<=0:
+        fail('VG8','the underside lift cannot vary along the rim; every stretch would thin '
+                   'by the same amount and the break would be a lower curtain, not a broken '
+                   'one')
 
     for name,codec in EXPECTED_CODECS.items():
         key=f'kubejs/data/alfheim/worldgen/configured_feature/void/{name}.json'
@@ -331,6 +381,26 @@ def self_test():
         import gen_void_worldgen as g
         g.ATTACH_BIAS=1.0
     tests.append(('VG7',hollow_approach))
+    def erosion_eats_the_plain(c,o,d):
+        import gen_void_worldgen as g
+        g.EDGE_WIDTH=0.40
+    tests.append(('VG8',erosion_eats_the_plain))
+    def uniform_trim(c,o,d):
+        import gen_void_worldgen as g
+        g.EDGE_SWING=0.0
+    tests.append(('VG8',uniform_trim))
+    def flat_face(c,o,d):
+        import gen_void_worldgen as g
+        g.EDGE_SPALL=0.0
+    tests.append(('VG8',flat_face))
+    def full_section_at_the_break(c,o,d):
+        import gen_void_worldgen as g
+        g.RIM_BASE_LIP=(4,22)
+    tests.append(('VG8',full_section_at_the_break))
+    def uniform_thinning(c,o,d):
+        import gen_void_worldgen as g
+        g.EDGE_LIFT_SWING=0.0
+    tests.append(('VG8',uniform_thinning))
     def no_far_cutoff(c,o,d):
         # Turn the literal far-field -1.0 into a merely-very-negative constant.
         def mutate(value):
@@ -373,7 +443,9 @@ def self_test():
     # be put back between tests or one fixture silently decides the next one's verdict.
     import gen_void_worldgen as _g
     baseline={k:getattr(_g,k) for k in ('COAST_RIM','DRY_AQUIFER_RIM','ATTACH_BIAS',
-                                        'UNDERCUT','RIM_TOP','RIM_RELIEF','RIM_DETAIL')}
+                                        'UNDERCUT','RIM_TOP','RIM_RELIEF','RIM_DETAIL',
+                                        'EDGE_WIDTH','EDGE_BITE','EDGE_SWING','EDGE_SPALL',
+                                        'EDGE_LIFT','EDGE_LIFT_SWING','RIM_BASE_LIP')}
     for code,mutate in tests:
         try:
             c,o,d=fixture();mutate(c,o,d);hit=any(p.startswith(code) for p in validate(c,o,d))

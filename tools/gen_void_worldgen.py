@@ -97,6 +97,46 @@ ATTACH_BIAS=2.0
 RIM_TOP=(64,88)
 RIM_RELIEF=0.30
 RIM_DETAIL=0.10
+# --- the breakline, which was a contour line and is now a coast ---------------------------
+#
+# EVERY POINT AT THE SAME CONTINENTALNESS USED TO HAVE THE SAME PROFILE, and that is the whole
+# reason the edge photographs as one continuous curtain. The margin was a pure function of a
+# single smooth 2D scalar, so its outer edge was a contour of that scalar: no bays, no
+# headlands, no gaps, and the same face height along its entire length. Fragment noise beyond
+# the cliff is what gives the bottom of the drop its crenulation -- the part of the current
+# result the field review liked -- and nothing was doing the equivalent job at the lip.
+#
+# Three terms, because three different things have to vary. EDGE_WIDTH is how far inland the
+# break reaches; `appetite` is broad, so whole stretches of rim survive at full height while
+# whole stretches are cut down into bays; `spall` is local and fully three-dimensional, so it
+# notches the face itself into ledges, alcoves and standing stacks rather than only lowering
+# the top. Erosion is clamped at zero: it may remove the lip, never add to it.
+EDGE_WIDTH=0.09
+EDGE_BITE=0.45
+EDGE_SWING=1.15
+EDGE_SPALL=0.45
+# AND THE UNDERSIDE COMES UP TO MEET IT, BECAUSE CUTTING THE TOP ALONE IS NOT ENOUGH.
+# Measured before this term existed: erosion on its own moved the median face height from 69
+# to 62 blocks -- a distribution with a tail rather than a constant, but still a wall for most
+# of its length, because the slab is 63 blocks thick at the lip and lowering its top by ten
+# does not change what that presents to someone standing below it. `lift` raises the shelf's
+# underside toward the break, so the slab THINS as well as shortening.
+#
+# Both terms read the same broad noise ON PURPOSE. Independent fields would give a quarter of
+# the rim a cut-down top over an untouched base -- a tall thin blade, which is exactly the
+# vertical fin the September 9 review rejected. Sharing it correlates them: where the top
+# survives the base stays deep and the result is a thick headland, and where the top is eaten
+# the base rises with it and the result is a low bench you can get off.
+#
+# It is expressed as a SECOND UNDERSIDE GRADIENT rather than an offset on the first, and that
+# is not a stylistic choice. y_clamped_gradient saturates at +/-1 outside its span, so
+# subtracting a constant larger than 1 from it makes the term negative at EVERY height and
+# deletes the rim outright; measured on the first attempt, which drove the median face from 69
+# to 123 blocks by pushing the min() the other way entirely. Interpolating between a deep
+# underside and a shallow one moves the surface the term describes instead of the value.
+RIM_BASE_LIP=(30,52)
+EDGE_LIFT=0.50
+EDGE_LIFT_SWING=0.90
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
 # that get rarer AND smaller together, because raising a threshold on smooth noise trims the
@@ -216,9 +256,23 @@ def density(normal):
     # cliff, and rim_base + 2.0 is then positive at every Y, so the plain is rooted to bedrock
     # everywhere except the lip -- which is the only place a cliff face belongs.
     attach=ramp(MASK,CLIFF,CLIFF+UNDERCUT)
-    rim_base=binary('add',gradient(RIM_BASE,-1,1),
-                    binary('mul',RIM_BASE_WANDER,noise('rim_base',0.0,0.22)))
+    # The lip comes apart. `edge` is 1.0 at the breakline and 0.0 EDGE_WIDTH inland, so every
+    # term below is exactly zero across the plain the player crosses and across the shore
+    # beyond it -- VG8 asserts that, and asserts that the eroded band stays inside the dry
+    # aquifer shoulder, because a lip cut below sea level in wet ground would fill.
+    edge=binary('add',1.0,binary('mul',-1.0,ramp(MASK,CLIFF,CLIFF+EDGE_WIDTH)))
+    lift=binary('mul',edge,clamp(binary('add',EDGE_LIFT,
+                binary('mul',EDGE_LIFT_SWING,noise('breakline',0.0,0.14))),0.0,1.0))
+    rim_base=binary('add',binary('add',
+                binary('mul',binary('add',1.0,binary('mul',-1.0,lift)),gradient(RIM_BASE,-1,1)),
+                binary('mul',lift,gradient(RIM_BASE_LIP,-1,1))),
+                binary('mul',RIM_BASE_WANDER,noise('rim_base',0.0,0.22)))
     plain=binary('min',rim_top,binary('add',rim_base,binary('mul',ATTACH_BIAS,attach)))
+
+    appetite=binary('add',EDGE_BITE,binary('mul',EDGE_SWING,noise('breakline',0.0,0.18)))
+    erosion=binary('max',0.0,binary('add',appetite,
+                                    binary('mul',EDGE_SPALL,noise('spall',0.80,0.90))))
+    plain=binary('add',plain,binary('mul',-1.0,binary('mul',edge,erosion)))
 
     void=choose(MASK,-100,CLIFF,debris_field(),plain)
     # NoiseBasedChunkGenerator consults its global fluid picker at the lowest ten
@@ -330,7 +384,13 @@ def extra_files():
                              # The shore's own channel: wrack lines and bleached stone, at a
                              # coarser period than the Verge's seam noises so the strand reads
                              # as banded rather than speckled.
-                             ('shore_wrack',-4,[1,0.5])]:
+                             ('shore_wrack',-4,[1,0.5]),
+                             # Broad enough that a headland is a headland for a few hundred
+                             # blocks rather than a single column that happened to survive.
+                             ('breakline',-6,[1,0.5,0.25]),
+                             # And the local one, read in three dimensions so it cuts the face
+                             # and not only the top.
+                             ('spall',-3,[1,0.55,0.3])]:
         emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
     emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
     # REMOVE phase runs after all ADD modifiers. Conventional liquid pools must
