@@ -1,5 +1,106 @@
 # Execution State
 
+## Latest implementation — the sea had nowhere to stop — 2026-09-11
+
+A client walk rejected three things at once: empty volumes with deep rock below them and nothing
+above, the void edge still reading as a sheer cliff, and the ocean bleeding out over that edge.
+All three were reproduced against `saves/New World Ferngale` before anything changed — 764,672
+columns read out of the region files — and all three turned out to be the same defect seen from
+different angles.
+
+**`alfheim_ocean` claimed continentalness -0.80..-0.28 and the aquifer router dried everything
+below -0.58.** The outer 42% of the ocean's own climate band was therefore an ocean biome, over an
+ocean-shaped seabed, with the water suppressed: **123,145 of 348,224 ocean columns** carrying no
+water and nothing above Y 40. At z=223 every ocean column from x -180 to -113 reads seabed
+-53..29, water count zero. That is the "deeps below it but nothing above".
+
+**And `DRY_AQUIFER_RIM` could not simply be pulled back.** `Aquifer.NoiseBasedAquifer` samples
+preliminary surface at chunk offsets spanning -3..+1 and blends the three nearest cells, so a
+narrow shoulder floods the whole void to Y 64. The shoulder's width was never the defect. Leaving
+the band it dried at seabed height was.
+
+### What was repaired
+
+| target | repair |
+|---|---|
+| `gen_void_worldgen.density()` | the Verge plain runs on past `RIM` and only turns into sea floor between `COAST_RIM` -0.55 and `COAST_TOE` -0.46; the sea ends against land |
+| `alfheim:void_shore` | new biome, -0.72..-0.55: the void's own coastline, emerged and dry, so the edge is three bands deep |
+| `alfheim_ocean` claim | -0.55..-0.28; every band it gave up was dried basin, so no wet ocean was lost |
+| `attach` / `UNDERCUT` | the undercut is local to the lip; the approach is rooted to bedrock where it is walked |
+| breakline erosion | broad `appetite`, 3D `spall`, interpolated underside `lift` — the edge is a coast, not a contour |
+| `void_shore` surface rule | in the un-gated void rule, not `identity_surface_rule()`, which cannot fire inside the dry band |
+| `gen_spawn_hub.LAYER_BIOMES` | derived from the layer instead of transcribed |
+| `surface_works_manifest` | Strandline Hulk and Edgewatch Beacon, so a 357k-column biome is not empty |
+
+### The breakline was a contour line, and the control proves it
+
+Measured over 900 columns in 30 rim segments against a control with the erosion terms zeroed:
+the outer edge of the plain sat at **exactly -0.8600 in every single column, spread 0.0000**, with
+a face of 61..78 blocks, standard deviation 3.2. Every point at the same continentalness had the
+same profile, because the margin was a pure function of one smooth 2D scalar. Shipped: median face
+**33 blocks**, 58% of the rim under 40, a third still carrying a 60..78 block headland.
+
+### Two measurements that only the other one could make
+
+**The analytic sweep passed the first shaped build and the generated world rejected it.**
+`measure_void_edge.py` reported median face 69 -> 33 and 58% under 40 on code whose survivors were
+**130-block fins**: at z=-704, x=-1711 is void_verge solid -53..76 with prism_drift carrying
+nothing on either side. Erosion reached 0.09 inland while the undercut reached only 0.06, so
+across the strip between them the break removed whole columns from a shelf that was still welded
+to bedrock. The sweep samples one column at a time, and **from inside one column a fin and a butte
+are the same measurement.** `UNDERCUT` is 0.12 now and VG8 asserts the containment; full-depth
+fins at the break fell from **19.5% to 5.1%** of Verge columns, read out of generated chunks.
+
+That is the 2026-09-09 lesson one level up. A density function can be correct at every sampled
+point and still produce the wrong landform; a distribution can be correct at every column and
+still describe the wrong landform.
+
+**And the sweep caught what the world could not have explained.** Lifting the underside by
+subtracting from its `y_clamped_gradient` drove the median face from 69 to 123 blocks, because the
+gradient saturates at +/-1 outside its span and the `min()` went the other way entirely. In a
+generated world that reads only as "the rim got worse". Both tools are in `tools/` now rather than
+in a scratchpad, which is where the 2026-09-09 cross-section renderer was left and lost.
+
+### Guards
+
+VG6 capped relief at 0.18 and detail at 0.05. **That is a proxy** — a cap on each amplitude says
+nothing about where the surface lands, because that depends on the gradient the amplitudes are
+added to, which the rule never read. It now derives the plain's lowest possible surface from the
+shipped density and requires it to clear sea level. VG7 asserts that every column the aquifer
+dries stands on that plain and that the attach bias clears the underside floor. VG8 asserts the
+erosion stops inside both the terrain band and the dry shoulder, is clamped at zero, varies along
+the rim, has a three-dimensional term, and is contained by the undercut.
+`check_void_geology --self-test`: **16/16 proven to fire.**
+
+### Evidence
+
+| | |
+|---|---|
+| Commits | `6902f101`, `1e85b8c2`, `4850825b`, `79cb1107`, `6428e785`, `db7889e7` — all local, **unpushed** |
+| Worlds | `server/void-margin-20260911-171819` and `-172920`, both exit 0, audit true, KubeJS clean |
+| Ocean | **100.0% of ocean columns at sea level, 0.0% bare** (was 39.7% below sea level with nothing on it) |
+| Void Shore | 357,520 columns, minimum surface **Y 65** — emerged everywhere |
+| Surface rule | Void Shore reads riftchalk 67%, sand 18%, gravel 12%; no bare Deepworks strata |
+| Fins | 19.5% -> 5.1% of Verge columns at the break rooted to bedrock |
+| Static | 13 guards pass, plus `check_spawn_hub`, `check_surface_works`, `check_feature_order` |
+| Admission | **fresh-world validated** for the ocean and the approach; the rim's *read* is client-pending |
+
+### Next
+
+A client walk. Every number above is read from region files and nobody has stood in any of it.
+Three things need eyes: whether the Void Shore reads as a coast or as a grey apron, whether the
+eroded lip reads as the world coming apart or merely as a shorter wall, and whether the 5% of
+rooted spurs read as headlands or as leftover fins.
+
+**Deferred, with the test named.** The pixie hamlets do receive valid structure starts — three of
+four cultures placed in 21,305 chunks of `void-margin-20260911-171819` — but **not one of their
+chunks reached `minecraft:full` in any world generated so far**, so whether the islands actually
+build has never been observed. The census needs a world centred on a pixie host biome with enough
+radius to take the start chunks to `full`, then a block count at Y 208.
+`PIXIE_SETTLEMENTS.md` already names the suspect: Continuity Works auto-enrols every registered
+structure in a 500-block exclusion, `autoIncludeRegisteredStructures = true`.
+
+
 ## Latest implementation — the line endings were never this project's to choose — 2026-09-10
 
 Three byte-equality guards were failing and none of them could say why. `check_deepworks`

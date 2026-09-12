@@ -1,5 +1,71 @@
 # Backlog
 
+### B-94 — The September 11 field review: the ocean had nowhere to stop — **FRESH-WORLD MEASURED; CLIENT WALK PENDING**
+
+Three rejections, one defect. Reproduced against `saves/New World Ferngale`, 764,672 columns.
+
+**1. Empty volumes with the deep below them and nothing above.** `alfheim_ocean` claimed
+continentalness -0.80..-0.28; the aquifer router dried everything below -0.58. The outer 42% of
+the ocean's band was an ocean biome over an ocean-shaped seabed with the water suppressed —
+**123,145 of 348,224 ocean columns**, seabed around Y 30, open air to the build limit. Its top
+block measured as bare Deepworks strata, because every palette in `identity_surface_rule()` is
+gated on `above_preliminary_surface` and the dry band pins preliminary surface to the build limit.
+
+`DRY_AQUIFER_RIM` is not a tuning value and must not be pulled outward:
+`Aquifer.NoiseBasedAquifer` samples preliminary surface at chunk offsets spanning -3..+1, so a
+narrow shoulder floods the void to Y 64. The band it dries is **land** now. `alfheim:void_shore`
+claims -0.72..-0.55 — the void's own coastline, emerged, dry, pale — and the ocean claims
+-0.55..-0.28. Every band the ocean gave up was dried basin, so no wet ocean was lost.
+
+**2. The verge stood free, and the break had no width.** `rim_base` cut the shelf's landward face
+too: at z=223 the seabed at x=-113 is solid -53..28 and the Verge one column out at x=-112 is
+solid 11..34. The old shore blend spanned 0.008 of continentalness — about two columns. The plain
+is rooted to bedrock everywhere it is walked now, undercut only at the lip.
+
+**3. The breakline was a contour line.** Over 900 columns in 30 rim segments the outer edge of the
+plain sat at exactly -0.8600 in every column, spread 0.0000, face 61..78 blocks, standard
+deviation 3.2. Shipped: median face **33 blocks**, 58% under 40, a third still a 60..78 headland.
+
+**The first shaped build passed the analytic sweep and the generated world rejected it.** Erosion
+reached 0.09 inland while the undercut reached 0.06, so the survivors were 130-block fins — the
+sweep samples one column at a time and cannot tell a fin from a butte. `UNDERCUT` is 0.12 now:
+fins at the break fell from **19.5% to 5.1%**.
+
+Guards: VG6 repaired from an amplitude cap to the invariant it stood for; VG7 and VG8 new;
+`check_void_geology --self-test` 16/16 proven to fire. Two measurement tools promoted out of the
+scratchpad — `probe_void_margin.py` and `measure_void_edge.py`.
+
+Evidence: `6902f101`, `1e85b8c2`, `4850825b`, `79cb1107`, `6428e785`, `db7889e7`, all local and
+unpushed. Worlds `void-margin-20260911-171819` and `-172920`, both exit 0. Ocean now 100.0% at sea
+level, 0.0% bare. Void Shore minimum surface Y 65.
+
+**Open:** a client walk. Nobody has stood in any of it. See `EXECUTION_STATE.md` for the three
+things that need eyes.
+
+### B-95 — Have the pixie hamlets ever actually built? — **UNPROVEN; TEST NAMED**
+
+The 2026-09-11 review reported never having seen one. They are not unregistered: three of four
+cultures received valid structure starts in 21,305 chunks of `void-margin-20260911-171819`, and
+`pixie_autumn_hamlet` is referenced by six chunks. But **not one chunk within 3 of any hamlet
+start reached `minecraft:full` in any world generated so far** — 0 of 49 around the autumn start —
+so no world has ever taken one to the feature stage, and the block count at Y 208 is zero for a
+reason that proves nothing either way.
+
+`check_pixie_settlements` and `check_pixie_runtime` both pass, and a direct assembly in
+`validation-pixie-assembly-0907b` built all four correctly, so the geometry is not in doubt.
+What is unproven is natural placement.
+
+The test: generate a world centred on a pixie host biome — `starved_reach`, `bloomfall_vale`,
+`silverbark_wood`, `golden_fields`, `alfheim_plains`, `ashen_grove`, `alfheim_hills` — with enough
+radius that the start chunks reach `full`, then count non-air blocks at Y 192..239.
+
+`PIXIE_SETTLEMENTS.md` already names the suspect and it is still untested: Continuity Works
+auto-enrols every registered structure in a 500-block exclusion —
+`config/continuityworks_spawn_protection-common.toml`, `autoIncludeRegisteredStructures = true`,
+`defaultExclusionRadius = 500`, minimum "intentionally not configurable downward". With every
+structure family in the pack claiming 500 blocks, a rare fixed-height hamlet is the kind of thing
+that loses every contest. Measure before changing anything.
+
 ### B-93 — The September 9 field review: three worldgen regressions — **REPAIRED; FRESH-WORLD MEASURED; CLIENT WALK PENDING**
 
 Reported from a client walk of `saves/New World Cherish`, in the reviewer's own priority order:
