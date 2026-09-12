@@ -66,6 +66,43 @@ auto-enrols every registered structure in a 500-block exclusion —
 structure family in the pack claiming 500 blocks, a rare fixed-height hamlet is the kind of thing
 that loses every contest. Measure before changing anything.
 
+### B-96 — A dedicated void map, so the margin stops sharing an axis with the ocean — **DIRECTED 2026-09-11; NOT STARTED**
+
+Owner direction, 2026-09-11, after B-94: *"I like the first option of ring plus shaping... we
+definitely have enough void adjacent biomes to create our own coastline biome for the void."* The
+ring and the shaping shipped under B-94; this is the half that was deliberately deferred.
+
+**The reason it is worth doing.** `mythicbotany:alfheim_continentalness` is
+`1.7 x badlands_surface` at `xz_scale 0.045`, clamped. That gain makes the field steep exactly
+where the margin sits, so every band keyed to it is narrow on the ground: before B-94 the
+`void_verge` biome ran x -112..-97 at z=223, **sixteen columns**, while its shelf was 60 blocks
+thick. A cliff four times taller than the plan width of its own biome can only read as a curtain.
+B-94 bought width by taking 0.22 of continentalness back from the ocean, and that is the only
+currency continentalness has — the two share one axis, which is also why the void sits at the
+bottom of every ocean basin and is always reached across water.
+
+A purpose-built field can be authored with whatever gain is wanted, so the margin can be 100..200
+blocks wide without costing ocean, and the void can be placed independently of where the sea is.
+
+**Where it goes.** Of the 44 claims in the biome layer, continentalness constrains all of them,
+humidity 31, weirdness 28, temperature 26 — and **erosion only 6**. `depth` constrains none.
+Erosion is already routed and doing essentially nothing, so the void map can be `alfheim_erosion`
+redefined: void biomes claim low erosion, every other biome keeps spanning the full range, and
+`partition()` gives the void claims priority because they are listed first.
+
+**Normalise it to the same -1..1 scale.** Every tuned number in the void is written in
+continentalness — `CLIFF`, `TERMINAL`, `FRINGE`, the debris ramps, and `check_void_surface_support`
+V6, which pins the terminal landings to -0.94..-0.925. On the same scale those keep their meaning
+and the migration is a one-line input swap per branch plus a re-tune. `gen_void_worldgen.MASK` is
+already the single name every band reads.
+
+**What it does not fix, and this is the part to keep.** It does not remove the aquifer buffer.
+Whatever field decides the terrain, `Aquifer.NoiseBasedAquifer` decides fluid separately and
+samples preliminary surface up to three chunks away, so there must still be a ring of
+above-sea-level land between the last water and the first void air below Y 64. The difference is
+that with a field of your own that ring is free, where under continentalness it costs ocean at
+1:1. Do not let the rebuild quietly drop it; B-94 is what it cost to put it back.
+
 ### B-93 — The September 9 field review: three worldgen regressions — **REPAIRED; FRESH-WORLD MEASURED; CLIENT WALK PENDING**
 
 Reported from a client walk of `saves/New World Cherish`, in the reviewer's own priority order:
