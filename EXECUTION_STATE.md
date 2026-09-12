@@ -1,5 +1,96 @@
 # Execution State
 
+## Latest implementation — terrain authorities, stage 1 — 2026-09-12
+
+The 2026-09-11/12 field review rejected the margin four times in one session, and the owner chose
+a rebuild over further increments. Scope is the owner's own framing: *"this area is this biome,
+this terrain generation takes predominant control of this area."* Design record:
+`alfheim_reclaimed_design/TERRAIN_AUTHORITIES.md`. Backlog: **B-96**.
+
+**Three symptoms, one root cause.** Void Shore prolific (every dip below −0.58 becomes land);
+water standing in the void (2.5% of void columns, **100% within 60 blocks of an ocean**, dry ones
+median 84); faces no carve could roughen (rugged plateaued at 0.53). All three come from
+expressing every landform as a branch of one density keyed to a field whose gain is not ours —
+`1.7 x badlands_surface`, clamped, which makes the Verge **sixteen columns wide** against a shelf
+sixty blocks thick, and makes every band cost ocean at 1:1.
+
+### The fact the architecture rests on
+
+**The biome layer is a disjoint covering partition of axis-aligned boxes** — 44 entries, 0
+overlapping pairs, 0.000% of climate space uncovered over 200,000 samples. Multi-noise selection
+is nearest-neighbour, so with overlaps or gaps "which biome" is a distance computation no density
+function can reproduce. **That is exactly how B-82 stamped Hills terrain into Plains and Silverbark
+and had to be reverted.** With a disjoint covering partition every point lies in one box at
+distance zero and membership is axis-aligned threshold tests, which `range_choice` reproduces
+exactly. The defence is not better thresholds — the partition IS the selection.
+
+### What stage 1 delivered
+
+| target | state |
+|---|---|
+| `TERRAIN_AUTHORITIES.md` | architecture, contracts, staging, and the five proven constraints |
+| `tools/gen_terrain_authorities.py` | selector emitted from the same CLAIMS list as the layer |
+| `tools/check_terrain_authorities.py` | A1..A5; **60,000 climate points, 0 disagreements**; self-test **5/5 fire** |
+| 46 shipped files | 44 named steps + 2 authority leaves, 31.6 KB, largest step 948 bytes |
+| boot | pack loads with all 46 present, `Done (49.557s)`, zero density-function errors |
+
+**The chain is named rather than inline, and that is arithmetic.** Each band's test is up to five
+nested `range_choice`s and every false branch must reach the rest of the chain; inline the tail
+repeats once per axis test and the document grows as 5^44.
+
+**Stage 1 moves no terrain on purpose.** Both authorities carry the same expression — today's
+whole `alfheim_final` body, inlined rather than referenced so that wiring `alfheim_final` to the
+chain cannot close a cycle through itself. A5 asserts the leaves stay byte-identical. The
+framework is proven before anything moves, so a later regression cannot be confused with the
+migration.
+
+### Two constraints now written down rather than rediscovered
+
+**A carve expressed as a density offset is gradient-dependent.** It removes down to a fixed
+density value, so how far that reaches in blocks is the local gradient's business: ~5 blocks on a
+flat top, **~0.6 of a block on a sheer face**. Enough amplitude to move a vertical face shreds
+every horizontal surface in the same breath. Regions wanting different terrain need different
+*expressions*, not different constants — which is the formal reason the last four worlds hit a
+ceiling at rugged 0.53.
+
+**The aquifer collar cannot be removed by any architecture.** `Aquifer.NoiseBasedAquifer` samples
+preliminary surface across chunk offsets −3..+1, so a ring of above-sea-level land is mandatory.
+What a purpose-built field changes is that the ring becomes a fixed **width in blocks** instead of
+a value band — which is both the plateau and the standing water, from one cause.
+
+### Where the margin stands, measured
+
+| | session start | now |
+|---|---|---|
+| walls per 1000 margin columns | 22.7 | **9.9** |
+| solid runs per column | 1.26 | **2.04** |
+| exposed faces per solid block | 0.46 | **0.53** |
+| full-depth fins | 8.0% | **4.3%** |
+| cliff-foot talus | — | **25.7%** |
+| prism_drift empty | 7.6% (a regression of mine) | **73.6%** |
+| ocean water-bearing | 60.3% | **100.0%** |
+| Golden Fields terrace excess | +31.8 | **+22.1** |
+
+### Next
+
+**Stage 1b — wire `alfheim_final` through the selector.** Emit the chain's first step as
+`alfheim_final`'s own body rather than a top-level reference, so the registry codec question does
+not arise and no cycle is possible. Acceptance is a generated world block-identical to
+`void-margin-20260912-072941` on the same seed, since both leaves are the same expression.
+
+**It requires two guard repairs first, and neither should be skipped.** `check_worldgen` W7 reads
+`alfheim_final` expecting a `range_choice` whose `max_exclusive` is the void terrain band; through
+the selector it must follow the indirection to the void authority instead. `check_alfheim_hills`
+asserts `actual == void_final_density()` and must compare against the authority leaf.
+
+Then stage 2: the dedicated void field on the erosion axis, normalised to −1..1 so `CLIFF`,
+`TERMINAL`, `FRINGE` and `check_void_surface_support`'s −0.94..−0.925 landing window keep their
+meaning.
+
+**Deferred, unchanged:** `libx:smash` removal (built, untested, awaiting a decision); the pixie
+census (B-95); the residual 2.5% of void columns carrying water (DEFICIENT_BIOMES.md §2.7).
+
+
 ## Latest implementation — the sea had nowhere to stop — 2026-09-11
 
 A client walk rejected three things at once: empty volumes with deep rock below them and nothing
