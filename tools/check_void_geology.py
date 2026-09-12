@@ -360,6 +360,14 @@ def validate(catalog,out,density):
         fail('VG9',f'body shelter {BODY_SHELTER} is too weak to stop the carve anywhere inside '
                    f'the band; it would cut the plain as well as the lip')
     from gen_void_worldgen import CLIFF as _CLIFF, TERMINAL as _TERMINAL
+    # AND IT MAY ONLY TAKE A SLIVER OF THE DEBRIS BAND. The shelf is solid ground; the debris
+    # biomes are meant to be mostly empty. At BREAK -0.89 it covered over half of their band and
+    # prism_drift came back 92.4% solid against 11.3% before -- a shelf in the middle of the void.
+    taken=(_CLIFF-BREAK)/(_CLIFF-_TERMINAL)
+    if taken>0.20:
+        fail('VG9',f'the carved shelf takes {100*taken:.0f}% of the debris band; the void biomes '
+                   'are supposed to be void, and past about a fifth they read as a shelf with a '
+                   'ragged edge instead')
     if not _TERMINAL<BREAK<_CLIFF:
         fail('VG9',f'the terrain handover {BREAK} is not between the terminal band {_TERMINAL} '
                    f'and the biome contour {_CLIFF}: outward of the contour it leaves the shelf '
@@ -481,6 +489,10 @@ def self_test():
         import gen_void_worldgen as g
         g.BREAK=g.CLIFF
     tests.append(('VG9',handover_back_at_the_contour))
+    def shelf_in_the_void(c,o,d):
+        import gen_void_worldgen as g
+        g.BREAK=-0.90
+    tests.append(('VG9',shelf_in_the_void))
     def plateau_to_the_waterline(c,o,d):
         import gen_void_worldgen as g
         g.RIM_TOP_SEA=(62,86)

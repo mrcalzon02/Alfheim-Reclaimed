@@ -15,7 +15,7 @@
         "type": "minecraft:range_choice",
         "input": "mythicbotany:alfheim_continentalness",
         "min_inclusive": -100,
-        "max_exclusive": -0.89,
+        "max_exclusive": -0.866,
         "when_in_range": {
           "type": "minecraft:range_choice",
           "input": "mythicbotany:alfheim_continentalness",
@@ -128,7 +128,7 @@
                         "type": "minecraft:clamp",
                         "input": {
                           "type": "minecraft:mul",
-                          "argument1": 28.571428571428545,
+                          "argument1": 16.949152542372865,
                           "argument2": {
                             "type": "minecraft:add",
                             "argument1": "mythicbotany:alfheim_continentalness",
@@ -270,11 +270,11 @@
                               "type": "minecraft:clamp",
                               "input": {
                                 "type": "minecraft:mul",
-                                "argument1": 3.2258064516129026,
+                                "argument1": 3.4965034965034962,
                                 "argument2": {
                                   "type": "minecraft:add",
                                   "argument1": "mythicbotany:alfheim_continentalness",
-                                  "argument2": 0.89
+                                  "argument2": 0.866
                                 }
                               },
                               "min": 0.0,
@@ -296,11 +296,11 @@
                           "type": "minecraft:clamp",
                           "input": {
                             "type": "minecraft:mul",
-                            "argument1": 3.2258064516129026,
+                            "argument1": 3.4965034965034962,
                             "argument2": {
                               "type": "minecraft:add",
                               "argument1": "mythicbotany:alfheim_continentalness",
-                              "argument2": 0.89
+                              "argument2": 0.866
                             }
                           },
                           "min": 0.0,
@@ -391,11 +391,11 @@
                                   "type": "minecraft:clamp",
                                   "input": {
                                     "type": "minecraft:mul",
-                                    "argument1": 11.111111111111114,
+                                    "argument1": 9.090909090909092,
                                     "argument2": {
                                       "type": "minecraft:add",
                                       "argument1": "mythicbotany:alfheim_continentalness",
-                                      "argument2": 0.89
+                                      "argument2": 0.866
                                     }
                                   },
                                   "min": 0.0,
@@ -407,7 +407,7 @@
                               "type": "minecraft:clamp",
                               "input": {
                                 "type": "minecraft:add",
-                                "argument1": 0.75,
+                                "argument1": 0.85,
                                 "argument2": {
                                   "type": "minecraft:mul",
                                   "argument1": 0.8,
@@ -447,11 +447,11 @@
                               "type": "minecraft:clamp",
                               "input": {
                                 "type": "minecraft:mul",
-                                "argument1": 11.111111111111114,
+                                "argument1": 9.090909090909092,
                                 "argument2": {
                                   "type": "minecraft:add",
                                   "argument1": "mythicbotany:alfheim_continentalness",
-                                  "argument2": 0.89
+                                  "argument2": 0.866
                                 }
                               },
                               "min": 0.0,
@@ -463,7 +463,7 @@
                           "type": "minecraft:clamp",
                           "input": {
                             "type": "minecraft:add",
-                            "argument1": 0.75,
+                            "argument1": 0.85,
                             "argument2": {
                               "type": "minecraft:mul",
                               "argument1": 0.8,
@@ -481,8 +481,8 @@
                       },
                       "argument2": {
                         "type": "minecraft:y_clamped_gradient",
-                        "from_y": 44,
-                        "to_y": 60,
+                        "from_y": 48,
+                        "to_y": 72,
                         "from_value": -1,
                         "to_value": 1
                       }
@@ -506,11 +506,11 @@
                     "type": "minecraft:clamp",
                     "input": {
                       "type": "minecraft:mul",
-                      "argument1": 7.692307692307692,
+                      "argument1": 7.142857142857142,
                       "argument2": {
                         "type": "minecraft:add",
                         "argument1": "mythicbotany:alfheim_continentalness",
-                        "argument2": 0.89
+                        "argument2": 0.866
                       }
                     },
                     "min": 0.0,
@@ -534,11 +534,11 @@
                       "type": "minecraft:clamp",
                       "input": {
                         "type": "minecraft:mul",
-                        "argument1": 11.111111111111114,
+                        "argument1": 9.090909090909092,
                         "argument2": {
                           "type": "minecraft:add",
                           "argument1": "mythicbotany:alfheim_continentalness",
-                          "argument2": 0.89
+                          "argument2": 0.866
                         }
                       },
                       "min": 0.0,
@@ -615,11 +615,11 @@
                         "type": "minecraft:clamp",
                         "input": {
                           "type": "minecraft:mul",
-                          "argument1": 7.692307692307692,
+                          "argument1": 7.142857142857142,
                           "argument2": {
                             "type": "minecraft:add",
                             "argument1": "mythicbotany:alfheim_continentalness",
-                            "argument2": 0.89
+                            "argument2": 0.866
                           }
                         },
                         "min": 0.0,
@@ -687,11 +687,11 @@
                             "type": "minecraft:clamp",
                             "input": {
                               "type": "minecraft:mul",
-                              "argument1": 3.2258064516129026,
+                              "argument1": 3.4965034965034962,
                               "argument2": {
                                 "type": "minecraft:add",
                                 "argument1": "mythicbotany:alfheim_continentalness",
-                                "argument2": 0.89
+                                "argument2": 0.866
                               }
                             },
                             "min": 0.0,
@@ -713,11 +713,11 @@
                         "type": "minecraft:clamp",
                         "input": {
                           "type": "minecraft:mul",
-                          "argument1": 3.2258064516129026,
+                          "argument1": 3.4965034965034962,
                           "argument2": {
                             "type": "minecraft:add",
                             "argument1": "mythicbotany:alfheim_continentalness",
-                            "argument2": 0.89
+                            "argument2": 0.866
                           }
                         },
                         "min": 0.0,
@@ -808,11 +808,11 @@
                                 "type": "minecraft:clamp",
                                 "input": {
                                   "type": "minecraft:mul",
-                                  "argument1": 11.111111111111114,
+                                  "argument1": 9.090909090909092,
                                   "argument2": {
                                     "type": "minecraft:add",
                                     "argument1": "mythicbotany:alfheim_continentalness",
-                                    "argument2": 0.89
+                                    "argument2": 0.866
                                   }
                                 },
                                 "min": 0.0,
@@ -824,7 +824,7 @@
                             "type": "minecraft:clamp",
                             "input": {
                               "type": "minecraft:add",
-                              "argument1": 0.75,
+                              "argument1": 0.85,
                               "argument2": {
                                 "type": "minecraft:mul",
                                 "argument1": 0.8,
@@ -864,11 +864,11 @@
                             "type": "minecraft:clamp",
                             "input": {
                               "type": "minecraft:mul",
-                              "argument1": 11.111111111111114,
+                              "argument1": 9.090909090909092,
                               "argument2": {
                                 "type": "minecraft:add",
                                 "argument1": "mythicbotany:alfheim_continentalness",
-                                "argument2": 0.89
+                                "argument2": 0.866
                               }
                             },
                             "min": 0.0,
@@ -880,7 +880,7 @@
                         "type": "minecraft:clamp",
                         "input": {
                           "type": "minecraft:add",
-                          "argument1": 0.75,
+                          "argument1": 0.85,
                           "argument2": {
                             "type": "minecraft:mul",
                             "argument1": 0.8,
@@ -898,8 +898,8 @@
                     },
                     "argument2": {
                       "type": "minecraft:y_clamped_gradient",
-                      "from_y": 44,
-                      "to_y": 60,
+                      "from_y": 48,
+                      "to_y": 72,
                       "from_value": -1,
                       "to_value": 1
                     }
@@ -923,11 +923,11 @@
                   "type": "minecraft:clamp",
                   "input": {
                     "type": "minecraft:mul",
-                    "argument1": 7.692307692307692,
+                    "argument1": 7.142857142857142,
                     "argument2": {
                       "type": "minecraft:add",
                       "argument1": "mythicbotany:alfheim_continentalness",
-                      "argument2": 0.89
+                      "argument2": 0.866
                     }
                   },
                   "min": 0.0,
@@ -951,11 +951,11 @@
                     "type": "minecraft:clamp",
                     "input": {
                       "type": "minecraft:mul",
-                      "argument1": 11.111111111111114,
+                      "argument1": 9.090909090909092,
                       "argument2": {
                         "type": "minecraft:add",
                         "argument1": "mythicbotany:alfheim_continentalness",
-                        "argument2": 0.89
+                        "argument2": 0.866
                       }
                     },
                     "min": 0.0,
@@ -1032,11 +1032,11 @@
                       "type": "minecraft:clamp",
                       "input": {
                         "type": "minecraft:mul",
-                        "argument1": 7.692307692307692,
+                        "argument1": 7.142857142857142,
                         "argument2": {
                           "type": "minecraft:add",
                           "argument1": "mythicbotany:alfheim_continentalness",
-                          "argument2": 0.89
+                          "argument2": 0.866
                         }
                       },
                       "min": 0.0,

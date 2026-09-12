@@ -43,7 +43,17 @@ CLIFF=-0.86
 # "give us actual terrain to attach features and structures to". Solid rock below sea level also
 # DISPLACES the air the aquifer would otherwise have filled, so this direction cannot make the
 # standing water problem worse.
-BREAK=-0.89
+# PULLED BACK 2026-09-11 AFTER MEASURING WHAT IT COST. At -0.89 the carved shelf covered 0.035
+# of the debris band's 0.065 -- more than half of every debris biome -- and the void stopped
+# being void: prism_drift went from 88.7% of its columns empty to 7.6%, shatterfields from 89.3%
+# to 47.9%, rootfall from 92.0% to 47.2%. The field review called it exactly right: a shelf
+# structure in the middle of the void, where there should be void.
+#
+# The wall does not need it. Moving the handover outward was compensating for an underside lift
+# that was too weak at the time; RIM_BASE_LIP has since risen to y48..72, which puts the outer
+# underside around Y 53 against a debris envelope opening at Y 64. Eleven blocks of exposed face
+# is not a wall, and VG9 now caps how much of the debris band the shelf may take at all.
+BREAK=-0.866
 # Outer bound of the Void terrain branch and inland edge of the Verge plain proper. RIM stays
 # strictly inside BIOME_RIM: check_worldgen W7 requires that, because void-shaped terrain
 # under an ordinary biome reads as corruption rather than as the edge of the world.
@@ -114,7 +124,7 @@ RIM_BASE_WANDER=0.6
 # Erosion only reads as the ground coming apart where the ground is already a slab. VG8 asserts
 # the containment now; the analytic sweep in measure_void_edge.py cannot see it, because it
 # samples one column at a time and a fin and a butte look identical from inside one column.
-UNDERCUT=0.13
+UNDERCUT=0.14
 # How hard `attach` pushes the underside down outside the lip. It has to clear the underside
 # gradient's own floor (-1.0) plus its wander, or "rooted" is only rooted on average.
 ATTACH_BIAS=2.0
@@ -164,7 +174,7 @@ RIM_TOP_SEA=(22,46)      # ~Y34 where ordinary density takes over, well under th
 # whole stretches are cut down into bays; `spall` is local and fully three-dimensional, so it
 # notches the face itself into ledges, alcoves and standing stacks rather than only lowering
 # the top. Erosion is clamped at zero: it may remove the lip, never add to it.
-EDGE_WIDTH=0.09
+EDGE_WIDTH=0.11
 EDGE_BITE=0.40
 EDGE_SWING=0.80
 EDGE_SPALL=0.70
@@ -195,8 +205,8 @@ EDGE_SPALL=0.70
 # the erosion does to the top. Lifting the outer underside to about Y 43 at the typical sample
 # leaves roughly twenty blocks instead of sixty, and the shelf hands over to the belt inside a
 # shared band rather than above one.
-RIM_BASE_LIP=(44,60)
-EDGE_LIFT=0.75
+RIM_BASE_LIP=(48,72)
+EDGE_LIFT=0.85
 EDGE_LIFT_SWING=0.80
 # --- and the body of the shelf, which until 2026-09-11 could not be shaped at all -------------
 #
@@ -219,7 +229,7 @@ EDGE_LIFT_SWING=0.80
 # so at the breakline it bites about a third of samples and by two thirds of the way inland it
 # cannot bite at all, whatever the noise does. The plain the player crosses is untouched by
 # construction, not by tuning.
-BODY_WIDTH=0.13
+BODY_WIDTH=0.14
 BODY_LEVEL=0.34
 BODY_SWING=0.92
 BODY_SHELTER=1.20

@@ -203,6 +203,8 @@ MARGIN_BIOMES = {'alfheim:void_verge'} | DEBRIS_BIOMES
 # A mass this tall standing against nothing is a wall. Genuine floating debris is well under it,
 # so raising the threshold would hide walls and lowering it would count islands as walls.
 WALL = 30
+# A run entirely below this, with air above it, is talus at the foot of the cliff.
+FEET_TOP = 40
 
 
 def edge_quality(region_dir):
@@ -222,6 +224,13 @@ def edge_quality(region_dir):
       RUNS        mean separate solid runs per column. Exactly 1.0 everywhere means every
                   column is one unbroken slab -- no alcoves, no overhangs, no arches, no
                   detached pieces. Anything a cliff face is made of raises this.
+
+      FEET        columns carrying a detached piece low down, entirely below y FEET_TOP: the
+                  talus rimming the foot of the cliffs. Asked for by name in the 2026-09-11
+                  review -- "the little terrain feet at the bottom of the world" -- so it is
+                  tracked, because it is the kind of thing a later tuning pass deletes without
+                  noticing. The debris envelope cannot make these; they are the body carve
+                  leaving pieces behind under the shelf.
     """
     from probe_terraces import chunks as _chunks, unpack_bits, biome_at
     solid, biome = {}, {}
@@ -254,7 +263,8 @@ def edge_quality(region_dir):
                           if (y >> 4) in blocks else 'minecraft:air'
                           for y in range(MIN_Y, 140)]
                 runs, count = profile(column)
-                solid[(gx, gz)] = (count, len(runs), runs[0][0] if runs else None)
+                feet = bool(runs) and runs[0][1] < FEET_TOP and len(runs) > 1
+                solid[(gx, gz)] = (count, len(runs), runs[0][0] if runs else None, feet)
 
     # "at the break" means it has void within reach, whatever biome that void wears.
     near = {p for p in solid
@@ -262,10 +272,11 @@ def edge_quality(region_dir):
                    or biome.get((p[0] + dx, p[1] + dz)) in MARGIN_BIOMES
                    and (p[0] + dx, p[1] + dz) not in solid
                    for dx, dz in ((-8, 0), (8, 0), (0, -8), (0, 8), (-4, 0), (4, 0)))}
-    cuts = pairs = 0
+    cuts = pairs = feet = 0
     steps, runs_all, rooted = [], [], 0
     for (x, z) in near:
-        count, nruns, base = solid[(x, z)]
+        count, nruns, base, has_feet = solid[(x, z)]
+        feet += has_feet
         # Only columns that carry ground: an empty one has no runs, and averaging zeros in
         # drags the figure below 1.0 and makes it unreadable.
         if count:
@@ -304,6 +315,8 @@ def edge_quality(region_dir):
           % (sum(runs_all) / len(runs_all) if runs_all else 0))
     print('  ROOTED     %5.1f%%  of them still reach bedrock (full-depth fins)'
           % (100 * rooted / len(runs_all) if runs_all else 0))
+    print('  FEET       %5.1f%%  carry a detached piece below y%d -- talus at the cliff foot'
+          % (100 * feet / len(runs_all) if runs_all else 0, FEET_TOP))
     return 0
 
 
