@@ -24,8 +24,13 @@ def prune(server, keep):
                     key=lambda p: p.name, reverse=True)
     for stale in worlds[keep:]:
         shutil.rmtree(stale, ignore_errors=True)
-        console = stale.with_suffix('.log')
-        if console.exists():
+    # Consoles are pruned against what SURVIVES, not against what was just deleted. A run that
+    # dies before its world is written leaves a console with no world beside it -- the two that
+    # died on the 44-step chain did exactly that -- and pairing deletions one-to-one would keep
+    # those orphans for ever.
+    live = {w.name for w in worlds[:keep]}
+    for console in server.glob('void-margin-*.log'):
+        if console.stem not in live:
             console.unlink()
     if len(worlds) > keep:
         print('pruned %d disposable world(s), kept %d' % (len(worlds) - keep, keep), flush=True)

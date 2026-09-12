@@ -74,15 +74,20 @@ a value band — which is both the plateau and the standing water, from one caus
 
 ### Next
 
-**Stage 1b — wire `alfheim_final` through the selector.** Emit the chain's first step as
-`alfheim_final`'s own body rather than a top-level reference, so the registry codec question does
-not arise and no cycle is possible. Acceptance is a generated world block-identical to
-`void-margin-20260912-072941` on the same seed, since both leaves are the same expression.
+**Stage 1b is done.** `alfheim_final` is the selector; the expressions live in the authority
+leaves. The three guards that read `alfheim_final` for a shape it no longer has —
+`check_worldgen` W7, `check_alfheim_hills` and `check_deep_terrain` — each read the authority they
+are actually about, which is sharper than where they were. Acceptance was in the game: exit 0,
+audit true, and the census matching the pre-wiring run column for column on `alfheim_ocean`
+326,400, `void_shore` 259,568 and `void_verge` 213,808.
 
-**It requires two guard repairs first, and neither should be skipped.** `check_worldgen` W7 reads
-`alfheim_final` expecting a `range_choice` whose `max_exclusive` is the void terrain band; through
-the selector it must follow the indirection to the void authority instead. `check_alfheim_hills`
-asserts `actual == void_final_density()` and must compare against the authority leaf.
+**The one thing it cost.** Emitting the selector per biome band gave a 44-deep reference chain,
+and that killed the dedicated server twice during level preparation with no exception, no crash
+report and no JVM dump. The selector encodes *authority* boundaries: merged, the void's seven
+biomes are one contiguous continentalness range and `alfheim_final` is a single `range_choice`.
+A4 caps chain depth and checks for orphan references, and the generator cleans its own directory,
+because a shortened chain otherwise leaves steps naming files that are no longer emitted — which
+Minecraft resolves at load time, so an orphan is a pack that refuses to load.
 
 Then stage 2: the dedicated void field on the erosion axis, normalised to −1..1 so `CLIFF`,
 `TERMINAL`, `FRINGE` and `check_void_surface_support`'s −0.94..−0.925 landing window keep their
