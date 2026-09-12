@@ -1,6 +1,6 @@
 # Field review — 2026-09-12, `New World burnshire`
 
-**Status:** `complete for the four screenshots supplied` — two findings, F1 upstream and already diagnosed, F2 new.
+**Status:** `F1 resolved and shipped 2026-09-12; F2 open`.
 **Budget note:** evaluation only. Nothing is being repaired in this session; fixes are Monday's
 work. Every finding below carries enough detail to act on without re-deriving it.
 
@@ -101,3 +101,47 @@ nothing asserts it.
 
 The void margin does not appear in this set — all four shots are ordinary land. Nothing here
 speaks to the margin work of 2026-09-11/12, which remains measured but unwalked.
+
+---
+
+## F1 — RESOLVED 2026-09-12, same session
+
+The owner's observation settled it: *"the terrain seems to be getting leveled out in three by
+three pillar chunks."* **The pillar is the noise cell.** `size_horizontal: 1` gives a 4-block cell
+width, which reads as three.
+
+That pins the mechanism, and the ORDER is the whole of it:
+
+```
+alfheim_height = libx:smash{ axis:"y", density: minecraft:interpolated( lerp(low, high) ) }
+```
+
+`minecraft:interpolated` samples the height field at cell corners on a 4x8x4 grid and interpolates
+between them -- smooth by itself. `libx:smash` sits OUTSIDE it and quantises the result, so a
+piecewise-linear ramp defined on a 4-block grid gets snapped into flat platelets one cell across.
+A quantiser on a smooth field gives contour bands of varying width; a quantiser on a
+CELL-INTERPOLATED field gives a grid of flat-topped cells. The grid was the part the earlier
+diagnosis missed, and it is what makes them read as pillars rather than contours.
+
+**Shipped:** `kubejs/data/mythicbotany/worldgen/density_function/alfheim_height.json` -- upstream's
+own expression with the wrapper removed and the inner node verified byte-identical to the jar's.
+One file; deleting it restores previous behaviour exactly.
+
+**Measured**, `starved_reach` on sloping ground, same seed and radius, jump histogram:
+
+| jump | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| smash present | 28.2% | 38.4% | 15.6% | 5.7% | 2.9% | 1.7% | **1.4%** | **1.0%** |
+| smash removed | **23.9%** | 38.1% | 21.0% | 9.5% | 4.0% | 1.8% | **0.8%** | **0.3%** |
+
+The distribution goes from bimodal -- dead-flat tops plus a fat tail of tall risers -- to a smooth
+decay. Flat tops fall 4.3 points; the 6- and 7-block risers that formed the pillar walls fall by
+half and two thirds. The mid jumps rise because the same relief is now graded rather than
+concentrated at platelet edges. **Not steeper. Graded.**
+
+**The risk did not materialise.** A quantiser also bounds what it quantises, so removing it could
+have inflated the terrain. Surface height is unchanged: min 74, p10 124, median 157 in both,
+p90 190 -> 189, max 239 -> 237.
+
+`check_worldgen`, `check_alfheim_hills` and `check_deep_terrain` clean. **Not yet walked** -- the
+numbers say graded, and only eyes can say whether it reads right.

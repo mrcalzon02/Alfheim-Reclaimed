@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:interpolated",
+  "argument": {
+    "type": "libx:lerp",
+    "argument1": "mythicbotany:alfheim_low",
+    "argument2": "mythicbotany:alfheim_high",
+    "deviation": 0.4,
+    "mean": 0.15,
+    "niveau": "mythicbotany:alfheim_erosion"
+  }
+}
