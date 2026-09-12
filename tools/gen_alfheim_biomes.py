@@ -507,6 +507,24 @@ BIOMES = {
 
 # Dry-margin siblings share the existing biome schema; terrain and geology
 # distinguish their silhouettes and materials. No geodes or pools are embedded.
+def _VOID_FEATURES():
+    """Ores, and freeze_top_layer at step 10.
+
+    THE WATER IN THE VOID IS FROZEN RATHER THAN FLOWING, at the owner's suggestion 2026-09-11.
+    It does not stop the water arriving -- that is the aquifer's three-chunk sampling against a
+    collar expressed as a continentalness value, recorded in DEFICIENT_BIOMES.md section 2.7 --
+    but it stops it reading as a waterfall pouring off the edge of the world, which is the part
+    that was actually offensive. Measured before the change: 2.5% of void columns carry water and
+    3.1% of those are perched with air directly beneath.
+
+    The combination is the one starved_reach already ships, minus its snow. `shouldFreeze` tests
+    only temperature, so a biome at 0.0 freezes standing water; `shouldSnow` also requires
+    has_precipitation, which the Void biomes leave false. Ice on the water, bare ground elsewhere.
+    """
+    return [[], [], [], [], [], [], [f for f in ORES if f.endswith('_ore')], [], [], [],
+            ['minecraft:freeze_top_layer']]
+
+
 import copy as _copy
 for _name, _fog, _sky in [('shatterfields',0x20202c,0x101018),('prism_drift',0x283344,0x151c30),('rootfall',0x29251f,0x171812),('sepulchral_reach',0x272632,0x15121f),('starless_reach',0x070910,0x02030a)]:
     BIOMES[_name]=_copy.deepcopy(BIOMES['void_verge'])
@@ -514,11 +532,15 @@ for _name, _fog, _sky in [('shatterfields',0x20202c,0x101018),('prism_drift',0x2
     BIOMES[_name]['effects']['sky_color']=_sky
     BIOMES[_name]['effects']['particle']={'options':{'type':'minecraft:end_rod'},
                                           'probability':0.006}
-    BIOMES[_name]['features']=[[],[],[],[],[],[],[f for f in ORES if f.endswith('_ore')],[],[],[]]
-BIOMES['void_verge']['features']=[[],[],[],[],[],[],[f for f in ORES if f.endswith('_ore')],[],[],[]]
+    BIOMES[_name]['features']=_VOID_FEATURES()
+BIOMES['void_verge']['features']=_VOID_FEATURES()
 BIOMES['void_verge']['effects']['particle']={'options':{'type':'minecraft:end_rod'},
                                              'probability':0.006}
 BIOMES['starved_reach']['temperature_modifier']='frozen'
+# 0.0 is below the 0.15 that `warmEnoughToRain` tests, which is what lets freeze_top_layer place
+# ice. has_precipitation stays false on all six, so no snow layer comes with it.
+for _void in ['void_verge','shatterfields','prism_drift','rootfall','sepulchral_reach','starless_reach']:
+    BIOMES[_void]['temperature']=0.0
 
 # --- the void, and why these two numbers differ --------------------------------------
 #

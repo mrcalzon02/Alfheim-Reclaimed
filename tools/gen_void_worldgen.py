@@ -230,9 +230,39 @@ EDGE_LIFT_SWING=0.80
 # cannot bite at all, whatever the noise does. The plain the player crosses is untouched by
 # construction, not by tuning.
 BODY_WIDTH=0.14
-BODY_LEVEL=0.34
-BODY_SWING=0.92
+BODY_LEVEL=0.40
+# THREE SCALES, BECAUSE ONE SCALE CANNOT MAKE A FACE. The carve was a single noise at roughly
+# 29 blocks horizontally, and at block resolution the result is exactly what that predicts: the
+# 2026-09-11 review saw faces carrying one or two blocks of jitter over a hundred and thirty
+# blocks of height, and hanging pieces with flat bottoms. A single frequency can decide WHERE a
+# mass ends; it cannot give the ending any texture.
+#
+# The debris field beyond the cliff has produced crenulated fragments all along, and it is a sum
+# of three -- 0.55 fragments, 0.30 shape, 0.16 fracture. The shelf gets the same treatment, on
+# its own noises: broad to choose the mass, mid to cut benches and alcoves into the face, grain
+# to break the last few blocks so nothing reads as a cut sheet.
+BODY_SWING=0.70          # ~29 blocks: which stretches come apart at all
+BODY_MID=0.32            # ~9 blocks: benches, alcoves, the shape of a face
+BODY_GRAIN=0.15          # ~4 blocks: the last detail, so no edge is a clean plane
 BODY_SHELTER=1.20
+# --- and detail on every surface, including the ones the carve is not allowed to reach -------
+#
+# THE 2026-09-11 REVIEW PUT IT EXACTLY: "lots of little knobbly caves and nodules and
+# indentations on the right side but flat sheer cliff on the left." That asymmetry is the design
+# showing through -- `reach` ramps the body carve to nothing inland so the approach stays
+# walkable, so detail stops precisely where the carve stops, and every inland face is a clean
+# plane.
+#
+# This term keys off the PLAIN'S OWN VALUE rather than off the mask, which is what lets it
+# detail a surface without hollowing what is behind it. Density is near zero at every surface --
+# top, underside and vertical face alike -- and large in the interior, so
+#     SURFACE_LEVEL + SURFACE_SWING*grain + SURFACE_DEPTH*plain
+# can bite at a face and cannot reach the rock behind it. SURFACE_DEPTH is how many units of
+# density it may chew through, so it is the knob for how deep the pitting goes, and the interior
+# is protected by arithmetic rather than by a ramp.
+SURFACE_LEVEL=0.06
+SURFACE_SWING=0.52
+SURFACE_DEPTH=1.55
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
 # that get rarer AND smaller together, because raising a threshold on smooth noise trims the
@@ -381,9 +411,20 @@ def density(normal):
     # is 0 there and BODY_SHELTER on the plain, where it holds `body` permanently positive so the
     # min() cannot bite. Only this term can remove material from the middle of the shelf.
     reach=binary('add',1.0,binary('mul',-1.0,ramp(MASK,BREAK,BREAK+BODY_WIDTH)))
-    body=binary('add',binary('add',BODY_LEVEL,binary('mul',BODY_SWING,noise('body',0.85,0.55))),
+    grain=binary('add',binary('add',
+        binary('mul',BODY_SWING,noise('body',0.85,0.55)),
+        binary('mul',BODY_MID,noise('spall',1.05,0.95))),
+        binary('mul',BODY_GRAIN,noise('grain',1.60,1.40)))
+    body=binary('add',binary('add',BODY_LEVEL,grain),
                 binary('mul',BODY_SHELTER,binary('add',1.0,binary('mul',-1.0,reach))))
     plain=binary('min',plain,body)
+
+    # Surface detail, everywhere the approach exists. See SURFACE_DEPTH above: this cannot cut
+    # deeper than SURFACE_DEPTH units of density, so it roughens faces and never hollows masses.
+    detail=binary('add',binary('add',SURFACE_LEVEL,
+                  binary('mul',SURFACE_SWING,noise('grain',1.25,1.15))),
+                  binary('mul',SURFACE_DEPTH,plain))
+    plain=binary('min',plain,detail)
 
     void=choose(MASK,-100,BREAK,debris_field(),plain)
     # NoiseBasedChunkGenerator consults its global fluid picker at the lowest ten
@@ -512,7 +553,9 @@ def extra_files():
                              ('spall',-3,[1,0.55,0.3]),
                              # Alcove-scale: about 30 blocks across and 19 tall at the scales it
                              # is read at, so it carves recesses and arches rather than pitting.
-                             ('body',-4,[1,0.6,0.3])]:
+                             ('body',-4,[1,0.6,0.3]),
+                             # Block-scale, so the last few blocks of any edge are ragged.
+                             ('grain',-2,[1,0.5])]:
         emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
     emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
     # REMOVE phase runs after all ADD modifiers. Conventional liquid pools must

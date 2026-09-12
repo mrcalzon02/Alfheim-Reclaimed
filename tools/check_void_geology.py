@@ -192,7 +192,8 @@ def validate(catalog,out,density):
                                    DRY_AQUIFER_RIM, ATTACH_BIAS, BREAK, RIM, EDGE_WIDTH,
                                    EDGE_BITE, EDGE_SWING, EDGE_SPALL, EDGE_LIFT,
                                    EDGE_LIFT_SWING, RIM_BASE_LIP, BODY_WIDTH, BODY_LEVEL,
-                                   BODY_SWING, BODY_SHELTER)
+                                   BODY_SWING, BODY_SHELTER, BODY_MID, BODY_GRAIN,
+                                   SURFACE_LEVEL, SURFACE_SWING, SURFACE_DEPTH)
     SEA_LEVEL=64
     swing=RIM_RELIEF+RIM_DETAIL
     if swing>=1.0:
@@ -241,7 +242,8 @@ def validate(catalog,out,density):
 
     # Only the quiet noises may shape it. Which noises, not how loud.
     plain_noises={'alfheim:void/relief','alfheim:void/detail','alfheim:void/rim_base',
-                  'alfheim:void/breakline','alfheim:void/spall','alfheim:void/body'}
+                  'alfheim:void/breakline','alfheim:void/spall','alfheim:void/body',
+                  'alfheim:void/grain'}
     multipliers={}
     for node in walk(density):
         if node.get('type')!='minecraft:mul':continue
@@ -343,8 +345,19 @@ def validate(catalog,out,density):
     # every column is all-or-nothing, which is a sliced cake however the top and bottom wander.
     # Measured on void-margin-20260911-172920 before this existed: 5.3% of adjacent pairs at the
     # break were a 30+ block wall against nothing and the mean column held 1.21 solid runs.
-    if BODY_SWING<=BODY_LEVEL:
-        fail('VG9',f'body swing {BODY_SWING} never overcomes level {BODY_LEVEL}: the carve can '
+    # A face needs more than one frequency. One scale decides where a mass ends and gives the
+    # ending no texture at all -- measured at block resolution on 2026-09-11 as one or two blocks
+    # of jitter over a hundred and thirty blocks of face.
+    if not (BODY_MID>0 and BODY_GRAIN>0):
+        fail('VG9',f'the body carve runs at one scale (mid {BODY_MID}, grain {BODY_GRAIN}); its '
+                   'faces would be clean planes and its hanging pieces flat-bottomed')
+    if not BODY_SWING>BODY_MID>BODY_GRAIN:
+        fail('VG9',f'the carve scales are not ordered broad > mid > grain '
+                   f'({BODY_SWING}, {BODY_MID}, {BODY_GRAIN}); the fine detail would decide '
+                   'where masses end instead of how their edges look')
+    if BODY_SWING+BODY_MID+BODY_GRAIN<=BODY_LEVEL:
+        fail('VG9',f'body swing {BODY_SWING}+{BODY_MID}+{BODY_GRAIN} never overcomes level '
+                   f'{BODY_LEVEL}: the carve can '
                    'never go negative, so it removes nothing and the shelf stays saturated')
     if BODY_WIDTH<=0 or BREAK+BODY_WIDTH>RIM:
         fail('VG9',f'the body carve reaches {BREAK+BODY_WIDTH:.3f} against a terrain band ending '
@@ -390,6 +403,20 @@ def validate(catalog,out,density):
         fail('VG10',f'the coast bottoms out at y{sea_crossing:.1f}, at or above sea level {SEA}: '
                     'ordinary density takes over while the approach is still standing above the '
                     'water, which puts the step straight back')
+
+    # VG11 -- SURFACE DETAIL MAY ROUGHEN A FACE AND MAY NOT HOLLOW A MASS.
+    #
+    # It is the one carve with no mask ramp holding it off the walkable approach, so what keeps
+    # it honest is arithmetic: it is min()ed against SURFACE_DEPTH * plain, and plain is large in
+    # any interior. If the depth term cannot outrun the swing, the carve reaches the rock behind
+    # the face and the plain becomes hollow -- which is the thing `reach` exists to prevent.
+    if SURFACE_DEPTH<=SURFACE_LEVEL+SURFACE_SWING:
+        fail('VG11',f'surface detail depth {SURFACE_DEPTH} does not exceed its own reach '
+                    f'{SURFACE_LEVEL}+{SURFACE_SWING}; it would cut past every face into the '
+                    'mass behind it and hollow the approach')
+    if SURFACE_SWING<=SURFACE_LEVEL:
+        fail('VG11',f'surface swing {SURFACE_SWING} never overcomes level {SURFACE_LEVEL}: the '
+                    'term can never go negative and no surface would be roughened at all')
 
     # Three dimensions, or it is another heightfield and cuts no overhangs.
     flat=[n for n in walk(density)
@@ -477,9 +504,13 @@ def self_test():
         import gen_void_worldgen as g
         g.UNDERCUT=0.06
     tests.append(('VG8',fins))
+    def one_scale_only(c,o,d):
+        import gen_void_worldgen as g
+        g.BODY_MID=0.0
+    tests.append(('VG9',one_scale_only))
     def saturated_body(c,o,d):
         import gen_void_worldgen as g
-        g.BODY_SWING=0.10
+        g.BODY_SWING=0.10; g.BODY_MID=0.02; g.BODY_GRAIN=0.01
     tests.append(('VG9',saturated_body))
     def carve_reaches_the_shore(c,o,d):
         import gen_void_worldgen as g
@@ -501,6 +532,14 @@ def self_test():
         import gen_void_worldgen as g
         g.RIM_TOP_BREAK=g.RIM_TOP_DRY
     tests.append(('VG10',flat_approach))
+    def detail_hollows_the_plain(c,o,d):
+        import gen_void_worldgen as g
+        g.SURFACE_DEPTH=0.3
+    tests.append(('VG11',detail_hollows_the_plain))
+    def detail_does_nothing(c,o,d):
+        import gen_void_worldgen as g
+        g.SURFACE_SWING=0.0
+    tests.append(('VG11',detail_does_nothing))
     def flat_carve(c,o,d):
         def mutate(value):
             if isinstance(value,dict):
@@ -564,7 +603,7 @@ def self_test():
                                         'UNDERCUT','RIM_TOP_BREAK','RIM_TOP_DRY','RIM_TOP_SEA','RIM_RELIEF','RIM_DETAIL',
                                         'EDGE_WIDTH','EDGE_BITE','EDGE_SWING','EDGE_SPALL',
                                         'EDGE_LIFT','EDGE_LIFT_SWING','RIM_BASE_LIP',
-                                        'BODY_WIDTH','BODY_LEVEL','BODY_SWING','BODY_SHELTER','BREAK',
+                                        'BODY_WIDTH','BODY_LEVEL','BODY_SWING','BODY_SHELTER','BREAK','BODY_MID','BODY_GRAIN','SURFACE_LEVEL','SURFACE_SWING','SURFACE_DEPTH',
                                         )}
     for code,mutate in tests:
         try:

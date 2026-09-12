@@ -225,6 +225,13 @@ def edge_quality(region_dir):
                   column is one unbroken slab -- no alcoves, no overhangs, no arches, no
                   detached pieces. Anything a cliff face is made of raises this.
 
+      RUGGED      exposed block faces per solid block. A cut sheet has the fewest faces a mass
+                  of that size can have; knobbly rock has many more. This is the one that sees
+                  what WALLS and RUNS cannot -- the 2026-09-11 review described "flat sheer
+                  cliff" against "knobbly caves and nodules and indentations" and both read the
+                  same on every other number here, because a smooth face and a rough one of the
+                  same extent contain the same blocks and the same vertical runs.
+
       FEET        columns carrying a detached piece low down, entirely below y FEET_TOP: the
                   talus rimming the foot of the cliffs. Asked for by name in the 2026-09-11
                   review -- "the little terrain feet at the bottom of the world" -- so it is
@@ -264,7 +271,12 @@ def edge_quality(region_dir):
                           for y in range(MIN_Y, 140)]
                 runs, count = profile(column)
                 feet = bool(runs) and runs[0][1] < FEET_TOP and len(runs) > 1
-                solid[(gx, gz)] = (count, len(runs), runs[0][0] if runs else None, feet)
+                # One bit per Y, so horizontal exposure against a neighbour is a popcount.
+                mask = 0
+                for y, name in zip(range(MIN_Y, 200), column):
+                    if y > GUARD and name not in AIR and name not in FLUID:
+                        mask |= 1 << (y - MIN_Y)
+                solid[(gx, gz)] = (count, len(runs), runs[0][0] if runs else None, feet, mask)
 
     # "at the break" means it has void within reach, whatever biome that void wears.
     near = {p for p in solid
@@ -272,11 +284,18 @@ def edge_quality(region_dir):
                    or biome.get((p[0] + dx, p[1] + dz)) in MARGIN_BIOMES
                    and (p[0] + dx, p[1] + dz) not in solid
                    for dx, dz in ((-8, 0), (8, 0), (0, -8), (0, 8), (-4, 0), (4, 0)))}
-    cuts = pairs = feet = 0
+    cuts = pairs = feet = faces = blocks = 0
     steps, runs_all, rooted = [], [], 0
     for (x, z) in near:
-        count, nruns, base, has_feet = solid[(x, z)]
+        count, nruns, base, has_feet, mask = solid[(x, z)]
         feet += has_feet
+        if count:
+            blocks += count
+            # vertical faces: two per run, top and bottom
+            faces += 2 * nruns
+            for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                other = solid.get((x + dx, z + dz))
+                faces += bin(mask & ~(other[4] if other else 0)).count('1')
         # Only columns that carry ground: an empty one has no runs, and averaging zeros in
         # drags the figure below 1.0 and makes it unreadable.
         if count:
@@ -315,6 +334,8 @@ def edge_quality(region_dir):
           % (sum(runs_all) / len(runs_all) if runs_all else 0))
     print('  ROOTED     %5.1f%%  of them still reach bedrock (full-depth fins)'
           % (100 * rooted / len(runs_all) if runs_all else 0))
+    print('  RUGGED     %5.2f   exposed faces per solid block (a cut sheet is the minimum)'
+          % (faces / blocks if blocks else 0))
     print('  FEET       %5.1f%%  carry a detached piece below y%d -- talus at the cliff foot'
           % (100 * feet / len(runs_all) if runs_all else 0, FEET_TOP))
     return 0
