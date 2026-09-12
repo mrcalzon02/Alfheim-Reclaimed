@@ -21,9 +21,16 @@ def walk(value):
 
 
 def main():
-    path = ROOT / 'kubejs/data/mythicbotany/worldgen/density_function/alfheim_final.json'
+    # READ THE AUTHORITY THAT OWNS ORDINARY TERRAIN, NOT alfheim_final. Since 2026-09-12
+    # alfheim_final is the terrain-authority selector -- a chain of range_choices on climate --
+    # and the expressions live in the authority leaves. This assertion has always been about
+    # ordinary Alfheim terrain, so `upstream` is where it belongs; pointing it at the selector
+    # would have it comparing a routing table against a density function. See B-96.
+    path = ROOT / 'kubejs/data/alfheim/worldgen/density_function/authority/upstream.json'
+    if not path.exists():                       # pre-authority layout
+        path = ROOT / 'kubejs/data/mythicbotany/worldgen/density_function/alfheim_final.json'
     actual = json.loads(path.read_text(encoding='utf-8'))
-    assert actual == void_final_density(), 'shipping final density differs from its generator'
+    assert actual == void_final_density(), 'shipping upstream authority differs from its generator'
     base = {'type': 'minecraft:min',
             'argument1': 'mythicbotany:alfheim_initial',
             'argument2': 'mythicbotany:alfheim_caves'}

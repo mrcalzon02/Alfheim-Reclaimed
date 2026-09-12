@@ -11,7 +11,12 @@ def main():
     output=build()
     for name,data in output.items():
         assert (ROOT/name).read_bytes()==data, name
-    actual=json.loads((ROOT/'kubejs/data/mythicbotany/worldgen/density_function/alfheim_final.json').read_text())
+    # THE VOID BAND LIVES IN THE VOID AUTHORITY. alfheim_final is the terrain-authority
+    # selector since 2026-09-12 and carries no band of its own -- see B-96.
+    _leaf=ROOT/'kubejs/data/alfheim/worldgen/density_function/authority/void.json'
+    if not _leaf.exists():        # pre-authority layout
+        _leaf=ROOT/'kubejs/data/mythicbotany/worldgen/density_function/alfheim_final.json'
+    actual=json.loads(_leaf.read_text())
     baseline=strip(void_final_density(False))
     assert actual==void_final_density()
     actual=strip(actual)          # the terracing is an addend; the Void band is underneath it

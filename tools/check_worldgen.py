@@ -423,8 +423,14 @@ def main():
 
     # W7 -- the void. Two numbers have to stay in the right order or the world grows holes.
     print('\n--- void verge ---')
-    df_path = os.path.join(DATA, 'mythicbotany', 'worldgen', 'density_function',
-                           'alfheim_final.json')
+    # THE VOID BAND LIVES IN THE VOID AUTHORITY NOW. Since 2026-09-12 alfheim_final is the
+    # terrain-authority selector and carries no band of its own; reading it here would find a
+    # range_choice on temperature and call its bound the void terrain band. See B-96.
+    df_path = os.path.join(DATA, 'alfheim', 'worldgen', 'density_function', 'authority',
+                           'void.json')
+    if not os.path.exists(df_path):             # pre-authority layout
+        df_path = os.path.join(DATA, 'mythicbotany', 'worldgen', 'density_function',
+                               'alfheim_final.json')
     layer_path = os.path.join(DATA, 'mythicbotany', 'libx', 'biome_layer', 'alfheim.json')
     if not os.path.exists(df_path):
         print('  --   no alfheim_final override; void verge not installed')

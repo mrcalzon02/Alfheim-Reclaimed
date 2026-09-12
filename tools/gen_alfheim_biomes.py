@@ -561,6 +561,29 @@ VOID_TERRAIN_MAX = -0.86
 VOID_ISLAND_LOW = (20, 50)
 VOID_ISLAND_HIGH = (110, 150)
 
+def _authority_entry(written):
+    """alfheim_final becomes the terrain-authority selector; the expressions move to the leaves.
+
+    ONE GENERATOR OWNS BOTH OR THEY DRIFT. The selector is a chain of named steps and
+    alfheim_final is its first link, so emitting them from different scripts would let a
+    regenerated layer point at stale steps. gen_terrain_authorities.py stays runnable on its own
+    for inspection; this is what ships.
+
+    The entry is INLINED here rather than referenced. A density_function file whose whole body is
+    a reference is a question about the registry codec that does not need asking, and inlining
+    also makes the cycle impossible: the leaves hold expressions, never a pointer back here.
+    """
+    import gen_terrain_authorities as authorities
+    out, entry = authorities.build(LAYER['biomes'], authorities.authorities())
+    first = authorities.PREFIX + 'step_000.json'
+    for path, data in sorted(out.items()):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'wb') as handle:
+            handle.write(data)
+        written.append(path)
+    return json.loads(out[first].decode())
+
+
 def void_final_density(include_deepworks=True, include_terraces=True):
     from gen_void_worldgen import density
     base_normal = {'type':'minecraft:min','argument1':'mythicbotany:alfheim_initial','argument2':'mythicbotany:alfheim_caves'}
@@ -1419,7 +1442,7 @@ def main():
     # creation outright, and no static check can prove the terrain it produces is playable.
     written.append(write(
         os.path.join(OUT, 'mythicbotany', 'worldgen', 'density_function', 'alfheim_final.json'),
-        void_final_density()))
+        _authority_entry(written)))
 
     # Keep the tag pointing at that single layer (unchanged, but declared explicitly so the
     # datapack is self-describing).
