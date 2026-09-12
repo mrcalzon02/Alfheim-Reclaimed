@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:surface/strandline_hulk",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:surface/strandline_hulk",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

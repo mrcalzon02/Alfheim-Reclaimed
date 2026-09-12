@@ -1637,6 +1637,40 @@
         "door": "north"
       },
       "blurb": "Buried above the tide line, and long since rooted through."
+    },
+    {
+      "id": "strandline_hulk",
+      "name": "The Strandline Hulk",
+      "archetype": "wreck",
+      "biomes": [
+        "alfheim:void_shore"
+      ],
+      "palette": "bone",
+      "shape": {
+        "length": 30,
+        "beam": 11,
+        "height": 10,
+        "list": 22,
+        "mast": false,
+        "broken": 0.65
+      },
+      "blurb": "It was moored when the water left. Nobody came back to argue with the keel."
+    },
+    {
+      "id": "edgewatch_beacon",
+      "name": "The Edgewatch Beacon",
+      "archetype": "tower",
+      "biomes": [
+        "alfheim:void_shore"
+      ],
+      "palette": "void",
+      "shape": {
+        "radius": 4,
+        "height": 26,
+        "ruin": 0.55,
+        "balcony": true
+      },
+      "blurb": "Built to be seen from the Verge, by people who wanted to know the way back."
     }
   ]
 }

@@ -31,6 +31,15 @@ occupy different stretches of the same rim; Prism Drift can be a small mineral p
 Starless Reach is the terminal fringe and empty far field. Beyond the debris limit, every variant
 must converge to zero terrain and zero generated structures.
 
+> **2026-09-11 — the approach exists now, and it is a coast.** "No ocean" was being delivered by
+> drying the aquifer across a 0.22-wide band of continentalness and leaving that band's terrain at
+> seabed height, which produced an ocean biome over an open dry basin: 123,145 of 348,224 ocean
+> columns in `saves/New World Ferngale`. The band is emerged land now, claimed by a fourth shore,
+> `alfheim:void_shore`, so the sea ENDS against ground instead of being deleted above it. The
+> sequence the section below describes -- ordinary country, then a dry open Verge plain, then the
+> broken wall -- is finally the sequence the player walks, rather than one that begins underwater.
+> See `DEFICIENT_BIOMES.md` §2.2 for the shipped band table.
+
 Shared invariants:
 
 - Dry approach, abrupt cliff, no ocean, lava sea, submerged floor or routine obsidian patches.

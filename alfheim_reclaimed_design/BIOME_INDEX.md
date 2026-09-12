@@ -49,13 +49,13 @@ Amplification multiplies before a clamp to ±1, widening the tails so a band dec
 
 ## 3. The index
 
-**25 biomes** generate here, across **43 disjoint climate bands**. 20 are ours; 5 are MythicBotany's, kept because they carry the mod's own identity where we have not claimed anything.
+**26 biomes** generate here, across **44 disjoint climate bands**. 21 are ours; 5 are MythicBotany's, kept because they carry the mod's own identity where we have not claimed anything.
 
 A biome with several bands is one place selected by several disjoint climate boxes — the partition splits a claim wherever an earlier claim already took part of it. Bands are listed exactly as emitted.
 
 | Biome | Owner | Bands | Climate condition |
 |---|---|---:|---|
-| `alfheim:alfheim_ocean` | ours | 1 | `cont` -0.8‥-0.28 |
+| `alfheim:alfheim_ocean` | ours | 1 | `cont` -0.55‥-0.28 |
 | `alfheim:ashen_grove` | ours | 1 | `cont` 0.3‥0.45, `temp` -1‥0.05, `humid` -1‥0 |
 | `alfheim:bloomfall_vale` | ours | 1 | `cont` 0.3‥0.45, `temp` -1‥0.05, `humid` 0‥1 |
 | `alfheim:decayed_mire` | ours | 1 | `cont` 0.18‥0.3, `weird` -1‥-0.3, `humid` 0.42‥1 |
@@ -84,7 +84,8 @@ A biome with several bands is one place selected by several disjoint climate box
 | `alfheim:tidewood_shore` | ours | 3 | `cont` -0.18‥0, `temp` -0.15‥1, `humid` -1‥0.4 |
 | | | | `cont` 0‥0.05, `weird` -0.2‥1, `temp` -0.15‥1, `humid` -1‥0.4 |
 | | | | `cont` 0‥0.05, `weird` -1‥-0.2, `temp` -0.15‥1, `humid` -1‥0.4 |
-| `alfheim:void_verge` | ours | 1 | `cont` -0.86‥-0.8 |
+| `alfheim:void_shore` | ours | 1 | `cont` -0.72‥-0.55 |
+| `alfheim:void_verge` | ours | 1 | `cont` -0.86‥-0.72 |
 | `mythicbotany:alfheim_hills` | MythicBotany | 1 | `cont` 0.45‥1, `weird` -1‥0.3, `temp` -0.35‥1, `humid` -0.2‥1 |
 | `mythicbotany:alfheim_lakes` | MythicBotany | 3 | `cont` -0.28‥-0.18 |
 | | | | `cont` 0.05‥0.1, `eros` -1‥0, `weird` -0.2‥1, `humid` -1‥0.35 |
@@ -326,6 +327,17 @@ A biome with several bands is one place selected by several disjoint climate box
 - **Structures** — `driftwood_span`, `tidewatch_boughs`
 - **Deep geology** — `tide_livingrock`, `rootbound_livingrock`, `moss_livingrock`, `amber_livingrock`, `fern_livingrock`
 
+### `alfheim:void_shore`
+
+- **Climate** — temperature 0.4, downfall 0.05, precipitation False
+- **Colours** — sky color `#47535E`, fog color `#5A6670`, water color `#2A3A44`, water fog color `#121A20`
+- **Features**
+    - `underground_ores` — 10 ore/stone features (the shared Alfheim ore column)
+    - `vegetal_decoration` — `alfheim:shore_driftwood`
+- **Spawns** — *creature* — `feywild:winter_pixie`, `minecraft:sheep`, `minecraft:pig`, `minecraft:chicken`, `minecraft:cow`, `mythicbotany:alf_pixie`; *monster* — `minecraft:enderman`
+- **Structures** — none
+- **Deep geology** — `tide_livingrock`, `ivory_livingrock`, `frost_livingrock`, `gloam_livingrock`, `abyssal_livingrock`
+
 ### `alfheim:void_verge`
 
 - **Climate** — temperature 0.5, downfall 0.0, precipitation False
@@ -401,11 +413,11 @@ A biome with several bands is one place selected by several disjoint climate box
 Computed, not asserted. The Void biomes are exempt from vegetation by doctrine — "nothing grows" is absolute there — so they are counted separately rather than flagged.
 
 - **Land biomes with no vegetal decoration at all:** *none*
-- **Land biomes with a single vegetal feature:** `mythicbotany:golden_fields`
-- **Biomes with no natural structure:** *none*
+- **Land biomes with a single vegetal feature:** `alfheim:void_shore`, `mythicbotany:golden_fields`
+- **Biomes with no natural structure:** `alfheim:void_shore`
 - **Land biomes with no five-stone deep geology:** *none*
 - **Void biomes (vegetation intentionally absent):** `alfheim:prism_drift`, `alfheim:rootfall`, `alfheim:sepulchral_reach`, `alfheim:shatterfields`, `alfheim:starless_reach`, `alfheim:void_verge`
 
 ---
 
-Generated from 25 biomes, 43 layer bands, 57 biome-structure assignments and 19 deep geology families.
+Generated from 26 biomes, 44 layer bands, 57 biome-structure assignments and 20 deep geology families.

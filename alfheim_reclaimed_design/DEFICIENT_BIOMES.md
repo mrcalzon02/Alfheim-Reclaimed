@@ -2,6 +2,10 @@
 
 **Role:** authoritative design record for the five negative biomes and the void terrain.
 **Status:** `runtime rejected — repair designed` — the game boots and the Void Verge generates, but the generated rim is not accepted.
+**2026-09-11:** the water-at-the-edge half of this rejection is addressed at the source — the sea
+now ends against emerged land rather than against a dried band of sunken seabed — and the rim's
+one-profile-everywhere geometry is broken up. Both are **static and analytic only**; §5's
+acceptance list still governs and still requires a fresh world with eyes on it.
 **Expanded definition, 2026-09-05:** `VOID_MARGINS.md` adds six environmental variants including
 the existing Verge, 18 proposed stone families and concrete structure/traversal examples.
 It preserves the dry-rim and terminal-empty-space contract below; it does not close this rejection.
@@ -81,6 +85,43 @@ The corrected design uses **four bands driven by the same masked continentalness
 
 These are tuning values, not sacred constants. What is sacred is the ordering and the visual result:
 **plain -> break -> fragments -> nothing**.
+
+> **Revised 2026-09-11 — the ordering gained a band, and the numbers moved with it.**
+>
+> The table above assumed the sequence began at ordinary land. It does not: continentalness is
+> the same axis that decides ocean, and the void sits at the bottom of the ocean basin, so the
+> real sequence ran **land -> ocean -> verge -> debris** and the approach was made across water.
+> Worse, the aquifer repair below dried everything under `-0.58` while leaving its terrain at
+> seabed height, so the outer 42% of the ocean's own climate band generated as an ocean biome
+> over an open dry basin: **123,145 of 348,224 ocean columns** in `saves/New World Ferngale`,
+> measured 2026-09-11, with a seabed around Y 30 and nothing above it to the build limit.
+>
+> The shipped bands are now:
+>
+> | Band | Continentalness | Biome | Terrain role |
+> |---|---:|---|---|
+> | **Ocean** | `-0.55 .. -0.28` | `alfheim_ocean` | ordinary sea; wet everywhere it is claimed |
+> | **Coast** | `-0.55 .. -0.46` | (inside the ocean claim) | sea floor rising to meet the shore |
+> | **Void Shore** | `-0.72 .. -0.55` | `alfheim:void_shore` | emerged, dry, pale; the sea ends here |
+> | **Verge plain** | `-0.86 .. -0.72` | `void_verge` | dry plateau, rooted to bedrock |
+> | **Breakline** | `-0.86 .. -0.77` | `void_verge` | the eroded lip; the plain comes apart |
+> | **Debris** | `-0.925 .. -0.86` | four debris biomes | shelves, slabs, rubble |
+> | **Open void** | `< -0.925` | `starless_reach` | empty by construction below `-0.99` |
+>
+> **The dry-aquifer rim stays at `-0.58` and must not be pulled outward.** It is not a tuning
+> value: `Aquifer.NoiseBasedAquifer` samples preliminary surface at chunk offsets spanning
+> `-3..+1` and blends the three nearest cells, so a narrow shoulder floods the void to Y 64.
+> What was wrong was never its width — it was that the band it dried was left below sea level.
+> Making that band land is what lets the sea end against a coast instead of against a deletion,
+> and it is what turns "no ocean at the margin" from a deletion into a geography.
+>
+> **The breakline is no longer a contour.** Measured over 900 columns in 30 rim segments, the
+> outer edge of the plain sat at exactly `-0.8600` in every column — spread 0.0000 — with a
+> face of 61..78 blocks, standard deviation 3.2. Every point at the same continentalness had
+> the same profile, which is what a pure function of one smooth 2D scalar produces and why no
+> amount of noise *inside* it could make it read as a coast. A broad appetite term, a 3D spall
+> term and an interpolated underside now give a measured median face of **33 blocks**, 56% of
+> the rim under 40, and a third of it still carrying a 60..78 block headland.
 
 The mask keeps the existing small 2D perturbation so the rim is irregular in plan view rather than
 a mathematically smooth contour. The important change is that the perturbation no longer drives a
