@@ -31,12 +31,13 @@ exactly. The defence is not better thresholds — the partition IS the selection
 | `TERRAIN_AUTHORITIES.md` | architecture, contracts, staging, and the five proven constraints |
 | `tools/gen_terrain_authorities.py` | selector emitted from the same CLAIMS list as the layer |
 | `tools/check_terrain_authorities.py` | A1..A5; **60,000 climate points, 0 disagreements**; self-test **5/5 fire** |
-| 46 shipped files | 44 named steps + 2 authority leaves, 31.6 KB, largest step 948 bytes |
+| 3 shipped files | 1 merged selector step + 2 authority leaves |
 | boot | pack loads with all 46 present, `Done (49.557s)`, zero density-function errors |
 
-**The chain is named rather than inline, and that is arithmetic.** Each band's test is up to five
-nested `range_choice`s and every false branch must reach the rest of the chain; inline the tail
-repeats once per axis test and the document grows as 5^44.
+**The chain is named rather than inline, and one test per merged authority region rather than per
+band.** Emitted per band it was 44 steps, and that killed the dedicated server twice during level
+preparation with no exception, no crash report and no JVM dump. Merged, the void's seven biomes
+are one contiguous continentalness range and the selector is a single `range_choice` at −0.55.
 
 **Stage 1 moves no terrain on purpose.** Both authorities carry the same expression — today's
 whole `alfheim_final` body, inlined rather than referenced so that wiring `alfheim_final` to the

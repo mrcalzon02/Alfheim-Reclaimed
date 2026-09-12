@@ -76,8 +76,8 @@ control of this area."*
 
 **Stage 1 is built and proven, and it moves no terrain on purpose.**
 `tools/gen_terrain_authorities.py` emits the selector; `tools/check_terrain_authorities.py`
-proves it. 44 bands, 44 selector steps plus 2 authority leaves, **60,000 climate points sampled,
-0 disagreements**, self-test 5/5 proven to fire.
+proves it. 44 bands merged to **one** selector step plus 2 authority leaves, **60,000 climate points
+sampled, 0 disagreements**, self-test 5/5 proven to fire.
 
 The load-bearing fact, measured rather than assumed: **the biome layer is a disjoint covering
 partition of axis-aligned boxes** — 44 entries, 0 overlapping pairs, 0.000% of climate space
@@ -88,8 +88,9 @@ every point sits in one box at distance zero and membership is axis-aligned thre
 `range_choice` reproduces exactly. Selector and layer are generated from one list, and A3 checks
 them against each other point by point rather than trusting that they were.
 
-The chain is emitted as **named** functions. Inline, each band's tail repeats once per axis test
-and the document grows as 5^44; by name it is 46 files, 31.6 KB, largest step 948 bytes.
+The chain is emitted as **named** functions, one test per merged authority region rather than per
+band. Emitted per band it was 44 steps and **killed the dedicated server twice** during level
+preparation with no exception, crash report or JVM dump; merged, it is a single `range_choice`.
 
 **Remaining stages** (TERRAIN_AUTHORITIES.md §5): 2 — the dedicated void field, normalised to the
 same −1..1 scale so `CLIFF`/`TERMINAL`/`FRINGE` and `check_void_surface_support`'s −0.94..−0.925

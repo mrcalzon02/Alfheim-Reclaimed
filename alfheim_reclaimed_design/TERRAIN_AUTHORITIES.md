@@ -1,7 +1,10 @@
 # Terrain Authorities — one density, many owners
 
 **Role:** authoritative design record for Alfheim's terrain architecture.
-**Status:** `designed 2026-09-12; stage 1 in progress` — nothing has moved yet.
+**Status:** `stage 1 built and wired 2026-09-12` — `alfheim_final` is the selector and the
+expressions live in the authority leaves. **No terrain has moved:** both leaves carry the same
+expression, A5 asserts they stay byte-identical, and a generated world matches the pre-wiring
+run column for column. Stage 2 onward is unstarted.
 **Authority:** subordinate to `INSTRUCTIONS.md` and `WORLD_STRUCTURE.md`. Supersedes the terrain
 half of `DEFICIENT_BIOMES.md` §2.2 when built; that record keeps the dry-rim contract.
 **Owner direction, 2026-09-11:** *"creating an alternative mapping function like continentalness,
@@ -86,7 +89,15 @@ authority := { id, biomes[], density, handover{} }
 
 The selector is emitted as a chain of **named** density functions — `alfheim:authority/step_N` —
 so each step's false branches reference the next by name. Written inline the chain would repeat
-its own tail once per axis test and blow up as 5^44; by name it is linear.
+its own tail once per axis test and blow up exponentially; by name it is linear.
+
+**And there is one test per merged authority region, not per biome band.** Emitted per band it was
+44 steps, and a 44-deep reference chain as `final_density` **killed the dedicated server twice**
+during level preparation — no exception, no crash report, no JVM dump. Bands belonging to one
+authority are fused wherever they differ on a single axis and are adjacent on it, so the void's
+seven biomes become one contiguous continentalness range and the whole selector is a single
+`range_choice` at −0.55. Depth is capped by a guard, because that failure had no diagnostic
+signature at all.
 
 Each leaf is that authority's complete expression for its own region. **Not an addend on a global
 field.** That distinction is the whole point: a Golden Fields terrace cannot appear in Silverbark

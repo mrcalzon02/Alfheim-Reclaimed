@@ -13,10 +13,16 @@ exactly. The partition IS the selection; this file does not re-derive it.
 
 See alfheim_reclaimed_design/TERRAIN_AUTHORITIES.md for the architecture and its contracts.
 
-THE CHAIN IS EMITTED AS NAMED FUNCTIONS, NOT INLINE, AND THAT IS NOT TIDINESS. Each band's test
-is up to five nested range_choices, and every one of their false branches has to reach the rest of
-the chain. Written inline the tail repeats once per axis test and the document grows as 5^44. As
-`alfheim:authority/step_N` each false branch is a string.
+THE CHAIN IS EMITTED AS NAMED FUNCTIONS, NOT INLINE, AND THAT IS NOT TIDINESS. Each test is up to
+five nested range_choices, and every one of their false branches has to reach the rest of the
+chain. Written inline the tail repeats once per axis test and the document grows exponentially in
+the number of tests. As `alfheim:authority/step_N` each false branch is a string.
+
+AND THERE IS ONE TEST PER MERGED AUTHORITY REGION, NOT PER BIOME BAND. Emitted per band it was 44
+steps, and a 44-deep reference chain as final_density killed the dedicated server twice during
+level preparation -- no exception, no crash report, no JVM dump. See merge(). With two authorities
+the void's seven biomes fuse into one contiguous continentalness range and the chain is a single
+step.
 
     python tools/gen_terrain_authorities.py            # write
     python tools/gen_terrain_authorities.py --dry-run  # print what would be written
