@@ -302,6 +302,14 @@ def validate(catalog,out,density):
         fail('VG8',f'erosion swing {EDGE_SWING} does not exceed its baseline bite '
                    f'{EDGE_BITE}; every stretch of rim would be cut by nearly the same '
                    'amount and the breakline would stay a contour')
+    if EDGE_WIDTH>UNDERCUT:
+        fail('VG8',f'erosion reaches {EDGE_WIDTH} inland while the undercut reaches only '
+                   f'{UNDERCUT}: between them the break removes columns from a shelf still '
+                   'rooted to bedrock, and what survives is a full-depth fin rather than a '
+                   'butte -- measured at z=-704 x=-1711, solid -53..76 with nothing either side')
+    if CLIFF+UNDERCUT>RIM:
+        fail('VG8',f'the undercut reaches {CLIFF+UNDERCUT:.3f}, past the void terrain band '
+                   f'{RIM}: the Void Shore would be hollow under the player as well')
     if EDGE_SPALL<=0:
         fail('VG8','no three-dimensional spall term; the erosion would only lower the top '
                    'and the face itself would stay a smooth vertical sheet')
@@ -393,6 +401,10 @@ def self_test():
         import gen_void_worldgen as g
         g.EDGE_SPALL=0.0
     tests.append(('VG8',flat_face))
+    def fins(c,o,d):
+        import gen_void_worldgen as g
+        g.UNDERCUT=0.06
+    tests.append(('VG8',fins))
     def full_section_at_the_break(c,o,d):
         import gen_void_worldgen as g
         g.RIM_BASE_LIP=(4,22)

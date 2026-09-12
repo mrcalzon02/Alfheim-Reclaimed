@@ -400,7 +400,7 @@
                   "type": "minecraft:clamp",
                   "input": {
                     "type": "minecraft:mul",
-                    "argument1": 16.666666666666682,
+                    "argument1": 8.333333333333334,
                     "argument2": {
                       "type": "minecraft:add",
                       "argument1": "mythicbotany:alfheim_continentalness",
@@ -717,7 +717,7 @@
                   "type": "minecraft:clamp",
                   "input": {
                     "type": "minecraft:mul",
-                    "argument1": 16.666666666666682,
+                    "argument1": 8.333333333333334,
                     "argument2": {
                       "type": "minecraft:add",
                       "argument1": "mythicbotany:alfheim_continentalness",

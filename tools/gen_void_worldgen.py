@@ -87,7 +87,17 @@ RIM_BASE_WANDER=0.5
 # opening directly under the ground the player is meant to walk in on. `attach` fades the
 # undercut in over the last UNDERCUT of the band, so the plain is rooted to bedrock where it
 # is walked and only the cliff face is cut away.
-UNDERCUT=0.06
+#
+# IT MUST BE WIDER THAN EDGE_WIDTH, AND THE FIRST GENERATED WORLD IS WHY. At 0.06 against an
+# erosion band of 0.09 there was a strip where the breakline erosion removed whole columns from
+# a shelf that `attach` had already welded back down to bedrock. What survived in that strip was
+# not a butte: it was a 130-block fin. Read out of `void-margin-20260911-171819` at z=-704,
+# x=-1711 is void_verge solid -53..76 with prism_drift carrying nothing at all on either side of
+# it -- the exact vertical curtain the September 9 review rejected, rebuilt one column wide.
+# Erosion only reads as the ground coming apart where the ground is already a slab. VG8 asserts
+# the containment now; the analytic sweep in measure_void_edge.py cannot see it, because it
+# samples one column at a time and a fin and a butte look identical from inside one column.
+UNDERCUT=0.12
 # How hard `attach` pushes the underside down outside the lip. It has to clear the underside
 # gradient's own floor (-1.0) plus its wander, or "rooted" is only rooted on average.
 ATTACH_BIAS=2.0
