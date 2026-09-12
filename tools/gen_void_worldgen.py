@@ -10,25 +10,47 @@ band and is stripped by Void surface rules; the safe Void Verge shelf remains so
 import json
 from gen_deep_terrain import ROOT, binary, choose, gradient, condition, block, sequence, above, negate
 
+# ONE FIELD DECIDES THE WHOLE MARGIN AND IT IS NAMED EXACTLY ONCE. Today it is
+# continentalness. A dedicated void map -- authored with its own gain, so the bands are wide
+# on the ground instead of sixteen blocks -- replaces this one name and nothing else, as long
+# as it is normalised to the same -1..1 scale so every band constant below keeps its meaning.
 MASK='mythicbotany:alfheim_continentalness'
-# Leave a narrow intact shore inside the biome transition. If terrain and biome ended
-# on the same continentalness value, interpolation could expose holes beneath the ocean.
-# Outer bound of the Void terrain branch. Measured 2026-09-09, the old -0.82 left the outer
-# third of the void_verge biome on ordinary ocean density and 75% of Verge columns generated
-# at Y 1..40 -- a sunken basin, not the dry plain VOID_MARGINS.md specifies. The shelf now
-# holds all the way out to SHORE_START and the descent into the sea happens in the last
-# sliver of the Verge biome, so the plain meets its own coast. RIM stays strictly inside
-# BIOME_RIM: check_worldgen W7 requires that, because void-shaped terrain under an ordinary
-# biome reads as corruption rather than as the edge of the world.
-RIM=-0.802
-# Where the dry shelf starts descending to the sea floor. Inside the Verge biome by design.
-SHORE_START=-0.81
-# Dry the inward shoulder as well as the visible margin so neighbouring water
-# centres cannot bleed through the breakline. Floodedness is evaluated at block
-# coordinates, so it must use the exact shifted continentalness field.
-DRY_AQUIFER_RIM=-0.58
-BIOME_RIM=-0.80
+
+# --- the margin, outward from the sea to the empty far field ------------------------------
+#
+# THE WHOLE APPROACH USED TO FIT IN 0.06 OF CONTINENTALNESS, AND THAT IS WHY IT WAS A WALL.
+# Read out of `saves/New World Ferngale` on 2026-09-11: at z=223 the void_verge biome runs
+# x -112..-97 -- SIXTEEN COLUMNS -- while its shelf is 60 blocks thick and its outer face
+# drops 72 blocks into a column with no solid block in it at all. A ribbon four times taller
+# than it is wide can only read as a curtain. Continentalness is 1.7x badlands_surface and
+# then clamped, so it is steep exactly here, and widening a band costs ocean at 1:1.
+#
+# The breakline. Outward of it the ground has already come apart.
 CLIFF=-0.86
+# Outer bound of the Void terrain branch and inland edge of the Verge plain proper. RIM stays
+# strictly inside BIOME_RIM: check_worldgen W7 requires that, because void-shaped terrain
+# under an ordinary biome reads as corruption rather than as the edge of the world.
+RIM=-0.722
+BIOME_RIM=-0.72
+# The waterline. Alfheim Ocean claims everything inland of this; outward of it the approach is
+# emerged land, so THE SEA ENDS AGAINST A COAST RATHER THAN AGAINST A DELETION.
+COAST_RIM=-0.55
+# Where the coast has finished descending into ordinary sea floor.
+COAST_TOE=-0.46
+# Dry the inward shoulder as well as the visible margin so neighbouring water centres cannot
+# bleed through the breakline. Floodedness is evaluated at block coordinates, so it must use
+# the exact shifted continentalness field.
+#
+# THIS NUMBER IS NOT A TUNING CHOICE AND MUST NOT BE PULLED BACK TOWARD THE RIM.
+# Aquifer.NoiseBasedAquifer samples preliminary surface at chunk offsets spanning -3..+1 and
+# then blends the three nearest aquifer cells, so void air below sea level within roughly
+# 48..80 blocks of a seabed below sea level is filled to Y 64 whatever final density said.
+# What was actually wrong is that the dried band was left AT SEABED HEIGHT: 123,145 of
+# 348,224 ocean columns in `New World Ferngale` carried no water and nothing above Y 40 --
+# an ocean biome over an open dry basin, which is the "deeps with nothing above them" of the
+# 2026-09-11 field review. The band is emerged land now, so drying it costs nothing.
+# check_void_geology VG7 asserts that every dried column is on the plain and above sea level.
+DRY_AQUIFER_RIM=-0.58
 TERMINAL=-0.925
 # Absolute debris limit. Beyond it the branch returns a literal -1.0, so "zero terrain in the
 # far field" is a structural property of the function rather than a tuning outcome. The strip
@@ -58,6 +80,23 @@ CEILING_WANDER=0.45
 # requires, and little enough to read as the edge of a broken world.
 RIM_BASE=(4,22)
 RIM_BASE_WANDER=0.5
+# AND THE UNDERCUT IS LOCAL TO THE LIP NOW, BECAUSE THE 2026-09-09 REPAIR CUT BOTH FACES.
+# rim_base was applied across the whole Verge band, including the side facing the sea, so the
+# shelf stood free on both faces: at z=223 in `New World Ferngale` the seabed at x=-113 is
+# solid -53..28 and the Verge one column outward at x=-112 is solid 11..34, a 64-block void
+# opening directly under the ground the player is meant to walk in on. `attach` fades the
+# undercut in over the last UNDERCUT of the band, so the plain is rooted to bedrock where it
+# is walked and only the cliff face is cut away.
+UNDERCUT=0.06
+# How hard `attach` pushes the underside down outside the lip. It has to clear the underside
+# gradient's own floor (-1.0) plus its wander, or "rooted" is only rooted on average.
+ATTACH_BIAS=2.0
+# The plain's surface. A band five times wider than the old ribbon can carry real relief --
+# but never enough to reach the water table, and VG7 asserts that from these three numbers
+# rather than capping each amplitude separately and hoping the sum behaves.
+RIM_TOP=(64,88)
+RIM_RELIEF=0.30
+RIM_DETAIL=0.10
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
 # that get rarer AND smaller together, because raising a threshold on smooth noise trims the
@@ -158,50 +197,66 @@ def debris_field():
     return choose(MASK,-100,FRINGE,-1.0,field)
 
 
-def density(normal, shore_normal=None):
-    # Deepworks wraps ordinary Alfheim density with cavern carving. The littoral blend needs
-    # the original surface density, otherwise those unrelated deep cavities leak into the
-    # Void branch and defeat the guarantee that this transition remains supported.
-    if shore_normal is None:
-        shore_normal=normal
-    # Safe rim: a quiet, continuous shelf whose lowest noise displacement remains
-    # above sea level. The former 0.62 combined amplitude moved the nominal Y=68
-    # surface down into the global water table and exposed flowing water at the
-    # breakline. Keep only broad, low-amplitude relief around a Y=72 median.
-    rim_relief=binary('add',binary('mul',0.18,noise('relief',0,xz=0.72)),
-                      binary('mul',0.05,noise('detail',0,xz=0.62)))
-    rim_top=binary('add',gradient((62,82),1,-1),rim_relief)
+def density(normal):
+    """Sea -> coast -> Verge plain -> breakline -> debris -> nothing, on one field.
+
+    The four stages are continuous by construction: each boundary is a `ramp` that has
+    already reached its endpoint value where the next branch takes over, so no stage can
+    step the terrain. The one deliberate discontinuity is the breakline itself.
+    """
+    # The Verge plain. A broad, dry, gently uneven table that never reaches the water table:
+    # rim_top crosses zero at the midpoint of RIM_TOP with slope 2/span per block, so the
+    # surface sits at 76 +/- (RIM_RELIEF + RIM_DETAIL) / slope. VG7 does that arithmetic.
+    rim_relief=binary('add',binary('mul',RIM_RELIEF,noise('relief',0,xz=0.72)),
+                      binary('mul',RIM_DETAIL,noise('detail',0,xz=0.62)))
+    rim_top=binary('add',gradient(RIM_TOP,1,-1),rim_relief)
     # min() with a rising base turns the shelf from a full-depth curtain into a slab of land.
     # The wander keeps the underside from being a machined plane, which is the same mistake
-    # the debris ceiling made and the same fix.
+    # the debris ceiling made and the same fix. `attach` reaches 1.0 UNDERCUT inside the
+    # cliff, and rim_base + 2.0 is then positive at every Y, so the plain is rooted to bedrock
+    # everywhere except the lip -- which is the only place a cliff face belongs.
+    attach=ramp(MASK,CLIFF,CLIFF+UNDERCUT)
     rim_base=binary('add',gradient(RIM_BASE,-1,1),
                     binary('mul',RIM_BASE_WANDER,noise('rim_base',0.0,0.22)))
-    rim=binary('min',rim_top,rim_base)
+    plain=binary('min',rim_top,binary('add',rim_base,binary('mul',ATTACH_BIAS,attach)))
 
-    # The previous final range_choice jumped directly from `normal` density to `rim`
-    # at RIM. That discontinuity is the vertical wall in the September field screenshot:
-    # punching noise holes into it cannot turn it into a coast. Blend the complete normal
-    # density into the low rim across CLIFF..RIM instead. Continentalness already has broad,
-    # curved contours; relief/detail give the target shore local ledges and inlets.
-    # Blend from SHORE_START outward, not from CLIFF: the Verge is then a dry plain across
-    # almost its whole band and only its last sliver slopes into the sea.
-    shore_t=clamp(binary('mul',1.0/(RIM-SHORE_START),binary('add',MASK,-SHORE_START)),0.0,1.0)
-    shoreline=binary('add',binary('mul',shore_t,shore_normal),
-                     binary('mul',binary('add',1.0,binary('mul',-1.0,shore_t)),rim))
-    void=choose(MASK,-100,CLIFF,debris_field(),shoreline)
+    void=choose(MASK,-100,CLIFF,debris_field(),plain)
     # NoiseBasedChunkGenerator consults its global fluid picker at the lowest ten
     # levels before routed floodedness can return air. Temporary default stone blocks
     # that picker; surface_rule() removes it in debris/terminal Void biomes.
     void=choose('minecraft:y',-64,BASAL_LAVA_Y,1.0,void)
-    return choose(MASK,-100,RIM,void,normal)
+
+    # THE COAST, WHICH IS WHAT THE OLD SHORELINE BLEND WAS TRYING AND FAILING TO BE.
+    # That blend ran SHORE_START -0.81 to RIM -0.802 -- 0.008 of continentalness, which at
+    # this field's gradient is about TWO BLOCKS. The measured result is a step, not a shore:
+    # at z=223 the ground goes from seabed top Y28 to plain top Y71 across six columns while
+    # the underside drops 64 blocks in one. The plain now simply continues past RIM as
+    # ordinary ground and only turns into sea floor between COAST_RIM and COAST_TOE, ~0.09
+    # wide. `coast` is 0.0 outward of COAST_RIM, which is what keeps every dried column on
+    # the plain, and 1.0 inland of COAST_TOE, where this returns `normal` unchanged.
+    coast=ramp(MASK,COAST_RIM,COAST_TOE)
+    approach=binary('add',binary('mul',coast,normal),
+                    binary('mul',binary('add',1.0,binary('mul',-1.0,coast)),plain))
+    return choose(MASK,-100,RIM,void,approach)
+
+COAST_ID='alfheim:void_shore'
 
 def claims(pt):
+    """Outward from the sea. Three bands stand between the ocean and the break, which is what
+    the edge was always meant to have: a shore where the water stops, a plain to cross, and
+    then the ground giving way. Before 2026-09-11 the first of those was an ocean biome laid
+    over a dry basin, so the sequence read water -> hole -> wall."""
     return [('alfheim:starless_reach',pt((-1,TERMINAL))),
             ('alfheim:shatterfields',pt((TERMINAL,CLIFF),temp=(-1,0),hum=(-1,0))),
             ('alfheim:prism_drift',pt((TERMINAL,CLIFF),temp=(-1,0),hum=(0,1))),
             ('alfheim:rootfall',pt((TERMINAL,CLIFF),temp=(0,1),hum=(-1,0))),
             ('alfheim:sepulchral_reach',pt((TERMINAL,CLIFF),temp=(0,1),hum=(0,1))),
-            ('alfheim:void_verge',pt((CLIFF,BIOME_RIM)))]
+            ('alfheim:void_verge',pt((CLIFF,BIOME_RIM))),
+            # The void's own coastline: emerged, dry, and outward of the waterline, so the
+            # Alfheim Ocean has something to end against. It is NOT in VOID_IDS -- it keeps
+            # ordinary hydrology, ores and pools, because it is the last ordinary ground
+            # rather than part of the margin's geology.
+            (COAST_ID,pt((BIOME_RIM,COAST_RIM)))]
 
 def surface_rule():
     rules=[condition({'type':'minecraft:biome','biome_is':DEBRIS_IDS},
@@ -240,6 +295,21 @@ def surface_rule():
             condition(floor,block(grammar['alfheim:starless_reach']['hollow_splinter'])),
             block(grammar['alfheim:starless_reach']['terminal_landing'])]),
     }
+    # THE SHORE'S SURFACE BELONGS HERE AND NOT IN identity_surface_rule(), AND THE REASON IS
+    # THE AQUIFER REPAIR. Every palette in identity_surface_rule() is wrapped in
+    # `above_preliminary_surface`, and inside the dry band initial_density_without_jaggedness
+    # is pinned to 1.0, so preliminary surface resolves to the build limit and NO block is
+    # ever above it. Measured on `saves/New World Ferngale`: the dried ocean band's top block
+    # is bare Deepworks strata -- livingrock 41%, storm 26%, tide 20% -- because its palette
+    # could not fire, while void_verge next door reads 87% Riftchalk from this un-gated rule.
+    # Deep rock lying on the surface is a large part of why that band read as "the deeps with
+    # nothing above them" at all.
+    rules.append(condition({'type':'minecraft:biome','biome_is':[COAST_ID]},sequence([
+        condition(floor,sequence([
+            condition(threshold('shore_wrack',0.34),block('minecraft:gravel')),
+            condition(threshold('shore_wrack',-0.30,0.34),block('alfheim:riftchalk_livingrock')),
+            block('minecraft:sand')])),
+        block('alfheim:riftchalk_livingrock')])))
     for biome,palette in palettes.items():
         rules.append(condition({'type':'minecraft:biome','biome_is':[biome]},palette))
     return sequence(rules)
@@ -256,7 +326,11 @@ def extra_files():
                              # Its own channel: the debris shaping noises are barred from the
                              # supported shore by VG3b, and rightly -- reusing one here would
                              # break up the shelf the player is promised.
-                             ('rim_base',-6,[1,0.4])]:
+                             ('rim_base',-6,[1,0.4]),
+                             # The shore's own channel: wrack lines and bleached stone, at a
+                             # coarser period than the Verge's seam noises so the strand reads
+                             # as banded rather than speckled.
+                             ('shore_wrack',-4,[1,0.5])]:
         emit('alfheim/worldgen/noise/void/'+name+'.json',{'firstOctave':octave,'amplitudes':amps})
     emit('alfheim/tags/worldgen/biome/void_margins.json',{'replace':False,'values':VOID_IDS})
     # REMOVE phase runs after all ADD modifiers. Conventional liquid pools must

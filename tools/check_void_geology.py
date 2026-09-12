@@ -171,8 +171,63 @@ def validate(catalog,out,density):
                                         f"{abs(float(scalar))}, above the declared "
                                         f"CEILING_WANDER {CEILING_WANDER}; an unbounded "
                                         f"offset defeats the envelope")
-    # Only broad, low-amplitude relief may shape the supported shore. All sharper
-    # vocabulary belongs to bounded configured features beyond the cliff.
+    # VG6 -- THE VERGE PLAIN NEVER REACHES THE WATER TABLE.
+    #
+    # This used to cap each shaping noise separately: relief <= 0.18, detail <= 0.05. Those
+    # numbers were a PROXY for the thing that actually matters, and the two came apart on
+    # 2026-09-11 as soon as the plain got wide enough to deserve more relief. A cap on each
+    # amplitude says nothing about where the surface lands -- it depends on the gradient the
+    # amplitudes are added to, which the old rule never read. The invariant is what the
+    # original comment said out loud: "a quiet, continuous shelf whose lowest noise
+    # displacement remains above sea level", after the 0.62 combined amplitude put the
+    # surface into the global water table and exposed flowing water at the breakline.
+    #
+    # rim_top is gradient(RIM_TOP, 1, -1) + relief, so it crosses zero at
+    #     y = lo + (hi - lo) * (1 + r) / 2
+    # and the lowest surface the plain can produce is that at r = -(RIM_RELIEF + RIM_DETAIL).
+    from gen_void_worldgen import (RIM_TOP, RIM_RELIEF, RIM_DETAIL, RIM_BASE,
+                                   RIM_BASE_WANDER, UNDERCUT, COAST_RIM, DRY_AQUIFER_RIM,
+                                   ATTACH_BIAS)
+    SEA_LEVEL=64
+    # Read out of the SHIPPED density, not out of the generator's constants: this is the one
+    # assertion standing between the approach and a water table inside it, so it reads the
+    # bytes the game will load. rim_top is the add() of a 1 -> -1 gradient and the two quiet
+    # plain noises, which no other node in this tree has the shape of.
+    tops=[]
+    for node in walk(density):
+        if node.get('type')!='minecraft:add': continue
+        grad,relief=node.get('argument1'),node.get('argument2')
+        if not (isinstance(grad,dict) and grad.get('type')=='minecraft:y_clamped_gradient'
+                and grad.get('from_value')==1 and grad.get('to_value')==-1): continue
+        amps={}
+        for sub in walk(relief):
+            if sub.get('type')!='minecraft:mul': continue
+            for scalar,term in ((sub.get('argument1'),sub.get('argument2')),
+                                (sub.get('argument2'),sub.get('argument1'))):
+                if (isinstance(scalar,(int,float)) and isinstance(term,dict)
+                        and term.get('type')=='minecraft:noise'):
+                    amps[term.get('noise')]=abs(float(scalar))
+        if set(amps)=={'alfheim:void/relief','alfheim:void/detail'}:
+            tops.append((grad.get('from_y'),grad.get('to_y'),sum(amps.values())))
+    if not tops:
+        fail('VG6','no Verge plain surface found in final density: an add() of a 1 -> -1 '
+                   'y_clamped_gradient and the relief/detail noises. Its height cannot be '
+                   'bounded, so nothing stops the approach reaching the water table.')
+    for lo,hi,swing in tops:
+        if swing>=1.0:
+            fail('VG6',f'plain relief {swing} saturates the y{lo}..y{hi} gradient; the '
+                       'surface would no longer track the gradient at all')
+            continue
+        lowest=lo+(hi-lo)*(1.0-swing)/2.0
+        if lowest<=SEA_LEVEL:
+            fail('VG6',f'the Verge plain can fall to y{lowest:.1f}, at or below sea level '
+                       f'{SEA_LEVEL}: relief totalling {swing} over gradient y{lo}..y{hi}. '
+                       'A dry approach cannot have its own water table in it.')
+    if RIM_RELIEF+RIM_DETAIL!=max(t[2] for t in tops) or RIM_TOP!=tops[0][:2]:
+        fail('VG6','the shipped plain surface does not match the generator constants')
+    # And the terms that shape it must be the quiet ones. Which noises, not how loud:
+    # the sharper vocabulary belongs to bounded configured features beyond the cliff.
+    plain_noises={'alfheim:void/relief','alfheim:void/detail','alfheim:void/rim_base'}
     multipliers={}
     for node in walk(density):
         if node.get('type')!='minecraft:mul':continue
@@ -180,14 +235,39 @@ def validate(catalog,out,density):
                             (node.get('argument2'),node.get('argument1'))):
             if isinstance(scalar,(int,float)) and isinstance(term,dict) and term.get('type')=='minecraft:noise':
                 multipliers.setdefault(term.get('noise'),[]).append(abs(float(scalar)))
-    from gen_void_worldgen import RIM_BASE_WANDER
-    limits={'alfheim:void/relief':0.18,'alfheim:void/detail':0.05,
-            # The shelf's underside may wander, but only within its declared bound -- an
-            # unbounded term here would eat the support structures stand on.
-            'alfheim:void/rim_base':RIM_BASE_WANDER}
-    for noise_id,limit in limits.items():
-        if max(multipliers.get(noise_id,[999]))>limit:
-            fail('VG6',f'{noise_id} exceeds quiet gross-terrain amplitude {limit}')
+    for noise_id,amps in multipliers.items():
+        if noise_id in plain_noises: continue
+        if noise_id in DEBRIS_DENSITY_NOISES: continue
+        fail('VG6',f'{noise_id} shapes gross terrain but is neither a declared plain noise '
+                   f'nor a debris noise')
+
+    # VG7 -- EVERY COLUMN THE AQUIFER DRIES STANDS ON THAT PLAIN, ABOVE SEA LEVEL.
+    #
+    # Nothing asserted this before, and the cost was 123,145 of 348,224 ocean columns in
+    # `saves/New World Ferngale` generating with a seabed at Y 30 and open air to the build
+    # limit -- an ocean biome over a dry basin, because the dry-aquifer shoulder reached
+    # 0.22 of continentalness inland of the rim while the terrain under it stayed sea floor.
+    # DRY_AQUIFER_RIM cannot simply be pulled back: Aquifer.NoiseBasedAquifer samples
+    # preliminary surface up to three chunks away, so a narrow shoulder floods the void.
+    # The repair is that the shoulder is LAND, and this is the check that keeps it so.
+    if not COAST_RIM>DRY_AQUIFER_RIM:
+        fail('VG7',f'the coast begins at {COAST_RIM}, at or outward of the dry-aquifer rim '
+                   f'{DRY_AQUIFER_RIM}: columns between them would be dried while still '
+                   'blending down to ordinary sea floor, which is the dry-basin defect')
+
+    # And the plain is rooted everywhere it is walked. `attach` reaches 1.0 UNDERCUT inside
+    # the cliff, so outside the lip the underside term is rim_base + ATTACH_BIAS; that is
+    # positive at every Y only if the bias clears the gradient's floor plus its wander.
+    if UNDERCUT<=0:
+        fail('VG7','UNDERCUT is not positive; the undercut would apply across the whole '
+                   'approach and the plain would stand free on its inland face too')
+    if ATTACH_BIAS<=1.0+RIM_BASE_WANDER:
+        fail('VG7',f'attach bias {ATTACH_BIAS} does not clear the underside floor '
+                   f'{-(1.0+RIM_BASE_WANDER)}; the plain would still be hollow inland of '
+                   f'the lip, which is the 64-block void measured under x=-112 at z=223')
+    if RIM_BASE[0]<=-64:
+        fail('VG7',f'the underside gradient opens at y{RIM_BASE[0]}, at or below the world '
+                   'floor; the lip would have no cliff face at all')
 
     for name,codec in EXPECTED_CODECS.items():
         key=f'kubejs/data/alfheim/worldgen/configured_feature/void/{name}.json'
@@ -240,6 +320,17 @@ def self_test():
             return False
         assert mutate(d)
     tests.append(('VG6',loud_shore))
+    # VG7 has no artifact to mutate -- it asserts the generator's band ordering, which
+    # check_deep_terrain and check_alfheim_hills separately prove the shipped file matches.
+    # So its fixtures move the constants and re-derive, which is what would actually regress.
+    def dry_over_seafloor(c,o,d):
+        import gen_void_worldgen as g
+        g.COAST_RIM=g.DRY_AQUIFER_RIM-0.01
+    tests.append(('VG7',dry_over_seafloor))
+    def hollow_approach(c,o,d):
+        import gen_void_worldgen as g
+        g.ATTACH_BIAS=1.0
+    tests.append(('VG7',hollow_approach))
     def no_far_cutoff(c,o,d):
         # Turn the literal far-field -1.0 into a merely-very-negative constant.
         def mutate(value):
@@ -278,8 +369,16 @@ def self_test():
         assert mutate(d)
     tests.append(('VG3c',unbounded_debris))
     dead=0
+    # Some fixtures move generator constants rather than artifact bytes, so the module has to
+    # be put back between tests or one fixture silently decides the next one's verdict.
+    import gen_void_worldgen as _g
+    baseline={k:getattr(_g,k) for k in ('COAST_RIM','DRY_AQUIFER_RIM','ATTACH_BIAS',
+                                        'UNDERCUT','RIM_TOP','RIM_RELIEF','RIM_DETAIL')}
     for code,mutate in tests:
-        c,o,d=fixture();mutate(c,o,d);hit=any(p.startswith(code) for p in validate(c,o,d))
+        try:
+            c,o,d=fixture();mutate(c,o,d);hit=any(p.startswith(code) for p in validate(c,o,d))
+        finally:
+            for k,v in baseline.items():setattr(_g,k,v)
         print(f'  {code}  '+('FIRES' if hit else 'SILENT -- CHECK IS DEAD'));dead+=not hit
     print(f'\n  {len(tests)-dead}/{len(tests)} checks proven to fire')
     return 1 if dead else 0

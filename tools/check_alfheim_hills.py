@@ -27,7 +27,7 @@ def main():
     base = {'type': 'minecraft:min',
             'argument1': 'mythicbotany:alfheim_initial',
             'argument2': 'mythicbotany:alfheim_caves'}
-    expected = density(wrap_density(base), base)
+    expected = density(wrap_density(base))
     # The Golden Fields terracing is an addend on top of this. Remove it and the assertion below
     # is the same one it always was -- ordinary Alfheim terrain must still be the continuous
     # upstream field. strip() returns its input untouched if the addend is not the known terrace

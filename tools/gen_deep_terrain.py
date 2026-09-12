@@ -158,6 +158,10 @@ def build():
         'alfheim:tidewood_shore':['tide_livingrock','rootbound_livingrock','moss_livingrock','amber_livingrock','fern_livingrock'],
         'alfheim:mistbark_shore':['tide_livingrock','frost_livingrock','silvermist_livingrock','fern_livingrock','moonstone_livingrock'],
         'alfheim:sporebank_shore':['moss_livingrock','tide_livingrock','amethyst_livingrock','rootbound_livingrock','gloam_livingrock'],
+        # The fourth shore is the one the sea left. Tide stone underneath it still, bleached
+        # through ivory and frost, going out through gloam toward the abyssal rock the Verge
+        # stands on -- so the column reads as the same coast losing its light with distance.
+        'alfheim:void_shore':['tide_livingrock','ivory_livingrock','frost_livingrock','gloam_livingrock','abyssal_livingrock'],
     }
     assert all(set(ids)<=known for ids in biome_palettes.values())
     palettes=[([biome],ids) for biome,ids in biome_palettes.items()]

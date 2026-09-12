@@ -563,5 +563,6 @@
   "item.alfheim.savage_elf_spawn_egg": "Savage Elf Spawn Egg",
   "entity.alfheim.demonic_elf": "Demonic Elf",
   "item.alfheim.demonic_elf_spawn_egg": "Demonic Elf Spawn Egg",
-  "biome.alfheim.alfheim_ocean": "Alfheim Ocean"
+  "biome.alfheim.alfheim_ocean": "Alfheim Ocean",
+  "biome.alfheim.void_shore": "Void Shore"
 }

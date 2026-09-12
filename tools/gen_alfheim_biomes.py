@@ -459,6 +459,20 @@ BIOMES = {
         downfall=1.0, temperature=0.7,
         particle={'options': {'type': 'minecraft:spore_blossom_air'}, 'probability': 0.008}),
 
+    # The sea's last shore. Emerged, dry and pale: the ground the ocean ends against, and the
+    # reason it can end at all. Before 2026-09-11 this band was claimed by alfheim_ocean and
+    # dried at the aquifer, so 35% of every ocean column in the world generated as an open
+    # basin with a seabed at Y 30 and nothing above it. It is a real biome now, above sea
+    # level, and the water stops here instead of being deleted. Light is going out of it --
+    # the colours sit between the ocean's and the Verge's -- but it is still ordinary Alfheim
+    # ground, which is exactly what makes the Verge beyond it read as a change.
+    'void_shore': biome(
+        fog=0x5A6670, sky=0x47535E, water=0x2A3A44, water_fog=0x121A20,
+        features=[[], [], [], [], [], [], ORES, [], [],
+                  ['alfheim:shore_driftwood']],
+        spawners={'creature': FEY_VOID + PASSIVE, 'monster': VOID_MOBS},
+        downfall=0.05, temperature=0.4, precipitation=False),
+
     # The rim. Terrain stops in a ragged cliff and what is left floats: livingrock, still
     # mana-bearing, still carrying ore and geodes. See void_final_density() for the terrain.
     'void_verge': biome(
@@ -549,8 +563,8 @@ def void_final_density(include_deepworks=True, include_terraces=True):
     # check_golden_terraces.py asserts both of those properties rather than trusting them.
     if include_terraces:
         from gen_golden_terraces import inject
-        return inject(density(normal, base_normal))
-    return density(normal, base_normal)
+        return inject(density(normal))
+    return density(normal)
 
 
 def pt(cont, ero=(-1.0, 1.0), weird=(-1.0, 1.0), temp=(-1.0, 1.0), hum=(-1.0, 1.0)):
@@ -868,7 +882,10 @@ CLAIMS = [
     (f'{NS}:infested_warren', pt((0.0, 0.18), weird=(-1.0, -0.2), hum=(0.42, 1.0))),
     (f'{NS}:decayed_mire',    pt((0.15, 0.30), weird=(-1.0, -0.3), hum=(0.42, 1.0))),
     * __import__('gen_void_worldgen').claims(pt),
-    (f'{NS}:alfheim_ocean',      pt((-0.80, -0.28))),
+    # The ocean now stops at the waterline the coast gives it (gen_void_worldgen.COAST_RIM)
+    # instead of running all the way to the old -0.80 void biome edge. Everything it gave up
+    # was the dried band -- ocean biome over an open dry basin -- so no wet ocean was lost.
+    (f'{NS}:alfheim_ocean',      pt((__import__('gen_void_worldgen').COAST_RIM, -0.28))),
 
     # --- the wooded shores: the strip where the water gives way to land -------------------
     #
@@ -1402,6 +1419,7 @@ def main():
     lang_path = os.path.join('kubejs', 'assets', NS, 'lang', 'en_us.json')
     lang = json.load(open(lang_path, encoding='utf-8')) if os.path.exists(lang_path) else {}
     lang['biome.alfheim.alfheim_ocean'] = 'Alfheim Ocean'
+    lang['biome.alfheim.void_shore'] = 'Void Shore'
     written.append(write(lang_path, lang))
 
     for p in written:
