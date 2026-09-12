@@ -68,18 +68,17 @@ HUB_MIN_Z, HUB_MAX_Z = -128, 31
 # Every biome in the Alfheim layer, ours and MythicBotany's, read off
 # kubejs/data/mythicbotany/libx/biome_layer/alfheim.json. Listed rather than globbed because
 # MythicBotany's five come from its jar and would not appear in a scan of our own biome dir.
-LAYER_BIOMES = [
-    f'{NS}:ashen_grove', f'{NS}:bloomfall_vale', f'{NS}:decayed_mire',
-    f'{NS}:hollow_marches', f'{NS}:infested_warren', f'{NS}:mana_fen',
-    f'{NS}:scorchfell', f'{NS}:silverbark_wood', f'{NS}:starved_reach',
-    f'{NS}:sundered_highlands', f'{NS}:alfheim_ocean', f'{NS}:void_verge',
-    f'{NS}:shatterfields', f'{NS}:prism_drift', f'{NS}:rootfall',
-    f'{NS}:sepulchral_reach', f'{NS}:starless_reach',
-    f'{NS}:tidewood_shore', f'{NS}:mistbark_shore', f'{NS}:sporebank_shore',
-    'mythicbotany:alfheim_hills', 'mythicbotany:alfheim_lakes',
-    'mythicbotany:alfheim_plains', 'mythicbotany:dreamwood_forest',
-    'mythicbotany:golden_fields',
-]
+# DERIVED, NOT TRANSCRIBED. This was a hand-kept list that had to mirror the biome layer, and
+# check_spawn_hub S10/S13 exist because it drifts: adding alfheim:void_shore on 2026-09-11 broke
+# both immediately, and the fix for a list that must equal another list is not to edit it again.
+# The tag has to name the WHOLE layer -- see the note at its write_json below -- so reading the
+# layer is both simpler and the only version that cannot go stale.
+def _layer_biomes():
+    import gen_alfheim_biomes
+    return sorted({entry['biome'] for entry in gen_alfheim_biomes.LAYER['biomes']})
+
+
+LAYER_BIOMES = _layer_biomes()
 
 # --- dimensions ---------------------------------------------------------------------------
 BASE = 48
