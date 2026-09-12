@@ -603,7 +603,7 @@
                     },
                     "argument2": {
                       "type": "minecraft:mul",
-                      "argument1": 0.32,
+                      "argument1": 0.48,
                       "argument2": {
                         "type": "minecraft:noise",
                         "noise": "alfheim:void/spall",
@@ -614,7 +614,7 @@
                   },
                   "argument2": {
                     "type": "minecraft:mul",
-                    "argument1": 0.15,
+                    "argument1": 0.26,
                     "argument2": {
                       "type": "minecraft:noise",
                       "noise": "alfheim:void/grain",
@@ -667,7 +667,7 @@
               "argument1": 0.06,
               "argument2": {
                 "type": "minecraft:mul",
-                "argument1": 0.52,
+                "argument1": 0.74,
                 "argument2": {
                   "type": "minecraft:noise",
                   "noise": "alfheim:void/grain",
@@ -1058,7 +1058,7 @@
                         },
                         "argument2": {
                           "type": "minecraft:mul",
-                          "argument1": 0.32,
+                          "argument1": 0.48,
                           "argument2": {
                             "type": "minecraft:noise",
                             "noise": "alfheim:void/spall",
@@ -1069,7 +1069,7 @@
                       },
                       "argument2": {
                         "type": "minecraft:mul",
-                        "argument1": 0.15,
+                        "argument1": 0.26,
                         "argument2": {
                           "type": "minecraft:noise",
                           "noise": "alfheim:void/grain",
@@ -1506,7 +1506,7 @@
                   },
                   "argument2": {
                     "type": "minecraft:mul",
-                    "argument1": 0.32,
+                    "argument1": 0.48,
                     "argument2": {
                       "type": "minecraft:noise",
                       "noise": "alfheim:void/spall",
@@ -1517,7 +1517,7 @@
                 },
                 "argument2": {
                   "type": "minecraft:mul",
-                  "argument1": 0.15,
+                  "argument1": 0.26,
                   "argument2": {
                     "type": "minecraft:noise",
                     "noise": "alfheim:void/grain",
@@ -1570,7 +1570,7 @@
             "argument1": 0.06,
             "argument2": {
               "type": "minecraft:mul",
-              "argument1": 0.52,
+              "argument1": 0.74,
               "argument2": {
                 "type": "minecraft:noise",
                 "noise": "alfheim:void/grain",
@@ -1961,7 +1961,7 @@
                       },
                       "argument2": {
                         "type": "minecraft:mul",
-                        "argument1": 0.32,
+                        "argument1": 0.48,
                         "argument2": {
                           "type": "minecraft:noise",
                           "noise": "alfheim:void/spall",
@@ -1972,7 +1972,7 @@
                     },
                     "argument2": {
                       "type": "minecraft:mul",
-                      "argument1": 0.15,
+                      "argument1": 0.26,
                       "argument2": {
                         "type": "minecraft:noise",
                         "noise": "alfheim:void/grain",

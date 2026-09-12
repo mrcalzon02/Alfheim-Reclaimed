@@ -242,8 +242,8 @@ BODY_LEVEL=0.40
 # its own noises: broad to choose the mass, mid to cut benches and alcoves into the face, grain
 # to break the last few blocks so nothing reads as a cut sheet.
 BODY_SWING=0.70          # ~29 blocks: which stretches come apart at all
-BODY_MID=0.32            # ~9 blocks: benches, alcoves, the shape of a face
-BODY_GRAIN=0.15          # ~4 blocks: the last detail, so no edge is a clean plane
+BODY_MID=0.48            # ~9 blocks: benches, alcoves, the shape of a face
+BODY_GRAIN=0.26          # ~4 blocks: the last detail, so no edge is a clean plane
 BODY_SHELTER=1.20
 # --- and detail on every surface, including the ones the carve is not allowed to reach -------
 #
@@ -261,7 +261,7 @@ BODY_SHELTER=1.20
 # density it may chew through, so it is the knob for how deep the pitting goes, and the interior
 # is protected by arithmetic rather than by a ramp.
 SURFACE_LEVEL=0.06
-SURFACE_SWING=0.52
+SURFACE_SWING=0.74
 SURFACE_DEPTH=1.55
 # Solidity threshold on the fragment field, interpolated by `outward`. Negative at the cliff
 # welds the inner belt to the shelf; strongly positive at the fringe leaves isolated pieces
