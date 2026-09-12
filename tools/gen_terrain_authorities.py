@@ -93,21 +93,88 @@ def test_chain(parameters, hit, miss):
     return node
 
 
+def merge(boxes):
+    """Fuse an authority's bands into the fewest boxes that cover exactly the same territory.
+
+    THE SELECTOR ENCODES AUTHORITY BOUNDARIES, NOT BIOME ONES, and the difference is not cosmetic.
+    Emitted per band it was 44 steps, and a 44-deep reference chain as `final_density` killed the
+    dedicated server twice during level preparation -- no exception, no crash report, no JVM dump,
+    both runs dying while DistantHorizons built its world-gen queues, where an unmerged run forty
+    minutes earlier had reached Done in 49s. Merged, the void authority's seven biomes are one
+    contiguous continentalness range and the chain is a handful of steps.
+
+    Two boxes fuse when they differ on exactly one axis and are adjacent on it; their union is
+    then exactly a box. Iterated to a fixed point. Correctness is not argued from this function:
+    check_terrain_authorities A3 evaluates the emitted selector against the emitted layer point by
+    point, so a wrong merge is caught by measurement rather than by review.
+    """
+    boxes = [dict(b) for b in boxes]
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(boxes)):
+            for j in range(i + 1, len(boxes)):
+                a, b = boxes[i], boxes[j]
+                differing = [axis for axis, _ in AXES if span(a, axis) != span(b, axis)]
+                if len(differing) != 1:
+                    continue
+                axis = differing[0]
+                alow, ahigh = span(a, axis)
+                blow, bhigh = span(b, axis)
+                if ahigh == blow:
+                    low, high = alow, bhigh
+                elif bhigh == alow:
+                    low, high = blow, ahigh
+                else:
+                    continue
+                fused = dict(a)
+                fused[axis] = [low, high]
+                boxes[i] = fused
+                boxes.pop(j)
+                changed = True
+                break
+            if changed:
+                break
+    return boxes
+
+
+def write_all(out):
+    """Write the selector, and REMOVE anything stale first.
+
+    The chain shortens whenever bands merge better, and a shorter chain leaves orphan steps whose
+    references point at names no longer emitted. Minecraft resolves density functions at load
+    time, so an orphan is not dead weight -- it is a datapack that refuses to load.
+    """
+    os.makedirs(PREFIX, exist_ok=True)
+    keep = {os.path.basename(p) for p in out}
+    for name in os.listdir(PREFIX):
+        if name.endswith('.json') and name not in keep:
+            os.remove(os.path.join(PREFIX, name))
+    for path, data in sorted(out.items()):
+        with open(path, 'wb') as handle:
+            handle.write(data)
+    return len(out)
+
+
 def build(bands, owners):
     """bands -> {path: bytes}. The chain is walked in partition order, which is the order the
     layer itself resolves claims in, so selector and layer cannot disagree about precedence."""
     leaf = {a['id']: '%s:authority/%s' % (NS, a['id']) for a in owners}
     fallback = leaf[owners[-1]['id']]
     out = {}
+    # One test per merged region per explicit authority; the last authority is the else.
     steps = []
-    for index, band in enumerate(bands):
-        steps.append((band['biome'], band['parameters']))
+    for authority in owners[:-1]:
+        owned = [b['parameters'] for b in bands
+                 if owner_of(b['biome'], owners) == authority['id']]
+        for box in merge(owned):
+            steps.append((authority['id'], box))
     # Emit from the tail backwards so each step knows the name of the next.
     following = fallback
     emitted = []
     for index in reversed(range(len(steps))):
-        biome, parameters = steps[index]
-        node = test_chain(parameters, leaf[owner_of(biome, owners)], following)
+        authority_id, parameters = steps[index]
+        node = test_chain(parameters, leaf[authority_id], following)
         name = 'step_%03d' % index
         emitted.append((name, node))
         following = '%s:authority/%s' % (NS, name)
@@ -163,11 +230,8 @@ def main():
             print('               %s' % b)
     if args.dry_run:
         return 0
-    for path, data in sorted(out.items()):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'wb') as handle:
-            handle.write(data)
-    print('wrote %d files under %s' % (len(out), PREFIX))
+    written = write_all(out)
+    print('wrote %d files under %s' % (written, PREFIX))
     return 0
 
 

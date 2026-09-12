@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:range_choice",
-  "input": "mythicbotany:alfheim_continentalness",
-  "min_inclusive": -1.0,
-  "max_exclusive": -0.925,
-  "when_in_range": "alfheim:authority/void",
-  "when_out_of_range": "alfheim:authority/step_005"
-}

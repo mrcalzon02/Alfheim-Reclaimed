@@ -576,11 +576,8 @@ def _authority_entry(written):
     import gen_terrain_authorities as authorities
     out, entry = authorities.build(LAYER['biomes'], authorities.authorities())
     first = authorities.PREFIX + 'step_000.json'
-    for path, data in sorted(out.items()):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'wb') as handle:
-            handle.write(data)
-        written.append(path)
+    authorities.write_all(out)
+    written.extend(sorted(out))
     return json.loads(out[first].decode())
 
 

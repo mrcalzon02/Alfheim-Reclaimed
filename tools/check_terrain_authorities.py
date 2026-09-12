@@ -122,8 +122,21 @@ def validate(bands, owners, out, entry, seed=11):
 
     # --- A4 ------------------------------------------------------------------------------
     steps = {p: v for p, v in out.items() if os.path.basename(p).startswith('step_')}
-    if len(steps) != len(bands):
-        fail('A4', 'expected one selector step per band (%d), got %d' % (len(bands), len(steps)))
+    # One step per MERGED authority region, not per band. Emitting per band gave 44, and a
+    # 44-deep reference chain as final_density killed the dedicated server twice during level
+    # preparation with no exception and no crash dump. A3 proves the merge lost no territory.
+    if len(steps) > len(bands):
+        fail('A4', 'more selector steps (%d) than bands (%d); the merge is inventing regions'
+             % (len(steps), len(bands)))
+    if len(steps) > 12:
+        fail('A4', 'the chain is %d steps deep; merged authority regions should be a handful, '
+                   'and depth here has already cost two dead servers' % len(steps))
+    named = {'%s:authority/%s' % (authorities_module.NS, os.path.basename(p)[:-5]) for p in out}
+    for path, data in steps.items():
+        for ref in json.dumps(json.loads(data)).split('"'):
+            if ref.startswith('%s:authority/' % authorities_module.NS) and ref not in named:
+                fail('A4', '%s references %s, which is not emitted; an orphan step is a '
+                           'datapack that refuses to load' % (os.path.basename(path), ref))
     biggest = max((len(v) for v in steps.values()), default=0)
     if biggest > 4096:
         fail('A4', 'a selector step is %d bytes; the chain is being written inline and will '
@@ -180,7 +193,9 @@ def self_test():
     def sever_the_chain(bands, owners, out, entry):
         # Point one step's miss branch at the wrong authority: the layer still says one thing
         # and the selector now says another for every point that falls past it.
-        key = sorted(out)[len(out) // 2]
+        # A STEP, not any file: with the chain merged down to one step, an index into the whole
+        # output lands on an authority leaf, whose root is a density expression with no branches.
+        key = sorted(p for p in out if os.path.basename(p).startswith('step_'))[0]
         node = json.loads(out[key])
         def retarget(n):
             if isinstance(n, dict):
@@ -221,8 +236,9 @@ def main():
         return self_test()
     bands, owners, out, entry = fixture()
     problems = validate(bands, owners, out, entry)
-    print('%d bands, %d selector steps, %d climate points sampled'
-          % (len(bands), len(out), SAMPLES))
+    steps = sum(1 for p in out if os.path.basename(p).startswith('step_'))
+    print('%d bands -> %d selector step(s) + %d authority leaves, %d climate points sampled'
+          % (len(bands), steps, len(out) - steps, SAMPLES))
     for problem in problems:
         print('  ' + problem)
     print('\n  %d problem(s)' % len(problems))
