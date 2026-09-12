@@ -8,9 +8,34 @@ import subprocess
 import time
 import run_server
 
+def prune(server, keep):
+    """Delete all but the newest `keep` disposable worlds and their consoles.
+
+    Every run leaves a world behind and nothing ever removed one: by 2026-09-12 there were 27 of
+    them holding 6.1 GB. They are untracked, so this was never a repository problem -- it is a
+    disk problem that grows by roughly a quarter of a gigabyte per validation run, which is
+    exactly the sort of thing that goes unnoticed until a generation fails for want of space.
+
+    Only `void-margin-*` is touched, and only after the run has finished with it.
+    """
+    if keep <= 0:
+        return
+    worlds = sorted((p for p in server.glob('void-margin-*') if p.is_dir()),
+                    key=lambda p: p.name, reverse=True)
+    for stale in worlds[keep:]:
+        shutil.rmtree(stale, ignore_errors=True)
+        console = stale.with_suffix('.log')
+        if console.exists():
+            console.unlink()
+    if len(worlds) > keep:
+        print('pruned %d disposable world(s), kept %d' % (len(worlds) - keep, keep), flush=True)
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--seed',default='alfheim-deep-terrain-20260905')
+    parser.add_argument('--keep',type=int,default=4,
+                        help='disposable worlds to retain; 0 keeps all')
     parser.add_argument('--radius',type=int,default=192,
                         help='half-width in blocks generated around each void site')
     parser.add_argument('--probe',default='void_terrain_probe.js',
@@ -71,6 +96,7 @@ def main():
         (root/'tools'/('void-report-'+stamp+'.json')).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
     for name in ['startup','server']:
         if '[ERROR]' in (server/f'logs/kubejs/{name}.log').read_text(encoding='utf-8',errors='replace'):passed=False
+    prune(root/'server',args.keep)
     print('exit=',process.returncode,'audit=',passed,flush=True)
     raise SystemExit(0 if passed else 1)
 

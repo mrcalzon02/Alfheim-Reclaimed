@@ -2306,7 +2306,13 @@ cream, glass/amethyst and Occultism silver. Three moved off a single mob in unde
 **Deferred to runtime:** blooms generate; textures render; Rite recipes are accepted at load;
 `mythicbotany:infuser` `fromColor`/`toColor` are emitted (B-41's exact failure) but unproven.
 
-### B-48 — `30_item_uses.js` multipliers still take vanilla raw ore
+### B-48 — `30_item_uses.js` multipliers still take vanilla raw ore — **ALREADY FIXED 2026-09-03; ENTRY WAS STALE**
+
+Closed on inspection 2026-09-12 rather than re-done. `gen_item_uses.py` retargeted the whole
+MULTIPLIER table onto the Twelve Blooms on 2026-09-03 and names B-48 in the comment that does it;
+the shipped `30_item_uses.js` contains **zero** references to `minecraft:raw_iron`, `raw_copper`,
+`raw_gold` or `occultism:raw_silver`. The description below is what the defect was, kept for the
+reasoning about why a Quickened bloom is the right input.
 The 48 cost-bearing multiplier recipes consume `minecraft:raw_iron`, `raw_copper`, `raw_gold` and
 `occultism:raw_silver`. With the vanilla ore layer retired those are Midgard-only materials, so
 those recipes silently become Era IV+ content. Not a soft-lock and not urgent — but it should be a

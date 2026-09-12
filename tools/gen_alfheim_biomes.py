@@ -554,8 +554,11 @@ for _void in ['void_verge','shatterfields','prism_drift','rootfall','sepulchral_
 # void *biome* with ordinary ground — a shore, where the sky goes black and the fog closes
 # in a little before the floor runs out. The reverse ordering would drop holes in the
 # ground under a forest, which is a bug rather than a view.
-VOID_BIOME_MAX = -0.80
-VOID_TERRAIN_MAX = -0.86
+# The two constants that used to sit here, VOID_BIOME_MAX -0.80 and VOID_TERRAIN_MAX -0.86, are
+# gone rather than corrected. Nothing read them -- gen_void_worldgen.BIOME_RIM and .RIM are what
+# the terrain and the claims actually use -- and by 2026-09-12 both were stale by 0.14, still
+# naming the pre-coast geography. A dead constant that disagrees with the live one is worse than
+# no constant: it is the same drift that let gen_spawn_hub.LAYER_BIOMES fall behind the layer.
 
 # Islands float in this band only. Below it is open air down to the world floor.
 VOID_ISLAND_LOW = (20, 50)
@@ -749,8 +752,9 @@ WEIRD_SCALE = 128.0 / WEIRD_TARGET        # 0.125  -- was 0.0625, giving 2,048-b
 CONT_SCALE = 0.045            # was 0.088 in the jar; ~2x larger continents and voids
 
 # Continentalness is amplified as well as enlarged. The void band needs continentalness below
-# VOID_TERRAIN_MAX, and a raw Perlin-family noise almost never reaches its own extremes -- which
-# is the second reason the void never appeared even where the biome band was legal. Multiplying
+# gen_void_worldgen.RIM, and a raw Perlin-family noise almost never reaches its own extremes --
+# which is the second reason the void never appeared even where the biome band was legal.
+# Multiplying
 # before the clamp pushes the tails out far enough for the band to be genuinely reachable.
 CONT_AMPLIFY = 1.7
 

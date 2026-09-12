@@ -1,0 +1,27 @@
+
+#Global safety and scheduling bounds for Alfheim Golems.
+[limits]
+	#Maximum lightweight golem decisions scheduled in one server tick.
+	#Range: 1 ~ 512
+	decisionsPerTick = 64
+	#Minimum ticks between inventory mutations by one golem.
+	#Range: 1 ~ 1200
+	mutationIntervalTicks = 10
+	#Range: 1 ~ 256
+	maxGolemsPerOwner = 64
+	#Range: 2 ~ 64
+	maxEndpointsPerOrder = 16
+	#Range: 1 ~ 4096
+	maxQueuedCrafts = 64
+	#Maximum same-dimension route length. This never loads a chunk.
+	#Range: 8 ~ 256
+	maxNavigationRange = 64
+	#Temporary combat summon lifetime; 2400 ticks is 120 seconds.
+	#Range: 200 ~ 12000
+	sentinelLifetimeTicks = 2400
+
+#Emergency feature switches. Disabling work never deletes saved orders.
+[safety]
+	workExecutionEnabled = true
+	sentinelSummoningEnabled = true
+
