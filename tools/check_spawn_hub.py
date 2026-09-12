@@ -31,6 +31,23 @@ DATA = os.path.join('kubejs', 'data', NS)
 STRUCT_DIR = os.path.join(DATA, 'structures')
 POOL_DIR = os.path.join(DATA, 'worldgen', 'template_pool')
 MAX_AXIS = 48
+# 48 IS THE STRUCTURE BLOCK GUI'S LIMIT, NOT AN ENGINE ONE, and S1 used to say a piece over it
+# "cannot be saved or placed". The second half was never true: a jigsaw loads its pieces through
+# StructureTemplateManager and does not care how large they are. What a piece over 48 loses is
+# the ability to be opened and hand-edited in game, which is worth keeping for anything anyone
+# might want to edit -- and is worth spending, once, for a piece whose whole point is length.
+#
+# Families that have spent it declare themselves, so the exemption is a decision on record rather
+# than a threshold quietly raised for everyone.
+def _long_pieces():
+    try:
+        import gen_leyline_corridors
+        return {'leyline/' + name for name in gen_leyline_corridors.LONG_PIECES}
+    except Exception:
+        return set()
+
+
+LONG_PIECES = _long_pieces()
 DATA_VERSION = 3465
 SCRIPT_DIRS = [os.path.join('kubejs', d) for d in
                ('server_scripts', 'startup_scripts', 'client_scripts')]
@@ -91,9 +108,9 @@ def main():
         pieces[key] = root
 
         for axis, n in zip('xyz', size):
-            if n > MAX_AXIS:
-                fail('S1', f'{key}: {axis}={n} exceeds the {MAX_AXIS}-block structure limit, '
-                           'so it cannot be saved or placed')
+            if n > MAX_AXIS and key not in LONG_PIECES:
+                fail('S1', f'{key}: {axis}={n} exceeds the {MAX_AXIS}-block structure-block '
+                           'limit, so it cannot be opened or saved with a structure block')
         if int(root['DataVersion']) != DATA_VERSION:
             fail('S1', f'{key}: DataVersion {int(root["DataVersion"])}, expected '
                        f'{DATA_VERSION} for 1.20.1')

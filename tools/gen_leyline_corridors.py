@@ -54,7 +54,15 @@ POOL = os.path.join(DATA, 'worldgen', 'template_pool', 'leyline')
 # on a 7-wide piece is index 3 in both axes and y=3 in the interior.
 W = 7                       # outer envelope, both horizontal axes
 H = 7                       # outer envelope height
-RUN = 16                    # length of one straight section
+# Asked for 2026-09-12: straights are 64 blocks, four times what they were.
+#
+# THIS TRADES REACH FOR RUN LENGTH AND THE JIGSAW DECIDES THE EXCHANGE RATE.
+# max_distance_from_center is capped at 128 by vanilla's own codec, so a branch fits two 64-block
+# straights and no more, where sixteen-block sections fitted seven. Corridor REACH therefore goes
+# from about 96 blocks to 128 -- slightly further -- but a branch is now two long runs rather than
+# a chain of short ones. That is the shape the change asks for; it is not a free scaling.
+RUN = 64                    # length of one straight section
+LONG_PIECES = {'straight'}  # exempt from the structure-block editing limit
 C = W // 2                  # 3 -- the channel column
 FLOOR, ROOF = 0, H - 1
 
@@ -356,7 +364,7 @@ def json_files(manifest_biomes):
         'type': 'minecraft:jigsaw', 'biomes': manifest_biomes,
         'step': 'underground_structures', 'terrain_adaptation': 'none',
         'start_pool': f'{NS}:leyline/hub', 'size': 6,
-        'max_distance_from_center': 112,
+        'max_distance_from_center': 128,
         'start_height': {'type': 'minecraft:uniform',
                          'min_inclusive': {'absolute': -28},
                          'max_inclusive': {'absolute': 6}},
@@ -389,7 +397,13 @@ def main():
         bad += 1
 
     for name, (builder, size) in sorted(PIECES.items()):
-        assert max(size) <= MAX_AXIS, f'{name} exceeds the {MAX_AXIS}-block limit'
+        # MAX_AXIS is 48 because that is the STRUCTURE BLOCK limit -- the in-game GUI cannot
+        # save or load a template larger than 48 on an axis. It is not an engine limit: a jigsaw
+        # loads its pieces through StructureTemplateManager and does not care. The straight is
+        # exempted deliberately, and the cost is exactly that one piece family can no longer be
+        # opened with a structure block for hand editing. Everything else stays inside 48.
+        limit = max(MAX_AXIS, RUN) if name in LONG_PIECES else MAX_AXIS
+        assert max(size) <= limit, f'{name} exceeds the {limit}-block limit'
         seed = int(hashlib.sha1(f'leyline:{name}'.encode()).hexdigest()[:8], 16)
         piece = builder(tuple(size), seed)
         detail_section(piece, seed, name)
