@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "mythicbotany:alfheim_temperature",
+  "min_inclusive": -0.35,
+  "max_exclusive": 1.0,
+  "when_in_range": {
+    "type": "minecraft:range_choice",
+    "input": "mythicbotany:alfheim_continentalness",
+    "min_inclusive": 0.45,
+    "max_exclusive": 1.0,
+    "when_in_range": {
+      "type": "minecraft:range_choice",
+      "input": "mythicbotany:alfheim_weirdness",
+      "min_inclusive": 0.3,
+      "max_exclusive": 1.0,
+      "when_in_range": "alfheim:authority/upstream",
+      "when_out_of_range": "alfheim:authority/step_030"
+    },
+    "when_out_of_range": "alfheim:authority/step_030"
+  },
+  "when_out_of_range": "alfheim:authority/step_030"
+}

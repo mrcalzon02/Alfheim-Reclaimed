@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "mythicbotany:alfheim_humidity",
+  "min_inclusive": 0.4,
+  "max_exclusive": 1.0,
+  "when_in_range": {
+    "type": "minecraft:range_choice",
+    "input": "mythicbotany:alfheim_continentalness",
+    "min_inclusive": -0.18,
+    "max_exclusive": 0.0,
+    "when_in_range": "alfheim:authority/upstream",
+    "when_out_of_range": "alfheim:authority/step_013"
+  },
+  "when_out_of_range": "alfheim:authority/step_013"
+}

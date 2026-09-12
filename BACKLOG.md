@@ -66,7 +66,46 @@ auto-enrols every registered structure in a 500-block exclusion —
 structure family in the pack claiming 500 blocks, a rare fixed-height hamlet is the kind of thing
 that loses every contest. Measure before changing anything.
 
-### B-96 — A dedicated void map, so the margin stops sharing an axis with the ocean — **DIRECTED 2026-09-11; NOT STARTED**
+### B-96 — Terrain authorities: per-biome terrain, one density — **STAGE 1 FRAMEWORK PROVEN 2026-09-12**
+
+**Design record: `alfheim_reclaimed_design/TERRAIN_AUTHORITIES.md`.** Owner chose this over further
+increments on 2026-09-12, after three separate rejections in one session turned out to share one
+root cause. Scope widened from "a dedicated void map" to per-biome terrain authorities, which is
+the owner's own framing: *"this area is this biome, this terrain generation takes predominant
+control of this area."*
+
+**Stage 1 is built and proven, and it moves no terrain on purpose.**
+`tools/gen_terrain_authorities.py` emits the selector; `tools/check_terrain_authorities.py`
+proves it. 44 bands, 44 selector steps plus 2 authority leaves, **60,000 climate points sampled,
+0 disagreements**, self-test 5/5 proven to fire.
+
+The load-bearing fact, measured rather than assumed: **the biome layer is a disjoint covering
+partition of axis-aligned boxes** — 44 entries, 0 overlapping pairs, 0.000% of climate space
+uncovered. Multi-noise selection is nearest-neighbour, so with overlaps or gaps "which biome" is a
+distance computation no density function can reproduce; that is exactly how **B-82** stamped Hills
+terrain into Plains and Silverbark and had to be reverted. With a disjoint covering partition
+every point sits in one box at distance zero and membership is axis-aligned threshold tests, which
+`range_choice` reproduces exactly. Selector and layer are generated from one list, and A3 checks
+them against each other point by point rather than trusting that they were.
+
+The chain is emitted as **named** functions. Inline, each band's tail repeats once per axis test
+and the document grows as 5^44; by name it is 46 files, 31.6 KB, largest step 948 bytes.
+
+**Remaining stages** (TERRAIN_AUTHORITIES.md §5): 2 — the dedicated void field, normalised to the
+same −1..1 scale so `CLIFF`/`TERMINAL`/`FRINGE` and `check_void_surface_support`'s −0.94..−0.925
+landing window keep their meaning, with the aquifer collar as a fixed width in blocks; 3 — Golden
+Fields becomes an authority and its terracing moves inside it; 4 — further authorities as biomes
+want them.
+
+**Erosion is the axis to carry the void field.** Of 44 claims continentalness constrains all 44,
+humidity 31, weirdness 28, temperature 26 — **erosion only 6**, `depth` none.
+
+**What it will not fix, and the record says so:** the aquifer collar itself. `NoiseBasedAquifer`
+samples preliminary surface across chunk offsets −3..+1, so a ring of above-sea-level land is
+mandatory under any architecture. What changes is that the ring becomes a width instead of a
+value band, which is what makes it proportionate rather than a plateau.
+
+### B-96 (original note) — A dedicated void map, so the margin stops sharing an axis with the ocean
 
 Owner direction, 2026-09-11, after B-94: *"I like the first option of ring plus shaping... we
 definitely have enough void adjacent biomes to create our own coastline biome for the void."* The
