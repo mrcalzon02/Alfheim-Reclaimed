@@ -949,10 +949,19 @@ DETAIL_TUNING = {
         dress=dict(corbel=0.22, conduit=0.45, sockets=3, sconce=0.60, sconce_spacing=6),
         settle=dict(rubble=0.10, reach=3, weathering=0.08, seep="dust", seep_rate=0.09,
                     roots=0.09, webs=0.02)),
+    # A SEALED TOMB IS NOT A WORKED MINE, AND THE FIRST PASS DID NOT ACT LIKE IT. The tomb ran
+    # roots at 0.10 -- higher than the quarry that is still being dug -- and damp seep at 0.10,
+    # in a chamber whose entire architectural purpose is to stay dry and shut. Measured: the wing
+    # carried 644 ingress, 364 debris and 158 wear blocks, 10.9% detail over FORTY block ids, so
+    # the seventeen bespoke funerary blocks were outnumbered by residue roughly forty to one and
+    # a memorial carving read as one more speckle rather than as an ornament. That is the owner's
+    # complaint on 2026-09-12 -- "burying the detail under a smattering of random blocks" -- and
+    # it is a budget, not a taste. Webs stay: cobweb is the one residue that reads as funerary.
+    # The ornament itself is not fixed by turning noise down; see TOMB_ARCHITECTURE.md.
     "elder_kings_tomb": dict(
         dress=dict(corbel=0.25, conduit=0.55, sockets=4, sconce=0.70, sconce_spacing=5),
-        settle=dict(rubble=0.07, reach=2, weathering=0.06, seep="damp", seep_rate=0.10,
-                    roots=0.10, webs=0.06)),
+        settle=dict(rubble=0.03, reach=2, weathering=0.03, seep="damp", seep_rate=0.03,
+                    roots=0.02, webs=0.05)),
     "faultwork": dict(
         dress=dict(corbel=0.20, conduit=0.60, sockets=5, sconce=0.55, sconce_spacing=6),
         settle=dict(rubble=0.13, reach=3, weathering=0.10, seep="damp", seep_rate=0.11,
