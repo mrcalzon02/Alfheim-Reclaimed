@@ -1,6 +1,6 @@
 # Field review — 2026-09-12, `New World burnshire`
 
-**Status:** `F1 resolved and shipped 2026-09-12; F2 open`.
+**Status:** `closed 2026-09-12` — F1 resolved and shipped, F2 closed by owner decision.
 **Budget note:** evaluation only. Nothing is being repaired in this session; fixes are Monday's
 work. Every finding below carries enough detail to act on without re-deriving it.
 
@@ -55,7 +55,13 @@ smooth decay.
 **Cost if wrong:** one datapack file to delete. **Cost if skipped:** this is now the third review
 to raise it.
 
-### F2 — Silverbark Wood grows no silverbark — **content gap, ours, cheap to close**
+### F2 — Silverbark Wood grows no silverbark — **NOT A DEFECT; owner decision 2026-09-12**
+
+> *"The Silverbark Woods being full of Dreamwood trees is acceptable."* Closed. The biome
+> keeps MythicBotany's loose dreamwood as its canopy and no silverbark feature will be
+> authored. The observation below is kept because the reasoning is still worth having on
+> record — and because the question it raised is not closed: **nothing asserts that a biome
+> generates the thing it is named after**, and this one was found by accident.
 
 `14.17.01` at **x 177, z 572, y 109, biome `silverbark_wood`**. The pale scattered features are
 trees whose trunks run diagonally at roughly 40 degrees with a tuft of foliage at one end, and
