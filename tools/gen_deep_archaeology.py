@@ -1100,9 +1100,15 @@ def build_outputs(check=False):
         "step": "surface_structures", "terrain_adaptation": "beard_thin",
         "start_pool": f"{NS}:deepworks_archaeology/headworks/head",
         "size": 7, "max_distance_from_center": 116,
-        "start_height": {"type": "minecraft:uniform",
-                         "min_inclusive": {"above_bottom": 0},
-                         "max_inclusive": {"above_bottom": 0}},
+        # PROJECTION IS ADDITIVE, SO THIS OFFSET MUST BE ZERO AND NOT above_bottom. JigsawPlacement
+        # adds getFirstFreeHeight() to start_height; `above_bottom: 0` resolves to Y -64, so the
+        # winding gear was being set 64 blocks BELOW the surface it is the entrance to -- and below
+        # the floor of the world wherever the ground sat under Y 0, where nothing it writes is
+        # kept. Measured in server/void-margin-20260912-151345: 7 of 8 starts between Y -97 and
+        # Y -60. That is the unfixed half of the 2026-09-07 field report quoted above; the grid
+        # pitch was the half that got found. `absolute: 0` is what "stands on the surface" means
+        # once the heightmap is already in the sum.
+        "start_height": {"absolute": 0},
         "project_start_to_heightmap": "WORLD_SURFACE_WG",
         "use_expansion_hack": False, "spawn_overrides": {}}
     json_out[os.path.join(DATA, "tags", "worldgen", "structure", "deepworks_headworks.json")] = {

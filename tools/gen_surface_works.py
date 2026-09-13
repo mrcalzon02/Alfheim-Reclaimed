@@ -37,6 +37,12 @@ THREE THINGS THAT ARE EASY TO GET WRONG, ALL PAID FOR ALREADY
     declares `start_height: {absolute: -22}`. Each archetype's `ground` in the manifest is that
     number.
 
+    THAT RULE INVERTS IN THE VOID. Projection is additive and the heightmap has nothing to find,
+    so it returns the minimum build height and the start goes under the floor. A structure whose
+    biome may be genuinely empty declares `floor: [low, high]` instead and is placed at an
+    absolute Y band with no projection at all. `tools/probe_void_structures.py` is the
+    measurement, and `check_void_surface_support.py` asserts that no void structure projects.
+
 3.  **Every structure_set needs its own salt.** Two `random_spread` sets sharing spacing and
     salt do not become neighbours -- they pick the SAME chunk in every cell and generate on top
     of each other. Salts here are derived from SHA-1 of the id, so they are unique by
@@ -1576,13 +1582,35 @@ def main():
             # runtime. 116 is the value the Greatbole has been proven on, it clears the budget
             # under either adaptation, and no single 48-block piece comes close to needing it.
             'max_distance_from_center': min(116, 128 - ADAPTATION_MARGIN[adaptation]),
-            'start_height': {'absolute': -ground},
-            'project_start_to_heightmap': st.get('heightmap', 'WORLD_SURFACE_WG'),
+            # A VOID BIOME HAS NO SURFACE TO PROJECT ONTO, and projection is additive:
+            # JigsawPlacement adds getFirstFreeHeight() to start_height, and in a column that is
+            # air from min_y upward that lookup finds nothing and falls back to the MINIMUM BUILD
+            # HEIGHT. The start then lands at or below Y -64, everything the jigsaw writes below
+            # the floor is discarded, and nothing says so: no exception, no log line, and the
+            # chunk keeps its `structures.starts` entry. Measured in saves/New World burnshire --
+            # 11,425 Alfheim chunks -- 12 of the 13 structures registered in a genuinely-void
+            # biome had not placed a single piece, and deepworks_headworks, which pairs
+            # projection with an `above_bottom` anchor and so offsets by -64, had 4 of its 5
+            # starts below the floor. `floor` is the answer: an absolute Y band and no
+            # projection, so the start is inside the world whatever the column holds.
+            **({'start_height': {'type': 'minecraft:uniform',
+                                 'min_inclusive': {'absolute': st['floor'][0] - ground},
+                                 'max_inclusive': {'absolute': st['floor'][1] - ground}}}
+               if st.get('floor') else
+               {'start_height': {'absolute': -ground},
+                'project_start_to_heightmap': st.get('heightmap', 'WORLD_SURFACE_WG')}),
             'use_expansion_hack': False,
             'spawn_overrides': {},
         }, dry)
 
-        band = bands[arch['band']]
+        # A VOID BIOME IS NOT A SURFACE BIOME AND CANNOT SHARE ITS RARITY. random_spread tries
+        # ONE candidate chunk per spacing x spacing cell, so a structure only lands when that one
+        # chunk falls inside its biome. Measured in server/void-margin-20260912-151345: all seven
+        # void biomes present, 80,976 biome cells -- 0.308%% of the dimension, ~0.04%% each -- and
+        # at spacing 28 a structure gets 21.8 candidate chunks in 17,097 chunks. Nine of the
+        # twelve sanctioned void structures placed NOTHING in that world and the other three
+        # placed once. The bands below are the surface's; a hairline biome needs its own.
+        band = bands[st.get('band', arch['band'])]
         write_json(os.path.join(DATA, 'worldgen', 'structure_set', st['id'] + '.json'), {
             'structures': [{'structure': f"{NS}:{st['id']}", 'weight': 1}],
             'placement': {'type': 'minecraft:random_spread',

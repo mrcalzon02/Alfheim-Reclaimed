@@ -85,6 +85,19 @@ def _load_json(path: Path):
         return json.load(fh)
 
 
+def _anchors(node):
+    """Every VerticalAnchor kind named anywhere inside a start_height, uniform or plain."""
+    if isinstance(node, dict):
+        found = [k for k in ("absolute", "above_bottom", "below_top") if k in node]
+        if found:
+            return found
+        out = []
+        for value in node.values():
+            out += _anchors(value)
+        return out
+    return []
+
+
 def collect(root: Path = ROOT):
     manifest_path = root / "tools" / "surface_works_manifest.json"
     structures_dir = root / "kubejs" / "data" / NS / "worldgen" / "structure"
@@ -175,6 +188,39 @@ def validate(manifest, generated, complete=False):
         if sid not in by_id:
             fail("V7", f"shipping structure {sid}.json exists without a manifest source entry")
 
+    # V9 -- a sanctioned Void structure must use the `void` rarity band.
+    #
+    # This is the check that the twelve-structure contract was missing, and its absence is why
+    # V1..V8 could all pass on a world where the structures did not exist. random_spread tries ONE
+    # candidate chunk per spacing x spacing cell and the structure lands only if that chunk falls
+    # inside its biome. The six Void Margin biomes hold 0.308% of the dimension between them --
+    # 80,976 biome cells in server/void-margin-20260912-151345, about 0.04% each -- so at the
+    # surface bands (spacing 20/28/40) a structure gets 10 to 43 candidate chunks in a
+    # 17,000-chunk world and is not expected to place even once. Measured in that world: nine of
+    # the twelve placed nothing at all and the other three placed exactly once.
+    for sid in SANCTIONED & set(by_id):
+        band = by_id[sid].get("band")
+        if band != "void":
+            fail("V9", f"{sid} uses the {band or 'archetype default'!r} rarity band; a biome "
+                       f"holding ~0.04% of the dimension needs the tight `void` band or the "
+                       f"structure is authored but never placed")
+
+    # V10 -- projection is ADDITIVE, so a projected structure's offset must be a plain `absolute`.
+    #
+    # JigsawPlacement adds getFirstFreeHeight() to start_height. `above_bottom: 0` resolves to the
+    # minimum build height, so pairing it with projection subtracts 64 from the surface: measured
+    # on deepworks_headworks, 7 of 8 starts landed between Y -97 and Y -60, under the floor of a
+    # world whose entrance it is. This check is deliberately not limited to the Void ids -- the
+    # trap belongs to projection, not to the void.
+    for sid, js in sorted(generated.items()):
+        if not js.get("project_start_to_heightmap"):
+            continue
+        for anchor_kind in _anchors(js.get("start_height")):
+            if anchor_kind != "absolute":
+                fail("V10", f"{sid} projects to {js['project_start_to_heightmap']} and offsets by "
+                            f"{anchor_kind!r}; projection ADDS the heightmap, so only `absolute` "
+                            f"means what it says and `above_bottom: 0` buries the piece by 64")
+
     if complete:
         missing = SANCTIONED - set(by_id)
         if missing:
@@ -194,8 +240,11 @@ def _good_fixture():
                 "adaptation": "none",
                 "host": copy.deepcopy(HOST_CONTRACT[sid]),
                 "shape": {},
+                "band": "void",
             })
-            generated[sid] = {"terrain_adaptation": "none"}
+            generated[sid] = {"terrain_adaptation": "none",
+                              "project_start_to_heightmap": "WORLD_SURFACE_WG",
+                              "start_height": {"absolute": -1}}
     return {"structures": structures}, generated
 
 
@@ -209,6 +258,11 @@ SELF_TESTS = [
     ("V4", lambda m, g: m["structures"][0].setdefault("shape", {}).__setitem__("island", True)),
     ("V5", lambda m, g: g["verge_spire"].__setitem__("terrain_adaptation", "beard_thin")),
     ("V6", lambda m, g: next(x for x in m["structures"] if x["id"] == "last_watch")["host"].__setitem__("continentalness_min", -1.0)),
+    ("V9", lambda m, g: m["structures"][0].__setitem__("band", "uncommon")),
+    ("V10", lambda m, g: g["verge_spire"].__setitem__(
+        "start_height", {"type": "minecraft:uniform",
+                         "min_inclusive": {"above_bottom": 0},
+                         "max_inclusive": {"above_bottom": 0}})),
     ("V7", lambda m, g: m["structures"].__setitem__(slice(None), [x for x in m["structures"] if x["id"] != "verge_spire"])),
 ]
 

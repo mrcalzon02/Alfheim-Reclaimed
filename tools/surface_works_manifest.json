@@ -550,6 +550,10 @@
     "rare": {
       "spacing": 40,
       "separation": 13
+    },
+    "void": {
+      "spacing": 7,
+      "separation": 2
     }
   },
   "encounter_profiles": {
@@ -1057,7 +1061,8 @@
         "ruin": 0.55,
         "balcony": false
       },
-      "blurb": "Built on a piece of ground that no longer touches anything. It is still standing."
+      "blurb": "Built on a piece of ground that no longer touches anything. It is still standing.",
+      "band": "void"
     },
     {
       "id": "severed_span",
@@ -1079,7 +1084,8 @@
         "break_from": 15,
         "rail": false
       },
-      "blurb": "It goes out over the rim for fifteen blocks and then it does not."
+      "blurb": "It goes out over the rim for fifteen blocks and then it does not.",
+      "band": "void"
     },
     {
       "id": "anchor_bastion",
@@ -1100,7 +1106,8 @@
         "ruin": 0.28,
         "balcony": true
       },
-      "blurb": "A compact strongpoint clamped into one of the last competent pressure slabs."
+      "blurb": "A compact strongpoint clamped into one of the last competent pressure slabs.",
+      "band": "void"
     },
     {
       "id": "fracture_gate",
@@ -1123,7 +1130,8 @@
         "rail": true,
         "timber": true
       },
-      "blurb": "A single gate pier and roadhead mark the civic route that failed here."
+      "blurb": "A single gate pier and roadhead mark the civic route that failed here.",
+      "band": "void"
     },
     {
       "id": "prism_observatory",
@@ -1146,7 +1154,8 @@
         "ruin": 0.18,
         "stilts": false
       },
-      "blurb": "An open instrument dais crowns a mineral core without pretending to create it."
+      "blurb": "An open instrument dais crowns a mineral core without pretending to create it.",
+      "band": "void"
     },
     {
       "id": "split_gallery",
@@ -1168,7 +1177,8 @@
         "roof": 0.18,
         "colonnade": false
       },
-      "blurb": "A compact mineral-inspection hall opens onto an exposed crystalline seam."
+      "blurb": "A compact mineral-inspection hall opens onto an exposed crystalline seam.",
+      "band": "void"
     },
     {
       "id": "root_shrine",
@@ -1191,7 +1201,8 @@
         "ruin": 0.48,
         "stilts": true
       },
-      "blurb": "Petrified root ribs wrap an open altar and a dry ceremonial basin."
+      "blurb": "Petrified root ribs wrap an open altar and a dry ceremonial basin.",
+      "band": "void"
     },
     {
       "id": "garden_archive_terrace",
@@ -1213,7 +1224,8 @@
         "roof": 0.62,
         "colonnade": true
       },
-      "blurb": "An archive, retaining wall and failed irrigation run share one rooted shelf."
+      "blurb": "An archive, retaining wall and failed irrigation run share one rooted shelf.",
+      "band": "void"
     },
     {
       "id": "kings_cliff_tomb",
@@ -1236,7 +1248,8 @@
         "menhir_h": 9,
         "door": "east"
       },
-      "blurb": "A memorial facade seals a chamber set back into competent mourning stone."
+      "blurb": "A memorial facade seals a chamber set back into competent mourning stone.",
+      "band": "void"
     },
     {
       "id": "mourning_court",
@@ -1258,7 +1271,8 @@
         "roof": 0.08,
         "colonnade": true
       },
-      "blurb": "A dry basin and quiet colonnade face the broken edge of the memorial shelf."
+      "blurb": "A dry basin and quiet colonnade face the broken edge of the memorial shelf.",
+      "band": "void"
     },
     {
       "id": "last_watch",
@@ -1288,7 +1302,8 @@
         "ruin": 0.36,
         "balcony": false
       },
-      "blurb": "The final return-facing watch post stands on the last structure-capable landing."
+      "blurb": "The final return-facing watch post stands on the last structure-capable landing.",
+      "band": "void"
     },
     {
       "id": "starless_orrery",
@@ -1319,7 +1334,8 @@
         "menhir_h": 6,
         "door": "none"
       },
-      "blurb": "Three instrument piers frame a deliberately empty sky beyond the final arc."
+      "blurb": "Three instrument piers frame a deliberately empty sky beyond the final arc.",
+      "band": "void"
     },
     {
       "id": "stormwreck",
