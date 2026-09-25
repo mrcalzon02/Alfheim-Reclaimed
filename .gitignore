@@ -50,6 +50,7 @@ quarantine/
 **/session.lock
 server/kubejs/
 server/manifest-*.json
+server/validation/
 server/validation-*/
 server/*-validation/
 server/void-margin-*/
