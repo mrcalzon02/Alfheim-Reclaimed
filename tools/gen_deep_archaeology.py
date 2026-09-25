@@ -1,9 +1,10 @@
 """Generate three gigantic Deepworks archaeology complexes.
 
-Each registered structure is a deterministic nine-piece jigsaw assembly: a 47-block centre,
-four 33-block approaches and four 47-block wings. Rotating the north-authored approach and wing
-onto four centre sockets produces a roughly 207x207-block destination while keeping every NBT
-piece under Minecraft's 48-block structure-block editing limit.
+The quarry and Faultworks are deterministic nine-piece assemblies.  The Elder Kings tomb adds a
+side-connected dynastic gallery to each royal wing: centre, four approaches, four royal precincts
+and four generation crypts in a dense pinwheel about 207 blocks across.  Every NBT piece stays
+under Minecraft's 48-block structure-block editing limit and the assembly stays inside the
+1.20.1 jigsaw codec's 128-block reach cap.
 """
 import argparse
 import hashlib
@@ -12,6 +13,7 @@ import math
 import os
 import random
 import sys
+from dataclasses import dataclass
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
@@ -72,6 +74,125 @@ def shell_and_floor(p, wall, floor, height=None):
     box(p, 3, 3, 3, sx - 4, top - 1, sz - 4, AIR)
 
 
+def vaulted_range_z(p, x0, z0, x1, z1, wall, floor, eave=10, rise=5):
+    """Build a narrow stepped barrel vault running north/south, not a cuboid shell."""
+    box(p, x0, 0, z0, x1, 1, z1, wall)
+    box(p, x0 + 1, 2, z0 + 1, x1 - 1, 2, z1 - 1, floor)
+    half = max(1, (x1 - x0) // 2)
+    for x in range(x0, x1 + 1):
+        roof_y = eave + min(rise, x - x0, x1 - x)
+        for z in range(z0, z1 + 1):
+            end = z in (z0, z1)
+            side = x in (x0, x1)
+            if end:
+                box(p, x, 2, z, x, roof_y, z, wall)
+            else:
+                if side:
+                    box(p, x, 2, z, x, eave, z, wall)
+                if not side:
+                    box(p, x, 3, z, x, roof_y - 1, z, AIR)
+                p.set(x, roof_y, z, wall)
+
+
+def vaulted_range_x(p, x0, z0, x1, z1, wall, floor, eave=9, rise=4):
+    """East/west counterpart used for transepts and projecting burial chapels."""
+    box(p, x0, 0, z0, x1, 1, z1, wall)
+    box(p, x0 + 1, 2, z0 + 1, x1 - 1, 2, z1 - 1, floor)
+    for z in range(z0, z1 + 1):
+        roof_y = eave + min(rise, z - z0, z1 - z)
+        for x in range(x0, x1 + 1):
+            end = x in (x0, x1)
+            side = z in (z0, z1)
+            if end:
+                box(p, x, 2, z, x, roof_y, z, wall)
+            else:
+                if side:
+                    box(p, x, 2, z, x, eave, z, wall)
+                if not side:
+                    box(p, x, 3, z, x, roof_y - 1, z, AIR)
+                p.set(x, roof_y, z, wall)
+
+
+def octagonal_rotunda(p, cx, cz, radius, wall, floor, eave=12, rise=5):
+    """Carve a true faceted royal chamber whose footprint and crown both step inward."""
+    def inside(dx, dz, shrink=0):
+        r = radius - shrink
+        return r >= 0 and abs(dx) <= r and abs(dz) <= r and abs(dx) + abs(dz) <= r + 7
+
+    for x in range(cx - radius, cx + radius + 1):
+        for z in range(cz - radius, cz + radius + 1):
+            dx, dz = x - cx, z - cz
+            if not inside(dx, dz):
+                continue
+            boundary = any(not inside(dx + ox, dz + oz)
+                           for ox, oz in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+            box(p, x, 0, z, x, 1, z, wall)
+            p.set(x, 2, z, floor)
+            if boundary:
+                box(p, x, 3, z, x, eave, z, wall)
+            else:
+                box(p, x, 3, z, x, eave - 1, z, AIR)
+    # Five corbel courses make the crown visibly smaller at every level.
+    for lift in range(rise + 1):
+        y = eave + lift
+        for x in range(cx - radius, cx + radius + 1):
+            for z in range(cz - radius, cz + radius + 1):
+                dx, dz = x - cx, z - cz
+                if inside(dx, dz, lift) and any(
+                        not inside(dx + ox, dz + oz, lift)
+                        for ox, oz in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                    p.set(x, y, z, wall)
+    box(p, cx - 2, eave + rise, cz - 2, cx + 2, eave + rise, cz + 2, wall)
+
+
+def octagonal_register_band(p, cx, cz, radius, y=7, interval=4):
+    """Wrap the memorial register around the rotunda's eight faces."""
+    polished = B("alfheim:ivory_livingrock_polished")
+    carved = B("alfheim:moonstone_livingrock_carved")
+
+    def inside(dx, dz):
+        return abs(dx) <= radius and abs(dz) <= radius and abs(dx) + abs(dz) <= radius + 7
+
+    boundary = []
+    for x in range(cx - radius, cx + radius + 1):
+        for z in range(cz - radius, cz + radius + 1):
+            dx, dz = x - cx, z - cz
+            if inside(dx, dz) and any(not inside(dx + ox, dz + oz)
+                                      for ox, oz in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                boundary.append((x, z))
+    for i, (x, z) in enumerate(sorted(boundary)):
+        p.set(x, y - 1, z, polished)
+        p.set(x, y, z, B("alfheim:memorial_carving", facing="north")
+              if i % interval == 0 else carved)
+        p.set(x, y + 1, z, polished)
+
+
+def octagonal_ambulatory(p, cx, cz, radius, y=10):
+    """A two-course walk following the rotunda instead of drawing a square inside it."""
+    deck = slab("alfheim:ivory_livingrock_slab", "top")
+    rail = B("alfheim:moonstone_livingrock_wall")
+    support = B("feywild:elven_quartz_pillar", axis="y")
+
+    def inside(dx, dz, r):
+        return abs(dx) <= r and abs(dz) <= r and abs(dx) + abs(dz) <= r + 7
+
+    r = radius - 2
+    cells = []
+    for x in range(cx - r, cx + r + 1):
+        for z in range(cz - r, cz + r + 1):
+            dx, dz = x - cx, z - cz
+            if inside(dx, dz, r) and not inside(dx, dz, r - 3):
+                p.set(x, y, z, deck)
+                cells.append((x, z))
+    for i, (x, z) in enumerate(cells):
+        dx, dz = x - cx, z - cz
+        if any(not inside(dx + ox, dz + oz, r)
+               for ox, oz in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+            p.set(x, y + 1, z, rail)
+            if i % 9 == 0:
+                box(p, x, 3, z, x, y - 1, z, support)
+
+
 def four_doors(p, y, half_width=3, height=6):
     sx, _, sz = p.size
     cx, cz = sx // 2, sz // 2
@@ -108,6 +229,25 @@ def wing_jigsaw(p, family, y=3):
     p.jigsaw(cx, y, p.size[2] - 1, f"{NS}:{family}_wing_in",
              f"{NS}:{family}_approach_out", "minecraft:empty", "south_up",
                  joint="aligned", final_state="minecraft:air")
+
+
+def tomb_wing_jigsaws(p, y=3):
+    """Join a royal precinct between its approach and the deeper dynastic gallery."""
+    cx = p.size[0] // 2
+    p.jigsaw(cx, y, p.size[2] - 1, f"{NS}:elder_kings_tomb_wing_in",
+             f"{NS}:elder_kings_tomb_approach_out", "minecraft:empty", "south_up",
+             joint="aligned", final_state="minecraft:air")
+    p.jigsaw(p.size[0] - 1, y, 30, f"{NS}:elder_kings_tomb_wing_out",
+             f"{NS}:elder_kings_tomb_gallery_in",
+             f"{NS}:deepworks_archaeology/elder_kings_tomb/gallery", "east_up",
+             joint="aligned", final_state="minecraft:air")
+
+
+def tomb_gallery_jigsaw(p, y=3):
+    cx = p.size[0] // 2
+    p.jigsaw(cx, y, p.size[2] - 1, f"{NS}:elder_kings_tomb_gallery_in",
+             f"{NS}:elder_kings_tomb_wing_out", "minecraft:empty", "south_up",
+             joint="aligned", final_state="minecraft:air")
 
 
 def sarcophagus(p, x, y, z, facing="north"):
@@ -160,6 +300,149 @@ def funerary_statue(p, x, y, z, facing="north"):
     """Place a three-block-tall crowned funerary guardian."""
     for dy, part in enumerate(("base", "body", "crown")):
         p.set(x, y + dy, z, B(f"alfheim:elder_statue_{part}", facing=facing))
+
+
+@dataclass(frozen=True)
+class TombRoom:
+    """A semantic room whose furnishings move with its extent and processional axis."""
+
+    role: str
+    extent: tuple
+    axis: str = "z"
+
+    @property
+    def centre(self):
+        x0, z0, x1, z1 = self.extent
+        return ((x0 + x1) // 2, (z0 + z1) // 2)
+
+
+# This is deliberately data rather than coordinates dispersed through the builders.  The checker
+# imports it and proves that every piece has a programme and every funerary object belongs to one
+# of these extents.  Moving a room therefore moves the composition it owns.
+TOMB_ROOM_PROGRAM = {
+    "centre": (
+        TombRoom("hall_of_names", (10, 5, 36, 41), "z"),
+        TombRoom("treasury", (3, 17, 10, 27), "z"),
+    ),
+    "approach": (
+        TombRoom("descent", (4, 1, 12, 20), "z"),
+        TombRoom("antechamber", (2, 19, 14, 31), "z"),
+    ),
+    "wing": (
+        TombRoom("burial", (8, 6, 38, 36), "z"),
+        TombRoom("treasury", (2, 13, 9, 23), "x"),
+        TombRoom("serdab", (37, 13, 44, 23), "x"),
+    ),
+    "gallery": (
+        TombRoom("dynastic_cloister", (3, 11, 43, 43), "z"),
+        TombRoom("treasure_vault", (15, 2, 31, 10), "z"),
+    ),
+}
+
+
+def room_point(room, lateral=0, longitudinal=0):
+    """Return a point in room-local coordinates; +longitudinal follows the room axis."""
+    cx, cz = room.centre
+    if room.axis == "z":
+        return cx + lateral, cz + longitudinal
+    return cx + longitudinal, cz + lateral
+
+
+def register_band(p, room, y=7, interval=4):
+    """Run one legible memorial register around a room instead of stippling its walls."""
+    x0, z0, x1, z1 = room.extent
+    polished = B("alfheim:ivory_livingrock_polished")
+    carved = B("alfheim:moonstone_livingrock_carved")
+    for x in range(x0 + 1, x1):
+        p.set(x, y - 1, z0, polished)
+        p.set(x, y + 1, z0, polished)
+        p.set(x, y - 1, z1, polished)
+        p.set(x, y + 1, z1, polished)
+        motif = B("alfheim:memorial_carving", facing="south" if (x - x0) % interval == 0 else "north")
+        p.set(x, y, z0, motif if (x - x0) % interval == 0 else carved)
+        p.set(x, y, z1, B("alfheim:memorial_carving", facing="north")
+              if (x - x0) % interval == 0 else carved)
+    for z in range(z0 + 1, z1):
+        p.set(x0, y - 1, z, polished)
+        p.set(x0, y + 1, z, polished)
+        p.set(x1, y - 1, z, polished)
+        p.set(x1, y + 1, z, polished)
+        p.set(x0, y, z, B("alfheim:memorial_carving", facing="east")
+              if (z - z0) % interval == 0 else carved)
+        p.set(x1, y, z, B("alfheim:memorial_carving", facing="west")
+              if (z - z0) % interval == 0 else carved)
+
+
+def corbelled_burial_vault(p, room, wall):
+    """A stepped beehive crown: Celtic massing above an Egyptian axial chamber."""
+    x0, z0, x1, z1 = room.extent
+    for lift, inset in enumerate((0, 1, 2, 3, 5)):
+        y = 14 + lift
+        for x in range(x0 + inset, x1 - inset + 1):
+            p.set(x, y, z0 + inset, wall)
+            p.set(x, y, z1 - inset, wall)
+        for z in range(z0 + inset + 1, z1 - inset):
+            p.set(x0 + inset, y, z, wall)
+            p.set(x1 - inset, y, z, wall)
+
+
+def chamfer_burial_chamber(p, room, wall, cut=6):
+    """Turn the broad burial rectangle into a stepped octagon with carved diagonal faces."""
+    x0, z0, x1, z1 = room.extent
+    polished = B("alfheim:ivory_livingrock_polished")
+    carved = B("alfheim:moonstone_livingrock_carved")
+    for u in range(cut + 1):
+        for v in range(cut - u):
+            for x, z in ((x0 + u, z0 + v), (x1 - u, z0 + v),
+                         (x0 + u, z1 - v), (x1 - u, z1 - v)):
+                box(p, x, 3, z, x, 13, z, wall)
+        v = cut - u
+        for i, (x, z) in enumerate(((x0 + u, z0 + v), (x1 - u, z0 + v),
+                                    (x0 + u, z1 - v), (x1 - u, z1 - v))):
+            p.set(x, 6, z, polished)
+            p.set(x, 7, z, carved if u % 2 else
+                  B("alfheim:memorial_carving", facing="east" if i % 2 == 0 else "west"))
+            p.set(x, 8, z, polished)
+
+
+def furnish_burial(p, room):
+    """Compose the entire grave from the burial extent and its axis."""
+    cx, cz = room.centre
+    head_x, head_z = room_point(room, 0, -3)
+    # The grave is sunk one course below the chamber floor and set on a continuous court-stone dais.
+    box(p, cx - 3, 2, cz - 5, cx + 3, 2, cz + 4, B("minecraft:smooth_quartz"))
+    sarcophagus(p, head_x, 3, head_z, "north")
+    back_x, back_z = room_point(room, 0, -13)
+    funerary_tapestry(p, back_x, 6, back_z, "south")
+    for lateral in (-5, 5):
+        x, z = room_point(room, lateral, -5)
+        funerary_statue(p, x, 3, z, "south")
+
+
+def raised_sarcophagus_dais(p, room, lateral, longitudinal):
+    """Set one ancestor on a raised quartz dais with a carved plinth and stair apron."""
+    x, z = room_point(room, lateral, longitudinal)
+    quartz = B("minecraft:smooth_quartz")
+    carved = B("alfheim:moonstone_livingrock_carved")
+    box(p, x - 2, 3, z - 1, x + 2, 3, z + 3, quartz)
+    for xx in range(x - 1, x + 2):
+        p.set(xx, 4, z - 1, carved)
+    for zz in range(z, z + 3):
+        p.set(x - 2, 3, zz, stair("minecraft:smooth_quartz_stairs", "east"))
+        p.set(x + 2, 3, zz, stair("minecraft:smooth_quartz_stairs", "west"))
+    sarcophagus(p, x, 4, z, "north")
+
+
+def tomb_breach(p, room, side="south"):
+    """Place debris as a trail from a specific forced threshold, never as floor noise."""
+    cx, cz = room.centre
+    if side == "south":
+        positions = ((cx - 1, room.extent[3] - 1), (cx, room.extent[3] - 2),
+                     (cx + 1, room.extent[3] - 3), (cx, room.extent[3] - 5))
+    else:
+        positions = ((cx, cz),)
+    for i, (x, z) in enumerate(positions):
+        p.set(x, 3, z, B("alfheim:tomb_debris", facing="east" if i % 2 else "north"))
 
 
 def stair(name, facing, half="bottom"):
@@ -409,50 +692,61 @@ def tomb_centre(size, seed):
     p = Piece(*size)
     sx, _, sz = size
     wall, floor = B("alfheim:ivory_livingrock_bricks"), B("alfheim:moonstone_livingrock_polished")
-    shell_and_floor(p, wall, floor, 19)
-    four_doors(p, 3, 3, 7)
     cx, cz = sx // 2, sz // 2
-    box(p, 8, 3, 8, sx - 9, 15, sz - 9, wall)
-    box(p, 10, 3, 10, sx - 11, 13, sz - 11, AIR)
-    box(p, cx - 4, 3, 1, cx + 4, 10, sz - 2, AIR)
-    box(p, 1, 3, cz - 4, sx - 2, 10, cz + 4, AIR)
-    for x, z in ((11, 11), (sx - 12, 11), (11, sz - 12), (sx - 12, sz - 12)):
-        box(p, x, 3, z, x + 1, 13, z + 1, B("feywild:elven_quartz_pillar", axis="y"))
-    box(p, cx - 4, 3, cz - 3, cx + 4, 3, cz + 3, B("minecraft:smooth_quartz"))
-    p.set(cx, 4, cz, B("alfheim:mana_glass_light"))
-    chest(p, cx, 3, cz + 5, "north", "elder_kings_relic")
-    # The Hall of Names is a royal mortuary monument rather than a bare stone junction.
-    for x, z, facing in ((14, 14, "south"), (32, 14, "west"),
-                         (14, 32, "east"), (32, 32, "north")):
-        funerary_statue(p, x, 3, z, facing)
-    funerary_tapestry(p, cx, 6, 10, "south")
-    funerary_tapestry(p, cx, 6, sz - 11, "north")
-    p.set(10, 7, 18, B("alfheim:memorial_carving", facing="east"))
-    p.set(sx - 11, 7, 28, B("alfheim:memorial_carving", facing="west"))
-    # Royal triforium: stairs reach a bracketed gallery around the Hall of Names.
-    gantry_rect(p, 9, 9, sx - 10, sz - 10, 10, "alfheim:ivory_livingrock_slab",
+    hall, treasury = TOMB_ROOM_PROGRAM["centre"]
+    x0, z0, x1, z1 = hall.extent
+    # A high north/south nave crossed by a much lower sealed transept gives the hub a
+    # cruciform footprint. Unowned corners remain native rock instead of becoming a 47x47 box.
+    vaulted_range_z(p, x0, z0, x1, z1, wall, floor, 11, 6)
+    vaulted_range_x(p, 1, cz - 4, sx - 2, cz + 4, wall, floor, 8, 4)
+    # Union the two ranges into one crossing: the transept's side walls must not survive
+    # across the nave as two arbitrary screens.
+    box(p, cx - 4, 3, cz - 4, cx + 4, 10, cz + 4, AIR)
+    box(p, cx - 4, 2, cz - 4, cx + 4, 2, cz + 4, floor)
+    box(p, cx - 3, 2, z0 + 1, cx + 3, 2, z1 - 1, B("minecraft:smooth_quartz"))
+
+    # One processional entrance, on the north.  The other three jigsaw branches begin behind
+    # royal seals, so the centre reads as a hall with an end rather than a four-way station.
+    box(p, cx - 3, 3, 0, cx + 3, 10, z0, AIR)
+    box(p, cx - 3, 3, z1, cx + 3, 10, sz - 1, AIR)
+    box(p, 0, 3, cz - 3, x0, 10, cz + 3, AIR)
+    box(p, x1, 3, cz - 3, sx - 1, 10, cz + 3, AIR)
+
+    # A regular double colonnade creates the Hall of Names' long visual cadence.
+    for z in range(z0 + 5, z1 - 3, 7):
+        for x in (x0 + 5, x1 - 6):
+            box(p, x, 3, z, x + 1, 13, z + 1, B("feywild:elven_quartz_pillar", axis="y"))
+            funerary_statue(p, x + (1 if x < cx else 0), 3, z + 2,
+                            "east" if x < cx else "west")
+    register_band(p, hall, 7, 5)
+    funerary_tapestry(p, cx, 6, z0, "south")
+    for z in (14, 32):
+        alcove_x(p, x0, z, 4, "east", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+
+    # Royal triforium: stairs reach a bracketed gallery around the processional hall.
+    gantry_rect(p, x0 + 1, z0 + 1, x1 - 1, z1 - 1, 10, "alfheim:ivory_livingrock_slab",
                 B("alfheim:moonstone_livingrock_wall"),
                 B("feywild:elven_quartz_pillar", axis="y"))
-    stair_flight_z(p, 11, 10, 3, 8, 2, "alfheim:ivory_livingrock_stairs", "south")
-    stair_flight_x(p, sx - 12, sz - 12, 3, 8, 2,
-                   "alfheim:ivory_livingrock_stairs", "west")
-    for z in (7, 18, 29, 39):
+    stair_flight_z(p, x0 + 2, z0 + 2, 3, 8, 2, "alfheim:ivory_livingrock_stairs", "south")
+    stair_flight_z(p, x1 - 3, z1 - 2, 3, 8, 2, "alfheim:ivory_livingrock_stairs", "north")
+    for z in (10, 18, 26, 34):
         pointed_arch_z(p, cx, z, 3, 8, 15, 2, wall, "alfheim:ivory_livingrock_stairs")
-    for x in (7, 18, 29, 39):
-        pointed_arch_x(p, x, cz, 3, 8, 15, 2, wall, "alfheim:ivory_livingrock_stairs")
-    for x in (12, 34):
-        alcove_z(p, x, 2, 4, "south", wall, "alfheim:ivory_livingrock_stairs",
-                 B("alfheim:mana_glass_light"))
-        alcove_z(p, x, sz - 3, 4, "north", wall, "alfheim:ivory_livingrock_stairs",
-                 B("alfheim:mana_glass_light"))
-    cornice_rect(p, 3, 3, sx - 4, sz - 4, 17, "alfheim:ivory_livingrock_stairs",
+
+    # The sole relic sits in a one-door treasury off the hall, not in the middle of traffic.
+    tx0, tz0, tx1, tz1 = treasury.extent
+    hollow(p, tx0, 2, tz0, tx1, 10, tz1, wall)
+    box(p, tx0 + 1, 3, tz0 + 1, tx1 - 1, 8, tz1 - 1, AIR)
+    box(p, tx1, 3, cz - 1, x0, 6, cz + 1, AIR)
+    chest(p, tx0 + 2, 3, cz, "east", "elder_kings_relic")
+    for z in (tz0 + 2, tz1 - 2):
+        box(p, tx0, 4, z, tx0, 7, z, B("alfheim:mana_glass_light"))
+
+    cornice_rect(p, x0, z0, x1, z1, 17, "alfheim:ivory_livingrock_stairs",
                  "alfheim:ivory_livingrock_slab")
-    grave_door_bay(p, cx - 1, 3, 5, "south")
-    grave_door_bay(p, cx + 1, 3, sz - 6, "north")
-    grave_door_bay(p, 5, 3, cx + 1, "east")
-    grave_door_bay(p, sx - 6, 3, cx - 1, "west")
-    for x, z in ((8, 20), (18, 8), (29, 37), (38, 25), (7, 35), (35, 7)):
-        p.set(x, 3, z, B("alfheim:tomb_debris", facing="north"))
+    grave_door_bay(p, cx + 1, 3, z1, "north")
+    grave_door_bay(p, x0, 3, cz + 1, "east")
+    grave_door_bay(p, x1, 3, cz - 1, "west")
     centre_jigsaws(p, "elder_kings_tomb")
     return p
 
@@ -461,22 +755,33 @@ def tomb_approach(size, seed):
     p = Piece(*size)
     sx, _, sz = size
     wall, floor = B("alfheim:ivory_livingrock_bricks"), B("alfheim:moonstone_livingrock_polished")
-    shell_and_floor(p, wall, floor, 15)
     cx = sx // 2
-    box(p, cx - 3, 3, 0, cx + 3, 10, sz - 1, AIR)
-    for dz in range(-6, 7):
-        half = 6 - abs(dz)
-        z = 16 + dz
+    descent, antechamber = TOMB_ROOM_PROGRAM["approach"]
+    # Three overlapping vaulted tubes widen and rise toward the antechamber. Their stepped
+    # exterior reads as successive construction campaigns rather than one corridor cuboid.
+    vaulted_range_z(p, 5, 0, 11, 10, wall, floor, 8, 3)
+    vaulted_range_z(p, 4, 8, 12, 21, wall, floor, 9, 4)
+    vaulted_range_z(p, 2, 19, 14, 32, wall, floor, 10, 4)
+    # The ceiling and walls compress toward the centre while three broad stair courses descend.
+    # Both jigsaw mouths stay at y=3; the processional floor rises only inside the piece.
+    box(p, cx - 2, 3, 0, cx + 2, 8, 2, AIR)
+    box(p, cx - 3, 3, sz - 3, cx + 3, 10, sz - 1, AIR)
+    for z in range(2, sz - 2):
+        lift = 2 if z < 8 else 1 if z < 19 else 0
+        half = 2 if z < 8 else 3 if z < 19 else 5
         for x in range(cx - half, cx + half + 1):
-            p.set(x, 2, z, B("alfheim:silvermist_livingrock_polished"))
-            for y in range(3, 9):
-                p.set(x, y, z, AIR)
+            p.set(x, 3 + lift, z, B("alfheim:silvermist_livingrock_polished"))
+            box(p, x, 4 + lift, z, x, 10 - lift, z, AIR)
+    ax0, az0, ax1, az1 = antechamber.extent
+    box(p, ax0, 2, az0, ax1, 2, az1, B("minecraft:smooth_quartz"))
+    box(p, ax0 + 1, 3, az0 + 1, ax1 - 1, 9, az1 - 1, AIR)
+    register_band(p, antechamber, 7, 4)
     for z in (7, 25):
         box(p, 2, 3, z, 4, 10, z + 4, B("feywild:elven_quartz_brick"))
         box(p, sx - 5, 3, z, sx - 3, 10, z + 4, B("feywild:elven_quartz_brick"))
     for z in (3, 9, 15, 21, 27):
         pointed_arch_z(p, cx, z, 3, 5, 11, 2, wall, "alfheim:ivory_livingrock_stairs")
-    for z in (6, 16, 26):
+    for z in (22, 28):
         alcove_x(p, 2, z, 4, "east", wall, "alfheim:ivory_livingrock_stairs",
                  B("alfheim:mana_glass_light"))
         alcove_x(p, sx - 3, z, 4, "west", wall, "alfheim:ivory_livingrock_stairs",
@@ -499,62 +804,137 @@ def tomb_wing(size, seed):
     p = Piece(*size)
     sx, _, sz = size
     wall, floor = B("alfheim:ivory_livingrock_bricks"), B("alfheim:moonstone_livingrock_polished")
-    shell_and_floor(p, wall, floor, 19)
     cx = sx // 2
-    box(p, cx - 3, 3, sz - 7, cx + 3, 10, sz - 1, AIR)
-    rooms = ((5, 5, 19, 20), (27, 5, 41, 20), (14, 25, 32, 41))
-    for x0, z0, x1, z1 in rooms:
-        hollow(p, x0, 2, z0, x1, 14, z1, wall)
-        box(p, x0 + 2, 3, z0 + 2, x1 - 2, 12, z1 - 2, AIR)
-        box(p, x0 + 4, 3, z0 + 5, x1 - 4, 3, z1 - 3, B("minecraft:smooth_quartz"))
-        p.set((x0 + x1) // 2, 4, (z0 + z1) // 2, B("alfheim:mana_glass_light"))
-        # Each burial room has a reachable upper ambulatory and a coffered pointed vault.
-        gantry_rect(p, x0 + 1, z0 + 1, x1 - 1, z1 - 1, 9,
-                    "alfheim:ivory_livingrock_slab", B("alfheim:moonstone_livingrock_wall"),
-                    B("feywild:elven_quartz_pillar", axis="y"))
-        stair_flight_z(p, x0 + 2, z0 + 2, 3, 7, 2,
-                       "alfheim:ivory_livingrock_stairs", "south")
-        room_cx = (x0 + x1) // 2
-        for z in range(z0 + 3, z1 - 2, 6):
-            pointed_arch_z(p, room_cx, z, 9, max(3, (x1 - x0) // 2 - 2), 6, 1,
-                           wall, "alfheim:ivory_livingrock_stairs")
-        cornice_rect(p, x0 + 1, z0 + 1, x1 - 1, z1 - 1, 13,
-                     "alfheim:ivory_livingrock_stairs", "alfheim:ivory_livingrock_slab")
-    for inset in (3, 7, 11):
-        for x in range(inset, sx - inset):
-            if (x + inset) % 9 not in (0, 1):
-                box(p, x, 3, inset, x, 8, inset, wall)
-                box(p, x, 3, sz - inset - 1, x, 8, sz - inset - 1, wall)
-        for z in range(inset + 1, sz - inset - 1):
-            if (z + inset * 2) % 11 not in (0, 1):
-                box(p, inset, 3, z, inset, 8, z, wall)
-                box(p, sx - inset - 1, 3, z, sx - inset - 1, 8, z, wall)
-    box(p, cx - 2, 3, 17, cx + 2, 9, sz - 1, AIR)
-    box(p, 11, 3, 21, 35, 9, 25, AIR)
-    # Twelve chambers across the assembled tomb: three lavish burials in each wing.
-    for x, z in ((12, 10), (34, 10), (23, 31)):
-        sarcophagus(p, x, 3, z, "north")
-    for x, z in ((12, 19), (34, 19), (23, 40)):
-        funerary_tapestry(p, x, 6, z, "north")
-    for x, z, facing in ((6, 12, "east"), (40, 12, "west"), (15, 33, "east")):
-        p.set(x, 7, z, B("alfheim:memorial_carving", facing=facing))
-    for x, z, facing in ((8, 9, "south"), (30, 9, "south"), (18, 29, "east")):
-        funerary_statue(p, x, 3, z, facing)
-    for x in (8, 16, 30, 38):
-        alcove_z(p, x, 3, 4, "south", wall, "alfheim:ivory_livingrock_stairs",
+    burial, treasury, serdab = TOMB_ROOM_PROGRAM["wing"]
+    x0, z0, x1, z1 = burial.extent
+    octagonal_rotunda(p, burial.centre[0], burial.centre[1], 15, wall, floor, 12, 5)
+    vaulted_range_z(p, 19, 34, 27, sz - 1, wall, floor, 9, 4)
+    vaulted_range_x(p, 34, 27, sx - 1, 33, wall, floor, 8, 3)
+    # Open the entrance neck through the rotunda overlap; its surviving end wall previously
+    # stood two blocks in front of the intended grave seal.
+    box(p, cx - 3, 3, 33, cx + 3, 10, sz - 1, AIR)
+    box(p, cx - 3, 2, 34, cx + 3, 2, sz - 2, floor)
+    box(p, 34, 3, 28, sx - 1, 9, 32, AIR)
+    furnish_burial(p, burial)
+    octagonal_register_band(p, burial.centre[0], burial.centre[1], 15, 7, 4)
+
+    # The upper walk follows the eight faces; it no longer redraws a square inside the rotunda.
+    octagonal_ambulatory(p, burial.centre[0], burial.centre[1], 15, 10)
+    stair_flight_z(p, 14, 31, 3, 8, 2,
+                   "alfheim:ivory_livingrock_stairs", "north")
+    stair_flight_z(p, 28, 31, 3, 8, 2,
+                   "alfheim:ivory_livingrock_stairs", "north")
+    for z in (11, 19, 27, 33):
+        pointed_arch_z(p, cx, z, 9, 7, 7, 1, wall, "alfheim:ivory_livingrock_stairs")
+
+    # Treasury: one doorway, offering benches, but no duplicate relic chest.
+    tx0, tz0, tx1, tz1 = treasury.extent
+    hollow(p, tx0, 2, tz0, tx1, 10, tz1, wall)
+    box(p, tx0 + 1, 3, tz0 + 1, tx1 - 1, 8, tz1 - 1, AIR)
+    box(p, x0, 3, treasury.centre[1] - 1, tx1, 6, treasury.centre[1] + 1, AIR)
+    for z in range(tz0 + 2, tz1 - 1, 3):
+        p.set(tx0 + 1, 3, z, B("minecraft:smooth_quartz"))
+        p.set(tx0 + 1, 4, z, B("alfheim:mana_glass_light"))
+    box(p, tx0, 4, tz0 + 4, tx0, 7, tz0 + 6, B("alfheim:mana_glass_light"))
+
+    # Serdab: wholly sealed except for a narrow sight-slit into the burial chamber.
+    sx0, sz0, sx1, sz1 = serdab.extent
+    hollow(p, sx0, 2, sz0, sx1, 10, sz1, wall)
+    box(p, sx0 + 1, 3, sz0 + 1, sx1 - 1, 8, sz1 - 1, AIR)
+    p.set(sx0, 6, serdab.centre[1], B("alfheim:ivory_livingrock_wall"))
+    funerary_statue(p, serdab.centre[0], 3, serdab.centre[1], "west")
+    box(p, sx1, 4, sz0 + 3, sx1, 7, sz1 - 3, B("alfheim:mana_glass_shadow"))
+    # The dynastic crypt folds sideways from the royal precinct. This keeps thirteen pieces inside
+    # Minecraft 1.20.1's hard 128-block jigsaw reach while making the complex a dense monastery-
+    # like pinwheel instead of one impossibly long cross.
+    box(p, 34, 3, 28, sx - 1, 9, 32, AIR)
+    grave_door_bay(p, cx - 1, 3, z1, "south")
+    tomb_breach(p, burial, "south")
+    tomb_wing_jigsaws(p)
+    return p
+
+
+def tomb_gallery(size, seed):
+    """A hypostyle generation crypt: cloister aisles, burial rows and a sealed hoard."""
+    p = Piece(*size)
+    sx, _, sz = size
+    wall = B("alfheim:ivory_livingrock_bricks")
+    floor = B("alfheim:moonstone_livingrock_polished")
+    cloister, vault = TOMB_ROOM_PROGRAM["gallery"]
+    x0, z0, x1, z1 = cloister.extent
+    # A narrow processional spine intersects four separated generation transepts. The native
+    # rock between them remains intact, so the plan reads as an excavated comb of chapels.
+    vaulted_range_z(p, 19, 1, 27, sz - 1, wall, floor, 10, 4)
+    generation_z = (15, 23, 31, 39)
+    for z in generation_z:
+        vaulted_range_x(p, x0, z - 3, x1, z + 3, wall, floor, 9, 4)
+    vaulted_range_z(p, 15, 1, 31, 11, wall, floor, 10, 5)
+    box(p, 20, 3, z1, 26, 10, sz - 1, AIR)
+
+    # Central monastic nave and paired colonnades.  The raised centre path lets the repeated
+    # ancestor daises read as side chapels rather than blocks scattered over one floor.
+    box(p, 20, 3, z0 + 2, 26, 3, z1 - 2, B("minecraft:smooth_quartz"))
+    for z in range(z0 + 5, z1 - 2, 6):
+        for x in (18, 28):
+            box(p, x, 3, z, x + 1, 12, z + 1, B("minecraft:quartz_pillar", axis="y"))
+            box(p, x - 1, 3, z - 1, x + 2, 3, z + 2, B("minecraft:chiseled_quartz_block"))
+        pointed_arch_z(p, 23, z, 9, 5, 8, 1, wall, "alfheim:ivory_livingrock_stairs")
+
+    # Four family lines, four generations deep: sixteen raised graves per gallery, sixty-four
+    # around the assembled complex, plus the four sovereign burials in the royal precincts.
+    for lateral in (-15, -9, 9, 15):
+        for longitudinal in (-12, -4, 4, 12):
+            raised_sarcophagus_dais(p, cloister, lateral, longitudinal)
+    for z in generation_z:
+        bay = TombRoom("generation_bay", (x0, z - 3, x1, z + 3), "x")
+        register_band(p, bay, 7, 5)
+        alcove_x(p, x0, z - 1, 4, "east", wall, "alfheim:ivory_livingrock_stairs",
                  B("alfheim:mana_glass_light"))
-    for z in (29, 37):
-        alcove_x(p, 3, z, 4, "east", wall, "alfheim:ivory_livingrock_stairs",
-                 B("alfheim:mana_glass_shadow"))
-        alcove_x(p, sx - 4, z, 4, "west", wall, "alfheim:ivory_livingrock_stairs",
-                 B("alfheim:mana_glass_shadow"))
-    grave_door_bay(p, 11, 3, 5, "south")
-    grave_door_bay(p, 33, 3, 5, "south")
-    grave_door_bay(p, 22, 3, 25, "south")
-    for x, z in ((8, 17), (17, 8), (29, 16), (38, 8), (17, 37), (29, 35),
-                 (8, 29), (38, 30), (23, 20), (12, 24)):
-        p.set(x, 3, z, B("alfheim:tomb_debris", facing="north"))
-    wing_jigsaw(p, "elder_kings_tomb")
+        alcove_x(p, x1, z + 1, 4, "west", wall, "alfheim:ivory_livingrock_stairs",
+                 B("alfheim:mana_glass_light"))
+
+    # Every transept builder contributes side-wall and register courses. Cut one continuous
+    # processional nave after all four are present so none of those courses becomes a barrier.
+    box(p, 20, 3, z0, 26, 9, z1, AIR)
+    box(p, 20, 3, z0 + 2, 26, 3, z1 - 2, B("minecraft:smooth_quartz"))
+
+    # Cloister walks above both burial aisles, with stairs at opposite corners and a repeated
+    # cornice tying the rows together vertically.
+    for z in generation_z:
+        gantry_rect(p, x0 + 1, z - 2, x1 - 1, z + 2, 10,
+                    "alfheim:ivory_livingrock_slab", B("alfheim:moonstone_livingrock_wall"),
+                    B("minecraft:quartz_pillar", axis="y"))
+        cornice_rect(p, x0, z - 3, x1, z + 3, 12,
+                     "alfheim:ivory_livingrock_stairs", "alfheim:ivory_livingrock_slab")
+    stair_flight_z(p, x0 + 2, generation_z[-1] + 1, 3, 8, 2,
+                   "alfheim:ivory_livingrock_stairs", "north")
+    stair_flight_z(p, x1 - 3, generation_z[0] - 1, 3, 8, 2,
+                   "alfheim:ivory_livingrock_stairs", "south")
+
+    # A sealed treasury terminates the nave.  Wealth is architecture first: stepped hoards and
+    # precious-metal plinths, with two coffers supplementing rather than replacing the spectacle.
+    vx0, vz0, vx1, vz1 = vault.extent
+    box(p, vx0 + 1, 3, vz0 + 1, vx1 - 1, 9, vz1 - 1, AIR)
+    box(p, 20, 3, vz1, 26, 9, vz1 + 2, AIR)
+    grave_door_bay(p, 23, 3, vz1, "south")
+    treasure = (
+        ("minecraft:gold_block", 4),
+        ("botania:manasteel_block", 3),
+        ("botania:elementium_block", 2),
+        ("botania:mana_diamond_block", 1),
+        ("botania:dragonstone_block", 1),
+        ("botania:terrasteel_block", 1),
+    )
+    for i, (name, height) in enumerate(treasure):
+        x = vx0 + 2 + (i % 3) * 4
+        z = vz0 + 2 + (i // 3) * 4
+        box(p, x, 3, z, x + 1, 3 + height - 1, z + 1, B(name))
+        p.set(x, 3 + height, z, slab("minecraft:smooth_quartz_slab", "top"))
+    chest(p, vx0 + 2, 3, vz1 - 2, "south", "elder_kings_treasure")
+    chest(p, vx1 - 2, 3, vz1 - 2, "south", "elder_kings_treasure")
+    funerary_tapestry(p, vault.centre[0], 6, vz0, "south")
+
+    tomb_gallery_jigsaw(p)
     return p
 
 
@@ -821,7 +1201,8 @@ HEADWORKS_SIZES = {"head": [HEAD_W, HEAD_H, HEAD_W], "shaft": [SHAFT_W, SHAFT_H,
 
 BUILDERS = {
     "deep_quarry": {"centre": quarry_centre, "approach": quarry_approach, "wing": quarry_wing},
-    "elder_kings_tomb": {"centre": tomb_centre, "approach": tomb_approach, "wing": tomb_wing},
+    "elder_kings_tomb": {"centre": tomb_centre, "approach": tomb_approach,
+                          "wing": tomb_wing, "gallery": tomb_gallery},
     "faultwork": {"centre": fault_centre, "approach": fault_approach, "wing": fault_wing},
 }
 
@@ -860,6 +1241,25 @@ def relic_loot():
                                        "lore": [{"text": lore, "italic": True, "color": "gray"}]}]})
     return {"type": "minecraft:chest", "random_sequence": f"{NS}:chests/elder_kings_relic",
             "pools": [{"rolls": 1.0, "bonus_rolls": 0.0, "entries": entries}]}
+
+
+def tomb_treasure_loot():
+    """Secondary dynastic wealth; spectacular, useful, but not the tomb's unique relic."""
+    entries = (
+        ("minecraft:gold_ingot", 12, 4, 12),
+        ("botania:manasteel_ingot", 10, 3, 9),
+        ("botania:mana_pearl", 5, 1, 3),
+        ("botania:mana_diamond", 4, 1, 2),
+        ("botania:elementium_ingot", 2, 1, 2),
+        ("botania:dragonstone", 1, 1, 1),
+    )
+    return {"type": "minecraft:chest", "random_sequence": f"{NS}:chests/elder_kings_treasure",
+            "pools": [{"rolls": {"type": "minecraft:uniform", "min": 3.0, "max": 6.0},
+                       "bonus_rolls": 0.0, "entries": [
+                           {"type": "minecraft:item", "name": name, "weight": weight,
+                            "functions": [{"function": "minecraft:set_count",
+                                           "count": {"min": float(lo), "max": float(hi)}}]}
+                           for name, weight, lo, hi in entries]}]}
 
 
 def quarry_loot():
@@ -1020,6 +1420,25 @@ def build_outputs(check=False):
                   f"over {cen['names']:>2} ids  "
                   + ' '.join(f'{k}={v}' for k, v in sorted(counts.items()) if v))
 
+        base = f"{NS}:deepworks_archaeology/{fid}"
+        for role in family["pieces"]:
+            path = os.path.join(DATA, "worldgen", "template_pool", "deepworks_archaeology", fid,
+                                role + ".json")
+            json_out[path] = single_pool(f"{base}/{role}", f"{base}/{role}")
+        lo, hi = family["depth"]
+        has_gallery = "gallery" in family["pieces"]
+        json_out[os.path.join(DATA, "worldgen", "structure", fid + ".json")] = {
+            "type": "minecraft:jigsaw", "biomes": manifest["biomes"],
+            "step": "underground_structures", "terrain_adaptation": "none",
+            "start_pool": f"{base}/centre", "size": 3 if has_gallery else 2,
+            "max_distance_from_center": 128 if has_gallery else 116,
+            "start_height": {"type": "minecraft:uniform",
+                             "min_inclusive": {"absolute": lo},
+                             "max_inclusive": {"absolute": hi}},
+            "use_expansion_hack": False, "spawn_overrides": {}}
+        json_out[os.path.join(DATA, "tags", "worldgen", "structure", fid + ".json")] = {
+            "replace": False, "values": [f"{NS}:{fid}"]}
+
     # The headworks: two pieces, shared by all three families.
     for role, builder in HEADWORKS_BUILDERS.items():
         size = HEADWORKS_SIZES[role]
@@ -1062,23 +1481,6 @@ def build_outputs(check=False):
               f"{len(piece.blocks):6} blocks  detail {cen['share'] * 100:4.1f}% "
               f"over {cen['names']:>2} ids  "
               + ' '.join(f'{k}={v}' for k, v in sorted(counts.items()) if v))
-
-        base = f"{NS}:deepworks_archaeology/{fid}"
-        for role in ("centre", "approach", "wing"):
-            path = os.path.join(DATA, "worldgen", "template_pool", "deepworks_archaeology", fid,
-                                role + ".json")
-            json_out[path] = single_pool(f"{base}/{role}", f"{base}/{role}")
-        lo, hi = family["depth"]
-        json_out[os.path.join(DATA, "worldgen", "structure", fid + ".json")] = {
-            "type": "minecraft:jigsaw", "biomes": manifest["biomes"],
-            "step": "underground_structures", "terrain_adaptation": "none",
-            "start_pool": f"{base}/centre", "size": 2, "max_distance_from_center": 116,
-            "start_height": {"type": "minecraft:uniform",
-                             "min_inclusive": {"absolute": lo},
-                             "max_inclusive": {"absolute": hi}},
-            "use_expansion_hack": False, "spawn_overrides": {}}
-        json_out[os.path.join(DATA, "tags", "worldgen", "structure", fid + ".json")] = {
-            "replace": False, "values": [f"{NS}:{fid}"]}
 
     placement = manifest["placement"]
     json_out[os.path.join(DATA, "worldgen", "structure_set", "deepworks_archaeology.json")] = {
@@ -1136,6 +1538,7 @@ def build_outputs(check=False):
 
     json_out[os.path.join(DATA, "loot_tables", "chests", "deep_quarry_supplies.json")] = quarry_loot()
     json_out[os.path.join(DATA, "loot_tables", "chests", "elder_kings_relic.json")] = relic_loot()
+    json_out[os.path.join(DATA, "loot_tables", "chests", "elder_kings_treasure.json")] = tomb_treasure_loot()
     json_out[os.path.join(DATA, "loot_tables", "chests", "faultwork_salvage.json")] = faultwork_loot()
     json_out[os.path.join("kubejs", "data", "continuityworks_spawn_protection", "tags", "worldgen",
                           "structure", "ignored.json")] = {

@@ -2,8 +2,8 @@
   "_comment": [
     "Source of truth for DEEPWORKS.md section 9 and THE_DEEP.md section 2.",
     "All archaeology families share one large random-spread grid, making their spawn zones mutually exclusive.",
-    "Each family is a fixed nine-piece jigsaw complex: centre, four approaches and four wings.",
-    "The assembled footprint is about 207 blocks across; every piece remains structure-block editable."
+    "Quarries and Faultworks are fixed nine-piece complexes; the Elder Kings tomb continues each wing into a dynastic gallery for thirteen pieces.",
+    "All complexes remain about 207 blocks across; the tomb folds its four extra galleries sideways into a dense pinwheel within Minecraft's 128-block jigsaw reach cap."
   ],
   "biomes": "#alfheim:deepworks_land",
   "placement": {
@@ -55,6 +55,11 @@
           33
         ],
         "wing": [
+          47,
+          22,
+          47
+        ],
+        "gallery": [
           47,
           22,
           47

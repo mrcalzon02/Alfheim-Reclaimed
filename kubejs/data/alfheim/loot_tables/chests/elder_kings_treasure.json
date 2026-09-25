@@ -1,0 +1,100 @@
+{
+  "type": "minecraft:chest",
+  "random_sequence": "alfheim:chests/elder_kings_treasure",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 3.0,
+        "max": 6.0
+      },
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ingot",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4.0,
+                "max": 12.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "botania:manasteel_ingot",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3.0,
+                "max": 9.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "botania:mana_pearl",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "botania:mana_diamond",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "botania:elementium_ingot",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "botania:dragonstone",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 1.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

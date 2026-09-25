@@ -7,7 +7,7 @@
   },
   "creature_spawn_probability": 0.2,
   "downfall": 0.0,
-  "temperature": 0.5,
+  "temperature": 0.0,
   "has_precipitation": false,
   "effects": {
     "fog_color": 2696479,
@@ -35,7 +35,10 @@
     ],
     [],
     [],
-    []
+    [],
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ],
   "spawn_costs": {},
   "spawners": {

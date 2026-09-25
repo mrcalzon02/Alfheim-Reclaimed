@@ -26,8 +26,12 @@ def main():
     for sid, x, z in SITES:
         if args.only and sid != args.only:
             continue
+        # The folded tomb remains inside the same 15x15-chunk validation square as
+        # the other complexes.  A larger square exceeds Minecraft's 256 forced-
+        # chunk ceiling before the structure command can run.
+        radius = 112
         commands.extend([
-            (2, f"execute in mythicbotany:alfheim run forceload add {x - 112} {z - 112} {x + 112} {z + 112}"),
+            (2, f"execute in mythicbotany:alfheim run forceload add {x - radius} {z - radius} {x + radius} {z + radius}"),
             (18, f"execute in mythicbotany:alfheim run place structure alfheim:{sid} {x} -40 {z}"),
             (18, f"say placed {sid}"),
         ])

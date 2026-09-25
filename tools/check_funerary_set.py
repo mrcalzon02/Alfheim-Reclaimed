@@ -72,7 +72,7 @@ def main():
     sys.path.insert(0, str(ROOT / "tools"))
     import nbt
     palettes = {}
-    for role in ("centre", "approach", "wing"):
+    for role in ("centre", "approach", "wing", "gallery"):
         _, piece = nbt.load(str(TOMB / f"{role}.nbt"))
         palettes[role] = [entry["Name"] for entry in piece["palette"]]
     tomb_ids = set(palettes["centre"] + palettes["wing"])
@@ -81,8 +81,13 @@ def main():
     _, wing = nbt.load(str(TOMB / "wing.nbt"))
     wing_names = [wing["palette"][int(entry["state"])]["Name"] for entry in wing["blocks"]]
     for part in ("head", "middle", "foot"):
-        if wing_names.count(f"alfheim:elder_sarcophagus_{part}") != 3:
-            fail(f"tomb wing must contain three sarcophagus {part} modules")
+        if wing_names.count(f"alfheim:elder_sarcophagus_{part}") != 1:
+            fail(f"tomb wing must contain one axial royal sarcophagus {part} module")
+    _, gallery = nbt.load(str(TOMB / "gallery.nbt"))
+    gallery_names = [gallery["palette"][int(entry["state"])]["Name"] for entry in gallery["blocks"]]
+    for part in ("head", "middle", "foot"):
+        if gallery_names.count(f"alfheim:elder_sarcophagus_{part}") != 16:
+            fail(f"dynastic gallery must contain sixteen raised sarcophagus {part} modules")
 
     spec = importlib.util.spec_from_file_location("gen_funerary_set", ROOT / "tools" / "gen_funerary_set.py")
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
@@ -94,7 +99,7 @@ def main():
         print("ELDER KINGS FUNERARY SET: FAIL")
         for problem in problems: print(" - " + problem)
         return 1
-    print("ELDER KINGS FUNERARY SET: PASS semantics=6 modules=17 textures=7 tomb_sarcophagi=12")
+    print("ELDER KINGS FUNERARY SET: PASS semantics=6 modules=17 textures=7 assembled_tomb_sarcophagi=68")
     print("Acceptance boundary: static source/generated and structure integration; runtime load not claimed.")
     return 0
 

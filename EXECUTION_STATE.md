@@ -1,5 +1,41 @@
 # Execution State
 
+## Latest implementation — Elder Kings tomb composition rebuild — 2026-09-12
+
+The tomb templates no longer use a four-way lobby, three repeated square rooms, a `%9`/`%11`
+wall lattice, or four unrelated coordinate lists for their funerary objects. The rebuilt programme
+is `descent -> antechamber -> Hall of Names -> sealed royal precinct`: one open processional
+entrance, three sealed dynastic branches, and one king's burial in each assembled wing.
+
+The centre is a long double-colonnaded Hall of Names with continuous memorial registers and a
+one-door relic treasury. The approach narrows and steps down into a broad antechamber. Each wing
+is a stepped-octagonal burial chamber under a corbelled crown, with its sarcophagus, paired
+guardians and rear tapestry composed from one semantic room extent; a side treasury and sealed
+serdab give the plan distinct functions rather than partitions. Four debris blocks now form a
+breach trail from the forced grave seal instead of reading as floor texture.
+
+`check_deep_archaeology.py` now guards the room roles, relative furnishing containment,
+single entrance, three centre seals, threshold-local debris, sealed serdab, and a room-local
+ornament-over-residue budget. The generated NBT is closed and all static archaeology, funerary,
+detail, surface and void-support checks pass. A dedicated-server direct placement also passed:
+all 9 tomb signatures present, no exposed jigsaws, clean save and shutdown. Natural selection on
+the shared archaeology grid was not rerun; that behavior and its placement data were unchanged.
+
+**Necropolis expansion.** Each royal wing now turns sideways into a fourth 47x22x47 template,
+producing a dense thirteen-piece pinwheel about 207 blocks across. Four terminal generation crypts carry sixteen
+raised ancestor graves each: **68 assembled sarcophagi** including the four sovereigns. Their
+columned naves, pointed ribs, continuous registers, upper cloisters and opposed stair flights are
+deliberately monastic; the repeated raised daises and terminal sealed hoards carry the Egyptian
+royal-tomb hierarchy. Every hoard visibly masses gold, Manasteel, Elementium, mana diamond,
+Dragonstone and Terrasteel, backed by two coffers per gallery and a dedicated treasure table.
+The first straight-line expansion attempted a 164-block jigsaw reach and runtime rejected it: the
+1.20.1 codec caps the value at 128. The side-folded plan keeps the extra galleries and remains at
+the legal maximum; the checker now asserts the cap so this cannot become a datapack load failure.
+A fresh dedicated-server placement of the folded version completed and saved cleanly. The world
+scan found all **14/14** centre, approach, wing, gallery and treasure-material signatures across
+625 inspected chunks, with no exposed jigsaws. Natural selection on the shared archaeology grid
+was not rerun; its placement data remains unchanged.
+
 ## Latest implementation — terrain authorities, stage 1 — 2026-09-12
 
 The 2026-09-11/12 field review rejected the margin four times in one session, and the owner chose
