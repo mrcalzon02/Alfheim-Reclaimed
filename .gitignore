@@ -51,6 +51,7 @@ quarantine/
 server/kubejs/
 server/manifest-*.json
 server/validation-*/
+server/*-validation/
 server/void-margin-*/
 server/shore-*/
 server/survey-*/
