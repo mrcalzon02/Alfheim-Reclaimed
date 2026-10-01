@@ -1,5 +1,17 @@
 # Execution State
 
+## Latest boot repair — 2026-10-01
+
+The September 30 integrated-world startup stalled in Library of Exile's
+game-directory-wide expedition wipe before spawn preparation. Disable
+`WIPE_DIMENSION_ON_LOAD` for all three expedition dimensions through Forge
+defaults; the reproducible repair tool also updated 15 existing per-world
+configs with backups. All other saved config values were verified unchanged.
+The user closed the frozen client after more than a minute; no crash report
+was produced.
+See `alfheim_reclaimed_design/BOOT_REPAIR_2026-10-01.md` for evidence and runtime
+verification. Expedition folders now persist between boots.
+
 ## Latest implementation — Elder Kings tomb composition rebuild — 2026-09-12
 
 The tomb templates no longer use a four-way lobby, three repeated square rooms, a `%9`/`%11`
