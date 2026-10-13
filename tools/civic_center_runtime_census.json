@@ -1,0 +1,103 @@
+{
+  "world": "server\\validation-civic-center-20261012",
+  "pieces": 9,
+  "inhabited_members": null,
+  "counts": {
+    "assembly_hall": 1,
+    "council_house": 1,
+    "public_forum": 1,
+    "service_court": 1,
+    "record_house": 1,
+    "market_court": 1,
+    "census_hall": 1,
+    "processional_avenue": 1,
+    "public_kitchen": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 8,
+  "verified_air_cells": 288636,
+  "verified_footer_cells": 0,
+  "layout": [
+    {
+      "name": "assembly_hall",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "council_house",
+      "origin": [
+        -1414,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "public_forum",
+      "origin": [
+        -1496,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "service_court",
+      "origin": [
+        -1378,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "record_house",
+      "origin": [
+        -1452,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "market_court",
+      "origin": [
+        -1528,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "census_hall",
+      "origin": [
+        -1413,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "processional_avenue",
+      "origin": [
+        -1346,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "public_kitchen",
+      "origin": [
+        -1375,
+        66,
+        671
+      ],
+      "rotation": 2
+    }
+  ]
+}

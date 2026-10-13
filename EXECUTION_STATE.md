@@ -1,5 +1,385 @@
 # Execution State
 
+## Latest structure verification - Bounded harbor live pass - 2026-10-13
+
+Bounded-harbor smoke test passes: seven native sites used 4-17 distinct columns,
+64-149 ms including debug parity checks; three eligible shore sites accepted.
+Actual placement on an unmodified Sporebank coast saved all ten members and nine
+supported joins, with authored air, cultural fixtures and added foundations intact.
+Runtime: `server/console-20261013-155051.log`; server and harness exited 0.
+Evidence: `tools/harbor_bounded_runtime.json`. The earlier approval-service block
+is resolved. Sparse natural placement remains enabled with the same 32-column
+ceiling and 150 ms stop budget. User accepts imperfect terrain fit.
+Sacred Precinct live assembly also passes. Checks are complete for the requested
+GitHub checkpoint; next family is Military/Warden. Client visual/frequency review remains pending.
+
+## Latest structure development - Sacred Precinct runtime verified - 2026-10-13
+
+Sacred Precinct now passes saved-world assembly: seven members, six supported
+joins, 59 cultural modules, 196937 authored air cells and 65968 foundation cells.
+Reflection water, beds, rails, glass and chapel canopy match source. Authored
+gravel is now settled before template export to prevent post-placement movement.
+The saved verifier and review renderer support this family; Civic regression passes.
+Runtime: `server/console-20261013-154644.log`; server/harness exited 0.
+Evidence is tied to the exact source fingerprint. Client visual review and natural
+placement remain pending. See `alfheim_reclaimed_design/SACRED_PRECINCT.md`.
+The user requested a GitHub commit to close this work. Finish the bounded-harbor
+smoke test, verify the change set, commit and push; then continue Military/Warden.
+
+## Latest structure development - Bounded harbors; Sacred Precinct - 2026-10-13
+
+User accepts imperfect harbor fit and asked to move on. Sparse harbor placement
+is enabled at 80/48-chunk spacing/separation with representative anchors/centers,
+a shared 32-column ceiling and a 150 ms stop budget, without exhaustive fallback.
+An in-flight native call can overrun the deadline. Twenty policy tests, Java 17
+build, installed-jar hash and 46-resource source equality pass. Broad terrain is
+unchanged. The live test did not launch because automatic approval review hit
+an account usage limit. No new runtime success is claimed. Harbor perfection is
+deferred by user direction. See `HARBOR_BOUNDED_PLACEMENT.md` in the design folder.
+
+Sacred Precinct is now active: seven sections cover the six sacred-life archetypes
+plus processional access. Eighteen source-equal files pass static registry,
+non-overlap, supported circulation/furniture and water containment checks: six
+joins, 59 cultural modules, 288 water cells, 48 railings. Civic topology regression
+also passes. No sacred natural set is enabled; live assembly and visual review are
+pending. See `alfheim_reclaimed_design/SACRED_PRECINCT.md`.
+Next: Sacred Precinct fresh-world assembly and saved-block verification when
+approval review is available; no further exhaustive harbor location searching.
+
+## Latest development - Harbor terrain-check refinement - 2026-10-13
+
+Native terrain checks now refine spacing 8/4/2/1, retaining every-column acceptance
+and all original support/height constraints. Java 17 build and fifteen policy
+tests passed. The first-party companion was backed up and installed.
+The paired five-site core run preserved all rejection and biome decisions and
+height-method parity. Sporebank (704,544) fell from 2523 columns/17734 ms to
+1003 columns/7361 ms. Other early-rejection column counts remain unchanged.
+A 7.4-second rejection still leaves a performance gate; no natural set is enabled.
+
+Exact per-attempt rejection diagnostics identify the Sporebank gap beneath the
+harbormaster at world (708,491): seabed first-free 57, current footing 58. An
+existing solid 39x47x2 footer (3666 cells) is source-verified as an unplaced support
+option, with proposed origin (708,56,451), rotation 0. Later hazards remain unknown.
+Report: `alfheim_reclaimed_design/HARBOR_REFINEMENT_2026-10-13.md`.
+Runtime: `server/console-20261013-141947.log`; server and harness exited 0.
+All 39 protected terrain files remain unchanged; player saves were not edited.
+Next: bounded member support with actual reach checks, remaining-column validation,
+late/successful-path performance, and core template/branch-closure authoring.
+
+## Latest development - Harbor footprint comparison - 2026-10-13
+
+Compared four connected ten-section/nine-join layouts against 461,568 saved columns
+at four-block origin spacing. Narrow docks plus an inland temple reduce bounds
+from 172x180 to 141x168; these are geometry proposals, not authored templates.
+The actual furnished templates and default placement footprint remain unchanged.
+Added a read-only native proposal audit with source-derived Java geometry.
+Java 17 build and twelve policy tests passed; the first-party jar was backed up
+and installed. Unknown proposal names and retained single-column hazards reject.
+
+Twenty native comparisons across five sites found no complete fit; three sites
+have eligible shore biomes. Native height parity passed. Profiles identify land
+height 75 above the quay's height limit and water seabeds at first-free heights
+57/55 beyond the actual foundation reach of 58. A narrower footprint alone is
+insufficient. Server and harness exited 0; console:
+`server/console-20261013-104933.log`. Natural placement remains withheld.
+The plan's section 7.6 requires three harbor buildings and permits optional
+satellites. Added a five-section required core with quay court/inland access,
+94x137 bounds and four joins. Its five native audits also reject; Sporebank reached
+2,523 sampled columns and a 17,734 ms late rejection, exposing a performance gate.
+Core console: `server/console-20261013-105849.log`; server and harness exited 0.
+This core is diagnostic geometry only; its furnished templates are not authored.
+All 39 protected terrain files remain unchanged; feature ordering has zero cycles.
+Report/map: `alfheim_reclaimed_design/HARBOR_FOOTPRINT_COMPARISON.md` and
+`alfheim_reclaimed_design/harbor_adaptation_studies.png`.
+Next: required core with optional satellites, safe omitted-branch closures,
+physical footing/stepped-quay support and late-path sampling performance repair,
+paired with saved-block verification. Harbor remains active.
+
+## Latest development - Mainland harbor search and low-bank repair - 2026-10-13
+
+Read-only saved-terrain screening covered 461,568 bounded-world columns and
+194,816 central-world columns. Native profiles exposed a dry-land lower bound
+that wrongly rejected low banks within the solid foundation's reach. Dry surface
+height now starts at sea-6, matching the actual footing; water depth, upper relief,
+dry connections and every-column checks remain enforced. Java 17 build and nine
+policy tests passed, and the first-party companion was backed up and installed.
+
+Ten fresh native candidates were audited; five have eligible shore biomes and none
+passed the complete footprint. Height-method parity passed, with rejection costs
+70-848 ms. Server and harness exited 0; console is
+`server/console-20261013-103031.log`. No harbor was forced into a rejected site.
+The 45 harbor source/shipping files still pass their geometry checks.
+All 39 protected terrain files remain unchanged; player saves were not edited.
+Natural generation remains withheld and harbor remains the active repair target.
+Details: `alfheim_reclaimed_design/HARBOR_MAINLAND_COAST_SEARCH.md`.
+Next: measured smaller/terraced shoreline arrangements and broader coast coverage,
+then complete native placement, successful-path cost and client visual fit.
+
+## Latest development - Adaptive harbor quay and foundations - 2026-10-13
+
+Exact native column profiles identified rising land and shallow water beneath the
+planned exchange. The harbor now tries quay lifts 0/2/4/6 above its former sea+2
+floor, with actual matching foundation segments maintaining the same lowest
+footing at sea-6. Twenty-one foundation templates remain within the 48-block limit.
+Reclaimed building platforms require supported shallows; dry exchange and inland
+approach probes still reject open water/no land connection. Existing room and
+furniture geometry remains supported above the chosen quay.
+
+Eight policy tests, source/shipping equality for 45 files and registered footprint
+checks passed. The raised-bank fixture chose quay Y=68 and placed ten architecture
+members plus their matching foundations. The save passed nine joins, 72 furnishings,
+29,474 added footing cells and 345,003 authored air cells.
+Console: `server/console-20261013-023222.log`; server and harness exited 0.
+The two native island-tip probes remain rejected: their landward approach probes
+lead into water with first-free seabed heights 54 and 33. The adaptation does not
+convert those invalid connections into accepted sites. Natural placement stays
+withheld until a connected real coast and full native/visual admission pass.
+All 39 protected terrain files remain unchanged; no player save was edited.
+Details: `alfheim_reclaimed_design/HARBOR_ADAPTIVE_QUAY.md`.
+Next: broader connected-mainland coast search, accepted native placement/cost and
+client visual review; retain harbor as the active repair target.
+
+## Latest development - Harbor real-coast validation - 2026-10-12
+
+Read-only survey covered 1370 saved chunks / 350,720 columns on seed
+3536368297089363045. It found 92 initial shore orientations; the decorated
+heightmap footprint screen found no complete fit. Native generator audits sampled
+21 sites (12 biome-eligible), also without an accepted site.
+
+Corrected the unnecessarily straight water/land seam requirement: a 16-block apron
+on either side of the local shoreline can occupy supported shallows or dry ground.
+Deep water, blocked waterline, high relief, missing ground and open ocean remain
+rejected. Six policy tests passed, including a curved shore and apron hazards.
+The installed first-party sampler now derives heights from one column calculation;
+live values matched Minecraft's independent height methods in every audited case.
+
+Four targeted eligible Mistbark sites were rechecked with the apron and all rejected.
+Measured rejection times were 191-242 ms, including parity controls. No successful full
+footprint/generation cost was measured. Console: `server/console-20261012-234237.log`;
+server and harness exited 0. Native fit acceptance remains failed on this sample.
+Natural placement remains withheld; do not advance harbor admission on these results.
+All 39 protected terrain files remain unchanged. No player save was edited.
+Details: `alfheim_reclaimed_design/HARBOR_REAL_COAST_VALIDATION.md`.
+Next repair target: harbor layout/foundation fit to measured real shores, then a
+successful native placement, performance and client visual check.
+
+## Latest development - Harbor shoreline guard - 2026-10-12
+
+Built and installed the first-party shoreline structure type and checked audit/
+placement commands. Every footprint column is checked across four orientations;
+wet dock columns need clear shallow water and reachable seabed, occupied land
+needs dry low-relief ground. Missing columns and narrow hazards are rejected.
+Quay height is sea level +2, with no terrain adjustment. Natural placement remains
+withheld pending a real generated coast, performance and visual admission.
+
+Java 17 build and the companion suite passed, including four new policy tests.
+The Java footprint matches the exact template assembly. Live fixtures first exposed
+an unreachable seabed and remaining dirt waterline cap; those test fixtures were
+corrected without relaxing the policy. The final synthetic coast was accepted,
+a single cliff column rejected, and checked placement passed all ten members,
+nine joins, 72 furnishings and 345,003 authored air cells.
+Console: `server/console-20261012-201303.log`; server and harness exited 0.
+Previous first-party jar retained under `quarantine/first-party-harbor-guard-20261012`.
+All 39 protected terrain files remain unchanged; player saves were not edited.
+Details: `alfheim_reclaimed_design/HARBOR_PLACEMENT_GUARD.md`.
+Next harbor work: real generated-coast and native generation-cost/visual tests.
+
+## Latest structure development - Harbor Complex prototype - 2026-10-12
+
+Wave 3 now has a command-placeable ten-member maritime prototype: exchange,
+harbormaster, bonded warehouse, pier, drydock, temple, quay, lighthouse, housing
+and approach. Footprint: 172 by 180 blocks, with 72 cultural modules and contained
+subfloor inundation. The lighthouse has a supported twelve-step signal-gallery stair.
+
+Natural placement is withheld: no structure set ships. A waterline/shore orientation,
+quay support, pier depth and relief gate is required before natural generation.
+Source/shipping, registration, spatial, circulation, basin, furniture support,
+lighthouse headroom and feature-order checks passed. Furniture over flooded openings
+was moved to dry floor; the initial save comparison was invalidated by those revisions.
+A fresh revised save passed ten members, nine joins, all fixtures and 345,003 air cells.
+Console: `server/console-20261012-175714.log`; server and harness exited 0.
+All 39 protected broad terrain files remain unchanged. Shoreline placement,
+client visual review and terrain-fit admission remain pending.
+Details: `alfheim_reclaimed_design/HARBOR_COMPLEX.md`.
+Next harbor work: waterline-aware placement guard and coastal test cases.
+Next roster family after harbor development: Sacred precincts.
+
+## Latest structure development - Roads / Trade Support - 2026-10-12
+
+Wave 2 now includes ten connected transport sections: caravan court, processional
+avenue, bridge gate, freight exchange, customs house, bonded store, road checkpoint,
+wayshrine/rest station, refugee lodge and road approach. Footprint: 172 by 180.
+The precinct reuses 47 cultural modules and sixteen travel/refuge beds, with eight
+foundation layers per piece. The bridge spans a wholly authored dry channel with
+a supported central deck, four piers and guarded edges; it does not carve terrain.
+
+Source/shipping, registration, spatial, connected circulation, bridge far-bank
+route, deck/pier/rail and feature-order checks passed. Saved-world verification
+passed ten members, nine joins, all furnishings/fixtures and 324,657 authored air cells.
+`server/console-20261012-163523.log` saved all dimensions; server and harness exited 0.
+All 39 protected terrain files remain unchanged. All four planned Wave 2 families
+now have controlled assembly evidence. Client visual, natural placement frequency
+and terrain-fit admission remain pending. Cross-settlement roads and terrain-aware
+river crossings are not implemented by this bounded precinct.
+Details: `alfheim_reclaimed_design/ROADS_TRADE.md`.
+Next planned family: Wave 3 Harbor Complex.
+
+## Latest structure development - Agricultural Estate / Food Belt - 2026-10-12
+
+Wave 2 now includes ten connected agricultural sections: water garden, terraced
+orchard, survival terraces, root granary, seed vault, fungus conservatory,
+harvest court, keeper housing, pollinator sanctuary and farm approach.
+Local footprint: 172 by 180 blocks. Each member owns eight foundation layers.
+The estate has four contained basins, four native trees, eight fungus varieties,
+thirteen beds, four empty hives and 41 reused cultural furniture modules.
+
+Source/shipping, registration, spatial, circulation, terrace stair, basin wall and
+feature-order checks passed. Staff remains overlapping a basin were moved to its
+bank before testing; terrace stairs have solid backing and clear headroom.
+Saved-world checks passed ten members, nine joins, all planted and keeper fixtures and
+312,717 authored air cells, with fluid ticks active and no irrigation escape.
+Random growth was paused for geometry: crop growth/pollination remain pending.
+`server/console-20261012-162742.log` saved all dimensions; server and harness exited 0.
+All 39 protected terrain files remain unchanged. Client visual, natural placement
+frequency and terrain-fit admission remain pending.
+Details: `alfheim_reclaimed_design/AGRICULTURAL_ESTATE.md`.
+Next planned work: Roads / Trade support pieces.
+
+## Latest structure development - Production District - 2026-10-12
+
+Wave 2 now includes ten connected production/logistics sections: freight yard,
+distribution depot, resonance foundry, Mana Mill, Dreamwood shaping court,
+Glass Bloom House, dry waterworks, worker housing, guard post and freight approach.
+Local footprint: 172 by 180 blocks. The family reuses 32 cultural modules and owns
+eight buried foundation layers per piece. Magical apparatus is inert decoration;
+eight ordinary unlit kilns retain ordinary behavior, with no added progression gear.
+
+Source/shipping, registration, spatial, circulation and feature-order checks passed.
+The initial global census counted two unrelated natural edge fragments as duplicates;
+it was corrected to verify each member at its exact reconstructed coordinate.
+Rechecking the saved assembly passed ten members, nine joins, every fixture and
+333,148 authored air cells. The server saved and exited 0; the corrected
+saved-world audit exited 0. Console: `server/console-20261012-152612.log`.
+Natural start metadata at chunk (-92, 56) declares ten members, with only two
+edge fragments loaded here; full natural placement is not claimed.
+All 39 protected terrain files remain unchanged. Client visual, natural placement
+frequency and terrain-fit admission remain pending.
+Details: `alfheim_reclaimed_design/PRODUCTION_DISTRICT.md`.
+Next planned family: Agricultural Estate / Food Belt.
+
+## Latest structure development - Scholastic Quarter - 2026-10-12
+
+Wave 2 begins with nine connected sections: lore college, archive cloister,
+runic engineering hall, philosopher court, astral conservatory, student residence,
+botanical research garden, entry court and scholars' avenue. Local footprint:
+141 by 181 blocks. The family reuses 89 cultural modules and owns eight buried
+foundation layers per piece, twelve student beds and an accessible observation
+gallery. Research rigs are inert decoration; loot remains ordinary records/supplies.
+
+Source/shipping, registration, spatial, circulation, observation stair and feature
+ordering checks passed. A blocked upper stair was repaired before test placement.
+Saved-world checks passed all nine members, eight joins, all furniture, beds,
+archive shelves, rods, stairs and 324,738 authored air cells.
+`server/console-20261012-151403.log` saved all dimensions and exited 0.
+All 39 protected broad terrain files remain unchanged. Client visual, natural
+placement frequency and terrain-fit admission remain pending.
+Details: `alfheim_reclaimed_design/SCHOLASTIC_QUARTER.md`.
+Next planned family: Production District.
+
+## Latest structure development - Relief / Quarantine District - 2026-10-12
+
+The fourth Wave 1 family now ships as eleven connected sections: triage court,
+hospice, healer cloister, quarantine checkpoint, Last Order graves, ash pits,
+digger shelter, supply court, ration hall, sealed store and cart approach.
+The footprint is 141 by 172 blocks. Each piece owns eight foundation layers;
+four late burial trenches are excavated into that authored bedding.
+
+Source/shipping, registration, spatial, internal circulation and feature-order
+checks passed. Saved-world verification passed all eleven members, ten joins,
+56 cultural modules, clinical/burial fixtures and 283,206 authored air cells.
+`server/console-20261012-144246.log` saved all dimensions and exited 0.
+All 39 protected terrain files remain unchanged; no player save was edited.
+All four Wave 1 families have controlled assembly evidence. Client visual,
+natural placement frequency and terrain-fit admission remain pending.
+Details: `alfheim_reclaimed_design/RELIEF_QUARANTINE_DISTRICT.md`.
+Next planned family: Wave 2 Scholastic Quarter.
+
+## Latest structure development - Civic Center - 2026-10-12
+
+Wave 1 now includes a nine-member civic precinct: assembly hall, record house,
+council house, public forum, market, service court, census hall, public kitchen
+and processional avenue. Existing cultural furnishings supply 101 modules.
+The footprint is 141 by 183 blocks with eight foundation layers per member.
+
+Source/shipping equality, registration, spatial and feature-order checks passed.
+The separate test save contains every member, all eight supported clear joins,
+every cultural module and 288,636 unfilled authored air cells.
+`server/console-20261012-143111.log` saved all dimensions and exited 0.
+All 39 protected broad terrain files remain unchanged. Client terrain-fit,
+visual review and natural placement frequency remain pending.
+Details: `alfheim_reclaimed_design/CIVIC_CENTER.md`.
+Next planned family: Relief / Quarantine District and Mass Grave.
+
+## Latest structure development — Elder Lineage Precinct — 2026-10-12
+
+Continued Wave 1 with a nine-piece connected estate: monumental three-part palace,
+ancestor reflection garden, family mausoleum, entrance court, retainer house,
+service wing and processional gate. Existing Royal/Funerary vocabulary supplies
+152 modules and four dynastic burials. Occupied air, supported ports, bounded water,
+buried bedding and restrained ceremonial light are authored explicitly.
+
+Source/shipping checks and feature ordering passed; all 39 protected broad terrain
+files remain unchanged. The saved test assembly contains all nine members, eight
+clear supported connections and every cultural module at its expected position.
+`server/console-20261012-134655.log` saved all dimensions and exited 0.
+Acceptance: runtime assembly validated; client terrain-fit/visual admission pending.
+Details/layout: `alfheim_reclaimed_design/ELDER_LINEAGE_PRECINCT.md`.
+Next planned family: Civic Center.
+
+## Latest structure development — Common Residential Quarter — 2026-10-12
+
+Resumed the master `ANCIENT_ELVEN_STRUCTURE_ROSTER.md` at its first unshipped family.
+The Common Residential Quarter now ships 12 template types and 13 pools as one
+district anchor. Its deterministic layout contains 26 pieces: a common/ration hall,
+16 inhabited members (6 row houses, 4 courtyard homes, 4 artisan shops, 2 kin halls),
+four avenues, a cistern, burial grounds and three trace edges. All 25 connections
+have supported floors and clear two-block headroom in the saved test assembly.
+
+The isolated generation check, registered-block/bounds checks and feature ordering
+passed. Final fresh test saved cleanly and exited 0:
+`server/console-20261012-132531.log`. All 39 broad terrain/climate files remain unchanged;
+no player save was edited. Acceptance is runtime assembly validation, with client
+terrain-fit and visual review pending. Details and layout:
+`alfheim_reclaimed_design/COMMON_RESIDENTIAL_QUARTER.md`.
+The next planned family is Elder Lineage Precinct.
+
+## Latest field repair and structures — 2026-10-12
+
+The October 12 review is implemented: custom-model coplanar faces, tomb/ley-line
+lamp budgets, connected wall states, externally mounted carvings/crystals, sealed
+and explicitly carved rotunda crown, safe spawn delivery and new/existing-hub
+underfill. Vegetation now has eight mushroom varieties and increased tree attempts;
+the companion mod supplies Mistbark fog. Golden Fields uses surface grass with
+worked soil confined to raised circular fields. Thorn Gate and Shore Memorial
+Court add two void-edge structure types.
+
+All 39 broad terrain/climate files remain byte-identical. The same-seed Golden Fields
+sample falls from 1,261 underground worked-soil blocks to zero. Fresh runtime probes,
+existing-hub upgrade, mushroom placement and final biome/heightmap placement of all
+three new structures passed with clean saves and process exit 0. Interactive client
+visual acceptance remains outstanding. Evidence and limits:
+`alfheim_reclaimed_design/FIELD_REPAIR_2026-10-12.md`.
+
+## Latest instance repair — 2026-10-12
+
+Corrected the companion sigil's invalid texture resource location, rebuilt and
+installed the first-party mod, and added reproducible 1.20.1 loot-table overrides
+for Iron's Spellbooks citadel tomes and crypt loot. The previous expedition boot
+repair remains effective in all 18 applicable defaults and saved-world configs.
+Fresh dedicated startup and both loot commands passed; interactive client
+verification remains outstanding. Evidence and backup hashes:
+`alfheim_reclaimed_design/INSTANCE_REPAIR_2026-10-12.md`.
+
 ## Latest boot repair — 2026-10-01
 
 The September 30 integrated-world startup stalled in Library of Exile's

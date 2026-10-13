@@ -11,34 +11,52 @@
     "minimum_decline_stages_member": 2
   },
   "generation_evidence": {
-    "evidence_scope": "retained_generation_artifact_integrity_only",
-    "generator_git_blob_sha1": "04e3aba82df7ea48df47a0400fac7df9190a58e9",
-    "retained_output_roots_observed": 2,
-    "declared_shipping_corpus_files": 24,
-    "retained_roots_byte_identical": true,
+    "evidence_scope": "controlled_fresh_world_assembly",
+    "declared_shipping_corpus_files": 31,
     "nbt_piece_types_observed": 12,
-    "nbt_roundtrip_and_bounds": "pass",
-    "jigsaw_blocks_observed": 35,
-    "template_pools_observed": 9,
-    "jigsaw_pool_resolution": "pass",
-    "worldgen_anchor_contract": "pass",
-    "source_to_shipping_equality": "not_established",
-    "shipping_state": "not_committed",
-    "runtime_state": "not_validated"
+    "template_pools_observed": 13,
+    "source_to_shipping_equality": "pass_decoded_nbt_and_json_bytes",
+    "shipping_state": "generated_uncommitted",
+    "runtime_state": "assembly_validated",
+    "runtime_pieces": 26,
+    "inhabited_members": 16,
+    "supported_clear_joins": 25,
+    "runtime_console": "server/console-20261012-132531.log",
+    "client_visual_state": "pending",
+    "family": "common_residential_quarter"
   },
   "families": [
     {
       "id": "common_residential_quarter",
       "wave": 1,
-      "status": "source_contract",
+      "status": "runtime_validated",
       "settlement_class": "great_city_district",
-      "intended_extent": [192, 48, 192],
+      "intended_extent": [
+        192,
+        48,
+        216
+      ],
       "anchor": "neighborhood_common_hall",
-      "palette_families": ["elven_marble", "livingrock", "sourcestone"],
+      "palette_families": [
+        "elven_marble",
+        "livingrock",
+        "sourcestone"
+      ],
       "biome_policy": "temperate_or_decayed_alfheim_surface",
-      "decline_stages": [1, 2, 3, 4, 5],
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "mortuary_density": "localized_to_heavy",
-      "advanced_systems": ["district_water_cistern", "runic_wayfinding", "mana_lighting_conduit", "storm_drainage"],
+      "advanced_systems": [
+        "district_water_cistern",
+        "runic_wayfinding",
+        "mana_lighting_conduit",
+        "storm_drainage"
+      ],
       "circulation": {
         "primary_avenue_width": 7,
         "secondary_lane_width": 3,
@@ -53,15 +71,246 @@
         "severe_relief_requires_authored_substructure": true
       },
       "members": [
-        {"id":"neighborhood_common_hall","role":"hero_anchor","archetype":"Neighborhood Common Hall","scale":"S2","piece_size":[48,28,40],"count":[1,1],"decline_stages":[1,3,4,5],"evidence":["public_kitchen","ration_queue","barricades","civilian_remains"]},
-        {"id":"common_row_house","role":"residential_member","archetype":"Common Row Houses","scale":"S1","piece_size":[32,24,24],"count":[6,12],"decline_stages":[2,4,5],"evidence":["shared_walls","patched_roofs","family_shelters","household_remains"]},
-        {"id":"courtyard_home","role":"residential_member","archetype":"Courtyard Home","scale":"S1-S2","piece_size":[40,24,40],"count":[2,4],"decline_stages":[1,2,4,5],"evidence":["food_garden_conversion","water_storage","sealed_sick_room","courtyard_burials"]},
-        {"id":"artisan_house_shop","role":"economic_member","archetype":"Artisan House-Shop","scale":"S1-S2","piece_size":[32,24,32],"count":[2,5],"decline_stages":[1,3,4,5],"evidence":["unfinished_work","abandoned_tools","ration_exchange_conversion","workbench_remains"]},
-        {"id":"extended_kin_hall","role":"residential_member","archetype":"Extended Kin Hall","scale":"S2","piece_size":[48,28,36],"count":[1,2],"decline_stages":[1,3,4,5],"evidence":["sleeping_galleries","refuge_crowding","family_workrooms","multi_generation_possessions"]},
-        {"id":"district_cistern","role":"infrastructure_member","archetype":"District Cistern","scale":"S1-S2","piece_size":[32,20,32],"count":[1,2],"decline_stages":[1,2,3,5],"evidence":["filter_beds","broken_runic_valves","emergency_water_queue","silted_basin"]},
-        {"id":"avenue_segment","role":"circulation_member","archetype":"Great Avenue / Processional Road","scale":"S0-S1","piece_size":[48,12,16],"count":[4,10],"decline_stages":[1,2,3,5],"evidence":["durable_paving","runic_wayfinding","barricade_scars","root_buckling"]},
-        {"id":"district_mass_grave","role":"mortuary_edge_member","archetype":"Mass Grave of the Last Order","scale":"S2","piece_size":[48,20,48],"count":[1,1],"decline_stages":[3,4,5],"evidence":["ordered_early_trenches","crowded_late_trenches","unfinished_pits","corpse_cart_approach","digger_camp"]},
-        {"id":"collapsed_trace_field","role":"trace_member","archetype":"Fragment / Trace Field","scale":"S0","piece_size":[24,12,24],"count":[3,8],"decline_stages":[4,5],"evidence":["foundation_lines","debris","drain_fragments","secondary_collapse"]}
+        {
+          "id": "neighborhood_common_hall",
+          "role": "hero_anchor",
+          "archetype": "Neighborhood Common Hall",
+          "scale": "S2",
+          "piece_size": [
+            48,
+            34,
+            40
+          ],
+          "count": [
+            1,
+            1
+          ],
+          "decline_stages": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "evidence": [
+            "public_kitchen",
+            "ration_queue",
+            "barricades",
+            "civilian_remains"
+          ]
+        },
+        {
+          "id": "common_row_house",
+          "role": "residential_member",
+          "archetype": "Common Row Houses",
+          "scale": "S1",
+          "piece_size": [
+            20,
+            30,
+            20
+          ],
+          "count": [
+            6,
+            12
+          ],
+          "decline_stages": [
+            2,
+            4,
+            5
+          ],
+          "evidence": [
+            "shared_walls",
+            "patched_roofs",
+            "family_shelters",
+            "household_remains"
+          ]
+        },
+        {
+          "id": "courtyard_home",
+          "role": "residential_member",
+          "archetype": "Courtyard Home",
+          "scale": "S1-S2",
+          "piece_size": [
+            20,
+            30,
+            20
+          ],
+          "count": [
+            2,
+            4
+          ],
+          "decline_stages": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "evidence": [
+            "food_garden_conversion",
+            "water_storage",
+            "sealed_sick_room",
+            "courtyard_burials"
+          ]
+        },
+        {
+          "id": "artisan_house_shop",
+          "role": "economic_member",
+          "archetype": "Artisan House-Shop",
+          "scale": "S1-S2",
+          "piece_size": [
+            20,
+            30,
+            20
+          ],
+          "count": [
+            2,
+            5
+          ],
+          "decline_stages": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "evidence": [
+            "unfinished_work",
+            "abandoned_tools",
+            "ration_exchange_conversion",
+            "workbench_remains"
+          ]
+        },
+        {
+          "id": "extended_kin_hall",
+          "role": "residential_member",
+          "archetype": "Extended Kin Hall",
+          "scale": "S2",
+          "piece_size": [
+            20,
+            34,
+            20
+          ],
+          "count": [
+            1,
+            2
+          ],
+          "decline_stages": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "evidence": [
+            "sleeping_galleries",
+            "refuge_crowding",
+            "family_workrooms",
+            "multi_generation_possessions"
+          ]
+        },
+        {
+          "id": "district_cistern",
+          "role": "infrastructure_member",
+          "archetype": "District Cistern",
+          "scale": "S1-S2",
+          "piece_size": [
+            32,
+            26,
+            32
+          ],
+          "count": [
+            1,
+            2
+          ],
+          "decline_stages": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "evidence": [
+            "filter_beds",
+            "broken_runic_valves",
+            "emergency_water_queue",
+            "silted_basin"
+          ]
+        },
+        {
+          "id": "avenue_segment",
+          "role": "circulation_member",
+          "archetype": "Great Avenue / Processional Road",
+          "scale": "S0-S1",
+          "piece_size": [
+            16,
+            18,
+            48
+          ],
+          "count": [
+            4,
+            10
+          ],
+          "decline_stages": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "evidence": [
+            "durable_paving",
+            "runic_wayfinding",
+            "barricade_scars",
+            "root_buckling"
+          ]
+        },
+        {
+          "id": "district_mass_grave",
+          "role": "mortuary_edge_member",
+          "archetype": "Mass Grave of the Last Order",
+          "scale": "S2",
+          "piece_size": [
+            48,
+            26,
+            48
+          ],
+          "count": [
+            1,
+            1
+          ],
+          "decline_stages": [
+            3,
+            4,
+            5
+          ],
+          "evidence": [
+            "ordered_early_trenches",
+            "crowded_late_trenches",
+            "unfinished_pits",
+            "corpse_cart_approach",
+            "digger_camp"
+          ]
+        },
+        {
+          "id": "collapsed_trace_field",
+          "role": "trace_member",
+          "archetype": "Fragment / Trace Field",
+          "scale": "S0",
+          "piece_size": [
+            24,
+            18,
+            24
+          ],
+          "count": [
+            3,
+            8
+          ],
+          "decline_stages": [
+            4,
+            5
+          ],
+          "evidence": [
+            "foundation_lines",
+            "debris",
+            "drain_fragments",
+            "secondary_collapse"
+          ]
+        }
       ],
       "acceptance": {
         "minimum_members_per_site": 20,
@@ -76,7 +325,190 @@
         "must_include_advanced_infrastructure": true,
         "must_include_connected_route_from_anchor_to_burial_edge": true,
         "must_not_bypass_progression": true
+      },
+      "assembly_contract": {
+        "inhabited_members": 16,
+        "total_pieces": 26,
+        "mix": {
+          "common_row_house": 6,
+          "courtyard_home": 4,
+          "artisan_house_shop": 4,
+          "extended_kin_hall": 2
+        },
+        "foundation_depth": 6,
+        "frontage": 20,
+        "socket_separation": 22
       }
+    },
+    {
+      "id": "elder_lineage_precinct",
+      "wave": 1,
+      "status": "runtime_validated",
+      "anchor": "palace_center",
+      "contract": "tools/elder_lineage_manifest.json",
+      "members_per_site": 9,
+      "supported_connections": 8,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression": "No Fey Stone, credentials or gated equipment granted",
+      "client_terrain_visual_acceptance": "pending"
+    },
+    {
+      "id": "civic_center",
+      "wave": 1,
+      "status": "runtime_validated",
+      "anchor": "assembly_hall",
+      "implementation_contract": "tools/civic_center_manifest.json",
+      "assembled_members": 9,
+      "supported_connections": 8,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "mundane_records_and_public_supplies",
+      "client_visual_state": "pending",
+      "terrain_admission": "pending"
+    },
+    {
+      "id": "relief_district",
+      "wave": 1,
+      "status": "runtime_validated",
+      "anchor": "triage_court",
+      "implementation_contract": "tools/relief_district_manifest.json",
+      "assembled_members": 11,
+      "supported_connections": 10,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "exhausted_mundane_supplies_and_records",
+      "client_visual_state": "pending",
+      "terrain_admission": "pending"
+    },
+    {
+      "id": "scholastic_quarter",
+      "wave": 2,
+      "status": "runtime_validated",
+      "anchor": "lore_college",
+      "implementation_contract": "tools/scholastic_quarter_manifest.json",
+      "assembled_members": 9,
+      "supported_connections": 8,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "mundane_records_and_student_supplies",
+      "client_visual_state": "pending",
+      "terrain_admission": "pending"
+    },
+    {
+      "id": "production_district",
+      "wave": 2,
+      "status": "runtime_validated",
+      "anchor": "freight_yard",
+      "implementation_contract": "tools/production_district_manifest.json",
+      "assembled_members": 10,
+      "supported_connections": 9,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "ordinary_stock_and_records",
+      "client_visual_state": "pending",
+      "terrain_admission": "pending"
+    },
+    {
+      "id": "agricultural_estate",
+      "wave": 2,
+      "status": "runtime_validated",
+      "anchor": "water_garden",
+      "implementation_contract": "tools/agricultural_estate_manifest.json",
+      "assembled_members": 10,
+      "supported_connections": 9,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "ordinary_seeds_food_and_records",
+      "client_visual_state": "pending",
+      "terrain_admission": "pending"
+    },
+    {
+      "id": "roads_trade",
+      "wave": 2,
+      "status": "runtime_validated",
+      "anchor": "caravan_court",
+      "implementation_contract": "tools/roads_trade_manifest.json",
+      "assembled_members": 10,
+      "supported_connections": 9,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "ordinary_cargo_and_records",
+      "client_visual_state": "pending",
+      "terrain_admission": "pending"
+    },
+    {
+      "id": "harbor_complex",
+      "wave": 3,
+      "status": "runtime_validated",
+      "anchor": "harbor_exchange",
+      "implementation_contract": "tools/harbor_complex_manifest.json",
+      "assembled_members": 10,
+      "supported_connections": 9,
+      "decline_stages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "progression_policy": "ordinary_cargo_and_records",
+      "natural_placement": "enabled_user_accepts_imperfect_fit",
+      "client_visual_state": "pending",
+      "terrain_admission": "geometric_perfection_deferred_by_user",
+      "shoreline_guard": "bounded_32_columns_150ms_stop_budget",
+      "latest_runtime": "bounded_native_and_coast_assembly_passed",
+      "runtime_evidence": "tools/harbor_bounded_runtime.json"
+    },
+    {
+      "id": "sacred_precinct",
+      "wave": 3,
+      "status": "runtime_validated_visual_pending",
+      "anchor": "great_temple_court",
+      "implementation_contract": "tools/sacred_precinct_manifest.json",
+      "assembled_members": 7,
+      "supported_connections": 6,
+      "cultural_modules": 59,
+      "verified_air_cells": 196937,
+      "verified_foundation_cells": 65968,
+      "progression_policy": "ordinary_records_and_shelter_supplies",
+      "natural_placement": "not_enabled",
+      "client_visual_state": "pending"
     }
   ]
 }

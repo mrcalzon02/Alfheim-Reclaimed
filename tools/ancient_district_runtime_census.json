@@ -1,0 +1,256 @@
+{
+  "world": "server\\validation-residential-quarter-complete-20261012",
+  "pieces": 26,
+  "inhabited_members": 16,
+  "counts": {
+    "neighborhood_common_hall": 1,
+    "avenue_west": 1,
+    "avenue_north": 1,
+    "avenue_south": 1,
+    "avenue_east": 1,
+    "artisan_house_shop": 4,
+    "common_row_house": 6,
+    "collapsed_trace_field": 3,
+    "extended_kin_hall": 2,
+    "courtyard_home": 4,
+    "district_mass_grave": 1,
+    "district_cistern": 1
+  },
+  "clear_supported_joins": 25,
+  "layout": [
+    {
+      "name": "neighborhood_common_hall",
+      "origin": [
+        -1456,
+        69,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "avenue_west",
+      "origin": [
+        -1428,
+        69,
+        688
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "avenue_north",
+      "origin": [
+        -1504,
+        69,
+        624
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "avenue_south",
+      "origin": [
+        -1369,
+        69,
+        608
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "avenue_east",
+      "origin": [
+        -1444,
+        69,
+        545
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "artisan_house_shop",
+      "origin": [
+        -1408,
+        69,
+        667
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "common_row_house",
+      "origin": [
+        -1408,
+        69,
+        645
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "collapsed_trace_field",
+      "origin": [
+        -1424,
+        69,
+        712
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "extended_kin_hall",
+      "origin": [
+        -1463,
+        69,
+        687
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "courtyard_home",
+      "origin": [
+        -1463,
+        69,
+        665
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "courtyard_home",
+      "origin": [
+        -1483,
+        69,
+        644
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "common_row_house",
+      "origin": [
+        -1461,
+        69,
+        644
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "district_mass_grave",
+      "origin": [
+        -1552,
+        69,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "artisan_house_shop",
+      "origin": [
+        -1503,
+        69,
+        589
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "common_row_house",
+      "origin": [
+        -1481,
+        69,
+        589
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "courtyard_home",
+      "origin": [
+        -1390,
+        69,
+        588
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "common_row_house",
+      "origin": [
+        -1412,
+        69,
+        588
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "district_cistern",
+      "origin": [
+        -1337,
+        69,
+        600
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "extended_kin_hall",
+      "origin": [
+        -1370,
+        69,
+        643
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "common_row_house",
+      "origin": [
+        -1392,
+        69,
+        643
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "artisan_house_shop",
+      "origin": [
+        -1464,
+        69,
+        566
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "common_row_house",
+      "origin": [
+        -1464,
+        69,
+        588
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "collapsed_trace_field",
+      "origin": [
+        -1448,
+        69,
+        521
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "artisan_house_shop",
+      "origin": [
+        -1409,
+        69,
+        546
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "courtyard_home",
+      "origin": [
+        -1409,
+        69,
+        568
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "collapsed_trace_field",
+      "origin": [
+        -1540,
+        69,
+        569
+      ],
+      "rotation": 0
+    }
+  ]
+}

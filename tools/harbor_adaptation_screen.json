@@ -1,0 +1,2299 @@
+{
+  "world": "server/validation-field-review-bounded-20261012",
+  "saved_chunks": 1803,
+  "saved_columns": 461568,
+  "origin_step": 4,
+  "scope": "read-only decorated saved terrain; inferred fluids; coarse screening only; no admission",
+  "variants": {
+    "shipping": {
+      "layout": [
+        {
+          "name": "harbor_exchange",
+          "origin": [
+            0,
+            0
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            0,
+            46,
+            46
+          ]
+        },
+        {
+          "name": "harbormaster_house",
+          "origin": [
+            93,
+            4
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            4,
+            93,
+            42
+          ]
+        },
+        {
+          "name": "bonded_warehouse",
+          "origin": [
+            -47,
+            42
+          ],
+          "rotation": 3,
+          "bounds": [
+            -47,
+            4,
+            -1,
+            42
+          ]
+        },
+        {
+          "name": "wavebreak_pier",
+          "origin": [
+            0,
+            -39
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            -39,
+            46,
+            -1
+          ]
+        },
+        {
+          "name": "quay_court",
+          "origin": [
+            46,
+            77
+          ],
+          "rotation": 2,
+          "bounds": [
+            0,
+            47,
+            46,
+            77
+          ]
+        },
+        {
+          "name": "tide_temple",
+          "origin": [
+            -78,
+            42
+          ],
+          "rotation": 3,
+          "bounds": [
+            -78,
+            4,
+            -48,
+            42
+          ]
+        },
+        {
+          "name": "sunken_drydock",
+          "origin": [
+            0,
+            -70
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            -70,
+            46,
+            -40
+          ]
+        },
+        {
+          "name": "signal_lighthouse",
+          "origin": [
+            77,
+            47
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            47,
+            77,
+            77
+          ]
+        },
+        {
+          "name": "dockworker_housing",
+          "origin": [
+            -31,
+            81
+          ],
+          "rotation": 3,
+          "bounds": [
+            -31,
+            43,
+            -1,
+            81
+          ]
+        },
+        {
+          "name": "harbor_approach",
+          "origin": [
+            34,
+            109
+          ],
+          "rotation": 2,
+          "bounds": [
+            12,
+            78,
+            34,
+            109
+          ]
+        }
+      ],
+      "coarse_sample_count": 350,
+      "preflight_candidates": 207,
+      "coarse_passes": 0,
+      "failure_counts": {
+        "decorated_or_ambiguous_column": 3907,
+        "water_beyond_footing_reach": 4893,
+        "outside_saved_columns": 18944,
+        "dry_dock_column": 2396,
+        "land_above_highest_quay": 4964,
+        "ground_beyond_footing_reach": 130
+      },
+      "best_candidates": [
+        {
+          "x": -1504,
+          "z": 660,
+          "rotation": 3,
+          "passing_fraction": 0.34571,
+          "failed_samples": 229,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 17,
+            "land_above_highest_quay": 162,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 44,
+            "water_beyond_footing_reach": 4
+          },
+          "members_with_failures": {
+            "harbor_exchange": 24,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 36,
+            "wavebreak_pier": 24,
+            "quay_court": 32,
+            "tide_temple": 30,
+            "sunken_drydock": 28,
+            "signal_lighthouse": 8,
+            "dockworker_housing": 28,
+            "harbor_approach": 6
+          }
+        },
+        {
+          "x": -1548,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.64571,
+          "failed_samples": 124,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 41,
+            "water_beyond_footing_reach": 18,
+            "decorated_or_ambiguous_column": 18,
+            "outside_saved_columns": 42,
+            "dry_dock_column": 5
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 6,
+            "bonded_warehouse": 9,
+            "wavebreak_pier": 17,
+            "quay_court": 4,
+            "tide_temple": 18,
+            "sunken_drydock": 35,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 12,
+            "harbor_approach": 2
+          }
+        },
+        {
+          "x": -1544,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.63143,
+          "failed_samples": 129,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 40,
+            "decorated_or_ambiguous_column": 27,
+            "water_beyond_footing_reach": 20,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 12,
+            "outside_saved_columns": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 8,
+            "bonded_warehouse": 14,
+            "wavebreak_pier": 21,
+            "quay_court": 4,
+            "tide_temple": 18,
+            "sunken_drydock": 31,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 11,
+            "harbor_approach": 1
+          }
+        },
+        {
+          "x": -1552,
+          "z": 576,
+          "rotation": 0,
+          "passing_fraction": 0.62286,
+          "failed_samples": 132,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 21,
+            "water_beyond_footing_reach": 22,
+            "land_above_highest_quay": 39,
+            "outside_saved_columns": 49,
+            "dry_dock_column": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 20,
+            "harbormaster_house": 9,
+            "bonded_warehouse": 16,
+            "wavebreak_pier": 10,
+            "quay_court": 8,
+            "tide_temple": 30,
+            "sunken_drydock": 9,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 16,
+            "harbor_approach": 9
+          }
+        },
+        {
+          "x": -1540,
+          "z": 620,
+          "rotation": 3,
+          "passing_fraction": 0.62286,
+          "failed_samples": 132,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 26,
+            "land_above_highest_quay": 50,
+            "water_beyond_footing_reach": 20,
+            "ground_beyond_footing_reach": 1,
+            "dry_dock_column": 7,
+            "outside_saved_columns": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 18,
+            "harbormaster_house": 11,
+            "bonded_warehouse": 7,
+            "wavebreak_pier": 16,
+            "quay_court": 9,
+            "tide_temple": 21,
+            "sunken_drydock": 30,
+            "signal_lighthouse": 3,
+            "dockworker_housing": 14,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1536,
+          "z": 556,
+          "rotation": 0,
+          "passing_fraction": 0.62286,
+          "failed_samples": 132,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 27,
+            "land_above_highest_quay": 22,
+            "decorated_or_ambiguous_column": 23,
+            "dry_dock_column": 7,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 52
+          },
+          "members_with_failures": {
+            "harbor_exchange": 13,
+            "harbormaster_house": 9,
+            "bonded_warehouse": 11,
+            "wavebreak_pier": 12,
+            "quay_court": 7,
+            "tide_temple": 24,
+            "sunken_drydock": 29,
+            "signal_lighthouse": 10,
+            "dockworker_housing": 12,
+            "harbor_approach": 5
+          }
+        },
+        {
+          "x": -1536,
+          "z": 624,
+          "rotation": 3,
+          "passing_fraction": 0.62286,
+          "failed_samples": 132,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 17,
+            "land_above_highest_quay": 65,
+            "water_beyond_footing_reach": 21,
+            "ground_beyond_footing_reach": 1,
+            "dry_dock_column": 7,
+            "outside_saved_columns": 21
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 6,
+            "wavebreak_pier": 17,
+            "quay_court": 12,
+            "tide_temple": 24,
+            "sunken_drydock": 24,
+            "signal_lighthouse": 4,
+            "dockworker_housing": 17,
+            "harbor_approach": 6
+          }
+        },
+        {
+          "x": 680,
+          "z": 540,
+          "rotation": 0,
+          "passing_fraction": 0.62,
+          "failed_samples": 133,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 20,
+            "outside_saved_columns": 31,
+            "water_beyond_footing_reach": 62,
+            "dry_dock_column": 18,
+            "ground_beyond_footing_reach": 1,
+            "land_above_highest_quay": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 4,
+            "harbormaster_house": 20,
+            "bonded_warehouse": 24,
+            "wavebreak_pier": 4,
+            "quay_court": 8,
+            "tide_temple": 27,
+            "sunken_drydock": 17,
+            "signal_lighthouse": 7,
+            "dockworker_housing": 13,
+            "harbor_approach": 9
+          }
+        },
+        {
+          "x": 680,
+          "z": 536,
+          "rotation": 0,
+          "passing_fraction": 0.61714,
+          "failed_samples": 134,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 24,
+            "outside_saved_columns": 27,
+            "water_beyond_footing_reach": 63,
+            "dry_dock_column": 20
+          },
+          "members_with_failures": {
+            "harbor_exchange": 9,
+            "harbormaster_house": 22,
+            "bonded_warehouse": 22,
+            "wavebreak_pier": 2,
+            "quay_court": 6,
+            "tide_temple": 27,
+            "sunken_drydock": 21,
+            "signal_lighthouse": 8,
+            "dockworker_housing": 13,
+            "harbor_approach": 4
+          }
+        },
+        {
+          "x": -1548,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.61429,
+          "failed_samples": 135,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 22,
+            "land_above_highest_quay": 24,
+            "decorated_or_ambiguous_column": 21,
+            "outside_saved_columns": 63,
+            "dry_dock_column": 3,
+            "ground_beyond_footing_reach": 2
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 7,
+            "bonded_warehouse": 20,
+            "wavebreak_pier": 8,
+            "quay_court": 11,
+            "tide_temple": 30,
+            "sunken_drydock": 23,
+            "signal_lighthouse": 8,
+            "dockworker_housing": 8,
+            "harbor_approach": 4
+          }
+        },
+        {
+          "x": -1548,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.61143,
+          "failed_samples": 136,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 45,
+            "water_beyond_footing_reach": 19,
+            "decorated_or_ambiguous_column": 25,
+            "outside_saved_columns": 42,
+            "dry_dock_column": 5
+          },
+          "members_with_failures": {
+            "harbor_exchange": 18,
+            "harbormaster_house": 6,
+            "bonded_warehouse": 7,
+            "wavebreak_pier": 19,
+            "quay_court": 8,
+            "tide_temple": 21,
+            "sunken_drydock": 35,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 14,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1532,
+          "z": 560,
+          "rotation": 0,
+          "passing_fraction": 0.61143,
+          "failed_samples": 136,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 25,
+            "water_beyond_footing_reach": 23,
+            "land_above_highest_quay": 30,
+            "dry_dock_column": 12,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 45
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 11,
+            "wavebreak_pier": 14,
+            "quay_court": 10,
+            "tide_temple": 24,
+            "sunken_drydock": 27,
+            "signal_lighthouse": 13,
+            "dockworker_housing": 13,
+            "harbor_approach": 2
+          }
+        }
+      ],
+      "fully_covered_candidates": 1,
+      "status": "shipping prototype"
+    },
+    "narrow_docks": {
+      "layout": [
+        {
+          "name": "harbor_exchange",
+          "origin": [
+            0,
+            0
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            0,
+            46,
+            46
+          ]
+        },
+        {
+          "name": "harbormaster_house",
+          "origin": [
+            93,
+            4
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            4,
+            93,
+            42
+          ]
+        },
+        {
+          "name": "bonded_warehouse",
+          "origin": [
+            -47,
+            42
+          ],
+          "rotation": 3,
+          "bounds": [
+            -47,
+            4,
+            -1,
+            42
+          ]
+        },
+        {
+          "name": "wavebreak_pier",
+          "origin": [
+            12,
+            -27
+          ],
+          "rotation": 0,
+          "bounds": [
+            12,
+            -27,
+            34,
+            -1
+          ]
+        },
+        {
+          "name": "quay_court",
+          "origin": [
+            46,
+            77
+          ],
+          "rotation": 2,
+          "bounds": [
+            0,
+            47,
+            46,
+            77
+          ]
+        },
+        {
+          "name": "tide_temple",
+          "origin": [
+            -78,
+            42
+          ],
+          "rotation": 3,
+          "bounds": [
+            -78,
+            4,
+            -48,
+            42
+          ]
+        },
+        {
+          "name": "sunken_drydock",
+          "origin": [
+            12,
+            -50
+          ],
+          "rotation": 0,
+          "bounds": [
+            12,
+            -50,
+            34,
+            -28
+          ]
+        },
+        {
+          "name": "signal_lighthouse",
+          "origin": [
+            77,
+            47
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            47,
+            77,
+            77
+          ]
+        },
+        {
+          "name": "dockworker_housing",
+          "origin": [
+            -31,
+            81
+          ],
+          "rotation": 3,
+          "bounds": [
+            -31,
+            43,
+            -1,
+            81
+          ]
+        },
+        {
+          "name": "harbor_approach",
+          "origin": [
+            34,
+            109
+          ],
+          "rotation": 2,
+          "bounds": [
+            12,
+            78,
+            34,
+            109
+          ]
+        }
+      ],
+      "coarse_sample_count": 309,
+      "preflight_candidates": 207,
+      "coarse_passes": 0,
+      "failure_counts": {
+        "decorated_or_ambiguous_column": 3761,
+        "water_beyond_footing_reach": 3526,
+        "outside_saved_columns": 16264,
+        "dry_dock_column": 932,
+        "land_above_highest_quay": 4919,
+        "ground_beyond_footing_reach": 130
+      },
+      "best_candidates": [
+        {
+          "x": -1528,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.6246,
+          "failed_samples": 116,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 67,
+            "decorated_or_ambiguous_column": 21,
+            "water_beyond_footing_reach": 20,
+            "ground_beyond_footing_reach": 1,
+            "dry_dock_column": 7
+          },
+          "members_with_failures": {
+            "harbor_exchange": 10,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 7,
+            "wavebreak_pier": 13,
+            "quay_court": 12,
+            "tide_temple": 21,
+            "sunken_drydock": 7,
+            "signal_lighthouse": 9,
+            "dockworker_housing": 21,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1504,
+          "z": 572,
+          "rotation": 0,
+          "passing_fraction": 0.56311,
+          "failed_samples": 135,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 25,
+            "water_beyond_footing_reach": 15,
+            "land_above_highest_quay": 74,
+            "dry_dock_column": 20,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 11,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 20,
+            "wavebreak_pier": 10,
+            "quay_court": 20,
+            "tide_temple": 9,
+            "sunken_drydock": 14,
+            "signal_lighthouse": 22,
+            "dockworker_housing": 6,
+            "harbor_approach": 13
+          }
+        },
+        {
+          "x": -1504,
+          "z": 660,
+          "rotation": 3,
+          "passing_fraction": 0.34628,
+          "failed_samples": 202,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 18,
+            "land_above_highest_quay": 159,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 23
+          },
+          "members_with_failures": {
+            "harbor_exchange": 24,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 36,
+            "wavebreak_pier": 9,
+            "quay_court": 32,
+            "tide_temple": 30,
+            "sunken_drydock": 16,
+            "signal_lighthouse": 8,
+            "dockworker_housing": 28,
+            "harbor_approach": 6
+          }
+        },
+        {
+          "x": -1548,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.71197,
+          "failed_samples": 89,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 41,
+            "water_beyond_footing_reach": 17,
+            "decorated_or_ambiguous_column": 18,
+            "dry_dock_column": 5,
+            "outside_saved_columns": 8
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 6,
+            "bonded_warehouse": 9,
+            "wavebreak_pier": 6,
+            "quay_court": 4,
+            "tide_temple": 18,
+            "sunken_drydock": 11,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 12,
+            "harbor_approach": 2
+          }
+        },
+        {
+          "x": -1548,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.68608,
+          "failed_samples": 97,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 45,
+            "water_beyond_footing_reach": 16,
+            "decorated_or_ambiguous_column": 25,
+            "dry_dock_column": 3,
+            "outside_saved_columns": 8
+          },
+          "members_with_failures": {
+            "harbor_exchange": 18,
+            "harbormaster_house": 6,
+            "bonded_warehouse": 7,
+            "wavebreak_pier": 5,
+            "quay_court": 8,
+            "tide_temple": 21,
+            "sunken_drydock": 10,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 14,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1544,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.68608,
+          "failed_samples": 97,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 39,
+            "decorated_or_ambiguous_column": 21,
+            "water_beyond_footing_reach": 21,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 6,
+            "outside_saved_columns": 8
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 8,
+            "bonded_warehouse": 14,
+            "wavebreak_pier": 9,
+            "quay_court": 4,
+            "tide_temple": 18,
+            "sunken_drydock": 11,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 11,
+            "harbor_approach": 1
+          }
+        },
+        {
+          "x": -1552,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.66343,
+          "failed_samples": 104,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 50,
+            "water_beyond_footing_reach": 18,
+            "decorated_or_ambiguous_column": 21,
+            "dry_dock_column": 2,
+            "outside_saved_columns": 12,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 17,
+            "harbormaster_house": 5,
+            "bonded_warehouse": 13,
+            "wavebreak_pier": 4,
+            "quay_court": 8,
+            "tide_temple": 24,
+            "sunken_drydock": 13,
+            "signal_lighthouse": 6,
+            "dockworker_housing": 13,
+            "harbor_approach": 1
+          }
+        },
+        {
+          "x": -1540,
+          "z": 620,
+          "rotation": 3,
+          "passing_fraction": 0.66343,
+          "failed_samples": 104,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 26,
+            "land_above_highest_quay": 50,
+            "water_beyond_footing_reach": 22,
+            "ground_beyond_footing_reach": 1,
+            "dry_dock_column": 1,
+            "outside_saved_columns": 4
+          },
+          "members_with_failures": {
+            "harbor_exchange": 18,
+            "harbormaster_house": 11,
+            "bonded_warehouse": 7,
+            "wavebreak_pier": 14,
+            "quay_court": 9,
+            "tide_temple": 21,
+            "sunken_drydock": 4,
+            "signal_lighthouse": 3,
+            "dockworker_housing": 14,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1528,
+          "z": 548,
+          "rotation": 0,
+          "passing_fraction": 0.66343,
+          "failed_samples": 104,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 26,
+            "decorated_or_ambiguous_column": 28,
+            "dry_dock_column": 6,
+            "land_above_highest_quay": 17,
+            "outside_saved_columns": 26,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 13,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 14,
+            "wavebreak_pier": 7,
+            "quay_court": 7,
+            "tide_temple": 18,
+            "sunken_drydock": 11,
+            "signal_lighthouse": 9,
+            "dockworker_housing": 11,
+            "harbor_approach": 4
+          }
+        },
+        {
+          "x": -1548,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.65372,
+          "failed_samples": 107,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 18,
+            "land_above_highest_quay": 24,
+            "decorated_or_ambiguous_column": 21,
+            "outside_saved_columns": 42,
+            "ground_beyond_footing_reach": 2
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 7,
+            "bonded_warehouse": 20,
+            "wavebreak_pier": 2,
+            "quay_court": 11,
+            "tide_temple": 30,
+            "sunken_drydock": 1,
+            "signal_lighthouse": 8,
+            "dockworker_housing": 8,
+            "harbor_approach": 4
+          }
+        },
+        {
+          "x": -1536,
+          "z": 556,
+          "rotation": 0,
+          "passing_fraction": 0.65372,
+          "failed_samples": 107,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 29,
+            "land_above_highest_quay": 22,
+            "decorated_or_ambiguous_column": 23,
+            "dry_dock_column": 4,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 13,
+            "harbormaster_house": 9,
+            "bonded_warehouse": 11,
+            "wavebreak_pier": 8,
+            "quay_court": 7,
+            "tide_temple": 24,
+            "sunken_drydock": 8,
+            "signal_lighthouse": 10,
+            "dockworker_housing": 12,
+            "harbor_approach": 5
+          }
+        },
+        {
+          "x": -1536,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.65049,
+          "failed_samples": 108,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 24,
+            "land_above_highest_quay": 36,
+            "decorated_or_ambiguous_column": 20,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 24,
+            "dry_dock_column": 3
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 8,
+            "bonded_warehouse": 15,
+            "wavebreak_pier": 4,
+            "quay_court": 5,
+            "tide_temple": 24,
+            "sunken_drydock": 4,
+            "signal_lighthouse": 12,
+            "dockworker_housing": 15,
+            "harbor_approach": 9
+          }
+        }
+      ],
+      "fully_covered_candidates": 3,
+      "status": "footprint proposal; furniture and NBT not authored"
+    },
+    "inland_temple": {
+      "layout": [
+        {
+          "name": "harbor_exchange",
+          "origin": [
+            0,
+            0
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            0,
+            46,
+            46
+          ]
+        },
+        {
+          "name": "harbormaster_house",
+          "origin": [
+            93,
+            4
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            4,
+            93,
+            42
+          ]
+        },
+        {
+          "name": "bonded_warehouse",
+          "origin": [
+            -47,
+            42
+          ],
+          "rotation": 3,
+          "bounds": [
+            -47,
+            4,
+            -1,
+            42
+          ]
+        },
+        {
+          "name": "wavebreak_pier",
+          "origin": [
+            0,
+            -39
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            -39,
+            46,
+            -1
+          ]
+        },
+        {
+          "name": "quay_court",
+          "origin": [
+            46,
+            77
+          ],
+          "rotation": 2,
+          "bounds": [
+            0,
+            47,
+            46,
+            77
+          ]
+        },
+        {
+          "name": "tide_temple",
+          "origin": [
+            -5,
+            73
+          ],
+          "rotation": 2,
+          "bounds": [
+            -43,
+            43,
+            -5,
+            73
+          ]
+        },
+        {
+          "name": "sunken_drydock",
+          "origin": [
+            0,
+            -70
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            -70,
+            46,
+            -40
+          ]
+        },
+        {
+          "name": "signal_lighthouse",
+          "origin": [
+            77,
+            47
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            47,
+            77,
+            77
+          ]
+        },
+        {
+          "name": "harbor_approach",
+          "origin": [
+            34,
+            117
+          ],
+          "rotation": 2,
+          "bounds": [
+            12,
+            78,
+            34,
+            117
+          ]
+        },
+        {
+          "name": "dockworker_housing",
+          "origin": [
+            -19,
+            116
+          ],
+          "rotation": 3,
+          "bounds": [
+            -19,
+            78,
+            11,
+            116
+          ]
+        }
+      ],
+      "coarse_sample_count": 354,
+      "preflight_candidates": 187,
+      "coarse_passes": 0,
+      "failure_counts": {
+        "decorated_or_ambiguous_column": 3814,
+        "water_beyond_footing_reach": 3835,
+        "land_above_highest_quay": 5184,
+        "outside_saved_columns": 16523,
+        "dry_dock_column": 2130,
+        "ground_beyond_footing_reach": 119
+      },
+      "best_candidates": [
+        {
+          "x": -1504,
+          "z": 660,
+          "rotation": 3,
+          "passing_fraction": 0.39831,
+          "failed_samples": 213,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 19,
+            "land_above_highest_quay": 144,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 44,
+            "water_beyond_footing_reach": 4
+          },
+          "members_with_failures": {
+            "harbor_exchange": 24,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 36,
+            "wavebreak_pier": 24,
+            "quay_court": 32,
+            "tide_temple": 25,
+            "sunken_drydock": 28,
+            "signal_lighthouse": 8,
+            "harbor_approach": 6,
+            "dockworker_housing": 17
+          }
+        },
+        {
+          "x": -1548,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.64972,
+          "failed_samples": 124,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 38,
+            "water_beyond_footing_reach": 18,
+            "decorated_or_ambiguous_column": 21,
+            "outside_saved_columns": 42,
+            "dry_dock_column": 5
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 6,
+            "bonded_warehouse": 9,
+            "wavebreak_pier": 17,
+            "quay_court": 4,
+            "tide_temple": 9,
+            "sunken_drydock": 35,
+            "signal_lighthouse": 5,
+            "harbor_approach": 3,
+            "dockworker_housing": 20
+          }
+        },
+        {
+          "x": -1536,
+          "z": 556,
+          "rotation": 0,
+          "passing_fraction": 0.64972,
+          "failed_samples": 124,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 28,
+            "land_above_highest_quay": 34,
+            "decorated_or_ambiguous_column": 26,
+            "dry_dock_column": 7,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 13,
+            "harbormaster_house": 9,
+            "bonded_warehouse": 11,
+            "wavebreak_pier": 12,
+            "quay_court": 7,
+            "tide_temple": 8,
+            "sunken_drydock": 29,
+            "signal_lighthouse": 10,
+            "harbor_approach": 9,
+            "dockworker_housing": 16
+          }
+        },
+        {
+          "x": 680,
+          "z": 528,
+          "rotation": 0,
+          "passing_fraction": 0.64689,
+          "failed_samples": 125,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 24,
+            "outside_saved_columns": 32,
+            "water_beyond_footing_reach": 38,
+            "land_above_highest_quay": 3,
+            "dry_dock_column": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 8,
+            "harbormaster_house": 20,
+            "bonded_warehouse": 21,
+            "wavebreak_pier": 6,
+            "quay_court": 6,
+            "tide_temple": 18,
+            "sunken_drydock": 26,
+            "signal_lighthouse": 7,
+            "harbor_approach": 5,
+            "dockworker_housing": 8
+          }
+        },
+        {
+          "x": -1540,
+          "z": 560,
+          "rotation": 0,
+          "passing_fraction": 0.64407,
+          "failed_samples": 126,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 25,
+            "land_above_highest_quay": 42,
+            "decorated_or_ambiguous_column": 23,
+            "outside_saved_columns": 27,
+            "dry_dock_column": 8,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 15,
+            "harbormaster_house": 7,
+            "bonded_warehouse": 15,
+            "wavebreak_pier": 10,
+            "quay_court": 10,
+            "tide_temple": 11,
+            "sunken_drydock": 25,
+            "signal_lighthouse": 10,
+            "harbor_approach": 5,
+            "dockworker_housing": 18
+          }
+        },
+        {
+          "x": -1548,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.64124,
+          "failed_samples": 127,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 23,
+            "land_above_highest_quay": 42,
+            "decorated_or_ambiguous_column": 19,
+            "outside_saved_columns": 38,
+            "dry_dock_column": 3,
+            "ground_beyond_footing_reach": 2
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 7,
+            "bonded_warehouse": 20,
+            "wavebreak_pier": 8,
+            "quay_court": 11,
+            "tide_temple": 10,
+            "sunken_drydock": 23,
+            "signal_lighthouse": 8,
+            "harbor_approach": 4,
+            "dockworker_housing": 20
+          }
+        },
+        {
+          "x": -1532,
+          "z": 556,
+          "rotation": 0,
+          "passing_fraction": 0.63842,
+          "failed_samples": 128,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 26,
+            "decorated_or_ambiguous_column": 28,
+            "land_above_highest_quay": 34,
+            "dry_dock_column": 9,
+            "ground_beyond_footing_reach": 3,
+            "outside_saved_columns": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 10,
+            "harbormaster_house": 7,
+            "bonded_warehouse": 15,
+            "wavebreak_pier": 13,
+            "quay_court": 8,
+            "tide_temple": 9,
+            "sunken_drydock": 30,
+            "signal_lighthouse": 14,
+            "harbor_approach": 9,
+            "dockworker_housing": 13
+          }
+        },
+        {
+          "x": -1532,
+          "z": 560,
+          "rotation": 0,
+          "passing_fraction": 0.63842,
+          "failed_samples": 128,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 27,
+            "water_beyond_footing_reach": 26,
+            "land_above_highest_quay": 41,
+            "dry_dock_column": 12,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 21
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 11,
+            "wavebreak_pier": 14,
+            "quay_court": 10,
+            "tide_temple": 14,
+            "sunken_drydock": 27,
+            "signal_lighthouse": 13,
+            "harbor_approach": 5,
+            "dockworker_housing": 12
+          }
+        },
+        {
+          "x": -1544,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.63559,
+          "failed_samples": 129,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 22,
+            "water_beyond_footing_reach": 23,
+            "land_above_highest_quay": 44,
+            "outside_saved_columns": 32,
+            "dry_dock_column": 7,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 17,
+            "harbormaster_house": 6,
+            "bonded_warehouse": 15,
+            "wavebreak_pier": 10,
+            "quay_court": 6,
+            "tide_temple": 11,
+            "sunken_drydock": 24,
+            "signal_lighthouse": 10,
+            "harbor_approach": 11,
+            "dockworker_housing": 19
+          }
+        },
+        {
+          "x": -1544,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.63559,
+          "failed_samples": 129,
+          "full_saved_coverage": false,
+          "reasons": {
+            "land_above_highest_quay": 43,
+            "decorated_or_ambiguous_column": 24,
+            "water_beyond_footing_reach": 20,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 12,
+            "outside_saved_columns": 28
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 8,
+            "bonded_warehouse": 14,
+            "wavebreak_pier": 21,
+            "quay_court": 4,
+            "tide_temple": 12,
+            "sunken_drydock": 31,
+            "signal_lighthouse": 5,
+            "dockworker_housing": 18
+          }
+        },
+        {
+          "x": -1536,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.63559,
+          "failed_samples": 129,
+          "full_saved_coverage": false,
+          "reasons": {
+            "water_beyond_footing_reach": 24,
+            "land_above_highest_quay": 48,
+            "decorated_or_ambiguous_column": 23,
+            "dry_dock_column": 12,
+            "ground_beyond_footing_reach": 1,
+            "outside_saved_columns": 21
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 8,
+            "bonded_warehouse": 15,
+            "wavebreak_pier": 13,
+            "quay_court": 5,
+            "tide_temple": 8,
+            "sunken_drydock": 26,
+            "signal_lighthouse": 12,
+            "harbor_approach": 12,
+            "dockworker_housing": 18
+          }
+        },
+        {
+          "x": 680,
+          "z": 536,
+          "rotation": 0,
+          "passing_fraction": 0.63559,
+          "failed_samples": 129,
+          "full_saved_coverage": false,
+          "reasons": {
+            "decorated_or_ambiguous_column": 27,
+            "outside_saved_columns": 41,
+            "water_beyond_footing_reach": 41,
+            "dry_dock_column": 20
+          },
+          "members_with_failures": {
+            "harbor_exchange": 9,
+            "harbormaster_house": 22,
+            "bonded_warehouse": 22,
+            "wavebreak_pier": 2,
+            "quay_court": 6,
+            "tide_temple": 20,
+            "sunken_drydock": 21,
+            "signal_lighthouse": 8,
+            "harbor_approach": 8,
+            "dockworker_housing": 11
+          }
+        }
+      ],
+      "fully_covered_candidates": 1,
+      "status": "footprint proposal; furniture and NBT not authored"
+    },
+    "narrow_docks_inland_temple": {
+      "layout": [
+        {
+          "name": "harbor_exchange",
+          "origin": [
+            0,
+            0
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            0,
+            46,
+            46
+          ]
+        },
+        {
+          "name": "harbormaster_house",
+          "origin": [
+            93,
+            4
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            4,
+            93,
+            42
+          ]
+        },
+        {
+          "name": "bonded_warehouse",
+          "origin": [
+            -47,
+            42
+          ],
+          "rotation": 3,
+          "bounds": [
+            -47,
+            4,
+            -1,
+            42
+          ]
+        },
+        {
+          "name": "wavebreak_pier",
+          "origin": [
+            12,
+            -27
+          ],
+          "rotation": 0,
+          "bounds": [
+            12,
+            -27,
+            34,
+            -1
+          ]
+        },
+        {
+          "name": "quay_court",
+          "origin": [
+            46,
+            77
+          ],
+          "rotation": 2,
+          "bounds": [
+            0,
+            47,
+            46,
+            77
+          ]
+        },
+        {
+          "name": "tide_temple",
+          "origin": [
+            -5,
+            73
+          ],
+          "rotation": 2,
+          "bounds": [
+            -43,
+            43,
+            -5,
+            73
+          ]
+        },
+        {
+          "name": "sunken_drydock",
+          "origin": [
+            12,
+            -50
+          ],
+          "rotation": 0,
+          "bounds": [
+            12,
+            -50,
+            34,
+            -28
+          ]
+        },
+        {
+          "name": "signal_lighthouse",
+          "origin": [
+            77,
+            47
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            47,
+            77,
+            77
+          ]
+        },
+        {
+          "name": "harbor_approach",
+          "origin": [
+            34,
+            117
+          ],
+          "rotation": 2,
+          "bounds": [
+            12,
+            78,
+            34,
+            117
+          ]
+        },
+        {
+          "name": "dockworker_housing",
+          "origin": [
+            -19,
+            116
+          ],
+          "rotation": 3,
+          "bounds": [
+            -19,
+            78,
+            11,
+            116
+          ]
+        }
+      ],
+      "coarse_sample_count": 313,
+      "preflight_candidates": 187,
+      "coarse_passes": 0,
+      "failure_counts": {
+        "decorated_or_ambiguous_column": 3677,
+        "water_beyond_footing_reach": 2517,
+        "land_above_highest_quay": 5143,
+        "outside_saved_columns": 14011,
+        "dry_dock_column": 855,
+        "ground_beyond_footing_reach": 119
+      },
+      "best_candidates": [
+        {
+          "x": -1536,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.6869,
+          "failed_samples": 98,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 24,
+            "land_above_highest_quay": 48,
+            "decorated_or_ambiguous_column": 22,
+            "ground_beyond_footing_reach": 1,
+            "dry_dock_column": 3
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 8,
+            "bonded_warehouse": 15,
+            "wavebreak_pier": 4,
+            "quay_court": 5,
+            "tide_temple": 8,
+            "sunken_drydock": 4,
+            "signal_lighthouse": 12,
+            "harbor_approach": 12,
+            "dockworker_housing": 18
+          }
+        },
+        {
+          "x": -1524,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.63578,
+          "failed_samples": 114,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 23,
+            "decorated_or_ambiguous_column": 29,
+            "land_above_highest_quay": 50,
+            "dry_dock_column": 11,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 9,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 18,
+            "wavebreak_pier": 8,
+            "quay_court": 7,
+            "tide_temple": 12,
+            "sunken_drydock": 9,
+            "signal_lighthouse": 16,
+            "harbor_approach": 12,
+            "dockworker_housing": 10
+          }
+        },
+        {
+          "x": -1528,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.62939,
+          "failed_samples": 116,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 69,
+            "decorated_or_ambiguous_column": 19,
+            "water_beyond_footing_reach": 20,
+            "ground_beyond_footing_reach": 1,
+            "dry_dock_column": 7
+          },
+          "members_with_failures": {
+            "harbor_exchange": 10,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 7,
+            "wavebreak_pier": 13,
+            "quay_court": 12,
+            "tide_temple": 20,
+            "sunken_drydock": 7,
+            "signal_lighthouse": 9,
+            "harbor_approach": 3,
+            "dockworker_housing": 22
+          }
+        },
+        {
+          "x": -1516,
+          "z": 568,
+          "rotation": 0,
+          "passing_fraction": 0.61342,
+          "failed_samples": 121,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 21,
+            "land_above_highest_quay": 68,
+            "water_beyond_footing_reach": 15,
+            "dry_dock_column": 16,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 10,
+            "harbormaster_house": 14,
+            "bonded_warehouse": 16,
+            "wavebreak_pier": 7,
+            "quay_court": 12,
+            "tide_temple": 9,
+            "sunken_drydock": 13,
+            "signal_lighthouse": 18,
+            "harbor_approach": 11,
+            "dockworker_housing": 11
+          }
+        },
+        {
+          "x": -1520,
+          "z": 568,
+          "rotation": 0,
+          "passing_fraction": 0.61022,
+          "failed_samples": 122,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 17,
+            "decorated_or_ambiguous_column": 23,
+            "land_above_highest_quay": 68,
+            "dry_dock_column": 13,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 8,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 22,
+            "wavebreak_pier": 7,
+            "quay_court": 12,
+            "tide_temple": 11,
+            "sunken_drydock": 11,
+            "signal_lighthouse": 20,
+            "harbor_approach": 10,
+            "dockworker_housing": 11
+          }
+        },
+        {
+          "x": -1524,
+          "z": 568,
+          "rotation": 0,
+          "passing_fraction": 0.60703,
+          "failed_samples": 123,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 23,
+            "decorated_or_ambiguous_column": 25,
+            "land_above_highest_quay": 63,
+            "dry_dock_column": 11,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 11,
+            "harbormaster_house": 17,
+            "bonded_warehouse": 16,
+            "wavebreak_pier": 7,
+            "quay_court": 10,
+            "tide_temple": 12,
+            "sunken_drydock": 10,
+            "signal_lighthouse": 17,
+            "harbor_approach": 10,
+            "dockworker_housing": 13
+          }
+        },
+        {
+          "x": -1508,
+          "z": 568,
+          "rotation": 0,
+          "passing_fraction": 0.59425,
+          "failed_samples": 127,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 74,
+            "decorated_or_ambiguous_column": 21,
+            "water_beyond_footing_reach": 10,
+            "dry_dock_column": 21,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 7,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 14,
+            "wavebreak_pier": 8,
+            "quay_court": 14,
+            "tide_temple": 10,
+            "sunken_drydock": 16,
+            "signal_lighthouse": 20,
+            "harbor_approach": 13,
+            "dockworker_housing": 12
+          }
+        },
+        {
+          "x": -1512,
+          "z": 568,
+          "rotation": 0,
+          "passing_fraction": 0.58466,
+          "failed_samples": 130,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 27,
+            "land_above_highest_quay": 73,
+            "water_beyond_footing_reach": 10,
+            "dry_dock_column": 19,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 10,
+            "harbormaster_house": 10,
+            "bonded_warehouse": 21,
+            "wavebreak_pier": 6,
+            "quay_court": 17,
+            "tide_temple": 11,
+            "sunken_drydock": 15,
+            "signal_lighthouse": 19,
+            "harbor_approach": 11,
+            "dockworker_housing": 10
+          }
+        },
+        {
+          "x": -1520,
+          "z": 572,
+          "rotation": 0,
+          "passing_fraction": 0.57508,
+          "failed_samples": 133,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 19,
+            "decorated_or_ambiguous_column": 22,
+            "land_above_highest_quay": 77,
+            "dry_dock_column": 14,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 20,
+            "wavebreak_pier": 5,
+            "quay_court": 13,
+            "tide_temple": 9,
+            "sunken_drydock": 13,
+            "signal_lighthouse": 20,
+            "harbor_approach": 14,
+            "dockworker_housing": 14
+          }
+        },
+        {
+          "x": -1516,
+          "z": 572,
+          "rotation": 0,
+          "passing_fraction": 0.55911,
+          "failed_samples": 138,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 29,
+            "land_above_highest_quay": 77,
+            "water_beyond_footing_reach": 15,
+            "dry_dock_column": 16,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 7,
+            "harbormaster_house": 16,
+            "bonded_warehouse": 19,
+            "wavebreak_pier": 7,
+            "quay_court": 15,
+            "tide_temple": 13,
+            "sunken_drydock": 13,
+            "signal_lighthouse": 20,
+            "harbor_approach": 14,
+            "dockworker_housing": 14
+          }
+        },
+        {
+          "x": -1512,
+          "z": 572,
+          "rotation": 0,
+          "passing_fraction": 0.54313,
+          "failed_samples": 143,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 27,
+            "land_above_highest_quay": 82,
+            "water_beyond_footing_reach": 14,
+            "dry_dock_column": 19,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 11,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 22,
+            "wavebreak_pier": 6,
+            "quay_court": 17,
+            "tide_temple": 11,
+            "sunken_drydock": 15,
+            "signal_lighthouse": 20,
+            "harbor_approach": 12,
+            "dockworker_housing": 16
+          }
+        },
+        {
+          "x": -1504,
+          "z": 660,
+          "rotation": 3,
+          "passing_fraction": 0.40575,
+          "failed_samples": 186,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 20,
+            "land_above_highest_quay": 141,
+            "ground_beyond_footing_reach": 2,
+            "dry_dock_column": 23
+          },
+          "members_with_failures": {
+            "harbor_exchange": 24,
+            "harbormaster_house": 13,
+            "bonded_warehouse": 36,
+            "wavebreak_pier": 9,
+            "quay_court": 32,
+            "tide_temple": 25,
+            "sunken_drydock": 16,
+            "signal_lighthouse": 8,
+            "harbor_approach": 6,
+            "dockworker_housing": 17
+          }
+        }
+      ],
+      "fully_covered_candidates": 12,
+      "status": "footprint proposal; furniture and NBT not authored"
+    },
+    "core_with_approach": {
+      "layout": [
+        {
+          "name": "harbor_exchange",
+          "origin": [
+            0,
+            0
+          ],
+          "rotation": 0,
+          "bounds": [
+            0,
+            0,
+            46,
+            46
+          ]
+        },
+        {
+          "name": "harbormaster_house",
+          "origin": [
+            93,
+            4
+          ],
+          "rotation": 1,
+          "bounds": [
+            47,
+            4,
+            93,
+            42
+          ]
+        },
+        {
+          "name": "wavebreak_pier",
+          "origin": [
+            12,
+            -27
+          ],
+          "rotation": 0,
+          "bounds": [
+            12,
+            -27,
+            34,
+            -1
+          ]
+        },
+        {
+          "name": "quay_court",
+          "origin": [
+            46,
+            77
+          ],
+          "rotation": 2,
+          "bounds": [
+            0,
+            47,
+            46,
+            77
+          ]
+        },
+        {
+          "name": "harbor_approach",
+          "origin": [
+            34,
+            109
+          ],
+          "rotation": 2,
+          "bounds": [
+            12,
+            78,
+            34,
+            109
+          ]
+        }
+      ],
+      "coarse_sample_count": 166,
+      "preflight_candidates": 207,
+      "coarse_passes": 0,
+      "failure_counts": {
+        "decorated_or_ambiguous_column": 2555,
+        "water_beyond_footing_reach": 1229,
+        "dry_dock_column": 261,
+        "land_above_highest_quay": 1916,
+        "outside_saved_columns": 8048,
+        "ground_beyond_footing_reach": 70
+      },
+      "best_candidates": [
+        {
+          "x": -1548,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.79518,
+          "failed_samples": 34,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 3,
+            "water_beyond_footing_reach": 17,
+            "decorated_or_ambiguous_column": 12,
+            "dry_dock_column": 2
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 6,
+            "wavebreak_pier": 6,
+            "quay_court": 4,
+            "harbor_approach": 2
+          }
+        },
+        {
+          "x": -1552,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.78916,
+          "failed_samples": 35,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 8,
+            "water_beyond_footing_reach": 16,
+            "decorated_or_ambiguous_column": 10,
+            "dry_dock_column": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 17,
+            "harbormaster_house": 5,
+            "wavebreak_pier": 4,
+            "quay_court": 8,
+            "harbor_approach": 1
+          }
+        },
+        {
+          "x": -1552,
+          "z": 620,
+          "rotation": 3,
+          "passing_fraction": 0.77711,
+          "failed_samples": 37,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 6,
+            "decorated_or_ambiguous_column": 11,
+            "water_beyond_footing_reach": 20
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 8,
+            "wavebreak_pier": 6,
+            "quay_court": 4,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1532,
+          "z": 556,
+          "rotation": 0,
+          "passing_fraction": 0.77711,
+          "failed_samples": 37,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 11,
+            "decorated_or_ambiguous_column": 17,
+            "dry_dock_column": 2,
+            "land_above_highest_quay": 4,
+            "ground_beyond_footing_reach": 3
+          },
+          "members_with_failures": {
+            "harbor_exchange": 10,
+            "harbormaster_house": 7,
+            "wavebreak_pier": 8,
+            "quay_court": 8,
+            "harbor_approach": 4
+          }
+        },
+        {
+          "x": 748,
+          "z": 564,
+          "rotation": 2,
+          "passing_fraction": 0.77711,
+          "failed_samples": 37,
+          "full_saved_coverage": true,
+          "reasons": {
+            "decorated_or_ambiguous_column": 16,
+            "water_beyond_footing_reach": 9,
+            "land_above_highest_quay": 6,
+            "dry_dock_column": 6
+          },
+          "members_with_failures": {
+            "harbor_exchange": 4,
+            "harbormaster_house": 16,
+            "wavebreak_pier": 9,
+            "quay_court": 3,
+            "harbor_approach": 5
+          }
+        },
+        {
+          "x": -1544,
+          "z": 612,
+          "rotation": 3,
+          "passing_fraction": 0.77108,
+          "failed_samples": 38,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 4,
+            "decorated_or_ambiguous_column": 10,
+            "water_beyond_footing_reach": 21,
+            "dry_dock_column": 3
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 8,
+            "wavebreak_pier": 9,
+            "quay_court": 4,
+            "harbor_approach": 1
+          }
+        },
+        {
+          "x": -1536,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.77108,
+          "failed_samples": 38,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 12,
+            "land_above_highest_quay": 11,
+            "decorated_or_ambiguous_column": 14,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 12,
+            "harbormaster_house": 8,
+            "wavebreak_pier": 4,
+            "quay_court": 5,
+            "harbor_approach": 9
+          }
+        },
+        {
+          "x": -1528,
+          "z": 560,
+          "rotation": 0,
+          "passing_fraction": 0.77108,
+          "failed_samples": 38,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 7,
+            "decorated_or_ambiguous_column": 17,
+            "land_above_highest_quay": 10,
+            "dry_dock_column": 3,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 9,
+            "harbormaster_house": 11,
+            "wavebreak_pier": 7,
+            "quay_court": 8,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1548,
+          "z": 564,
+          "rotation": 0,
+          "passing_fraction": 0.75904,
+          "failed_samples": 40,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 8,
+            "land_above_highest_quay": 12,
+            "decorated_or_ambiguous_column": 19,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 7,
+            "wavebreak_pier": 2,
+            "quay_court": 11,
+            "harbor_approach": 4
+          }
+        },
+        {
+          "x": -1548,
+          "z": 616,
+          "rotation": 3,
+          "passing_fraction": 0.75904,
+          "failed_samples": 40,
+          "full_saved_coverage": true,
+          "reasons": {
+            "land_above_highest_quay": 5,
+            "water_beyond_footing_reach": 15,
+            "decorated_or_ambiguous_column": 19,
+            "dry_dock_column": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 18,
+            "harbormaster_house": 6,
+            "wavebreak_pier": 5,
+            "quay_court": 8,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1540,
+          "z": 560,
+          "rotation": 0,
+          "passing_fraction": 0.75904,
+          "failed_samples": 40,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 12,
+            "land_above_highest_quay": 9,
+            "decorated_or_ambiguous_column": 18,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 15,
+            "harbormaster_house": 7,
+            "wavebreak_pier": 5,
+            "quay_court": 10,
+            "harbor_approach": 3
+          }
+        },
+        {
+          "x": -1544,
+          "z": 560,
+          "rotation": 0,
+          "passing_fraction": 0.75301,
+          "failed_samples": 41,
+          "full_saved_coverage": true,
+          "reasons": {
+            "water_beyond_footing_reach": 11,
+            "land_above_highest_quay": 14,
+            "decorated_or_ambiguous_column": 15,
+            "ground_beyond_footing_reach": 1
+          },
+          "members_with_failures": {
+            "harbor_exchange": 16,
+            "harbormaster_house": 7,
+            "wavebreak_pier": 4,
+            "quay_court": 12,
+            "harbor_approach": 2
+          }
+        }
+      ],
+      "fully_covered_candidates": 73,
+      "status": "footprint proposal; furniture and NBT not authored"
+    }
+  }
+}

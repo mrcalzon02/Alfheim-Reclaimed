@@ -1,0 +1,84 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-sacred-precinct-settled-20261013",
+  "pieces": 7,
+  "inhabited_members": null,
+  "counts": {
+    "great_temple_court": 1,
+    "temple_reliquary": 1,
+    "ancestor_reflection_pool": 1,
+    "processional_approach": 1,
+    "rite_house": 1,
+    "root_star_shrine": 1,
+    "pilgrim_chapel": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 6,
+  "verified_air_cells": 196937,
+  "verified_footer_cells": 0,
+  "verified_foundation_cells": 65968,
+  "layout": [
+    {
+      "name": "great_temple_court",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "temple_reliquary",
+      "origin": [
+        -1414,
+        66,
+        671
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "ancestor_reflection_pool",
+      "origin": [
+        -1487,
+        66,
+        632
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "processional_approach",
+      "origin": [
+        -1378,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "rite_house",
+      "origin": [
+        -1452,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "root_star_shrine",
+      "origin": [
+        -1409,
+        66,
+        575
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "pilgrim_chapel",
+      "origin": [
+        -1379,
+        66,
+        659
+      ],
+      "rotation": 2
+    }
+  ]
+}

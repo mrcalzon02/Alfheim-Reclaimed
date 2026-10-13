@@ -1,0 +1,101 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-scholastic-quarter-20261012",
+  "pieces": 9,
+  "inhabited_members": null,
+  "counts": {
+    "lore_college": 1,
+    "runic_engineering_hall": 1,
+    "philosopher_court": 1,
+    "entry_court": 1,
+    "archive_cloister": 1,
+    "astral_conservatory": 1,
+    "student_residence": 1,
+    "scholars_avenue": 1,
+    "botanical_research_garden": 1
+  },
+  "clear_supported_joins": 8,
+  "verified_air_cells": 324738,
+  "layout": [
+    {
+      "name": "lore_college",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "runic_engineering_hall",
+      "origin": [
+        -1414,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "philosopher_court",
+      "origin": [
+        -1488,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "entry_court",
+      "origin": [
+        -1379,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "archive_cloister",
+      "origin": [
+        -1452,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "astral_conservatory",
+      "origin": [
+        -1527,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "student_residence",
+      "origin": [
+        -1413,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "scholars_avenue",
+      "origin": [
+        -1347,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "botanical_research_garden",
+      "origin": [
+        -1375,
+        66,
+        671
+      ],
+      "rotation": 2
+    }
+  ]
+}

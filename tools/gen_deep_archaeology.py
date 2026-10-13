@@ -138,11 +138,12 @@ def octagonal_rotunda(p, cx, cz, radius, wall, floor, eave=12, rise=5):
         for x in range(cx - radius, cx + radius + 1):
             for z in range(cz - radius, cz + radius + 1):
                 dx, dz = x - cx, z - cz
-                if inside(dx, dz, lift) and any(
-                        not inside(dx + ox, dz + oz, lift)
-                        for ox, oz in ((1, 0), (-1, 0), (0, 1), (0, -1))):
-                    p.set(x, y, z, wall)
-    box(p, cx - 2, eave + rise, cz - 2, cx + 2, eave + rise, cz + 2, wall)
+                if inside(dx, dz, lift):
+                    boundary = any(not inside(dx + ox, dz + oz, lift)
+                                   for ox, oz in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+                    # Unowned cells retain native terrain. Own the whole crown interior,
+                    # and close its final cross-section with a continuous roof.
+                    p.set(x, y, z, wall if boundary or lift == rise else AIR)
 
 
 def octagonal_register_band(p, cx, cz, radius, y=7, interval=4):
@@ -162,8 +163,11 @@ def octagonal_register_band(p, cx, cz, radius, y=7, interval=4):
                 boundary.append((x, z))
     for i, (x, z) in enumerate(sorted(boundary)):
         p.set(x, y - 1, z, polished)
-        p.set(x, y, z, B("alfheim:memorial_carving", facing="north")
-              if i % interval == 0 else carved)
+        p.set(x, y, z, carved)
+        if i % interval == 0:
+            face = "east" if abs(x - cx) >= abs(z - cz) and x < cx else (
+                "west" if abs(x - cx) >= abs(z - cz) else "south" if z < cz else "north")
+            mounted_carving(p, x, y, z, face)
         p.set(x, y + 1, z, polished)
 
 
@@ -348,6 +352,16 @@ def room_point(room, lateral=0, longitudinal=0):
     return cx + longitudinal, cz + lateral
 
 
+def mounted_carving(p, x, y, z, facing):
+    """Keep the masonry backing and mount the relief into an empty interior cell."""
+    dx, dz = {"north": (0, -1), "south": (0, 1),
+              "east": (1, 0), "west": (-1, 0)}[facing]
+    pos = (x + dx, y, z + dz)
+    state = p.blocks.get(pos)
+    if state is not None and p.palette[state[0]]["Name"] == "minecraft:air":
+        p.set(*pos, B("alfheim:memorial_carving", facing=facing))
+
+
 def register_band(p, room, y=7, interval=4):
     """Run one legible memorial register around a room instead of stippling its walls."""
     x0, z0, x1, z1 = room.extent
@@ -358,19 +372,21 @@ def register_band(p, room, y=7, interval=4):
         p.set(x, y + 1, z0, polished)
         p.set(x, y - 1, z1, polished)
         p.set(x, y + 1, z1, polished)
-        motif = B("alfheim:memorial_carving", facing="south" if (x - x0) % interval == 0 else "north")
-        p.set(x, y, z0, motif if (x - x0) % interval == 0 else carved)
-        p.set(x, y, z1, B("alfheim:memorial_carving", facing="north")
-              if (x - x0) % interval == 0 else carved)
+        p.set(x, y, z0, carved)
+        p.set(x, y, z1, carved)
+        if (x - x0) % interval == 0:
+            mounted_carving(p, x, y, z0, "south")
+            mounted_carving(p, x, y, z1, "north")
     for z in range(z0 + 1, z1):
         p.set(x0, y - 1, z, polished)
         p.set(x0, y + 1, z, polished)
         p.set(x1, y - 1, z, polished)
         p.set(x1, y + 1, z, polished)
-        p.set(x0, y, z, B("alfheim:memorial_carving", facing="east")
-              if (z - z0) % interval == 0 else carved)
-        p.set(x1, y, z, B("alfheim:memorial_carving", facing="west")
-              if (z - z0) % interval == 0 else carved)
+        p.set(x0, y, z, carved)
+        p.set(x1, y, z, carved)
+        if (z - z0) % interval == 0:
+            mounted_carving(p, x0, y, z, "east")
+            mounted_carving(p, x1, y, z, "west")
 
 
 def corbelled_burial_vault(p, room, wall):
@@ -400,8 +416,9 @@ def chamfer_burial_chamber(p, room, wall, cut=6):
         for i, (x, z) in enumerate(((x0 + u, z0 + v), (x1 - u, z0 + v),
                                     (x0 + u, z1 - v), (x1 - u, z1 - v))):
             p.set(x, 6, z, polished)
-            p.set(x, 7, z, carved if u % 2 else
-                  B("alfheim:memorial_carving", facing="east" if i % 2 == 0 else "west"))
+            p.set(x, 7, z, carved)
+            if not u % 2:
+                mounted_carving(p, x, 7, z, "east" if i % 2 == 0 else "west")
             p.set(x, 8, z, polished)
 
 
@@ -1359,7 +1376,7 @@ DETAIL_TUNING = {
     # it is a budget, not a taste. Webs stay: cobweb is the one residue that reads as funerary.
     # The ornament itself is not fixed by turning noise down; see TOMB_ARCHITECTURE.md.
     "elder_kings_tomb": dict(
-        dress=dict(corbel=0.25, conduit=0.55, sockets=4, sconce=0.70, sconce_spacing=5),
+        dress=dict(corbel=0.25, conduit=0.0, sockets=0, sconce=0.22, sconce_spacing=12, sconce_max=12),
         settle=dict(rubble=0.03, reach=2, weathering=0.03, seep="damp", seep_rate=0.03,
                     roots=0.02, webs=0.05)),
     "faultwork": dict(

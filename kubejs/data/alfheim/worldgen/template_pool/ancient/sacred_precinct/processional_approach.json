@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/sacred_precinct/processional_approach",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/sacred_precinct/processional_approach",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

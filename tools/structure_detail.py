@@ -500,7 +500,8 @@ def conduits(p, seed, kit, rate=0.6, node_every=5, min_run=4, y0=None, y1=None):
                 continue
             if i % node_every == node_every // 2:
                 # A node in the floor channel grows upward out of it.
-                p.set(x, fy, z, _b(kit.crystal, facing='up', waterlogged=False))
+                p.set(x, fy, z, (kit.accent, None))
+                place(p, x, fy + 1, z, _b(kit.crystal, facing='up', waterlogged=False))
             else:
                 p.set(x, fy, z, (kit.accent, None))
             n += 1
@@ -555,14 +556,17 @@ def crystal_sockets(p, seed, kit, count=3, y0=None):
         # B-90 gave our clusters a real `facing`, so a socket points OUT of the wall it is set
         # into rather than defaulting upright. `wall_faces` already reports the direction of
         # the open side, which is the direction the crystal grew toward.
-        p.set(pos[0], pos[1], pos[2], _b(kit.crystal, facing=face, waterlogged=False))
+        dx, dz = STEP[face]
+        if not place(p, pos[0] + dx, pos[1], pos[2] + dz,
+                     _b(kit.crystal, facing=face, waterlogged=False)):
+            continue
         seen.append(pos)
         placed += 1
     return placed
 
 
 def sconces(p, seed, kit, spacing=5, rate=0.8, y0=None, y1=None, soul=False,
-            bracket=True):
+            bracket=True, max_count=None):
     """Interior light, hung the way a builder would hang it.
 
     Tall rooms get a lantern on a chain dropped from the ceiling; low rooms get a wall
@@ -579,7 +583,13 @@ def sconces(p, seed, kit, spacing=5, rate=0.8, y0=None, y1=None, soul=False,
     torch = SOUL_WALL_TORCH if soul else kit.torch
     taken = set()
     n = 0
-    for (x, y, z) in floor_cells(p, headroom=3, y0=y0, y1=y1):
+    candidates = floor_cells(p, headroom=3, y0=y0, y1=y1)
+    if max_count is not None:
+        candidates = list(candidates)
+        rng.shuffle(candidates)
+    for (x, y, z) in candidates:
+        if max_count is not None and n >= max_count:
+            break
         key = (x // spacing, y // 4, z // spacing)
         if key in taken or rng.random() > rate:
             continue
@@ -900,7 +910,7 @@ def cobwebs(p, seed, rate=0.05, y0=None):
 
 
 def dress(p, seed, kit, *, ground, cornice=(), trim_rate=0.85, corbel=0.0, opening=0.0,
-          conduit=0.0, sockets=0, sconce=0.0, sconce_spacing=5, soul_light=False,
+          conduit=0.0, sockets=0, sconce=0.0, sconce_spacing=5, sconce_max=None, soul_light=False,
           bracket_light=True, furniture=0.0, furniture_allow=None,
           interior_y=None):
     """Everything the building HAD, applied before the decay pass takes it apart.
@@ -941,7 +951,7 @@ def dress(p, seed, kit, *, ground, cornice=(), trim_rate=0.85, corbel=0.0, openi
         out['sockets'] = crystal_sockets(p, seed, kit, count=sockets, y0=ground)
     if sconce:
         out['sconces'] = sconces(p, seed, kit, spacing=sconce_spacing, rate=sconce,
-                                 y0=y0, y1=y1, soul=soul_light, bracket=bracket_light)
+                                 y0=y0, y1=y1, soul=soul_light, bracket=bracket_light, max_count=sconce_max)
     if furniture:
         out['furniture'] = furnish(p, seed, kit, density=furniture, y0=y0, y1=y1,
                                    allow=furniture_allow)

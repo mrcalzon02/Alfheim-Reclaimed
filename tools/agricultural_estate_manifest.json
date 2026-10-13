@@ -1,0 +1,167 @@
+{
+  "schema": "alfheim:agricultural_estate/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 2,
+  "placement_model": "one_agricultural_anchor",
+  "anchor": "water_garden",
+  "foundation_depth": 8,
+  "generated_files": 25,
+  "local_horizontal_extent": [
+    172,
+    180
+  ],
+  "members": [
+    {
+      "id": "water_garden",
+      "count": 1,
+      "piece_size": [
+        47,
+        30,
+        47
+      ],
+      "children": {
+        "north": "terraced_orchard",
+        "west": "root_granary",
+        "east": "fungus_conservatory",
+        "south": "harvest_court"
+      }
+    },
+    {
+      "id": "terraced_orchard",
+      "count": 1,
+      "piece_size": [
+        47,
+        32,
+        39
+      ],
+      "children": {
+        "north": "survival_terraces"
+      }
+    },
+    {
+      "id": "survival_terraces",
+      "count": 1,
+      "piece_size": [
+        47,
+        28,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "root_granary",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {
+        "north": "seed_vault"
+      }
+    },
+    {
+      "id": "seed_vault",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "fungus_conservatory",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "harvest_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        31
+      ],
+      "children": {
+        "west": "keeper_housing",
+        "east": "pollinator_sanctuary",
+        "north": "farm_approach"
+      }
+    },
+    {
+      "id": "keeper_housing",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "pollinator_sanctuary",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "farm_approach",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_ten_members": true,
+    "require_nine_clear_supported_connections": true,
+    "require_connected_internal_circulation": true,
+    "require_supported_clear_terrace_stairs": true,
+    "require_contained_water_basins": true,
+    "require_eight_fungus_varieties": true,
+    "require_all_cultural_modules_and_authored_air_in_saved_world": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "ordinary_crop_seeds_food_and_records",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "test_conditions": {
+    "random_growth": "paused_for_initial_geometry_census",
+    "fluid_ticks": "enabled",
+    "growth_and_pollination_acceptance": "pending"
+  },
+  "runtime_evidence": {
+    "console": "server/console-20261012-162742.log",
+    "world": "server/validation-agricultural-estate-20261012",
+    "members": 10,
+    "supported_clear_joins": 9,
+    "cultural_modules": 41,
+    "verified_air_cells": 312717,
+    "keeper_beds": 12,
+    "conservatory_staff_beds": 1,
+    "fungus_varieties": 8,
+    "sealed_water_basins": 4,
+    "water_cells": 342,
+    "empty_hives": 4,
+    "server_exit_code": 0,
+    "validation_exit_code": 0,
+    "background_markers": {},
+    "client_visual": "pending"
+  }
+}

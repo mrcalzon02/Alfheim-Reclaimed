@@ -213,9 +213,9 @@ def build():
         condition(vertical_gradient('deepworks_upper_contact',8,42),
         condition(negate({'type':'minecraft:biome','biome_is':VOID_IDS}),geology)))
     # Bedrock still runs first; biome and surface rules are otherwise retained.
-    # The Golden Fields tread/riser painting runs ahead of everything: it is the most specific
-    # rule in the set, it is confined to one biome, and it must win over the generic grass/dirt
-    # rule that would otherwise turn a retaining wall back into a hillside.
+    # Golden Fields now uses ordinary grass and shallow dirt only above the
+    # preliminary surface. Worked soil belongs to bounded raised-field structures;
+    # a floor-only biome rule had also painted underground cave floors.
     from gen_golden_terraces import surface_rule as terrace_surface
     surface['before_biomes']=sequence([terrace_surface(),surface_rule(),identity_surface_rule(),
                                        surface['before_biomes'],geology])

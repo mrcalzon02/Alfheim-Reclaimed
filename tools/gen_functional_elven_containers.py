@@ -63,9 +63,10 @@ RECIPES={
 }
 
 def build():
+    from model_geometry import clean_model
     out={}
     for name,obj in MODELS.items():
-        out[f"assets/{NS}/models/block/{name}.json"]=obj
+        out[f"assets/{NS}/models/block/{name}.json"]=clean_model(obj)
         out[f"assets/{NS}/models/item/{name}.json"]={"parent":f"{NS}:block/{name}"}
         variants={}
         for facing,y in (("north",0),("east",90),("south",180),("west",270)):

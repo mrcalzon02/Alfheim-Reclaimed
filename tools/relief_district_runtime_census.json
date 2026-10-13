@@ -1,0 +1,121 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-relief-district-20261012",
+  "pieces": 11,
+  "inhabited_members": null,
+  "counts": {
+    "triage_court": 1,
+    "healer_cloister": 1,
+    "quarantine_checkpoint": 1,
+    "supply_court": 1,
+    "hospice_hall": 1,
+    "mass_grave": 1,
+    "ration_hall": 1,
+    "corpse_cart_way": 1,
+    "sealed_store": 1,
+    "digger_shelter": 1,
+    "ash_pits": 1
+  },
+  "clear_supported_joins": 10,
+  "verified_air_cells": 283206,
+  "layout": [
+    {
+      "name": "triage_court",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "healer_cloister",
+      "origin": [
+        -1414,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "quarantine_checkpoint",
+      "origin": [
+        -1479,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "supply_court",
+      "origin": [
+        -1379,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "hospice_hall",
+      "origin": [
+        -1452,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "mass_grave",
+      "origin": [
+        -1518,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "ration_hall",
+      "origin": [
+        -1413,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "corpse_cart_way",
+      "origin": [
+        -1347,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "sealed_store",
+      "origin": [
+        -1375,
+        66,
+        671
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "digger_shelter",
+      "origin": [
+        -1484,
+        66,
+        663
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "ash_pits",
+      "origin": [
+        -1514,
+        66,
+        571
+      ],
+      "rotation": 0
+    }
+  ]
+}

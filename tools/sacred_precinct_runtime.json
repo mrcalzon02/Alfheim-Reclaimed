@@ -1,0 +1,13 @@
+{
+  "world": "validation-sacred-precinct-settled-20261013",
+  "console": "server\\console-20261013-154644.log",
+  "members": 7,
+  "joins": 6,
+  "verified_air_cells": 196937,
+  "verified_foundation_cells": 65968,
+  "server_exit_code": 0,
+  "validation_exit_code": 0,
+  "visual_review": "pending",
+  "natural_placement": "not_enabled",
+  "source_fingerprint": "0693641921078e0f09e470d053e46d68d391cf6254d170557df6c9a22a74b8c7"
+}

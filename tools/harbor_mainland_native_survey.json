@@ -1,0 +1,85 @@
+{
+  "world": "validation-harbor-mainland-coasts-20261013",
+  "console": "server\\console-20261013-102513.log",
+  "seed": "3536368297089363045",
+  "source": "native generator, no fixture fills",
+  "audits": [
+    {
+      "x": -1552,
+      "z": 544,
+      "accepted": false,
+      "columns": 20,
+      "parity": true,
+      "milliseconds": 230,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1552,
+      "z": 576,
+      "accepted": false,
+      "columns": 63,
+      "parity": true,
+      "milliseconds": 513,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_plains"
+    },
+    {
+      "x": -1552,
+      "z": 624,
+      "accepted": false,
+      "columns": 20,
+      "parity": true,
+      "milliseconds": 224,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_plains"
+    },
+    {
+      "x": 720,
+      "z": 544,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 125,
+      "eligible": true,
+      "biome": "alfheim:sporebank_shore"
+    }
+  ],
+  "accepted": 0,
+  "accepted_and_biome_eligible": 0,
+  "max_milliseconds": 513,
+  "sampling_parity": "pass",
+  "site_plans": [
+    [
+      "-1552",
+      "544",
+      "-1",
+      "-1"
+    ],
+    [
+      "-1552",
+      "576",
+      "-1",
+      "-1"
+    ],
+    [
+      "-1552",
+      "624",
+      "-1",
+      "-1"
+    ],
+    [
+      "720",
+      "544",
+      "-1",
+      "-1"
+    ]
+  ],
+  "profiles": [
+    "-1575,564:68,68,false;-1572,521:66,66,false;-1552,544:64,62,true;-1552,552:64,62,true;-1552,560:65,65,false;-1552,568:70,70,false;-1552,576:71,71,false;-1552,584:68,68,false;-1552,590:65,65,false;-1544,544:64,62,true;-1544,552:64,62,true;-1544,560:69,69,false;-1544,568:72,72,false;-1544,576:73,73,false;-1544,584:71,71,false;-1544,590:64,51,true",
+    "-1598,530:65,65,false;-1598,536:65,65,false;-1598,544:64,64,false;-1598,552:64,63,true;-1598,560:64,63,true;-1598,568:64,61,true;-1598,576:64,62,true;-1592,530:64,64,false;-1592,536:65,65,false;-1592,544:65,65,false;-1592,552:64,61,true;-1592,560:66,66,false;-1592,568:64,64,false;-1592,576:64,62,true;-1584,530:67,67,false;-1584,536:70,70,false",
+    "-1575,601:64,62,true;-1575,644:64,62,true;-1572,601:64,61,true;-1552,616:67,67,false;-1552,624:66,66,false;-1544,616:73,73,false;-1544,624:72,72,false;-1536,616:73,73,false;-1536,624:70,70,false;-1532,647:68,68,false;-1529,601:70,70,false;-1529,604:71,71,false;-1528,616:69,69,false;-1528,624:67,67,false;-1520,616:68,68,false;-1520,624:67,67,false",
+    "697,564:65,65,false;700,521:64,61,true;720,544:61,61,false;740,567:61,61,false;743,521:64,64,false;743,524:63,63,false;820,521:68,68,false"
+  ],
+  "natural_placement": "withheld"
+}

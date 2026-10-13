@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 26,
+    "tries": 32,
     "xz_spread": 7,
     "y_spread": 3,
     "feature": {
@@ -15,11 +15,47 @@
                 "data": {
                   "Name": "minecraft:brown_mushroom"
                 },
-                "weight": 7
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "minecraft:red_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "feywild:purple_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "feywild:blue_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "feywild:pink_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "feywild:orange_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "feywild:yellow_mushroom"
+                },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "feywild:green_mushroom"
                 },
                 "weight": 2
               }
@@ -51,6 +87,7 @@
                   "minecraft:dirt",
                   "minecraft:coarse_dirt",
                   "minecraft:podzol",
+                  "minecraft:mycelium",
                   "botania:livingrock"
                 ],
                 "offset": [

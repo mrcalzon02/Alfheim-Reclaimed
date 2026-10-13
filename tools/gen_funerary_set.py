@@ -8,6 +8,7 @@ from pathlib import Path
 import random
 
 from PIL import Image, ImageDraw
+from model_geometry import clean_model
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "tools" / "funerary_set_manifest.json"
@@ -23,7 +24,7 @@ def element(frm, to, texture, *, faces=None, shade=True):
 
 
 def model(elements, *, ambient=True):
-    return {"parent": "minecraft:block/block", "ambientocclusion": ambient,
+    return clean_model({"parent": "minecraft:block/block", "ambientocclusion": ambient,
             "textures": {
                 "stone": "alfheim:block/funerary/tomb_stone",
                 "cracked": "alfheim:block/funerary/tomb_cracked",
@@ -33,7 +34,7 @@ def model(elements, *, ambient=True):
                 "carving": "alfheim:block/funerary/memorial_carving",
                 "door": "alfheim:block/funerary/grave_door",
                 "particle": "alfheim:block/funerary/tomb_stone"
-            }, "elements": elements}
+            }, "elements": elements})
 
 
 def debris():

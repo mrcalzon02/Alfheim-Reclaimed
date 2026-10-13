@@ -1,0 +1,354 @@
+{
+  "layout": [
+    {
+      "name": "water_garden",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        29,
+        46
+      ]
+    },
+    {
+      "name": "root_granary",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "terraced_orchard",
+      "origin": [
+        0,
+        0,
+        -39
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -39,
+        46,
+        31,
+        -1
+      ]
+    },
+    {
+      "name": "harvest_court",
+      "origin": [
+        46,
+        0,
+        77
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        25,
+        77
+      ]
+    },
+    {
+      "name": "fungus_conservatory",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "seed_vault",
+      "origin": [
+        -78,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -78,
+        0,
+        4,
+        -48,
+        31,
+        42
+      ]
+    },
+    {
+      "name": "survival_terraces",
+      "origin": [
+        0,
+        0,
+        -70
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -70,
+        46,
+        27,
+        -40
+      ]
+    },
+    {
+      "name": "keeper_housing",
+      "origin": [
+        77,
+        0,
+        43
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        43,
+        77,
+        31,
+        81
+      ]
+    },
+    {
+      "name": "farm_approach",
+      "origin": [
+        34,
+        0,
+        109
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        78,
+        34,
+        21,
+        109
+      ]
+    },
+    {
+      "name": "pollinator_sanctuary",
+      "origin": [
+        -31,
+        0,
+        81
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        43,
+        -1,
+        31,
+        81
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "water_garden",
+      "root_granary",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "water_garden",
+      "terraced_orchard",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "water_garden",
+      "harvest_court",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "water_garden",
+      "fungus_conservatory",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "root_granary",
+      "seed_vault",
+      [
+        -47,
+        9,
+        23
+      ],
+      [
+        -48,
+        9,
+        23
+      ]
+    ],
+    [
+      "terraced_orchard",
+      "survival_terraces",
+      [
+        23,
+        9,
+        -39
+      ],
+      [
+        23,
+        9,
+        -40
+      ]
+    ],
+    [
+      "harvest_court",
+      "keeper_housing",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "harvest_court",
+      "farm_approach",
+      [
+        23,
+        9,
+        77
+      ],
+      [
+        23,
+        9,
+        78
+      ]
+    ],
+    [
+      "harvest_court",
+      "pollinator_sanctuary",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ]
+  ],
+  "cultural_modules": 41,
+  "verified_internal_networks": 10,
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 98720,
+    "alfheim:moonstone_livingrock_carved": 30914,
+    "alfheim:ivory_livingrock_polished": 14381,
+    "minecraft:air": 312717,
+    "minecraft:jigsaw": 18,
+    "minecraft:flower_pot": 8,
+    "alfheim:royal_writing_desk_left": 9,
+    "minecraft:skeleton_skull": 8,
+    "minecraft:purple_carpet": 5,
+    "alfheim:royal_writing_desk_right": 9,
+    "minecraft:bone_block": 10,
+    "feywild:elven_quartz_brick_slab": 8,
+    "minecraft:barrel": 10,
+    "minecraft:water": 342,
+    "minecraft:clay": 22,
+    "minecraft:grass_block": 1261,
+    "mythicbotany:dreamwood_leaves": 228,
+    "botania:dreamwood_stairs": 16,
+    "botania:dreamwood_log": 599,
+    "feywild:elven_quartz_cracked_brick": 2,
+    "minecraft:calcite": 2,
+    "minecraft:farmland": 64,
+    "minecraft:wheat": 32,
+    "minecraft:carrots": 32,
+    "alfheim:royal_wall_banner": 2,
+    "botania:dreamwood_planks": 520,
+    "alfheim:royal_tall_cabinet": 9,
+    "minecraft:light_blue_carpet": 1,
+    "minecraft:mycelium": 467,
+    "minecraft:brown_mushroom": 4,
+    "feywild:purple_mushroom": 4,
+    "feywild:pink_mushroom": 4,
+    "feywild:yellow_mushroom": 4,
+    "minecraft:red_mushroom": 4,
+    "feywild:blue_mushroom": 4,
+    "feywild:orange_mushroom": 4,
+    "feywild:green_mushroom": 4,
+    "minecraft:brown_bed": 26,
+    "minecraft:green_carpet": 2,
+    "alfheim:royal_audience_bench_left": 6,
+    "alfheim:royal_audience_bench_right": 6,
+    "minecraft:dandelion": 2,
+    "minecraft:blue_orchid": 2,
+    "minecraft:azure_bluet": 2,
+    "minecraft:poppy": 2,
+    "minecraft:allium": 2,
+    "minecraft:oxeye_daisy": 2,
+    "minecraft:beehive": 4
+  }
+}

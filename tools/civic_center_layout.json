@@ -1,0 +1,272 @@
+{
+  "layout": [
+    {
+      "name": "assembly_hall",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        39,
+        46
+      ]
+    },
+    {
+      "name": "council_house",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        32,
+        42
+      ]
+    },
+    {
+      "name": "public_forum",
+      "origin": [
+        0,
+        0,
+        -40
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -40,
+        46,
+        25,
+        -1
+      ]
+    },
+    {
+      "name": "service_court",
+      "origin": [
+        46,
+        0,
+        78
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        25,
+        78
+      ]
+    },
+    {
+      "name": "record_house",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        32,
+        42
+      ]
+    },
+    {
+      "name": "market_court",
+      "origin": [
+        0,
+        0,
+        -72
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -72,
+        46,
+        25,
+        -41
+      ]
+    },
+    {
+      "name": "census_hall",
+      "origin": [
+        77,
+        0,
+        43
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        43,
+        77,
+        29,
+        81
+      ]
+    },
+    {
+      "name": "processional_avenue",
+      "origin": [
+        34,
+        0,
+        110
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        79,
+        34,
+        21,
+        110
+      ]
+    },
+    {
+      "name": "public_kitchen",
+      "origin": [
+        -31,
+        0,
+        81
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        43,
+        -1,
+        29,
+        81
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "assembly_hall",
+      "council_house",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "assembly_hall",
+      "public_forum",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "assembly_hall",
+      "service_court",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "assembly_hall",
+      "record_house",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "public_forum",
+      "market_court",
+      [
+        23,
+        9,
+        -40
+      ],
+      [
+        23,
+        9,
+        -41
+      ]
+    ],
+    [
+      "service_court",
+      "census_hall",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "service_court",
+      "processional_avenue",
+      [
+        23,
+        9,
+        78
+      ],
+      [
+        23,
+        9,
+        79
+      ]
+    ],
+    [
+      "service_court",
+      "public_kitchen",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ]
+  ],
+  "cultural_modules": 101
+}

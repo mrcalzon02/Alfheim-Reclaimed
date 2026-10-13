@@ -1,0 +1,312 @@
+{
+  "layout": [
+    {
+      "name": "lore_college",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        39,
+        46
+      ]
+    },
+    {
+      "name": "runic_engineering_hall",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        35,
+        42
+      ]
+    },
+    {
+      "name": "philosopher_court",
+      "origin": [
+        0,
+        0,
+        -32
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -32,
+        46,
+        25,
+        -1
+      ]
+    },
+    {
+      "name": "entry_court",
+      "origin": [
+        46,
+        0,
+        77
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        25,
+        77
+      ]
+    },
+    {
+      "name": "archive_cloister",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "astral_conservatory",
+      "origin": [
+        0,
+        0,
+        -71
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -71,
+        46,
+        39,
+        -33
+      ]
+    },
+    {
+      "name": "student_residence",
+      "origin": [
+        77,
+        0,
+        43
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        43,
+        77,
+        31,
+        81
+      ]
+    },
+    {
+      "name": "scholars_avenue",
+      "origin": [
+        34,
+        0,
+        109
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        78,
+        34,
+        21,
+        109
+      ]
+    },
+    {
+      "name": "botanical_research_garden",
+      "origin": [
+        -31,
+        0,
+        81
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        43,
+        -1,
+        31,
+        81
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "lore_college",
+      "runic_engineering_hall",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "lore_college",
+      "philosopher_court",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "lore_college",
+      "entry_court",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "lore_college",
+      "archive_cloister",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "philosopher_court",
+      "astral_conservatory",
+      [
+        23,
+        9,
+        -32
+      ],
+      [
+        23,
+        9,
+        -33
+      ]
+    ],
+    [
+      "entry_court",
+      "student_residence",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "entry_court",
+      "scholars_avenue",
+      [
+        23,
+        9,
+        77
+      ],
+      [
+        23,
+        9,
+        78
+      ]
+    ],
+    [
+      "entry_court",
+      "botanical_research_garden",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ]
+  ],
+  "cultural_modules": 89,
+  "verified_internal_networks": 9,
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 90689,
+    "alfheim:moonstone_livingrock_carved": 28427,
+    "alfheim:ivory_livingrock_polished": 13734,
+    "minecraft:air": 324738,
+    "minecraft:jigsaw": 16,
+    "botania:elf_glass": 1579,
+    "botania:dreamwood_log": 688,
+    "botania:dreamwood_planks": 10,
+    "alfheim:royal_tall_cabinet": 5,
+    "alfheim:royal_wall_banner": 6,
+    "alfheim:royal_audience_bench_left": 24,
+    "minecraft:barrel": 9,
+    "alfheim:royal_writing_desk_left": 15,
+    "alfheim:royal_audience_bench_right": 24,
+    "alfheim:royal_writing_desk_right": 15,
+    "minecraft:flower_pot": 7,
+    "minecraft:skeleton_skull": 7,
+    "minecraft:purple_carpet": 5,
+    "minecraft:bone_block": 9,
+    "feywild:elven_quartz_brick_slab": 7,
+    "minecraft:bookshelf": 256,
+    "feywild:elven_quartz_cracked_brick": 9,
+    "minecraft:gravel": 2,
+    "minecraft:coal_block": 3,
+    "minecraft:end_rod": 4,
+    "minecraft:light_blue_carpet": 1,
+    "minecraft:calcite": 1,
+    "minecraft:oak_fence": 13,
+    "botania:dreamwood_stairs": 8,
+    "minecraft:purple_bed": 24,
+    "minecraft:green_carpet": 1,
+    "minecraft:grass_block": 191,
+    "minecraft:fern": 4,
+    "minecraft:poppy": 4,
+    "minecraft:dandelion": 4,
+    "minecraft:grass": 4,
+    "minecraft:water_cauldron": 1
+  }
+}

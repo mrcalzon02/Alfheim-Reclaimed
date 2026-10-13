@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:thorn_gate",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:shore_memorial_court",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 12,
+    "separation": 6,
+    "salt": 101220262
+  }
+}

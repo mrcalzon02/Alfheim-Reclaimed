@@ -1,0 +1,337 @@
+{
+  "layout": [
+    {
+      "name": "freight_yard",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        31,
+        46
+      ]
+    },
+    {
+      "name": "resonance_foundry",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        37,
+        42
+      ]
+    },
+    {
+      "name": "mana_mill",
+      "origin": [
+        0,
+        0,
+        -39
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -39,
+        46,
+        37,
+        -1
+      ]
+    },
+    {
+      "name": "dreamwood_shaping_court",
+      "origin": [
+        46,
+        0,
+        77
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        29,
+        77
+      ]
+    },
+    {
+      "name": "distribution_depot",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "glass_bloom_house",
+      "origin": [
+        -78,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -78,
+        0,
+        4,
+        -48,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "waterworks",
+      "origin": [
+        0,
+        0,
+        -70
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -70,
+        46,
+        25,
+        -40
+      ]
+    },
+    {
+      "name": "worker_housing",
+      "origin": [
+        77,
+        0,
+        43
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        43,
+        77,
+        31,
+        81
+      ]
+    },
+    {
+      "name": "freight_approach",
+      "origin": [
+        34,
+        0,
+        109
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        78,
+        34,
+        21,
+        109
+      ]
+    },
+    {
+      "name": "guard_post",
+      "origin": [
+        -31,
+        0,
+        77
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        47,
+        -1,
+        29,
+        77
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "freight_yard",
+      "resonance_foundry",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "freight_yard",
+      "mana_mill",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "freight_yard",
+      "dreamwood_shaping_court",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "freight_yard",
+      "distribution_depot",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "resonance_foundry",
+      "glass_bloom_house",
+      [
+        -47,
+        9,
+        23
+      ],
+      [
+        -48,
+        9,
+        23
+      ]
+    ],
+    [
+      "mana_mill",
+      "waterworks",
+      [
+        23,
+        9,
+        -39
+      ],
+      [
+        23,
+        9,
+        -40
+      ]
+    ],
+    [
+      "dreamwood_shaping_court",
+      "worker_housing",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "dreamwood_shaping_court",
+      "freight_approach",
+      [
+        23,
+        9,
+        77
+      ],
+      [
+        23,
+        9,
+        78
+      ]
+    ],
+    [
+      "dreamwood_shaping_court",
+      "guard_post",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ]
+  ],
+  "cultural_modules": 32,
+  "verified_internal_networks": 10,
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 99252,
+    "alfheim:moonstone_livingrock_carved": 30410,
+    "alfheim:ivory_livingrock_polished": 13931,
+    "minecraft:air": 333148,
+    "minecraft:jigsaw": 18,
+    "alfheim:royal_writing_desk_left": 10,
+    "alfheim:royal_writing_desk_right": 10,
+    "botania:dreamwood_log": 991,
+    "minecraft:barrel": 10,
+    "botania:dreamwood_planks": 307,
+    "minecraft:flower_pot": 8,
+    "minecraft:skeleton_skull": 9,
+    "minecraft:purple_carpet": 6,
+    "minecraft:bone_block": 14,
+    "feywild:elven_quartz_brick_slab": 9,
+    "botania:elf_glass": 472,
+    "alfheim:royal_wall_banner": 2,
+    "alfheim:royal_tall_cabinet": 4,
+    "minecraft:light_blue_carpet": 3,
+    "minecraft:calcite": 13,
+    "minecraft:furnace": 8,
+    "minecraft:coal_block": 17,
+    "ars_nouveau:sourcestone": 34,
+    "feywild:elven_quartz_cracked_brick": 5,
+    "minecraft:gravel": 1,
+    "minecraft:brown_bed": 24,
+    "alfheim:royal_audience_bench_left": 3,
+    "alfheim:royal_audience_bench_right": 3,
+    "minecraft:purple_bed": 2,
+    "minecraft:iron_bars": 1,
+    "minecraft:tripwire_hook": 1
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "world": "server\\validation-field-review-bounded-20261012",
+  "saved_chunks": 1803,
+  "columns": 461568,
+  "shallow_water_columns": 15537,
+  "coarse_shore_candidates": 4,
+  "rejections": {
+    "land_height_or_support": 4
+  },
+  "preflight_candidates": [
+    {
+      "x": -1552,
+      "z": 544,
+      "rotation": 0
+    },
+    {
+      "x": -1552,
+      "z": 576,
+      "rotation": 0
+    },
+    {
+      "x": -1552,
+      "z": 624,
+      "rotation": 3
+    },
+    {
+      "x": 720,
+      "z": 544,
+      "rotation": 3
+    }
+  ],
+  "candidates_for_live_audit": [],
+  "scope": "decorated saved heightmaps; fluid identity and full native generation require live checks",
+  "policy": "adaptive with dry approach"
+}

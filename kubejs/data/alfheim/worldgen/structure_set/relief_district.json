@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:relief_district",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 32,
+    "salt": 101220265
+  }
+}

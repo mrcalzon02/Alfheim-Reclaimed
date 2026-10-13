@@ -1,0 +1,114 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-harbor-bounded-20261013",
+  "pieces": 10,
+  "inhabited_members": null,
+  "counts": {
+    "harbor_exchange": 1,
+    "bonded_warehouse": 1,
+    "wavebreak_pier": 1,
+    "quay_court": 1,
+    "harbormaster_house": 1,
+    "tide_temple": 1,
+    "sunken_drydock": 1,
+    "signal_lighthouse": 1,
+    "harbor_approach": 1,
+    "dockworker_housing": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 9,
+  "verified_air_cells": 345003,
+  "verified_footer_cells": 29474,
+  "verified_foundation_cells": 0,
+  "layout": [
+    {
+      "name": "harbor_exchange",
+      "origin": [
+        704,
+        60,
+        544
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "bonded_warehouse",
+      "origin": [
+        746,
+        60,
+        591
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "wavebreak_pier",
+      "origin": [
+        665,
+        60,
+        544
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "quay_court",
+      "origin": [
+        781,
+        60,
+        498
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "harbormaster_house",
+      "origin": [
+        708,
+        60,
+        451
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "tide_temple",
+      "origin": [
+        746,
+        60,
+        622
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "sunken_drydock",
+      "origin": [
+        634,
+        60,
+        544
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "signal_lighthouse",
+      "origin": [
+        751,
+        60,
+        467
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "harbor_approach",
+      "origin": [
+        813,
+        60,
+        510
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "dockworker_housing",
+      "origin": [
+        785,
+        60,
+        575
+      ],
+      "rotation": 2
+    }
+  ]
+}

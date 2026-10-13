@@ -1,0 +1,374 @@
+{
+  "layout": [
+    {
+      "name": "triage_court",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        31,
+        46
+      ]
+    },
+    {
+      "name": "healer_cloister",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        31,
+        42
+      ]
+    },
+    {
+      "name": "quarantine_checkpoint",
+      "origin": [
+        0,
+        0,
+        -23
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -23,
+        46,
+        25,
+        -1
+      ]
+    },
+    {
+      "name": "supply_court",
+      "origin": [
+        46,
+        0,
+        77
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        25,
+        77
+      ]
+    },
+    {
+      "name": "hospice_hall",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "mass_grave",
+      "origin": [
+        0,
+        0,
+        -62
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -62,
+        46,
+        23,
+        -24
+      ]
+    },
+    {
+      "name": "ration_hall",
+      "origin": [
+        77,
+        0,
+        43
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        43,
+        77,
+        31,
+        81
+      ]
+    },
+    {
+      "name": "corpse_cart_way",
+      "origin": [
+        34,
+        0,
+        109
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        78,
+        34,
+        21,
+        109
+      ]
+    },
+    {
+      "name": "sealed_store",
+      "origin": [
+        -31,
+        0,
+        81
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        43,
+        -1,
+        29,
+        81
+      ]
+    },
+    {
+      "name": "digger_shelter",
+      "origin": [
+        -23,
+        0,
+        -28
+      ],
+      "rotation": 3,
+      "bounds": [
+        -23,
+        0,
+        -58,
+        -1,
+        25,
+        -28
+      ]
+    },
+    {
+      "name": "ash_pits",
+      "origin": [
+        69,
+        0,
+        -58
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        -58,
+        69,
+        21,
+        -28
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "triage_court",
+      "healer_cloister",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "triage_court",
+      "quarantine_checkpoint",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "triage_court",
+      "supply_court",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "triage_court",
+      "hospice_hall",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "quarantine_checkpoint",
+      "mass_grave",
+      [
+        23,
+        9,
+        -23
+      ],
+      [
+        23,
+        9,
+        -24
+      ]
+    ],
+    [
+      "supply_court",
+      "ration_hall",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "supply_court",
+      "corpse_cart_way",
+      [
+        23,
+        9,
+        77
+      ],
+      [
+        23,
+        9,
+        78
+      ]
+    ],
+    [
+      "supply_court",
+      "sealed_store",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ],
+    [
+      "mass_grave",
+      "digger_shelter",
+      [
+        0,
+        9,
+        -43
+      ],
+      [
+        -1,
+        9,
+        -43
+      ]
+    ],
+    [
+      "mass_grave",
+      "ash_pits",
+      [
+        46,
+        9,
+        -43
+      ],
+      [
+        47,
+        9,
+        -43
+      ]
+    ]
+  ],
+  "cultural_modules": 56,
+  "verified_internal_networks": 11,
+  "late_open_trenches": 4,
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 98036,
+    "alfheim:moonstone_livingrock_carved": 29682,
+    "alfheim:ivory_livingrock_polished": 13217,
+    "minecraft:air": 283206,
+    "minecraft:jigsaw": 20,
+    "botania:elf_glass": 204,
+    "alfheim:royal_writing_desk_left": 11,
+    "alfheim:royal_writing_desk_right": 11,
+    "minecraft:white_bed": 68,
+    "minecraft:barrel": 11,
+    "minecraft:flower_pot": 14,
+    "minecraft:skeleton_skull": 40,
+    "minecraft:purple_carpet": 17,
+    "minecraft:bone_block": 64,
+    "feywild:elven_quartz_brick_slab": 38,
+    "minecraft:white_wool": 288,
+    "minecraft:green_carpet": 13,
+    "alfheim:royal_tall_cabinet": 12,
+    "botania:dreamwood_log": 583,
+    "minecraft:water_cauldron": 2,
+    "minecraft:coal_block": 127,
+    "feywild:elven_quartz_cracked_brick": 3,
+    "minecraft:calcite": 1,
+    "minecraft:gravel": 1,
+    "alfheim:royal_wall_banner": 4,
+    "minecraft:iron_bars": 2,
+    "minecraft:tripwire_hook": 2,
+    "minecraft:coarse_dirt": 1227,
+    "minecraft:chiseled_stone_bricks": 8,
+    "minecraft:light_blue_carpet": 8,
+    "alfheim:royal_audience_bench_left": 9,
+    "alfheim:royal_audience_bench_right": 9,
+    "botania:dreamwood_planks": 59,
+    "minecraft:oak_fence": 18,
+    "minecraft:brown_bed": 4,
+    "minecraft:composter": 1
+  }
+}

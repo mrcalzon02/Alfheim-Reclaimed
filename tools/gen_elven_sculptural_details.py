@@ -2,6 +2,7 @@
 from __future__ import annotations
 from pathlib import Path
 import argparse,json
+from model_geometry import clean_model
 ROOT=Path(__file__).resolve().parents[1]
 ASSET=ROOT/"kubejs"/"assets"/"alfheim"
 DATA=ROOT/"kubejs"/"data"/"alfheim"
@@ -9,7 +10,7 @@ SCRIPT=ROOT/"kubejs"/"startup_scripts"/"25_elven_sculptural_details.js"
 T={"stone":"minecraft:block/quartz_block_side","dark":"minecraft:block/polished_blackstone","gold":"minecraft:block/gold_block","gem":"minecraft:block/amethyst_block","wood":"botania:block/dreamwood_planks","glass":"botania:block/elf_glass_0","particle":"minecraft:block/quartz_block_side"}
 
 def box(a,b,tex):return {"from":a,"to":b,"faces":{f:{"texture":"#"+tex} for f in ("north","south","east","west","up","down")}}
-def model(e,ambient=True):return {"parent":"minecraft:block/block","ambientocclusion":ambient,"textures":T,"elements":e}
+def model(e,ambient=True):return clean_model({"parent":"minecraft:block/block","ambientocclusion":ambient,"textures":T,"elements":e})
 def statue(part,kind):
     if part=="lower":
         e=[box([3,0,3],[13,3,13],"stone"),box([6,3,6],[10,15,10],"stone"),box([4,4,5],[7,14,9],"stone"),box([9,4,5],[12,14,9],"stone")]

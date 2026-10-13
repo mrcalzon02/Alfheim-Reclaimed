@@ -90,6 +90,7 @@ FILES['assemble'] = header(
     'Called only by hub/place after the origin footprint is loaded and its terrain height is '
     'known. The base is last because its baked anchor is the commit marker.',
 ) + [
+    f'function {NS}:hub/foundation',
     f'scoreboard players set #base_result {OBJ} 0',
     f'scoreboard players set #trunk_result {OBJ} 0',
     f'scoreboard players set #crown_result {OBJ} 0',
@@ -123,6 +124,7 @@ FILES['assemble'] = header(
     f'if score #west_result {OBJ} matches 1 if score #east_result {OBJ} matches 1 '
     f'if score #north_result {OBJ} matches 1 '
     f'run scoreboard players set #place_result {OBJ} 1',
+    f'execute if score #place_result {OBJ} matches 1 run scoreboard players set #foundation_v1 {OBJ} 1',
     f'execute if score #place_result {OBJ} matches 0 run kill @e[type={MARKER},tag={BAKED}]',
     f'execute if score #place_result {OBJ} matches 0 run kill '
     '@e[type=minecraft:marker,tag=alfheim_crown_probe]',
@@ -158,7 +160,11 @@ for x, z in CANDIDATES:
         f'if score #place_result {OBJ} matches 0 run forceload add {x1} {z1} {x2} {z2}',
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
         f'if score #place_result {OBJ} matches 0 positioned {x} 0 {z} '
-        f'positioned over motion_blocking_no_leaves run function {NS}:hub/assemble',
+        f'positioned over motion_blocking_no_leaves if predicate {NS}:hub/ground_height '
+        f'run function {NS}:hub/assemble',
+        f'execute in {HOME} unless score #already {OBJ} matches 1 '
+        f'if score #place_result {OBJ} matches 0 positioned {x} 80 {z} '
+        f'run function {NS}:hub/assemble',
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
         f'if score #place_result {OBJ} matches 0 run forceload remove all',
     ]
@@ -277,13 +283,14 @@ FILES['fallback'] = header(
     'pretend they can.',
 ) + [
     f'execute in {HOME} run kill @e[type={MARKER},tag={TAG},tag=!{BAKED}]',
-    f'execute in {HOME} run forceload add -16 -16 16 16',
-    f'execute in {HOME} run fill -2 99 -2 2 99 2 botania:livingrock',
-    f'execute in {HOME} run summon {MARKER} 0 100 0 {{Tags:["{TAG}"]}}',
+    f'execute in {HOME} run forceload add -16 48 16 80',
+    f'execute in {HOME} run fill -2 99 62 2 99 66 botania:livingrock',
+    f'execute in {HOME} run fill -2 100 62 2 103 66 minecraft:air',
+    f'execute in {HOME} run summon {MARKER} 0 100 64 {{Tags:["{TAG}"]}}',
     f'execute in {HOME} at {SELECT} run setworldspawn ~ ~1 ~',
     '',
     f'execute in {HOME} run forceload remove all',
-    f'execute in {HOME} at {SELECT} run forceload add -16 -16 16 16',
+    f'execute in {HOME} run forceload add -16 48 16 80',
     '',
     f'scoreboard players set #created {OBJ} 1',
     'tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; '
@@ -306,6 +313,10 @@ FILES['autoload'] = header(
     '# legitimately have cleared it.',
     f'execute if score #final {OBJ} matches 1 in {HOME} at {SELECT_BAKED} run forceload add '
     f'~-{PLACE_LOAD_X} ~-{PLACE_LOAD_NORTH} ~{PLACE_LOAD_X} ~{PLACE_LOAD_SOUTH}',
+    f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '
+    f'run scoreboard players set #foundation_attempts {OBJ} 0',
+    f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '
+    f'run schedule function {NS}:hub/repair_foundation 5s replace',
 ]
 
 # ---------------------------------------------------------------------------- status
@@ -344,24 +355,52 @@ FILES['send'] = header(
     'second either way.',
     'Sets the respawn point too, so dying bedless returns them here rather than to Midgard.',
 ) + [
-    '# 1. CROSS. Unconditional, and safe to run on a player already in Alfheim. y=256 is above',
-    '#    any terrain, so this never suffocates; the next lines put them on the ground.',
-    f'execute in {HOME} run tp @s 0 256 0',
+    '# 1. PREPARE. Never teleport until a supported anchor or fallback exists.',
+    f'execute in {HOME} unless entity {SELECT} run function {NS}:hub/fallback',
+    f'execute in {HOME} at {SELECT} run function {NS}:hub/ensure_landing',
     '',
     '# 2. REFINE, if the hub has resolved: stand them in the gate chamber.',
     f'execute in {HOME} at {SELECT} run tp @s ~ ~1 ~',
     f'execute in {HOME} at {SELECT} run spawnpoint @s ~ ~1 ~',
-    f'execute in {HOME} if entity {SELECT} run tag @s remove {AWAIT}',
+    f'execute in {HOME} if entity {SELECT_BAKED} run tag @s remove {AWAIT}',
     '',
-    '# 3. NO HUB YET: land them on legal ground near the origin and mark them as owed a hub.',
-    '#    The range is deliberately small -- this is the hub neighbourhood, not the 2000-block',
-    '#    scatter the pre-2026-09-04 script used, which put every player somewhere different.',
-    f'execute in {HOME} unless entity {SELECT} run spreadplayers 0 0 1 160 false @s',
-    f'execute in {HOME} unless entity {SELECT} run spawnpoint @s ~ ~ ~',
-    f'execute in {HOME} unless entity {SELECT} run tag @s add {AWAIT}',
-    f'execute in {HOME} unless entity {SELECT} run tellraw @s {{"text":"[Alfheim] The Greatbole '
-    'is still generating. You have been placed nearby and will be moved to the gate chamber '
+    '# 3. A provisional platform is safe, but its players are still owed the final hub.',
+    f'execute in {HOME} unless entity {SELECT_BAKED} run tag @s add {AWAIT}',
+    f'execute in {HOME} unless entity {SELECT_BAKED} run tellraw @s {{"text":"[Alfheim] The Greatbole '
+    'is still generating. You are on a protected landing platform and will move to the gate chamber '
     'as soon as it finishes.","color":"yellow"}',
+]
+
+FILES['ensure_landing'] = header('verify and repair the landing floor') + [
+    f'fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 botania:livingrock replace {air}'
+    for air in ('minecraft:air', 'minecraft:cave_air', 'minecraft:water', 'minecraft:lava')
+] + ['fill ~ ~ ~ ~ ~2 ~ minecraft:air']
+
+# Local bedding beneath the authored footprints, leaving existing solid terrain
+# intact. A stepped underside gives the hub a foundation even at a void origin.
+FILES['foundation'] = header('underfill the Greatbole and court footprints')
+for x0, z0, x1, z1, top, bottom in ((-24,-24,24,24,-20,-40),
+                                  (-72,-72,70,-25,-4,-32),
+                                  (-24,-120,22,-73,-6,-34)):
+    for depth in range(0, top-bottom+1, 4):
+        inset = max(0, (depth-8)//2)
+        for replace in ('minecraft:air','minecraft:cave_air','minecraft:water','minecraft:lava'):
+            FILES['foundation'].append(
+                f'fill ~{x0+inset} ~{max(bottom,top-depth-3)} ~{z0+inset} '
+                f'~{x1-inset} ~{top-depth} ~{z1-inset} '
+                f'alfheim:rootbound_livingrock replace {replace}')
+
+FILES['repair_foundation'] = header('underfill an existing hub once, without moving it',
+    'The baked marker is one block above the assembly datum and six blocks north of it. '
+    'Only air and fluids below the authored footprints are replaced; buildings and solid '
+    'terrain remain intact. A bounded retry lets the old anchor entity finish loading.') + [
+    f'scoreboard players add #foundation_attempts {OBJ} 1',
+    f'execute in {HOME} unless score #foundation_v1 {OBJ} matches 1 at {SELECT_BAKED} '
+    f'positioned ~ ~-1 ~6 run function {NS}:hub/foundation',
+    f'execute in {HOME} if entity {SELECT_BAKED} run scoreboard players set #foundation_v1 {OBJ} 1',
+    f'execute unless score #foundation_v1 {OBJ} matches 1 if score #final {OBJ} matches 1 '
+    f'if score #foundation_attempts {OBJ} matches ..12 '
+    f'run schedule function {NS}:hub/repair_foundation 5s replace',
 ]
 
 # ---------------------------------------------------------------------------- reset
@@ -389,6 +428,11 @@ def main():
     if not a.dry_run:
         os.makedirs(FUNC, exist_ok=True)
         os.makedirs(TAGS, exist_ok=True)
+        predicate = os.path.join('kubejs','data',NS,'predicates','hub','ground_height.json')
+        os.makedirs(os.path.dirname(predicate),exist_ok=True)
+        with open(predicate,'w',encoding='utf-8') as f:
+            json.dump({'condition':'minecraft:location_check',
+                       'predicate':{'position':{'y':{'min':64,'max':200}}}},f,indent=2)
 
     for name, lines in FILES.items():
         p = os.path.join(FUNC, name + '.mcfunction')

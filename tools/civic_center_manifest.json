@@ -1,0 +1,135 @@
+{
+  "schema": "alfheim:civic_center/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 1,
+  "placement_model": "one_civic_anchor",
+  "anchor": "assembly_hall",
+  "foundation_depth": 8,
+  "generated_files": 23,
+  "members": [
+    {
+      "id": "assembly_hall",
+      "count": 1,
+      "piece_size": [
+        47,
+        40,
+        47
+      ],
+      "children": {
+        "east": "record_house",
+        "west": "council_house",
+        "north": "public_forum",
+        "south": "service_court"
+      }
+    },
+    {
+      "id": "record_house",
+      "count": 1,
+      "piece_size": [
+        39,
+        33,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "council_house",
+      "count": 1,
+      "piece_size": [
+        39,
+        33,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "public_forum",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        40
+      ],
+      "children": {
+        "north": "market_court"
+      }
+    },
+    {
+      "id": "market_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        32
+      ],
+      "children": {}
+    },
+    {
+      "id": "service_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        32
+      ],
+      "children": {
+        "west": "census_hall",
+        "east": "public_kitchen",
+        "north": "processional_avenue"
+      }
+    },
+    {
+      "id": "census_hall",
+      "count": 1,
+      "piece_size": [
+        39,
+        30,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "public_kitchen",
+      "count": 1,
+      "piece_size": [
+        39,
+        30,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "processional_avenue",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_nine_members": true,
+    "require_eight_clear_supported_connections": true,
+    "require_all_cultural_modules_in_saved_world": true,
+    "require_authored_air_in_saved_world": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "mundane_records_and_exhausted_public_supplies",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "runtime_evidence": {
+    "console": "server/console-20261012-143111.log",
+    "world": "server/validation-civic-center-20261012",
+    "members": 9,
+    "supported_clear_joins": 8,
+    "cultural_modules": 101,
+    "verified_air_cells": 288636,
+    "exit_code": 0,
+    "client_visual": "pending"
+  }
+}

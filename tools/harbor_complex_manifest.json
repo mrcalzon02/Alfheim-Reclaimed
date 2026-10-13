@@ -1,0 +1,323 @@
+{
+  "schema": "alfheim:harbor_complex/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "experimental_natural_enabled",
+  "wave": 3,
+  "placement_model": "sparse_bounded_approximate_shoreline",
+  "natural_placement": "enabled_user_accepts_imperfect_fit",
+  "anchor": "harbor_exchange",
+  "foundation_depth": 8,
+  "generated_files": 46,
+  "local_horizontal_extent": [
+    172,
+    180
+  ],
+  "members": [
+    {
+      "id": "harbor_exchange",
+      "count": 1,
+      "piece_size": [
+        47,
+        38,
+        47
+      ],
+      "children": {
+        "east": "harbormaster_house",
+        "west": "bonded_warehouse",
+        "north": "wavebreak_pier",
+        "south": "quay_court"
+      }
+    },
+    {
+      "id": "harbormaster_house",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "bonded_warehouse",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {
+        "north": "tide_temple"
+      }
+    },
+    {
+      "id": "wavebreak_pier",
+      "count": 1,
+      "piece_size": [
+        47,
+        28,
+        39
+      ],
+      "children": {
+        "north": "sunken_drydock"
+      }
+    },
+    {
+      "id": "sunken_drydock",
+      "count": 1,
+      "piece_size": [
+        47,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "tide_temple",
+      "count": 1,
+      "piece_size": [
+        39,
+        36,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "quay_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        28,
+        31
+      ],
+      "children": {
+        "west": "signal_lighthouse",
+        "east": "dockworker_housing",
+        "north": "harbor_approach"
+      }
+    },
+    {
+      "id": "signal_lighthouse",
+      "count": 1,
+      "piece_size": [
+        31,
+        46,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "dockworker_housing",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "harbor_approach",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_ten_members": true,
+    "require_nine_clear_supported_connections": true,
+    "require_connected_internal_circulation": true,
+    "require_supported_clear_lighthouse_stair": true,
+    "require_bounded_inundation": true,
+    "require_all_cultural_modules_and_authored_air_in_saved_world": true,
+    "require_waterline_shore_orientation_and_foundation_gate_before_natural_placement": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "ordinary_cargo_food_wool_clay_and_records",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "runtime_evidence": {
+    "console": "server\\console-20261012-201303.log",
+    "world": "server/validation-harbor-guard-20261012",
+    "members": 10,
+    "supported_clear_joins": 9,
+    "cultural_modules": 72,
+    "verified_air_cells": 345003,
+    "checked_shoreline_placement": true,
+    "synthetic_coast": true,
+    "server_exit_code": 0,
+    "validation_exit_code": 0,
+    "natural_coast_and_visual": "pending"
+  },
+  "shoreline_guard": {
+    "status": "runtime_validated_synthetic_coast",
+    "policy": "natural: bounded anchors and member centers; manual strict diagnostics remain",
+    "quay": "sea_level_plus_2_plus_selected_lift",
+    "maximum_water_depth": 6,
+    "maximum_land_surface": "sea_level_plus_3_plus_selected_lift",
+    "terrain_adjustment": "none",
+    "report": "alfheim_reclaimed_design/HARBOR_PLACEMENT_GUARD.md",
+    "runtime": {
+      "world": "validation-harbor-guard-20261012",
+      "console": "server\\console-20261012-201303.log",
+      "synthetic_coast_accepted": true,
+      "single_column_cliff_rejected": true,
+      "pre_repair_site_rejected": true,
+      "checked_assembly_pass": true,
+      "natural_coast_acceptance": "pending"
+    },
+    "minimum_land_surface": "sea_level_minus_6",
+    "policy_tests": 20
+  },
+  "prototype_runtime_evidence": {
+    "console": "server/console-20261012-175714.log",
+    "world": "server/validation-harbor-complex-revised-20261012",
+    "members": 10,
+    "supported_clear_joins": 9,
+    "cultural_modules": 72,
+    "verified_air_cells": 345003,
+    "contained_water_cells": 1344,
+    "supported_furniture": "verified",
+    "lighthouse_stairs": "verified",
+    "server_exit_code": 0,
+    "validation_exit_code": 0,
+    "background_markers": {},
+    "client_visual": "pending",
+    "natural_placement": "withheld_pending_shoreline_gate"
+  },
+  "native_coast_validation": {
+    "status": "no_safe_fit_in_sample",
+    "saved_columns": 350720,
+    "saved_shore_orientations": 92,
+    "initial_native_sites": 21,
+    "initial_native_biome_eligible": 12,
+    "apron_rechecks": 4,
+    "accepted": 0,
+    "sampling_parity": "pass",
+    "max_rejection_milliseconds": 242,
+    "full_successful_generation_cost": "unmeasured",
+    "report": "alfheim_reclaimed_design/HARBOR_REAL_COAST_VALIDATION.md"
+  },
+  "foundation_options": {
+    "quay_lifts": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "matching_extra_layers": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "lowest_footing": "sea_level_minus_6",
+    "template_library_files": 21,
+    "reclaimed_quays": "supported_shallows_only",
+    "dry_connection_probes": [
+      [
+        23,
+        23
+      ],
+      [
+        23,
+        100
+      ]
+    ]
+  },
+  "adaptive_runtime_evidence": {
+    "console": "server\\console-20261013-023222.log",
+    "world": "server/validation-harbor-raised-quay-20261013",
+    "quay_height": 68,
+    "members": 10,
+    "supported_joins": 9,
+    "furniture": 72,
+    "verified_footer_cells": 29474,
+    "verified_air_cells": 345003,
+    "server_and_harness_exit": 0,
+    "scope": "raised measured-bank fixture, not natural fit admission"
+  },
+  "mainland_low_bank_validation": {
+    "world": "validation-harbor-low-bank-coasts-20261013",
+    "console": "server\\console-20261013-103031.log",
+    "biome_eligible_sites": 5,
+    "accepted": 0,
+    "max_milliseconds": 848,
+    "sampling_parity": "pass",
+    "server_exit_code": 0,
+    "validation_exit_code": 0,
+    "report": "alfheim_reclaimed_design/HARBOR_MAINLAND_COAST_SEARCH.md"
+  },
+  "footprint_proposal_validation": {
+    "status": "all_compared_sites_rejected",
+    "authored_templates": "unchanged",
+    "natural_admission": "withheld",
+    "report": "alfheim_reclaimed_design/HARBOR_FOOTPRINT_COMPARISON.md",
+    "console": "server\\console-20261013-104933.log",
+    "native_audits": 20,
+    "sampling_parity": "pass",
+    "proposal_templates_authored": false
+  },
+  "core_footprint_validation": {
+    "status": "native_rejected_pending_fit_and_performance",
+    "required_members": [
+      "harbor_exchange",
+      "wavebreak_pier",
+      "harbormaster_house"
+    ],
+    "access_members": [
+      "quay_court",
+      "harbor_approach"
+    ],
+    "dimensions": [
+      94,
+      137
+    ],
+    "connections": 4,
+    "native_audits": 5,
+    "accepted": 0,
+    "maximum_rejection_ms": 17734,
+    "console": "server\\console-20261013-105849.log",
+    "scope": "footprint only; core templates not authored or placed",
+    "next": "required core, optional satellites, safe branch closures, physical support and late-path performance repair"
+  },
+  "refinement_validation": {
+    "status": "paired_rejection_decisions_preserved",
+    "report": "alfheim_reclaimed_design/HARBOR_REFINEMENT_2026-10-13.md",
+    "console": "server/console-20261013-141947.log",
+    "native_sites": 5,
+    "slow_case_before_ms": 17734,
+    "slow_case_after_ms": 7361,
+    "before_columns": 2523,
+    "after_columns": 1003,
+    "acceptance_coverage": "every column",
+    "natural_admission": "withheld",
+    "support_option": "tools/harbor_support_gap_plan.json"
+  },
+  "bounded_generation": {
+    "columns_max": 32,
+    "stop_budget_ms": 150,
+    "deadline_caveat": "one native column in flight may overrun; no subsequent calls after expiry",
+    "spacing_chunks": 80,
+    "separation_chunks": 48,
+    "retries": "at most four rotations inside the same shared budget; no exhaustive fallback",
+    "local_geometry": "imperfections accepted by user",
+    "live_test": "passed_native_audits_and_actual_coast_assembly",
+    "report": "alfheim_reclaimed_design/HARBOR_BOUNDED_PLACEMENT.md",
+    "runtime_evidence": "tools/harbor_bounded_runtime.json",
+    "sampled_ms_including_parity": [
+      64,
+      149
+    ],
+    "sampled_columns": [
+      4,
+      17
+    ]
+  }
+}

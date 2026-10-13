@@ -55,10 +55,57 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "minecraft:brown_mushroom"
-            }
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "minecraft:brown_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "minecraft:red_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "feywild:purple_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "feywild:blue_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "feywild:pink_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "feywild:orange_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "feywild:yellow_mushroom"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "feywild:green_mushroom"
+                },
+                "weight": 1
+              }
+            ]
           }
         }
       },

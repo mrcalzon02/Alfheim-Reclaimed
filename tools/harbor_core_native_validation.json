@@ -1,0 +1,90 @@
+{
+  "world": "validation-harbor-core-coasts-20261013",
+  "console": "server\\console-20261013-105849.log",
+  "seed": "3536368297089363045",
+  "scope": "native footprint feasibility only; proposed furniture/templates are not authored or placed",
+  "server_exit_code": 0,
+  "validation_exit_code": 0,
+  "sampling_parity": "pass",
+  "summary": {
+    "core_with_approach": {
+      "audits": 5,
+      "accepted": 0,
+      "accepted_eligible": 0,
+      "max_milliseconds": 17734
+    }
+  },
+  "audits": [
+    {
+      "proposal": "core_with_approach",
+      "x": -1548,
+      "z": 612,
+      "accepted": false,
+      "columns": 8,
+      "parity": true,
+      "milliseconds": 140,
+      "eligible": false,
+      "biome": "mythicbotany:golden_fields",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "-1571,632:64,55,true;-1568,589:64,63,true;-1548,612:71,71,false;-1540,612:75,75,false;-1528,635:64,64,false;-1525,589:67,67,false;-1525,592:68,68,false;-1448,589:68,68,false"
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": -1528,
+      "z": 616,
+      "accepted": false,
+      "columns": 9,
+      "parity": true,
+      "milliseconds": 151,
+      "eligible": false,
+      "biome": "mythicbotany:golden_fields",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "-1551,636:76,76,false;-1548,593:64,59,true;-1528,616:69,69,false;-1520,616:68,68,false;-1512,616:75,75,false;-1508,639:70,70,false;-1505,593:65,65,false;-1505,596:66,66,false;-1428,593:69,69,false"
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": -1552,
+      "z": 544,
+      "accepted": false,
+      "columns": 20,
+      "parity": true,
+      "milliseconds": 226,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "-1575,564:68,68,false;-1572,521:66,66,false;-1552,544:64,62,true;-1552,552:64,62,true;-1552,560:65,65,false;-1552,568:70,70,false;-1552,576:71,71,false;-1552,584:68,68,false;-1552,590:65,65,false;-1544,544:64,62,true;-1544,552:64,62,true;-1544,560:69,69,false;-1544,568:72,72,false;-1544,576:73,73,false;-1544,584:71,71,false;-1544,590:64,51,true"
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": 704,
+      "z": 544,
+      "accepted": false,
+      "columns": 2523,
+      "parity": true,
+      "milliseconds": 17734,
+      "eligible": true,
+      "biome": "alfheim:sporebank_shore",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "677,510:64,60,true;677,516:64,59,true;677,524:64,59,true;677,532:64,60,true;681,521:64,59,true;681,564:64,59,true;681,567:64,59,true;684,521:64,59,true;685,510:64,62,true;685,516:64,60,true;685,524:64,58,true;685,532:64,60,true;693,510:64,63,true;693,516:64,61,true;693,524:64,60,true;693,532:64,60,true"
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": 720,
+      "z": 544,
+      "accepted": false,
+      "columns": 156,
+      "parity": true,
+      "milliseconds": 1177,
+      "eligible": true,
+      "biome": "alfheim:sporebank_shore",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "693,510:64,63,true;693,516:64,61,true;693,524:64,60,true;693,532:64,60,true;697,564:65,65,false;700,521:64,61,true;701,510:64,63,true;701,516:64,62,true;701,524:64,61,true;701,532:64,61,true;709,510:64,63,true;709,516:64,64,false;709,524:64,62,true;709,532:64,61,true;717,510:63,63,false;717,516:64,64,false"
+    }
+  ],
+  "natural_placement": "withheld"
+}

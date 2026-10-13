@@ -1,0 +1,51 @@
+{
+  "world": "validation-harbor-adaptive-coasts-20261013",
+  "console": "server\\console-20261013-021608.log",
+  "seed": "3536368297089363045",
+  "source": "native generator, no fixture fills",
+  "audits": [
+    {
+      "x": -1600,
+      "z": 528,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 110,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1616,
+      "z": 528,
+      "accepted": false,
+      "columns": 8,
+      "parity": true,
+      "milliseconds": 140,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    }
+  ],
+  "accepted": 0,
+  "accepted_and_biome_eligible": 0,
+  "max_milliseconds": 140,
+  "sampling_parity": "pass",
+  "site_plans": [
+    [
+      "-1600",
+      "528",
+      "-1",
+      "-1"
+    ],
+    [
+      "-1616",
+      "528",
+      "-1",
+      "-1"
+    ]
+  ],
+  "profiles": [
+    "-1623,548:66,66,false;-1620,505:64,58,true;-1580,551:69,69,false;-1577,505:64,64,false;-1577,508:64,64,false;-1500,505:64,54,true",
+    "-1716,551:64,33,true;-1639,548:66,66,false;-1639,551:65,65,false;-1636,505:64,58,true;-1596,551:64,62,true;-1593,505:64,58,true;-1593,508:64,58,true;-1593,551:64,62,true"
+  ],
+  "natural_placement": "withheld"
+}

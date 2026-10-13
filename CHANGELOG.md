@@ -1,8 +1,198 @@
 # Changelog
 
+## Bounded harbor natural-coast smoke test - 2026-10-13
+
+Verified seven bounded native checks at 4-17 columns and 64-149 ms including
+diagnostic parity work. Three eligible shore sites accepted; actual Sporebank
+placement preserved all ten members, nine joins, authored air, furnishings and
+added foundations. Server and harness exited 0. Sparse approximate generation
+stays enabled; client visual and frequency review remain pending.
+
+## Sacred Precinct live assembly and stable rubble - 2026-10-13
+
+Verified all seven Sacred Precinct members, six supported connections, 59 cultural
+modules, 196937 authored air cells and 65968 foundation cells in a fresh test save.
+Settled authored gravel prevents rubble moving into room air after placement.
+Added saved-world verification, source fingerprinting and a review layout; Civic
+regression passes. Client visual and natural-placement admission remain pending.
+See `alfheim_reclaimed_design/SACRED_PRECINCT.md`.
+
+## Bounded approximate harbors; Sacred Precinct prototype - 2026-10-13
+
+Enabled sparse harbors with imperfect terrain fit per user direction. Natural
+checks have a shared 32-column ceiling and 150 ms stop budget, without exhaustive
+fallback. Twenty tests and Java 17 build passed; fresh live validation remains
+pending an automatic-approval usage limit. Broad terrain is unchanged.
+Started the Sacred Precinct with seven connected sections and 18 static-validated
+resources covering the six sacred-life archetypes. Runtime admission is pending.
+See `HARBOR_BOUNDED_PLACEMENT.md` and `SACRED_PRECINCT.md` in the design directory.
+
 Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EXECUTION_STATE.md`.
 
 ---
+
+## Harbor terrain-check refinement and exact failure diagnostics - 2026-10-13
+
+Added intermediate sampling passes while retaining every-column acceptance and
+existing support limits. Fifteen policy tests and Java 17 build passed. Paired
+native checks preserve all decisions; the slow Sporebank rejection fell from
+17.7 to 7.4 seconds and 2523 to 1003 distinct columns. Exact diagnostics locate its
+first remaining gap under the harbormaster. An existing two-layer footer is checked
+as an unplaced support option. Broad terrain and furnished templates are unchanged;
+natural admission remains withheld. See `HARBOR_REFINEMENT_2026-10-13.md`.
+
+## Harbor footprint studies and native comparison - 2026-10-13
+
+Added four complete footprint studies, a required-core study following the roster,
+and a read-only native comparison command. Twelve policy tests, Java 17 build and
+source equality passed. Twenty-five native checks found no complete fit, identifying
+bank-height, footing-depth and a 17.7-second late-rejection performance constraint.
+The required core is 94x137 with four supported geometric joins; template authoring
+and safe branch closures remain pending. Furnished templates and broad terrain are unchanged;
+natural generation remains withheld. The first-party update is backed up.
+See `alfheim_reclaimed_design/HARBOR_FOOTPRINT_COMPARISON.md`.
+
+## Harbor mainland survey and supported low banks - 2026-10-13
+
+Aligned the dry-bank lower bound with the harbor's actual foundation reach after
+native profiles showed supported land below sea level being rejected. Nine policy
+tests and Java 17 build passed; the first-party jar was backed up and installed.
+Expanded read-only saved surveys and ten fresh native checks found no complete
+fit, so natural generation remains withheld. Broad terrain is unchanged.
+See `alfheim_reclaimed_design/HARBOR_MAINLAND_COAST_SEARCH.md`.
+
+## Adaptive harbor quay and foundation segments - 2026-10-13
+
+Adapted harbor placement to measured bank heights with four quay choices and
+matching physical foundation segments. Supported shallow-water reclamation is
+allowed without weakening depth, void, cliff or land-connection checks. Eight
+policy tests and the raised-quay saved assembly passed all joins, furnishings,
+added footing cells and air volumes. Native island-tip sites still correctly fail
+landward approach checks. Broad terrain is unchanged; natural admission remains
+withheld. See `HARBOR_ADAPTIVE_QUAY.md`.
+
+## Harbor coast survey and shore-apron guard - 2026-10-12
+
+Added read-only saved/native shoreline surveys, biome eligibility and timing reports.
+Optimized native height sampling to one column computation and verified its values
+against Minecraft height methods. Added a supported mixed shore apron and two
+hazard/curved-shore tests; six policy tests passed. Real-coast samples still found
+no safe fit, so natural placement remains withheld and the harbor remains the
+repair target. Broad terrain is unchanged. See `HARBOR_REAL_COAST_VALIDATION.md`.
+
+## Harbor shoreline guard - 2026-10-12
+
+Added and installed a first-party guarded structure type plus read-only audit and
+checked placement commands. The guard tests all footprint columns, orientation,
+waterline, depth and ground support without terrain adjustment. Build/policy tests
+and live synthetic-coast acceptance, cliff rejection and full saved assembly passed.
+The prior jar is preserved. Natural placement awaits real-coast, performance and
+visual admission; broad terrain remains unchanged. See `HARBOR_PLACEMENT_GUARD.md`.
+
+## Ancient districts - Harbor Complex prototype - 2026-10-12
+
+Added ten connected maritime templates with bounded flooded lower areas, a pier,
+drydock, exchange, temple and accessible lighthouse. Revised source checks and a
+fresh saved-world test passed nine joins, 72 supported cultural modules, water,
+stairs, rails and authored air. Natural placement is withheld pending a real
+shoreline/waterline gate. Broad terrain remains unchanged; visual and terrain-fit
+admission remain pending. See `HARBOR_COMPLEX.md`.
+
+## Ancient districts - Roads / Trade Support - 2026-10-12
+
+Added ten connected customs, caravan, freight, checkpoint and shelter sections.
+The authored dry-cut bridge has a traversable deck, supporting piers and guardrails.
+Source checks and saved-world verification passed nine joins, 47 cultural modules,
+travel/refuge fixtures, deck/piers/rails and authored air volumes. Broad terrain
+is unchanged. Client visual and terrain-fit admission remain pending.
+See `ROADS_TRADE.md`.
+
+## Ancient districts - Agricultural Estate / Food Belt - 2026-10-12
+
+Added ten connected irrigation, orchard, emergency crop, storage, fungus and
+keeper/pollinator sections. Source checks and saved-world verification passed
+nine joins, 41 cultural modules, planted features, supports and authored air.
+Four basins retained water with active fluid ticks; random growth was paused for
+initial geometry review. Broad terrain is unchanged. Growth/pollination, client
+visual and terrain-fit review remain pending. See `AGRICULTURAL_ESTATE.md`.
+
+## Ancient districts - Production District - 2026-10-12
+
+Added ten connected workshop, stock, waterworks and worker/guard sections with
+fractured channels, bypass repair staging, unfinished timber and ordinary kilns.
+Source checks and saved-world verification passed nine joins, 32 cultural modules,
+workshop fixtures and authored air volumes. Scoped the assembly census to exact
+member coordinates after unrelated natural edge fragments caused a false duplicate.
+Broad terrain remains unchanged; client visual and terrain-fit review are pending.
+See `PRODUCTION_DISTRICT.md`.
+
+## Ancient districts - Scholastic Quarter - 2026-10-12
+
+Added a nine-member teaching/research assembly with archives, inert engineering
+rigs, a breached observatory dome, student residence and botanical beds.
+Saved-world checks passed all eight joins, 89 cultural modules, student/academic
+fixtures and authored air volumes. The observation stairwell
+was repaired and verified. Broad terrain remains unchanged; client terrain-fit
+and visual review remain pending. See `SCHOLASTIC_QUARTER.md`.
+
+## Ancient districts - Relief / Quarantine District - 2026-10-12
+
+Added eleven connected clinical, supply and mortuary sections with divided wards,
+quarantine boundaries, orderly early graves, four open late trenches and ash pits.
+Source checks and saved-world verification passed all ten joins, 56 cultural
+modules, ward/burial fixtures and authored air volumes. Broad terrain and player
+saves were preserved. Client visual and terrain-fit review remain pending.
+See `RELIEF_QUARANTINE_DISTRICT.md`.
+
+## Ancient districts - Civic Center - 2026-10-12
+
+Added one nine-section civic assembly with government offices, records, census,
+market and emergency kitchen/shelter functions. Source checks and saved-world
+verification passed all eight joins, 101 cultural modules and every authored air
+cell. Each member has eight foundation layers; broad terrain was preserved.
+Client terrain-fit and visual review remain pending. See `CIVIC_CENTER.md`.
+
+## Ancient districts — Elder Lineage Precinct — 2026-10-12
+
+Added a nine-member estate around a monumental palace, ancestor garden and family
+mausoleum, with linked retainer/service houses and a formal approach. Reused 152
+royal/funerary modules, added function-specific ordinary caches, and authored
+eight supported connections and buried bedding. Saved-world checks passed all
+members and furnishings; the server saved and exited cleanly. Broad terrain and
+player saves were preserved. Client terrain/visual review remains pending.
+
+## Ancient districts — Common Residential Quarter — 2026-10-12
+
+Implemented the master roster's first district family as a 26-piece connected
+quarter with 16 inhabited buildings, a communal ration hall, cistern, burial edge
+and three trace fields. Added governed household/public/workshop caches, buried
+bedding, real door approaches, contained water and explicit room/path headroom.
+The saved assembly passed all 25 supported-connection checks and saved cleanly.
+Broad terrain remains unchanged; client terrain-fit/visual acceptance is pending.
+
+## Field repair and structure development — 2026-10-12
+
+- Removed coincident custom-model faces; repaired mounted decorations, wall
+  connections and the rotunda's uncarved upper volume.
+- Reduced assembled tomb soul lanterns from 561 to 120 and long ley-line corridor
+  lanterns from 26 to 6.
+- Added supported spawn fallback, footprint underfill and a one-time existing-hub
+  foundation upgrade.
+- Added varied mushroom ground cover, more frequent trees and Mistbark fog.
+- Replaced Golden Fields' cave-floor soil painting with surface grass, added
+  circular raised fields and two void-edge court structures. Broad terrain files
+  remain unchanged; same-seed underground dirt paths/coarse dirt fell to zero.
+- Structure placement and generation checks passed. Client visual acceptance is
+  still outstanding; see `alfheim_reclaimed_design/FIELD_REPAIR_2026-10-12.md`.
+
+## Maintenance repair — 2026-10-12
+
+- Fixed the companion sigil texture reference and installed its rebuilt mod.
+- Added Minecraft 1.20.1-compatible overrides for Iron's Spellbooks citadel
+  tomes and crypt loot, with a reproducible generator and no third-party jar edits.
+- Rechecked the expedition startup-wipe repair. Fresh dedicated startup, loot
+  generation, saving and shutdown passed. Interactive client verification remains
+  outstanding; see `alfheim_reclaimed_design/INSTANCE_REPAIR_2026-10-12.md`.
 
 ## 0.23.1-design — 2026-09-09
 

@@ -15,7 +15,8 @@ execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 run 
 
 # candidate 0 0
 execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 run forceload add -80 -128 80 32
-execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 positioned 0 0 0 positioned over motion_blocking_no_leaves run function alfheim:hub/assemble
+execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 positioned 0 0 0 positioned over motion_blocking_no_leaves if predicate alfheim:hub/ground_height run function alfheim:hub/assemble
+execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 positioned 0 80 0 run function alfheim:hub/assemble
 execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 run forceload remove all
 
 execute if score #place_result alfheim.hub matches 1 run say [Alfheim] deterministic Greatbole and royal complex assembly succeeded at X=0 Z=0; verifying its baked anchor.

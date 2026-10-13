@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/roads_trade/freight_exchange",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/roads_trade/freight_exchange",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

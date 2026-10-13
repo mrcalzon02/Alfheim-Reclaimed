@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/common_residential/residential_artisan_house_shop",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "alfheim:ancient/common_residential/artisan_house_shop",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

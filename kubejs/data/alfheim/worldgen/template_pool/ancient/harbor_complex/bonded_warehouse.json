@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/harbor_complex/bonded_warehouse",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/harbor_complex/bonded_warehouse",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

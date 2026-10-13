@@ -1,0 +1,7 @@
+{
+  "type": "alfheim_companion:shoreline_harbor",
+  "biomes": "#alfheim:has_harbor_complex",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}

@@ -16,7 +16,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
+import sys
 from pathlib import Path
+import nbt
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "tools" / "ancient_district_manifest.json"
@@ -179,6 +182,8 @@ def main() -> int:
         "start", "avenue_north", "avenue_south", "avenue_east", "avenue_west",
         "residential", "grave_terminal", "cistern_terminal", "trace_terminal",
     ]
+    pool_names += [f'residential_{kind}' for kind in
+                   ('common_row_house','courtyard_home','artisan_house_shop','extended_kin_hall')]
     generated = [
         *(ROOT / "kubejs" / "data" / "alfheim" / "structures" / "ancient" /
           "common_residential" / f"{name}.nbt" for name in piece_names),
@@ -191,6 +196,8 @@ def main() -> int:
         ROOT / "kubejs" / "data" / "alfheim" / "tags" / "worldgen" / "biome" /
         "has_common_residential_quarter.json",
     ]
+    generated += [ROOT/'kubejs/data/alfheim/loot_tables/chests/ancient'/f'{name}.json'
+                  for name in ('household','public_stores','workshop')]
     present = [path for path in generated if path.exists()]
     shipping_required = stage in STAGES and STAGES.index(stage) >= STAGES.index("shipping_generated")
     if shipping_required:
@@ -203,6 +210,38 @@ def main() -> int:
             f"family status {stage} has a partial/generated shipping corpus ({len(present)}/24); "
             "either regenerate and advance coherently or restore source-contract-only state",
         )
+
+    if shipping_required and len(present)==len(generated):
+        # Reproduce the complete corpus in an isolated workspace-owned output root.
+        compare_root=ROOT/'build'/'ancient-district-equality'
+        compare_root.mkdir(parents=True,exist_ok=True)
+        assert compare_root.resolve().is_relative_to(ROOT.resolve())
+        result=subprocess.run([sys.executable,'-B',str(GENERATOR),'--output-root',str(compare_root)],
+                              capture_output=True,text=True)
+        if result.returncode:fail('A8',result.stderr)
+        else:
+            registry_path=ROOT/'server/local/kubejs/export/registries/block.json'
+            registry=set(json.loads(registry_path.read_text())) if registry_path.exists() else None
+            for path in generated:
+                twin=compare_root/path.relative_to(ROOT)
+                if path.suffix=='.nbt':
+                    original=nbt.load(str(path))[1]; rebuilt=nbt.load(str(twin))[1]
+                    if original!=rebuilt:fail('A8',f'{path.name}: decoded source/shipping mismatch')
+                    if max(map(int,original['size']))>48:fail('A8',f'{path.name}: piece boundary exceeded')
+                    if original['entities']:fail('A8',f'{path.name}: unexpected persistent entities')
+                    names={s['Name'] for s in original['palette']}
+                    if registry is not None and names-registry:fail('A8',f'{path.name}: unregistered blocks {names-registry}')
+                    cells={tuple(map(int,b['pos'])):original['palette'][int(b['state'])]['Name'] for b in original['blocks']}
+                    sockets=[b for b in original['blocks'] if b.get('nbt',{}).get('id')=='minecraft:jigsaw']
+                    if path.stem.startswith('avenue_'):
+                        homes=sum(b['nbt']['name']=='alfheim:residential_socket' for b in sockets)
+                        if homes!=4:fail('A9',f'{path.name}: {homes}/4 house sockets survive')
+                    for b in sockets:
+                        x,y,z=map(int,b['pos'])
+                        if cells.get((x,y+1,z))!='minecraft:air':fail('A9',f'{path.name}: unowned/blocked doorway headroom at {x,y,z}')
+                        if cells.get((x,y-1,z)) in (None,'minecraft:air','minecraft:water'):
+                            fail('A9',f'{path.name}: unsupported doorway at {x,y,z}')
+                elif path.read_bytes()!=twin.read_bytes():fail('A8',f'{path.name}: source/shipping mismatch')
 
     # A7 — source code itself must preserve the generation boundary.
     if 'assert all(v <= MAX_AXIS for v in p.size)' not in source:

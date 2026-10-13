@@ -1,0 +1,100 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-elder-lineage-20261012",
+  "pieces": 9,
+  "inhabited_members": null,
+  "counts": {
+    "palace_center": 1,
+    "family_residence": 1,
+    "ancestor_court": 1,
+    "gate_court": 1,
+    "ancestral_gallery": 1,
+    "family_mausoleum": 1,
+    "retainer_house": 1,
+    "processional_entry": 1,
+    "household_service": 1
+  },
+  "clear_supported_joins": 8,
+  "layout": [
+    {
+      "name": "palace_center",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "family_residence",
+      "origin": [
+        -1418,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "ancestor_court",
+      "origin": [
+        -1496,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "gate_court",
+      "origin": [
+        -1378,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "ancestral_gallery",
+      "origin": [
+        -1448,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "family_mausoleum",
+      "origin": [
+        -1536,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "retainer_house",
+      "origin": [
+        -1413,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "processional_entry",
+      "origin": [
+        -1346,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "household_service",
+      "origin": [
+        -1375,
+        66,
+        671
+      ],
+      "rotation": 2
+    }
+  ]
+}

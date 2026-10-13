@@ -122,7 +122,33 @@ class Piece:
             del self.blocks[pos]
         return len(doomed)
 
+    def connect_walls(self):
+        """Templates preserve authored wall states; bake their local connections."""
+        directions = {'north': (0, -1), 'south': (0, 1),
+                      'east': (1, 0), 'west': (-1, 0)}
+        for (x, y, z), (idx, be) in list(self.blocks.items()):
+            entry = self.palette[idx]
+            if not entry['Name'].endswith('_wall'):
+                continue
+            props = dict(entry.get('Properties', {}))
+            for face, (dx, dz) in directions.items():
+                neighbour = self.blocks.get((x + dx, y, z + dz))
+                name = self.palette[neighbour[0]]['Name'] if neighbour else 'minecraft:air'
+                connects = (name.endswith(('_wall', '_fence')) or
+                            name not in ('minecraft:air', 'minecraft:cave_air', 'minecraft:water')
+                            and not name.endswith(('_slab', '_stairs', '_lantern', '_chain',
+                                                   '_cluster', '_carpet', '_torch'))
+                            and neighbour is not None and neighbour[1] is None)
+                props[face] = 'low' if connects else 'none'
+            active = {f for f in directions if props[f] != 'none'}
+            above = self.blocks.get((x, y + 1, z))
+            capped = above is not None and self.palette[above[0]]['Name'] != 'minecraft:air'
+            props['up'] = str(capped or active not in ({'north', 'south'}, {'east', 'west'})).lower()
+            props.setdefault('waterlogged', 'false')
+            self.blocks[(x, y, z)] = (self._state(entry['Name'], props), be)
+
     def to_nbt(self):
+        self.connect_walls()
         blocks = []
         for (x, y, z), (state, be) in sorted(self.blocks.items()):
             e = {'pos': [nbt.Int(x), nbt.Int(y), nbt.Int(z)], 'state': nbt.Int(state)}

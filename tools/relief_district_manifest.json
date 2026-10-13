@@ -1,0 +1,166 @@
+{
+  "schema": "alfheim:relief_district/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 1,
+  "placement_model": "one_relief_anchor",
+  "anchor": "triage_court",
+  "foundation_depth": 8,
+  "generated_files": 27,
+  "local_horizontal_extent": [
+    141,
+    172
+  ],
+  "members": [
+    {
+      "id": "triage_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        32,
+        47
+      ],
+      "children": {
+        "east": "hospice_hall",
+        "west": "healer_cloister",
+        "north": "quarantine_checkpoint",
+        "south": "supply_court"
+      }
+    },
+    {
+      "id": "hospice_hall",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "healer_cloister",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "quarantine_checkpoint",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        23
+      ],
+      "children": {
+        "north": "mass_grave"
+      }
+    },
+    {
+      "id": "mass_grave",
+      "count": 1,
+      "piece_size": [
+        47,
+        24,
+        39
+      ],
+      "children": {
+        "east": "ash_pits",
+        "west": "digger_shelter"
+      }
+    },
+    {
+      "id": "supply_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        31
+      ],
+      "children": {
+        "west": "ration_hall",
+        "east": "sealed_store",
+        "north": "corpse_cart_way"
+      }
+    },
+    {
+      "id": "ration_hall",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "sealed_store",
+      "count": 1,
+      "piece_size": [
+        39,
+        30,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "corpse_cart_way",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    },
+    {
+      "id": "ash_pits",
+      "count": 1,
+      "piece_size": [
+        31,
+        22,
+        23
+      ],
+      "children": {}
+    },
+    {
+      "id": "digger_shelter",
+      "count": 1,
+      "piece_size": [
+        31,
+        26,
+        23
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_eleven_members": true,
+    "require_ten_clear_supported_connections": true,
+    "require_connected_internal_circulation": true,
+    "require_open_late_burial_trenches": true,
+    "require_all_cultural_modules_and_authored_air_in_saved_world": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "exhausted_mundane_supplies_and_records",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "runtime_evidence": {
+    "console": "server/console-20261012-144246.log",
+    "world": "server/validation-relief-district-20261012",
+    "members": 11,
+    "supported_clear_joins": 10,
+    "cultural_modules": 56,
+    "verified_air_cells": 283206,
+    "late_open_trenches": 4,
+    "white_ward_bed_blocks": 68,
+    "remains_clusters_skulls": 40,
+    "exit_code": 0,
+    "client_visual": "pending"
+  }
+}

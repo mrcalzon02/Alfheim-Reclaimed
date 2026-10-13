@@ -1,0 +1,165 @@
+{
+  "status": "runtime_validated_visual_pending",
+  "source_fingerprint": "0693641921078e0f09e470d053e46d68d391cf6254d170557df6c9a22a74b8c7",
+  "files": 18,
+  "members": 7,
+  "joins": 6,
+  "cultural_modules": 59,
+  "layout": [
+    {
+      "name": "great_temple_court",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        45,
+        46
+      ]
+    },
+    {
+      "name": "temple_reliquary",
+      "origin": [
+        -31,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        4,
+        -1,
+        31,
+        42
+      ]
+    },
+    {
+      "name": "ancestor_reflection_pool",
+      "origin": [
+        8,
+        0,
+        -31
+      ],
+      "rotation": 0,
+      "bounds": [
+        8,
+        0,
+        -31,
+        38,
+        21,
+        -1
+      ]
+    },
+    {
+      "name": "processional_approach",
+      "origin": [
+        34,
+        0,
+        78
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        47,
+        34,
+        21,
+        78
+      ]
+    },
+    {
+      "name": "rite_house",
+      "origin": [
+        77,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        77,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "root_star_shrine",
+      "origin": [
+        65,
+        0,
+        47
+      ],
+      "rotation": 1,
+      "bounds": [
+        35,
+        0,
+        47,
+        65,
+        31,
+        77
+      ]
+    },
+    {
+      "name": "pilgrim_chapel",
+      "origin": [
+        -19,
+        0,
+        77
+      ],
+      "rotation": 3,
+      "bounds": [
+        -19,
+        0,
+        47,
+        11,
+        29,
+        77
+      ]
+    }
+  ],
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 55760,
+    "alfheim:moonstone_livingrock_carved": 16476,
+    "alfheim:ivory_livingrock_polished": 7942,
+    "minecraft:air": 196937,
+    "minecraft:jigsaw": 12,
+    "botania:elf_glass": 224,
+    "botania:dreamwood_log": 434,
+    "botania:dreamwood_planks": 56,
+    "minecraft:white_bed": 18,
+    "alfheim:royal_lineage_stele_base": 6,
+    "minecraft:barrel": 7,
+    "minecraft:flower_pot": 6,
+    "minecraft:water_cauldron": 1,
+    "alfheim:royal_lineage_stele_mid": 6,
+    "alfheim:royal_lineage_stele_crown": 6,
+    "alfheim:royal_wall_banner": 2,
+    "minecraft:skeleton_skull": 5,
+    "minecraft:purple_carpet": 3,
+    "minecraft:bone_block": 7,
+    "feywild:elven_quartz_brick_slab": 5,
+    "alfheim:royal_audience_bench_left": 10,
+    "alfheim:royal_audience_bench_right": 10,
+    "feywild:elven_quartz_cracked_brick": 6,
+    "minecraft:gravel": 4,
+    "minecraft:calcite": 5,
+    "minecraft:oak_fence": 48,
+    "minecraft:water": 288,
+    "alfheim:royal_writing_desk_left": 7,
+    "alfheim:royal_writing_desk_right": 7,
+    "minecraft:light_blue_carpet": 1,
+    "minecraft:white_wool": 18,
+    "minecraft:green_carpet": 1,
+    "alfheim:royal_tall_cabinet": 5,
+    "minecraft:bookshelf": 1
+  }
+}

@@ -1,10 +1,11 @@
 """Generate the first exotic elven home-detail pilot."""
 from pathlib import Path
 import argparse,json
+from model_geometry import clean_model
 ROOT=Path(__file__).resolve().parents[1];A=ROOT/"kubejs"/"assets"/"alfheim";D=ROOT/"kubejs"/"data"/"alfheim";S=ROOT/"kubejs"/"startup_scripts"/"27_exotic_elven_home.js"
 T={"wood":"botania:block/dreamwood_planks","metal":"botania:block/elementium_block","glass":"botania:block/elf_glass_0","stone":"minecraft:block/quartz_block_side","gem":"minecraft:block/amethyst_block","glow":"minecraft:block/sea_lantern","leaf":"minecraft:block/azalea_leaves","water":"minecraft:block/light_blue_stained_glass","dark":"minecraft:block/polished_blackstone","particle":"botania:block/dreamwood_planks"}
 def b(a,z,t):return {"from":a,"to":z,"faces":{f:{"texture":"#"+t} for f in ("north","south","east","west","up","down")}}
-def m(e):return {"parent":"minecraft:block/block","ambientocclusion":False,"textures":T,"elements":e}
+def m(e):return clean_model({"parent":"minecraft:block/block","ambientocclusion":False,"textures":T,"elements":e})
 MODELS={
 "starbell_chandelier":m([b([7,13,7],[9,16,9],"metal"),b([3,11,7],[13,13,9],"metal"),b([3,6,6],[6,11,10],"glass"),b([7,4,6],[10,11,10],"glass"),b([11,6,6],[14,11,10],"glass"),b([4,7,7],[5,10,9],"glow"),b([8,5,7],[9,10,9],"glow"),b([12,7,7],[13,10,9],"glow")]),
 "moonpool_lamp":m([b([4,0,4],[12,2,12],"stone"),b([6,2,6],[10,10,10],"metal"),b([3,9,3],[13,12,13],"water"),b([5,10,5],[11,15,11],"glow")]),

@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/agricultural_estate/farm_approach",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/agricultural_estate/farm_approach",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 #
 # Called only by hub/place after the origin footprint is loaded and its terrain height is known. The base is last because its baked anchor is the commit marker.
 
+function alfheim:hub/foundation
 scoreboard players set #base_result alfheim.hub 0
 scoreboard players set #trunk_result alfheim.hub 0
 scoreboard players set #crown_result alfheim.hub 0
@@ -26,6 +27,7 @@ setblock ~ ~51 ~ air
 setblock ~ ~52 ~ air
 setblock ~ ~1 ~-25 air
 execute if score #base_result alfheim.hub matches 1 if score #trunk_result alfheim.hub matches 1 if score #crown_result alfheim.hub matches 1 if score #court_result alfheim.hub matches 1 if score #west_result alfheim.hub matches 1 if score #east_result alfheim.hub matches 1 if score #north_result alfheim.hub matches 1 run scoreboard players set #place_result alfheim.hub 1
+execute if score #place_result alfheim.hub matches 1 run scoreboard players set #foundation_v1 alfheim.hub 1
 execute if score #place_result alfheim.hub matches 0 run kill @e[type=minecraft:marker,tag=alfheim_hub_baked]
 execute if score #place_result alfheim.hub matches 0 run kill @e[type=minecraft:marker,tag=alfheim_crown_probe]
 execute if score #place_result alfheim.hub matches 0 run kill @e[type=richs_races_wood_elves:wood_elf,tag=alfheim_hub_court]

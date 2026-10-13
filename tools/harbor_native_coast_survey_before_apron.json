@@ -1,0 +1,223 @@
+{
+  "world": "validation-harbor-real-coasts-20261012",
+  "console": "server\\console-20261012-232603.log",
+  "seed": "3536368297089363045",
+  "source": "native generator, no fixture fills",
+  "audits": [
+    {
+      "x": -1664,
+      "z": 496,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 148,
+      "eligible": false,
+      "biome": "alfheim:alfheim_ocean"
+    },
+    {
+      "x": -1648,
+      "z": 592,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 184,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1632,
+      "z": 512,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 137,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1616,
+      "z": 480,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 173,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1616,
+      "z": 528,
+      "accepted": false,
+      "columns": 8,
+      "parity": true,
+      "milliseconds": 184,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1616,
+      "z": 592,
+      "accepted": false,
+      "columns": 8,
+      "parity": true,
+      "milliseconds": 182,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1616,
+      "z": 640,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 140,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1616,
+      "z": 816,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 137,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_plains"
+    },
+    {
+      "x": -1600,
+      "z": 528,
+      "accepted": false,
+      "columns": 9,
+      "parity": true,
+      "milliseconds": 195,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1600,
+      "z": 592,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 157,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_lakes"
+    },
+    {
+      "x": -1600,
+      "z": 640,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 137,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1584,
+      "z": 512,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 160,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_lakes"
+    },
+    {
+      "x": -1584,
+      "z": 560,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 159,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1568,
+      "z": 496,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 159,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1568,
+      "z": 560,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 158,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1568,
+      "z": 608,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 166,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_plains"
+    },
+    {
+      "x": -1552,
+      "z": 480,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 337,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_lakes"
+    },
+    {
+      "x": -1552,
+      "z": 624,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 142,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_plains"
+    },
+    {
+      "x": -1536,
+      "z": 512,
+      "accepted": false,
+      "columns": 6,
+      "parity": true,
+      "milliseconds": 138,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore"
+    },
+    {
+      "x": -1520,
+      "z": 528,
+      "accepted": false,
+      "columns": 7,
+      "parity": true,
+      "milliseconds": 161,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_lakes"
+    },
+    {
+      "x": -1328,
+      "z": 464,
+      "accepted": false,
+      "columns": 8,
+      "parity": true,
+      "milliseconds": 171,
+      "eligible": false,
+      "biome": "mythicbotany:alfheim_lakes"
+    }
+  ],
+  "accepted": 0,
+  "accepted_and_biome_eligible": 0,
+  "max_milliseconds": 337,
+  "sampling_parity": "pass",
+  "natural_placement": "withheld"
+}

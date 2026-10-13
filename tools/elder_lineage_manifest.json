@@ -1,0 +1,133 @@
+{
+  "schema": "alfheim:elder_lineage/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 1,
+  "placement_model": "one_estate_anchor",
+  "anchor": "palace_center",
+  "foundation_depth": 8,
+  "members": [
+    {
+      "id": "palace_center",
+      "count": 1,
+      "piece_size": [
+        47,
+        40,
+        47
+      ],
+      "children": {
+        "east": "ancestral_gallery",
+        "west": "family_residence",
+        "north": "ancestor_court",
+        "south": "gate_court"
+      }
+    },
+    {
+      "id": "ancestral_gallery",
+      "count": 1,
+      "piece_size": [
+        31,
+        38,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "family_residence",
+      "count": 1,
+      "piece_size": [
+        31,
+        38,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "ancestor_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        40
+      ],
+      "children": {
+        "north": "family_mausoleum"
+      }
+    },
+    {
+      "id": "family_mausoleum",
+      "count": 1,
+      "piece_size": [
+        47,
+        38,
+        40
+      ],
+      "children": {}
+    },
+    {
+      "id": "gate_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        30,
+        32
+      ],
+      "children": {
+        "west": "retainer_house",
+        "east": "household_service",
+        "north": "processional_entry"
+      }
+    },
+    {
+      "id": "retainer_house",
+      "count": 1,
+      "piece_size": [
+        39,
+        33,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "household_service",
+      "count": 1,
+      "piece_size": [
+        39,
+        33,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "processional_entry",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_nine_members": true,
+    "require_eight_clear_supported_connections": true,
+    "require_cultural_modules_in_saved_world": true,
+    "dynastic_burials": 4,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "fey_stone": "not_implemented_or_faked",
+    "loot": "household_supplies_and_records_only"
+  },
+  "runtime_evidence": {
+    "console": "server/console-20261012-134655.log",
+    "world": "server/validation-elder-lineage-20261012",
+    "members": 9,
+    "supported_clear_joins": 8,
+    "cultural_modules": 152,
+    "dynastic_burials": 4,
+    "exit_code": 0,
+    "client_visual": "pending"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "source-validated support option for the first known failing column; not placed or policy-admitted",
+  "site": [
+    704,
+    544
+  ],
+  "site_rotation": 3,
+  "quay_lift": 6,
+  "member": "harbormaster_house",
+  "failure": {
+    "rotation": 3,
+    "lift": 6,
+    "requests": 1354,
+    "x": 708,
+    "z": 491,
+    "local": [
+      53,
+      4
+    ],
+    "members": [
+      "harbormaster_house"
+    ],
+    "surface": 64,
+    "floor": 57,
+    "water": true,
+    "accepted": false,
+    "reason": "water_beyond_footing_reach"
+  },
+  "existing_footer_template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\foundations\\39x47_2.nbt",
+  "footer_cells": 3666,
+  "proposed_footer_origin": [
+    708,
+    56,
+    451
+  ],
+  "footer_rotation": 0,
+  "current_lowest_footing": 58,
+  "proposed_lowest_footing": 56,
+  "reach_extension": 2,
+  "pending": [
+    "member-specific placement and support policy",
+    "remaining every-column hazards",
+    "native sampling cost",
+    "source/core furnishing and branch closures",
+    "saved-world footing and circulation verification"
+  ]
+}

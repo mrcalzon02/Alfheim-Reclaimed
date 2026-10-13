@@ -11,6 +11,7 @@ acceptance.
 from __future__ import annotations
 from pathlib import Path
 import argparse, json
+from model_geometry import clean_model
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "tools" / "royal_tileset_wave_a_manifest.json"
@@ -23,12 +24,12 @@ def element(frm, to, tex, *, shade=True):
     return {"from": frm, "to": to, "shade": shade, "faces": faces}
 
 def model(textures, elements, *, ambient=True):
-    return {
+    return clean_model({
         "parent": "minecraft:block/block",
         "ambientocclusion": ambient,
         "textures": dict(textures, particle=textures.get("particle", next(iter(textures.values())))),
         "elements": elements,
-    }
+    })
 
 def highback(t):
     e=[]

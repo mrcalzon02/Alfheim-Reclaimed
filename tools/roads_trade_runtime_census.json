@@ -1,0 +1,112 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-roads-trade-20261012",
+  "pieces": 10,
+  "inhabited_members": null,
+  "counts": {
+    "caravan_court": 1,
+    "custom_house": 1,
+    "processional_avenue": 1,
+    "road_checkpoint": 1,
+    "freight_exchange": 1,
+    "bonded_store": 1,
+    "bridge_gate": 1,
+    "wayshrine_rest": 1,
+    "road_approach": 1,
+    "refugee_lodge": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 9,
+  "verified_air_cells": 324657,
+  "layout": [
+    {
+      "name": "caravan_court",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "custom_house",
+      "origin": [
+        -1414,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "processional_avenue",
+      "origin": [
+        -1495,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "road_checkpoint",
+      "origin": [
+        -1379,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "freight_exchange",
+      "origin": [
+        -1452,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "bonded_store",
+      "origin": [
+        -1414,
+        66,
+        718
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "bridge_gate",
+      "origin": [
+        -1526,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "wayshrine_rest",
+      "origin": [
+        -1409,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "road_approach",
+      "origin": [
+        -1347,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "refugee_lodge",
+      "origin": [
+        -1375,
+        66,
+        671
+      ],
+      "rotation": 2
+    }
+  ]
+}

@@ -370,26 +370,16 @@ def _ridge(lo, hi):
 
 
 def surface_rule():
-    """Paint treads as worked fields and risers as retaining walls.
+    """Ordinary grass above the preliminary surface; caves keep their stone.
 
-    |ridge| has no single-rule form, so the plot interior is expressed as the OR of its two
-    tails: a sequence is first-match-wins, which is exactly an OR here.
+    Worked golden fields now belong to bounded, raised field structures. The
+    previous floor-only rule also painted every underground cave floor.
+    Terrain density is deliberately unchanged by this field-review repair.
     """
     floor = {'type': 'minecraft:stone_depth', 'offset': 0, 'add_surface_depth': False,
              'secondary_depth_range': 0, 'surface_type': 'floor'}
-    interior = _seq([
-        _cond(_ridge(PLOT_EDGE_T, 100), _block(BED)),
-        _cond(_ridge(-100, -PLOT_EDGE_T), _block(BED)),
-        _cond(_ridge(PLOT_EDGE_T * 0.55, 100), _block(BED_DRY)),
-        _cond(_ridge(-100, -PLOT_EDGE_T * 0.55), _block(BED_DRY)),
-        _block(VERGE),
-    ])
-    risers = _seq([
-        _cond(_ridge(-0.25, 100), _block(RETAIN)),
-        _block(RETAIN_ROUGH),
-    ])
     return _cond({'type': 'minecraft:biome', 'biome_is': [FIELD_BIOME]},
-                 _cond(floor, _seq([
-                     _cond({'type': 'minecraft:steep'}, risers),
-                     interior,
-                 ])))
+                 _cond({'type': 'minecraft:above_preliminary_surface'},
+                       _seq([_cond(floor, {'type':'minecraft:block','result_state':{
+                           'Name':'minecraft:grass_block','Properties':{'snowy':'false'}}}),
+                             _cond(dict(floor, offset=3), _block('minecraft:dirt'))])))

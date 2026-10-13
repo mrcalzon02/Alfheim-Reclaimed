@@ -1122,7 +1122,7 @@ def ore_files():
 # the Scorchfell pools and the sparse ocean gardens: we own the id, so the feature can only
 # appear in our biomes and cannot introduce a feature-order cycle against a foreign biome.
 SURFACE_TARGETS = ['minecraft:grass_block', 'minecraft:dirt', 'minecraft:coarse_dirt',
-                   'minecraft:podzol', 'botania:livingrock']
+                   'minecraft:podzol', 'minecraft:mycelium', 'botania:livingrock']
 
 
 def _patch(feature_type, entries, tries=32, xz=7, y=3):
@@ -1166,8 +1166,12 @@ def _ground_mat(entries, radius=(3, 6), depth=(1, 2), veg_chance=0.0, veg=None):
         'vegetation_chance': veg_chance,
         'vegetation_feature': veg or {
             'feature': {'type': 'minecraft:simple_block', 'config': {'to_place': {
-                'type': 'minecraft:simple_state_provider',
-                'state': {'Name': 'minecraft:brown_mushroom'}}}},
+                'type': 'minecraft:weighted_state_provider',
+                'entries': [{'data':{'Name':name},'weight':1} for name in (
+                    'minecraft:brown_mushroom','minecraft:red_mushroom',
+                    'feywild:purple_mushroom','feywild:blue_mushroom',
+                    'feywild:pink_mushroom','feywild:orange_mushroom',
+                    'feywild:yellow_mushroom','feywild:green_mushroom')]}}},
             'placement': []},
     }
     return {'type': 'minecraft:vegetation_patch', 'config': cfg}
@@ -1188,7 +1192,10 @@ IDENTITY_CONFIGURED = {
          ({'Name': 'minecraft:podzol', 'Properties': {'snowy': 'false'}}, 2)],
         radius=(3, 6), veg_chance=0.30),
     'warren_fungal_bloom': _patch('minecraft:simple_block', [
-        ('minecraft:brown_mushroom', 7), ('minecraft:red_mushroom', 2)], tries=26),
+        ('minecraft:brown_mushroom', 2), ('minecraft:red_mushroom', 2),
+        ('feywild:purple_mushroom', 2), ('feywild:blue_mushroom', 2),
+        ('feywild:pink_mushroom', 2), ('feywild:orange_mushroom', 2),
+        ('feywild:yellow_mushroom', 2), ('feywild:green_mushroom', 2)], tries=32),
     'warren_web_snare': _patch('minecraft:simple_block', [
         ('minecraft:cobweb', 1)], tries=10, xz=5, y=2),
 
@@ -1275,7 +1282,15 @@ SHORE_CONFIGURED = {
         [({'Name': 'minecraft:mycelium', 'Properties': {'snowy': 'false'}}, 6),
          ({'Name': 'minecraft:podzol', 'Properties': {'snowy': 'false'}}, 3),
          ({'Name': 'minecraft:rooted_dirt'}, 2)],
-        radius=(4, 7), veg_chance=0.18),
+        radius=(4, 7), veg_chance=0.18,
+        veg={'feature': {'type':'minecraft:simple_block','config':{'to_place':{
+            'type':'minecraft:weighted_state_provider','entries':[
+                {'data':{'Name':name},'weight':1} for name in (
+                    'minecraft:brown_mushroom','minecraft:red_mushroom',
+                    'feywild:purple_mushroom','feywild:blue_mushroom',
+                    'feywild:pink_mushroom','feywild:orange_mushroom',
+                    'feywild:yellow_mushroom','feywild:green_mushroom')]}}},
+             'placement':[]}),
 }
 for _i, _cap in enumerate(SHORE_CAPS):
     SHORE_CONFIGURED[f'shore_sporecap_{_i}'] = _huge_mushroom(_cap)
@@ -1285,8 +1300,8 @@ SHORE_PLACED = {
     'shore_driftwood': _surface_placement({'type': 'minecraft:rarity_filter', 'chance': 4}),
     # Dense canopy: two attempts every chunk, then a rarity gate. The existing tree wrappers
     # run at rarity 4-5 for scattered inland stands; a shore belt has to close overhead.
-    'shore_tidewood_canopy': _tree(None, 1),
-    'shore_mistbark_canopy': _tree(None, 1),
+    'shore_tidewood_canopy': _tree(None, 1, ({'type':'minecraft:count','count':2},)),
+    'shore_mistbark_canopy': _tree(None, 1, ({'type':'minecraft:count','count':2},)),
     'shore_sporecaps': _tree(None, 2),
     'shore_spore_scatter': _surface_placement({'type': 'minecraft:count', 'count': 4}),
     'shore_spore_bed': _surface_placement({'type': 'minecraft:count', 'count': 3}),

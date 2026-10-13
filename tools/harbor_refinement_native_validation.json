@@ -1,0 +1,1668 @@
+{
+  "world": "validation-harbor-refinement-coasts-20261013",
+  "console": "server\\console-20261013-141947.log",
+  "seed": "3536368297089363045",
+  "scope": "native footprint feasibility only; proposed furniture/templates are not authored or placed",
+  "server_exit_code": 0,
+  "validation_exit_code": 0,
+  "sampling_parity": "pass",
+  "summary": {
+    "core_with_approach": {
+      "audits": 5,
+      "accepted": 0,
+      "accepted_eligible": 0,
+      "max_milliseconds": 7361
+    }
+  },
+  "audits": [
+    {
+      "proposal": "core_with_approach",
+      "x": -1548,
+      "z": 612,
+      "accepted": false,
+      "columns": 8,
+      "parity": true,
+      "milliseconds": 150,
+      "eligible": false,
+      "biome": "mythicbotany:golden_fields",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "-1571,632:64,55,true;-1568,589:64,63,true;-1548,612:71,71,false;-1540,612:75,75,false;-1528,635:64,64,false;-1525,589:67,67,false;-1525,592:68,68,false;-1448,589:68,68,false",
+      "attempts": "0,0,1,-1525,592:68,68,false,false;0,2,1,-1525,592:68,68,false,false;0,4,1,-1525,592:68,68,false,false;0,6,1,-1525,592:68,68,false,false;1,0,1,-1528,635:64,64,false,false;1,2,1,-1528,635:64,64,false,false;1,4,1,-1528,635:64,64,false,false;1,6,1,-1528,635:64,64,false,false;2,0,1,-1571,632:64,55,true,false;2,2,1,-1571,632:64,55,true,false;2,4,1,-1571,632:64,55,true,false;2,6,1,-1571,632:64,55,true,false;3,0,3,-1448,589:68,68,false,false;3,2,4,-1548,612:71,71,false,false;3,4,5,-1540,612:75,75,false,false;3,6,5,-1540,612:75,75,false,false",
+      "attempt_details": [
+        {
+          "rotation": 0,
+          "lift": 0,
+          "requests": 1,
+          "x": -1525,
+          "z": 592,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 0,
+          "lift": 2,
+          "requests": 1,
+          "x": -1525,
+          "z": 592,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 4,
+          "requests": 1,
+          "x": -1525,
+          "z": 592,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 6,
+          "requests": 1,
+          "x": -1525,
+          "z": 592,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 0,
+          "requests": 1,
+          "x": -1528,
+          "z": 635,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 64,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 2,
+          "requests": 1,
+          "x": -1528,
+          "z": 635,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 64,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 4,
+          "requests": 1,
+          "x": -1528,
+          "z": 635,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 64,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 6,
+          "requests": 1,
+          "x": -1528,
+          "z": 635,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 64,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 0,
+          "requests": 1,
+          "x": -1571,
+          "z": 632,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 55,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        },
+        {
+          "rotation": 2,
+          "lift": 2,
+          "requests": 1,
+          "x": -1571,
+          "z": 632,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 55,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        },
+        {
+          "rotation": 2,
+          "lift": 4,
+          "requests": 1,
+          "x": -1571,
+          "z": 632,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 55,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        },
+        {
+          "rotation": 2,
+          "lift": 6,
+          "requests": 1,
+          "x": -1571,
+          "z": 632,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 64,
+          "floor": 55,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        },
+        {
+          "rotation": 3,
+          "lift": 0,
+          "requests": 3,
+          "x": -1448,
+          "z": 589,
+          "local": [
+            23,
+            100
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 2,
+          "requests": 4,
+          "x": -1548,
+          "z": 612,
+          "local": [
+            0,
+            0
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 71,
+          "floor": 71,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 4,
+          "requests": 5,
+          "x": -1540,
+          "z": 612,
+          "local": [
+            0,
+            8
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 75,
+          "floor": 75,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 6,
+          "requests": 5,
+          "x": -1540,
+          "z": 612,
+          "local": [
+            0,
+            8
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 75,
+          "floor": 75,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        }
+      ]
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": -1528,
+      "z": 616,
+      "accepted": false,
+      "columns": 9,
+      "parity": true,
+      "milliseconds": 154,
+      "eligible": false,
+      "biome": "mythicbotany:golden_fields",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "-1551,636:76,76,false;-1548,593:64,59,true;-1528,616:69,69,false;-1520,616:68,68,false;-1512,616:75,75,false;-1508,639:70,70,false;-1505,593:65,65,false;-1505,596:66,66,false;-1428,593:69,69,false",
+      "attempts": "0,0,1,-1505,596:66,66,false,false;0,2,1,-1505,596:66,66,false,false;0,4,1,-1505,596:66,66,false,false;0,6,1,-1505,596:66,66,false,false;1,0,1,-1508,639:70,70,false,false;1,2,1,-1508,639:70,70,false,false;1,4,1,-1508,639:70,70,false,false;1,6,1,-1508,639:70,70,false,false;2,0,1,-1551,636:76,76,false,false;2,2,1,-1551,636:76,76,false,false;2,4,1,-1551,636:76,76,false,false;2,6,1,-1551,636:76,76,false,false;3,0,3,-1428,593:69,69,false,false;3,2,6,-1512,616:75,75,false,false;3,4,6,-1512,616:75,75,false,false;3,6,6,-1512,616:75,75,false,false",
+      "attempt_details": [
+        {
+          "rotation": 0,
+          "lift": 0,
+          "requests": 1,
+          "x": -1505,
+          "z": 596,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 2,
+          "requests": 1,
+          "x": -1505,
+          "z": 596,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 4,
+          "requests": 1,
+          "x": -1505,
+          "z": 596,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 6,
+          "requests": 1,
+          "x": -1505,
+          "z": 596,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 0,
+          "requests": 1,
+          "x": -1508,
+          "z": 639,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 1,
+          "lift": 2,
+          "requests": 1,
+          "x": -1508,
+          "z": 639,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 1,
+          "lift": 4,
+          "requests": 1,
+          "x": -1508,
+          "z": 639,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 6,
+          "requests": 1,
+          "x": -1508,
+          "z": 639,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 0,
+          "requests": 1,
+          "x": -1551,
+          "z": 636,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 76,
+          "floor": 76,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 2,
+          "lift": 2,
+          "requests": 1,
+          "x": -1551,
+          "z": 636,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 76,
+          "floor": 76,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 2,
+          "lift": 4,
+          "requests": 1,
+          "x": -1551,
+          "z": 636,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 76,
+          "floor": 76,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 2,
+          "lift": 6,
+          "requests": 1,
+          "x": -1551,
+          "z": 636,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 76,
+          "floor": 76,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 0,
+          "requests": 3,
+          "x": -1428,
+          "z": 593,
+          "local": [
+            23,
+            100
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 69,
+          "floor": 69,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 2,
+          "requests": 6,
+          "x": -1512,
+          "z": 616,
+          "local": [
+            0,
+            16
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 75,
+          "floor": 75,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 4,
+          "requests": 6,
+          "x": -1512,
+          "z": 616,
+          "local": [
+            0,
+            16
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 75,
+          "floor": 75,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 6,
+          "requests": 6,
+          "x": -1512,
+          "z": 616,
+          "local": [
+            0,
+            16
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 75,
+          "floor": 75,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        }
+      ]
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": -1552,
+      "z": 544,
+      "accepted": false,
+      "columns": 20,
+      "parity": true,
+      "milliseconds": 229,
+      "eligible": true,
+      "biome": "alfheim:mistbark_shore",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "-1575,564:68,68,false;-1572,521:66,66,false;-1552,544:64,62,true;-1552,552:64,62,true;-1552,560:65,65,false;-1552,568:70,70,false;-1552,576:71,71,false;-1552,584:68,68,false;-1552,590:65,65,false;-1544,544:64,62,true;-1544,552:64,62,true;-1544,560:69,69,false;-1544,568:72,72,false;-1544,576:73,73,false;-1544,584:71,71,false;-1544,590:64,51,true",
+      "attempts": "0,0,7,-1552,568:70,70,false,false;0,2,7,-1552,568:70,70,false,false;0,4,14,-1544,568:72,72,false,false;0,6,17,-1544,590:64,51,true,false;1,0,1,-1532,567:67,67,false,false;1,2,1,-1532,567:67,67,false,false;1,4,1,-1532,567:67,67,false,false;1,6,1,-1532,567:67,67,false,false;2,0,1,-1575,564:68,68,false,false;2,2,1,-1575,564:68,68,false,false;2,4,1,-1575,564:68,68,false,false;2,6,1,-1575,564:68,68,false,false;3,0,1,-1572,521:66,66,false,false;3,2,1,-1572,521:66,66,false,false;3,4,1,-1572,521:66,66,false,false;3,6,1,-1572,521:66,66,false,false",
+      "attempt_details": [
+        {
+          "rotation": 0,
+          "lift": 0,
+          "requests": 7,
+          "x": -1552,
+          "z": 568,
+          "local": [
+            0,
+            24
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 0,
+          "lift": 2,
+          "requests": 7,
+          "x": -1552,
+          "z": 568,
+          "local": [
+            0,
+            24
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 0,
+          "lift": 4,
+          "requests": 14,
+          "x": -1544,
+          "z": 568,
+          "local": [
+            8,
+            24
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 72,
+          "floor": 72,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 0,
+          "lift": 6,
+          "requests": 17,
+          "x": -1544,
+          "z": 590,
+          "local": [
+            8,
+            46
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 51,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        },
+        {
+          "rotation": 1,
+          "lift": 0,
+          "requests": 1,
+          "x": -1532,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 67,
+          "floor": 67,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 2,
+          "requests": 1,
+          "x": -1532,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 67,
+          "floor": 67,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 4,
+          "requests": 1,
+          "x": -1532,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 67,
+          "floor": 67,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 6,
+          "requests": 1,
+          "x": -1532,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 67,
+          "floor": 67,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 0,
+          "requests": 1,
+          "x": -1575,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 2,
+          "lift": 2,
+          "requests": 1,
+          "x": -1575,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 4,
+          "requests": 1,
+          "x": -1575,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 6,
+          "requests": 1,
+          "x": -1575,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 3,
+          "lift": 0,
+          "requests": 1,
+          "x": -1572,
+          "z": 521,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 3,
+          "lift": 2,
+          "requests": 1,
+          "x": -1572,
+          "z": 521,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 3,
+          "lift": 4,
+          "requests": 1,
+          "x": -1572,
+          "z": 521,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 3,
+          "lift": 6,
+          "requests": 1,
+          "x": -1572,
+          "z": 521,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 66,
+          "floor": 66,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        }
+      ]
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": 704,
+      "z": 544,
+      "accepted": false,
+      "columns": 1003,
+      "parity": true,
+      "milliseconds": 7361,
+      "eligible": true,
+      "biome": "alfheim:sporebank_shore",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "677,510:64,60,true;677,512:64,60,true;677,516:64,59,true;677,520:64,58,true;677,524:64,59,true;677,528:64,60,true;677,532:64,60,true;681,510:64,61,true;681,512:64,60,true;681,516:64,60,true;681,520:64,59,true;681,521:64,59,true;681,524:64,59,true;681,528:64,59,true;681,532:64,60,true;681,564:64,59,true",
+      "attempts": "0,0,2,727,567:64,62,true,false;0,2,2,727,567:64,62,true,false;0,4,2,727,567:64,62,true,false;0,6,2,727,567:64,62,true,false;1,0,2,681,567:64,59,true,false;1,2,2,681,567:64,59,true,false;1,4,2,681,567:64,59,true,false;1,6,2,681,567:64,59,true,false;2,0,2,681,521:64,59,true,false;2,2,2,681,521:64,59,true,false;2,4,2,681,521:64,59,true,false;2,6,2,681,521:64,59,true,false;3,0,3,804,521:68,68,false,false;3,2,154,813,532:70,70,false,false;3,4,1354,708,491:64,57,true,false;3,6,1354,708,491:64,57,true,false",
+      "attempt_details": [
+        {
+          "rotation": 0,
+          "lift": 0,
+          "requests": 2,
+          "x": 727,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 62,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 0,
+          "lift": 2,
+          "requests": 2,
+          "x": 727,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 62,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 0,
+          "lift": 4,
+          "requests": 2,
+          "x": 727,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 62,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 0,
+          "lift": 6,
+          "requests": 2,
+          "x": 727,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 62,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 1,
+          "lift": 0,
+          "requests": 2,
+          "x": 681,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 1,
+          "lift": 2,
+          "requests": 2,
+          "x": 681,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 1,
+          "lift": 4,
+          "requests": 2,
+          "x": 681,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 1,
+          "lift": 6,
+          "requests": 2,
+          "x": 681,
+          "z": 567,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 2,
+          "lift": 0,
+          "requests": 2,
+          "x": 681,
+          "z": 521,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 2,
+          "lift": 2,
+          "requests": 2,
+          "x": 681,
+          "z": 521,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 2,
+          "lift": 4,
+          "requests": 2,
+          "x": 681,
+          "z": 521,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 2,
+          "lift": 6,
+          "requests": 2,
+          "x": 681,
+          "z": 521,
+          "local": [
+            23,
+            23
+          ],
+          "members": [
+            "harbor_exchange"
+          ],
+          "surface": 64,
+          "floor": 59,
+          "water": true,
+          "accepted": false,
+          "reason": "required_dry_connection_is_water"
+        },
+        {
+          "rotation": 3,
+          "lift": 0,
+          "requests": 3,
+          "x": 804,
+          "z": 521,
+          "local": [
+            23,
+            100
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 2,
+          "requests": 154,
+          "x": 813,
+          "z": 532,
+          "local": [
+            12,
+            109
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 4,
+          "requests": 1354,
+          "x": 708,
+          "z": 491,
+          "local": [
+            53,
+            4
+          ],
+          "members": [
+            "harbormaster_house"
+          ],
+          "surface": 64,
+          "floor": 57,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        },
+        {
+          "rotation": 3,
+          "lift": 6,
+          "requests": 1354,
+          "x": 708,
+          "z": 491,
+          "local": [
+            53,
+            4
+          ],
+          "members": [
+            "harbormaster_house"
+          ],
+          "surface": 64,
+          "floor": 57,
+          "water": true,
+          "accepted": false,
+          "reason": "water_beyond_footing_reach"
+        }
+      ]
+    },
+    {
+      "proposal": "core_with_approach",
+      "x": 720,
+      "z": 544,
+      "accepted": false,
+      "columns": 156,
+      "parity": true,
+      "milliseconds": 1219,
+      "eligible": true,
+      "biome": "alfheim:sporebank_shore",
+      "rotation": -1,
+      "lift": -1,
+      "profile": "693,510:64,63,true;693,516:64,61,true;693,524:64,60,true;693,532:64,60,true;697,564:65,65,false;700,521:64,61,true;701,510:64,63,true;701,516:64,62,true;701,524:64,61,true;701,532:64,61,true;709,510:64,63,true;709,516:64,64,false;709,524:64,62,true;709,532:64,61,true;717,510:63,63,false;717,516:64,64,false",
+      "attempts": "0,0,1,743,524:63,63,false,false;0,2,1,743,524:63,63,false,false;0,4,1,743,524:63,63,false,false;0,6,1,743,524:63,63,false,false;1,0,1,740,567:61,61,false,false;1,2,1,740,567:61,61,false,false;1,4,1,740,567:61,61,false,false;1,6,1,740,567:61,61,false,false;2,0,1,697,564:65,65,false,false;2,2,1,697,564:65,65,false,false;2,4,1,697,564:65,65,false,false;2,6,1,697,564:65,65,false,false;3,0,3,820,521:68,68,false,false;3,2,138,791,512:70,70,false,false;3,4,153,822,532:76,76,false,false;3,6,153,822,532:76,76,false,false",
+      "attempt_details": [
+        {
+          "rotation": 0,
+          "lift": 0,
+          "requests": 1,
+          "x": 743,
+          "z": 524,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 63,
+          "floor": 63,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 2,
+          "requests": 1,
+          "x": 743,
+          "z": 524,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 63,
+          "floor": 63,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 4,
+          "requests": 1,
+          "x": 743,
+          "z": 524,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 63,
+          "floor": 63,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 0,
+          "lift": 6,
+          "requests": 1,
+          "x": 743,
+          "z": 524,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 63,
+          "floor": 63,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 0,
+          "requests": 1,
+          "x": 740,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 61,
+          "floor": 61,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 2,
+          "requests": 1,
+          "x": 740,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 61,
+          "floor": 61,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 4,
+          "requests": 1,
+          "x": 740,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 61,
+          "floor": 61,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 1,
+          "lift": 6,
+          "requests": 1,
+          "x": 740,
+          "z": 567,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 61,
+          "floor": 61,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 0,
+          "requests": 1,
+          "x": 697,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 65,
+          "floor": 65,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 2,
+          "requests": 1,
+          "x": 697,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 65,
+          "floor": 65,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 4,
+          "requests": 1,
+          "x": 697,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 65,
+          "floor": 65,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 2,
+          "lift": 6,
+          "requests": 1,
+          "x": 697,
+          "z": 564,
+          "local": [
+            23,
+            -20
+          ],
+          "members": [
+            "wavebreak_pier"
+          ],
+          "surface": 65,
+          "floor": 65,
+          "water": false,
+          "accepted": false,
+          "reason": "dock_column_is_dry"
+        },
+        {
+          "rotation": 3,
+          "lift": 0,
+          "requests": 3,
+          "x": 820,
+          "z": 521,
+          "local": [
+            23,
+            100
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 68,
+          "floor": 68,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 2,
+          "requests": 138,
+          "x": 791,
+          "z": 512,
+          "local": [
+            32,
+            71
+          ],
+          "members": [
+            "quay_court"
+          ],
+          "surface": 70,
+          "floor": 70,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 4,
+          "requests": 153,
+          "x": 822,
+          "z": 532,
+          "local": [
+            12,
+            102
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 76,
+          "floor": 76,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        },
+        {
+          "rotation": 3,
+          "lift": 6,
+          "requests": 153,
+          "x": 822,
+          "z": 532,
+          "local": [
+            12,
+            102
+          ],
+          "members": [
+            "harbor_approach"
+          ],
+          "surface": 76,
+          "floor": 76,
+          "water": false,
+          "accepted": false,
+          "reason": "land_above_selected_quay_limit"
+        }
+      ]
+    }
+  ],
+  "natural_placement": "withheld",
+  "comparisons": [
+    {
+      "x": -1548,
+      "z": 612,
+      "before_columns": 8,
+      "after_columns": 8,
+      "before_ms": 140,
+      "after_ms": 150
+    },
+    {
+      "x": -1528,
+      "z": 616,
+      "before_columns": 9,
+      "after_columns": 9,
+      "before_ms": 151,
+      "after_ms": 154
+    },
+    {
+      "x": -1552,
+      "z": 544,
+      "before_columns": 20,
+      "after_columns": 20,
+      "before_ms": 226,
+      "after_ms": 229
+    },
+    {
+      "x": 704,
+      "z": 544,
+      "before_columns": 2523,
+      "after_columns": 1003,
+      "before_ms": 17734,
+      "after_ms": 7361
+    },
+    {
+      "x": 720,
+      "z": 544,
+      "before_columns": 156,
+      "after_columns": 156,
+      "before_ms": 1177,
+      "after_ms": 1219
+    }
+  ],
+  "acceptance_and_biome_parity": "pass"
+}

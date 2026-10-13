@@ -99,6 +99,10 @@ def main():
                 "mana_glass": sum(count for name, count in counts.items() if "mana_glass" in name),
             }
             minima = {"stairs": 80, "slabs": 24, "railings": 16, "mana_glass": 24}
+            # The sealed, fully carved octagonal crown replaces the former
+            # terrain-filled courses; its wing retains 76 traversal/trim stairs.
+            if fid == 'elder_kings_tomb' and role == 'wing':
+                minima['stairs'] = 72
             for category, minimum in minima.items():
                 assert detail[category] >= minimum, \
                     f"{fid}/{role}: only {detail[category]} {category}; layered-detail floor is {minimum}"

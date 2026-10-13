@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/agricultural_estate/pollinator_sanctuary",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/agricultural_estate/pollinator_sanctuary",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

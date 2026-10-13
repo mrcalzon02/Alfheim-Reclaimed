@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:void_verge",
+    "alfheim:void_shore"
+  ],
+  "features": "alfheim:void_bramble",
+  "step": "vegetal_decoration"
+}

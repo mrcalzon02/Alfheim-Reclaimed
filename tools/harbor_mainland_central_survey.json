@@ -1,0 +1,12 @@
+{
+  "world": "server\\validation-field-review-20261012",
+  "saved_chunks": 761,
+  "columns": 194816,
+  "shallow_water_columns": 5566,
+  "coarse_shore_candidates": 0,
+  "rejections": {},
+  "preflight_candidates": [],
+  "candidates_for_live_audit": [],
+  "scope": "decorated saved heightmaps; fluid identity and full native generation require live checks",
+  "policy": "adaptive with dry approach"
+}

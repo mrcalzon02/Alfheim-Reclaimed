@@ -131,8 +131,9 @@ def channel_line(p, rng, length, axis):
         elif i % 4 == 0:
             for dy in (-1, 1):
                 p.set(x, C + dy, z, COLLAR)
-            p.set(x, ROOF - 1, z, CHAIN)
-            p.set(x, ROOF - 2, z, LANTERN)
+            if i % 16 == 0:
+                p.set(x, ROOF - 1, z, CHAIN)
+                p.set(x, ROOF - 2, z, LANTERN)
 
 
 def lane_rails(p, rng, length, axis):
@@ -330,7 +331,8 @@ def detail_section(piece, seed, name='straight'):
     # arteries actually has is conduit and node: the run continues across the room instead of
     # stopping at the door, and the couplings that carry it are the detail.
     counts = sd.dress(piece, seed, kit, ground=FLOOR + 1, bracket_light=False,
-                      sconce=0.80 if grand else 0.55, sconce_spacing=4 if grand else 6,
+                      sconce=0.22 if grand else 0.10, sconce_spacing=12 if grand else 16,
+                      sconce_max=4 if grand else 3,
                       conduit=0.55 if grand else 0.0, sockets=3 if grand else 0,
                       corbel=0.30 if grand else 0.0)
     counts.update(sd.aftermath(piece, seed, kit, ground=FLOOR + 1, rubble=0.10, reach=1,

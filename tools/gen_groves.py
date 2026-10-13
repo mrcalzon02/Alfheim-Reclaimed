@@ -278,7 +278,7 @@ def build_trees(trees, jar, dry):
         write_json(os.path.join(DATA, NS, 'worldgen', 'placed_feature', f'tree_{tid}.json'), {
             'feature': f'{NS}:tree_{tid}',
             'placement': [
-                {'type': 'minecraft:count', 'count': t['count']},
+                {'type': 'minecraft:count', 'count': t['count'] * 2},
                 {'type': 'minecraft:rarity_filter', 'chance': t['rarity']},
                 {'type': 'minecraft:in_square'},
                 # Runtime-proven 2026-09-04 from a player's screenshot: grove trees were

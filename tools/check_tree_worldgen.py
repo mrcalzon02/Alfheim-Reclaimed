@@ -95,8 +95,11 @@ def main():
         except (OSError, ValueError) as exc:
             fail(f'{local_path}: unreadable ({exc})')
             continue
+        for modifier in source_doc['placement']:
+            if modifier['type'] == 'minecraft:rarity_filter':
+                modifier['chance'] = max(1, modifier['chance'] // 2)
         if feature_doc != source_doc:
-            fail(f'{local_path}: no longer exactly mirrors {placement["source_feature"]} ({jar})')
+            fail(f'{local_path}: changed beyond the authorized tree-frequency increase ({jar})')
 
         placement_types = [p.get('type') for p in feature_doc.get('placement', [])]
         if 'minecraft:biome' not in placement_types:

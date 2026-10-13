@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/scholastic_quarter/botanical_research_garden",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/scholastic_quarter/botanical_research_garden",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

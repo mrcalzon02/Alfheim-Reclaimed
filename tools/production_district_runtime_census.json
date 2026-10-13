@@ -1,0 +1,115 @@
+{
+  "world": "server\\validation-production-district-20261012",
+  "pieces": 10,
+  "inhabited_members": null,
+  "counts": {
+    "freight_yard": 1,
+    "resonance_foundry": 1,
+    "mana_mill": 1,
+    "dreamwood_shaping_court": 1,
+    "distribution_depot": 1,
+    "glass_bloom_house": 1,
+    "waterworks": 1,
+    "worker_housing": 1,
+    "freight_approach": 1,
+    "guard_post": 1
+  },
+  "background_markers": {
+    "worker_housing": 1,
+    "dreamwood_shaping_court": 1
+  },
+  "clear_supported_joins": 9,
+  "verified_air_cells": 333148,
+  "layout": [
+    {
+      "name": "freight_yard",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "resonance_foundry",
+      "origin": [
+        -1414,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "mana_mill",
+      "origin": [
+        -1495,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "dreamwood_shaping_court",
+      "origin": [
+        -1379,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "distribution_depot",
+      "origin": [
+        -1452,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "glass_bloom_house",
+      "origin": [
+        -1414,
+        66,
+        718
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "waterworks",
+      "origin": [
+        -1526,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "worker_housing",
+      "origin": [
+        -1413,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "freight_approach",
+      "origin": [
+        -1347,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "guard_post",
+      "origin": [
+        -1379,
+        66,
+        671
+      ],
+      "rotation": 2
+    }
+  ]
+}

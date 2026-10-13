@@ -1,0 +1,112 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-agricultural-estate-20261012",
+  "pieces": 10,
+  "inhabited_members": null,
+  "counts": {
+    "water_garden": 1,
+    "root_granary": 1,
+    "terraced_orchard": 1,
+    "harvest_court": 1,
+    "fungus_conservatory": 1,
+    "seed_vault": 1,
+    "survival_terraces": 1,
+    "keeper_housing": 1,
+    "farm_approach": 1,
+    "pollinator_sanctuary": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 9,
+  "verified_air_cells": 312717,
+  "layout": [
+    {
+      "name": "water_garden",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "root_granary",
+      "origin": [
+        -1414,
+        66,
+        687
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "terraced_orchard",
+      "origin": [
+        -1495,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "harvest_court",
+      "origin": [
+        -1379,
+        66,
+        594
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "fungus_conservatory",
+      "origin": [
+        -1452,
+        66,
+        547
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "seed_vault",
+      "origin": [
+        -1414,
+        66,
+        718
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "survival_terraces",
+      "origin": [
+        -1526,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "keeper_housing",
+      "origin": [
+        -1413,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "farm_approach",
+      "origin": [
+        -1347,
+        66,
+        606
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "pollinator_sanctuary",
+      "origin": [
+        -1375,
+        66,
+        671
+      ],
+      "rotation": 2
+    }
+  ]
+}

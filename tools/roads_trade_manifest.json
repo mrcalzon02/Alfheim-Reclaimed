@@ -1,0 +1,158 @@
+{
+  "schema": "alfheim:roads_trade/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 2,
+  "placement_model": "one_transport_anchor",
+  "anchor": "caravan_court",
+  "foundation_depth": 8,
+  "generated_files": 25,
+  "local_horizontal_extent": [
+    172,
+    180
+  ],
+  "members": [
+    {
+      "id": "caravan_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        34,
+        47
+      ],
+      "children": {
+        "north": "processional_avenue",
+        "east": "freight_exchange",
+        "west": "custom_house",
+        "south": "road_checkpoint"
+      }
+    },
+    {
+      "id": "processional_avenue",
+      "count": 1,
+      "piece_size": [
+        47,
+        28,
+        39
+      ],
+      "children": {
+        "north": "bridge_gate"
+      }
+    },
+    {
+      "id": "bridge_gate",
+      "count": 1,
+      "piece_size": [
+        47,
+        34,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "freight_exchange",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "custom_house",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {
+        "north": "bonded_store"
+      }
+    },
+    {
+      "id": "bonded_store",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "road_checkpoint",
+      "count": 1,
+      "piece_size": [
+        47,
+        28,
+        31
+      ],
+      "children": {
+        "west": "wayshrine_rest",
+        "east": "refugee_lodge",
+        "north": "road_approach"
+      }
+    },
+    {
+      "id": "wayshrine_rest",
+      "count": 1,
+      "piece_size": [
+        31,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "refugee_lodge",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "road_approach",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_ten_members": true,
+    "require_nine_clear_supported_connections": true,
+    "require_connected_internal_circulation": true,
+    "require_far_bank_bridge_route": true,
+    "require_bridge_deck_piers_and_guardrails": true,
+    "require_all_cultural_modules_and_authored_air_in_saved_world": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "ordinary_cargo_food_wool_clay_and_records",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "bridge_scope": "authored_dry_channel_not_river_crossing_or_world_road_network",
+  "runtime_evidence": {
+    "console": "server/console-20261012-163523.log",
+    "world": "server/validation-roads-trade-20261012",
+    "members": 10,
+    "supported_clear_joins": 9,
+    "cultural_modules": 47,
+    "verified_air_cells": 324657,
+    "travel_refuge_beds": 16,
+    "bridge_deck_piers_guardrails": "verified",
+    "server_exit_code": 0,
+    "validation_exit_code": 0,
+    "background_markers": {},
+    "client_visual": "pending"
+  }
+}

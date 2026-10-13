@@ -36,6 +36,7 @@ public final class AlfheimCompanion {
         ModEntities.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModMenus.REGISTRY.register(modBus);
+        com.continuityworks.alfheimcompanion.worldgen.ModHarborStructures.REGISTRY.register(modBus);
         modBus.addListener(this::registerAttributes);
         modBus.addListener(this::commonSetup);
         modBus.addListener(this::addCreativeItems);

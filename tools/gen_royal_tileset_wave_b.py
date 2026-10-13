@@ -5,7 +5,9 @@ import argparse,json
 ROOT=Path(__file__).resolve().parents[1]; A=ROOT/"kubejs"/"assets"/"alfheim"; D=ROOT/"kubejs"/"data"/"alfheim"; S=ROOT/"kubejs"/"startup_scripts"/"26_royal_tileset_wave_b.js"
 T={"wood":"botania:block/dreamwood_planks","log":"botania:block/dreamwood_log","metal":"botania:block/elementium_block","glass":"botania:block/elf_glass_0","stone":"minecraft:block/quartz_block_side","textile":"minecraft:block/purple_wool","trim":"minecraft:block/magenta_wool","dark":"minecraft:block/polished_blackstone","glow":"minecraft:block/sea_lantern","leaf":"minecraft:block/azalea_leaves","particle":"botania:block/dreamwood_planks"}
 def b(a,z,t):return {"from":a,"to":z,"faces":{f:{"texture":"#"+t} for f in ("north","south","east","west","up","down")}}
-def m(e,ao=True):return {"parent":"minecraft:block/block","ambientocclusion":ao,"textures":T,"elements":e}
+def m(e,ao=True):
+    from model_geometry import clean_model
+    return clean_model({"parent":"minecraft:block/block","ambientocclusion":ao,"textures":T,"elements":e})
 
 def geom(kind,part="single"):
     side=part in ("left","nw","sw"); outer=(1,3) if side else (13,15)

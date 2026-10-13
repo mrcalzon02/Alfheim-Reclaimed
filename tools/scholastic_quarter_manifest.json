@@ -1,0 +1,143 @@
+{
+  "schema": "alfheim:scholastic_quarter/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 2,
+  "placement_model": "one_scholastic_anchor",
+  "anchor": "lore_college",
+  "foundation_depth": 8,
+  "generated_files": 23,
+  "local_horizontal_extent": [
+    141,
+    181
+  ],
+  "members": [
+    {
+      "id": "lore_college",
+      "count": 1,
+      "piece_size": [
+        47,
+        40,
+        47
+      ],
+      "children": {
+        "east": "archive_cloister",
+        "west": "runic_engineering_hall",
+        "north": "philosopher_court",
+        "south": "entry_court"
+      }
+    },
+    {
+      "id": "archive_cloister",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "runic_engineering_hall",
+      "count": 1,
+      "piece_size": [
+        39,
+        36,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "philosopher_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        32
+      ],
+      "children": {
+        "north": "astral_conservatory"
+      }
+    },
+    {
+      "id": "astral_conservatory",
+      "count": 1,
+      "piece_size": [
+        47,
+        40,
+        39
+      ],
+      "children": {}
+    },
+    {
+      "id": "entry_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        31
+      ],
+      "children": {
+        "west": "student_residence",
+        "east": "botanical_research_garden",
+        "north": "scholars_avenue"
+      }
+    },
+    {
+      "id": "student_residence",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "botanical_research_garden",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "scholars_avenue",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_nine_members": true,
+    "require_eight_clear_supported_connections": true,
+    "require_connected_internal_circulation": true,
+    "require_clear_supported_observation_stair": true,
+    "require_all_cultural_modules_and_authored_air_in_saved_world": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "mundane_records_and_student_supplies",
+    "research_rigs": "inert_decorative_only",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "runtime_evidence": {
+    "console": "server/console-20261012-151403.log",
+    "world": "server/validation-scholastic-quarter-20261012",
+    "members": 9,
+    "supported_clear_joins": 8,
+    "cultural_modules": 89,
+    "verified_air_cells": 324738,
+    "student_beds": 12,
+    "observation_stair": "clear_and_present",
+    "exit_code": 0,
+    "client_visual": "pending"
+  }
+}

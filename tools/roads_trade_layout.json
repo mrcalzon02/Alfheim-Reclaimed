@@ -1,0 +1,337 @@
+{
+  "layout": [
+    {
+      "name": "caravan_court",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        33,
+        46
+      ]
+    },
+    {
+      "name": "custom_house",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "processional_avenue",
+      "origin": [
+        0,
+        0,
+        -39
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -39,
+        46,
+        27,
+        -1
+      ]
+    },
+    {
+      "name": "road_checkpoint",
+      "origin": [
+        46,
+        0,
+        77
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        27,
+        77
+      ]
+    },
+    {
+      "name": "freight_exchange",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "bonded_store",
+      "origin": [
+        -78,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -78,
+        0,
+        4,
+        -48,
+        31,
+        42
+      ]
+    },
+    {
+      "name": "bridge_gate",
+      "origin": [
+        0,
+        0,
+        -70
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -70,
+        46,
+        33,
+        -40
+      ]
+    },
+    {
+      "name": "wayshrine_rest",
+      "origin": [
+        77,
+        0,
+        47
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        47,
+        77,
+        31,
+        77
+      ]
+    },
+    {
+      "name": "road_approach",
+      "origin": [
+        34,
+        0,
+        109
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        78,
+        34,
+        21,
+        109
+      ]
+    },
+    {
+      "name": "refugee_lodge",
+      "origin": [
+        -31,
+        0,
+        81
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        43,
+        -1,
+        31,
+        81
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "caravan_court",
+      "custom_house",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "caravan_court",
+      "processional_avenue",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "caravan_court",
+      "road_checkpoint",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "caravan_court",
+      "freight_exchange",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "custom_house",
+      "bonded_store",
+      [
+        -47,
+        9,
+        23
+      ],
+      [
+        -48,
+        9,
+        23
+      ]
+    ],
+    [
+      "processional_avenue",
+      "bridge_gate",
+      [
+        23,
+        9,
+        -39
+      ],
+      [
+        23,
+        9,
+        -40
+      ]
+    ],
+    [
+      "road_checkpoint",
+      "wayshrine_rest",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "road_checkpoint",
+      "road_approach",
+      [
+        23,
+        9,
+        77
+      ],
+      [
+        23,
+        9,
+        78
+      ]
+    ],
+    [
+      "road_checkpoint",
+      "refugee_lodge",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ]
+  ],
+  "cultural_modules": 47,
+  "verified_internal_networks": 10,
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 96557,
+    "alfheim:moonstone_livingrock_carved": 28754,
+    "alfheim:ivory_livingrock_polished": 14167,
+    "minecraft:air": 324657,
+    "minecraft:jigsaw": 18,
+    "alfheim:royal_writing_desk_left": 11,
+    "botania:dreamwood_log": 705,
+    "alfheim:royal_writing_desk_right": 11,
+    "minecraft:barrel": 10,
+    "botania:dreamwood_planks": 566,
+    "minecraft:brown_bed": 32,
+    "minecraft:flower_pot": 6,
+    "minecraft:skeleton_skull": 10,
+    "minecraft:purple_carpet": 4,
+    "minecraft:bone_block": 14,
+    "feywild:elven_quartz_brick_slab": 10,
+    "minecraft:coarse_dirt": 132,
+    "minecraft:light_blue_carpet": 5,
+    "alfheim:royal_wall_banner": 5,
+    "minecraft:oak_fence": 22,
+    "minecraft:iron_bars": 2,
+    "minecraft:tripwire_hook": 2,
+    "minecraft:green_carpet": 1,
+    "minecraft:gravel": 4,
+    "feywild:elven_quartz_cracked_brick": 3,
+    "alfheim:royal_tall_cabinet": 6,
+    "alfheim:royal_lineage_stele_base": 2,
+    "alfheim:royal_audience_bench_left": 4,
+    "alfheim:royal_lineage_stele_mid": 2,
+    "alfheim:royal_lineage_stele_crown": 2,
+    "alfheim:royal_audience_bench_right": 4
+  }
+}

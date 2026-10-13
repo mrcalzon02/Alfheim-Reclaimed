@@ -1,0 +1,11 @@
+{
+  "world": "validation-harbor-raised-quay-20261013",
+  "console": "server\\console-20261013-023222.log",
+  "synthetic_coast_accepted": true,
+  "single_column_cliff_rejected": true,
+  "pre_repair_site_rejected": true,
+  "checked_assembly_pass": true,
+  "natural_coast_acceptance": "pending",
+  "quay_height": 68,
+  "raised_foundations": true
+}

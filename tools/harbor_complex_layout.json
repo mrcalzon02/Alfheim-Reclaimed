@@ -1,0 +1,341 @@
+{
+  "layout": [
+    {
+      "name": "harbor_exchange",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        37,
+        46
+      ]
+    },
+    {
+      "name": "bonded_warehouse",
+      "origin": [
+        -47,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -47,
+        0,
+        4,
+        -1,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "wavebreak_pier",
+      "origin": [
+        0,
+        0,
+        -39
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -39,
+        46,
+        27,
+        -1
+      ]
+    },
+    {
+      "name": "quay_court",
+      "origin": [
+        46,
+        0,
+        77
+      ],
+      "rotation": 2,
+      "bounds": [
+        0,
+        0,
+        47,
+        46,
+        27,
+        77
+      ]
+    },
+    {
+      "name": "harbormaster_house",
+      "origin": [
+        93,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        93,
+        33,
+        42
+      ]
+    },
+    {
+      "name": "tide_temple",
+      "origin": [
+        -78,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -78,
+        0,
+        4,
+        -48,
+        35,
+        42
+      ]
+    },
+    {
+      "name": "sunken_drydock",
+      "origin": [
+        0,
+        0,
+        -70
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        -70,
+        46,
+        31,
+        -40
+      ]
+    },
+    {
+      "name": "signal_lighthouse",
+      "origin": [
+        77,
+        0,
+        47
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        47,
+        77,
+        45,
+        77
+      ]
+    },
+    {
+      "name": "harbor_approach",
+      "origin": [
+        34,
+        0,
+        109
+      ],
+      "rotation": 2,
+      "bounds": [
+        12,
+        0,
+        78,
+        34,
+        21,
+        109
+      ]
+    },
+    {
+      "name": "dockworker_housing",
+      "origin": [
+        -31,
+        0,
+        81
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        43,
+        -1,
+        31,
+        81
+      ]
+    }
+  ],
+  "joins": [
+    [
+      "harbor_exchange",
+      "bonded_warehouse",
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        -1,
+        9,
+        23
+      ]
+    ],
+    [
+      "harbor_exchange",
+      "wavebreak_pier",
+      [
+        23,
+        9,
+        0
+      ],
+      [
+        23,
+        9,
+        -1
+      ]
+    ],
+    [
+      "harbor_exchange",
+      "quay_court",
+      [
+        23,
+        9,
+        46
+      ],
+      [
+        23,
+        9,
+        47
+      ]
+    ],
+    [
+      "harbor_exchange",
+      "harbormaster_house",
+      [
+        46,
+        9,
+        23
+      ],
+      [
+        47,
+        9,
+        23
+      ]
+    ],
+    [
+      "bonded_warehouse",
+      "tide_temple",
+      [
+        -47,
+        9,
+        23
+      ],
+      [
+        -48,
+        9,
+        23
+      ]
+    ],
+    [
+      "wavebreak_pier",
+      "sunken_drydock",
+      [
+        23,
+        9,
+        -39
+      ],
+      [
+        23,
+        9,
+        -40
+      ]
+    ],
+    [
+      "quay_court",
+      "signal_lighthouse",
+      [
+        46,
+        9,
+        62
+      ],
+      [
+        47,
+        9,
+        62
+      ]
+    ],
+    [
+      "quay_court",
+      "harbor_approach",
+      [
+        23,
+        9,
+        77
+      ],
+      [
+        23,
+        9,
+        78
+      ]
+    ],
+    [
+      "quay_court",
+      "dockworker_housing",
+      [
+        0,
+        9,
+        62
+      ],
+      [
+        -1,
+        9,
+        62
+      ]
+    ]
+  ],
+  "cultural_modules": 72,
+  "verified_internal_networks": 10,
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 222463,
+    "alfheim:moonstone_livingrock_carved": 28310,
+    "alfheim:ivory_livingrock_polished": 14158,
+    "minecraft:air": 345003,
+    "minecraft:jigsaw": 18,
+    "botania:dreamwood_log": 870,
+    "alfheim:royal_writing_desk_left": 12,
+    "alfheim:royal_writing_desk_right": 12,
+    "minecraft:barrel": 10,
+    "minecraft:flower_pot": 8,
+    "minecraft:oak_fence": 178,
+    "minecraft:skeleton_skull": 8,
+    "minecraft:purple_carpet": 3,
+    "minecraft:bone_block": 11,
+    "alfheim:royal_wall_banner": 4,
+    "minecraft:water": 1344,
+    "feywild:elven_quartz_brick_slab": 8,
+    "minecraft:calcite": 3,
+    "feywild:elven_quartz_cracked_brick": 3,
+    "minecraft:gravel": 2,
+    "alfheim:royal_audience_bench_left": 12,
+    "alfheim:royal_audience_bench_right": 12,
+    "alfheim:royal_tall_cabinet": 7,
+    "minecraft:purple_bed": 2,
+    "botania:dreamwood_planks": 269,
+    "minecraft:light_blue_carpet": 1,
+    "minecraft:green_carpet": 4,
+    "minecraft:white_bed": 2,
+    "alfheim:royal_lineage_stele_base": 4,
+    "alfheim:royal_lineage_stele_mid": 4,
+    "alfheim:royal_lineage_stele_crown": 4,
+    "botania:elf_glass": 8,
+    "alfheim:royal_mana_brazier": 1,
+    "botania:dreamwood_stairs": 12,
+    "minecraft:brown_bed": 26
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/elder_lineage/family_residence",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/elder_lineage/family_residence",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

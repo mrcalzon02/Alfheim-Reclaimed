@@ -1,0 +1,14 @@
+{
+  "seed": 3536368297089363045,
+  "sample_center": [
+    -1443,
+    654
+  ],
+  "chunks": 25,
+  "before": {
+    "minecraft:dirt_path": 670,
+    "minecraft:coarse_dirt": 591
+  },
+  "after": {},
+  "natural_dais_starts": []
+}

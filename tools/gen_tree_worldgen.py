@@ -1,8 +1,8 @@
 """Generate restrained, climate-aligned third-party tree placement in Alfheim.
 
-This generator only adds Forge biome modifiers. It reuses the installed mods' placed
-features, including their survival filters and sparse rarity, instead of copying or
-overriding third-party worldgen.
+This generator adds Forge biome modifiers and local placed-feature wrappers. It
+preserves the installed trees' survival filters and halves their rarity gates,
+as requested in the October 12 field review.
 
 TaxTreeGiant is intentionally excluded. The 2026-09-06 field-review decision was that
 regular giant landmarks would intrinsically change Alfheim's world silhouette. Dense
@@ -102,10 +102,14 @@ def main():
     print('Alfheim restrained tree worldgen')
     for placement in PLACEMENTS:
         source_doc, source_jar = read_installed_placed_feature(placement['source_feature'])
+        # More frequent woodland accents, preserving the source survival filters.
+        for modifier in source_doc['placement']:
+            if modifier['type'] == 'minecraft:rarity_filter':
+                modifier['chance'] = max(1, modifier['chance'] // 2)
         local_path = placement['feature'].split(':', 1)[1]
         # A local placed-feature identity prevents the source mods' vanilla-biome ordering
         # constraints from forming a cycle through Alfheim. Its configured feature and every
-        # placement predicate remain byte-for-byte equivalent to the installed source JSON.
+        # placement predicate is retained; only the rarity gate changes.
         write_json(os.path.join(PLACED_OUT, f'{local_path}.json'), source_doc, args.dry_run)
         path = os.path.join(OUT, placement['file'])
         write_json(path, {
@@ -115,8 +119,7 @@ def main():
             'step': 'vegetal_decoration',
         }, args.dry_run)
         print(f"  {placement['feature']:<40} -> {', '.join(placement['biomes'])}")
-        print(f"    mirrors {placement['source_feature']} from {source_jar}")
-        print(f"    {placement['note']}")
+        print(f"    reuses {placement['source_feature']} from {source_jar}; doubled frequency")
 
     print('\n  TaxTreeGiant placement: disabled by field-review decision')
     print('  Dense Feywild groupings: reserved for future pixie sky islands')

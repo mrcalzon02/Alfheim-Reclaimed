@@ -1,0 +1,167 @@
+{
+  "schema": "alfheim:production_district/v1",
+  "design_authority": "alfheim_reclaimed_design/ANCIENT_ELVEN_STRUCTURE_ROSTER.md",
+  "status": "runtime_validated",
+  "wave": 2,
+  "placement_model": "one_production_anchor",
+  "anchor": "freight_yard",
+  "foundation_depth": 8,
+  "generated_files": 25,
+  "local_horizontal_extent": [
+    172,
+    180
+  ],
+  "members": [
+    {
+      "id": "freight_yard",
+      "count": 1,
+      "piece_size": [
+        47,
+        32,
+        47
+      ],
+      "children": {
+        "east": "distribution_depot",
+        "west": "resonance_foundry",
+        "north": "mana_mill",
+        "south": "dreamwood_shaping_court"
+      }
+    },
+    {
+      "id": "distribution_depot",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        47
+      ],
+      "children": {}
+    },
+    {
+      "id": "resonance_foundry",
+      "count": 1,
+      "piece_size": [
+        39,
+        38,
+        47
+      ],
+      "children": {
+        "north": "glass_bloom_house"
+      }
+    },
+    {
+      "id": "mana_mill",
+      "count": 1,
+      "piece_size": [
+        47,
+        38,
+        39
+      ],
+      "children": {
+        "north": "waterworks"
+      }
+    },
+    {
+      "id": "dreamwood_shaping_court",
+      "count": 1,
+      "piece_size": [
+        47,
+        30,
+        31
+      ],
+      "children": {
+        "west": "worker_housing",
+        "east": "guard_post",
+        "north": "freight_approach"
+      }
+    },
+    {
+      "id": "glass_bloom_house",
+      "count": 1,
+      "piece_size": [
+        39,
+        34,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "waterworks",
+      "count": 1,
+      "piece_size": [
+        47,
+        26,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "worker_housing",
+      "count": 1,
+      "piece_size": [
+        39,
+        32,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "guard_post",
+      "count": 1,
+      "piece_size": [
+        31,
+        30,
+        31
+      ],
+      "children": {}
+    },
+    {
+      "id": "freight_approach",
+      "count": 1,
+      "piece_size": [
+        23,
+        22,
+        32
+      ],
+      "children": {}
+    }
+  ],
+  "acceptance": {
+    "require_all_ten_members": true,
+    "require_nine_clear_supported_connections": true,
+    "require_connected_internal_circulation": true,
+    "require_all_cultural_modules_and_authored_air_in_saved_world": true,
+    "require_dry_waterworks": true,
+    "require_client_terrain_and_visual_review": true
+  },
+  "progression": {
+    "loot": "ordinary_clay_calcite_food_and_records",
+    "magical_machines": "inert_decorative_only",
+    "progression_rewards": false,
+    "fey_stone": "not_implemented_or_faked"
+  },
+  "runtime_evidence": {
+    "console": "server/console-20261012-152612.log",
+    "world": "server/validation-production-district-20261012",
+    "members": 10,
+    "supported_clear_joins": 9,
+    "cultural_modules": 32,
+    "verified_air_cells": 333148,
+    "worker_beds": 12,
+    "unlit_vanilla_kilns": 8,
+    "server_exit_code": 0,
+    "saved_census_exit_code": 0,
+    "initial_validation_exit_code": 1,
+    "audit_repair": "exact_member_coordinates_exclude_unrelated_natural_edge_fragments",
+    "background_markers": {
+      "worker_housing": 1,
+      "dreamwood_shaping_court": 1
+    },
+    "natural_start_chunk": [
+      -92,
+      56
+    ],
+    "natural_start_declared_members": 10,
+    "client_visual": "pending"
+  }
+}
