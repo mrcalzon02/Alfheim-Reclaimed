@@ -1,0 +1,74 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-military-warden-20261013",
+  "pieces": 6,
+  "inhabited_members": null,
+  "counts": {
+    "border_keep": 1,
+    "gate_barracks": 1,
+    "warden_tower": 1,
+    "discipline_guard_court": 1,
+    "watch_captain_house": 1,
+    "last_muster_ground": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 5,
+  "verified_air_cells": 227860,
+  "verified_footer_cells": 0,
+  "verified_foundation_cells": 71536,
+  "layout": [
+    {
+      "name": "border_keep",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "gate_barracks",
+      "origin": [
+        -1414,
+        66,
+        671
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "warden_tower",
+      "origin": [
+        -1487,
+        66,
+        632
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "discipline_guard_court",
+      "origin": [
+        -1371,
+        66,
+        598
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "watch_captain_house",
+      "origin": [
+        -1452,
+        66,
+        563
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "last_muster_ground",
+      "origin": [
+        -1332,
+        66,
+        594
+      ],
+      "rotation": 1
+    }
+  ]
+}

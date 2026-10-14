@@ -1,0 +1,696 @@
+{
+  "scope": "effective first-party biome configuration; natural density and visual quality require field review",
+  "only_generic_flowers": [
+    "alfheim:prism_drift",
+    "alfheim:rootfall",
+    "alfheim:sepulchral_reach",
+    "alfheim:shatterfields",
+    "alfheim:starless_reach"
+  ],
+  "biomes": 26,
+  "no_vegetation": [],
+  "unmodelled_modifiers": [],
+  "rows": [
+    {
+      "biome": "alfheim:alfheim_ocean",
+      "vegetation": [
+        "alfheim:ocean_coral_sparse",
+        "alfheim:ocean_kelp_sparse",
+        "alfheim:ocean_pickle_sparse",
+        "alfheim:ocean_seagrass_sparse",
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:stormwreck",
+        "alfheim:tidal_arcade"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:ashen_grove",
+      "vegetation": [
+        "alfheim:grove_ash_drift",
+        "alfheim:grove_charred_stumps",
+        "alfheim:grove_cinder_boulder",
+        "alfheim:grove_deadfall",
+        "alfheim:tree_emberbark",
+        "alfheim:tree_feywild_autumn",
+        "botania:mystical_flowers",
+        "mythicbotany:loose_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:ashwatch_keep",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:grey_barrow",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_autumn_hamlet",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:bloomfall_vale",
+      "vegetation": [
+        "alfheim:tree_feywild_spring",
+        "alfheim:tree_hushbark",
+        "alfheim:tree_jaffa_orange_warm",
+        "ars_nouveau:placed_mixed_archwoods",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:loose_dreamwood_trees",
+        "mythicbotany:motif_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:bloomfall_shrine",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:garland_menhirs",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_spring_hamlet",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:decayed_mire",
+      "vegetation": [
+        "alfheim:mire_deadfall",
+        "alfheim:mire_mud_flat",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:loose_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:mire_hulk",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:rotwood_barrow",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:hollow_marches",
+      "vegetation": [
+        "alfheim:marches_bonefield",
+        "alfheim:marches_hollow_boulder",
+        "alfheim:marches_hollow_ground",
+        "alfheim:marches_witherwood",
+        "alfheim:tree_gloambark",
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:hollow_bastion",
+        "alfheim:leyline_corridors",
+        "alfheim:marchfall_crater",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:infested_warren",
+      "vegetation": [
+        "alfheim:warren_fungal_bloom",
+        "alfheim:warren_root_mat",
+        "alfheim:warren_web_snare",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:loose_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:broken_causeway",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter",
+        "alfheim:warren_gate"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:mana_fen",
+      "vegetation": [
+        "alfheim:tree_gloambark",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:mana_crystals"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:drowned_arcade",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:fen_shrine",
+        "alfheim:leyline_corridors",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:mistbark_shore",
+      "vegetation": [
+        "alfheim:shore_driftwood",
+        "alfheim:shore_mistbark_canopy",
+        "alfheim:shore_undergrowth",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass"
+      ],
+      "natural_structures": [
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:faultwork",
+        "alfheim:harbor_complex",
+        "alfheim:hushbark_causeway",
+        "alfheim:leyline_corridors",
+        "alfheim:mistfall_shrine"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:prism_drift",
+      "vegetation": [
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:prism_observatory",
+        "alfheim:split_gallery"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:rootfall",
+      "vegetation": [
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:garden_archive_terrace",
+        "alfheim:root_shrine"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:scorchfell",
+      "vegetation": [
+        "botania:mystical_flowers",
+        "minecraft:patch_dead_bush_badlands",
+        "mythicbotany:loose_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:cinderglass_crater",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:production_district",
+        "alfheim:pyre_hall",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:sepulchral_reach",
+      "vegetation": [
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:kings_cliff_tomb",
+        "alfheim:mourning_court"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:shatterfields",
+      "vegetation": [
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:anchor_bastion",
+        "alfheim:fracture_gate"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:silverbark_wood",
+      "vegetation": [
+        "alfheim:tree_feywild_autumn",
+        "alfheim:tree_hushbark",
+        "alfheim:tree_jaffa_orange_scattered",
+        "ars_nouveau:placed_cascading_tree",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:loose_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:frostwatch_spire",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_autumn_hamlet",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter",
+        "alfheim:silver_moot"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:sporebank_shore",
+      "vegetation": [
+        "alfheim:shore_driftwood",
+        "alfheim:shore_spore_bed",
+        "alfheim:shore_spore_scatter",
+        "alfheim:shore_sporecaps",
+        "alfheim:shore_undergrowth",
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:capfall_barrow",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:faultwork",
+        "alfheim:harbor_complex",
+        "alfheim:leyline_corridors",
+        "alfheim:sporebank_hall"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:starless_reach",
+      "vegetation": [
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:last_watch",
+        "alfheim:starless_orrery"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:starved_reach",
+      "vegetation": [
+        "alfheim:starved_ice_spike",
+        "alfheim:starved_snow_pile",
+        "alfheim:tree_feywild_winter",
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:boneyard_wreck",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_winter_hamlet",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter",
+        "alfheim:starveling_pit"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:sundered_highlands",
+      "vegetation": [
+        "alfheim:highland_scree",
+        "alfheim:highland_torn_boulder",
+        "alfheim:highland_tufts",
+        "alfheim:tree_emberbark",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:riven_hold",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter",
+        "alfheim:sundered_quarry"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "alfheim:tidewood_shore",
+      "vegetation": [
+        "alfheim:shore_driftwood",
+        "alfheim:shore_tidewood_canopy",
+        "alfheim:shore_undergrowth",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:motif_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:driftwood_span",
+        "alfheim:elder_kings_tomb",
+        "alfheim:faultwork",
+        "alfheim:harbor_complex",
+        "alfheim:leyline_corridors",
+        "alfheim:tidewatch_boughs"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:void_shore",
+      "vegetation": [
+        "alfheim:shore_driftwood",
+        "alfheim:void_bramble",
+        "alfheim:void_thornbush",
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:edgewatch_beacon",
+        "alfheim:elder_kings_tomb",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:shore_memorial_court",
+        "alfheim:strandline_hulk",
+        "alfheim:thorn_gate"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "alfheim:void_verge",
+      "vegetation": [
+        "alfheim:void_bramble",
+        "alfheim:void_thornbush",
+        "botania:mystical_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:severed_span",
+        "alfheim:shore_memorial_court",
+        "alfheim:thorn_gate",
+        "alfheim:verge_spire"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "mythicbotany:alfheim_hills",
+      "vegetation": [
+        "alfheim:tree_emberbark",
+        "alfheim:tree_feywild_winter",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:loose_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:hillcrown_keep",
+        "alfheim:hillcut_quarry",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_winter_hamlet",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "mythicbotany:alfheim_lakes",
+      "vegetation": [
+        "alfheim:tree_gloambark",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:motif_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:faultwork",
+        "alfheim:lake_arcade",
+        "alfheim:lake_shrine",
+        "alfheim:leyline_corridors"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole"
+      ]
+    },
+    {
+      "biome": "mythicbotany:alfheim_plains",
+      "vegetation": [
+        "alfheim:tree_feywild_spring",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:loose_dreamwood_trees",
+        "mythicbotany:motif_flowers"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_spring_hamlet",
+        "alfheim:plains_moot",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter",
+        "alfheim:waystone_ring"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "mythicbotany:dreamwood_forest",
+      "vegetation": [
+        "alfheim:tree_hushbark",
+        "alfheim:tree_jaffa_orange_scattered",
+        "botania:mystical_flowers",
+        "mythicbotany:alfheim_grass",
+        "mythicbotany:dense_dreamwood_trees"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:boughwatch_tower",
+        "alfheim:canopy_span",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:leyline_corridors",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    },
+    {
+      "biome": "mythicbotany:golden_fields",
+      "vegetation": [
+        "alfheim:tree_feywild_summer",
+        "alfheim:tree_jaffa_orange_warm",
+        "botania:mystical_flowers",
+        "mythicbotany:wheat_fields"
+      ],
+      "natural_structures": [
+        "alfheim:agricultural_estate",
+        "alfheim:civic_center",
+        "alfheim:common_residential_quarter",
+        "alfheim:deep_quarry",
+        "alfheim:deepworks_headworks",
+        "alfheim:elder_kings_tomb",
+        "alfheim:elder_lineage_precinct",
+        "alfheim:faultwork",
+        "alfheim:golden_field_dais",
+        "alfheim:grange_hall",
+        "alfheim:harvest_crater",
+        "alfheim:leyline_corridors",
+        "alfheim:pixie_summer_hamlet",
+        "alfheim:production_district",
+        "alfheim:relief_district",
+        "alfheim:roads_trade",
+        "alfheim:scholastic_quarter"
+      ],
+      "controlled_only_structures": [
+        "alfheim:greatbole",
+        "alfheim:military_warden",
+        "alfheim:sacred_precinct"
+      ]
+    }
+  ]
+}

@@ -113,7 +113,9 @@ def main():
         {'type':'minecraft:matching_blocks','blocks':['minecraft:air']},
         {'type':'minecraft:matching_blocks','blocks':['minecraft:grass_block','minecraft:dirt',
             'minecraft:coarse_dirt','alfheim:abyssal_livingrock','alfheim:gloam_livingrock',
-            'alfheim:ivory_livingrock','alfheim:tide_livingrock','alfheim:cracked_livingrock'],
+            'alfheim:ivory_livingrock','alfheim:tide_livingrock','alfheim:cracked_livingrock',
+            'alfheim:riftchalk_livingrock','alfheim:riftshale_livingrock',
+            'minecraft:sand','minecraft:gravel'],
          'offset':[0,-1,0]}]}
     for name,block in (('void_bramble','alfheim:bramble'),('void_thornbush','mmorpg:thorn_bush')):
         emit(f'worldgen/configured_feature/{name}.json',{

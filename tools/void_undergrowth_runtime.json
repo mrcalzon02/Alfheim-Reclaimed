@@ -1,0 +1,85 @@
+{
+  "world": "validation-military-warden-20261013",
+  "controlled_pads": [
+    {
+      "substrate": "alfheim:riftchalk_livingrock",
+      "plant": "alfheim:bramble",
+      "surviving_blocks": 13
+    },
+    {
+      "substrate": "alfheim:riftchalk_livingrock",
+      "plant": "mmorpg:thorn_bush",
+      "surviving_blocks": 17
+    },
+    {
+      "substrate": "alfheim:riftshale_livingrock",
+      "plant": "alfheim:bramble",
+      "surviving_blocks": 19
+    },
+    {
+      "substrate": "alfheim:riftshale_livingrock",
+      "plant": "mmorpg:thorn_bush",
+      "surviving_blocks": 24
+    },
+    {
+      "substrate": "minecraft:sand",
+      "plant": "alfheim:bramble",
+      "surviving_blocks": 22
+    },
+    {
+      "substrate": "minecraft:sand",
+      "plant": "mmorpg:thorn_bush",
+      "surviving_blocks": 17
+    },
+    {
+      "substrate": "minecraft:gravel",
+      "plant": "alfheim:bramble",
+      "surviving_blocks": 25
+    },
+    {
+      "substrate": "minecraft:gravel",
+      "plant": "mmorpg:thorn_bush",
+      "surviving_blocks": 17
+    }
+  ],
+  "natural_sample_chunks": 64,
+  "natural_plants": [
+    {
+      "biome": "alfheim:alfheim_ocean",
+      "plant": "alfheim:bramble",
+      "count": 2
+    },
+    {
+      "biome": "alfheim:alfheim_ocean",
+      "plant": "mmorpg:thorn_bush",
+      "count": 9
+    },
+    {
+      "biome": "alfheim:void_shore",
+      "plant": "alfheim:bramble",
+      "count": 352
+    },
+    {
+      "biome": "alfheim:void_shore",
+      "plant": "mmorpg:thorn_bush",
+      "count": 319
+    },
+    {
+      "biome": "alfheim:void_verge",
+      "plant": "alfheim:bramble",
+      "count": 89
+    },
+    {
+      "biome": "alfheim:void_verge",
+      "plant": "mmorpg:thorn_bush",
+      "count": 106
+    }
+  ],
+  "limits": "One seed and local sample; counts do not establish final visual density. Pads use fillbiome then place feature and save after updates.",
+  "feature_sha256": {
+    "kubejs/data/alfheim/worldgen/configured_feature/void_bramble.json": "1b9acded03a79321fc57d9282b59652184e15222cb6e151667b49535491a69cf",
+    "kubejs/data/alfheim/worldgen/configured_feature/void_thornbush.json": "947905785f7be658f521c6fa4f3f65703d980c5f35622cf5ec517bfdcb114e2e",
+    "kubejs/data/alfheim/worldgen/placed_feature/void_bramble.json": "e43ec0336400bc3d8bf89c8f38a479e07be0bdf2df190db07ec1c4efa94b1a83",
+    "kubejs/data/alfheim/worldgen/placed_feature/void_thornbush.json": "ee7b6d3c0e196cc46c5b72bf8e1a5a524a0ed042602955458b7daf00c6faf7d9"
+  }
+}

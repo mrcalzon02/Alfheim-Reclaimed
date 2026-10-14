@@ -38,7 +38,11 @@
                   "alfheim:gloam_livingrock",
                   "alfheim:ivory_livingrock",
                   "alfheim:tide_livingrock",
-                  "alfheim:cracked_livingrock"
+                  "alfheim:cracked_livingrock",
+                  "alfheim:riftchalk_livingrock",
+                  "alfheim:riftshale_livingrock",
+                  "minecraft:sand",
+                  "minecraft:gravel"
                 ],
                 "offset": [
                   0,

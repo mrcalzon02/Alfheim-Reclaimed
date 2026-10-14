@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/military_warden/gate_barracks",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/military_warden/gate_barracks",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

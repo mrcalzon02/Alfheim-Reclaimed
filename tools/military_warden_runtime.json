@@ -1,0 +1,13 @@
+{
+  "world": "validation-military-warden-20261013",
+  "console": "server\\console-20261013-163741.log",
+  "members": 6,
+  "joins": 5,
+  "verified_air_cells": 227860,
+  "verified_foundation_cells": 71536,
+  "server_exit_code": 0,
+  "validation_exit_code": 0,
+  "visual_review": "pending",
+  "natural_placement": "not_enabled",
+  "source_fingerprint": "f916b4bca66d0f553f96b637438bb150401d497ee68aea169ac5f51a11639617"
+}

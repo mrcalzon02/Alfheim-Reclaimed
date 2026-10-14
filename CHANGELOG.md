@@ -1,5 +1,24 @@
 # Changelog
 
+## Void undergrowth coverage and Military/Warden live pass - 2026-10-13
+
+Audited all 26 home biomes with effective Forge decoration modifiers and enabled
+structure sets. Corrected bramble/thorn substrate filters: the Void Shore/Verge
+actually use riftchalk, riftshale, sand and gravel, which the old filter excluded.
+Fresh natural sample: Shore 352 brambles / 319 thorn bushes; Verge 89 / 106.
+Both plants survive controlled placement on all four materials after updates.
+Five outer void regions still have only generic flowers in their vegetation step;
+final visual density and distinct small-feature coverage remain pending.
+See `alfheim_reclaimed_design/BIOME_FEATURE_COVERAGE.md`.
+
+Military/Warden now implements all six roster archetypes in one assembly. Saved
+world verification passes six members, five supported joins, 227860 authored air
+cells and 71536 foundation cells, plus beds, remains, stairs, doors and furnishings.
+Natural spawning is not enabled for this new family; client visual review remains
+pending. Next family: Frontier/Wilderness. Protected broad terrain is unchanged;
+the accepted bounded harbor policy is unchanged. Evidence and placement command:
+`alfheim_reclaimed_design/MILITARY_WARDEN.md`.
+
 ## Bounded harbor natural-coast smoke test - 2026-10-13
 
 Verified seven bounded native checks at 4-17 columns and 64-149 ms including
