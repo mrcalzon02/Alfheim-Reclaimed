@@ -13,6 +13,7 @@ how to use their magic and rebuild the world. Second person. He is a teacher, no
 import argparse
 import hashlib
 import os
+from player_text import player_text
 
 OUT = os.path.join('config', 'ftbquests', 'quests')
 GROUP_KEY = 'alfheim_reclaimed'
@@ -25,7 +26,7 @@ def qid(*parts):
 
 
 def esc(s):
-    return s.replace('\\', '\\\\').replace('"', '\\"')
+    return player_text(s).replace('\\', '\\\\').replace('"', '\\"')
 
 
 def snbt_lines(key, lines, indent):

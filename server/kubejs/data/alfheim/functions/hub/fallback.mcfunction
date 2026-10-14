@@ -7,13 +7,14 @@
 # Uses a tiny emergency platform at the origin. Non-player entities cannot carry a spreadplayers destination across an unloaded chunk, so the provisional path must not pretend they can.
 
 execute in mythicbotany:alfheim run kill @e[type=minecraft:marker,tag=alfheim_hub,tag=!alfheim_hub_baked]
-execute in mythicbotany:alfheim run forceload add -16 -16 16 16
-execute in mythicbotany:alfheim run fill -2 99 -2 2 99 2 botania:livingrock
-execute in mythicbotany:alfheim run summon minecraft:marker 0 100 0 {Tags:["alfheim_hub"]}
+execute in mythicbotany:alfheim run forceload add -16 48 16 80
+execute in mythicbotany:alfheim run fill -2 99 62 2 99 66 botania:livingrock
+execute in mythicbotany:alfheim run fill -2 100 62 2 103 66 minecraft:air
+execute in mythicbotany:alfheim run summon minecraft:marker 0 100 64 {Tags:["alfheim_hub"]}
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run setworldspawn ~ ~1 ~
 
 execute in mythicbotany:alfheim run forceload remove all
-execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run forceload add -16 -16 16 16
+execute in mythicbotany:alfheim run forceload add -16 48 16 80
 
 scoreboard players set #created alfheim.hub 1
 tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; using a provisional spawn at the origin. It will move to the tree automatically once the chunks finish.","color":"yellow"}

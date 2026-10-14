@@ -24,7 +24,7 @@
 			id: "5D40BF010D345EA5"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 1 · stone tools"
+			subtitle: "Grovecraft · stone tools"
 			tasks: [{
 				id: "086EEBF720F41A47"
 				title: "Cinderbloom"
@@ -50,7 +50,7 @@
 			id: "7225CC195F9FE3A9"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 1 · stone tools"
+			subtitle: "Grovecraft · stone tools"
 			tasks: [{
 				id: "4407D597ED826B90"
 				title: "Verdigris Bloom"
@@ -76,7 +76,7 @@
 			id: "7A7B5AB550F42312"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 1 · stone tools"
+			subtitle: "Grovecraft · stone tools"
 			tasks: [{
 				id: "1A452AEC7898B10E"
 				title: "Palebloom"
@@ -102,7 +102,7 @@
 			id: "2247A22AD7B73CD7"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 2 · iron tools"
+			subtitle: "Mana Quickening · iron tools"
 			tasks: [{
 				id: "7B2F0519AF721B8B"
 				title: "Sparkroot"
@@ -128,7 +128,7 @@
 			id: "0307D6A2EEAFC6EA"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 2 · iron tools"
+			subtitle: "Mana Quickening · iron tools"
 			tasks: [{
 				id: "4B182C2458C04FBC"
 				title: "Duskbloom"
@@ -154,7 +154,7 @@
 			id: "6955FB24CDE5DE5D"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 3 · iron tools"
+			subtitle: "Verdant Grafting · iron tools"
 			tasks: [{
 				id: "674DCBC654806753"
 				title: "Sunbloom"
@@ -180,7 +180,7 @@
 			id: "4800962C86AA5E61"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 3 · iron tools"
+			subtitle: "Verdant Grafting · iron tools"
 			tasks: [{
 				id: "0A744B33B00D731B"
 				title: "Cloudglass Bloom"
@@ -206,7 +206,7 @@
 			id: "623145DC0CD5B1A3"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 4 · iron tools"
+			subtitle: "Gateweaving · iron tools"
 			tasks: [{
 				id: "64E1A0CF9F43E700"
 				title: "Silverthorn"
@@ -232,7 +232,7 @@
 			id: "2FCBAB33566A4B0C"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 4 · diamond tools"
+			subtitle: "Gateweaving · diamond tools"
 			tasks: [{
 				id: "246A8F62568EDAF1"
 				title: "Grievebloom"
@@ -258,7 +258,7 @@
 			id: "4837F0CDEFBEF9A9"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 5 · diamond tools"
+			subtitle: "Elementium Alloy Binding · diamond tools"
 			tasks: [{
 				id: "1B72F9196A1099E3"
 				title: "Rimebloom"
@@ -284,7 +284,7 @@
 			id: "47A0402FBCB41DCE"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 7 · diamond tools"
+			subtitle: "Ember Tempering · diamond tools"
 			tasks: [{
 				id: "1406BFF0A13EE96D"
 				title: "Emberwake"
@@ -310,7 +310,7 @@
 			id: "5FBAFA3B2CEBBB35"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 8 · diamond tools"
+			subtitle: "Frost-Memory Inscription · diamond tools"
 			tasks: [{
 				id: "0675EFB885C2FB1C"
 				title: "Farbloom"

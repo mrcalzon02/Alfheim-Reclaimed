@@ -98,9 +98,8 @@ function sendHome(server, name) {
     } catch (e) {
         console.warn(`[Alfheim Reclaimed] hub/send threw for ${name}: ${e} -- falling back to ` +
                      'a direct teleport so they at least reach Alfheim.')
-        server.runCommandSilent(`execute in ${HOME_DIMENSION} run tp ${name} 0 320 0`)
-        server.runCommandSilent(
-            `execute in ${HOME_DIMENSION} run spreadplayers 0 0 1 ${LANDING_RANGE} false ${name}`)
+        server.runCommandSilent(`function alfheim:hub/fallback`)
+        server.runCommandSilent(`execute in ${HOME_DIMENSION} run tp ${name} 0 101 64`)
     }
     // Observed, not assumed. isHome() asks the game rather than trusting a command's return.
     console.info(`[Alfheim Reclaimed] hub/send run for ${name}; in ${HOME_DIMENSION} now: ` +

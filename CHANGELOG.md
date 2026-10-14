@@ -46,6 +46,14 @@ Started the Sacred Precinct with seven connected sections and 18 static-validate
 resources covering the six sacred-life archetypes. Runtime admission is pending.
 See `HARBOR_BOUNDED_PLACEMENT.md` and `SACRED_PRECINCT.md` in the design directory.
 
+## Descriptive crafting language - 2026-10-13
+
+Replaced numbered era labels in player-facing quest prose and item tooltips with named magical
+workings. All 83 crafting-stage items now explain their origin and next use; Shift tooltips
+describe authored crafting routes for 427 custom objects. Regalia describes its tradition,
+rank and equipment slot. Generator display vocabulary prevents the old labels returning.
+Progression/recipe checks and tooltip callback checks passed; in-game layout remains unverified.
+
 Completed changes with evidence. Intent lives in `BACKLOG.md`; live state in `EXECUTION_STATE.md`.
 
 ---

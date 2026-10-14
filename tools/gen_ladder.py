@@ -18,6 +18,7 @@ import argparse
 import colorsys
 import json
 import os
+from player_text import WORKINGS, player_text
 
 MANIFEST = os.path.join('tools', 'items_manifest.json')
 SCRIPTS = os.path.join('kubejs', 'server_scripts')
@@ -129,6 +130,46 @@ def pretty(key):
     return ' '.join(w.capitalize() for w in key.replace('_', ' ').split())
 
 
+METHODS = {
+    'apothecary': 'petal binding in the Petal Apothecary',
+    'mana_pool': 'mana infusion in a Mana Pool',
+    'runic_altar': 'runic binding at the Runic Altar',
+    'terra_plate': 'mana agglomeration on the Terrestrial Agglomeration Plate',
+    'gate': 'exchange through the Alfheim Gate',
+    'brew': 'shapeless crafting',
+    'infuser': 'deep mana infusion in the Mana Infuser',
+    'imbuement': 'Source imbuement in the Imbuement Chamber',
+    'apparatus': 'Source enchantment at the Enchanting Apparatus',
+    'crush': 'spell crushing with the Crush glyph',
+    'na_altar': 'aura transmutation at the Natural Altar',
+    'na_tree': 'a Ritual of the Forest',
+    'occ_crush': 'spirit-assisted crushing', 'occ_fire': 'transmutation in Spirit Fire',
+    'fey_altar': 'fey binding at the Fey Altar',
+    'cr_mill': 'milling in a Millstone', 'cr_mix': 'mixing in a Basin',
+    'cr_press': 'pressing with a Mechanical Press', 'cr_deploy': 'application with a Deployer',
+    'cr_seq': 'sequenced deployment and pressing, repeated twice',
+    'smelt': 'smelting in a Furnace', 'craft': 'shaped crafting at a Crafting Table',
+}
+
+
+def chain_description(L, i):
+    """Identity, immediate origin and next use; all follow the emitted recipe chain."""
+    chain = chain_for(L)
+    item = chain[i]
+    previous = chain[i - 1] if i else PREV_TIER[L['era']]
+    identity = (f'The finished material of {WORKINGS[L["era"]]}.' if item == L['tier']
+                else f'A worked precursor for {L["tier_name"]} in {WORKINGS[L["era"]]}.')
+    origin = f'Made from {pretty(previous)} by {METHODS[station_at(L, i)]}.'
+    if i + 1 < len(chain):
+        use = f'Next: use {METHODS[station_at(L, i + 1)]} to make {pretty(chain[i + 1])}.'
+    else:
+        next_ladder = next((n for n in LADDER if PREV_TIER[n['era']] == item), None)
+        use = (f'Feeds {WORKINGS[next_ladder["era"]]}: make {pretty(chain_for(next_ladder)[0])} '
+               f'by {METHODS[station_at(next_ladder, 0)]}.' if next_ladder else
+               'A finished crownweaving reagent. See its Uses for catalyst and material conversions.')
+    return [identity, origin, use]
+
+
 # Suffixes used to pad a hand-written part list out to the full 2n-4 length. The named parts
 # carry the era's flavour; these carry its depth.
 PAD = ['drawn', 'folded', 'stilled', 'rebound', 'quenched', 'layered', 'proofed', 'settled',
@@ -196,7 +237,7 @@ def build_items():
                 'hue': (L['hue'] + i * 14) % 360,
                 'sat': round(max(0.6, L['sat'] - i * 0.06), 2),
                 'val': round(min(1.35, L['val'] + i * 0.03), 2),
-                'tooltip': f'Era {era} intermediate.',
+                'tooltip': ' '.join(chain_description(L, i)),
             })
         # Offset from the parts so the tier item never renders identically to step 1.
         out.append({
@@ -205,7 +246,7 @@ def build_items():
             'base': L['base'], 'hue': L['hue'],
             'sat': round(min(2.0, L['sat'] + 0.25), 2),
             'val': round(min(1.4, L['val'] + 0.12), 2),
-            'tooltip': L['tooltip'],
+            'tooltip': ' '.join(chain_description(L, n - 1)),
         })
         # Create's sequenced assembler needs a registered item to carry progress between
         # sub-steps. Half-finished work: duller and darker than the thing it becomes, so
@@ -217,7 +258,9 @@ def build_items():
                 'base': 'minecraft:brick.png', 'hue': L['hue'],
                 'sat': round(max(0.4, L['sat'] - 0.5), 2),
                 'val': round(max(0.5, L['val'] - 0.35), 2),
-                'tooltip': 'Still on the assembler. It is not finished with you yet.',
+                'tooltip': (f'Unfinished {pretty(item)} carried between assembly operations. '
+                            f'Apply Dreamwood with a Deployer, then press; repeat the sequence '
+                            f'twice to finish {pretty(item)}. Keep it in the assembly line.'),
             })
     return out
 
@@ -438,7 +481,14 @@ def main():
 
     manifest = json.load(open(MANIFEST, encoding='utf-8'))
     existing = {it['id'] for it in manifest['items']}
-    new = [it for it in build_items() if it['id'] not in existing]
+    generated = build_items()
+    descriptions = {it['id']: it['tooltip'] for it in generated}
+    for it in manifest['items']:
+        if it['id'] in descriptions:
+            it['tooltip'] = descriptions[it['id']]
+        else:
+            it['tooltip'] = player_text(it.get('tooltip', ''))
+    new = [it for it in generated if it['id'] not in existing]
     manifest['items'].extend(new)
 
     total_steps = sum(steps_for(L['era']) for L in LADDER) + 3

@@ -10,9 +10,9 @@
 	quests: [
 		{
 			description: [
-				"Down, now. The ore you found in Era Two was the surface of it."
+				"Down, now. The ore you found in Mana Quickening was the surface of it."
 				""
-				"Elementium, Alfsteel, and the pylons that make them. This is the era where we stop scavenging metal and start producing it."
+				"Elementium, Alfsteel, and the pylons that make them. This is the working where we stop scavenging metal and start producing it."
 			]
 			id: "534D1DF9DC2C53AE"
 			rewards: [{
@@ -24,10 +24,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "79C6D82AA5BF7459"
-				title: "Era 5"
+				title: "Elementium Alloy Binding"
 				type: "checkmark"
 			}]
-			title: "Era 5"
+			title: "Elementium Alloy Binding"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -37,7 +37,7 @@
 				""
 				"Machinery is not beneath us and it is not the point either. It is a faster way to break a thing into smaller things, and from here the ladder uses it."
 				""
-				"Build it before the era asks. Nothing downstream of this works without it."
+				"Build it before the working asks. Nothing downstream of this works without it."
 			]
 			id: "3FF508AE6741ADEB"
 			rewards: [{
@@ -83,9 +83,11 @@
 		{
 			dependencies: ["5701B3721B2E437C"]
 			description: [
-				"Into the furnace. The oldest process we have and still the honest one."
+				"A worked precursor for Elementium Core in Elementium Alloy Binding."
+				"Made from Gatewrought Cord by smelting in a Furnace."
+				"Next: use milling in a Millstone to make Annealed Plate."
 				""
-				"Step 1 of 7."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "562015337EE31210"
 			rewards: [{
@@ -107,9 +109,11 @@
 		{
 			dependencies: ["562015337EE31210"]
 			description: [
-				"Milled. Machinery is not beneath us; it is simply not the point."
+				"A worked precursor for Elementium Core in Elementium Alloy Binding."
+				"Made from Raw Alloy Grit by milling in a Millstone."
+				"Next: use mana infusion in a Mana Pool to make Core Blank."
 				""
-				"Step 2 of 7."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "14226DF95618C8F5"
 			rewards: [{
@@ -154,9 +158,11 @@
 		}
 		{
 			description: [
-				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				"A worked precursor for Elementium Core in Elementium Alloy Binding."
+				"Made from Core Blank by deep mana infusion in the Mana Infuser."
+				"Next: use Source enchantment at the Enchanting Apparatus to make Elementium Folded."
 				""
-				"Step 4 of 7."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "763ABA7A3BAAB26A"
 			rewards: [{
@@ -178,9 +184,11 @@
 		{
 			dependencies: ["763ABA7A3BAAB26A"]
 			description: [
-				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				"A worked precursor for Elementium Core in Elementium Alloy Binding."
+				"Made from Elementium Drawn by Source enchantment at the Enchanting Apparatus."
+				"Next: use runic binding at the Runic Altar to make Elementium Stilled."
 				""
-				"Step 5 of 7."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "7208B9CBBC9B8C40"
 			rewards: [{
@@ -227,9 +235,9 @@
 			description: [
 				"The last step. Elementium Core."
 				""
-				"Era V. Mined, smelted and sung to. Ours from the ground up."
+				"Elementium Alloy Binding. Mined, smelted and sung to. Ours from the ground up."
 				""
-				"7 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"7 steps, and every one of them rests on the preceding working. That is what the ladder is."
 			]
 			id: "3DCFC17FB1603613"
 			rewards: [{

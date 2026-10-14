@@ -118,7 +118,7 @@ def plan(catalog):
             'kind': kind, 'owner': owner, 'family': family, 'rank': rank,
             'slot': item['slot'], 'era': item['era'],
             'name': f"{style['title']} {noun}",
-            'tooltip': f"{lore} · Era {ROMAN[item['era']]} regalia",
+            'tooltip': f"{style['title']} regalia of the {lore}. Equip in the {item['slot']} slot.",
             'frame': ranks[rank]['frame'],
             'hue': HUE[owner],
             'style': style,

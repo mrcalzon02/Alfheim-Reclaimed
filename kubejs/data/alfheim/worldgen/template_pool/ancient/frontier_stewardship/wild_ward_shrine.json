@@ -1,0 +1,15 @@
+{
+  "name": "alfheim:ancient/frontier_stewardship/wild_ward_shrine",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "alfheim:ancient/frontier_stewardship/wild_ward_shrine",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

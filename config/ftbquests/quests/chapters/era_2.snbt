@@ -38,7 +38,7 @@
 			description: [
 				"The Diluted Pool taught you the shape. This is the real one."
 				""
-				"Everything you build for the next nine eras draws from a pool like this. Put it somewhere you are willing to walk to a thousand times."
+				"Everything you build for the next our restoration of Alfheim draws from a pool like this. Put it somewhere you are willing to walk to a thousand times."
 			]
 			id: "5AF1BF292F695BFC"
 			rewards: [{
@@ -910,7 +910,7 @@
 		}
 		{
 			description: [
-				"Here is the join, and it is the most important thing in this era."
+				"Here is the join, and it is the most important thing in this working."
 				""
 				"Mana can be bottled. Once it is a fluid in a container it is a fluid Create can pump, measure and pipe - and the moment that is true, the industry of the dead world runs on elven power."
 				""
@@ -1118,7 +1118,7 @@
 			description: [
 				"Dust compressed until it holds its shape, or torn out of a scarred log by a very annoyed tree."
 				""
-				"Either way it is the currency of every bargain worth making with them. MythicBotany wants one too, for a flower you will meet in the next era."
+				"Either way it is the currency of every bargain worth making with them. MythicBotany wants one too, for a flower you will meet in the next working."
 			]
 			id: "5C47CF44AFD4396F"
 			rewards: [{
@@ -1286,7 +1286,7 @@
 			description: [
 				"Not the diluted one. I have said why."
 				""
-				"Livingrock, and a great deal of it. This is the single most important block you will place this era and it should feel expensive."
+				"Livingrock, and a great deal of it. This is the single most important block you will place this working and it should feel expensive."
 			]
 			id: "561185DF8A54EAFD"
 			rewards: [{
@@ -1335,7 +1335,7 @@
 			description: [
 				"Petals, mana, and a bloom that has already been steeped."
 				""
-				"The yield is several times what the Steeping alone gave you. This is the era where the grove starts paying you back."
+				"The yield is several times what the Steeping alone gave you. This is the working where the grove starts paying you back."
 			]
 			id: "15036A9FF00FA2AD"
 			rewards: [{
@@ -1410,7 +1410,7 @@
 		}
 		{
 			description: [
-				"MythicBotany's own station, and the one that will carry the next four eras."
+				"MythicBotany's own station, and the one that will carry the alloy, fey-binding, tempering and inscription workings ahead."
 				""
 				"It wants colours as well as materials - it will ask you what shade the working starts and ends in. Do not skip those; the mod means them."
 			]
@@ -1606,7 +1606,7 @@
 		{
 			dependencies: ["09FF644153EB960F"]
 			description: [
-				"You have been hoarding them since Era I because I told you to. Here is the payoff."
+				"You have been hoarding them since Grovecraft because I told you to. Here is the payoff."
 				""
 				"Orbs reroll. They change an affix, or its tier, or the whole set - and each kind does exactly one thing, so read before you use."
 				""
@@ -1657,7 +1657,7 @@
 		{
 			dependencies: ["5A6295C9B02F5F1A"]
 			description: [
-				"Two of the ambient court will walk out past the ring this era."
+				"Two of the ambient court will walk out past the ring this working."
 				""
 				"Not far. Far enough that the Hollow Court is a place people leave from again, rather than a place eight elves are waiting to die in."
 			]

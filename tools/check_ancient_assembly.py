@@ -30,7 +30,7 @@ def world_pos(pos,origin,r):
 def main():
     global TEMPLATES,POOL
     ap=argparse.ArgumentParser();ap.add_argument('world')
-    ap.add_argument('--family',choices=('common_residential','elder_lineage','civic_center','relief_district','scholastic_quarter','production_district','agricultural_estate','roads_trade','harbor_complex','sacred_precinct','military_warden'),default='common_residential');args=ap.parse_args()
+    ap.add_argument('--family',choices=('common_residential','elder_lineage','civic_center','relief_district','scholastic_quarter','production_district','agricultural_estate','roads_trade','harbor_complex','sacred_precinct','military_warden','frontier_stewardship'),default='common_residential');args=ap.parse_args()
     lineage=args.family=='elder_lineage'
     civic=args.family=='civic_center'
     relief=args.family=='relief_district'
@@ -39,10 +39,15 @@ def main():
     agricultural=args.family=='agricultural_estate'
     trade=args.family=='roads_trade'
     harbor=args.family=='harbor_complex'
+    frontier=args.family=='frontier_stewardship'
     military=args.family=='military_warden'
     sacred=args.family=='sacred_precinct'
-    institutional=lineage or civic or relief or scholastic or production or agricultural or trade or harbor or sacred or military
-    if military:
+    institutional=lineage or civic or relief or scholastic or production or agricultural or trade or harbor or sacred or military or frontier
+    if frontier:
+        from gen_frontier_stewardship import SIZES
+        TEMPLATES=ROOT/'kubejs/data/alfheim/structures/ancient/frontier_stewardship'
+        POOL=ROOT/'kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship'
+    elif military:
         from gen_military_warden import SIZES
         TEMPLATES=ROOT/'kubejs/data/alfheim/structures/ancient/military_warden'
         POOL=ROOT/'kubejs/data/alfheim/worldgen/template_pool/ancient/military_warden'
@@ -87,6 +92,7 @@ def main():
     rootlabel='harbor_exchange' if harbor else 'caravan_court' if trade else 'water_garden' if agricultural else 'freight_yard' if production else 'lore_college' if scholastic else 'triage_court' if relief else 'assembly_hall' if civic else 'palace_center' if lineage else 'common_hall'
     if sacred:prefix='Sacred ';rootname=rootlabel='great_temple_court'
     if military:prefix='Warden ';rootname=rootlabel='border_keep'
+    if frontier:prefix='Frontier ';rootname=rootlabel='green_noble_lodge'
     region=Path(args.world)/'dimensions/mythicbotany/alfheim/region'
     grid={};cache={};labels=Counter();markers={};hall=None
     for file in region.glob('*.mca'):
@@ -152,7 +158,7 @@ def main():
             joins.append([name,childname,world,target])
             queue.append((childname,co,cr,depth+1))
     counts=Counter(s['name'] for s in seen)
-    assert len(seen)==(6 if military else 7 if sacred else 11 if relief else 10 if production or agricultural or trade or harbor else 9 if institutional else 26),counts
+    assert len(seen)==(6 if military or frontier else 7 if sacred else 11 if relief else 10 if production or agricultural or trade or harbor else 9 if institutional else 26),counts
     if institutional:
         assert counts==expected,('wrong assembled membership',counts,expected)
         for node in seen:
@@ -166,7 +172,7 @@ def main():
         sample=solids[::max(1,len(solids)//200)]
         ratio=sum(block(*world_pos(b['pos'],node['origin'],node['rotation']))==p['palette'][int(b['state'])]['Name'] for b in sample)/len(sample)
         assert ratio>=.97,(node['name'],'missing or mismatched geometry',ratio)
-        if sacred or military:
+        if sacred or military or frontier:
             for b in p['blocks']:
                 if int(b['pos'][1])<8:
                     expected_name=p['palette'][int(b['state'])]['Name']
@@ -178,7 +184,7 @@ def main():
                 name=p['palette'][int(b['state'])]['Name']
                 if 14<=z<=24 and 18<=x<=28 and 4<=y<=8 and name!='minecraft:air':
                     assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing bridge deck or pier',b['pos'])
-        if civic or relief or scholastic or production or agricultural or trade or harbor or sacred or military:
+        if civic or relief or scholastic or production or agricultural or trade or harbor or sacred or military or frontier:
             for b in p['blocks']:
                 if p['palette'][int(b['state'])]['Name']=='minecraft:air':
                     point=world_pos(b['pos'],node['origin'],node['rotation'])
@@ -189,12 +195,14 @@ def main():
                 name=p['palette'][int(b['state'])]['Name']
                 if name.startswith(('alfheim:royal_','alfheim:elder_')):
                     assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing cultural module',node['name'],name,b['pos'])
-                if (relief or scholastic or production or agricultural or trade or harbor or sacred or military) and (name.endswith('_bed') or name in ('minecraft:skeleton_skull','minecraft:bone_block','minecraft:oak_fence')):
+                if (relief or scholastic or production or agricultural or trade or harbor or sacred or military or frontier) and (name.endswith('_bed') or name in ('minecraft:skeleton_skull','minecraft:bone_block','minecraft:oak_fence')):
                     assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing relief fixture',node['name'],name,b['pos'])
                 if harbor and name in ('minecraft:water','botania:dreamwood_stairs','botania:elf_glass'):
                     assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing harbor fixture',node['name'],name,b['pos'])
                 if sacred and name in ('minecraft:water','botania:elf_glass','minecraft:white_wool','botania:dreamwood_log'):
                     assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing sacred fixture',node['name'],name,b['pos'])
+                if frontier and (name in ('minecraft:water','minecraft:wheat','minecraft:farmland','botania:elf_glass','botania:dreamwood_log','alfheim:ivory_livingrock_stairs') or name=='minecraft:moss_carpet'):
+                    assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing frontier fixture',node['name'],name,b['pos'])
                 if military and name in ('alfheim:ivory_livingrock_stairs','minecraft:iron_door','minecraft:iron_bars','botania:elf_glass','botania:dreamwood_log'):
                     assert block(*world_pos(b['pos'],node['origin'],node['rotation']))==name,('missing military fixture',node['name'],name,b['pos'])
                 if agricultural and (name in ('minecraft:water','minecraft:beehive','minecraft:wheat','minecraft:carrots','minecraft:farmland','minecraft:mycelium','minecraft:clay','botania:dreamwood_log','mythicbotany:dreamwood_leaves') or name.endswith('_mushroom')):
@@ -221,6 +229,7 @@ def main():
     census='harbor_complex_runtime_census.json' if harbor else 'roads_trade_runtime_census.json' if trade else 'agricultural_estate_runtime_census.json' if agricultural else 'production_district_runtime_census.json' if production else 'scholastic_quarter_runtime_census.json' if scholastic else 'relief_district_runtime_census.json' if relief else 'civic_center_runtime_census.json' if civic else 'elder_lineage_runtime_census.json' if lineage else 'ancient_district_runtime_census.json'
     if sacred:census='sacred_precinct_runtime_census.json'
     if military:census='military_warden_runtime_census.json'
+    if frontier:census='frontier_stewardship_runtime_census.json'
     (ROOT/'tools'/census).write_text(json.dumps(result,indent=2)+'\n')
     print(f'SAVED ASSEMBLY PASS: {len(seen)} members, {len(joins)} clear supported joins; family={args.family}')
 

@@ -62,7 +62,7 @@
 				""
 				"Petals and Dreamwood in the basin, and what comes out is a thread that is still, faintly, alive. Make a great many. Everything above this rests on it."
 				""
-				"From here each era asks two more steps than the last. Three now. Five in the next. Seventeen by the end. I am telling you so that you can build for it rather than be surprised by it."
+				"From here each working asks two more steps than the last. Three now. Five in the next. Seventeen by the end. I am telling you so that you can build for it rather than be surprised by it."
 			]
 			id: "150F2BE3592ED1B9"
 			rewards: [{
@@ -164,7 +164,7 @@
 			description: [
 				"Enough flowers, feeding enough spreaders, filling enough pools that you can walk away."
 				""
-				"This is the quest I care most about in this era. Not because it is hard, but because everything after Era Five assumes you did it and will punish you if you did not."
+				"This is the quest I care most about in this working. Not because it is hard, but because everything after Elementium Alloy Binding assumes you did it and will punish you if you did not."
 			]
 			id: "505CE75FD7D19DE5"
 			rewards: [{
@@ -310,7 +310,7 @@
 			description: [
 				"Remember this one."
 				""
-				"Rituals are how the other tradition does the things our altar does. In two eras you will find that our highest metal will not form without one of these burning beside it."
+				"Rituals are how the other tradition does the things our altar does. In the earlier workings you will find that our highest metal will not form without one of these burning beside it."
 				""
 				"Neither of us finishes alone. I have said it before; the recipes will say it for me soon enough."
 			]
@@ -553,7 +553,7 @@
 				""
 				"The Agricarnation ends that. It hurries what grows around it and asks only for mana, and mana is something you now make while asleep."
 				""
-				"This is the era where the grove starts working without you. Notice the date. It matters more than any rune."
+				"This is the working where the grove starts working without you. Notice the date. It matters more than any rune."
 			]
 			id: "31EE23F22CCB80F2"
 			optional: true
@@ -593,7 +593,7 @@
 			description: [
 				"You will be offered a choice between a working that is fast and one that returns more."
 				""
-				"Take the return, almost always. Time is the resource this grove has most of; materials are the resource it has least of. That asymmetry does not change until Era VII."
+				"Take the return, almost always. Time is the resource this grove has most of; materials are the resource it has least of. That asymmetry does not change until Ember Tempering."
 			]
 			id: "7C4924AB425E53F7"
 			optional: true
@@ -612,7 +612,7 @@
 			description: [
 				"Two blooms and an altar, and what comes out is not either of them."
 				""
-				"The Grafting is the first working that makes a material the world does not contain. Everything above Era III is built on things that did not exist until an elf made them."
+				"The Grafting is the first working that makes a material the world does not contain. Everything above Verdant Grafting is built on things that did not exist until an elf made them."
 			]
 			id: "171C1DBA624A1EC7"
 			optional: true
@@ -732,7 +732,7 @@
 		}
 		{
 			description: [
-				"You have drawn on this land for two eras. Here is how you give it back."
+				"You have drawn on this land for the earlier workings. Here is how you give it back."
 				""
 				"Ancient trees restore aura to the chunk they grow in, slowly, and they are the only thing in this pack that does."
 				""
@@ -1383,7 +1383,7 @@
 		{
 			dependencies: ["16F6EB765D44BC21"]
 			description: [
-				"Build it now. You will not be able to use it for three eras."
+				"Build it now. You will not be able to use it for several further workings."
 				""
 				"It wants three things the gate has not opened for yet. Let it sit in your workshop as a reminder of which way the trade route runs."
 			]
@@ -1600,7 +1600,7 @@
 		}
 		{
 			description: [
-				"Two went out in Era II. Both are back, which is better than the Court expected."
+				"Two went out in Mana Quickening. Both are back, which is better than the Court expected."
 				""
 				"They have found ruins we did not know were standing. Orenvel has stopped calling this a holding action."
 			]
@@ -1624,7 +1624,7 @@
 		{
 			dependencies: ["433DCEDA6D8E3DF7"]
 			description: [
-				"Velrous asked for one tree in Era I and you gave him one tree."
+				"Velrous asked for one tree in Grovecraft and you gave him one tree."
 				""
 				"Bring him a grove. He will pretend it is not what he wanted all along, and he will be lying."
 			]

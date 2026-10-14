@@ -1,0 +1,4 @@
+# Avoid scanning and wiping expedition folders across every saved world.
+# Expedition instances retain their normal in-game lifecycle.
+["dungeon_realm:dungeon"]
+WIPE_DIMENSION_ON_LOAD = false

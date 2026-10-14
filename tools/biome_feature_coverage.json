@@ -20,6 +20,56 @@
         "alfheim:ocean_seagrass_sparse",
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:liquid_bifrost_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:ocean_coral_sparse",
+          "alfheim:ocean_kelp_sparse",
+          "alfheim:ocean_pickle_sparse",
+          "alfheim:ocean_seagrass_sparse",
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": []
+      },
       "natural_structures": [
         "alfheim:deep_quarry",
         "alfheim:deepworks_headworks",
@@ -45,6 +95,66 @@
         "botania:mystical_flowers",
         "mythicbotany:loose_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_burning_dark",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_burning_dark"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_silverthorn",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:grove_ash_drift",
+          "alfheim:grove_charred_stumps",
+          "alfheim:grove_cinder_boulder",
+          "alfheim:grove_deadfall",
+          "alfheim:tree_emberbark",
+          "alfheim:tree_feywild_autumn",
+          "botania:mystical_flowers",
+          "mythicbotany:loose_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_burning_dark_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:ashwatch_keep",
@@ -64,6 +174,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -81,6 +192,68 @@
         "mythicbotany:loose_dreamwood_trees",
         "mythicbotany:motif_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_greening"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:liquid_bifrost_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_greening"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_feywild_spring",
+          "alfheim:tree_hushbark",
+          "alfheim:tree_jaffa_orange_warm",
+          "ars_nouveau:placed_mixed_archwoods",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:loose_dreamwood_trees",
+          "mythicbotany:motif_flowers"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_greening_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:bloomfall_shrine",
@@ -100,6 +273,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -114,6 +288,63 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:loose_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_drowned",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:mire_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_drowned"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:mire_deadfall",
+          "alfheim:mire_mud_flat",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:loose_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_drowned_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -132,6 +363,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -147,6 +379,69 @@
         "alfheim:tree_gloambark",
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_drowned",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:liquid_bifrost_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_drowned"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_emberwake",
+          "alfheim:bloom_farbloom",
+          "alfheim:bloom_grievebloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_rimebloom",
+          "alfheim:bloom_silverthorn",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:marches_bonefield",
+          "alfheim:marches_hollow_boulder",
+          "alfheim:marches_hollow_ground",
+          "alfheim:marches_witherwood",
+          "alfheim:tree_gloambark",
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_drowned_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -165,6 +460,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -180,6 +476,59 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:loose_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_quiet_fen"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_quiet_fen"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:warren_fungal_bloom",
+          "alfheim:warren_root_mat",
+          "alfheim:warren_web_snare",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:loose_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_quiet_fen_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:broken_causeway",
@@ -198,6 +547,7 @@
         "alfheim:warren_gate"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -211,6 +561,70 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:mana_crystals"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_storm",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:liquid_bifrost_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_storm"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_emberwake",
+          "alfheim:bloom_farbloom",
+          "alfheim:bloom_grievebloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_rimebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_gloambark",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:mana_crystals"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_storm_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -229,6 +643,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -243,6 +658,54 @@
         "botania:mystical_flowers",
         "mythicbotany:alfheim_grass"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:shore_driftwood",
+          "alfheim:shore_mistbark_canopy",
+          "alfheim:shore_undergrowth",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass"
+        ],
+        "top_layer_modification": []
+      },
       "natural_structures": [
         "alfheim:deep_quarry",
         "alfheim:deepworks_headworks",
@@ -262,6 +725,35 @@
       "vegetation": [
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:void/prism_crowns"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:void/prism_crowns"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:prism_observatory",
         "alfheim:split_gallery"
@@ -275,6 +767,35 @@
       "vegetation": [
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:void/root_aprons"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:void/root_aprons"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:garden_archive_terrace",
         "alfheim:root_shrine"
@@ -290,6 +811,60 @@
         "minecraft:patch_dead_bush_badlands",
         "mythicbotany:loose_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_burning_dark"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:scorchfell_lava_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_burning_dark"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [
+          "alfheim:scorchfell_lava_seep"
+        ],
+        "vegetal_decoration": [
+          "botania:mystical_flowers",
+          "minecraft:patch_dead_bush_badlands",
+          "mythicbotany:loose_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_burning_dark_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:cinderglass_crater",
@@ -308,6 +883,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -318,6 +894,35 @@
       "vegetation": [
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:void/mourning_steles"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:void/mourning_steles"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:kings_cliff_tomb",
         "alfheim:mourning_court"
@@ -331,6 +936,35 @@
       "vegetation": [
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:void/shatter_anchors"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:void/shatter_anchors"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:anchor_bastion",
         "alfheim:fracture_gate"
@@ -350,6 +984,65 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:loose_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_quiet_fen"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_quiet_fen"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_feywild_autumn",
+          "alfheim:tree_hushbark",
+          "alfheim:tree_jaffa_orange_scattered",
+          "ars_nouveau:placed_cascading_tree",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:loose_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_quiet_fen_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -369,6 +1062,7 @@
         "alfheim:silver_moot"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -384,6 +1078,55 @@
         "alfheim:shore_undergrowth",
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:shore_driftwood",
+          "alfheim:shore_spore_bed",
+          "alfheim:shore_spore_scatter",
+          "alfheim:shore_sporecaps",
+          "alfheim:shore_undergrowth",
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": []
+      },
       "natural_structures": [
         "alfheim:capfall_barrow",
         "alfheim:deep_quarry",
@@ -403,6 +1146,35 @@
       "vegetation": [
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:void/astralite_flecks"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:void/astralite_flecks"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:last_watch",
         "alfheim:starless_orrery"
@@ -419,6 +1191,58 @@
         "alfheim:tree_feywild_winter",
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_forge"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_forge"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:starved_ice_spike",
+          "alfheim:starved_snow_pile",
+          "alfheim:tree_feywild_winter",
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_forge_marker",
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:boneyard_wreck",
@@ -438,6 +1262,7 @@
         "alfheim:starveling_pit"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -453,6 +1278,65 @@
         "botania:mystical_flowers",
         "mythicbotany:alfheim_grass"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_burning_dark"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_burning_dark"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_emberwake",
+          "alfheim:bloom_farbloom",
+          "alfheim:bloom_grievebloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_rimebloom",
+          "alfheim:bloom_silverthorn",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:extra_gold_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:highland_scree",
+          "alfheim:highland_torn_boulder",
+          "alfheim:highland_tufts",
+          "alfheim:tree_emberbark",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_burning_dark_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -471,6 +1355,7 @@
         "alfheim:sundered_quarry"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -486,6 +1371,55 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:motif_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:shore_driftwood",
+          "alfheim:shore_tidewood_canopy",
+          "alfheim:shore_undergrowth",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:motif_flowers"
+        ],
+        "top_layer_modification": []
+      },
       "natural_structures": [
         "alfheim:deep_quarry",
         "alfheim:deepworks_headworks",
@@ -508,6 +1442,53 @@
         "alfheim:void_thornbush",
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:shore_driftwood",
+          "alfheim:void_bramble",
+          "alfheim:void_thornbush",
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": []
+      },
       "natural_structures": [
         "alfheim:deep_quarry",
         "alfheim:deepworks_headworks",
@@ -530,6 +1511,40 @@
         "alfheim:void_thornbush",
         "botania:mystical_flowers"
       ],
+      "surface_details": [
+        "alfheim:geode_rim",
+        "alfheim:void/verge_markers"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:geode_rim",
+          "alfheim:void/verge_markers"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_verdigris",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:void_bramble",
+          "alfheim:void_thornbush",
+          "botania:mystical_flowers"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_rim_marker",
+          "minecraft:freeze_top_layer"
+        ]
+      },
       "natural_structures": [
         "alfheim:severed_span",
         "alfheim:shore_memorial_court",
@@ -549,6 +1564,68 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:loose_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_forge",
+        "mythicbotany:abandoned_apothecaries",
+        "mythicbotany:mana_crystals"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_forge"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries",
+          "mythicbotany:mana_crystals"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_emberwake",
+          "alfheim:bloom_farbloom",
+          "alfheim:bloom_grievebloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_rimebloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_emberbark",
+          "alfheim:tree_feywild_winter",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:loose_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_forge_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -568,6 +1645,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -581,6 +1659,63 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:motif_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_storm"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [
+          "alfheim:liquid_bifrost_pool"
+        ],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_storm"
+        ],
+        "underground_structures": [],
+        "surface_structures": [],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_gloambark",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:motif_flowers"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_storm_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:deep_quarry",
         "alfheim:deepworks_headworks",
@@ -603,6 +1738,66 @@
         "mythicbotany:loose_dreamwood_trees",
         "mythicbotany:motif_flowers"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_greening",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_greening"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_feywild_spring",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:loose_dreamwood_trees",
+          "mythicbotany:motif_flowers"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_greening_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -622,6 +1817,7 @@
         "alfheim:waystone_ring"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -636,6 +1832,66 @@
         "mythicbotany:alfheim_grass",
         "mythicbotany:dense_dreamwood_trees"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_quiet_fen",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_quiet_fen"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_hushbark",
+          "alfheim:tree_jaffa_orange_scattered",
+          "botania:mystical_flowers",
+          "mythicbotany:alfheim_grass",
+          "mythicbotany:dense_dreamwood_trees"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_quiet_fen_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:boughwatch_tower",
@@ -654,6 +1910,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"
@@ -667,6 +1924,66 @@
         "botania:mystical_flowers",
         "mythicbotany:wheat_fields"
       ],
+      "surface_details": [
+        "alfheim:deepworks/formations/crystal_chandeliers",
+        "alfheim:deepworks/formations/ley_scars",
+        "alfheim:deepworks/formations/mineral_columns",
+        "alfheim:deepworks/formations/slag_terraces",
+        "alfheim:geode_greening",
+        "mythicbotany:abandoned_apothecaries"
+      ],
+      "features_by_step": {
+        "raw_generation": [],
+        "lakes": [],
+        "local_modifications": [
+          "alfheim:deepworks/formations/crystal_chandeliers",
+          "alfheim:deepworks/formations/ley_scars",
+          "alfheim:deepworks/formations/mineral_columns",
+          "alfheim:deepworks/formations/slag_terraces",
+          "alfheim:geode_greening"
+        ],
+        "underground_structures": [],
+        "surface_structures": [
+          "mythicbotany:abandoned_apothecaries"
+        ],
+        "strongholds": [],
+        "underground_ores": [
+          "alfheim:bloom_cinderbloom",
+          "alfheim:bloom_cloudglass",
+          "alfheim:bloom_duskbloom",
+          "alfheim:bloom_palebloom",
+          "alfheim:bloom_sparkroot",
+          "alfheim:bloom_sunbloom",
+          "alfheim:bloom_verdigris",
+          "alfheim:deepworks/ore_emberwake",
+          "alfheim:deepworks/ore_farbloom",
+          "alfheim:deepworks/ore_grievebloom",
+          "alfheim:deepworks/ore_rimebloom",
+          "alfheim:fey_gem_ore",
+          "mythicbotany:dragonstone_ore",
+          "mythicbotany:elementium_ore",
+          "mythicbotany:extra_gold_ore",
+          "mythicbotany:gold_ore",
+          "mythicbotany:metamorphic_desert_stone",
+          "mythicbotany:metamorphic_forest_stone",
+          "mythicbotany:metamorphic_fungal_stone",
+          "mythicbotany:metamorphic_mesa_stone",
+          "mythicbotany:metamorphic_mountain_stone",
+          "mythicbotany:metamorphic_swamp_stone",
+          "mythicbotany:metamorphic_taiga_stone"
+        ],
+        "underground_decoration": [],
+        "fluid_springs": [],
+        "vegetal_decoration": [
+          "alfheim:tree_feywild_summer",
+          "alfheim:tree_jaffa_orange_warm",
+          "botania:mystical_flowers",
+          "mythicbotany:wheat_fields"
+        ],
+        "top_layer_modification": [
+          "alfheim:geode_greening_marker"
+        ]
+      },
       "natural_structures": [
         "alfheim:agricultural_estate",
         "alfheim:civic_center",
@@ -687,6 +2004,7 @@
         "alfheim:scholastic_quarter"
       ],
       "controlled_only_structures": [
+        "alfheim:frontier_stewardship",
         "alfheim:greatbole",
         "alfheim:military_warden",
         "alfheim:sacred_precinct"

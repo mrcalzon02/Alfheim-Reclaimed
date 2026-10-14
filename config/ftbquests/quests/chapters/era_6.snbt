@@ -24,10 +24,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "05CB40BBB085EB74"
-				title: "Era 6"
+				title: "Fey Sinew Binding"
 				type: "checkmark"
 			}]
-			title: "Era 6"
+			title: "Fey Sinew Binding"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -95,9 +95,11 @@
 		}
 		{
 			description: [
-				"The Fey Altar. Ask politely. They remember being asked rudely."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from Elementium Core by fey binding at the Fey Altar."
+				"Next: use aura transmutation at the Natural Altar to make Fey Bound Cord."
 				""
-				"Step 1 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "2DF66908E570A63B"
 			rewards: [{
@@ -119,9 +121,11 @@
 		{
 			dependencies: ["2DF66908E570A63B"]
 			description: [
-				"The Natural Altar. It draws on the aura of the land — thin here, so be patient."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from March Hide by aura transmutation at the Natural Altar."
+				"Next: use petal binding in the Petal Apothecary to make Sinew Braid."
 				""
-				"Step 2 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "3F0898AEAE1AAC21"
 			rewards: [{
@@ -143,9 +147,11 @@
 		{
 			dependencies: ["3F0898AEAE1AAC21"]
 			description: [
-				"Petals in the basin. You have done this a thousand times; do it again."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from Fey Bound Cord by petal binding in the Petal Apothecary."
+				"Next: use exchange through the Alfheim Gate to make Warded Sinew."
 				""
-				"Step 3 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "1F8A3B823619AB77"
 			rewards: [{
@@ -167,9 +173,11 @@
 		{
 			dependencies: ["1F8A3B823619AB77"]
 			description: [
-				"Through the gate and back. What returns is not what you sent."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from Sinew Braid by exchange through the Alfheim Gate."
+				"Next: use spell crushing with the Crush glyph to make Wildmarch Drawn."
 				""
-				"Step 4 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "65FADEDDAFDE90CE"
 			rewards: [{
@@ -191,9 +199,11 @@
 		{
 			dependencies: ["65FADEDDAFDE90CE"]
 			description: [
-				"Crushed down. Sometimes progress is subtraction."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from Warded Sinew by spell crushing with the Crush glyph."
+				"Next: use mana infusion in a Mana Pool to make Wildmarch Folded."
 				""
-				"Step 5 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "0F7226CE2785DB25"
 			rewards: [{
@@ -215,9 +225,11 @@
 		{
 			dependencies: ["0F7226CE2785DB25"]
 			description: [
-				"Into the pool. Watch the level drop and understand what it cost."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from Wildmarch Drawn by mana infusion in a Mana Pool."
+				"Next: use Source enchantment at the Enchanting Apparatus to make Wildmarch Stilled."
 				""
-				"Step 6 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "30F4E89D348D9DAE"
 			rewards: [{
@@ -262,9 +274,11 @@
 		}
 		{
 			description: [
-				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				"A worked precursor for Wildmarch Sinew in Fey Sinew Binding."
+				"Made from Wildmarch Stilled by runic binding at the Runic Altar."
+				"Next: use shaped crafting at a Crafting Table to make Wildmarch Sinew."
 				""
-				"Step 8 of 9."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "2974C8621131741B"
 			rewards: [{
@@ -286,11 +300,11 @@
 		{
 			dependencies: ["2974C8621131741B"]
 			description: [
-				"The last step. Wildmarch Sinew."
+				"The finished material of Fey Sinew Binding."
+				"Made from Wildmarch Rebound by shaped crafting at a Crafting Table."
+				"Feeds Ember Tempering: make Scorched Filament by transmutation in Spirit Fire."
 				""
-				"Era VI. Taken from the frontier, and it has not forgiven you."
-				""
-				"9 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "664BFD8D2F5D582B"
 			rewards: [{

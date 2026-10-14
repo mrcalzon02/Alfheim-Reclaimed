@@ -24,7 +24,7 @@
       "hue": 95,
       "sat": 1.5,
       "val": 0.95,
-      "tooltip": "Dreamwood drawn to a thread. It is still faintly warm.",
+      "tooltip": "A botanical thread drawn from Dreamwood and green and lime petals in the Petal Apothecary. Infuse it with 2,000 mana in a Mana Pool to make Charged Fibre.",
       "_recipe": "Petal Apothecary: 2 green petal + 2 lime petal + dreamwood"
     },
     {
@@ -40,7 +40,7 @@
       "overlay_hue": 140,
       "overlay_sat": 1.4,
       "overlay_alpha": 0.35,
-      "tooltip": "It holds mana the way a wick holds oil.",
+      "tooltip": "Living Fibre infused with mana. Bind it with the Runic Altar reagents to make Verdant Filament, the starting material for Gateweaving.",
       "_recipe": "Mana Pool infusion: living_fibre, 2000 mana"
     },
     {
@@ -58,7 +58,7 @@
       "overlay_hue": 95,
       "overlay_sat": 1.5,
       "overlay_alpha": 0.5,
-      "tooltip": "Era III. The first thing the elves have made that they did not first find.",
+      "tooltip": "A runically bound botanical filament made from Charged Fibre. Petal binding turns it into Sunbleached Floss, beginning the Gatewrought Cord process.",
       "_recipe": "Runic Altar: 2 charged_fibre + rune_earth + rune_water"
     },
     {
@@ -70,7 +70,7 @@
       "hue": 45,
       "sat": 1.2,
       "val": 1.05,
-      "tooltip": "Era 4 intermediate."
+      "tooltip": "A worked precursor for Gatewrought Cord in Gateweaving. Made from Verdant Filament by petal binding in the Petal Apothecary. Next: use mana infusion in a Mana Pool to make Traded Skein."
     },
     {
       "id": "traded_skein",
@@ -81,7 +81,7 @@
       "hue": 59,
       "sat": 1.14,
       "val": 1.08,
-      "tooltip": "Era 4 intermediate."
+      "tooltip": "A worked precursor for Gatewrought Cord in Gateweaving. Made from Sunbleached Floss by mana infusion in a Mana Pool. Next: use exchange through the Alfheim Gate to make Gatewrought Drawn."
     },
     {
       "id": "gatewrought_drawn",
@@ -92,7 +92,7 @@
       "hue": 73,
       "sat": 1.08,
       "val": 1.11,
-      "tooltip": "Era 4 intermediate."
+      "tooltip": "A worked precursor for Gatewrought Cord in Gateweaving. Made from Traded Skein by exchange through the Alfheim Gate. Next: use Source enchantment at the Enchanting Apparatus to make Gatewrought Folded."
     },
     {
       "id": "gatewrought_folded",
@@ -103,7 +103,7 @@
       "hue": 87,
       "sat": 1.02,
       "val": 1.14,
-      "tooltip": "Era 4 intermediate."
+      "tooltip": "A worked precursor for Gatewrought Cord in Gateweaving. Made from Gatewrought Drawn by Source enchantment at the Enchanting Apparatus. Next: use runic binding at the Runic Altar to make Gatewrought Cord."
     },
     {
       "id": "gatewrought_cord",
@@ -116,7 +116,7 @@
       "hue": 45,
       "sat": 1.45,
       "val": 1.17,
-      "tooltip": "Era IV. Elven work, finished on the far side of the gate."
+      "tooltip": "The finished material of Gateweaving. Made from Gatewrought Folded by runic binding at the Runic Altar. Feeds Elementium Alloy Binding: make Raw Alloy Grit by smelting in a Furnace."
     },
     {
       "id": "raw_alloy_grit",
@@ -127,7 +127,7 @@
       "hue": 140,
       "sat": 1.4,
       "val": 1.1,
-      "tooltip": "Era 5 intermediate."
+      "tooltip": "A worked precursor for Elementium Core in Elementium Alloy Binding. Made from Gatewrought Cord by smelting in a Furnace. Next: use milling in a Millstone to make Annealed Plate."
     },
     {
       "id": "annealed_plate",
@@ -138,7 +138,7 @@
       "hue": 154,
       "sat": 1.34,
       "val": 1.13,
-      "tooltip": "Era 5 intermediate."
+      "tooltip": "A worked precursor for Elementium Core in Elementium Alloy Binding. Made from Raw Alloy Grit by milling in a Millstone. Next: use mana infusion in a Mana Pool to make Core Blank."
     },
     {
       "id": "core_blank",
@@ -149,7 +149,7 @@
       "hue": 168,
       "sat": 1.28,
       "val": 1.16,
-      "tooltip": "Era 5 intermediate."
+      "tooltip": "A worked precursor for Elementium Core in Elementium Alloy Binding. Made from Annealed Plate by mana infusion in a Mana Pool. Next: use deep mana infusion in the Mana Infuser to make Elementium Drawn."
     },
     {
       "id": "elementium_drawn",
@@ -160,7 +160,7 @@
       "hue": 182,
       "sat": 1.22,
       "val": 1.19,
-      "tooltip": "Era 5 intermediate."
+      "tooltip": "A worked precursor for Elementium Core in Elementium Alloy Binding. Made from Core Blank by deep mana infusion in the Mana Infuser. Next: use Source enchantment at the Enchanting Apparatus to make Elementium Folded."
     },
     {
       "id": "elementium_folded",
@@ -171,7 +171,7 @@
       "hue": 196,
       "sat": 1.16,
       "val": 1.22,
-      "tooltip": "Era 5 intermediate."
+      "tooltip": "A worked precursor for Elementium Core in Elementium Alloy Binding. Made from Elementium Drawn by Source enchantment at the Enchanting Apparatus. Next: use runic binding at the Runic Altar to make Elementium Stilled."
     },
     {
       "id": "elementium_stilled",
@@ -182,7 +182,7 @@
       "hue": 210,
       "sat": 1.1,
       "val": 1.25,
-      "tooltip": "Era 5 intermediate."
+      "tooltip": "A worked precursor for Elementium Core in Elementium Alloy Binding. Made from Elementium Folded by runic binding at the Runic Altar. Next: use shaped crafting at a Crafting Table to make Elementium Core."
     },
     {
       "id": "elementium_core",
@@ -195,7 +195,7 @@
       "hue": 140,
       "sat": 1.65,
       "val": 1.22,
-      "tooltip": "Era V. Mined, smelted and sung to. Ours from the ground up."
+      "tooltip": "The finished material of Elementium Alloy Binding. Made from Elementium Stilled by shaped crafting at a Crafting Table. Feeds Fey Sinew Binding: make March Hide by fey binding at the Fey Altar."
     },
     {
       "id": "march_hide",
@@ -206,7 +206,7 @@
       "hue": 25,
       "sat": 1.3,
       "val": 0.95,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Elementium Core by fey binding at the Fey Altar. Next: use aura transmutation at the Natural Altar to make Fey Bound Cord."
     },
     {
       "id": "fey_bound_cord",
@@ -217,7 +217,7 @@
       "hue": 39,
       "sat": 1.24,
       "val": 0.98,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from March Hide by aura transmutation at the Natural Altar. Next: use petal binding in the Petal Apothecary to make Sinew Braid."
     },
     {
       "id": "sinew_braid",
@@ -228,7 +228,7 @@
       "hue": 53,
       "sat": 1.18,
       "val": 1.01,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Fey Bound Cord by petal binding in the Petal Apothecary. Next: use exchange through the Alfheim Gate to make Warded Sinew."
     },
     {
       "id": "warded_sinew",
@@ -239,7 +239,7 @@
       "hue": 67,
       "sat": 1.12,
       "val": 1.04,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Sinew Braid by exchange through the Alfheim Gate. Next: use spell crushing with the Crush glyph to make Wildmarch Drawn."
     },
     {
       "id": "wildmarch_drawn",
@@ -250,7 +250,7 @@
       "hue": 81,
       "sat": 1.06,
       "val": 1.07,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Warded Sinew by spell crushing with the Crush glyph. Next: use mana infusion in a Mana Pool to make Wildmarch Folded."
     },
     {
       "id": "wildmarch_folded",
@@ -261,7 +261,7 @@
       "hue": 95,
       "sat": 1.0,
       "val": 1.1,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Wildmarch Drawn by mana infusion in a Mana Pool. Next: use Source enchantment at the Enchanting Apparatus to make Wildmarch Stilled."
     },
     {
       "id": "wildmarch_stilled",
@@ -272,7 +272,7 @@
       "hue": 109,
       "sat": 0.94,
       "val": 1.13,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Wildmarch Folded by Source enchantment at the Enchanting Apparatus. Next: use runic binding at the Runic Altar to make Wildmarch Rebound."
     },
     {
       "id": "wildmarch_rebound",
@@ -283,7 +283,7 @@
       "hue": 123,
       "sat": 0.88,
       "val": 1.16,
-      "tooltip": "Era 6 intermediate."
+      "tooltip": "A worked precursor for Wildmarch Sinew in Fey Sinew Binding. Made from Wildmarch Stilled by runic binding at the Runic Altar. Next: use shaped crafting at a Crafting Table to make Wildmarch Sinew."
     },
     {
       "id": "wildmarch_sinew",
@@ -296,7 +296,7 @@
       "hue": 25,
       "sat": 1.55,
       "val": 1.07,
-      "tooltip": "Era VI. Taken from the frontier, and it has not forgiven you."
+      "tooltip": "The finished material of Fey Sinew Binding. Made from Wildmarch Rebound by shaped crafting at a Crafting Table. Feeds Ember Tempering: make Scorched Filament by transmutation in Spirit Fire."
     },
     {
       "id": "scorched_filament",
@@ -307,7 +307,7 @@
       "hue": 15,
       "sat": 1.6,
       "val": 1.15,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Wildmarch Sinew by transmutation in Spirit Fire. Next: use mixing in a Basin to make Quenched Thread."
     },
     {
       "id": "quenched_thread",
@@ -318,7 +318,7 @@
       "hue": 29,
       "sat": 1.54,
       "val": 1.18,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Scorched Filament by mixing in a Basin. Next: use smelting in a Furnace to make Ember Lattice."
     },
     {
       "id": "ember_lattice",
@@ -329,7 +329,7 @@
       "hue": 43,
       "sat": 1.48,
       "val": 1.21,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Quenched Thread by smelting in a Furnace. Next: use shapeless crafting to make Bound Weave."
     },
     {
       "id": "bound_weave",
@@ -340,7 +340,7 @@
       "hue": 57,
       "sat": 1.42,
       "val": 1.24,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Ember Lattice by shapeless crafting. Next: use mana infusion in a Mana Pool to make Tempered Weave."
     },
     {
       "id": "tempered_weave",
@@ -351,7 +351,7 @@
       "hue": 71,
       "sat": 1.36,
       "val": 1.27,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Bound Weave by mana infusion in a Mana Pool. Next: use Source enchantment at the Enchanting Apparatus to make Emberbound Drawn."
     },
     {
       "id": "emberbound_drawn",
@@ -362,7 +362,7 @@
       "hue": 85,
       "sat": 1.3,
       "val": 1.3,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Tempered Weave by Source enchantment at the Enchanting Apparatus. Next: use a Ritual of the Forest to make Emberbound Folded."
     },
     {
       "id": "emberbound_folded",
@@ -373,7 +373,7 @@
       "hue": 99,
       "sat": 1.24,
       "val": 1.33,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Emberbound Drawn by a Ritual of the Forest. Next: use exchange through the Alfheim Gate to make Emberbound Stilled."
     },
     {
       "id": "emberbound_stilled",
@@ -384,7 +384,7 @@
       "hue": 113,
       "sat": 1.18,
       "val": 1.35,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Emberbound Folded by exchange through the Alfheim Gate. Next: use runic binding at the Runic Altar to make Emberbound Rebound."
     },
     {
       "id": "emberbound_rebound",
@@ -395,7 +395,7 @@
       "hue": 127,
       "sat": 1.12,
       "val": 1.35,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Emberbound Stilled by runic binding at the Runic Altar. Next: use deep mana infusion in the Mana Infuser to make Emberbound Quenched."
     },
     {
       "id": "emberbound_quenched",
@@ -406,7 +406,7 @@
       "hue": 141,
       "sat": 1.06,
       "val": 1.35,
-      "tooltip": "Era 7 intermediate."
+      "tooltip": "A worked precursor for Emberbound Weave in Ember Tempering. Made from Emberbound Rebound by deep mana infusion in the Mana Infuser. Next: use shaped crafting at a Crafting Table to make Emberbound Weave."
     },
     {
       "id": "emberbound_weave",
@@ -419,7 +419,7 @@
       "hue": 15,
       "sat": 1.85,
       "val": 1.27,
-      "tooltip": "Era VII. It remembers the fire and has agreed to hold it."
+      "tooltip": "The finished material of Ember Tempering. Made from Emberbound Quenched by shaped crafting at a Crafting Table. Feeds Frost-Memory Inscription: make Frost Shard by pressing with a Mechanical Press."
     },
     {
       "id": "frost_shard",
@@ -430,7 +430,7 @@
       "hue": 195,
       "sat": 1.4,
       "val": 1.2,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Emberbound Weave by pressing with a Mechanical Press. Next: use spell crushing with the Crush glyph to make Silvered Flake."
     },
     {
       "id": "silvered_flake",
@@ -441,7 +441,7 @@
       "hue": 209,
       "sat": 1.34,
       "val": 1.23,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Frost Shard by spell crushing with the Crush glyph. Next: use mana infusion in a Mana Pool to make Archive Leaf."
     },
     {
       "id": "archive_leaf",
@@ -452,7 +452,7 @@
       "hue": 223,
       "sat": 1.28,
       "val": 1.26,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Silvered Flake by mana infusion in a Mana Pool. Next: use Source imbuement in the Imbuement Chamber to make Rime Cord."
     },
     {
       "id": "rime_cord",
@@ -463,7 +463,7 @@
       "hue": 237,
       "sat": 1.22,
       "val": 1.29,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Archive Leaf by Source imbuement in the Imbuement Chamber. Next: use Source enchantment at the Enchanting Apparatus to make Lattice Blank."
     },
     {
       "id": "lattice_blank",
@@ -474,7 +474,7 @@
       "hue": 251,
       "sat": 1.16,
       "val": 1.32,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Rime Cord by Source enchantment at the Enchanting Apparatus. Next: use aura transmutation at the Natural Altar to make Sealed Lattice."
     },
     {
       "id": "sealed_lattice",
@@ -485,7 +485,7 @@
       "hue": 265,
       "sat": 1.1,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Lattice Blank by aura transmutation at the Natural Altar. Next: use spirit-assisted crushing to make Rimebound Drawn."
     },
     {
       "id": "rimebound_drawn",
@@ -496,7 +496,7 @@
       "hue": 279,
       "sat": 1.04,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Sealed Lattice by spirit-assisted crushing. Next: use exchange through the Alfheim Gate to make Rimebound Folded."
     },
     {
       "id": "rimebound_folded",
@@ -507,7 +507,7 @@
       "hue": 293,
       "sat": 0.98,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Rimebound Drawn by exchange through the Alfheim Gate. Next: use runic binding at the Runic Altar to make Rimebound Stilled."
     },
     {
       "id": "rimebound_stilled",
@@ -518,7 +518,7 @@
       "hue": 307,
       "sat": 0.92,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Rimebound Folded by runic binding at the Runic Altar. Next: use sequenced deployment and pressing, repeated twice to make Rimebound Rebound."
     },
     {
       "id": "rimebound_rebound",
@@ -529,7 +529,7 @@
       "hue": 321,
       "sat": 0.86,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Rimebound Stilled by sequenced deployment and pressing, repeated twice. Next: use deep mana infusion in the Mana Infuser to make Rimebound Quenched."
     },
     {
       "id": "rimebound_quenched",
@@ -540,7 +540,7 @@
       "hue": 335,
       "sat": 0.8,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Rimebound Rebound by deep mana infusion in the Mana Infuser. Next: use mana agglomeration on the Terrestrial Agglomeration Plate to make Rimebound Layered."
     },
     {
       "id": "rimebound_layered",
@@ -551,7 +551,7 @@
       "hue": 349,
       "sat": 0.74,
       "val": 1.35,
-      "tooltip": "Era 8 intermediate."
+      "tooltip": "A worked precursor for Rimebound Lattice in Frost-Memory Inscription. Made from Rimebound Quenched by mana agglomeration on the Terrestrial Agglomeration Plate. Next: use shaped crafting at a Crafting Table to make Rimebound Lattice."
     },
     {
       "id": "rimebound_lattice",
@@ -564,7 +564,7 @@
       "hue": 195,
       "sat": 1.65,
       "val": 1.32,
-      "tooltip": "Era VIII. Cold enough to keep a memory intact."
+      "tooltip": "The finished material of Frost-Memory Inscription. Made from Rimebound Layered by shaped crafting at a Crafting Table. Feeds Ancestral Threadbinding: make Ash Of Names by transmutation in Spirit Fire."
     },
     {
       "id": "ash_of_names",
@@ -575,7 +575,7 @@
       "hue": 280,
       "sat": 1.3,
       "val": 0.9,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Rimebound Lattice by transmutation in Spirit Fire. Next: use spirit-assisted crushing to make Mourning Dust."
     },
     {
       "id": "mourning_dust",
@@ -586,7 +586,7 @@
       "hue": 294,
       "sat": 1.24,
       "val": 0.93,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Ash Of Names by spirit-assisted crushing. Next: use aura transmutation at the Natural Altar to make Gilded Ash."
     },
     {
       "id": "gilded_ash",
@@ -597,7 +597,7 @@
       "hue": 308,
       "sat": 1.18,
       "val": 0.96,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Mourning Dust by aura transmutation at the Natural Altar. Next: use shapeless crafting to make Debt Cord."
     },
     {
       "id": "debt_cord",
@@ -608,7 +608,7 @@
       "hue": 322,
       "sat": 1.12,
       "val": 0.99,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gilded Ash by shapeless crafting. Next: use mana infusion in a Mana Pool to make Reckoned Thread."
     },
     {
       "id": "reckoned_thread",
@@ -619,7 +619,7 @@
       "hue": 336,
       "sat": 1.06,
       "val": 1.02,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Debt Cord by mana infusion in a Mana Pool. Next: use petal binding in the Petal Apothecary to make Grave Braid."
     },
     {
       "id": "grave_braid",
@@ -630,7 +630,7 @@
       "hue": 350,
       "sat": 1.0,
       "val": 1.05,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Reckoned Thread by petal binding in the Petal Apothecary. Next: use Source enchantment at the Enchanting Apparatus to make Settled Thread."
     },
     {
       "id": "settled_thread",
@@ -641,7 +641,7 @@
       "hue": 4,
       "sat": 0.94,
       "val": 1.08,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Grave Braid by Source enchantment at the Enchanting Apparatus. Next: use Source imbuement in the Imbuement Chamber to make Gravegilt Drawn."
     },
     {
       "id": "gravegilt_drawn",
@@ -652,7 +652,7 @@
       "hue": 18,
       "sat": 0.88,
       "val": 1.11,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Settled Thread by Source imbuement in the Imbuement Chamber. Next: use exchange through the Alfheim Gate to make Gravegilt Folded."
     },
     {
       "id": "gravegilt_folded",
@@ -663,7 +663,7 @@
       "hue": 32,
       "sat": 0.82,
       "val": 1.14,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gravegilt Drawn by exchange through the Alfheim Gate. Next: use sequenced deployment and pressing, repeated twice to make Gravegilt Stilled."
     },
     {
       "id": "gravegilt_stilled",
@@ -674,7 +674,7 @@
       "hue": 46,
       "sat": 0.76,
       "val": 1.17,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gravegilt Folded by sequenced deployment and pressing, repeated twice. Next: use runic binding at the Runic Altar to make Gravegilt Rebound."
     },
     {
       "id": "gravegilt_rebound",
@@ -685,7 +685,7 @@
       "hue": 60,
       "sat": 0.7,
       "val": 1.2,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gravegilt Stilled by runic binding at the Runic Altar. Next: use deep mana infusion in the Mana Infuser to make Gravegilt Quenched."
     },
     {
       "id": "gravegilt_quenched",
@@ -696,7 +696,7 @@
       "hue": 74,
       "sat": 0.64,
       "val": 1.23,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gravegilt Rebound by deep mana infusion in the Mana Infuser. Next: use mana agglomeration on the Terrestrial Agglomeration Plate to make Gravegilt Layered."
     },
     {
       "id": "gravegilt_layered",
@@ -707,7 +707,7 @@
       "hue": 88,
       "sat": 0.6,
       "val": 1.26,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gravegilt Quenched by mana agglomeration on the Terrestrial Agglomeration Plate. Next: use a Ritual of the Forest to make Gravegilt Proofed."
     },
     {
       "id": "gravegilt_proofed",
@@ -718,7 +718,7 @@
       "hue": 102,
       "sat": 0.6,
       "val": 1.29,
-      "tooltip": "Era 9 intermediate."
+      "tooltip": "A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding. Made from Gravegilt Layered by a Ritual of the Forest. Next: use shaped crafting at a Crafting Table to make Gravegilt Thread."
     },
     {
       "id": "gravegilt_thread",
@@ -731,7 +731,7 @@
       "hue": 280,
       "sat": 1.55,
       "val": 1.02,
-      "tooltip": "Era IX. Spun from what it cost. Do not wear it lightly."
+      "tooltip": "The finished material of Ancestral Threadbinding. Made from Gravegilt Proofed by shaped crafting at a Crafting Table. Feeds World-Tree Crownweaving: make Heartwood Strand by petal binding in the Petal Apothecary."
     },
     {
       "id": "heartwood_strand",
@@ -742,7 +742,7 @@
       "hue": 52,
       "sat": 1.5,
       "val": 1.25,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Gravegilt Thread by petal binding in the Petal Apothecary. Next: use mana infusion in a Mana Pool to make Crowned Fibre."
     },
     {
       "id": "crowned_fibre",
@@ -753,7 +753,7 @@
       "hue": 66,
       "sat": 1.44,
       "val": 1.28,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Heartwood Strand by mana infusion in a Mana Pool. Next: use runic binding at the Runic Altar to make Yggdrasil Floss."
     },
     {
       "id": "yggdrasil_floss",
@@ -764,7 +764,7 @@
       "hue": 80,
       "sat": 1.38,
       "val": 1.31,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crowned Fibre by runic binding at the Runic Altar. Next: use deep mana infusion in the Mana Infuser to make Branch Cord."
     },
     {
       "id": "branch_cord",
@@ -775,7 +775,7 @@
       "hue": 94,
       "sat": 1.32,
       "val": 1.34,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Yggdrasil Floss by deep mana infusion in the Mana Infuser. Next: use mana agglomeration on the Terrestrial Agglomeration Plate to make Living Crown."
     },
     {
       "id": "living_crown",
@@ -786,7 +786,7 @@
       "hue": 108,
       "sat": 1.26,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Branch Cord by mana agglomeration on the Terrestrial Agglomeration Plate. Next: use Source enchantment at the Enchanting Apparatus to make Woven Crown."
     },
     {
       "id": "woven_crown",
@@ -797,7 +797,7 @@
       "hue": 122,
       "sat": 1.2,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Living Crown by Source enchantment at the Enchanting Apparatus. Next: use Source imbuement in the Imbuement Chamber to make Ninefold Thread."
     },
     {
       "id": "ninefold_thread",
@@ -808,7 +808,7 @@
       "hue": 136,
       "sat": 1.14,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Woven Crown by Source imbuement in the Imbuement Chamber. Next: use a Ritual of the Forest to make Crown Blank."
     },
     {
       "id": "crown_blank",
@@ -819,7 +819,7 @@
       "hue": 150,
       "sat": 1.08,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Ninefold Thread by a Ritual of the Forest. Next: use fey binding at the Fey Altar to make Crown Drawn."
     },
     {
       "id": "crown_drawn",
@@ -830,7 +830,7 @@
       "hue": 164,
       "sat": 1.02,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Blank by fey binding at the Fey Altar. Next: use transmutation in Spirit Fire to make Crown Folded."
     },
     {
       "id": "crown_folded",
@@ -841,7 +841,7 @@
       "hue": 178,
       "sat": 0.96,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Drawn by transmutation in Spirit Fire. Next: use exchange through the Alfheim Gate to make Crown Stilled."
     },
     {
       "id": "crown_stilled",
@@ -852,7 +852,7 @@
       "hue": 192,
       "sat": 0.9,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Folded by exchange through the Alfheim Gate. Next: use sequenced deployment and pressing, repeated twice to make Crown Rebound."
     },
     {
       "id": "crown_rebound",
@@ -863,7 +863,7 @@
       "hue": 206,
       "sat": 0.84,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Stilled by sequenced deployment and pressing, repeated twice. Next: use mixing in a Basin to make Crown Quenched."
     },
     {
       "id": "crown_quenched",
@@ -874,7 +874,7 @@
       "hue": 220,
       "sat": 0.78,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Rebound by mixing in a Basin. Next: use spell crushing with the Crush glyph to make Crown Layered."
     },
     {
       "id": "crown_layered",
@@ -885,7 +885,7 @@
       "hue": 234,
       "sat": 0.72,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Quenched by spell crushing with the Crush glyph. Next: use shapeless crafting to make Crown Proofed."
     },
     {
       "id": "crown_proofed",
@@ -896,7 +896,7 @@
       "hue": 248,
       "sat": 0.66,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Layered by shapeless crafting. Next: use aura transmutation at the Natural Altar to make Crown Settled."
     },
     {
       "id": "crown_settled",
@@ -907,7 +907,7 @@
       "hue": 262,
       "sat": 0.6,
       "val": 1.35,
-      "tooltip": "Era 10 intermediate."
+      "tooltip": "A worked precursor for Crown Filament in World-Tree Crownweaving. Made from Crown Proofed by aura transmutation at the Natural Altar. Next: use shaped crafting at a Crafting Table to make Crown Filament."
     },
     {
       "id": "crown_filament",
@@ -920,7 +920,7 @@
       "hue": 52,
       "sat": 1.75,
       "val": 1.37,
-      "tooltip": "Era X. The crown of the world tree, drawn out to a thread."
+      "tooltip": "The finished material of World-Tree Crownweaving. Made from Crown Settled by shaped crafting at a Crafting Table. A finished crownweaving reagent. See its Uses for catalyst and material conversions."
     },
     {
       "id": "incomplete_rimebound_rebound",
@@ -932,7 +932,7 @@
       "hue": 195,
       "sat": 0.9,
       "val": 0.85,
-      "tooltip": "Still on the assembler. It is not finished with you yet."
+      "tooltip": "Unfinished Rimebound Rebound carried between assembly operations. Apply Dreamwood with a Deployer, then press; repeat the sequence twice to finish Rimebound Rebound. Keep it in the assembly line."
     },
     {
       "id": "incomplete_gravegilt_stilled",
@@ -944,7 +944,7 @@
       "hue": 280,
       "sat": 0.8,
       "val": 0.55,
-      "tooltip": "Still on the assembler. It is not finished with you yet."
+      "tooltip": "Unfinished Gravegilt Stilled carried between assembly operations. Apply Dreamwood with a Deployer, then press; repeat the sequence twice to finish Gravegilt Stilled. Keep it in the assembly line."
     },
     {
       "id": "incomplete_crown_rebound",
@@ -956,7 +956,7 @@
       "hue": 52,
       "sat": 1.0,
       "val": 0.9,
-      "tooltip": "Still on the assembler. It is not finished with you yet."
+      "tooltip": "Unfinished Crown Rebound carried between assembly operations. Apply Dreamwood with a Deployer, then press; repeat the sequence twice to finish Crown Rebound. Keep it in the assembly line."
     }
   ]
 }

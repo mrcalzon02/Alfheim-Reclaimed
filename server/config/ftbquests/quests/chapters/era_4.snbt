@@ -24,10 +24,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "356BDB0E5FD5F1AB"
-				title: "Era 4"
+				title: "Gateweaving"
 				type: "checkmark"
 			}]
-			title: "Era 4"
+			title: "Gateweaving"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -36,7 +36,7 @@
 			description: [
 				"The gate itself, and it is not what Botania's own books describe."
 				""
-				"Their recipe wants livingwood and terrasteel. We have neither -- livingwood is a gate-import, which is the joke, and terrasteel is six eras away."
+				"Their recipe wants livingwood and terrasteel. We have neither -- livingwood is a gate-import, which is the joke, and terrasteel is made through World-Tree Crownweaving."
 				""
 				"So we build it from dreamwood around the cord you have just finished. Read that tooltip again: Elven work, finished on the far side of the gate. It has been pointing here since the roster was written."
 			]
@@ -107,9 +107,11 @@
 		}
 		{
 			description: [
-				"Into the pool. Watch the level drop and understand what it cost."
+				"A worked precursor for Gatewrought Cord in Gateweaving."
+				"Made from Sunbleached Floss by mana infusion in a Mana Pool."
+				"Next: use exchange through the Alfheim Gate to make Gatewrought Drawn."
 				""
-				"Step 2 of 5."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "33C30FB050A01619"
 			rewards: [{
@@ -131,9 +133,11 @@
 		{
 			dependencies: ["33C30FB050A01619"]
 			description: [
-				"Through the gate and back. What returns is not what you sent."
+				"A worked precursor for Gatewrought Cord in Gateweaving."
+				"Made from Traded Skein by exchange through the Alfheim Gate."
+				"Next: use Source enchantment at the Enchanting Apparatus to make Gatewrought Folded."
 				""
-				"Step 3 of 5."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "371580F0221FDC54"
 			rewards: [{
@@ -155,9 +159,11 @@
 		{
 			dependencies: ["371580F0221FDC54"]
 			description: [
-				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				"A worked precursor for Gatewrought Cord in Gateweaving."
+				"Made from Gatewrought Drawn by Source enchantment at the Enchanting Apparatus."
+				"Next: use runic binding at the Runic Altar to make Gatewrought Cord."
 				""
-				"Step 4 of 5."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "56124BF3C5DB9D68"
 			rewards: [{
@@ -181,9 +187,9 @@
 			description: [
 				"The last step. Gatewrought Cord."
 				""
-				"Era IV. Elven work, finished on the far side of the gate."
+				"Gateweaving. Elven work, finished on the far side of the gate."
 				""
-				"5 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"5 steps, and every one of them rests on the preceding working. That is what the ladder is."
 			]
 			id: "7433BE95155A730C"
 			rewards: [{

@@ -376,16 +376,8 @@ def build_era(era):
     x = 1.5
     for i, out_item in enumerate(chain):
         st = stations[i % len(stations)]
-        desc = [STATION_LINE.get(st, 'Another step.'),
-                '',
-                f'Step {i + 1} of {len(chain)}.']
-        if out_item == L['tier']:
-            desc = [f'The last step. {gen_ladder.pretty(out_item)}.',
-                    '',
-                    L['tooltip'],
-                    '',
-                    f'{len(chain)} steps, and every one of them rests on the era before it. '
-                    f'That is what the ladder is.']
+        desc = gen_ladder.chain_description(L, i)
+        desc += ['', 'See the item recipe for all reagents and resource costs.']
         key = f'chain_{i}'
         q.append((key, gen_ladder.pretty(out_item), f'Step {i + 1}/{len(chain)}', desc,
                   [('item', f'alfheim:{out_item}')], [('item', f'alfheim:{out_item}')],

@@ -16,7 +16,7 @@
 				""
 				"It glows faintly. Look for that at dusk."
 				""
-				"IT IS FINITE. Pools do not refill and do not regenerate. Until Era VII teaches you to make it, every drop you spend is gone. See THE RENEWABLE ROUTE."
+				"IT IS FINITE. Pools do not refill and do not regenerate. Until Ember Tempering teaches you to make it, every drop you spend is gone. See THE RENEWABLE ROUTE."
 				""
 				"WHAT IT IS FOR: it is the only material in this world that belongs to no magical tradition, which is exactly why every tradition will accept it."
 			]
@@ -39,7 +39,7 @@
 				"The pool, given a shape. It still hums."
 				""
 				"STATION: Petal Apothecary"
-				"ERA: 2"
+				"Working: Mana Quickening"
 				""
 				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
 				""
@@ -49,7 +49,7 @@
 			id: "35A907FD3B11DEA8"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 2 · tier 1 of 4"
+			subtitle: "Mana Quickening · tier 1 of 4"
 			tasks: [{
 				id: "45846C2CB38A916A"
 				title: "Crystallized Bifrost"
@@ -64,7 +64,7 @@
 				"Four crystals pressed into one. The hum is lower now."
 				""
 				"STATION: Mana Pool infusion"
-				"ERA: 2"
+				"Working: Mana Quickening"
 				""
 				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
 				""
@@ -74,7 +74,7 @@
 			id: "61F60CDE9425CC62"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 2 · tier 2 of 4"
+			subtitle: "Mana Quickening · tier 2 of 4"
 			tasks: [{
 				id: "1394B21547AC83FA"
 				title: "Condensed Bifrost"
@@ -89,7 +89,7 @@
 				"The impurities are gone. What is left is only the bridge."
 				""
 				"STATION: Alfheim Mana Infuser"
-				"ERA: 3"
+				"Working: Verdant Grafting"
 				""
 				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
 				""
@@ -99,7 +99,7 @@
 			id: "22A9170FBC793C26"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 3 · tier 3 of 4"
+			subtitle: "Verdant Grafting · tier 3 of 4"
 			tasks: [{
 				id: "58E05D4D649879F8"
 				title: "Refined Bifrost"
@@ -114,7 +114,7 @@
 				"The final form. It will become whatever magic you ask it to."
 				""
 				"STATION: Runic Altar"
-				"ERA: 3"
+				"Working: Verdant Grafting"
 				""
 				"Each tier is a different station, and every one of them is a station an earlier quest already taught you. Nothing in this chain introduces a new machine."
 				""
@@ -124,7 +124,7 @@
 			id: "7582E7A5E8A753B9"
 			optional: true
 			shape: "gear"
-			subtitle: "Era 3 · tier 4 of 4"
+			subtitle: "Verdant Grafting · tier 4 of 4"
 			tasks: [{
 				id: "06837214ED297FDA"
 				title: "Distilled Bifrost"
@@ -169,13 +169,13 @@
 				""
 				"It is NOT cheaper than finding a pool and was never meant to be. Four mixes to the bucket. It is only endless, which is a different and better property."
 				""
-				"Era VII because that is the first era that teaches the mixer."
+				"Ember Tempering because that is the first working that teaches the mixer."
 			]
 			icon: "create:basin"
 			id: "6D8BF07463970EE4"
 			optional: true
 			shape: "gear"
-			subtitle: "Era VII · make it, stop finding it"
+			subtitle: "Ember Tempering · make it, stop finding it"
 			tasks: [{
 				id: "5D6F6C9A9D0016E6"
 				title: "The Renewable Route"

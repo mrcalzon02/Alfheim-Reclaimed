@@ -12,7 +12,7 @@
 			description: [
 				"We wrote things down before it happened. Most of it is under ice."
 				""
-				"This era is not about power. It is about recovering what we knew, and finding out how much of it we would rather we had not."
+				"This working is not about power. It is about recovering what we knew, and finding out how much of it we would rather we had not."
 			]
 			id: "4BC76864EEBF7453"
 			rewards: [{
@@ -24,10 +24,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "5B1C08085863275E"
-				title: "Era 8"
+				title: "Frost-Memory Inscription"
 				type: "checkmark"
 			}]
-			title: "Era 8"
+			title: "Frost-Memory Inscription"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -79,7 +79,7 @@
 			description: [
 				"A depot, and the beginning of assembly in sequence."
 				""
-				"Several operations in a fixed order on one moving item. It is the most un-elven thing in this pack and by Era VIII you will not manage without it."
+				"Several operations in a fixed order on one moving item. It is the most un-elven thing in this pack and by Frost-Memory Inscription you will not manage without it."
 			]
 			id: "550B31983949F959"
 			rewards: [{
@@ -169,9 +169,11 @@
 		}
 		{
 			description: [
-				"Into the pool. Watch the level drop and understand what it cost."
+				"A worked precursor for Rimebound Lattice in Frost-Memory Inscription."
+				"Made from Silvered Flake by mana infusion in a Mana Pool."
+				"Next: use Source imbuement in the Imbuement Chamber to make Rime Cord."
 				""
-				"Step 3 of 13."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "0FB86EA0D56CD7A3"
 			rewards: [{
@@ -262,9 +264,11 @@
 		}
 		{
 			description: [
-				"Let the spirits grind it. Do not watch too closely."
+				"A worked precursor for Rimebound Lattice in Frost-Memory Inscription."
+				"Made from Sealed Lattice by spirit-assisted crushing."
+				"Next: use exchange through the Alfheim Gate to make Rimebound Folded."
 				""
-				"Step 7 of 13."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "1B886C27F4181F18"
 			rewards: [{
@@ -286,9 +290,11 @@
 		{
 			dependencies: ["1B886C27F4181F18"]
 			description: [
-				"Through the gate and back. What returns is not what you sent."
+				"A worked precursor for Rimebound Lattice in Frost-Memory Inscription."
+				"Made from Rimebound Drawn by exchange through the Alfheim Gate."
+				"Next: use runic binding at the Runic Altar to make Rimebound Stilled."
 				""
-				"Step 8 of 13."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "20279F04E6A950C4"
 			rewards: [{
@@ -310,9 +316,11 @@
 		{
 			dependencies: ["20279F04E6A950C4"]
 			description: [
-				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				"A worked precursor for Rimebound Lattice in Frost-Memory Inscription."
+				"Made from Rimebound Folded by runic binding at the Runic Altar."
+				"Next: use sequenced deployment and pressing, repeated twice to make Rimebound Rebound."
 				""
-				"Step 9 of 13."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "25285F69FD3047DF"
 			rewards: [{
@@ -357,9 +365,11 @@
 		}
 		{
 			description: [
-				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				"A worked precursor for Rimebound Lattice in Frost-Memory Inscription."
+				"Made from Rimebound Rebound by deep mana infusion in the Mana Infuser."
+				"Next: use mana agglomeration on the Terrestrial Agglomeration Plate to make Rimebound Layered."
 				""
-				"Step 11 of 13."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "2256F466652E8127"
 			rewards: [{
@@ -406,9 +416,9 @@
 			description: [
 				"The last step. Rimebound Lattice."
 				""
-				"Era VIII. Cold enough to keep a memory intact."
+				"Frost-Memory Inscription. Cold enough to keep a memory intact."
 				""
-				"13 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"13 steps, and every one of them rests on the preceding working. That is what the ladder is."
 			]
 			id: "7ED501645D71D9BA"
 			rewards: [{

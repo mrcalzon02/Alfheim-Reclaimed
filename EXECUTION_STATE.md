@@ -65,6 +65,16 @@ pending. See `alfheim_reclaimed_design/SACRED_PRECINCT.md`.
 Next: Sacred Precinct fresh-world assembly and saved-block verification when
 approval review is available; no further exhaustive harbor location searching.
 
+## Latest development - Descriptive crafting language - 2026-10-13
+
+Static validated: removed era labels from displayed quest and item text, described all 83
+crafting-stage items, and added derived crafting origins/uses for 427 custom objects on Shift.
+Existing progression/recipe checks report zero problems. Quest IDs, task types, rewards,
+dependencies and positions are preserved; generated tooltips reproduce exactly and callback
+checks pass with and without Shift. No recipe mechanics or textures were changed.
+Next runtime check: restart Minecraft, inspect the stage-item tooltips and Shift route details,
+and verify quest prose in the existing world. See `alfheim_reclaimed_design/PLAYER_FACING_TEXT.md`.
+
 ## Latest development - Harbor terrain-check refinement - 2026-10-13
 
 Native terrain checks now refine spacing 8/4/2/1, retaining every-column acceptance

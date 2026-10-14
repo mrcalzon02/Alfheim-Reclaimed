@@ -20,6 +20,8 @@ import json
 import os
 import sys
 import zipfile
+import textwrap
+from player_text import player_text
 
 from item_textures import CLIENT_JAR, load_base, overlay, tint
 
@@ -33,6 +35,7 @@ MANIFEST = os.path.join('tools', 'items_manifest.json')
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--list', action='store_true')
+    ap.add_argument('--text-only', action='store_true', help='Update registrations without redrawing assets')
     a = ap.parse_args()
 
     manifest = json.load(open(MANIFEST, encoding='utf-8'))
@@ -44,14 +47,14 @@ def main():
         print(f'\n{len(items)} items')
         return 0
 
-    if not os.path.exists(CLIENT_JAR):
+    if not a.text_only and not os.path.exists(CLIENT_JAR):
         print(f'client jar not found: {CLIENT_JAR}')
         return 2
 
     os.makedirs(TEX_OUT, exist_ok=True)
     os.makedirs(MODEL_OUT, exist_ok=True)
 
-    jar = zipfile.ZipFile(CLIENT_JAR)
+    jar = zipfile.ZipFile(CLIENT_JAR) if not a.text_only else None
     lines = [
         '// Alfheim Reclaimed — tier ladder intermediates',
         '//',
@@ -62,6 +65,8 @@ def main():
     ]
 
     for it in items:
+        if a.text_only:
+            continue
         base = load_base(jar, it['base'])
         img = tint(base, it.get('hue', 0), it.get('sat', 1.0), it.get('val', 1.0),
                    it.get('sat_floor', 0.45))
@@ -79,10 +84,12 @@ def main():
         with open(os.path.join(MODEL_OUT, it['id'] + '.json'), 'w', encoding='utf-8', newline='\n') as f:
             json.dump(model, f, indent=2)
 
-        tip = it.get('tooltip')
+    for it in items:
+        tip = player_text(it.get('tooltip', ''))
         reg = f"    event.create('{NS}:{it['id']}').displayName('{it['name']}')"
         if tip:
-            reg += f".tooltip('{tip}')"
+            for line in textwrap.wrap(tip, width=78):
+                reg += '.tooltip(' + json.dumps(line, ensure_ascii=False) + ')'
         if it.get('rarity'):
             reg += f".rarity('{it['rarity']}')"
         lines.append(reg)
@@ -93,7 +100,8 @@ def main():
     with open(SCRIPT_OUT, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(lines))
 
-    jar.close()
+    if jar:
+        jar.close()
     print(f'\n{len(items)} items -> {TEX_OUT}, {MODEL_OUT}, {SCRIPT_OUT}')
     return 0
 

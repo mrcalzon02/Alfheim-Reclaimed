@@ -120,7 +120,7 @@ def generate(root, assets, data, roster, write):
                 f', {round(chance*100)}% per kill.'+(' Requires a player kill.' if player else ''))
             if item in ITEMS:
                 descriptions.append(ITEMS[item][2])
-        descriptions.append('Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone.')
+        descriptions.append('Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone.')
         pages.append(entry('ref_fey_wildlife',name,r['name'],'Wildlife and field supplies',descriptions,
                            r['id']+'_spawn_egg',(i%6)*3,(i//6)*3))
     path=root/'config/ftbquests/quests/chapters/ref_fey_wildlife.snbt'

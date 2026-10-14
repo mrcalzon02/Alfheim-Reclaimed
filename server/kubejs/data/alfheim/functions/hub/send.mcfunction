@@ -10,19 +10,15 @@
 #
 # Sets the respawn point too, so dying bedless returns them here rather than to Midgard.
 
-# 1. CROSS. Unconditional, and safe to run on a player already in Alfheim. y=256 is above
-#    any terrain, so this never suffocates; the next lines put them on the ground.
-execute in mythicbotany:alfheim run tp @s 0 256 0
+# 1. PREPARE. Never teleport until a supported anchor or fallback exists.
+execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run function alfheim:hub/fallback
+execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run function alfheim:hub/ensure_landing
 
 # 2. REFINE, if the hub has resolved: stand them in the gate chamber.
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run tp @s ~ ~1 ~
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run spawnpoint @s ~ ~1 ~
-execute in mythicbotany:alfheim if entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run tag @s remove alfheim_awaiting_hub
+execute in mythicbotany:alfheim if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run tag @s remove alfheim_awaiting_hub
 
-# 3. NO HUB YET: land them on legal ground near the origin and mark them as owed a hub.
-#    The range is deliberately small -- this is the hub neighbourhood, not the 2000-block
-#    scatter the pre-2026-09-04 script used, which put every player somewhere different.
-execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run spreadplayers 0 0 1 160 false @s
-execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run spawnpoint @s ~ ~ ~
-execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run tag @s add alfheim_awaiting_hub
-execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] run tellraw @s {"text":"[Alfheim] The Greatbole is still generating. You have been placed nearby and will be moved to the gate chamber as soon as it finishes.","color":"yellow"}
+# 3. A provisional platform is safe, but its players are still owed the final hub.
+execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run tag @s add alfheim_awaiting_hub
+execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run tellraw @s {"text":"[Alfheim] The Greatbole is still generating. You are on a protected landing platform and will move to the gate chamber as soon as it finishes.","color":"yellow"}

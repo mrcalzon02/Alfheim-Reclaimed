@@ -225,3 +225,19 @@ Never write "done." Never write "production ready" for something that has only p
 Stop only for: missing authorization, a decision only the user can make, destructive ambiguity, or a
 capability that cannot be recovered. A failed command, an empty directory, or an untested script is
 not a blocker — it is the next piece of work.
+
+## 10. Player-facing crafting language
+
+Player-facing text must never use "era", "ERA", numbered era labels, or descriptions such as
+"Era 9 intermediate". Describe the actual magical working or crafting method instead: mana
+infusion, Source imbuement, runic binding, gate exchange, spirit-fire transmutation, and so on.
+Each staged material must explain what it is, which material and process produced it, and which
+product and process it feeds next. Finished materials must identify their actual uses. Unfinished
+assembly items must explain how to finish them. Do not invent effects or uses from an item's name.
+
+Internal recipe IDs, quest IDs, filenames and developer-only progression metadata may retain the
+existing numbering so saved progression stays stable. Display boundaries use `tools/player_text.py`.
+After changing recipes, run `tools/refresh_player_text.py` to refresh descriptions and the derived
+crafting-origin/use tooltips without redrawing textures or changing quest mechanics. JEI remains
+the source for ingredient quantities, layouts and alternatives. See
+`alfheim_reclaimed_design/PLAYER_FACING_TEXT.md`.

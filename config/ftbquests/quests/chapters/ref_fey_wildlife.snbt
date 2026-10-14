@@ -16,7 +16,7 @@
 				"Cook at a campfire, furnace or smoker."
 				"Whitetail Hide: 1, 80% per kill."
 				"Trim with a dreamwood twig to make leather."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:whitetail_doe_spawn_egg"
 			id: "30B64DE99E6B1434"
@@ -39,7 +39,7 @@
 				"Rare: weight 1, solitary, with an additional 1-in-32 natural-spawn roll. Celestial deer yield no meat or hide."
 				"Celestial Mote: 1, 100% per kill. Requires a player kill."
 				"Refine in a Mana Pool: two Fey Dust, 500 mana."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:celestial_doe_spawn_egg"
 			id: "432277F2174B7C1C"
@@ -65,7 +65,7 @@
 				"Trim with a dreamwood twig to make leather."
 				"Hart Antler: 1, 50% per kill. Requires a player kill."
 				"Grind into three bone meal."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:whitetail_buck_spawn_egg"
 			id: "7E2F1109742C0F24"
@@ -90,7 +90,7 @@
 				"Refine in a Mana Pool: two Fey Dust, 500 mana."
 				"Hart Antler: 1, 50% per kill. Requires a player kill."
 				"Grind into three bone meal."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:celestial_buck_spawn_egg"
 			id: "38A6BCB4C3386A0D"
@@ -112,7 +112,7 @@
 				"Health: 6. Passive wildlife."
 				"Frog Gel: 1, 75% per kill."
 				"Combine two portions into a slimeball."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:moss_small_frog_spawn_egg"
 			id: "0C6632CE95BDF4F6"
@@ -134,7 +134,7 @@
 				"Health: 10. Passive wildlife."
 				"Frog Gel: 1-2, 75% per kill."
 				"Combine two portions into a slimeball."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:moss_large_frog_spawn_egg"
 			id: "5AF8FF8FD43EA173"
@@ -156,7 +156,7 @@
 				"Health: 6. Passive wildlife."
 				"Frog Gel: 1, 75% per kill."
 				"Combine two portions into a slimeball."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:azure_small_frog_spawn_egg"
 			id: "14AAC218C73B02F4"
@@ -178,7 +178,7 @@
 				"Health: 10. Passive wildlife."
 				"Frog Gel: 1-2, 75% per kill."
 				"Combine two portions into a slimeball."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:azure_large_frog_spawn_egg"
 			id: "6106BC3A8C2DC5B4"
@@ -200,7 +200,7 @@
 				"Health: 6. Passive wildlife."
 				"Frog Gel: 1, 75% per kill."
 				"Combine two portions into a slimeball."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:amber_small_frog_spawn_egg"
 			id: "02529B5EEB97F5E3"
@@ -222,7 +222,7 @@
 				"Health: 10. Passive wildlife."
 				"Frog Gel: 1-2, 75% per kill."
 				"Combine two portions into a slimeball."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:amber_large_frog_spawn_egg"
 			id: "6A3DB5C51E8C6676"
@@ -246,7 +246,7 @@
 				"Combine two portions into a slimeball."
 				"Toad Gland: 1, 50% per kill. Requires a player kill."
 				"Refine in a Mana Pool: two slimeballs, 500 mana."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:bog_toad_spawn_egg"
 			id: "58516ADABE628481"
@@ -270,7 +270,7 @@
 				"Combine two portions into a slimeball."
 				"Toad Gland: 1, 50% per kill. Requires a player kill."
 				"Refine in a Mana Pool: two slimeballs, 500 mana."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:mossback_toad_spawn_egg"
 			id: "2AC51BA84FE3C12A"
@@ -293,7 +293,7 @@
 				"Abyssal Eye: 1, 50% per kill. Requires a player kill."
 				"Refine in a Mana Pool: two glow ink sacs, 1000 mana."
 				"Ink Sac: 1-2, 100% per kill."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:abyssal_watcher_spawn_egg"
 			id: "5C602FEC7428E90D"
@@ -316,7 +316,7 @@
 				"Mire Tendril: 1-2, 100% per kill."
 				"Refine in a Mana Pool: three string, 200 mana."
 				"Ink Sac: 1, 50% per kill."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:mire_tentacle_spawn_egg"
 			id: "307469CD682A5D82"
@@ -339,7 +339,7 @@
 				"Maw Fang: 1-2, 100% per kill. Requires a player kill."
 				"Grind into four bone meal."
 				"Ink Sac: 1-2, 100% per kill."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:drowned_maw_spawn_egg"
 			id: "0DBD63E0475861AB"
@@ -363,7 +363,7 @@
 				"Barkcloth Scrap: 1-3, 100% per kill. Requires a player kill."
 				"Three scraps unravel into two string."
 				"Dreamwood Twig: 1-2, 35% per kill. Requires a player kill."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:wild_elf_spawn_egg"
 			id: "43DFD67A615144BE"
@@ -387,7 +387,7 @@
 				"Savage Bone Fetish: 1, 100% per kill. Requires a player kill."
 				"Refine in a Mana Pool: four bone meal, 300 mana."
 				"Leather: 1-2, 50% per kill. Requires a player kill."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:savage_elf_spawn_egg"
 			id: "0EE57C34EFE6644B"
@@ -411,7 +411,7 @@
 				"Scorched Elven Sigil: 1, 100% per kill. Requires a player kill."
 				"Refine in a Mana Pool: one Fey Dust, 1500 mana."
 				"Charcoal: 1-2, 50% per kill. Requires a player kill."
-				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace an era milestone."
+				"Looting adds no extra trophies. Hunting grants no custom profession XP. These supplies never replace a magical mastery milestone."
 			]
 			icon: "alfheim:demonic_elf_spawn_egg"
 			id: "60D153815F8AA2A2"

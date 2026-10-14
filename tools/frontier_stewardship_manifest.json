@@ -1,0 +1,153 @@
+{
+  "status": "static_validated_runtime_pending",
+  "source_fingerprint": "051fe11619ba94299424a4dee19b786a678a35a9fc82d9ac52f9d5faf18921c6",
+  "files": 16,
+  "members": 6,
+  "joins": 5,
+  "layout": [
+    {
+      "name": "green_noble_lodge",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": 0,
+      "bounds": [
+        0,
+        0,
+        0,
+        46,
+        37,
+        46
+      ]
+    },
+    {
+      "name": "forest_waystation",
+      "origin": [
+        -31,
+        0,
+        42
+      ],
+      "rotation": 3,
+      "bounds": [
+        -31,
+        0,
+        4,
+        -1,
+        31,
+        42
+      ]
+    },
+    {
+      "name": "surveyor_tower",
+      "origin": [
+        8,
+        0,
+        -31
+      ],
+      "rotation": 0,
+      "bounds": [
+        8,
+        0,
+        -31,
+        38,
+        45,
+        -1
+      ]
+    },
+    {
+      "name": "moon_pool_sanctuary",
+      "origin": [
+        42,
+        0,
+        85
+      ],
+      "rotation": 2,
+      "bounds": [
+        4,
+        0,
+        47,
+        42,
+        25,
+        85
+      ]
+    },
+    {
+      "name": "outlying_retreat_hall",
+      "origin": [
+        85,
+        0,
+        4
+      ],
+      "rotation": 1,
+      "bounds": [
+        47,
+        0,
+        4,
+        85,
+        35,
+        42
+      ]
+    },
+    {
+      "name": "wild_ward_shrine",
+      "origin": [
+        38,
+        0,
+        116
+      ],
+      "rotation": 2,
+      "bounds": [
+        8,
+        0,
+        86,
+        38,
+        29,
+        116
+      ]
+    }
+  ],
+  "block_counts": {
+    "alfheim:ivory_livingrock_bricks": 56622,
+    "alfheim:moonstone_livingrock_carved": 16399,
+    "alfheim:ivory_livingrock_polished": 7845,
+    "minecraft:air": 207114,
+    "minecraft:jigsaw": 10,
+    "botania:elf_glass": 189,
+    "botania:dreamwood_log": 386,
+    "minecraft:green_bed": 24,
+    "alfheim:royal_canopy_bed_head_left": 1,
+    "alfheim:royal_canopy_bed_middle_left": 1,
+    "alfheim:royal_canopy_bed_foot_left": 1,
+    "alfheim:royal_canopy_bed_head_right": 1,
+    "alfheim:royal_canopy_bed_middle_right": 1,
+    "alfheim:royal_canopy_bed_foot_right": 1,
+    "minecraft:barrel": 6,
+    "alfheim:royal_audience_bench_left": 3,
+    "alfheim:royal_audience_bench_right": 3,
+    "minecraft:flower_pot": 6,
+    "minecraft:skeleton_skull": 6,
+    "minecraft:bone_block": 10,
+    "alfheim:moonstone_livingrock_polished": 182,
+    "ars_nouveau:sourcestone": 182,
+    "alfheim:royal_writing_desk_left": 6,
+    "alfheim:royal_writing_desk_right": 6,
+    "alfheim:royal_tall_cabinet": 2,
+    "alfheim:ivory_livingrock_stairs": 42,
+    "minecraft:light_blue_carpet": 1,
+    "feywild:elven_quartz_brick_slab": 5,
+    "botania:dreamwood_planks": 217,
+    "minecraft:moss_carpet": 2,
+    "minecraft:green_carpet": 4,
+    "minecraft:white_bed": 16,
+    "minecraft:farmland": 48,
+    "minecraft:wheat": 48,
+    "minecraft:water": 477,
+    "minecraft:bookshelf": 15,
+    "minecraft:oak_fence": 76,
+    "alfheim:royal_lineage_stele_base": 4,
+    "alfheim:royal_lineage_stele_mid": 3,
+    "alfheim:royal_lineage_stele_crown": 3
+  }
+}

@@ -12,7 +12,7 @@
 			description: [
 				"Fire now. Both kinds — the Nether, and the memory."
 				""
-				"Something burned Alfheim. We are about to spend an era learning to hold fire safely, which is either wisdom or irony and I have stopped deciding."
+				"Something burned Alfheim. We are about to spend an working learning to hold fire safely, which is either wisdom or irony and I have stopped deciding."
 			]
 			id: "2EB160E50542C131"
 			rewards: [{
@@ -24,10 +24,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "696116A65FBD8FBD"
-				title: "Era 7"
+				title: "Ember Tempering"
 				type: "checkmark"
 			}]
-			title: "Era 7"
+			title: "Ember Tempering"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -114,9 +114,11 @@
 		}
 		{
 			description: [
-				"Spirit fire. It burns what should not burn and leaves what should not remain."
+				"A worked precursor for Emberbound Weave in Ember Tempering."
+				"Made from Wildmarch Sinew by transmutation in Spirit Fire."
+				"Next: use mixing in a Basin to make Quenched Thread."
 				""
-				"Step 1 of 11."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "0A54ECC2FF3D7B3D"
 			rewards: [{
@@ -161,9 +163,11 @@
 		}
 		{
 			description: [
-				"Into the furnace. The oldest process we have and still the honest one."
+				"A worked precursor for Emberbound Weave in Ember Tempering."
+				"Made from Quenched Thread by smelting in a Furnace."
+				"Next: use shapeless crafting to make Bound Weave."
 				""
-				"Step 3 of 11."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "0834DFF10D7AD68F"
 			rewards: [{
@@ -208,9 +212,11 @@
 		}
 		{
 			description: [
-				"Into the pool. Watch the level drop and understand what it cost."
+				"A worked precursor for Emberbound Weave in Ember Tempering."
+				"Made from Bound Weave by mana infusion in a Mana Pool."
+				"Next: use Source enchantment at the Enchanting Apparatus to make Emberbound Drawn."
 				""
-				"Step 5 of 11."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "5A8A81F6CDDD2277"
 			rewards: [{
@@ -232,9 +238,11 @@
 		{
 			dependencies: ["5A8A81F6CDDD2277"]
 			description: [
-				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				"A worked precursor for Emberbound Weave in Ember Tempering."
+				"Made from Tempered Weave by Source enchantment at the Enchanting Apparatus."
+				"Next: use a Ritual of the Forest to make Emberbound Folded."
 				""
-				"Step 6 of 11."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "11DE7CEA786DC321"
 			rewards: [{
@@ -302,9 +310,11 @@
 		}
 		{
 			description: [
-				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				"A worked precursor for Emberbound Weave in Ember Tempering."
+				"Made from Emberbound Stilled by runic binding at the Runic Altar."
+				"Next: use deep mana infusion in the Mana Infuser to make Emberbound Quenched."
 				""
-				"Step 9 of 11."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "660809BD09E0EA38"
 			rewards: [{
@@ -349,11 +359,11 @@
 		}
 		{
 			description: [
-				"The last step. Emberbound Weave."
+				"The finished material of Ember Tempering."
+				"Made from Emberbound Quenched by shaped crafting at a Crafting Table."
+				"Feeds Frost-Memory Inscription: make Frost Shard by pressing with a Mechanical Press."
 				""
-				"Era VII. It remembers the fire and has agreed to hold it."
-				""
-				"11 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "1D48466AEA563A9F"
 			rewards: [{
@@ -680,7 +690,7 @@
 				""
 				"The realm of fire, which in every account is the thing that ends the world."
 				""
-				"We have just spent an era making it work for us. Do not let that make you comfortable."
+				"We have just spent an working making it work for us. Do not let that make you comfortable."
 			]
 			id: "65BB6FE12A6A2B5E"
 			rewards: [{
@@ -730,7 +740,7 @@
 			description: [
 				"Basin, mixer, fire under it. Two shards, a mana powder, half a bucket of water."
 				""
-				"You have been spending Liquid Bifrost since Era Two and you have never once made any. The pools are one in forty chunks and they do not come back -- which means every conversion you have run has been drawn against a balance that only goes down. I have watched apprentices spend their last bucket on the wrong system and lose that road permanently."
+				"You have been spending Liquid Bifrost since Mana Quickening and you have never once made any. The pools are one in forty chunks and they do not come back -- which means every conversion you have run has been drawn against a balance that only goes down. I have watched apprentices spend their last bucket on the wrong system and lose that road permanently."
 				""
 				"This is the answer, and note what it is made of: water, which is everywhere; mana powder, which is a flower; and crystal, which grows back. Nothing in it is finite. That is the whole design."
 				""

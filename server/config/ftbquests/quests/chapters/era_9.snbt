@@ -10,7 +10,7 @@
 	quests: [
 		{
 			description: [
-				"I have been putting this era off."
+				"I have been putting this working off."
 				""
 				"You have the archive. You know roughly what happened and roughly whose fault it was. Now we go and look at the part of Alfheim where it started."
 				""
@@ -26,10 +26,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "676B0B38C8A8CE44"
-				title: "Era 9"
+				title: "Ancestral Threadbinding"
 				type: "checkmark"
 			}]
-			title: "Era 9"
+			title: "Ancestral Threadbinding"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -82,9 +82,11 @@
 		}
 		{
 			description: [
-				"The Natural Altar. It draws on the aura of the land — thin here, so be patient."
+				"A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding."
+				"Made from Mourning Dust by aura transmutation at the Natural Altar."
+				"Next: use shapeless crafting to make Debt Cord."
 				""
-				"Step 3 of 15."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "266897310CBA9E28"
 			rewards: [{
@@ -129,9 +131,11 @@
 		}
 		{
 			description: [
-				"Into the pool. Watch the level drop and understand what it cost."
+				"A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding."
+				"Made from Debt Cord by mana infusion in a Mana Pool."
+				"Next: use petal binding in the Petal Apothecary to make Grave Braid."
 				""
-				"Step 5 of 15."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "4775282415B706F2"
 			rewards: [{
@@ -153,9 +157,11 @@
 		{
 			dependencies: ["4775282415B706F2"]
 			description: [
-				"Petals in the basin. You have done this a thousand times; do it again."
+				"A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding."
+				"Made from Reckoned Thread by petal binding in the Petal Apothecary."
+				"Next: use Source enchantment at the Enchanting Apparatus to make Settled Thread."
 				""
-				"Step 6 of 15."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "061E27F4BDFC339F"
 			rewards: [{
@@ -200,9 +206,11 @@
 		}
 		{
 			description: [
-				"The Imbuement Chamber. Slow, and it does not care that you are in a hurry."
+				"A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding."
+				"Made from Settled Thread by Source imbuement in the Imbuement Chamber."
+				"Next: use exchange through the Alfheim Gate to make Gravegilt Folded."
 				""
-				"Step 8 of 15."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "4F656F9BDB258634"
 			rewards: [{
@@ -224,9 +232,11 @@
 		{
 			dependencies: ["4F656F9BDB258634"]
 			description: [
-				"Through the gate and back. What returns is not what you sent."
+				"A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding."
+				"Made from Gravegilt Drawn by exchange through the Alfheim Gate."
+				"Next: use sequenced deployment and pressing, repeated twice to make Gravegilt Stilled."
 				""
-				"Step 9 of 15."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "6D44A63B74CBE85B"
 			rewards: [{
@@ -317,9 +327,11 @@
 		}
 		{
 			description: [
-				"The agglomeration plate. This one takes a quarter million mana. Plan for it."
+				"A worked precursor for Grave-Gilt Thread in Ancestral Threadbinding."
+				"Made from Gravegilt Quenched by mana agglomeration on the Terrestrial Agglomeration Plate."
+				"Next: use a Ritual of the Forest to make Gravegilt Proofed."
 				""
-				"Step 13 of 15."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "06DB23CC32412EBD"
 			rewards: [{
@@ -366,9 +378,9 @@
 			description: [
 				"The last step. Gravegilt Thread."
 				""
-				"Era IX. Spun from what it cost. Do not wear it lightly."
+				"Ancestral Threadbinding. Spun from what it cost. Do not wear it lightly."
 				""
-				"15 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"15 steps, and every one of them rests on the preceding working. That is what the ladder is."
 			]
 			id: "2163CA0387B04294"
 			rewards: [{
@@ -679,7 +691,7 @@
 				""
 				"Not a punishment. A ledger."
 				""
-				"Everything the elves took out of this world is written down somewhere, and we have spent nine eras putting a little of it back. That is not absolution and I will not offer you any. It is simply the work, continued."
+				"Everything the elves took out of this world is written down somewhere, and we have spent our restoration of Alfheim putting a little of it back. That is not absolution and I will not offer you any. It is simply the work, continued."
 			]
 			id: "0FAC870A0C416B75"
 			rewards: [{

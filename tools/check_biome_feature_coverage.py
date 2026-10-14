@@ -4,7 +4,7 @@ Configuration coverage is not proof of visual density. Keep those claims separat
 """
 import glob,hashlib,json
 from pathlib import Path
-from check_feature_order import Sources,CLIENT_JAR,DATA
+from check_feature_order import Sources,CLIENT_JAR,DATA,STEPS
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -28,9 +28,17 @@ def main():
         if bid not in home_biomes:continue
         steps=src.biomes[bid]
         vegetation=sorted(set(src.resolve(steps[9]))) if len(steps)>9 else []
+        by_step={name:sorted(set(src.resolve(steps[i]))) if i<len(steps) else [] for i,name in enumerate(STEPS)}
+        details=sorted(set(by_step['local_modifications']+by_step['surface_structures']))
         natural=sorted(s for s,(biomes,active) in structures.items() if active and bid in biomes)
         controlled=sorted(s for s,(biomes,active) in structures.items() if not active and bid in biomes)
-        rows.append(dict(biome=bid,vegetation=vegetation,natural_structures=natural,controlled_only_structures=controlled))
+        rows.append(dict(biome=bid,vegetation=vegetation,surface_details=details,features_by_step=by_step,
+                         natural_structures=natural,controlled_only_structures=controlled))
+    expected_void={'shatterfields':'shatter_anchors','prism_drift':'prism_crowns','rootfall':'root_aprons',
+                   'sepulchral_reach':'mourning_steles','starless_reach':'astralite_flecks'}
+    for biome,feature in expected_void.items():
+        row=next(r for r in rows if r['biome']=='alfheim:'+biome)
+        assert 'alfheim:void/'+feature in row['surface_details'],('void geology missing from effective features',biome)
     for bid in ('alfheim:void_shore','alfheim:void_verge'):
         row=next(r for r in rows if r['biome']==bid)
         assert {'alfheim:void_bramble','alfheim:void_thornbush'}<=set(row['vegetation']),bid
@@ -50,11 +58,12 @@ def main():
     (ROOT/'tools/biome_feature_coverage.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     lines=['# Custom biome feature coverage','',
            'Configuration audit, 2026-10-13. Includes jar defaults, datapack overrides and Forge feature modifiers. Counts are distinct features and first-party structures, not observed density. Controlled-only assemblies do not generate naturally.','',
-           '| Biome | Vegetation features | Natural structures | Controlled-only structures |',
-           '|---|---:|---:|---:|']
-    for r in rows:lines.append(f"| {r['biome']} | {len(r['vegetation'])} | {len(r['natural_structures'])} | {len(r['controlled_only_structures'])} |")
+           '| Biome | Vegetation features | Surface detail features | Natural structures | Controlled-only structures |',
+           '|---|---:|---:|---:|---:|']
+    for r in rows:lines.append(f"| {r['biome']} | {len(r['vegetation'])} | {len(r['surface_details'])} | {len(r['natural_structures'])} | {len(r['controlled_only_structures'])} |")
     lines+=['','No vegetation configured: '+(', '.join(gaps) if gaps else 'none')+'.',
-            '', 'Only generic mystical flowers in the vegetation step: '+(', '.join(sparse) if sparse else 'none')+'. These outer void areas have geology and ruin identities, but do not yet have distinct vegetation features. They should remain sparse; final visual coverage is not signed off.',
+            '', 'Only generic mystical flowers in the vegetation step: '+(', '.join(sparse) if sparse else 'none')+'. This is sparse vegetation, not missing overall feature coverage. The earlier table omitted the local-modifications stage. These five regions already have distinct geological detail features, confirmed in the effective Forge feature lists. All eleven generation stages are now listed in the JSON audit. No duplicate geology or broad terrain changes were needed.',
+            '', 'Void identities: Shatterfields anchor needles, Prism Drift crystal crowns, Rootfall fossil root aprons, Sepulchral Reach mourning steles, and Starless Reach astralite flecks. Source registration alone does not establish their natural success rate or visual quality; controlled placement evidence is recorded separately.',
             '', 'Void Shore and Void Verge both receive bramble and thorn patches plus Thorn Gate and Shore Memorial Court. Their substrate filter now includes their actual chalk/shale/sand/gravel surfaces. This corrects a placement blocker; it does not establish final natural density.',
             '', 'Broad density, noise, biome selection and surface rules are unchanged. See tools/biome_feature_coverage.json for exact feature and structure IDs.']
     runtime_path=ROOT/'tools/void_undergrowth_runtime.json'

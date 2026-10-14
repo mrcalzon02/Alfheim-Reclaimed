@@ -122,7 +122,7 @@
 			description: [
 				"Find seed. Any seed. Put it in ground you have turned with your own hands and watch whether it comes up."
 				""
-				"You will spend ten eras learning to make plants do industrial work. It begins with proving that a plant will still grow here at all."
+				"You will spend ten workings learning to make plants do industrial work. It begins with proving that a plant will still grow here at all."
 			]
 			id: "5CC8CDC741532039"
 			rewards: [{
@@ -272,7 +272,7 @@
 			description: [
 				"This is not a weapon and it is not a tool. It is a way of looking."
 				""
-				"Point it at anything botanical and it will tell you what that thing is doing. Most of what you need to learn in the next ten eras, you will learn by pointing this at something and paying attention."
+				"Point it at anything botanical and it will tell you what that thing is doing. Most of what you need to learn in the next ten workings, you will learn by pointing this at something and paying attention."
 			]
 			id: "143A8FA512B4B987"
 			rewards: [{
@@ -349,7 +349,7 @@
 				""
 				"When you see mana move from a flower, through the air, and settle into stone you shaped — that is the moment you stop being a refugee and start being an engineer."
 				""
-				"That is Era One. Everything after this is the same lesson, larger."
+				"That is Grovecraft. Everything after this is the same lesson, larger."
 			]
 			id: "34A16A0A8BCA70E3"
 			rewards: [{
@@ -556,7 +556,7 @@
 				""
 				"Dreamwood grows in our forests. Elementium is an ore we mine. What we cannot easily get is Livingwood, Manasteel, Mana Diamonds — the work of a Midgard we no longer reach freely."
 				""
-				"So the gate is not a prize at the end of your road. It is a trade route, it opens in the fourth era, and it leads OUT. Everything you build until then, you build alone."
+				"So the gate is not a prize at the end of your road. It is a trade route, it opens in the fourth working, and it leads OUT. Everything you build until then, you build alone."
 			]
 			id: "6BC497EE329F3CC8"
 			optional: true
@@ -596,7 +596,7 @@
 		}
 		{
 			description: [
-				"Livingrock, and water in the basin. That is all it is, and it will carry you for two eras."
+				"Livingrock, and water in the basin. That is all it is, and it will carry you for the earlier workings."
 				""
 				"Fill it with water first — it does nothing dry, and half of everyone forgets. Then throw the ingredients in, one at a time, and strike the basin with your wand when the set is complete."
 				""
@@ -887,7 +887,7 @@
 				""
 				"The gear-shaped ones are me talking. They cost nothing, unlock nothing, and can be ignored entirely. Read them anyway - nothing else in this pack will explain why a spreader refuses to fire."
 				""
-				"The rest are work. Those chain, and the chains are what carry you between eras."
+				"The rest are work. Those chain, and the chains are what carry you between workings."
 			]
 			id: "011D328273F0FE98"
 			optional: true
@@ -1265,7 +1265,7 @@
 			description: [
 				"Bone meal and four dyes, and the ground answers with flowers you did not plant."
 				""
-				"It is not elegant. It is the fastest way from an empty grove to sixteen colours, and elegance is a later era's problem."
+				"It is not elegant. It is the fastest way from an empty grove to sixteen colours, and elegance is a later working's problem."
 			]
 			id: "783312EDCA5CF894"
 			rewards: [{

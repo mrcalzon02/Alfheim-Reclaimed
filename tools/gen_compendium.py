@@ -24,6 +24,7 @@ import hashlib
 import json
 import os
 import sys
+from player_text import player_text
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,7 +39,7 @@ def qid(*parts):
 
 
 def esc(s):
-    return s.replace('\\', '\\\\').replace('"', '\\"')
+    return player_text(s).replace('\\', '\\\\').replace('"', '\\"')
 
 
 def lines(key, body, indent):

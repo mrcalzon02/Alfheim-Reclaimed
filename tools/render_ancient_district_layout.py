@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--family',choices=('common_residential','elder_lineage','civic_center','relief_district','scholastic_quarter','production_district','agricultural_estate','roads_trade','harbor_complex','sacred_precinct','military_warden'),default='common_residential');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--family',choices=('common_residential','elder_lineage','civic_center','relief_district','scholastic_quarter','production_district','agricultural_estate','roads_trade','harbor_complex','sacred_precinct','military_warden','frontier_stewardship'),default='common_residential');args=ap.parse_args()
     lineage=args.family=='elder_lineage'
     civic=args.family=='civic_center'
     relief=args.family=='relief_district'
@@ -19,9 +19,10 @@ def main():
     agricultural=args.family=='agricultural_estate'
     trade=args.family=='roads_trade'
     harbor=args.family=='harbor_complex'
+    frontier=args.family=='frontier_stewardship'
     military=args.family=='military_warden'
     sacred=args.family=='sacred_precinct'
-    data=json.loads((ROOT/'tools'/('military_warden_runtime_census.json' if military else 'sacred_precinct_runtime_census.json' if sacred else 'harbor_complex_runtime_census.json' if harbor else 'roads_trade_runtime_census.json' if trade else 'agricultural_estate_runtime_census.json' if agricultural else 'production_district_runtime_census.json' if production else 'scholastic_quarter_runtime_census.json' if scholastic else 'relief_district_runtime_census.json' if relief else 'civic_center_runtime_census.json' if civic else 'elder_lineage_runtime_census.json' if lineage else 'ancient_district_runtime_census.json')).read_text())
+    data=json.loads((ROOT/'tools'/('frontier_stewardship_runtime_census.json' if frontier else 'military_warden_runtime_census.json' if military else 'sacred_precinct_runtime_census.json' if sacred else 'harbor_complex_runtime_census.json' if harbor else 'roads_trade_runtime_census.json' if trade else 'agricultural_estate_runtime_census.json' if agricultural else 'production_district_runtime_census.json' if production else 'scholastic_quarter_runtime_census.json' if scholastic else 'relief_district_runtime_census.json' if relief else 'civic_center_runtime_census.json' if civic else 'elder_lineage_runtime_census.json' if lineage else 'ancient_district_runtime_census.json')).read_text())
     colors={'neighborhood_common_hall':('#d6b566','Common hall'),
             'common_row_house':('#a3bea5','Row house'),'courtyard_home':('#6da796','Garden home'),
             'artisan_house_shop':('#b78f68','Workshop'),'extended_kin_hall':('#aa98ba','Kin hall'),
@@ -85,6 +86,10 @@ def main():
         colors={'border_keep':('#d6b566','Border Keep'),'warden_tower':('#a5b49a','Warden Tower'),
                 'watch_captain_house':('#b7a783','Captain House'),'gate_barracks':('#baa7c0','Gate Barracks'),
                 'discipline_guard_court':('#cec4a9','Guard Court'),'last_muster_ground':('#b18a8a','Last Muster Ground')}
+    if frontier:
+        colors={'green_noble_lodge':('#d6b566','Hunting Lodge'),'surveyor_tower':('#a5b49a','Surveyor Tower'),
+                'forest_waystation':('#b7a783','Forest Waystation'),'outlying_retreat_hall':('#baa7c0','Retreat Hall'),
+                'moon_pool_sanctuary':('#83b5c2','Moon Pool'),'wild_ward_shrine':('#80b6a4','Wild Ward Shrine')}
     rects=[]
     for node in data['layout']:
         _,p=nbt.load(str(ROOT/f'kubejs/data/alfheim/structures/ancient/{args.family}/{node["name"]}.nbt'))
@@ -101,7 +106,7 @@ def main():
     font=ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf',14)
     title=ImageFont.truetype('C:/Windows/Fonts/segoeuib.ttf',29)
     sub=ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf',19)
-    draw.text((pad,25),'Military / Warden Precinct' if military else 'Sacred Precinct' if sacred else 'Harbor Complex Prototype' if harbor else 'Roads / Trade Precinct' if trade else 'Agricultural Estate / Food Belt' if agricultural else 'Production District' if production else 'Scholastic Quarter' if scholastic else 'Relief / Quarantine District' if relief else 'Civic Center' if civic else 'Elder Lineage Precinct' if lineage else 'Common Residential Quarter',fill='#273630',font=title)
+    draw.text((pad,25),'Frontier / Wilderness Stewardship' if frontier else 'Military / Warden Precinct' if military else 'Sacred Precinct' if sacred else 'Harbor Complex Prototype' if harbor else 'Roads / Trade Precinct' if trade else 'Agricultural Estate / Food Belt' if agricultural else 'Production District' if production else 'Scholastic Quarter' if scholastic else 'Relief / Quarantine District' if relief else 'Civic Center' if civic else 'Elder Lineage Precinct' if lineage else 'Common Residential Quarter',fill='#273630',font=title)
     subtitle='Saved assembly • 9 members • 8 supported joins • 152 cultural modules' if lineage else 'Saved assembly • 26 pieces • 16 inhabited members • 25 supported joins'
     if civic:subtitle='Saved assembly • 9 members • 8 supported joins • 101 cultural modules'
     if relief:subtitle='Saved assembly • 11 members • 10 supported joins • 56 cultural modules'
@@ -112,6 +117,7 @@ def main():
     if harbor:subtitle='Saved assembly • 10 members • 9 supported joins • 72 cultural modules'
     if sacred:subtitle='Saved assembly - 7 members - 6 supported joins - 59 cultural modules'
     if military:subtitle='Saved assembly - 6 members - 5 supported joins'
+    if frontier:subtitle='Saved assembly - 6 members - 5 supported joins'
     draw.text((pad,68),subtitle,fill='#425249',font=sub)
     for name,r in rects:
         box=(pad+(r[0]-x0)*scale,top+(r[1]-z0)*scale,pad+(r[2]-x0)*scale,top+(r[3]-z0)*scale)
@@ -129,7 +135,7 @@ def main():
     y=im.height-92
     draw.text((pad,y),'Top-down template footprints; north is up. Scale: one block = five pixels.',fill='#425249',font=sub)
     draw.text((pad,y+34),f'Extent: {x1-x0} × {z1-z0} blocks. Terrain and visual acceptance remain pending.',fill='#425249',font=sub)
-    out=ROOT/'alfheim_reclaimed_design'/('military_warden_layout.png' if military else 'sacred_precinct_layout.png' if sacred else 'harbor_complex_layout.png' if harbor else 'roads_trade_layout.png' if trade else 'agricultural_estate_layout.png' if agricultural else 'production_district_layout.png' if production else 'scholastic_quarter_layout.png' if scholastic else 'relief_district_layout.png' if relief else 'civic_center_layout.png' if civic else 'elder_lineage_precinct_layout.png' if lineage else 'common_residential_quarter_layout.png')
+    out=ROOT/'alfheim_reclaimed_design'/('frontier_stewardship_layout.png' if frontier else 'military_warden_layout.png' if military else 'sacred_precinct_layout.png' if sacred else 'harbor_complex_layout.png' if harbor else 'roads_trade_layout.png' if trade else 'agricultural_estate_layout.png' if agricultural else 'production_district_layout.png' if production else 'scholastic_quarter_layout.png' if scholastic else 'relief_district_layout.png' if relief else 'civic_center_layout.png' if civic else 'elder_lineage_precinct_layout.png' if lineage else 'common_residential_quarter_layout.png')
     im.save(out)
     print(out)
 

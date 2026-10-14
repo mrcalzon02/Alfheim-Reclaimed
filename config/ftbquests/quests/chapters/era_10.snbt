@@ -10,9 +10,9 @@
 	quests: [
 		{
 			description: [
-				"Last era."
+				"Last working."
 				""
-				"Terrasteel — which needs Midgard's metals and our mana both, and which you could not have made in Era One if you had wanted to. The Gjallarhorn. The branch of the world tree."
+				"Terrasteel — which needs Midgard's metals and our mana both, and which you could not have made in Grovecraft if you had wanted to. The Gjallarhorn. The branch of the world tree."
 				""
 				"And the colony, at full size, with the gates open."
 			]
@@ -26,10 +26,10 @@
 			subtitle: "Magister Velrous"
 			tasks: [{
 				id: "7E298319554D8EA5"
-				title: "Era 10"
+				title: "World-Tree Crownweaving"
 				type: "checkmark"
 			}]
-			title: "Era 10"
+			title: "World-Tree Crownweaving"
 			x: 0.0d
 			y: 0.0d
 		}
@@ -58,9 +58,11 @@
 		}
 		{
 			description: [
-				"Into the pool. Watch the level drop and understand what it cost."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Heartwood Strand by mana infusion in a Mana Pool."
+				"Next: use runic binding at the Runic Altar to make Yggdrasil Floss."
 				""
-				"Step 2 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "185EEF8CAE2D0BFE"
 			rewards: [{
@@ -82,9 +84,11 @@
 		{
 			dependencies: ["185EEF8CAE2D0BFE"]
 			description: [
-				"The altar. Lay it out properly — it is not forgiving of a rushed circle."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Crowned Fibre by runic binding at the Runic Altar."
+				"Next: use deep mana infusion in the Mana Infuser to make Branch Cord."
 				""
-				"Step 3 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "37037EA3744B39CC"
 			rewards: [{
@@ -106,9 +110,11 @@
 		{
 			dependencies: ["37037EA3744B39CC"]
 			description: [
-				"The Mana Infuser. Deep magic, and it will drain everything you have stored."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Yggdrasil Floss by deep mana infusion in the Mana Infuser."
+				"Next: use mana agglomeration on the Terrestrial Agglomeration Plate to make Living Crown."
 				""
-				"Step 4 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "65D92FBD3FB94A03"
 			rewards: [{
@@ -130,9 +136,11 @@
 		{
 			dependencies: ["65D92FBD3FB94A03"]
 			description: [
-				"The agglomeration plate. This one takes a quarter million mana. Plan for it."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Branch Cord by mana agglomeration on the Terrestrial Agglomeration Plate."
+				"Next: use Source enchantment at the Enchanting Apparatus to make Woven Crown."
 				""
-				"Step 5 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "0DBC88D92A7B076F"
 			rewards: [{
@@ -154,9 +162,11 @@
 		{
 			dependencies: ["0DBC88D92A7B076F"]
 			description: [
-				"The Enchanting Apparatus. Their tradition, doing what ours cannot."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Living Crown by Source enchantment at the Enchanting Apparatus."
+				"Next: use Source imbuement in the Imbuement Chamber to make Ninefold Thread."
 				""
-				"Step 6 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "35E60973F17F18BD"
 			rewards: [{
@@ -178,9 +188,11 @@
 		{
 			dependencies: ["35E60973F17F18BD"]
 			description: [
-				"The Imbuement Chamber. Slow, and it does not care that you are in a hurry."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Woven Crown by Source imbuement in the Imbuement Chamber."
+				"Next: use a Ritual of the Forest to make Crown Blank."
 				""
-				"Step 7 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "4CD639878AB6EF05"
 			rewards: [{
@@ -202,9 +214,11 @@
 		{
 			dependencies: ["4CD639878AB6EF05"]
 			description: [
-				"A Ritual of the Forest. Multi-block, slow, and worth it."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Ninefold Thread by a Ritual of the Forest."
+				"Next: use fey binding at the Fey Altar to make Crown Drawn."
 				""
-				"Step 8 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "16B7AD2AD8EB32DE"
 			rewards: [{
@@ -226,9 +240,11 @@
 		{
 			dependencies: ["16B7AD2AD8EB32DE"]
 			description: [
-				"The Fey Altar. Ask politely. They remember being asked rudely."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Crown Blank by fey binding at the Fey Altar."
+				"Next: use transmutation in Spirit Fire to make Crown Folded."
 				""
-				"Step 9 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "158E18204A3A839B"
 			rewards: [{
@@ -273,9 +289,11 @@
 		}
 		{
 			description: [
-				"Through the gate and back. What returns is not what you sent."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Crown Folded by exchange through the Alfheim Gate."
+				"Next: use sequenced deployment and pressing, repeated twice to make Crown Rebound."
 				""
-				"Step 11 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "591C55274B5727B9"
 			rewards: [{
@@ -297,9 +315,11 @@
 		{
 			dependencies: ["591C55274B5727B9"]
 			description: [
-				"A sequenced assembly. By this depth you cannot do it by hand and should not try."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Crown Stilled by sequenced deployment and pressing, repeated twice."
+				"Next: use mixing in a Basin to make Crown Quenched."
 				""
-				"Step 12 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "29F4473107AE81F5"
 			rewards: [{
@@ -344,9 +364,11 @@
 		}
 		{
 			description: [
-				"Crushed down. Sometimes progress is subtraction."
+				"A worked precursor for Crown Filament in World-Tree Crownweaving."
+				"Made from Crown Quenched by spell crushing with the Crush glyph."
+				"Next: use shapeless crafting to make Crown Proofed."
 				""
-				"Step 14 of 17."
+				"See the item recipe for all reagents and resource costs."
 			]
 			id: "3B5D7833B201DCD4"
 			rewards: [{
@@ -416,9 +438,9 @@
 			description: [
 				"The last step. Crown Filament."
 				""
-				"Era X. The crown of the world tree, drawn out to a thread."
+				"World-Tree Crownweaving. The crown of the world tree, drawn out to a thread."
 				""
-				"17 steps, and every one of them rests on the era before it. That is what the ladder is."
+				"17 steps, and every one of them rests on the preceding working. That is what the ladder is."
 			]
 			id: "42225AA34B407687"
 			rewards: [{
@@ -735,7 +757,7 @@
 				""
 				"The way is clear."
 				""
-				"I sent word three eras ago, when the aura first held steady. They have been coming since. You have been too busy to notice, which is exactly right."
+				"I sent word several further workings ago, when the aura first held steady. They have been coming since. You have been too busy to notice, which is exactly right."
 				""
 				"Alfheim is not restored. It will not be restored in your lifetime or mine. But it is *inhabited*, and it is defended, and the gate is open in both directions, and there are elves being born here who will never know what it looked like when you found it."
 				""
