@@ -1,5 +1,28 @@
 # Changelog
 
+## Bounded inland terrain review - 2026-10-14
+
+Generated one terrain-only reference patch (256 forced chunks, same seed) and
+compared Sacred, Warden and Frontier saved poses without editing player saves.
+Saved native underside contact is 96.4%, 98.9% and 99.0%; remaining gaps reach
+10, 9 and 9 blocks. The worst areas are the pilgrim chapel, captain house and
+retreat hall. Source-ground excavation and exterior approach grades are measured
+separately. Nine offline translations per family are recorded, not generated.
+
+Ground classification includes tagged native stones, modded metamorphic stone,
+ore and geode blocks while excluding tree canopies and architectural variants.
+Gap-only footing estimates are 958 / 217 / 197 blocks; no fill was applied, and
+three Sacred columns contain other blocks requiring review. This is a forced-
+placement review, not proof that natural terrain adaptation fails. Normal
+beard_thin adaptation is not replayed by the manual placement command.
+
+All three natural sets remain disabled. Next: one-family-at-a-time, finite
+sandbox natural-generation tests, followed by client review. Broad terrain and
+the accepted approximate harbor policy are unchanged. Self-tests cover native
+contact, elevated gaps, water, modded stone/ore classification and rotation;
+footing runs account for every measured column. Report and map:
+`alfheim_reclaimed_design/INLAND_TERRAIN_REVIEW.md`.
+
 ## Merged Void datapack startup verified - 2026-10-14
 
 Integrated remote Void development through cb2edc08 without overwriting the

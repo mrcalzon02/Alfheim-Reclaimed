@@ -1,0 +1,4836 @@
+{
+  "reference": {
+    "world": "validation-inland-terrain-baseline-20261014",
+    "seed": "3536368297089363045",
+    "console": "server/console-20261014-134227.log",
+    "bounds": [
+      -1552,
+      544,
+      -1297,
+      799
+    ],
+    "forceload_chunk_limit": 256,
+    "structures_placed_by_harness": 0,
+    "server_exit_code": 0,
+    "scope": "One inland reference patch generated normally; existing naturally generated structures are retained and reported. No player saves are edited.",
+    "protected_terrain_baseline_sha256": "be50bf3ddbb6c7f54dfea06b9078ca13ccba67ea0cd29b014351b3f72cec3721"
+  },
+  "reference_chunks": 256,
+  "families": [
+    {
+      "family": "sacred_precinct",
+      "saved_world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-sacred-precinct-settled-20261013",
+      "pieces": [
+        {
+          "name": "great_temple_court",
+          "origin": [
+            -1456,
+            66,
+            640
+          ],
+          "rotation": 3,
+          "floor_y": 74,
+          "support": {
+            "columns": 2209,
+            "contact_columns": 2186,
+            "contact_fraction": 0.98959,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 23,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 2186,
+              "1": 23
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 2209,
+            "contact_columns": 2186,
+            "contact_fraction": 0.98959,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 23,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 2186,
+              "1": 23
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1456,
+                -1451,
+                594,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1451,
+                595,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1451,
+                596,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1452,
+                597,
+                65,
+                65
+              ]
+            ],
+            "block_count": 23,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1731,
+            "1": 167,
+            "2": 164,
+            "3": 110,
+            "4": 26,
+            "5": 6,
+            "6": 5
+          },
+          "natural_blocks_replaced_by_authored_air": 925,
+          "biomes": {
+            "mythicbotany:golden_fields": 2174,
+            "mythicbotany:dreamwood_forest": 3,
+            "mythicbotany:alfheim_plains": 32
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "temple_reliquary",
+          "origin": [
+            -1414,
+            66,
+            671
+          ],
+          "rotation": 2,
+          "floor_y": 74,
+          "support": {
+            "columns": 1209,
+            "contact_columns": 1209,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1209
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1209,
+            "contact_columns": 1209,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1209
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 453,
+            "1": 131,
+            "2": 156,
+            "3": 108,
+            "4": 77,
+            "5": 64,
+            "6": 96,
+            "7": 67,
+            "8": 35,
+            "9": 22
+          },
+          "natural_blocks_replaced_by_authored_air": 2524,
+          "biomes": {
+            "mythicbotany:dreamwood_forest": 60,
+            "mythicbotany:golden_fields": 1149
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "ancestor_reflection_pool",
+          "origin": [
+            -1487,
+            66,
+            632
+          ],
+          "rotation": 3,
+          "floor_y": 74,
+          "support": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 866,
+            "1": 40,
+            "2": 36,
+            "3": 14,
+            "4": 4,
+            "5": 1
+          },
+          "natural_blocks_replaced_by_authored_air": 168,
+          "biomes": {
+            "mythicbotany:golden_fields": 949,
+            "mythicbotany:alfheim_plains": 12
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "processional_approach",
+          "origin": [
+            -1378,
+            66,
+            606
+          ],
+          "rotation": 1,
+          "floor_y": 74,
+          "support": {
+            "columns": 736,
+            "contact_columns": 726,
+            "contact_fraction": 0.98641,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 10,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 726,
+              "1": 10
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 736,
+            "contact_columns": 726,
+            "contact_fraction": 0.98641,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 10,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 726,
+              "1": 10
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1384,
+                -1380,
+                608,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1382,
+                609,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                610,
+                65,
+                65
+              ]
+            ],
+            "block_count": 10,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 718,
+            "1": 18
+          },
+          "natural_blocks_replaced_by_authored_air": 17,
+          "biomes": {
+            "mythicbotany:golden_fields": 736
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "rite_house",
+          "origin": [
+            -1452,
+            66,
+            563
+          ],
+          "rotation": 0,
+          "floor_y": 74,
+          "support": {
+            "columns": 1209,
+            "contact_columns": 1175,
+            "contact_fraction": 0.97188,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 34,
+            "max_gap_below_base": 9,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1175,
+              "1": 2,
+              "2": 17,
+              "3": 2,
+              "4": 1,
+              "6": 1,
+              "7": 2,
+              "8": 5,
+              "9": 4
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1209,
+            "contact_columns": 1175,
+            "contact_fraction": 0.97188,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 34,
+            "max_gap_below_base": 9,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1175,
+              "1": 2,
+              "2": 17,
+              "3": 2,
+              "4": 1,
+              "6": 1,
+              "7": 2,
+              "8": 5,
+              "9": 4
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1446,
+                -1443,
+                578,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1442,
+                579,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                579,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                579,
+                62,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                579,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                579,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1441,
+                580,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                580,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                580,
+                63,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                580,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                580,
+                64,
+                65
+              ],
+              [
+                -1441,
+                -1441,
+                581,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1442,
+                581,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                581,
+                63,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                581,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                581,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1442,
+                582,
+                58,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                582,
+                59,
+                65
+              ],
+              [
+                -1446,
+                -1444,
+                582,
+                64,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                583,
+                59,
+                65
+              ],
+              [
+                -1444,
+                -1444,
+                583,
+                60,
+                65
+              ],
+              [
+                -1445,
+                -1445,
+                583,
+                64,
+                65
+              ],
+              [
+                -1452,
+                -1452,
+                592,
+                65,
+                65
+              ],
+              [
+                -1452,
+                -1452,
+                593,
+                65,
+                65
+              ]
+            ],
+            "block_count": 142,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1209
+          },
+          "natural_blocks_replaced_by_authored_air": 0,
+          "biomes": {
+            "mythicbotany:alfheim_plains": 291,
+            "alfheim:silverbark_wood": 196,
+            "mythicbotany:golden_fields": 670,
+            "mythicbotany:alfheim_lakes": 52
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "root_star_shrine",
+          "origin": [
+            -1409,
+            66,
+            575
+          ],
+          "rotation": 0,
+          "floor_y": 74,
+          "support": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 649,
+            "1": 75,
+            "2": 75,
+            "3": 80,
+            "4": 46,
+            "5": 32,
+            "6": 4
+          },
+          "natural_blocks_replaced_by_authored_air": 753,
+          "biomes": {
+            "alfheim:silverbark_wood": 1,
+            "mythicbotany:golden_fields": 960
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "pilgrim_chapel",
+          "origin": [
+            -1379,
+            66,
+            659
+          ],
+          "rotation": 2,
+          "floor_y": 74,
+          "support": {
+            "columns": 961,
+            "contact_columns": 729,
+            "contact_fraction": 0.75858,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 232,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 729,
+              "1": 32,
+              "2": 58,
+              "3": 40,
+              "4": 37,
+              "5": 27,
+              "6": 28,
+              "7": 5,
+              "8": 4,
+              "10": 1
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 961,
+            "contact_columns": 729,
+            "contact_fraction": 0.75858,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 232,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 729,
+              "1": 32,
+              "2": 58,
+              "3": 40,
+              "4": 37,
+              "5": 27,
+              "6": 28,
+              "7": 5,
+              "8": 4,
+              "10": 1
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1384,
+                -1384,
+                635,
+                64,
+                65
+              ],
+              [
+                -1383,
+                -1379,
+                635,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                636,
+                64,
+                65
+              ],
+              [
+                -1382,
+                -1379,
+                636,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1382,
+                637,
+                64,
+                65
+              ],
+              [
+                -1385,
+                -1385,
+                637,
+                65,
+                65
+              ],
+              [
+                -1381,
+                -1379,
+                637,
+                65,
+                65
+              ],
+              [
+                -1385,
+                -1381,
+                638,
+                64,
+                65
+              ],
+              [
+                -1380,
+                -1379,
+                638,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1384,
+                639,
+                63,
+                65
+              ],
+              [
+                -1386,
+                -1385,
+                639,
+                64,
+                65
+              ],
+              [
+                -1383,
+                -1380,
+                639,
+                64,
+                65
+              ],
+              [
+                -1379,
+                -1379,
+                639,
+                65,
+                65
+              ],
+              [
+                -1388,
+                -1384,
+                640,
+                63,
+                65
+              ],
+              [
+                -1383,
+                -1379,
+                640,
+                64,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                641,
+                62,
+                65
+              ],
+              [
+                -1387,
+                -1384,
+                641,
+                63,
+                65
+              ],
+              [
+                -1383,
+                -1380,
+                641,
+                64,
+                65
+              ],
+              [
+                -1379,
+                -1379,
+                641,
+                65,
+                65
+              ],
+              [
+                -1388,
+                -1387,
+                642,
+                62,
+                65
+              ],
+              [
+                -1386,
+                -1384,
+                642,
+                63,
+                65
+              ],
+              [
+                -1383,
+                -1380,
+                642,
+                64,
+                65
+              ],
+              [
+                -1379,
+                -1379,
+                642,
+                65,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                643,
+                61,
+                65
+              ],
+              [
+                -1387,
+                -1386,
+                643,
+                62,
+                65
+              ],
+              [
+                -1389,
+                -1389,
+                643,
+                63,
+                65
+              ],
+              [
+                -1385,
+                -1384,
+                643,
+                63,
+                65
+              ],
+              [
+                -1383,
+                -1380,
+                643,
+                64,
+                65
+              ],
+              [
+                -1379,
+                -1379,
+                643,
+                65,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                644,
+                61,
+                65
+              ],
+              [
+                -1389,
+                -1389,
+                644,
+                62,
+                65
+              ],
+              [
+                -1387,
+                -1386,
+                644,
+                62,
+                65
+              ],
+              [
+                -1390,
+                -1390,
+                644,
+                63,
+                65
+              ],
+              [
+                -1385,
+                -1384,
+                644,
+                63,
+                65
+              ],
+              [
+                -1383,
+                -1380,
+                644,
+                64,
+                65
+              ],
+              [
+                -1379,
+                -1379,
+                644,
+                65,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                645,
+                61,
+                65
+              ],
+              [
+                -1390,
+                -1389,
+                645,
+                62,
+                65
+              ],
+              [
+                -1387,
+                -1386,
+                645,
+                62,
+                65
+              ],
+              [
+                -1385,
+                -1384,
+                645,
+                63,
+                65
+              ],
+              [
+                -1383,
+                -1382,
+                645,
+                64,
+                65
+              ],
+              [
+                -1381,
+                -1381,
+                645,
+                65,
+                65
+              ],
+              [
+                -1391,
+                -1387,
+                646,
+                62,
+                65
+              ],
+              [
+                -1386,
+                -1385,
+                646,
+                63,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                646,
+                64,
+                65
+              ],
+              [
+                -1382,
+                -1382,
+                646,
+                65,
+                65
+              ],
+              [
+                -1392,
+                -1392,
+                647,
+                60,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                647,
+                61,
+                65
+              ],
+              [
+                -1389,
+                -1387,
+                647,
+                62,
+                65
+              ],
+              [
+                -1386,
+                -1385,
+                647,
+                63,
+                65
+              ],
+              [
+                -1384,
+                -1384,
+                647,
+                64,
+                65
+              ],
+              [
+                -1383,
+                -1383,
+                647,
+                65,
+                65
+              ],
+              [
+                -1392,
+                -1391,
+                648,
+                60,
+                65
+              ],
+              [
+                -1393,
+                -1393,
+                648,
+                61,
+                65
+              ],
+              [
+                -1390,
+                -1389,
+                648,
+                61,
+                65
+              ],
+              [
+                -1388,
+                -1387,
+                648,
+                62,
+                65
+              ],
+              [
+                -1386,
+                -1385,
+                648,
+                63,
+                65
+              ],
+              [
+                -1384,
+                -1384,
+                648,
+                64,
+                65
+              ],
+              [
+                -1383,
+                -1383,
+                648,
+                65,
+                65
+              ],
+              [
+                -1393,
+                -1392,
+                649,
+                60,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                649,
+                61,
+                65
+              ],
+              [
+                -1389,
+                -1388,
+                649,
+                62,
+                65
+              ],
+              [
+                -1387,
+                -1387,
+                649,
+                63,
+                65
+              ],
+              [
+                -1386,
+                -1385,
+                649,
+                64,
+                65
+              ],
+              [
+                -1384,
+                -1384,
+                649,
+                65,
+                65
+              ],
+              [
+                -1393,
+                -1392,
+                650,
+                60,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                650,
+                61,
+                65
+              ],
+              [
+                -1389,
+                -1388,
+                650,
+                62,
+                65
+              ],
+              [
+                -1387,
+                -1387,
+                650,
+                63,
+                65
+              ],
+              [
+                -1386,
+                -1386,
+                650,
+                64,
+                65
+              ],
+              [
+                -1385,
+                -1385,
+                650,
+                65,
+                65
+              ],
+              [
+                -1394,
+                -1392,
+                651,
+                60,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                651,
+                61,
+                65
+              ],
+              [
+                -1389,
+                -1389,
+                651,
+                62,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                651,
+                63,
+                65
+              ],
+              [
+                -1387,
+                -1387,
+                651,
+                64,
+                65
+              ],
+              [
+                -1386,
+                -1386,
+                651,
+                65,
+                65
+              ],
+              [
+                -1395,
+                -1392,
+                652,
+                60,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                652,
+                61,
+                65
+              ],
+              [
+                -1389,
+                -1389,
+                652,
+                62,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                652,
+                63,
+                65
+              ],
+              [
+                -1387,
+                -1387,
+                652,
+                64,
+                65
+              ],
+              [
+                -1386,
+                -1386,
+                652,
+                65,
+                65
+              ],
+              [
+                -1395,
+                -1392,
+                653,
+                60,
+                65
+              ],
+              [
+                -1391,
+                -1391,
+                653,
+                61,
+                65
+              ],
+              [
+                -1390,
+                -1390,
+                653,
+                62,
+                65
+              ],
+              [
+                -1389,
+                -1388,
+                653,
+                63,
+                65
+              ],
+              [
+                -1387,
+                -1387,
+                653,
+                65,
+                65
+              ],
+              [
+                -1396,
+                -1396,
+                654,
+                58,
+                65
+              ],
+              [
+                -1395,
+                -1394,
+                654,
+                60,
+                65
+              ],
+              [
+                -1393,
+                -1392,
+                654,
+                61,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                654,
+                62,
+                65
+              ],
+              [
+                -1389,
+                -1389,
+                654,
+                63,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                654,
+                64,
+                65
+              ],
+              [
+                -1387,
+                -1387,
+                654,
+                65,
+                65
+              ],
+              [
+                -1396,
+                -1396,
+                655,
+                58,
+                65
+              ],
+              [
+                -1395,
+                -1394,
+                655,
+                60,
+                65
+              ],
+              [
+                -1393,
+                -1392,
+                655,
+                61,
+                65
+              ],
+              [
+                -1391,
+                -1391,
+                655,
+                62,
+                65
+              ],
+              [
+                -1390,
+                -1389,
+                655,
+                63,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                655,
+                64,
+                65
+              ],
+              [
+                -1397,
+                -1397,
+                656,
+                56,
+                65
+              ],
+              [
+                -1396,
+                -1396,
+                656,
+                58,
+                65
+              ],
+              [
+                -1395,
+                -1394,
+                656,
+                60,
+                65
+              ],
+              [
+                -1393,
+                -1393,
+                656,
+                61,
+                65
+              ],
+              [
+                -1391,
+                -1391,
+                656,
+                62,
+                65
+              ],
+              [
+                -1390,
+                -1390,
+                656,
+                63,
+                65
+              ],
+              [
+                -1389,
+                -1388,
+                656,
+                64,
+                65
+              ],
+              [
+                -1397,
+                -1397,
+                657,
+                58,
+                65
+              ],
+              [
+                -1396,
+                -1396,
+                657,
+                59,
+                65
+              ],
+              [
+                -1395,
+                -1395,
+                657,
+                60,
+                65
+              ],
+              [
+                -1394,
+                -1393,
+                657,
+                61,
+                65
+              ],
+              [
+                -1391,
+                -1391,
+                657,
+                63,
+                65
+              ],
+              [
+                -1390,
+                -1389,
+                657,
+                64,
+                65
+              ],
+              [
+                -1388,
+                -1388,
+                657,
+                65,
+                65
+              ],
+              [
+                -1397,
+                -1396,
+                658,
+                59,
+                65
+              ],
+              [
+                -1395,
+                -1395,
+                658,
+                60,
+                65
+              ],
+              [
+                -1394,
+                -1394,
+                658,
+                61,
+                65
+              ],
+              [
+                -1393,
+                -1393,
+                658,
+                62,
+                65
+              ],
+              [
+                -1391,
+                -1391,
+                658,
+                63,
+                65
+              ],
+              [
+                -1390,
+                -1390,
+                658,
+                64,
+                65
+              ],
+              [
+                -1389,
+                -1389,
+                658,
+                65,
+                65
+              ],
+              [
+                -1398,
+                -1397,
+                659,
+                59,
+                65
+              ],
+              [
+                -1396,
+                -1395,
+                659,
+                60,
+                65
+              ],
+              [
+                -1394,
+                -1394,
+                659,
+                61,
+                65
+              ],
+              [
+                -1393,
+                -1393,
+                659,
+                62,
+                65
+              ],
+              [
+                -1392,
+                -1392,
+                659,
+                63,
+                65
+              ],
+              [
+                -1391,
+                -1390,
+                659,
+                64,
+                65
+              ]
+            ],
+            "block_count": 783,
+            "obstructed_columns": [
+              {
+                "position": [
+                  -1392,
+                  66,
+                  658
+                ],
+                "blocks": [
+                  "botania:dreamwood"
+                ]
+              },
+              {
+                "position": [
+                  -1392,
+                  66,
+                  657
+                ],
+                "blocks": [
+                  "botania:dreamwood"
+                ]
+              },
+              {
+                "position": [
+                  -1392,
+                  66,
+                  656
+                ],
+                "blocks": [
+                  "botania:dreamwood"
+                ]
+              }
+            ],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 923,
+            "1": 3,
+            "2": 2,
+            "3": 1,
+            "4": 5,
+            "5": 1,
+            "6": 4,
+            "7": 4,
+            "8": 3,
+            "9": 6,
+            "10": 8,
+            "11": 1
+          },
+          "natural_blocks_replaced_by_authored_air": 170,
+          "biomes": {
+            "mythicbotany:dreamwood_forest": 764,
+            "mythicbotany:golden_fields": 197
+          },
+          "preexisting_structure_bbox_intersections": []
+        }
+      ],
+      "support": {
+        "columns": 8246,
+        "contact_columns": 7947,
+        "contact_fraction": 0.96374,
+        "missing_reference_columns": 0,
+        "fluid_immediately_below": 0,
+        "unsupported_columns": 299,
+        "max_gap_below_base": 10,
+        "unresolved_beyond_32_columns": 0,
+        "gap_histogram": {
+          "0": 7947,
+          "1": 67,
+          "2": 75,
+          "3": 42,
+          "4": 38,
+          "5": 27,
+          "6": 29,
+          "7": 7,
+          "8": 9,
+          "9": 4,
+          "10": 1
+        },
+        "gap_search_limit": 32
+      },
+      "actual_saved_native_contact": {
+        "columns": 8246,
+        "contact_columns": 7947,
+        "contact_fraction": 0.96374,
+        "missing_reference_columns": 0,
+        "fluid_immediately_below": 0,
+        "unsupported_columns": 299,
+        "max_gap_below_base": 10,
+        "unresolved_beyond_32_columns": 0,
+        "gap_histogram": {
+          "0": 7947,
+          "1": 67,
+          "2": 75,
+          "3": 42,
+          "4": 38,
+          "5": 27,
+          "6": 29,
+          "7": 7,
+          "8": 9,
+          "9": 4,
+          "10": 1
+        },
+        "gap_search_limit": 32
+      },
+      "exterior_openings": [
+        {
+          "piece": "temple_reliquary",
+          "edge": [
+            -1433,
+            671
+          ],
+          "outside": [
+            -1433,
+            673
+          ],
+          "feet_y": 75,
+          "terrain_top": 77,
+          "grade_difference": -3
+        },
+        {
+          "piece": "ancestor_reflection_pool",
+          "edge": [
+            -1487,
+            617
+          ],
+          "outside": [
+            -1489,
+            617
+          ],
+          "feet_y": 75,
+          "terrain_top": 70,
+          "grade_difference": 4
+        },
+        {
+          "piece": "ancestor_reflection_pool",
+          "edge": [
+            -1472,
+            632
+          ],
+          "outside": [
+            -1472,
+            634
+          ],
+          "feet_y": 75,
+          "terrain_top": 74,
+          "grade_difference": 0
+        },
+        {
+          "piece": "ancestor_reflection_pool",
+          "edge": [
+            -1472,
+            602
+          ],
+          "outside": [
+            -1472,
+            600
+          ],
+          "feet_y": 75,
+          "terrain_top": 69,
+          "grade_difference": 5
+        },
+        {
+          "piece": "processional_approach",
+          "edge": [
+            -1378,
+            617
+          ],
+          "outside": [
+            -1376,
+            617
+          ],
+          "feet_y": 75,
+          "terrain_top": 69,
+          "grade_difference": 5
+        },
+        {
+          "piece": "rite_house",
+          "edge": [
+            -1433,
+            563
+          ],
+          "outside": [
+            -1433,
+            561
+          ],
+          "feet_y": 75,
+          "terrain_top": 66,
+          "grade_difference": 8
+        },
+        {
+          "piece": "root_star_shrine",
+          "edge": [
+            -1394,
+            575
+          ],
+          "outside": [
+            -1394,
+            573
+          ],
+          "feet_y": 75,
+          "terrain_top": 76,
+          "grade_difference": -2
+        },
+        {
+          "piece": "root_star_shrine",
+          "edge": [
+            -1409,
+            590
+          ],
+          "outside": [
+            -1411,
+            590
+          ],
+          "feet_y": 75,
+          "terrain_top": 68,
+          "grade_difference": 6
+        },
+        {
+          "piece": "root_star_shrine",
+          "edge": [
+            -1379,
+            590
+          ],
+          "outside": [
+            -1377,
+            590
+          ],
+          "feet_y": 75,
+          "terrain_top": 71,
+          "grade_difference": 3
+        },
+        {
+          "piece": "pilgrim_chapel",
+          "edge": [
+            -1394,
+            659
+          ],
+          "outside": [
+            -1394,
+            661
+          ],
+          "feet_y": 75,
+          "terrain_top": 61,
+          "grade_difference": 13
+        }
+      ],
+      "nearby_offline_candidates": [
+        {
+          "offset": [
+            -32,
+            -5,
+            -32
+          ],
+          "root_origin": [
+            -1488,
+            61,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7502,
+            "contact_fraction": 0.90977,
+            "missing_reference_columns": 538,
+            "fluid_immediately_below": 154,
+            "unsupported_columns": 206,
+            "max_gap_below_base": 17,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7502,
+              "1": 39,
+              "2": 18,
+              "3": 67,
+              "4": 43,
+              "5": 27,
+              "7": 3,
+              "13": 2,
+              "14": 1,
+              "15": 3,
+              "16": 2,
+              "17": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 998,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            -32,
+            -1,
+            0
+          ],
+          "root_origin": [
+            -1488,
+            65,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7927,
+            "contact_fraction": 0.96131,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 319,
+            "max_gap_below_base": 12,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7927,
+              "1": 125,
+              "2": 45,
+              "3": 17,
+              "4": 37,
+              "5": 8,
+              "6": 12,
+              "7": 24,
+              "8": 19,
+              "9": 10,
+              "10": 12,
+              "11": 7,
+              "12": 3
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 719,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            -32,
+            8,
+            32
+          ],
+          "root_origin": [
+            -1488,
+            74,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 4811,
+            "contact_fraction": 0.58343,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 3435,
+            "max_gap_below_base": 22,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 4811,
+              "1": 731,
+              "2": 445,
+              "3": 496,
+              "4": 361,
+              "5": 452,
+              "6": 427,
+              "7": 135,
+              "8": 134,
+              "9": 146,
+              "10": 59,
+              "11": 38,
+              "12": 7,
+              "21": 2,
+              "22": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 35,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            -3,
+            -32
+          ],
+          "root_origin": [
+            -1456,
+            63,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7672,
+            "contact_fraction": 0.93039,
+            "missing_reference_columns": 538,
+            "fluid_immediately_below": 7,
+            "unsupported_columns": 36,
+            "max_gap_below_base": 7,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7672,
+              "1": 5,
+              "3": 4,
+              "4": 6,
+              "5": 7,
+              "6": 9,
+              "7": 5
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 667,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            1,
+            0
+          ],
+          "root_origin": [
+            -1456,
+            67,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7787,
+            "contact_fraction": 0.94434,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 459,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7787,
+              "1": 168,
+              "2": 67,
+              "3": 75,
+              "4": 41,
+              "5": 38,
+              "6": 26,
+              "7": 28,
+              "8": 5,
+              "9": 8,
+              "10": 2,
+              "11": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 255,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            1,
+            32
+          ],
+          "root_origin": [
+            -1456,
+            67,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7570,
+            "contact_fraction": 0.91802,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 676,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7570,
+              "1": 217,
+              "2": 93,
+              "3": 102,
+              "4": 79,
+              "5": 78,
+              "6": 59,
+              "7": 38,
+              "8": 5,
+              "9": 4,
+              "11": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 713,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            2,
+            -32
+          ],
+          "root_origin": [
+            -1424,
+            68,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7114,
+            "contact_fraction": 0.86272,
+            "missing_reference_columns": 538,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 594,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7114,
+              "1": 288,
+              "2": 186,
+              "3": 70,
+              "4": 39,
+              "5": 3,
+              "6": 1,
+              "9": 1,
+              "10": 4,
+              "11": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 861,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            0,
+            0
+          ],
+          "root_origin": [
+            -1424,
+            66,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 7870,
+            "contact_fraction": 0.9544,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 376,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7870,
+              "1": 90,
+              "2": 65,
+              "3": 58,
+              "4": 59,
+              "5": 54,
+              "6": 39,
+              "7": 6,
+              "8": 4,
+              "10": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 880,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            -3,
+            32
+          ],
+          "root_origin": [
+            -1424,
+            63,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8246,
+            "contact_columns": 8009,
+            "contact_fraction": 0.97126,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 237,
+            "max_gap_below_base": 7,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8009,
+              "1": 79,
+              "2": 62,
+              "3": 47,
+              "4": 20,
+              "5": 24,
+              "6": 1,
+              "7": 4
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 2434,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        }
+      ],
+      "template_content_sha256": {
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/great_temple_court.nbt": "5ecbba53c2f47de563a8c81cf3fd7313ca5b268fa1a0bae2c87b214ae63d721c",
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/temple_reliquary.nbt": "76d754c92d1179ebc15d33d5b7313e4d114d2cc535ab3d16d1cad93ae157101b",
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/ancestor_reflection_pool.nbt": "18ccfefaa1087df79a858cd4cdc6587b4cc6ef64b5fc20337f19ff8d6207e1c7",
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/processional_approach.nbt": "e170586bff564983d4f42c2cc7790469037b8da8c86aceee67a3017f7f17a2a8",
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/rite_house.nbt": "f26df5fc8ede915bacb119b19c5115193acd23534e3815bae68f3f1b037b39b6",
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/root_star_shrine.nbt": "43df02ba253d308149606bcc675ea43a1db076f4d3b0e8d72acd4dbcca71e54f",
+        "kubejs/data/alfheim/structures/ancient/sacred_precinct/pilgrim_chapel.nbt": "0289fb9a456557691e7bea4b2061f39e1e20f985ad1b4524fa0bb6f5c4eec3f8"
+      },
+      "scope": "Direct underside contact and air-volume excavation against reference terrain; tree canopies and decorative blocks are excluded from natural ground. Bounding-box intersections are warnings, not exact solid collisions."
+    },
+    {
+      "family": "military_warden",
+      "saved_world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-military-warden-20261013",
+      "pieces": [
+        {
+          "name": "border_keep",
+          "origin": [
+            -1456,
+            66,
+            640
+          ],
+          "rotation": 3,
+          "floor_y": 74,
+          "support": {
+            "columns": 2209,
+            "contact_columns": 2186,
+            "contact_fraction": 0.98959,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 23,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 2186,
+              "1": 23
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 2209,
+            "contact_columns": 2186,
+            "contact_fraction": 0.98959,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 23,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 2186,
+              "1": 23
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1456,
+                -1451,
+                594,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1451,
+                595,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1451,
+                596,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1452,
+                597,
+                65,
+                65
+              ]
+            ],
+            "block_count": 23,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1731,
+            "1": 167,
+            "2": 164,
+            "3": 110,
+            "4": 26,
+            "5": 6,
+            "6": 5
+          },
+          "natural_blocks_replaced_by_authored_air": 908,
+          "biomes": {
+            "mythicbotany:golden_fields": 2174,
+            "mythicbotany:dreamwood_forest": 3,
+            "mythicbotany:alfheim_plains": 32
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "gate_barracks",
+          "origin": [
+            -1414,
+            66,
+            671
+          ],
+          "rotation": 2,
+          "floor_y": 74,
+          "support": {
+            "columns": 1209,
+            "contact_columns": 1209,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1209
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1209,
+            "contact_columns": 1209,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1209
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 453,
+            "1": 131,
+            "2": 156,
+            "3": 108,
+            "4": 77,
+            "5": 64,
+            "6": 96,
+            "7": 67,
+            "8": 35,
+            "9": 22
+          },
+          "natural_blocks_replaced_by_authored_air": 2537,
+          "biomes": {
+            "mythicbotany:dreamwood_forest": 60,
+            "mythicbotany:golden_fields": 1149
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "warden_tower",
+          "origin": [
+            -1487,
+            66,
+            632
+          ],
+          "rotation": 3,
+          "floor_y": 74,
+          "support": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 866,
+            "1": 40,
+            "2": 36,
+            "3": 14,
+            "4": 4,
+            "5": 1
+          },
+          "natural_blocks_replaced_by_authored_air": 124,
+          "biomes": {
+            "mythicbotany:golden_fields": 949,
+            "mythicbotany:alfheim_plains": 12
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "discipline_guard_court",
+          "origin": [
+            -1371,
+            66,
+            598
+          ],
+          "rotation": 1,
+          "floor_y": 74,
+          "support": {
+            "columns": 1521,
+            "contact_columns": 1496,
+            "contact_fraction": 0.98356,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 25,
+            "max_gap_below_base": 2,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1496,
+              "1": 22,
+              "2": 3
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1521,
+            "contact_columns": 1496,
+            "contact_fraction": 0.98356,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 25,
+            "max_gap_below_base": 2,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1496,
+              "1": 22,
+              "2": 3
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1384,
+                -1380,
+                608,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1382,
+                609,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                610,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1384,
+                635,
+                64,
+                65
+              ],
+              [
+                -1383,
+                -1379,
+                635,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                636,
+                64,
+                65
+              ],
+              [
+                -1382,
+                -1376,
+                636,
+                65,
+                65
+              ]
+            ],
+            "block_count": 28,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1485,
+            "1": 26,
+            "2": 10
+          },
+          "natural_blocks_replaced_by_authored_air": 33,
+          "biomes": {
+            "mythicbotany:golden_fields": 1427,
+            "mythicbotany:dreamwood_forest": 94
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "watch_captain_house",
+          "origin": [
+            -1452,
+            66,
+            563
+          ],
+          "rotation": 0,
+          "floor_y": 74,
+          "support": {
+            "columns": 1209,
+            "contact_columns": 1175,
+            "contact_fraction": 0.97188,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 34,
+            "max_gap_below_base": 9,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1175,
+              "1": 2,
+              "2": 17,
+              "3": 2,
+              "4": 1,
+              "6": 1,
+              "7": 2,
+              "8": 5,
+              "9": 4
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1209,
+            "contact_columns": 1175,
+            "contact_fraction": 0.97188,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 34,
+            "max_gap_below_base": 9,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1175,
+              "1": 2,
+              "2": 17,
+              "3": 2,
+              "4": 1,
+              "6": 1,
+              "7": 2,
+              "8": 5,
+              "9": 4
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1446,
+                -1443,
+                578,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1442,
+                579,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                579,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                579,
+                62,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                579,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                579,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1441,
+                580,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                580,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                580,
+                63,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                580,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                580,
+                64,
+                65
+              ],
+              [
+                -1441,
+                -1441,
+                581,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1442,
+                581,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                581,
+                63,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                581,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                581,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1442,
+                582,
+                58,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                582,
+                59,
+                65
+              ],
+              [
+                -1446,
+                -1444,
+                582,
+                64,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                583,
+                59,
+                65
+              ],
+              [
+                -1444,
+                -1444,
+                583,
+                60,
+                65
+              ],
+              [
+                -1445,
+                -1445,
+                583,
+                64,
+                65
+              ],
+              [
+                -1452,
+                -1452,
+                592,
+                65,
+                65
+              ],
+              [
+                -1452,
+                -1452,
+                593,
+                65,
+                65
+              ]
+            ],
+            "block_count": 142,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1209
+          },
+          "natural_blocks_replaced_by_authored_air": 0,
+          "biomes": {
+            "mythicbotany:alfheim_plains": 291,
+            "alfheim:silverbark_wood": 196,
+            "mythicbotany:golden_fields": 670,
+            "mythicbotany:alfheim_lakes": 52
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "last_muster_ground",
+          "origin": [
+            -1332,
+            66,
+            594
+          ],
+          "rotation": 1,
+          "floor_y": 74,
+          "support": {
+            "columns": 1833,
+            "contact_columns": 1833,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1833
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1833,
+            "contact_columns": 1813,
+            "contact_fraction": 0.98909,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 20,
+            "max_gap_below_base": 3,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1813,
+              "1": 17,
+              "2": 2,
+              "3": 1
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1333,
+                -1333,
+                594,
+                63,
+                65
+              ],
+              [
+                -1334,
+                -1334,
+                594,
+                64,
+                65
+              ],
+              [
+                -1332,
+                -1332,
+                594,
+                64,
+                65
+              ],
+              [
+                -1335,
+                -1335,
+                594,
+                65,
+                65
+              ],
+              [
+                -1335,
+                -1335,
+                595,
+                65,
+                65
+              ],
+              [
+                -1333,
+                -1333,
+                595,
+                65,
+                65
+              ],
+              [
+                -1336,
+                -1334,
+                596,
+                65,
+                65
+              ],
+              [
+                -1337,
+                -1333,
+                597,
+                65,
+                65
+              ],
+              [
+                -1337,
+                -1334,
+                598,
+                65,
+                65
+              ],
+              [
+                -1336,
+                -1335,
+                599,
+                65,
+                65
+              ]
+            ],
+            "block_count": 24,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 215,
+            "1": 24,
+            "2": 63,
+            "3": 54,
+            "4": 125,
+            "5": 127,
+            "6": 154,
+            "7": 179,
+            "8": 153,
+            "9": 130,
+            "10": 137,
+            "11": 196,
+            "12": 130,
+            "13": 56,
+            "14": 29,
+            "15": 17,
+            "16": 16,
+            "17": 14,
+            "18": 8,
+            "19": 4,
+            "20": 2
+          },
+          "natural_blocks_replaced_by_authored_air": 12524,
+          "biomes": {
+            "mythicbotany:golden_fields": 614,
+            "mythicbotany:dreamwood_forest": 1219
+          },
+          "preexisting_structure_bbox_intersections": []
+        }
+      ],
+      "support": {
+        "columns": 8942,
+        "contact_columns": 8860,
+        "contact_fraction": 0.99083,
+        "missing_reference_columns": 0,
+        "fluid_immediately_below": 0,
+        "unsupported_columns": 82,
+        "max_gap_below_base": 9,
+        "unresolved_beyond_32_columns": 0,
+        "gap_histogram": {
+          "0": 8860,
+          "1": 47,
+          "2": 20,
+          "3": 2,
+          "4": 1,
+          "6": 1,
+          "7": 2,
+          "8": 5,
+          "9": 4
+        },
+        "gap_search_limit": 32
+      },
+      "actual_saved_native_contact": {
+        "columns": 8942,
+        "contact_columns": 8840,
+        "contact_fraction": 0.98859,
+        "missing_reference_columns": 0,
+        "fluid_immediately_below": 0,
+        "unsupported_columns": 102,
+        "max_gap_below_base": 9,
+        "unresolved_beyond_32_columns": 0,
+        "gap_histogram": {
+          "0": 8840,
+          "1": 64,
+          "2": 22,
+          "3": 3,
+          "4": 1,
+          "6": 1,
+          "7": 2,
+          "8": 5,
+          "9": 4
+        },
+        "gap_search_limit": 32
+      },
+      "exterior_openings": [
+        {
+          "piece": "gate_barracks",
+          "edge": [
+            -1433,
+            671
+          ],
+          "outside": [
+            -1433,
+            673
+          ],
+          "feet_y": 75,
+          "terrain_top": 77,
+          "grade_difference": -3
+        },
+        {
+          "piece": "warden_tower",
+          "edge": [
+            -1487,
+            617
+          ],
+          "outside": [
+            -1489,
+            617
+          ],
+          "feet_y": 75,
+          "terrain_top": 70,
+          "grade_difference": 4
+        },
+        {
+          "piece": "watch_captain_house",
+          "edge": [
+            -1433,
+            563
+          ],
+          "outside": [
+            -1433,
+            561
+          ],
+          "feet_y": 75,
+          "terrain_top": 66,
+          "grade_difference": 8
+        },
+        {
+          "piece": "last_muster_ground",
+          "edge": [
+            -1332,
+            617
+          ],
+          "outside": [
+            -1330,
+            617
+          ],
+          "feet_y": 75,
+          "terrain_top": 82,
+          "grade_difference": -8
+        }
+      ],
+      "nearby_offline_candidates": [
+        {
+          "offset": [
+            -32,
+            -5,
+            -32
+          ],
+          "root_origin": [
+            -1488,
+            61,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8229,
+            "contact_fraction": 0.92026,
+            "missing_reference_columns": 507,
+            "fluid_immediately_below": 154,
+            "unsupported_columns": 206,
+            "max_gap_below_base": 17,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8229,
+              "1": 39,
+              "2": 18,
+              "3": 67,
+              "4": 43,
+              "5": 27,
+              "7": 3,
+              "13": 2,
+              "14": 1,
+              "15": 3,
+              "16": 2,
+              "17": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1586,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            -32,
+            -1,
+            0
+          ],
+          "root_origin": [
+            -1488,
+            65,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8599,
+            "contact_fraction": 0.96164,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 343,
+            "max_gap_below_base": 12,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8599,
+              "1": 147,
+              "2": 51,
+              "3": 17,
+              "4": 37,
+              "5": 8,
+              "6": 12,
+              "7": 23,
+              "8": 16,
+              "9": 10,
+              "10": 12,
+              "11": 7,
+              "12": 3
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 747,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            -32,
+            8,
+            32
+          ],
+          "root_origin": [
+            -1488,
+            74,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 4300,
+            "contact_fraction": 0.48088,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 4642,
+            "max_gap_below_base": 22,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 4300,
+              "1": 657,
+              "2": 507,
+              "3": 660,
+              "4": 488,
+              "5": 659,
+              "6": 574,
+              "7": 283,
+              "8": 260,
+              "9": 207,
+              "10": 134,
+              "11": 94,
+              "12": 63,
+              "13": 32,
+              "14": 18,
+              "15": 2,
+              "21": 2,
+              "22": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 35,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            -3,
+            -32
+          ],
+          "root_origin": [
+            -1456,
+            63,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8399,
+            "contact_fraction": 0.93928,
+            "missing_reference_columns": 507,
+            "fluid_immediately_below": 7,
+            "unsupported_columns": 36,
+            "max_gap_below_base": 7,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8399,
+              "1": 5,
+              "3": 4,
+              "4": 6,
+              "5": 7,
+              "6": 9,
+              "7": 5
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1800,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            1,
+            0
+          ],
+          "root_origin": [
+            -1456,
+            67,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8688,
+            "contact_fraction": 0.97159,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 254,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8688,
+              "1": 176,
+              "2": 47,
+              "3": 20,
+              "4": 2,
+              "5": 1,
+              "7": 1,
+              "8": 1,
+              "9": 4,
+              "10": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1450,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            1,
+            32
+          ],
+          "root_origin": [
+            -1456,
+            67,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8376,
+            "contact_fraction": 0.9367,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 566,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8376,
+              "1": 168,
+              "2": 91,
+              "3": 90,
+              "4": 64,
+              "5": 62,
+              "6": 44,
+              "7": 37,
+              "8": 5,
+              "9": 4,
+              "11": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1142,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            2,
+            -32
+          ],
+          "root_origin": [
+            -1424,
+            68,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 7404,
+            "contact_fraction": 0.828,
+            "missing_reference_columns": 507,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 1031,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7404,
+              "1": 504,
+              "2": 340,
+              "3": 115,
+              "4": 57,
+              "5": 5,
+              "6": 3,
+              "9": 1,
+              "10": 4,
+              "11": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 193,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            0,
+            0
+          ],
+          "root_origin": [
+            -1424,
+            66,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8538,
+            "contact_fraction": 0.95482,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 404,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8538,
+              "1": 104,
+              "2": 79,
+              "3": 58,
+              "4": 59,
+              "5": 54,
+              "6": 39,
+              "7": 6,
+              "8": 4,
+              "10": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1398,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            -3,
+            32
+          ],
+          "root_origin": [
+            -1424,
+            63,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8942,
+            "contact_columns": 8650,
+            "contact_fraction": 0.96735,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 292,
+            "max_gap_below_base": 29,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8650,
+              "1": 111,
+              "2": 62,
+              "3": 43,
+              "4": 11,
+              "5": 13,
+              "6": 11,
+              "7": 8,
+              "8": 5,
+              "22": 2,
+              "23": 2,
+              "24": 4,
+              "25": 6,
+              "26": 3,
+              "27": 7,
+              "28": 2,
+              "29": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 2487,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        }
+      ],
+      "template_content_sha256": {
+        "kubejs/data/alfheim/structures/ancient/military_warden/border_keep.nbt": "99cd798308c48eb58e23341ec5b6fead253a561ec85bebd080d839237719135d",
+        "kubejs/data/alfheim/structures/ancient/military_warden/gate_barracks.nbt": "9805e765a049e8d44a5b9a094ae2ff1129d8b76af7a9b0596f83a64095734546",
+        "kubejs/data/alfheim/structures/ancient/military_warden/warden_tower.nbt": "999092402c538512c94ef28f8fe930564e1e6966e34af6fa3c1031d6d0ff80e6",
+        "kubejs/data/alfheim/structures/ancient/military_warden/discipline_guard_court.nbt": "90f912c12356cc4484f2dbfef193e77f21018607c2bd55a0886b79dde64710dd",
+        "kubejs/data/alfheim/structures/ancient/military_warden/watch_captain_house.nbt": "ae1acf898cc35ee7899cb6887ff1680b36f74b304e234b9ca4a8b80300a72555",
+        "kubejs/data/alfheim/structures/ancient/military_warden/last_muster_ground.nbt": "b88f4f311664d933eb45c291707cb03b9328f8c6977aed8ea2d5a4161737a0d7"
+      },
+      "scope": "Direct underside contact and air-volume excavation against reference terrain; tree canopies and decorative blocks are excluded from natural ground. Bounding-box intersections are warnings, not exact solid collisions."
+    },
+    {
+      "family": "frontier_stewardship",
+      "saved_world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-frontier-stewardship-20261013",
+      "pieces": [
+        {
+          "name": "green_noble_lodge",
+          "origin": [
+            -1456,
+            66,
+            640
+          ],
+          "rotation": 3,
+          "floor_y": 74,
+          "support": {
+            "columns": 2209,
+            "contact_columns": 2186,
+            "contact_fraction": 0.98959,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 23,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 2186,
+              "1": 23
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 2209,
+            "contact_columns": 2186,
+            "contact_fraction": 0.98959,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 23,
+            "max_gap_below_base": 1,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 2186,
+              "1": 23
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1456,
+                -1451,
+                594,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1451,
+                595,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1451,
+                596,
+                65,
+                65
+              ],
+              [
+                -1456,
+                -1452,
+                597,
+                65,
+                65
+              ]
+            ],
+            "block_count": 23,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1731,
+            "1": 167,
+            "2": 164,
+            "3": 110,
+            "4": 26,
+            "5": 6,
+            "6": 5
+          },
+          "natural_blocks_replaced_by_authored_air": 928,
+          "biomes": {
+            "mythicbotany:golden_fields": 2174,
+            "mythicbotany:dreamwood_forest": 3,
+            "mythicbotany:alfheim_plains": 32
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "forest_waystation",
+          "origin": [
+            -1414,
+            66,
+            671
+          ],
+          "rotation": 2,
+          "floor_y": 74,
+          "support": {
+            "columns": 1209,
+            "contact_columns": 1209,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1209
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1209,
+            "contact_columns": 1209,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1209
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 453,
+            "1": 131,
+            "2": 156,
+            "3": 108,
+            "4": 77,
+            "5": 64,
+            "6": 96,
+            "7": 67,
+            "8": 35,
+            "9": 22
+          },
+          "natural_blocks_replaced_by_authored_air": 2882,
+          "biomes": {
+            "mythicbotany:dreamwood_forest": 60,
+            "mythicbotany:golden_fields": 1149
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "surveyor_tower",
+          "origin": [
+            -1487,
+            66,
+            632
+          ],
+          "rotation": 3,
+          "floor_y": 74,
+          "support": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 866,
+            "1": 40,
+            "2": 36,
+            "3": 14,
+            "4": 4,
+            "5": 1
+          },
+          "natural_blocks_replaced_by_authored_air": 124,
+          "biomes": {
+            "mythicbotany:golden_fields": 949,
+            "mythicbotany:alfheim_plains": 12
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "moon_pool_sanctuary",
+          "origin": [
+            -1371,
+            66,
+            598
+          ],
+          "rotation": 1,
+          "floor_y": 74,
+          "support": {
+            "columns": 1521,
+            "contact_columns": 1496,
+            "contact_fraction": 0.98356,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 25,
+            "max_gap_below_base": 2,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1496,
+              "1": 22,
+              "2": 3
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1521,
+            "contact_columns": 1496,
+            "contact_fraction": 0.98356,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 25,
+            "max_gap_below_base": 2,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1496,
+              "1": 22,
+              "2": 3
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1384,
+                -1380,
+                608,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1382,
+                609,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                610,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1384,
+                635,
+                64,
+                65
+              ],
+              [
+                -1383,
+                -1379,
+                635,
+                65,
+                65
+              ],
+              [
+                -1384,
+                -1383,
+                636,
+                64,
+                65
+              ],
+              [
+                -1382,
+                -1376,
+                636,
+                65,
+                65
+              ]
+            ],
+            "block_count": 28,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1485,
+            "1": 26,
+            "2": 10
+          },
+          "natural_blocks_replaced_by_authored_air": 43,
+          "biomes": {
+            "mythicbotany:golden_fields": 1427,
+            "mythicbotany:dreamwood_forest": 94
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "outlying_retreat_hall",
+          "origin": [
+            -1452,
+            66,
+            555
+          ],
+          "rotation": 0,
+          "floor_y": 74,
+          "support": {
+            "columns": 1521,
+            "contact_columns": 1483,
+            "contact_fraction": 0.97502,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 38,
+            "max_gap_below_base": 9,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1483,
+              "1": 6,
+              "2": 17,
+              "3": 2,
+              "4": 1,
+              "6": 1,
+              "7": 2,
+              "8": 5,
+              "9": 4
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 1521,
+            "contact_columns": 1483,
+            "contact_fraction": 0.97502,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 38,
+            "max_gap_below_base": 9,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 1483,
+              "1": 6,
+              "2": 17,
+              "3": 2,
+              "4": 1,
+              "6": 1,
+              "7": 2,
+              "8": 5,
+              "9": 4
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [
+              [
+                -1435,
+                -1433,
+                556,
+                65,
+                65
+              ],
+              [
+                -1435,
+                -1435,
+                557,
+                65,
+                65
+              ],
+              [
+                -1446,
+                -1443,
+                578,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1442,
+                579,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                579,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                579,
+                62,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                579,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                579,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1441,
+                580,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                580,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                580,
+                63,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                580,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                580,
+                64,
+                65
+              ],
+              [
+                -1441,
+                -1441,
+                581,
+                57,
+                65
+              ],
+              [
+                -1443,
+                -1442,
+                581,
+                58,
+                65
+              ],
+              [
+                -1446,
+                -1446,
+                581,
+                63,
+                65
+              ],
+              [
+                -1447,
+                -1447,
+                581,
+                64,
+                65
+              ],
+              [
+                -1445,
+                -1444,
+                581,
+                64,
+                65
+              ],
+              [
+                -1442,
+                -1442,
+                582,
+                58,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                582,
+                59,
+                65
+              ],
+              [
+                -1446,
+                -1444,
+                582,
+                64,
+                65
+              ],
+              [
+                -1443,
+                -1443,
+                583,
+                59,
+                65
+              ],
+              [
+                -1444,
+                -1444,
+                583,
+                60,
+                65
+              ],
+              [
+                -1445,
+                -1445,
+                583,
+                64,
+                65
+              ],
+              [
+                -1452,
+                -1452,
+                592,
+                65,
+                65
+              ],
+              [
+                -1452,
+                -1452,
+                593,
+                65,
+                65
+              ]
+            ],
+            "block_count": 146,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 1521
+          },
+          "natural_blocks_replaced_by_authored_air": 0,
+          "biomes": {
+            "alfheim:silverbark_wood": 216,
+            "mythicbotany:alfheim_plains": 407,
+            "mythicbotany:golden_fields": 670,
+            "mythicbotany:alfheim_lakes": 228
+          },
+          "preexisting_structure_bbox_intersections": []
+        },
+        {
+          "name": "wild_ward_shrine",
+          "origin": [
+            -1340,
+            66,
+            602
+          ],
+          "rotation": 1,
+          "floor_y": 74,
+          "support": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "actual_saved_native_contact": {
+            "columns": 961,
+            "contact_columns": 961,
+            "contact_fraction": 1.0,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 0,
+            "max_gap_below_base": 0,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 961
+            },
+            "gap_search_limit": 32
+          },
+          "supplemental_footing_plan": {
+            "run_format": [
+              "x_min",
+              "x_max",
+              "z",
+              "y_min",
+              "y_max"
+            ],
+            "runs": [],
+            "block_count": 0,
+            "obstructed_columns": [],
+            "unresolved_columns": 0,
+            "status": "review_only_not_applied",
+            "limit": "Air/fluid or listed replaceable vegetation above existing ground within 32 blocks. Other blocks require review. Do not apply before normal terrain-adaptation review."
+          },
+          "terrain_above_floor_histogram": {
+            "0": 87,
+            "1": 12,
+            "2": 37,
+            "3": 18,
+            "4": 33,
+            "5": 30,
+            "6": 61,
+            "7": 83,
+            "8": 63,
+            "9": 56,
+            "10": 66,
+            "11": 154,
+            "12": 115,
+            "13": 56,
+            "14": 29,
+            "15": 17,
+            "16": 16,
+            "17": 14,
+            "18": 8,
+            "19": 4,
+            "20": 2
+          },
+          "natural_blocks_replaced_by_authored_air": 7882,
+          "biomes": {
+            "mythicbotany:dreamwood_forest": 597,
+            "mythicbotany:golden_fields": 364
+          },
+          "preexisting_structure_bbox_intersections": []
+        }
+      ],
+      "support": {
+        "columns": 8382,
+        "contact_columns": 8296,
+        "contact_fraction": 0.98974,
+        "missing_reference_columns": 0,
+        "fluid_immediately_below": 0,
+        "unsupported_columns": 86,
+        "max_gap_below_base": 9,
+        "unresolved_beyond_32_columns": 0,
+        "gap_histogram": {
+          "0": 8296,
+          "1": 51,
+          "2": 20,
+          "3": 2,
+          "4": 1,
+          "6": 1,
+          "7": 2,
+          "8": 5,
+          "9": 4
+        },
+        "gap_search_limit": 32
+      },
+      "actual_saved_native_contact": {
+        "columns": 8382,
+        "contact_columns": 8296,
+        "contact_fraction": 0.98974,
+        "missing_reference_columns": 0,
+        "fluid_immediately_below": 0,
+        "unsupported_columns": 86,
+        "max_gap_below_base": 9,
+        "unresolved_beyond_32_columns": 0,
+        "gap_histogram": {
+          "0": 8296,
+          "1": 51,
+          "2": 20,
+          "3": 2,
+          "4": 1,
+          "6": 1,
+          "7": 2,
+          "8": 5,
+          "9": 4
+        },
+        "gap_search_limit": 32
+      },
+      "exterior_openings": [
+        {
+          "piece": "forest_waystation",
+          "edge": [
+            -1433,
+            671
+          ],
+          "outside": [
+            -1433,
+            673
+          ],
+          "feet_y": 75,
+          "terrain_top": 77,
+          "grade_difference": -3
+        },
+        {
+          "piece": "forest_waystation",
+          "edge": [
+            -1414,
+            656
+          ],
+          "outside": [
+            -1412,
+            656
+          ],
+          "feet_y": 75,
+          "terrain_top": 72,
+          "grade_difference": 2
+        },
+        {
+          "piece": "forest_waystation",
+          "edge": [
+            -1452,
+            656
+          ],
+          "outside": [
+            -1454,
+            656
+          ],
+          "feet_y": 75,
+          "terrain_top": 83,
+          "grade_difference": -9
+        },
+        {
+          "piece": "surveyor_tower",
+          "edge": [
+            -1487,
+            617
+          ],
+          "outside": [
+            -1489,
+            617
+          ],
+          "feet_y": 75,
+          "terrain_top": 70,
+          "grade_difference": 4
+        },
+        {
+          "piece": "moon_pool_sanctuary",
+          "edge": [
+            -1390,
+            598
+          ],
+          "outside": [
+            -1390,
+            596
+          ],
+          "feet_y": 75,
+          "terrain_top": 70,
+          "grade_difference": 4
+        },
+        {
+          "piece": "moon_pool_sanctuary",
+          "edge": [
+            -1390,
+            636
+          ],
+          "outside": [
+            -1390,
+            638
+          ],
+          "feet_y": 75,
+          "terrain_top": 67,
+          "grade_difference": 7
+        },
+        {
+          "piece": "outlying_retreat_hall",
+          "edge": [
+            -1433,
+            555
+          ],
+          "outside": [
+            -1433,
+            553
+          ],
+          "feet_y": 75,
+          "terrain_top": 65,
+          "grade_difference": 9
+        },
+        {
+          "piece": "wild_ward_shrine",
+          "edge": [
+            -1340,
+            617
+          ],
+          "outside": [
+            -1338,
+            617
+          ],
+          "feet_y": 75,
+          "terrain_top": 86,
+          "grade_difference": -12
+        },
+        {
+          "piece": "wild_ward_shrine",
+          "edge": [
+            -1355,
+            602
+          ],
+          "outside": [
+            -1355,
+            600
+          ],
+          "feet_y": 75,
+          "terrain_top": 81,
+          "grade_difference": -7
+        },
+        {
+          "piece": "wild_ward_shrine",
+          "edge": [
+            -1355,
+            632
+          ],
+          "outside": [
+            -1355,
+            634
+          ],
+          "feet_y": 75,
+          "terrain_top": 82,
+          "grade_difference": -8
+        }
+      ],
+      "nearby_offline_candidates": [
+        {
+          "offset": [
+            -32,
+            -5,
+            -32
+          ],
+          "root_origin": [
+            -1488,
+            61,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 7357,
+            "contact_fraction": 0.87771,
+            "missing_reference_columns": 819,
+            "fluid_immediately_below": 154,
+            "unsupported_columns": 206,
+            "max_gap_below_base": 17,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7357,
+              "1": 39,
+              "2": 18,
+              "3": 67,
+              "4": 43,
+              "5": 27,
+              "7": 3,
+              "13": 2,
+              "14": 1,
+              "15": 3,
+              "16": 2,
+              "17": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1284,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            -32,
+            -1,
+            0
+          ],
+          "root_origin": [
+            -1488,
+            65,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 8052,
+            "contact_fraction": 0.96063,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 330,
+            "max_gap_below_base": 12,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8052,
+              "1": 131,
+              "2": 50,
+              "3": 19,
+              "4": 39,
+              "5": 8,
+              "6": 12,
+              "7": 23,
+              "8": 16,
+              "9": 10,
+              "10": 12,
+              "11": 7,
+              "12": 3
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 667,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            -32,
+            8,
+            32
+          ],
+          "root_origin": [
+            -1488,
+            74,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 4118,
+            "contact_fraction": 0.49129,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 4264,
+            "max_gap_below_base": 22,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 4118,
+              "1": 578,
+              "2": 442,
+              "3": 529,
+              "4": 406,
+              "5": 598,
+              "6": 564,
+              "7": 291,
+              "8": 244,
+              "9": 279,
+              "10": 145,
+              "11": 82,
+              "12": 50,
+              "13": 32,
+              "14": 18,
+              "15": 2,
+              "21": 2,
+              "22": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 35,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            -3,
+            -32
+          ],
+          "root_origin": [
+            -1456,
+            63,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 7527,
+            "contact_fraction": 0.898,
+            "missing_reference_columns": 819,
+            "fluid_immediately_below": 7,
+            "unsupported_columns": 36,
+            "max_gap_below_base": 7,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7527,
+              "1": 5,
+              "3": 4,
+              "4": 6,
+              "5": 7,
+              "6": 9,
+              "7": 5
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1109,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            1,
+            0
+          ],
+          "root_origin": [
+            -1456,
+            67,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 8087,
+            "contact_fraction": 0.96481,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 295,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8087,
+              "1": 213,
+              "2": 51,
+              "3": 20,
+              "4": 2,
+              "5": 1,
+              "7": 1,
+              "8": 1,
+              "9": 4,
+              "10": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 969,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            0,
+            1,
+            32
+          ],
+          "root_origin": [
+            -1456,
+            67,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 7805,
+            "contact_fraction": 0.93116,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 577,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 7805,
+              "1": 175,
+              "2": 95,
+              "3": 90,
+              "4": 64,
+              "5": 62,
+              "6": 44,
+              "7": 37,
+              "8": 5,
+              "9": 4,
+              "11": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 871,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            2,
+            -32
+          ],
+          "root_origin": [
+            -1424,
+            68,
+            608
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 6729,
+            "contact_fraction": 0.80279,
+            "missing_reference_columns": 819,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 834,
+            "max_gap_below_base": 11,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 6729,
+              "1": 411,
+              "2": 285,
+              "3": 83,
+              "4": 44,
+              "5": 3,
+              "6": 1,
+              "9": 1,
+              "10": 4,
+              "11": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 182,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            0,
+            0
+          ],
+          "root_origin": [
+            -1424,
+            66,
+            640
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 8017,
+            "contact_fraction": 0.95645,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 365,
+            "max_gap_below_base": 10,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8017,
+              "1": 74,
+              "2": 70,
+              "3": 58,
+              "4": 59,
+              "5": 54,
+              "6": 39,
+              "7": 6,
+              "8": 4,
+              "10": 1
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 1364,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        },
+        {
+          "offset": [
+            32,
+            -3,
+            32
+          ],
+          "root_origin": [
+            -1424,
+            63,
+            672
+          ],
+          "rotation": 3,
+          "support": {
+            "columns": 8382,
+            "contact_columns": 8169,
+            "contact_fraction": 0.97459,
+            "missing_reference_columns": 0,
+            "fluid_immediately_below": 0,
+            "unsupported_columns": 213,
+            "max_gap_below_base": 25,
+            "unresolved_beyond_32_columns": 0,
+            "gap_histogram": {
+              "0": 8169,
+              "1": 82,
+              "2": 62,
+              "3": 43,
+              "4": 7,
+              "5": 7,
+              "6": 3,
+              "7": 6,
+              "22": 1,
+              "25": 2
+            },
+            "gap_search_limit": 32
+          },
+          "columns_with_more_than_four_blocks_above_floor": 2174,
+          "scope": "Offline translation with the saved rotation and ground-height projection; not an actual generated placement or an acceptance gate."
+        }
+      ],
+      "template_content_sha256": {
+        "kubejs/data/alfheim/structures/ancient/frontier_stewardship/green_noble_lodge.nbt": "115ddbf203cb64fdc003d48aadc931493c0100117b45746f660aa90ffcf5692b",
+        "kubejs/data/alfheim/structures/ancient/frontier_stewardship/forest_waystation.nbt": "03a050814004cea474e6cc879d7bdd8fe09e933c32907b93537ddea28416f498",
+        "kubejs/data/alfheim/structures/ancient/frontier_stewardship/surveyor_tower.nbt": "4a68e480757d585f7173915aaf02065cb2ff1d87e1c7e147f51a0582ab6dbd30",
+        "kubejs/data/alfheim/structures/ancient/frontier_stewardship/moon_pool_sanctuary.nbt": "4a72346941a1c7ffbe7e9e151274bec06ead472d85da87783726d14480e8dd6d",
+        "kubejs/data/alfheim/structures/ancient/frontier_stewardship/outlying_retreat_hall.nbt": "c262320a42e297d8ced3a7c62983928f5a40f3ee5ffa24746ef13e3984b567d0",
+        "kubejs/data/alfheim/structures/ancient/frontier_stewardship/wild_ward_shrine.nbt": "7563c7d85600b6cac98645971944e7a7daf4e90c36bce7d5ba2d17de8947ead6"
+      },
+      "scope": "Direct underside contact and air-volume excavation against reference terrain; tree canopies and decorative blocks are excluded from natural ground. Bounding-box intersections are warnings, not exact solid collisions."
+    }
+  ],
+  "ground_classification": {
+    "explicit_blocks": [
+      "alfheim:abyssal_livingrock",
+      "alfheim:aetherquartzite_livingrock",
+      "alfheim:amber_livingrock",
+      "alfheim:amethyst_livingrock",
+      "alfheim:anchorstone_livingrock",
+      "alfheim:astralite_livingrock",
+      "alfheim:budding_dawnglass",
+      "alfheim:budding_duskglass",
+      "alfheim:budding_emberglass",
+      "alfheim:budding_galeglass",
+      "alfheim:budding_rootglass",
+      "alfheim:budding_tidewake",
+      "alfheim:cinder_livingrock",
+      "alfheim:cracked_livingrock",
+      "alfheim:dawn_livingrock",
+      "alfheim:dawnglass_block",
+      "alfheim:duskglass_block",
+      "alfheim:emberglass_block",
+      "alfheim:embervein_livingrock",
+      "alfheim:epitaph_livingrock",
+      "alfheim:fern_livingrock",
+      "alfheim:frost_livingrock",
+      "alfheim:gale_livingrock",
+      "alfheim:galeglass_block",
+      "alfheim:glintschist_livingrock",
+      "alfheim:gloam_livingrock",
+      "alfheim:hollowheart_livingrock",
+      "alfheim:ivory_livingrock",
+      "alfheim:leyline_livingrock",
+      "alfheim:magmatic_livingrock",
+      "alfheim:moonstone_livingrock",
+      "alfheim:moss_livingrock",
+      "alfheim:mourning_livingrock",
+      "alfheim:nightmantle_livingrock",
+      "alfheim:nullstone_livingrock",
+      "alfheim:oathstone_livingrock",
+      "alfheim:obsidian_livingrock",
+      "alfheim:petrified_livingrock",
+      "alfheim:prismstone_livingrock",
+      "alfheim:resinshale_livingrock",
+      "alfheim:riftchalk_livingrock",
+      "alfheim:riftshale_livingrock",
+      "alfheim:rootbound_livingrock",
+      "alfheim:rootfossil_livingrock",
+      "alfheim:rootglass_block",
+      "alfheim:rose_livingrock",
+      "alfheim:seamstone_livingrock",
+      "alfheim:shardbreccia_livingrock",
+      "alfheim:silvermist_livingrock",
+      "alfheim:starfleck_livingrock",
+      "alfheim:storm_livingrock",
+      "alfheim:tide_livingrock",
+      "alfheim:tidewake_block",
+      "alfheim:veilstone_livingrock",
+      "botania:livingrock",
+      "minecraft:amethyst_block",
+      "minecraft:andesite",
+      "minecraft:bedrock",
+      "minecraft:budding_amethyst",
+      "minecraft:calcite",
+      "minecraft:clay",
+      "minecraft:coarse_dirt",
+      "minecraft:deepslate",
+      "minecraft:diorite",
+      "minecraft:dirt",
+      "minecraft:dirt_path",
+      "minecraft:end_stone",
+      "minecraft:farmland",
+      "minecraft:granite",
+      "minecraft:grass_block",
+      "minecraft:gravel",
+      "minecraft:ice",
+      "minecraft:mud",
+      "minecraft:mycelium",
+      "minecraft:netherrack",
+      "minecraft:obsidian",
+      "minecraft:packed_ice",
+      "minecraft:podzol",
+      "minecraft:raw_copper_block",
+      "minecraft:raw_iron_block",
+      "minecraft:red_sand",
+      "minecraft:red_sandstone",
+      "minecraft:rooted_dirt",
+      "minecraft:sand",
+      "minecraft:sandstone",
+      "minecraft:smooth_basalt",
+      "minecraft:snow_block",
+      "minecraft:stone",
+      "minecraft:tuff"
+    ],
+    "additional_rules": [
+      "all *_ore blocks",
+      "alfheim raw *_livingrock",
+      "botania raw metamorphic_*_stone"
+    ],
+    "excluded": "Tree trunks, leaves, decorative clusters, plants and architectural block variants; not a full collision-shape simulation."
+  },
+  "limits": "One shared Golden Fields locality, not biome-wide or natural-frequency acceptance. The reference uses current same-seed generation, not an exact historical snapshot; decoration can differ. Forced placement does not replay normal beard_thin terrain adaptation, which is not tested here. Measurements do not enable any natural structure set. Full lowest-layer foundation columns are checked; a gap value of 33 means no ground found within the 32-block search. Client review remains required."
+}

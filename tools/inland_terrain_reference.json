@@ -1,0 +1,16 @@
+{
+  "world": "validation-inland-terrain-baseline-20261014",
+  "seed": "3536368297089363045",
+  "console": "server/console-20261014-134227.log",
+  "bounds": [
+    -1552,
+    544,
+    -1297,
+    799
+  ],
+  "forceload_chunk_limit": 256,
+  "structures_placed_by_harness": 0,
+  "server_exit_code": 0,
+  "scope": "One inland reference patch generated normally; existing naturally generated structures are retained and reported. No player saves are edited.",
+  "protected_terrain_baseline_sha256": "be50bf3ddbb6c7f54dfea06b9078ca13ccba67ea0cd29b014351b3f72cec3721"
+}
