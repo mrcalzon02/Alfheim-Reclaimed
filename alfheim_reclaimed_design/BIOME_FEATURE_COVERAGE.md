@@ -12,19 +12,19 @@ Configuration audit, 2026-10-14. Includes jar defaults, datapack overrides and F
 | alfheim:infested_warren | 6 | 5 | 15 | 4 |
 | alfheim:mana_fen | 4 | 6 | 15 | 4 |
 | alfheim:mistbark_shore | 5 | 4 | 8 | 1 |
-| alfheim:prism_drift | 2 | 1 | 2 | 1 |
-| alfheim:rootfall | 2 | 1 | 2 | 1 |
+| alfheim:prism_drift | 2 | 3 | 2 | 1 |
+| alfheim:rootfall | 2 | 3 | 2 | 1 |
 | alfheim:scorchfell | 3 | 5 | 15 | 4 |
-| alfheim:sepulchral_reach | 2 | 1 | 2 | 1 |
-| alfheim:shatterfields | 2 | 1 | 2 | 1 |
+| alfheim:sepulchral_reach | 2 | 2 | 2 | 1 |
+| alfheim:shatterfields | 2 | 3 | 2 | 1 |
 | alfheim:silverbark_wood | 7 | 5 | 16 | 4 |
 | alfheim:sporebank_shore | 6 | 4 | 8 | 1 |
-| alfheim:starless_reach | 1 | 1 | 2 | 1 |
+| alfheim:starless_reach | 1 | 2 | 2 | 1 |
 | alfheim:starved_reach | 4 | 5 | 16 | 4 |
 | alfheim:sundered_highlands | 6 | 5 | 15 | 4 |
 | alfheim:tidewood_shore | 6 | 4 | 8 | 1 |
 | alfheim:void_shore | 4 | 4 | 9 | 1 |
-| alfheim:void_verge | 3 | 2 | 4 | 1 |
+| alfheim:void_verge | 3 | 3 | 4 | 1 |
 | mythicbotany:alfheim_hills | 5 | 7 | 16 | 4 |
 | mythicbotany:alfheim_lakes | 4 | 5 | 7 | 1 |
 | mythicbotany:alfheim_plains | 5 | 6 | 16 | 4 |
@@ -58,6 +58,10 @@ Both plant types also survived the controlled chalk, shale, sand and gravel test
 
 ## Controlled current-detail validation
 
-World `validation-frontier-stewardship-20261013`: all five geological configured features produced saved signature blocks on native-stone test hosts. The four new remnant features also survived placement and updates.
+World `validation-frontier-stewardship-20261013`: the five core configured features (shatter anchors, prism crowns, root aprons, mourning steles and astralite flecks) produced saved signature blocks on native-stone test hosts. The four remnant features also survived placement and updates.
 
 These are artificial-host tests of configured features. Outer rarity, natural site success, visual quality and overall frequency still require field review. They are not natural-frequency evidence.
+
+Other geological details without controlled placement proof in this report: alfheim:void/prism_split_inclusions, alfheim:void/prism_suspended_needles, alfheim:void/rootfall_fossil_knots, alfheim:void/rootfall_hanging_ribs, alfheim:void/sepulchral_fallen_plates, alfheim:void/shatter_fault_teeth, alfheim:void/shatter_hanging_faults, alfheim:void/starless_null_teeth, alfheim:void/verge_markers, alfheim:void/verge_shear_steps. The merged additions remain separate from the five-feature runtime result.
+
+The merged geological datapack passes a dedicated-server registry/startup smoke test. This proves codec loading, not controlled placement of the additional formations. The staged native Java structure type is not claimed built or deployed.

@@ -85,8 +85,16 @@ def main():
         detail=json.loads(detail_path.read_text(encoding='utf-8'));hashes=detail.get('source_sha256',{})
         if hashes and all(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected for path,expected in hashes.items()):
             lines+=['','## Controlled current-detail validation','',
-                f"World `{detail['world']}`: all five geological configured features produced saved signature blocks on native-stone test hosts. The four new remnant features also survived placement and updates.",'',
+                f"World `{detail['world']}`: the five core configured features (shatter anchors, prism crowns, root aprons, mourning steles and astralite flecks) produced saved signature blocks on native-stone test hosts. The four remnant features also survived placement and updates.",'',
                 'These are artificial-host tests of configured features. Outer rarity, natural site success, visual quality and overall frequency still require field review. They are not natural-frequency evidence.']
+            tested={case['feature'] for case in detail['cases']}
+            pending=sorted({feature for row in rows for feature in row['surface_details'] if feature.startswith('alfheim:void/')} - tested)
+            lines+=['','Other geological details without controlled placement proof in this report: '+', '.join(pending)+'. The merged additions remain separate from the five-feature runtime result.']
+    smoke_path=ROOT/'tools/void_merged_load_smoke.json'
+    if smoke_path.exists():
+        smoke=json.loads(smoke_path.read_text(encoding='utf-8'));hashes=smoke.get('source_sha256',{})
+        if hashes and all(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected for path,expected in hashes.items()):
+            lines+=['','The merged geological datapack passes a dedicated-server registry/startup smoke test. This proves codec loading, not controlled placement of the additional formations. The staged native Java structure type is not claimed built or deployed.']
     (ROOT/'alfheim_reclaimed_design/BIOME_FEATURE_COVERAGE.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print('COVERAGE:',len(rows),'biomes;',len(gaps),'without vegetation:',', '.join(gaps))
 

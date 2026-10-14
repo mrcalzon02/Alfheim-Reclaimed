@@ -1,5 +1,18 @@
 # Execution State
 
+## Merged Void datapack startup verified - 2026-10-14
+
+Integrated remote Void development through cb2edc08 without overwriting the
+Frontier checkpoint. The merged datapack reaches dedicated-server startup and
+saves/exits successfully in a disposable world. Static references, feature order,
+geology and the 39-file protected terrain baseline pass. Nine additional geological
+formations are load-tested only; they are outside the five-feature controlled
+placement result. The new native Void structure Java source is staged but its
+class is absent from the installed companion jar, and the activation gate remains
+closed. No rebuilt jar or native placement acceptance is claimed.
+Evidence: `tools/void_merged_load_smoke.json`. Coverage now lists the additional
+formations separately from the controlled runtime proof.
+
 ## Frontier saved-world pass and current Void feature proof - 2026-10-14
 
 Frontier/Wilderness now passes source equality and saved-world validation: six

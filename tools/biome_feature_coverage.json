@@ -723,13 +723,17 @@
         "botania:mystical_flowers"
       ],
       "surface_details": [
-        "alfheim:void/prism_crowns"
+        "alfheim:void/prism_crowns",
+        "alfheim:void/prism_split_inclusions",
+        "alfheim:void/prism_suspended_needles"
       ],
       "features_by_step": {
         "raw_generation": [],
         "lakes": [],
         "local_modifications": [
-          "alfheim:void/prism_crowns"
+          "alfheim:void/prism_crowns",
+          "alfheim:void/prism_split_inclusions",
+          "alfheim:void/prism_suspended_needles"
         ],
         "underground_structures": [],
         "surface_structures": [],
@@ -767,13 +771,17 @@
         "botania:mystical_flowers"
       ],
       "surface_details": [
-        "alfheim:void/root_aprons"
+        "alfheim:void/root_aprons",
+        "alfheim:void/rootfall_fossil_knots",
+        "alfheim:void/rootfall_hanging_ribs"
       ],
       "features_by_step": {
         "raw_generation": [],
         "lakes": [],
         "local_modifications": [
-          "alfheim:void/root_aprons"
+          "alfheim:void/root_aprons",
+          "alfheim:void/rootfall_fossil_knots",
+          "alfheim:void/rootfall_hanging_ribs"
         ],
         "underground_structures": [],
         "surface_structures": [],
@@ -896,13 +904,15 @@
         "botania:mystical_flowers"
       ],
       "surface_details": [
-        "alfheim:void/mourning_steles"
+        "alfheim:void/mourning_steles",
+        "alfheim:void/sepulchral_fallen_plates"
       ],
       "features_by_step": {
         "raw_generation": [],
         "lakes": [],
         "local_modifications": [
-          "alfheim:void/mourning_steles"
+          "alfheim:void/mourning_steles",
+          "alfheim:void/sepulchral_fallen_plates"
         ],
         "underground_structures": [],
         "surface_structures": [],
@@ -940,13 +950,17 @@
         "botania:mystical_flowers"
       ],
       "surface_details": [
-        "alfheim:void/shatter_anchors"
+        "alfheim:void/shatter_anchors",
+        "alfheim:void/shatter_fault_teeth",
+        "alfheim:void/shatter_hanging_faults"
       ],
       "features_by_step": {
         "raw_generation": [],
         "lakes": [],
         "local_modifications": [
-          "alfheim:void/shatter_anchors"
+          "alfheim:void/shatter_anchors",
+          "alfheim:void/shatter_fault_teeth",
+          "alfheim:void/shatter_hanging_faults"
         ],
         "underground_structures": [],
         "surface_structures": [],
@@ -1151,13 +1165,15 @@
         "botania:mystical_flowers"
       ],
       "surface_details": [
-        "alfheim:void/astralite_flecks"
+        "alfheim:void/astralite_flecks",
+        "alfheim:void/starless_null_teeth"
       ],
       "features_by_step": {
         "raw_generation": [],
         "lakes": [],
         "local_modifications": [
-          "alfheim:void/astralite_flecks"
+          "alfheim:void/astralite_flecks",
+          "alfheim:void/starless_null_teeth"
         ],
         "underground_structures": [],
         "surface_structures": [],
@@ -1517,14 +1533,16 @@
       ],
       "surface_details": [
         "alfheim:geode_rim",
-        "alfheim:void/verge_markers"
+        "alfheim:void/verge_markers",
+        "alfheim:void/verge_shear_steps"
       ],
       "features_by_step": {
         "raw_generation": [],
         "lakes": [],
         "local_modifications": [
           "alfheim:geode_rim",
-          "alfheim:void/verge_markers"
+          "alfheim:void/verge_markers",
+          "alfheim:void/verge_shear_steps"
         ],
         "underground_structures": [],
         "surface_structures": [],
