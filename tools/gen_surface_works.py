@@ -59,6 +59,8 @@ import math
 import os
 import random
 import sys
+import glob
+import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
@@ -1499,6 +1501,24 @@ def main():
     a = ap.parse_args()
     dry = a.dry_run
 
+    if a.native_void_hosts:
+        # A new JSON structure type without a matching deployed binary prevents
+        # datapack registries from loading. Merely committing Java source is not
+        # enough: block activation until the actual mod JAR contains the class.
+        jar_paths = sorted(glob.glob(os.path.join('mods', 'alfheim_companion-*.jar')))
+        expected = ('com/continuityworks/alfheimcompanion/'
+                    'worldgen/VoidSurfaceStructure.class')
+        present = []
+        for jar_path in jar_paths:
+            with zipfile.ZipFile(jar_path) as archive:
+                if expected in archive.namelist():
+                    present.append(jar_path)
+        if len(jar_paths) != 1 or len(present) != 1:
+            raise RuntimeError(
+                '--native-void-hosts requires exactly one rebuilt companion JAR '
+                'containing VoidSurfaceStructure.class in mods/. '
+                'Build/install the updated mod before enabling this output. '
+                f'Found JARs: {jar_paths}; compatible: {present}')
     m = json.load(open(MANIFEST, encoding='utf-8'))
     blooms = json.load(open(BLOOMS, encoding='utf-8'))
     shallow_ores = [f"{NS}:{b['id']}_ore" for b in blooms['blooms'] if b['era'] <= 4]
