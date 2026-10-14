@@ -1568,6 +1568,13 @@ def main():
                         'processors': 'minecraft:empty', 'projection': 'rigid',
                         'element_type': 'minecraft:single_pool_element'}}]}, dry)
 
+        # Do not silently project a Void structure onto a nonexistent heightmap.
+        if st.get('band') == 'void':
+            limits = st.get('floor')
+            if not isinstance(limits, list) or len(limits) != 2 or not (
+                    64 <= limits[0] <= limits[1] <= 100):
+                raise ValueError(f"{st['id']}: missing valid Void altitude floor=[low, high]")
+
         adaptation = st.get('adaptation', arch['adaptation'])
         write_json(os.path.join(DATA, 'worldgen', 'structure', st['id'] + '.json'), {
             'type': 'minecraft:jigsaw',

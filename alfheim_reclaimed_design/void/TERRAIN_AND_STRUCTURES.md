@@ -4,6 +4,28 @@
 **Status:** feature-bound geology statically implemented and Forge load-smoke-proven 2026-09-06; client traversal and dry/far-field acceptance remain pending.
 **Authority:** subordinate to `INSTRUCTIONS.md`, `../VOID_MARGINS.md`, `../DEFICIENT_BIOMES.md`, `../THE_SURFACE.md`, and `../THE_DEEP.md`.
 
+## 2026-10-13: structure altitude and native landforms
+
+**Source defect:** all twelve sanctioned Void ruins omitted the manifest `floor` that activates
+the existing absolute-altitude branch. They therefore used projected
+`WORLD_SURFACE_WG` even where the Void column has no surface, collapsing
+toward the minimum build height. All twelve now have Y 69–88 ground bands,
+with their internal `ground` offset applied and no projection. The generator
+rejects a missing Void altitude band; Void Shore retains normal heightmap placement.
+
+**Unresolved physical support:** absolute altitude prevents the world-floor failure,
+but cannot by itself discover competent host stone. Some candidate starts in
+an empty debris column could instead float at the specified elevation. Proper
+support-aware placement must test the actual host volume and reject unsuitable
+sites before a structure is emitted. Do not mistake this for a verified host check.
+
+The feature pass adds six biome-restricted motifs: Verge shear steps,
+Shatterfields fault teeth, Prism split-seam inclusions, Rootfall fossil knots,
+Sepulchral fallen plates, and Starless null teeth. Upright formations check
+the native ground stone directly underneath; inclusions only replace an existing
+host block. No feature creates footing, conventional pools, additional ore rewards,
+or new vegetation in Starless Reach.
+
 ## 1. Live-state correction
 
 The five Void Margin siblings are no longer merely proposals. The generated Alfheim layer already contains `alfheim:shatterfields`, `alfheim:prism_drift`, `alfheim:rootfall`, `alfheim:sepulchral_reach`, and `alfheim:starless_reach` alongside `alfheim:void_verge`. That makes twenty-one live Alfheim biome IDs: the sixteen biomes covered by the existing thirty-two Surface Works structures plus these five additional Void Margin biomes.

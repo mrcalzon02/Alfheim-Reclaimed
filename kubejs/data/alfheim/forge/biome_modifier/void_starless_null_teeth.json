@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:starless_reach"
+  ],
+  "features": "alfheim:void/starless_null_teeth",
+  "step": "local_modifications"
+}

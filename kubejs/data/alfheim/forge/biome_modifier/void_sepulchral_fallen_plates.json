@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:sepulchral_reach"
+  ],
+  "features": "alfheim:void/sepulchral_fallen_plates",
+  "step": "local_modifications"
+}
