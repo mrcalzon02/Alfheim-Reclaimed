@@ -59,6 +59,8 @@ import math
 import os
 import random
 import sys
+import glob
+import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
@@ -1492,10 +1494,31 @@ def explorer_map(arch_key, arch):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--native-void-hosts', action='store_true',
+                    help='Use the first-party support-sampling structure type for Void ruins. '
+                         'ONLY use after rebuilding/deploying alfheim_companion with VOID_SURFACE registered.')
     ap.add_argument('--only', help='build one structure by id')
     a = ap.parse_args()
     dry = a.dry_run
 
+    if a.native_void_hosts:
+        # A new JSON structure type without a matching deployed binary prevents
+        # datapack registries from loading. Merely committing Java source is not
+        # enough: block activation until the actual mod JAR contains the class.
+        jar_paths = sorted(glob.glob(os.path.join('mods', 'alfheim_companion-*.jar')))
+        expected = ('com/continuityworks/alfheimcompanion/'
+                    'worldgen/VoidSurfaceStructure.class')
+        present = []
+        for jar_path in jar_paths:
+            with zipfile.ZipFile(jar_path) as archive:
+                if expected in archive.namelist():
+                    present.append(jar_path)
+        if len(jar_paths) != 1 or len(present) != 1:
+            raise RuntimeError(
+                '--native-void-hosts requires exactly one rebuilt companion JAR '
+                'containing VoidSurfaceStructure.class in mods/. '
+                'Build/install the updated mod before enabling this output. '
+                f'Found JARs: {jar_paths}; compatible: {present}')
     m = json.load(open(MANIFEST, encoding='utf-8'))
     blooms = json.load(open(BLOOMS, encoding='utf-8'))
     shallow_ores = [f"{NS}:{b['id']}_ore" for b in blooms['blooms'] if b['era'] <= 4]
@@ -1568,6 +1591,13 @@ def main():
                         'processors': 'minecraft:empty', 'projection': 'rigid',
                         'element_type': 'minecraft:single_pool_element'}}]}, dry)
 
+        # Do not silently project a Void structure onto a nonexistent heightmap.
+        if st.get('band') == 'void':
+            limits = st.get('floor')
+            if not isinstance(limits, list) or len(limits) != 2 or not (
+                    64 <= limits[0] <= limits[1] <= 100):
+                raise ValueError(f"{st['id']}: missing valid Void altitude floor=[low, high]")
+
         adaptation = st.get('adaptation', arch['adaptation'])
         write_json(os.path.join(DATA, 'worldgen', 'structure', st['id'] + '.json'), {
             'type': 'minecraft:jigsaw',
@@ -1602,6 +1632,32 @@ def main():
             'use_expansion_hack': False,
             'spawn_overrides': {},
         }, dry)
+
+        # Opt-in ONLY after the shipped companion JAR contains the new registered
+        # type. The default remains the existing vanilla jigsaw registration, so
+        # checking in the Java source never breaks pack loading ahead of a rebuild.
+        if a.native_void_hosts and st.get('band') == 'void':
+            support = {
+                'type': 'alfheim_companion:void_surface',
+                'biomes': f"#{NS}:has_{st['id']}",
+                'step': 'surface_structures',
+                'terrain_adaptation': 'none',
+                'template': f"{NS}:surface/{st['id']}",
+                'ground': ground,
+                'min_surface_y': st['floor'][0],
+                'max_surface_y': st['floor'][1],
+                'min_support': 8 if st['id'] in ('last_watch','starless_orrery') else 7,
+                'sample_radius': 7,
+                'max_relief': 6,
+                'solid_depth': 9 if st['id'] in ('last_watch','starless_orrery') else 5,
+                # Only the intact end of a broken span is required to rest on land.
+                # The far end is intentionally absent, not a support defect.
+                'support_offset_x': -11 if st['archetype'] == 'span' else 0,
+                'support_offset_z': 0,
+                'spawn_overrides': {},
+            }
+            write_json(os.path.join(DATA, 'worldgen', 'structure', st['id'] + '.json'),
+                       support, dry)
 
         # A VOID BIOME IS NOT A SURFACE BIOME AND CANNOT SHARE ITS RARITY. random_spread tries
         # ONE candidate chunk per spacing x spacing cell, so a structure only lands when that one

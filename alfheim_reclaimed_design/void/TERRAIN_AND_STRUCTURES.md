@@ -1,8 +1,53 @@
+## 2026-10-13: geological underhangs and native Void support-source implementation
+
+The next geometry pass grows faults beneath Shatterfields fragments, hanging crystalline
+needles beneath Prism Drift, and exposed petrified ribs beneath Rootfall. These use a
+native-stone underside scan (maximum 32 blocks); if no actual free underside exists,
+the feature does not place. The old Rootfall downward replacements inside solid rock
+remain intact, but exposed roots no longer have to rely on buried replacement alone.
+
+**Companion worldgen implementation staged, not activated in distributed pack:** the
+new `alfheim_companion:void_surface` structure type samples nine generated base-terrain
+columns, checks true solid depth, rejects empty/mismatched/steep terrain, and anchors
+the intact end of severed spans independently from their missing ends. It is
+registered in the first-party mod Java source. The Surface Works generator can emit
+the corresponding twelve registrations via `--native-void-hosts` **only after**
+the updated companion JAR has been built, installed and confirmed to contain this
+new type. The repository's existing compiled JAR is older; shipping JSON is
+deliberately still on the compatible absolute-altitude vanilla jigsaw path.
+Switching the JSON beforehand would make datapack registry loading fail.
+
+This is a true implementation dependency, not evidence that a successful
+native terrain-hosted runtime placement has already been achieved. Build and
+fresh-world evidence are mandatory before the native switch is claimed deployed.
+
 # Void Margins — terrain and supported structure contract
 
 **Role:** implementation-facing extension of `../VOID_MARGINS.md`.
 **Status:** feature-bound geology statically implemented and Forge load-smoke-proven 2026-09-06; client traversal and dry/far-field acceptance remain pending.
 **Authority:** subordinate to `INSTRUCTIONS.md`, `../VOID_MARGINS.md`, `../DEFICIENT_BIOMES.md`, `../THE_SURFACE.md`, and `../THE_DEEP.md`.
+
+## 2026-10-13: structure altitude and native landforms
+
+**Source defect:** all twelve sanctioned Void ruins omitted the manifest `floor` that activates
+the existing absolute-altitude branch. They therefore used projected
+`WORLD_SURFACE_WG` even where the Void column has no surface, collapsing
+toward the minimum build height. All twelve now have Y 69–88 ground bands,
+with their internal `ground` offset applied and no projection. The generator
+rejects a missing Void altitude band; Void Shore retains normal heightmap placement.
+
+**Unresolved physical support:** absolute altitude prevents the world-floor failure,
+but cannot by itself discover competent host stone. Some candidate starts in
+an empty debris column could instead float at the specified elevation. Proper
+support-aware placement must test the actual host volume and reject unsuitable
+sites before a structure is emitted. Do not mistake this for a verified host check.
+
+The feature pass adds six biome-restricted motifs: Verge shear steps,
+Shatterfields fault teeth, Prism split-seam inclusions, Rootfall fossil knots,
+Sepulchral fallen plates, and Starless null teeth. Upright formations check
+the native ground stone directly underneath; inclusions only replace an existing
+host block. No feature creates footing, conventional pools, additional ore rewards,
+or new vegetation in Starless Reach.
 
 ## 1. Live-state correction
 

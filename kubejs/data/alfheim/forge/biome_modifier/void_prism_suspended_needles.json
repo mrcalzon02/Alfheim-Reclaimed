@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:prism_drift"
+  ],
+  "features": "alfheim:void/prism_suspended_needles",
+  "step": "local_modifications"
+}

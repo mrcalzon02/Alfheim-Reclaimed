@@ -15,7 +15,8 @@
     "archetype must differ in at least two shape keys, and check_surface_works.py asserts it.",
     "",
     "Every block id below was checked against tools/registry_items.json, which was dumped from a",
-    "running server. Do not add one that has not been."
+    "running server. Do not add one that has not been.",
+    "Void ruins use world-space floor=[minY,maxY] near the surviving Void rim and debris height. A floor band avoids broken heightmap fallback but does NOT check for terrain support. Host probes remain unimplemented; never call these terrain-host validated."
   ],
   "palettes": {
     "elven_marble": {
@@ -231,7 +232,7 @@
         "gate": "north",
         "ruin": 0.55,
         "collapse": "east",
-        "webs": 0.0
+        "webs": 0
       }
     },
     "quarry": {
@@ -807,7 +808,7 @@
         "menhir_h": 7,
         "door": "none"
       },
-      "blurb": "Twelve stones and no mound. Nothing is buried here \u00e2\u20ac\u201d this one was for the living."
+      "blurb": "Twelve stones and no mound. Nothing is buried here â€” this one was for the living."
     },
     {
       "id": "hollow_bastion",
@@ -1062,7 +1063,11 @@
         "balcony": false
       },
       "blurb": "Built on a piece of ground that no longer touches anything. It is still standing.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        77,
+        87
+      ]
     },
     {
       "id": "severed_span",
@@ -1085,7 +1090,11 @@
         "rail": false
       },
       "blurb": "It goes out over the rim for fifteen blocks and then it does not.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        78,
+        88
+      ]
     },
     {
       "id": "anchor_bastion",
@@ -1107,7 +1116,11 @@
         "balcony": true
       },
       "blurb": "A compact strongpoint clamped into one of the last competent pressure slabs.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        70,
+        83
+      ]
     },
     {
       "id": "fracture_gate",
@@ -1131,7 +1144,11 @@
         "timber": true
       },
       "blurb": "A single gate pier and roadhead mark the civic route that failed here.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        70,
+        84
+      ]
     },
     {
       "id": "prism_observatory",
@@ -1155,7 +1172,11 @@
         "stilts": false
       },
       "blurb": "An open instrument dais crowns a mineral core without pretending to create it.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        71,
+        84
+      ]
     },
     {
       "id": "split_gallery",
@@ -1178,7 +1199,11 @@
         "colonnade": false
       },
       "blurb": "A compact mineral-inspection hall opens onto an exposed crystalline seam.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        72,
+        85
+      ]
     },
     {
       "id": "root_shrine",
@@ -1202,7 +1227,11 @@
         "stilts": true
       },
       "blurb": "Petrified root ribs wrap an open altar and a dry ceremonial basin.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        71,
+        85
+      ]
     },
     {
       "id": "garden_archive_terrace",
@@ -1225,7 +1254,11 @@
         "colonnade": true
       },
       "blurb": "An archive, retaining wall and failed irrigation run share one rooted shelf.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        71,
+        85
+      ]
     },
     {
       "id": "kings_cliff_tomb",
@@ -1249,7 +1282,11 @@
         "door": "east"
       },
       "blurb": "A memorial facade seals a chamber set back into competent mourning stone.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        72,
+        86
+      ]
     },
     {
       "id": "mourning_court",
@@ -1272,7 +1309,11 @@
         "colonnade": true
       },
       "blurb": "A dry basin and quiet colonnade face the broken edge of the memorial shelf.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        72,
+        86
+      ]
     },
     {
       "id": "last_watch",
@@ -1303,7 +1344,11 @@
         "balcony": false
       },
       "blurb": "The final return-facing watch post stands on the last structure-capable landing.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        69,
+        80
+      ]
     },
     {
       "id": "starless_orrery",
@@ -1335,7 +1380,11 @@
         "door": "none"
       },
       "blurb": "Three instrument piers frame a deliberately empty sky beyond the final arc.",
-      "band": "void"
+      "band": "void",
+      "floor": [
+        69,
+        80
+      ]
     },
     {
       "id": "stormwreck",

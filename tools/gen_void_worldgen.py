@@ -634,6 +634,89 @@ def extra_files():
                 for state in ('alfheim:nightmantle_livingrock','alfheim:nullstone_livingrock')]}},
             [{'type':'minecraft:random_offset','xz_spread':0,'y_spread':-2}]),
     }
+    # Geological punctuation tied to host stone. No broad random stone splashes,
+    # rescue landforms or ore-value changes; Starless remains devoid of vegetation.
+    def hosted(hosts,tries,spread,layers):
+        return {'type':'minecraft:random_patch','config':{
+            'tries':tries,'xz_spread':spread,'y_spread':0,
+            'feature':{'feature':column('up',layers,air),
+                'placement':[{'type':'minecraft:block_predicate_filter','predicate':{
+                    'type':'minecraft:all_of','predicates':[air,{
+                        'type':'minecraft:matching_blocks','blocks':hosts,'offset':[0,-1,0]}]}}]}}}
+    def inclusion(source,target,size):
+        return {'type':'minecraft:ore','config':{'size':size,
+            'discard_chance_on_air_exposure':0.0,
+            'targets':[{'target':{'predicate_type':'minecraft:block_match','block':source},
+                        'state':{'Name':target}}]}}
+    formations.update({
+        'verge_shear_steps':('alfheim:void_verge',17,
+            hosted(['alfheim:riftchalk_livingrock'],4,3,[
+                (uniform(1,2),[('alfheim:riftshale_livingrock',1)]),
+                (1,[('alfheim:riftchalk_livingrock',1)])]),[]),
+        'shatter_fault_teeth':('alfheim:shatterfields',11,
+            hosted(['alfheim:shardbreccia_livingrock','alfheim:anchorstone_livingrock'],5,3,[
+                (uniform(2,5),[('alfheim:shardbreccia_livingrock',3),
+                               ('alfheim:anchorstone_livingrock',2)]),
+                (1,[('alfheim:seamstone_livingrock',1)])]),[]),
+        'prism_split_inclusions':('alfheim:prism_drift',10,
+            inclusion('alfheim:aetherquartzite_livingrock','alfheim:glintschist_livingrock',5),
+            [{'type':'minecraft:random_offset','xz_spread':0,'y_spread':-2}]),
+        'rootfall_fossil_knots':('alfheim:rootfall',9,
+            inclusion('alfheim:hollowheart_livingrock','alfheim:rootfossil_livingrock',6),
+            [{'type':'minecraft:random_offset','xz_spread':0,'y_spread':-2}]),
+        'sepulchral_fallen_plates':('alfheim:sepulchral_reach',16,
+            hosted(['alfheim:epitaph_livingrock','alfheim:mourning_livingrock'],3,3,[
+                (uniform(1,2),[('alfheim:epitaph_livingrock',1)]),
+                (1,[('alfheim:mourning_livingrock',1)])]),[]),
+        'starless_null_teeth':('alfheim:starless_reach',21,
+            hosted(['alfheim:nightmantle_livingrock','alfheim:nullstone_livingrock'],3,2,[
+                (uniform(2,3),[('alfheim:nullstone_livingrock',2),
+                               ('alfheim:nightmantle_livingrock',1)])]),[]),
+    })
+
+    # A fracture's UNDERSIDE matters as much as the top. Scan downward through at
+    # most 32 native-stone blocks from the exposed surface, find actual air below
+    # the fragment, and grow narrow ribs/crystal needles FROM the rock, not from
+    # Y=-64 or from a fabricated island. A thick massive shelf simply rejects.
+    def underside(hosts,layers,tries):
+        return {'type':'minecraft:random_patch','config':{
+            'tries':tries,'xz_spread':3,'y_spread':0,
+            'feature':{'feature':column('down',layers,air),
+                'placement':[{'type':'minecraft:block_predicate_filter','predicate':{
+                    'type':'minecraft:all_of','predicates':[
+                        air,{'type':'minecraft:matching_blocks',
+                             'blocks':hosts,'offset':[0,1,0]}]}}]}}}
+    scan_below=[
+        {'type':'minecraft:random_offset','xz_spread':0,'y_spread':-1},
+        {'type':'minecraft:environment_scan','direction_of_search':'down',
+         'max_steps':32,'target_condition':air,
+         'allowed_search_condition':natural},
+    ]
+    formations.update({
+        'shatter_hanging_faults':('alfheim:shatterfields',15,
+            underside(['alfheim:anchorstone_livingrock',
+                       'alfheim:shardbreccia_livingrock'],[
+                (uniform(2,5),[('alfheim:shardbreccia_livingrock',3),
+                               ('alfheim:anchorstone_livingrock',2)]),
+                (1,[('alfheim:seamstone_livingrock',1)])],4),
+            scan_below),
+        'prism_suspended_needles':('alfheim:prism_drift',14,
+            underside(['alfheim:prismstone_livingrock',
+                       'alfheim:aetherquartzite_livingrock'],[
+                (uniform(3,7),[('alfheim:aetherquartzite_livingrock',3),
+                               ('alfheim:glintschist_livingrock',1)]),
+                (1,[('minecraft:amethyst_block',1)])],5),
+            scan_below),
+        'rootfall_hanging_ribs':('alfheim:rootfall',11,
+            underside(['alfheim:rootfossil_livingrock',
+                       'alfheim:resinshale_livingrock',
+                       'alfheim:hollowheart_livingrock'],[
+                (uniform(4,10),[('alfheim:rootfossil_livingrock',5),
+                                ('alfheim:resinshale_livingrock',1)]),
+                (1,[('alfheim:hollowheart_livingrock',1)])],7),
+            scan_below),
+    })
+
     for name,(biome,chance,configured,extra_placement) in formations.items():
         emit('alfheim/worldgen/configured_feature/void/'+name+'.json',configured)
         emit('alfheim/worldgen/placed_feature/void/'+name+'.json',{'feature':'alfheim:void/'+name,'placement':[
