@@ -20,7 +20,7 @@ sys.path.insert(0,str(ROOT/'tools'))
 EXPECTED_CODECS={
     'verge_markers':'minecraft:block_column',
     'shatter_anchors':'minecraft:block_column',
-    'prism_crowns':'minecraft:block_pile',
+    'prism_crowns':'minecraft:random_patch',
     'root_aprons':'minecraft:random_patch',
     'mourning_steles':'minecraft:block_column',
     'astralite_flecks':'minecraft:ore',
@@ -433,6 +433,16 @@ def validate(catalog,out,density):
             fail('VG4',f'missing configured feature {name}')
             continue
         if doc.get('type')!=codec:fail('VG4',f'{name} uses {doc.get("type")}, expected {codec}')
+    crown=json.loads(out['kubejs/data/alfheim/worldgen/configured_feature/void/prism_crowns.json'])
+    inner=crown.get('config',{}).get('feature',{})
+    if inner.get('feature',{}).get('type')!='minecraft:block_column':
+        fail('VG5','Prism crowns must be a cluster of prongs, not generic block piles')
+    if 'minecraft:budding_amethyst' in json.dumps(crown):
+        fail('VG5','decorative crowns cannot introduce renewable budding amethyst')
+    host={'alfheim:prismstone_livingrock','alfheim:aetherquartzite_livingrock','alfheim:glintschist_livingrock'}
+    preds=[q for p in inner.get('placement',[]) for q in p.get('predicate',{}).get('predicates',[])]
+    if not any(set(q.get('blocks',[]))==host and q.get('offset')==[0,-1,0] for q in preds):
+        fail('VG5','Prism crowns must be grounded on their three native stones')
     root=json.loads(out['kubejs/data/alfheim/worldgen/configured_feature/void/root_aprons.json'])
     nested=root.get('config',{}).get('feature',{}).get('feature',{})
     if nested.get('type')!='minecraft:block_column':fail('VG5','root_aprons does not contain coherent block columns')

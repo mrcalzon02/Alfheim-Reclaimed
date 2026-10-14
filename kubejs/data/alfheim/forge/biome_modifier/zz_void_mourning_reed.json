@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:sepulchral_reach"
+  ],
+  "features": "alfheim:mourning_reed",
+  "step": "vegetal_decoration"
+}

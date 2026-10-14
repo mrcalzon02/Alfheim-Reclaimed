@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:rootfall"
+  ],
+  "features": "alfheim:rootfall_rootlet",
+  "step": "vegetal_decoration"
+}

@@ -580,12 +580,19 @@ def extra_files():
     uniform=lambda lo,hi:{'type':'minecraft:uniform','value':{'min_inclusive':lo,'max_inclusive':hi}}
 
     # Upright markers/steles are columns; the Rootfall formation is a patch of long
-    # downward columns inside existing support; crystal crowns remain low hosted piles;
+    # downward columns inside existing support; crystal crowns become compact, substrate-gated prongs;
     # Astralite is a tiny replacement fleck. Distinct reads now use distinct codecs.
     formations={
         'verge_markers':('alfheim:void_verge',14,column('up',[(uniform(2,4),[('alfheim:veilstone_livingrock',1)]),(1,[('minecraft:amethyst_block',1)])],air),[]),
         'shatter_anchors':('alfheim:shatterfields',12,column('up',[(uniform(4,9),[('alfheim:anchorstone_livingrock',4),('alfheim:seamstone_livingrock',1)])],air),[]),
-        'prism_crowns':('alfheim:prism_drift',8,{'type':'minecraft:block_pile','config':{'state_provider':provider([('alfheim:prismstone_livingrock',4),('minecraft:amethyst_block',2),('minecraft:budding_amethyst',1)])}},[]),
+        'prism_crowns':('alfheim:prism_drift',8,{'type':'minecraft:random_patch','config':{
+            'tries':8,'xz_spread':3,'y_spread':0,'feature':{'feature':column('up',[
+                (uniform(1,2),[('alfheim:aetherquartzite_livingrock',3),('alfheim:prismstone_livingrock',2)]),
+                (1,[('minecraft:amethyst_block',1)])],air),
+                'placement':[{'type':'minecraft:block_predicate_filter','predicate':{
+                    'type':'minecraft:all_of','predicates':[air,{'type':'minecraft:matching_blocks',
+                        'blocks':['alfheim:prismstone_livingrock','alfheim:aetherquartzite_livingrock',
+                                  'alfheim:glintschist_livingrock'],'offset':[0,-1,0]}]}]}}},[]),
         'root_aprons':('alfheim:rootfall',11,{'type':'minecraft:random_patch','config':{
             'tries':14,'xz_spread':6,'y_spread':0,'feature':{'feature':column('down',[
                 (uniform(7,18),[('alfheim:rootfossil_livingrock',5),('alfheim:resinshale_livingrock',1)])],natural),
