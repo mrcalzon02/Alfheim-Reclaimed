@@ -1,5 +1,26 @@
 # Execution State
 
+## Void formation support repairs and runtime proof - 2026-10-14
+
+Verge markers, Shatter anchors and mourning steles now require native support.
+Their original heights, one-column attempts and outer frequencies are preserved.
+The nine newer geological formations and these three repairs pass 48 controlled
+saved-world cases: correct hosts produce blocks; wrong hosts, unsupported air,
+and water or 37-block shelves reject. All 46 upright/hanging columns remain
+continuous and attached to their original hosts. Hanging tests retain the actual
+production offset and bounded 32-step downward scan via test-only wrappers.
+
+The disposable run forced 108 chunks once, saved and exited cleanly in 182.4s.
+No site search, player-save edits, broad terrain changes or native Java deployment.
+Natural heightmap selection, rarity, biome placement and client appearance remain
+unproved. Existing bramble/thorn natural evidence remains valid and separate.
+Source-hashed proof: `tools/void_formation_runtime.json`; review:
+`alfheim_reclaimed_design/void/FORMATION_SUPPORT_REVIEW.md`. Coverage reports now
+retain valid per-feature older evidence when another feature changes.
+
+Next: finite natural-generation tests for formations and the disabled inland
+families, followed by client review; keep the accepted approximate harbor policy.
+
 ## Bounded inland terrain review - 2026-10-14
 
 Generated one terrain-only reference patch (256 forced chunks, same seed) and

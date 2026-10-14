@@ -579,12 +579,20 @@ def extra_files():
                 {'height':height,'provider':provider(states)} for height,states in layers]}}
     uniform=lambda lo,hi:{'type':'minecraft:uniform','value':{'min_inclusive':lo,'max_inclusive':hi}}
 
+    def hosted(hosts,tries,spread,layers):
+        return {'type':'minecraft:random_patch','config':{
+            'tries':tries,'xz_spread':spread,'y_spread':0,
+            'feature':{'feature':column('up',layers,air),
+                'placement':[{'type':'minecraft:block_predicate_filter','predicate':{
+                    'type':'minecraft:all_of','predicates':[air,{
+                        'type':'minecraft:matching_blocks','blocks':hosts,'offset':[0,-1,0]}]}}]}}}
+
     # Upright markers/steles are columns; the Rootfall formation is a patch of long
     # downward columns inside existing support; crystal crowns become compact, substrate-gated prongs;
     # Astralite is a tiny replacement fleck. Distinct reads now use distinct codecs.
     formations={
-        'verge_markers':('alfheim:void_verge',14,column('up',[(uniform(2,4),[('alfheim:veilstone_livingrock',1)]),(1,[('minecraft:amethyst_block',1)])],air),[]),
-        'shatter_anchors':('alfheim:shatterfields',12,column('up',[(uniform(4,9),[('alfheim:anchorstone_livingrock',4),('alfheim:seamstone_livingrock',1)])],air),[]),
+        'verge_markers':('alfheim:void_verge',14,hosted(['alfheim:riftchalk_livingrock','alfheim:riftshale_livingrock'],1,0,[(uniform(2,4),[('alfheim:veilstone_livingrock',1)]),(1,[('minecraft:amethyst_block',1)])]),[]),
+        'shatter_anchors':('alfheim:shatterfields',12,hosted(['alfheim:shardbreccia_livingrock','alfheim:anchorstone_livingrock','alfheim:seamstone_livingrock'],1,0,[(uniform(4,9),[('alfheim:anchorstone_livingrock',4),('alfheim:seamstone_livingrock',1)])]),[]),
         'prism_crowns': (
             'alfheim:prism_drift', 8,
             {
@@ -626,7 +634,7 @@ def extra_files():
                 (uniform(7,18),[('alfheim:rootfossil_livingrock',5),('alfheim:resinshale_livingrock',1)])],natural),
                 'placement':[{'type':'minecraft:random_offset','xz_spread':0,'y_spread':-1},
                              {'type':'minecraft:block_predicate_filter','predicate':natural}]}}},[]),
-        'mourning_steles':('alfheim:sepulchral_reach',13,column('up',[(uniform(2,5),[('alfheim:epitaph_livingrock',5)]),(1,[('alfheim:oathstone_livingrock',1)])],air),[]),
+        'mourning_steles':('alfheim:sepulchral_reach',13,hosted(['alfheim:mourning_livingrock','alfheim:epitaph_livingrock','alfheim:oathstone_livingrock'],1,0,[(uniform(2,5),[('alfheim:epitaph_livingrock',5)]),(1,[('alfheim:oathstone_livingrock',1)])]),[]),
         'astralite_flecks':('alfheim:starless_reach',18,{'type':'minecraft:ore','config':{
             'size':3,'discard_chance_on_air_exposure':0.0,'targets':[
                 {'target':{'predicate_type':'minecraft:block_match','block':state},
@@ -636,13 +644,6 @@ def extra_files():
     }
     # Geological punctuation tied to host stone. No broad random stone splashes,
     # rescue landforms or ore-value changes; Starless remains devoid of vegetation.
-    def hosted(hosts,tries,spread,layers):
-        return {'type':'minecraft:random_patch','config':{
-            'tries':tries,'xz_spread':spread,'y_spread':0,
-            'feature':{'feature':column('up',layers,air),
-                'placement':[{'type':'minecraft:block_predicate_filter','predicate':{
-                    'type':'minecraft:all_of','predicates':[air,{
-                        'type':'minecraft:matching_blocks','blocks':hosts,'offset':[0,-1,0]}]}}]}}}
     def inclusion(source,target,size):
         return {'type':'minecraft:ore','config':{'size':size,
             'discard_chance_on_air_exposure':0.0,

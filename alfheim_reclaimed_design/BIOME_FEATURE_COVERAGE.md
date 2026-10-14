@@ -58,10 +58,16 @@ Both plant types also survived the controlled chalk, shale, sand and gravel test
 
 ## Controlled current-detail validation
 
-World `validation-frontier-stewardship-20261013`: the five core configured features (shatter anchors, prism crowns, root aprons, mourning steles and astralite flecks) produced saved signature blocks on native-stone test hosts. The four remnant features also survived placement and updates.
+World `validation-frontier-stewardship-20261013`: current-source configured features with saved signature blocks on native-stone hosts: alfheim:void/prism_crowns, alfheim:void/root_aprons, alfheim:void/astralite_flecks.
 
 These are artificial-host tests of configured features. Outer rarity, natural site success, visual quality and overall frequency still require field review. They are not natural-frequency evidence.
 
-Other geological details without controlled placement proof in this report: alfheim:void/prism_split_inclusions, alfheim:void/prism_suspended_needles, alfheim:void/rootfall_fossil_knots, alfheim:void/rootfall_hanging_ribs, alfheim:void/sepulchral_fallen_plates, alfheim:void/shatter_fault_teeth, alfheim:void/shatter_hanging_faults, alfheim:void/starless_null_teeth, alfheim:void/verge_markers, alfheim:void/verge_shear_steps. The merged additions remain separate from the five-feature runtime result.
+The four current remnant features also survived controlled placement and block updates in that world.
 
-The merged geological datapack passes a dedicated-server registry/startup smoke test. This proves codec loading, not controlled placement of the additional formations. The staged native Java structure type is not claimed built or deployed.
+## Controlled formation support and underside validation
+
+World `validation-void-formations-20261014`: 12 formations produced saved blocks on correct hosts and rejected wrong hosts, unsupported air and water or oversized shelves. All upright/hanging columns remain attached to native support.
+
+Test-only wrappers retain production offsets and the 32-step underside scan. The hanging formations accept thin shelves and reject 37-block shelves. Outer rarity, heightmap and biome filters are omitted; natural frequency and client appearance remain untested.
+
+Geological details without current controlled placement proof in this report: none.

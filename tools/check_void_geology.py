@@ -18,11 +18,11 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 
 EXPECTED_CODECS={
-    'verge_markers':'minecraft:block_column',
-    'shatter_anchors':'minecraft:block_column',
+    'verge_markers':'minecraft:random_patch',
+    'shatter_anchors':'minecraft:random_patch',
     'prism_crowns':'minecraft:random_patch',
     'root_aprons':'minecraft:random_patch',
-    'mourning_steles':'minecraft:block_column',
+    'mourning_steles':'minecraft:random_patch',
     'astralite_flecks':'minecraft:ore',
 }
 FEATURE_ONLY={
@@ -433,6 +433,30 @@ def validate(catalog,out,density):
             fail('VG4',f'missing configured feature {name}')
             continue
         if doc.get('type')!=codec:fail('VG4',f'{name} uses {doc.get("type")}, expected {codec}')
+    upright_hosts={
+        'verge_markers':{'alfheim:riftchalk_livingrock','alfheim:riftshale_livingrock'},
+        'shatter_anchors':{'alfheim:shardbreccia_livingrock','alfheim:anchorstone_livingrock','alfheim:seamstone_livingrock'},
+        'mourning_steles':{'alfheim:mourning_livingrock','alfheim:epitaph_livingrock','alfheim:oathstone_livingrock'},
+    }
+    for name,hosts in upright_hosts.items():
+        doc=json.loads(out[f'kubejs/data/alfheim/worldgen/configured_feature/void/{name}.json'])
+        config=doc.get('config',{})
+        inner=config.get('feature',{})
+        predicates=[q for p in inner.get('placement',[]) for q in p.get('predicate',{}).get('predicates',[])]
+        if not any(set(q.get('blocks',[]))==hosts and q.get('offset')==[0,-1,0] for q in predicates):
+            fail('VG12',f'{name} must reject absent or inappropriate support')
+        if config.get('tries')!=1 or config.get('xz_spread')!=0 or config.get('y_spread')!=0:
+            fail('VG12',f'{name} repair must retain one column per attempt')
+    for name in ('shatter_hanging_faults','prism_suspended_needles','rootfall_hanging_ribs'):
+        placed=json.loads(out[f'kubejs/data/alfheim/worldgen/placed_feature/void/{name}.json'])
+        scans=[p for p in placed['placement'] if p['type']=='minecraft:environment_scan']
+        if len(scans)!=1 or scans[0].get('max_steps')!=32 or scans[0].get('direction_of_search')!='down':
+            fail('VG12',f'{name} underside search must remain bounded to 32 downward steps')
+    for name in upright_hosts:
+        for kind in ('configured_feature','placed_feature'):
+            key=f'kubejs/data/alfheim/worldgen/{kind}/void/{name}.json'
+            if (ROOT/key).read_bytes()!=out[key]:
+                fail('VG13',f'{name} shipped {kind} differs from its generator')
     crown=json.loads(out['kubejs/data/alfheim/worldgen/configured_feature/void/prism_crowns.json'])
     inner=crown.get('config',{}).get('feature',{})
     if inner.get('feature',{}).get('type')!='minecraft:block_column':
@@ -472,6 +496,17 @@ def self_test():
     def wrong_codec(c,o,d):
         k='kubejs/data/alfheim/worldgen/configured_feature/void/root_aprons.json';x=json.loads(o[k]);x['type']='minecraft:block_pile';o[k]=json.dumps(x).encode()
     tests.append(('VG4',wrong_codec))
+    def missing_support(c,o,d):
+        key='kubejs/data/alfheim/worldgen/configured_feature/void/shatter_anchors.json'
+        doc=json.loads(o[key]);doc['config']['feature']['placement']=[];o[key]=json.dumps(doc).encode()
+    tests.append(('VG12',missing_support))
+    def expensive_underside(c,o,d):
+        key='kubejs/data/alfheim/worldgen/placed_feature/void/prism_suspended_needles.json'
+        doc=json.loads(o[key])
+        for modifier in doc['placement']:
+            if modifier['type']=='minecraft:environment_scan':modifier['max_steps']=128
+        o[key]=json.dumps(doc).encode()
+    tests.append(('VG12',expensive_underside))
     def wrong_direction(c,o,d):
         k='kubejs/data/alfheim/worldgen/configured_feature/void/root_aprons.json';x=json.loads(o[k]);x['config']['feature']['feature']['config']['direction']='up';o[k]=json.dumps(x).encode()
     tests.append(('VG5',wrong_direction))

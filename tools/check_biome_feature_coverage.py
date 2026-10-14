@@ -80,16 +80,34 @@ def main():
                 '| Biome | Plant | Saved blocks |','|---|---|---:|']
             for row in runtime['natural_plants']:lines.append(f"| {row['biome']} | {row['plant']} | {row['count']} |")
             lines+=['','Both plant types also survived the controlled chalk, shale, sand and gravel tests after block updates. A few plants cross the adjoining ocean biome boundary within patch spread. This local sample proves generation works; it does not establish final visual density or populate existing chunks.']
+    tested=set()
     detail_path=ROOT/'tools/void_details_runtime.json'
     if detail_path.exists():
         detail=json.loads(detail_path.read_text(encoding='utf-8'));hashes=detail.get('source_sha256',{})
-        if hashes and all(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected for path,expected in hashes.items()):
+        current_cases=[]
+        for case in detail['cases']:
+            name=case['feature'].split('/')[-1]
+            relevant={p:h for p,h in hashes.items() if p.endswith('/'+name+'.json') or p.endswith('/void_'+name+'.json')}
+            if len(relevant)==3 and all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in relevant.items()):
+                current_cases.append(case['feature'])
+        if current_cases:
             lines+=['','## Controlled current-detail validation','',
-                f"World `{detail['world']}`: the five core configured features (shatter anchors, prism crowns, root aprons, mourning steles and astralite flecks) produced saved signature blocks on native-stone test hosts. The four remnant features also survived placement and updates.",'',
+                f"World `{detail['world']}`: current-source configured features with saved signature blocks on native-stone hosts: "+', '.join(current_cases)+'.','',
                 'These are artificial-host tests of configured features. Outer rarity, natural site success, visual quality and overall frequency still require field review. They are not natural-frequency evidence.']
-            tested={case['feature'] for case in detail['cases']}
-            pending=sorted({feature for row in rows for feature in row['surface_details'] if feature.startswith('alfheim:void/')} - tested)
-            lines+=['','Other geological details without controlled placement proof in this report: '+', '.join(pending)+'. The merged additions remain separate from the five-feature runtime result.']
+            tested.update(current_cases)
+        remnant_hashes={p:h for p,h in hashes.items() if '/void/' not in p and '/void_' not in p}
+        if remnant_hashes and all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in remnant_hashes.items()):
+            lines+=['','The four current remnant features also survived controlled placement and block updates in that world.']
+    formation_path=ROOT/'tools/void_formation_runtime.json'
+    if formation_path.exists():
+        formation=json.loads(formation_path.read_text(encoding='utf-8'));hashes=formation.get('source_sha256',{})
+        if hashes and all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in hashes.items()):
+            lines+=['','## Controlled formation support and underside validation','',
+                f"World `{formation['world']}`: {len(formation['cases'])} formations produced saved blocks on correct hosts and rejected wrong hosts, unsupported air and water or oversized shelves. All upright/hanging columns remain attached to native support.",'',
+                'Test-only wrappers retain production offsets and the 32-step underside scan. The hanging formations accept thin shelves and reject 37-block shelves. Outer rarity, heightmap and biome filters are omitted; natural frequency and client appearance remain untested.']
+            tested.update('alfheim:void/'+case['feature'] for case in formation['cases'])
+    pending=sorted({feature for row in rows for feature in row['surface_details'] if feature.startswith('alfheim:void/')} - tested)
+    lines+=['','Geological details without current controlled placement proof in this report: '+(', '.join(pending) if pending else 'none')+'.']
     smoke_path=ROOT/'tools/void_merged_load_smoke.json'
     if smoke_path.exists():
         smoke=json.loads(smoke_path.read_text(encoding='utf-8'));hashes=smoke.get('source_sha256',{})

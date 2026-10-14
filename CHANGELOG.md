@@ -1,5 +1,19 @@
 # Changelog
 
+## Void formations grounded and underside scans verified - 2026-10-14
+
+Added native-stone support checks to Verge markers, Shatter anchors and mourning
+steles without increasing their size or frequency. Verified these repairs and
+nine newer geological formations in 48 controlled saved-world cases. Hanging
+faults, crystal needles and fossil ribs stay attached beneath thin shelves and
+reject shelves beyond their 32-block search limit. Wrong stone, unsupported air
+and fluid hosts produce no stray formation material. Broad terrain is unchanged.
+
+The disposable server saved and exited successfully; all 46 upright/hanging
+columns are continuous and supported. Coverage separates this controlled proof
+from natural frequency and client appearance, which remain pending. See
+`alfheim_reclaimed_design/void/FORMATION_SUPPORT_REVIEW.md`.
+
 ## Bounded inland terrain review - 2026-10-14
 
 Generated one terrain-only reference patch (256 forced chunks, same seed) and

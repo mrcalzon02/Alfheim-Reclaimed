@@ -227,3 +227,12 @@ visual legibility is claimed complete.
 5. Implement one biome pair at a time: Shatterfields, Prism Drift, Rootfall, Sepulchral Reach, then Starless Reach.
 6. Add terrain formations before structures that depend on them; add resources only after host-volume checks exist.
 7. Run structure/static checks, then controlled startup, `locate structure`, fresh-world placement and client traversal.
+
+## Formation support follow-up — 2026-10-14
+
+The nine additional formations now have controlled saved-world placement proof,
+including the actual 32-step underside scans. Three older upright formations
+also gained native support checks while retaining size and rarity. All 48 host
+cases pass, with 46 continuous supported columns. Natural frequency and client
+appearance remain pending. See [formation support review](FORMATION_SUPPORT_REVIEW.md).
+No broad terrain or native structure activation was changed.

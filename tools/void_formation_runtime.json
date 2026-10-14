@@ -1,0 +1,195 @@
+{
+  "world": "validation-void-formations-20261014",
+  "console": "server/console-20261014-141944.log",
+  "server_exit_code": 0,
+  "scope": "Controlled hosts with production offsets and bounded underside scans; rarity, heightmap, biome selection, natural frequency and client appearance untested.",
+  "forced_chunk_limit": 108,
+  "cases": [
+    {
+      "feature": "verge_markers",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 3,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 1
+    },
+    {
+      "feature": "shatter_anchors",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 4,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 1
+    },
+    {
+      "feature": "mourning_steles",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 2,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 1
+    },
+    {
+      "feature": "verge_shear_steps",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 10,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 7
+    },
+    {
+      "feature": "shatter_fault_teeth",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 7,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 7
+    },
+    {
+      "feature": "prism_split_inclusions",
+      "mode": "ore",
+      "signature_blocks": {
+        "native_host": 8,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 0
+    },
+    {
+      "feature": "rootfall_fossil_knots",
+      "mode": "ore",
+      "signature_blocks": {
+        "native_host": 9,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 0
+    },
+    {
+      "feature": "sepulchral_fallen_plates",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 9,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 6
+    },
+    {
+      "feature": "starless_null_teeth",
+      "mode": "up",
+      "signature_blocks": {
+        "native_host": 7,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 6
+    },
+    {
+      "feature": "shatter_hanging_faults",
+      "mode": "down",
+      "signature_blocks": {
+        "native_host": 6,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 6
+    },
+    {
+      "feature": "prism_suspended_needles",
+      "mode": "down",
+      "signature_blocks": {
+        "native_host": 4,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 4
+    },
+    {
+      "feature": "rootfall_hanging_ribs",
+      "mode": "down",
+      "signature_blocks": {
+        "native_host": 49,
+        "wrong_host": 0,
+        "unsupported_air": 0,
+        "thick_shelf_or_water": 0
+      },
+      "attached_columns": 7
+    }
+  ],
+  "source_sha256": {
+    "kubejs/data/alfheim/worldgen/configured_feature/void/verge_markers.json": "53b6b391067677d20affce4f6bd2aafc52052b241e0281e6b87ac4a22feb992e",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/verge_markers.json": "2d2b6b231758eb9b9d731cb4481bde39f77ec884608e5198bd0c7c70a2caff79",
+    "kubejs/data/alfheim/forge/biome_modifier/void_verge_markers.json": "940d53dff170cbb7aa8da1185ab9020f1d57bbe5242f8ee6c5db75b49e6da99e",
+    "kubejs/data/alfheim/tags/blocks/void_natural.json": "e4995aa0b9b19ad66bf78fc118f4acc677a82fdce5645d3e9bcc895c7731525a",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/shatter_anchors.json": "d35bc6c4ff5c59278e8a3f0099914eb094068425c1feaa5df9223e5dd40fe521",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/shatter_anchors.json": "9e774b481836b06454fbf9da98fd66108bb278f66eaa842a61c7f93e0a7790e5",
+    "kubejs/data/alfheim/forge/biome_modifier/void_shatter_anchors.json": "cf78c8aab5d6e2a8a40a0828f84e5848f4d35c557d30b55ffbedd4d73740c199",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/mourning_steles.json": "7ff3bb4886a67346829d880eb376a81b31ab4041e12d4c6f8f3b3df8ef148693",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/mourning_steles.json": "b2f19b0b8003c430ec587a8ba85f2e6a51f4451119c854bb66f2af30de4a5338",
+    "kubejs/data/alfheim/forge/biome_modifier/void_mourning_steles.json": "8f7bbe0d24cac7f6fd49974e5c3259c4ee86c437e5bfb25671edc897f01f2993",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/verge_shear_steps.json": "c6788eb7a0d84608adbf5459aa636f464f83e22495bc79e9ce8dbe3c1a0dd30d",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/verge_shear_steps.json": "b1b487020aab1439896db740014193b8806de28ec1fce92b72a8530d8421985f",
+    "kubejs/data/alfheim/forge/biome_modifier/void_verge_shear_steps.json": "be1fce2a9cdb8b37fd34816e1995b401cf65df7d6683b7693be27463acd94e2a",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/shatter_fault_teeth.json": "bc6087e349c69f6be1969fd1a2e74c559e77cc26f2d5f10dd32e05e00b2ceb45",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/shatter_fault_teeth.json": "5ca34c27fa1ff27e751579b2e6eaf61421ce6c57611501bf09d3212adb0eae48",
+    "kubejs/data/alfheim/forge/biome_modifier/void_shatter_fault_teeth.json": "37a0c6c1686316e07e57a8b757bc1506d80c74af8dccba85398129d4ace4a3c5",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/prism_split_inclusions.json": "d6ef1c1dd1fff1da129f10d32005e5a57bcec1804ec1941f7ebf0627b3f1e993",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/prism_split_inclusions.json": "42e8d3888cddebdf2ed375c3e7fe1e6aac7fd7f43d034351123b8b0378231661",
+    "kubejs/data/alfheim/forge/biome_modifier/void_prism_split_inclusions.json": "d2c0f882b1fd91a4432a0dbfd2143869c9ca9597da0181b68da5194b07387fc1",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/rootfall_fossil_knots.json": "050e4dc76297c3affb8529384d28f3f027cdda518503f275503c22e1a91511ea",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/rootfall_fossil_knots.json": "83430af51e2467e06bea546f8748d9ef7afb3a73f756c574c7eee953e7188f4e",
+    "kubejs/data/alfheim/forge/biome_modifier/void_rootfall_fossil_knots.json": "7f80c02e93bcaa38a56082535eb8134cf8e12070a1675a2b3379f7541e0e78fb",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/sepulchral_fallen_plates.json": "bb4418c299f95d38e7059f61c57b5b68d197e4f5e89bdd21e8c0962e206604d1",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/sepulchral_fallen_plates.json": "d640af7dd750387f547259f13a66cb08f8c8f7b9569a45049655bb5162689691",
+    "kubejs/data/alfheim/forge/biome_modifier/void_sepulchral_fallen_plates.json": "314017ced9da3f7cdabca6ad1a7e7c4d107b01f6839109a0dae6cbd5e9c57a76",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/starless_null_teeth.json": "f9a16c19ad66cc85c2db703867e8685b7f9c9e75b378c8e6fc7b965961709956",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/starless_null_teeth.json": "723e4599f913d671902dd87d573ee058af7a5d9b8de61a57926390924f8668a9",
+    "kubejs/data/alfheim/forge/biome_modifier/void_starless_null_teeth.json": "5aa9e76255b4d9dd8a7ddfb9ee622c825268c7e457852e86232fb2c5a1b889da",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/shatter_hanging_faults.json": "9caa2843990d514b69bb868e108793f4f41965bdd079fb17331ff91e07b6a014",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/shatter_hanging_faults.json": "a3009e78c3d2ad58b094e421b3e683e8d8606c50ec37559965be9c2383f4eec7",
+    "kubejs/data/alfheim/forge/biome_modifier/void_shatter_hanging_faults.json": "4e6cc99f3f65d3f86d357d90a3b50936831768f3afc009cde2c94f1a63100cea",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/prism_suspended_needles.json": "6f2a0844761a5673b21be79f1b4df4d5f6a476308fe856cae2f253a30159db2b",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/prism_suspended_needles.json": "e02487c788db0fb61ee9bee416c54ee83532d45e97b6646282a5d904db82bb02",
+    "kubejs/data/alfheim/forge/biome_modifier/void_prism_suspended_needles.json": "99dc00a106d5ab36341d8b6b2dbc09284b261abc6e6a9e00fa464f7bda2d3a12",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/rootfall_hanging_ribs.json": "75769b6f593a0a8ef7664c19909161a9e38f9f79c404a86be633d23d17f93ad0",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/rootfall_hanging_ribs.json": "5d2dcc87f70b4d97de18bac8d9e12706cc5df42a9ce3fe266febad2723cc573b",
+    "kubejs/data/alfheim/forge/biome_modifier/void_rootfall_hanging_ribs.json": "b0728a7a4b096cf4d514bfc9efd68ab30472e0453b35aa634455fd73fd773d59"
+  },
+  "test_pack_sha256": {
+    "datapacks/formation_probe/pack.mcmeta": "9c1cbb3b6cb6bd94953e461f60fa1979082684d7e46c3c6655337034c826eea0",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/mourning_steles.json": "86a5b6e55cd7f88b335395d811a7efa574c3bff9e2dbcec8f09005585cb2860c",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/prism_split_inclusions.json": "fbb3a289285fcbb777afd65fbade8d512d74d9aaf6f446b3a440e6309cc64e7e",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/prism_suspended_needles.json": "35e532660606222b1b2c92b87a2f1ce14e696205c01ed5360e95db782ea338e8",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/rootfall_fossil_knots.json": "514a4cd03caf53e8b10ecb14ebb36fef136a2297835a27740b122fbb6f8245d6",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/rootfall_hanging_ribs.json": "6c815a6704a9e0bfc7eb8ce0ac115bbe35aa5b7fced7f81b7645b4a34a1edb8f",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/sepulchral_fallen_plates.json": "a077cb1cc87e6507f06072f4412b49cf4dd03f0f1ac21bb2dceddf87a7c30f3f",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/shatter_anchors.json": "ee29f5fe9d2a8f353149f7a4bddb68b93a725ae54e5046674bf341cc8e3e8382",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/shatter_fault_teeth.json": "c22109cf6eee6ed36e2041086601e48dc39018f28054b906c73a7ba76f805502",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/shatter_hanging_faults.json": "bc65b2baf44ed495bd547ffd06bedcb62a0e27a936602ce1ccae71bea2702900",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/starless_null_teeth.json": "3921ccc0f4e4859fdb745414c30e0e0e10d1bdb3026b1bfcefe2cbdc4d23b993",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/verge_markers.json": "d17713b2be3f86754507d7ad759b7a940565ced4d3086a4654630e154fa87a1f",
+    "datapacks/formation_probe/data/formation_probe/worldgen/configured_feature/verge_shear_steps.json": "89e67b1651016878b9b5cb9e99c064c8ef75e8615dc9011d3ca66f1eaf6e717d"
+  }
+}
