@@ -39,6 +39,10 @@ def main():
     for biome,feature in expected_void.items():
         row=next(r for r in rows if r['biome']=='alfheim:'+biome)
         assert 'alfheim:void/'+feature in row['surface_details'],('void geology missing from effective features',biome)
+    for biome,feature in {'shatterfields':'shatter_bramble','rootfall':'rootfall_rootlet',
+                          'prism_drift':'prism_lichen','sepulchral_reach':'mourning_reed'}.items():
+        row=next(r for r in rows if r['biome']=='alfheim:'+biome)
+        assert 'alfheim:'+feature in row['vegetation'],('void remnant absent from effective modifiers',biome)
     for bid in ('alfheim:void_shore','alfheim:void_verge'):
         row=next(r for r in rows if r['biome']==bid)
         assert {'alfheim:void_bramble','alfheim:void_thornbush'}<=set(row['vegetation']),bid
@@ -57,12 +61,12 @@ def main():
             'biomes':len(rows),'no_vegetation':gaps,'unmodelled_modifiers':src.unmodelled,'rows':rows}
     (ROOT/'tools/biome_feature_coverage.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     lines=['# Custom biome feature coverage','',
-           'Configuration audit, 2026-10-13. Includes jar defaults, datapack overrides and Forge feature modifiers. Counts are distinct features and first-party structures, not observed density. Controlled-only assemblies do not generate naturally.','',
+           'Configuration audit, 2026-10-14. Includes jar defaults, datapack overrides and Forge feature modifiers. Counts are distinct features and first-party structures, not observed density. Controlled-only assemblies do not generate naturally.','',
            '| Biome | Vegetation features | Surface detail features | Natural structures | Controlled-only structures |',
            '|---|---:|---:|---:|---:|']
     for r in rows:lines.append(f"| {r['biome']} | {len(r['vegetation'])} | {len(r['surface_details'])} | {len(r['natural_structures'])} | {len(r['controlled_only_structures'])} |")
     lines+=['','No vegetation configured: '+(', '.join(gaps) if gaps else 'none')+'.',
-            '', 'Only generic mystical flowers in the vegetation step: '+(', '.join(sparse) if sparse else 'none')+'. This is sparse vegetation, not missing overall feature coverage. The earlier table omitted the local-modifications stage. These five regions already have distinct geological detail features, confirmed in the effective Forge feature lists. All eleven generation stages are now listed in the JSON audit. No duplicate geology or broad terrain changes were needed.',
+            '', 'Only generic mystical flowers in the vegetation step: '+(', '.join(sparse) if sparse else 'none')+'. Sparse vegetation is not missing overall feature coverage. The earlier table omitted the local-modifications stage; all five outer void regions have distinct geological details. The current committed additions also supply Shatter Bramble, Petrified Rootlet, Prism Lichen and Mourning Stone-Reed to four regions. Starless Reach retains its bare terminal character. All eleven generation stages are listed in the JSON audit.',
             '', 'Void identities: Shatterfields anchor needles, Prism Drift crystal crowns, Rootfall fossil root aprons, Sepulchral Reach mourning steles, and Starless Reach astralite flecks. Source registration alone does not establish their natural success rate or visual quality; controlled placement evidence is recorded separately.',
             '', 'Void Shore and Void Verge both receive bramble and thorn patches plus Thorn Gate and Shore Memorial Court. Their substrate filter now includes their actual chalk/shale/sand/gravel surfaces. This corrects a placement blocker; it does not establish final natural density.',
             '', 'Broad density, noise, biome selection and surface rules are unchanged. See tools/biome_feature_coverage.json for exact feature and structure IDs.']
@@ -76,6 +80,13 @@ def main():
                 '| Biome | Plant | Saved blocks |','|---|---|---:|']
             for row in runtime['natural_plants']:lines.append(f"| {row['biome']} | {row['plant']} | {row['count']} |")
             lines+=['','Both plant types also survived the controlled chalk, shale, sand and gravel tests after block updates. A few plants cross the adjoining ocean biome boundary within patch spread. This local sample proves generation works; it does not establish final visual density or populate existing chunks.']
+    detail_path=ROOT/'tools/void_details_runtime.json'
+    if detail_path.exists():
+        detail=json.loads(detail_path.read_text(encoding='utf-8'));hashes=detail.get('source_sha256',{})
+        if hashes and all(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected for path,expected in hashes.items()):
+            lines+=['','## Controlled current-detail validation','',
+                f"World `{detail['world']}`: all five geological configured features produced saved signature blocks on native-stone test hosts. The four new remnant features also survived placement and updates.",'',
+                'These are artificial-host tests of configured features. Outer rarity, natural site success, visual quality and overall frequency still require field review. They are not natural-frequency evidence.']
     (ROOT/'alfheim_reclaimed_design/BIOME_FEATURE_COVERAGE.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print('COVERAGE:',len(rows),'biomes;',len(gaps),'without vegetation:',', '.join(gaps))
 

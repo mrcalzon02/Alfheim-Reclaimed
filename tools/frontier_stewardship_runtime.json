@@ -1,0 +1,13 @@
+{
+  "world": "validation-frontier-stewardship-20261013",
+  "console": "server/console-20261014-124848.log",
+  "source_fingerprint": "051fe11619ba94299424a4dee19b786a678a35a9fc82d9ac52f9d5faf18921c6",
+  "members": 6,
+  "joins": 5,
+  "verified_air_cells": 207114,
+  "verified_foundation_cells": 67056,
+  "validation_exit_code": 0,
+  "server_exit_code": 0,
+  "visual_review": "pending",
+  "natural_placement": "not_enabled"
+}

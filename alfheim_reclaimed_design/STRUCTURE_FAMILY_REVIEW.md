@@ -15,8 +15,8 @@ All twelve sequencing families now have source implementations. Saved assembly e
 | Harbor Complex | 10 | 9 | enabled |
 | Sacred Precinct | 7 | 6 | not enabled |
 | Military / Warden | 6 | 5 | not enabled |
-| Frontier / Wilderness | pending | pending | not enabled |
+| Frontier / Wilderness | 6 | 5 | not enabled |
 
 Next work: review the three new families in the client and on representative land, then choose sparse natural frequencies. Review existing enabled families for terrain fit and destructive overlaps. Harbor may remain approximate under the user's explicit direction; do not reinstate exhaustive site searches.
 
-Void biome review: all five outer void siblings already have geological details in the local-modifications stage. Their sparse vegetation alone is not evidence of missing terrain features. See `BIOME_FEATURE_COVERAGE.md` for all generation stages and separate runtime evidence.
+Void biome review: all five outer void siblings have geological details in the local-modifications stage. Current committed additions also supply four substrate-gated remnant features: Shatter Bramble, Petrified Rootlet, Prism Lichen and Mourning Stone-Reed. Starless Reach remains bare apart from its mineral detail. See `BIOME_FEATURE_COVERAGE.md` for all generation stages and separate runtime evidence.

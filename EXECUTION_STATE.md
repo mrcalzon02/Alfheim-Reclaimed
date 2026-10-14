@@ -1,5 +1,29 @@
 # Execution State
 
+## Frontier saved-world pass and current Void feature proof - 2026-10-14
+
+Frontier/Wilderness now passes source equality and saved-world validation: six
+members, five supported joins, 207114 authored air cells and 67056 foundation
+cells. Moon pools, garden, remains, beds and survey access match source. All twelve
+roster families have implementations and saved-assembly evidence; this does not
+constitute visual, natural terrain-fit or production admission. Sacred, Warden
+and Frontier natural sets remain disabled. See
+`alfheim_reclaimed_design/STRUCTURE_FAMILY_REVIEW.md`.
+
+The resumed test validates the current committed hosted Prism Crown and all four
+Void remnant features, alongside the other four geological details, on artificial
+native-stone hosts. Manual ore placement needs ordinary host updates to persist
+its bulk section edits; the harness now supplies those updates. These tests do not
+measure natural frequency. All 16 remnant source/assets match their generator;
+106 custom models and 39 protected terrain files pass the field checks.
+
+Coverage audit includes all eleven generation stages. Four outer Void regions
+now have distinct remnant features; Starless Reach deliberately remains bare.
+The earlier vegetation-only gap wording omitted existing geology. Terrain and
+the accepted approximate harbor policy are unchanged. Next work is representative
+client/terrain-fit and frequency review. Evidence:
+`tools/frontier_stewardship_runtime.json`, `tools/void_details_runtime.json`.
+
 ## Void undergrowth coverage and Military/Warden live pass - 2026-10-13
 
 Audited all 26 home biomes with effective Forge decoration modifiers and enabled

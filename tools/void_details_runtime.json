@@ -1,0 +1,84 @@
+{
+  "world": "validation-frontier-stewardship-20261013",
+  "status": "controlled_configured_features_passed",
+  "cases": [
+    {
+      "feature": "alfheim:void/shatter_anchors",
+      "configured_biome": "alfheim:shatterfields",
+      "signature_blocks": {
+        "alfheim:seamstone_livingrock": 1,
+        "alfheim:anchorstone_livingrock": 3
+      }
+    },
+    {
+      "feature": "alfheim:void/prism_crowns",
+      "configured_biome": "alfheim:prism_drift",
+      "signature_blocks": {
+        "alfheim:prismstone_livingrock": 7
+      }
+    },
+    {
+      "feature": "alfheim:void/root_aprons",
+      "configured_biome": "alfheim:rootfall",
+      "signature_blocks": {
+        "alfheim:rootfossil_livingrock": 405,
+        "alfheim:resinshale_livingrock": 83
+      }
+    },
+    {
+      "feature": "alfheim:void/mourning_steles",
+      "configured_biome": "alfheim:sepulchral_reach",
+      "signature_blocks": {
+        "alfheim:epitaph_livingrock": 2,
+        "alfheim:oathstone_livingrock": 1
+      }
+    },
+    {
+      "feature": "alfheim:void/astralite_flecks",
+      "configured_biome": "alfheim:starless_reach",
+      "signature_blocks": {
+        "alfheim:astralite_livingrock": 3
+      }
+    }
+  ],
+  "remnant_blocks": {
+    "shatter_bramble": 12,
+    "prism_lichen": 10,
+    "rootfall_rootlet": 15,
+    "mourning_reed": 11
+  },
+  "limits": "Commands place configured features on artificial native-stone hosts. Effective biome injection is checked separately; natural site success, frequency and client appearance are not established. Ordinary host-block updates after manual ore placement ensure the modified chunk is persisted.",
+  "source_sha256": {
+    "kubejs/data/alfheim/worldgen/configured_feature/void/shatter_anchors.json": "2813d0e107999c46da2feb62ff0083cc1ed7c82ff512d61ac4f2f5eaf9c5c83b",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/shatter_anchors.json": "9e774b481836b06454fbf9da98fd66108bb278f66eaa842a61c7f93e0a7790e5",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/prism_crowns.json": "70a15bf779df2560ab538cac3cef4ab21ce56dc4ebec660a7b565860f97293d6",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/prism_crowns.json": "65842cb50e4e7402d5d5beee390329930711876c48fae6ea9e9584cb3aef2859",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/root_aprons.json": "5abb5ebff6dcf8ed698e2149457c7b276bebcf901a10954964af3f7015b00047",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/root_aprons.json": "eeb2f4422d1695e32af4697ed692b03fb7e16664852fb50f5e4f0ac7c0ad6d99",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/mourning_steles.json": "4828ddab7b2924e6c64bed7cda7feb8a00529625f63f1c36da2ead2126b1f0df",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/mourning_steles.json": "b2f19b0b8003c430ec587a8ba85f2e6a51f4451119c854bb66f2af30de4a5338",
+    "kubejs/data/alfheim/worldgen/configured_feature/void/astralite_flecks.json": "81963578bcc530122a97bf8059b62fccb1a22173f6d150f5740f0af644d41d65",
+    "kubejs/data/alfheim/worldgen/placed_feature/void/astralite_flecks.json": "326bb247891bcdd0f739c6a3398f18bf1d68d93e19523d2709243d1f26c4fde1",
+    "kubejs/data/alfheim/forge/biome_modifier/void_shatter_anchors.json": "cf78c8aab5d6e2a8a40a0828f84e5848f4d35c557d30b55ffbedd4d73740c199",
+    "kubejs/data/alfheim/forge/biome_modifier/void_prism_crowns.json": "395aecf32e3c9bbc6e65924cec94b568fef9d1946f7cd93bb1f0623d2f68ae86",
+    "kubejs/data/alfheim/forge/biome_modifier/void_root_aprons.json": "c92513f0f5ca2808ae2bea7cc5198fc4c80ea00e817ec4dc33c46d93fa5289a5",
+    "kubejs/data/alfheim/forge/biome_modifier/void_mourning_steles.json": "8f7bbe0d24cac7f6fd49974e5c3259c4ee86c437e5bfb25671edc897f01f2993",
+    "kubejs/data/alfheim/forge/biome_modifier/void_astralite_flecks.json": "cd7b3ea05488c542379bd384f4e873d88bfd31c3c6b3d4cdac10a7329860f904",
+    "kubejs/data/alfheim/worldgen/configured_feature/shatter_bramble.json": "12add5802c75711c0c1ba74094c5c6e00a462a5bde3f543cb1402def1356fae6",
+    "kubejs/data/alfheim/worldgen/placed_feature/shatter_bramble.json": "26d291882ecd576e0a5ce8f54a06b06e06e437f0202963477e2a175de567f015",
+    "kubejs/data/alfheim/forge/biome_modifier/zz_void_shatter_bramble.json": "83f6a810b9da5f011962cdb45b46d8ec654ec19eaeb095f364c37970b236d457",
+    "kubejs/data/alfheim/worldgen/configured_feature/prism_lichen.json": "dd5923dfcd1f407be9a1107a111c1b5faac93c1b6783f3aec07dcea0e57455e9",
+    "kubejs/data/alfheim/worldgen/placed_feature/prism_lichen.json": "947a05f212e3b8c85ffdc3d0c4f3fd38b3cc3af397ec77892157bd95c757cd98",
+    "kubejs/data/alfheim/forge/biome_modifier/zz_void_prism_lichen.json": "695ef5a65cc5919b42be76abb5dab3a29e02c126343ae7c1de244e826464f249",
+    "kubejs/data/alfheim/worldgen/configured_feature/rootfall_rootlet.json": "8745c2d588c90cb081068d5487cff541c4799fa4d75ed82c393dd8302f72f0ef",
+    "kubejs/data/alfheim/worldgen/placed_feature/rootfall_rootlet.json": "581452b60b968551afeec202de887a1fadb0111f8476575527b9d90130c15207",
+    "kubejs/data/alfheim/forge/biome_modifier/zz_void_rootfall_rootlet.json": "be931d906a99f42b552360da727a8dac2ff3f28f247fda077b348c7869969b57",
+    "kubejs/data/alfheim/worldgen/configured_feature/mourning_reed.json": "ce33f0e2ffb8cc1b1cf32de28f15221b02b4a6c9788c9e18c3a31bc101798b22",
+    "kubejs/data/alfheim/worldgen/placed_feature/mourning_reed.json": "bbc30a04c6ee90ad134c0777a8b75997219f6a21818f206f4712180e678bf529",
+    "kubejs/data/alfheim/forge/biome_modifier/zz_void_mourning_reed.json": "cdf46bfedc226d5a7c6910a0c8295f70126cdbd3c4ac16b433c491227cf700f4",
+    "kubejs/startup_scripts/29_void_vegetation.js": "0797323082c94e488e3b0ee483c6e31da153df7c3b69cd9b920091daaa4270c0",
+    "kubejs/assets/alfheim/models/block/prism_lichen.json": "7aaac63a9da5f3ccaa01982dd44535817477b23492b5acd6f52b0f024b0de499",
+    "kubejs/assets/alfheim/models/block/rootfall_rootlet.json": "3327847933e6364fc45decaa2e89fc44c1cb5f7fbc285e1cff81860056028d38",
+    "kubejs/assets/alfheim/models/block/mourning_reed.json": "a7cc90cc6946a098deb2773619c494ffe88a955d50707a898ab1eb7f2f9635e8"
+  }
+}

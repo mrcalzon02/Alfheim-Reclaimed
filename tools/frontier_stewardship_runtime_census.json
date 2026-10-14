@@ -1,0 +1,74 @@
+{
+  "world": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\server\\validation-frontier-stewardship-20261013",
+  "pieces": 6,
+  "inhabited_members": null,
+  "counts": {
+    "green_noble_lodge": 1,
+    "forest_waystation": 1,
+    "surveyor_tower": 1,
+    "moon_pool_sanctuary": 1,
+    "outlying_retreat_hall": 1,
+    "wild_ward_shrine": 1
+  },
+  "background_markers": {},
+  "clear_supported_joins": 5,
+  "verified_air_cells": 207114,
+  "verified_footer_cells": 0,
+  "verified_foundation_cells": 67056,
+  "layout": [
+    {
+      "name": "green_noble_lodge",
+      "origin": [
+        -1456,
+        66,
+        640
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "forest_waystation",
+      "origin": [
+        -1414,
+        66,
+        671
+      ],
+      "rotation": 2
+    },
+    {
+      "name": "surveyor_tower",
+      "origin": [
+        -1487,
+        66,
+        632
+      ],
+      "rotation": 3
+    },
+    {
+      "name": "moon_pool_sanctuary",
+      "origin": [
+        -1371,
+        66,
+        598
+      ],
+      "rotation": 1
+    },
+    {
+      "name": "outlying_retreat_hall",
+      "origin": [
+        -1452,
+        66,
+        555
+      ],
+      "rotation": 0
+    },
+    {
+      "name": "wild_ward_shrine",
+      "origin": [
+        -1340,
+        66,
+        602
+      ],
+      "rotation": 1
+    }
+  ]
+}

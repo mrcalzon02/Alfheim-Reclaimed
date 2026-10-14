@@ -1,6 +1,6 @@
 # Custom biome feature coverage
 
-Configuration audit, 2026-10-13. Includes jar defaults, datapack overrides and Forge feature modifiers. Counts are distinct features and first-party structures, not observed density. Controlled-only assemblies do not generate naturally.
+Configuration audit, 2026-10-14. Includes jar defaults, datapack overrides and Forge feature modifiers. Counts are distinct features and first-party structures, not observed density. Controlled-only assemblies do not generate naturally.
 
 | Biome | Vegetation features | Surface detail features | Natural structures | Controlled-only structures |
 |---|---:|---:|---:|---:|
@@ -12,11 +12,11 @@ Configuration audit, 2026-10-13. Includes jar defaults, datapack overrides and F
 | alfheim:infested_warren | 6 | 5 | 15 | 4 |
 | alfheim:mana_fen | 4 | 6 | 15 | 4 |
 | alfheim:mistbark_shore | 5 | 4 | 8 | 1 |
-| alfheim:prism_drift | 1 | 1 | 2 | 1 |
-| alfheim:rootfall | 1 | 1 | 2 | 1 |
+| alfheim:prism_drift | 2 | 1 | 2 | 1 |
+| alfheim:rootfall | 2 | 1 | 2 | 1 |
 | alfheim:scorchfell | 3 | 5 | 15 | 4 |
-| alfheim:sepulchral_reach | 1 | 1 | 2 | 1 |
-| alfheim:shatterfields | 1 | 1 | 2 | 1 |
+| alfheim:sepulchral_reach | 2 | 1 | 2 | 1 |
+| alfheim:shatterfields | 2 | 1 | 2 | 1 |
 | alfheim:silverbark_wood | 7 | 5 | 16 | 4 |
 | alfheim:sporebank_shore | 6 | 4 | 8 | 1 |
 | alfheim:starless_reach | 1 | 1 | 2 | 1 |
@@ -33,7 +33,7 @@ Configuration audit, 2026-10-13. Includes jar defaults, datapack overrides and F
 
 No vegetation configured: none.
 
-Only generic mystical flowers in the vegetation step: alfheim:prism_drift, alfheim:rootfall, alfheim:sepulchral_reach, alfheim:shatterfields, alfheim:starless_reach. This is sparse vegetation, not missing overall feature coverage. The earlier table omitted the local-modifications stage. These five regions already have distinct geological detail features, confirmed in the effective Forge feature lists. All eleven generation stages are now listed in the JSON audit. No duplicate geology or broad terrain changes were needed.
+Only generic mystical flowers in the vegetation step: alfheim:starless_reach. Sparse vegetation is not missing overall feature coverage. The earlier table omitted the local-modifications stage; all five outer void regions have distinct geological details. The current committed additions also supply Shatter Bramble, Petrified Rootlet, Prism Lichen and Mourning Stone-Reed to four regions. Starless Reach retains its bare terminal character. All eleven generation stages are listed in the JSON audit.
 
 Void identities: Shatterfields anchor needles, Prism Drift crystal crowns, Rootfall fossil root aprons, Sepulchral Reach mourning steles, and Starless Reach astralite flecks. Source registration alone does not establish their natural success rate or visual quality; controlled placement evidence is recorded separately.
 
@@ -55,3 +55,9 @@ Fresh test world `validation-military-warden-20261013`: 64 sampled natural chunk
 | alfheim:void_verge | mmorpg:thorn_bush | 106 |
 
 Both plant types also survived the controlled chalk, shale, sand and gravel tests after block updates. A few plants cross the adjoining ocean biome boundary within patch spread. This local sample proves generation works; it does not establish final visual density or populate existing chunks.
+
+## Controlled current-detail validation
+
+World `validation-frontier-stewardship-20261013`: all five geological configured features produced saved signature blocks on native-stone test hosts. The four new remnant features also survived placement and updates.
+
+These are artificial-host tests of configured features. Outer rarity, natural site success, visual quality and overall frequency still require field review. They are not natural-frequency evidence.

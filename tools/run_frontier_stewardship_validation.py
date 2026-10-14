@@ -2,12 +2,14 @@
 import argparse,json,subprocess,sys
 from pathlib import Path
 import run_server
-from check_void_details_runtime import CASES,census
+from check_void_details_runtime import CASES,REMNANTS,census
 
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--world',default='validation-frontier-stewardship-20261013');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--world',default='validation-frontier-stewardship-20261014')
+    ap.add_argument('--details-only',action='store_true',help='Retest current features in an existing disposable assembly world')
+    args=ap.parse_args()
     world=ROOT/'server'/args.world
     assert args.world.startswith('validation-frontier-') and world.resolve().parent==(ROOT/'server').resolve()
     subprocess.run([sys.executable,'-X','utf8','-B',str(ROOT/'tools/check_frontier_stewardship.py')],check=True)
@@ -18,16 +20,28 @@ def main():
         (60,f'execute in {home} run place structure alfheim:frontier_stewardship -1443 80 654'),
         (35,'save-all flush'),(5,f'execute in {home} run forceload remove all'),
         (2,f'execute in {home} run forceload add 1024 1024 1247 1055')]
+    if args.details_only:
+        assert world.is_dir(),'details-only needs an existing validation world'
+        commands=[(100,'say current void detail validation'),(2,f'execute in {home} run forceload add 1024 1024 1247 1055')]
     for index,(feature,biome,host,_) in enumerate(CASES):
         x=1024+index*48;z=1024
         commands.extend([(3,f'execute in {home} run fill {x} 180 {z} {x+30} 200 {z+30} alfheim:{host}_livingrock'),
-            (1,f'execute in {home} run fill {x} 201 {z} {x+30} 216 {z+30} minecraft:air'),
-            (1,f'execute in {home} run fillbiome {x} 176 {z} {x+30} 216 {z+30} alfheim:{biome}')])
+            (1,f'execute in {home} run fill {x} 201 {z} {x+30} 216 {z+30} minecraft:air')])
         # /place feature addresses ConfiguredFeature, so ore starts inside its host;
-        # root_aprons itself offsets down one. Outer rarity/heightmap are not tested here.
+        # root_aprons itself offsets down one. Outer rarity/heightmap/biome filters
+        # are not tested here, so the artificial hosts need no biome replacement.
         y=199 if feature=='astralite_flecks' else 201
         for _ in range(10 if feature=='astralite_flecks' else 3):
             commands.append((1,f'execute in {home} run place feature alfheim:void/{feature} {x+8} {y} {z+8}'))
+    for feature,block,case in REMNANTS:
+        x=1024+case*48
+        for _ in range(3):commands.append((1,f'execute in {home} run place feature alfheim:{feature} {x+15} 201 1039'))
+    # OreFeature writes through BulkSectionAccess instead of ordinary setBlock.
+    # Touch each host chunk after command placement so manual ore edits are saved.
+    for x in (1216,1232):
+        for z in (1024,1040):
+            commands.extend([(1,f'execute in {home} run setblock {x} 180 {z} minecraft:stone'),
+                             (1,f'execute in {home} run setblock {x} 180 {z} alfheim:nightmantle_livingrock')])
     commands.extend([(30,'save-all flush'),(5,f'execute in {home} run forceload remove all'),(5,'stop')])
     props=ROOT/'server/server.properties';original=props.read_bytes()
     try:code=run_server.run('3536368297089363045',args.world,8,commands,700)
@@ -38,7 +52,8 @@ def main():
     assert code==0,code
     log=max((ROOT/'server').glob('console-*.log'),key=lambda p:p.stat().st_mtime)
     text=log.read_text(encoding='utf-8',errors='replace')
-    assert 'Generated structure "alfheim:frontier_stewardship"' in text and 'All dimensions are saved' in text,log
+    if not args.details_only:assert 'Generated structure "alfheim:frontier_stewardship"' in text,log
+    assert 'All dimensions are saved' in text,log
     census(world)
     subprocess.run([sys.executable,'-X','utf8','-B',str(ROOT/'tools/check_ancient_assembly.py'),str(world),'--family','frontier_stewardship'],check=True)
     saved=json.loads((ROOT/'tools/frontier_stewardship_runtime_census.json').read_text(encoding='utf-8'))
