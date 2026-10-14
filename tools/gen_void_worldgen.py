@@ -674,6 +674,49 @@ def extra_files():
                                ('alfheim:nightmantle_livingrock',1)])]),[]),
     })
 
+    # A fracture's UNDERSIDE matters as much as the top. Scan downward through at
+    # most 32 native-stone blocks from the exposed surface, find actual air below
+    # the fragment, and grow narrow ribs/crystal needles FROM the rock, not from
+    # Y=-64 or from a fabricated island. A thick massive shelf simply rejects.
+    def underside(hosts,layers,tries):
+        return {'type':'minecraft:random_patch','config':{
+            'tries':tries,'xz_spread':3,'y_spread':0,
+            'feature':{'feature':column('down',layers,air),
+                'placement':[{'type':'minecraft:block_predicate_filter','predicate':{
+                    'type':'minecraft:all_of','predicates':[
+                        air,{'type':'minecraft:matching_blocks',
+                             'blocks':hosts,'offset':[0,1,0]}]}}]}}}
+    scan_below=[
+        {'type':'minecraft:random_offset','xz_spread':0,'y_spread':-1},
+        {'type':'minecraft:environment_scan','direction_of_search':'down',
+         'max_steps':32,'target_condition':air,
+         'allowed_search_condition':natural},
+    ]
+    formations.update({
+        'shatter_hanging_faults':('alfheim:shatterfields',15,
+            underside(['alfheim:anchorstone_livingrock',
+                       'alfheim:shardbreccia_livingrock'],[
+                (uniform(2,5),[('alfheim:shardbreccia_livingrock',3),
+                               ('alfheim:anchorstone_livingrock',2)]),
+                (1,[('alfheim:seamstone_livingrock',1)])],4),
+            scan_below),
+        'prism_suspended_needles':('alfheim:prism_drift',14,
+            underside(['alfheim:prismstone_livingrock',
+                       'alfheim:aetherquartzite_livingrock'],[
+                (uniform(3,7),[('alfheim:aetherquartzite_livingrock',3),
+                               ('alfheim:glintschist_livingrock',1)]),
+                (1,[('minecraft:amethyst_block',1)])],5),
+            scan_below),
+        'rootfall_hanging_ribs':('alfheim:rootfall',11,
+            underside(['alfheim:rootfossil_livingrock',
+                       'alfheim:resinshale_livingrock',
+                       'alfheim:hollowheart_livingrock'],[
+                (uniform(4,10),[('alfheim:rootfossil_livingrock',5),
+                                ('alfheim:resinshale_livingrock',1)]),
+                (1,[('alfheim:hollowheart_livingrock',1)])],7),
+            scan_below),
+    })
+
     for name,(biome,chance,configured,extra_placement) in formations.items():
         emit('alfheim/worldgen/configured_feature/void/'+name+'.json',configured)
         emit('alfheim/worldgen/placed_feature/void/'+name+'.json',{'feature':'alfheim:void/'+name,'placement':[

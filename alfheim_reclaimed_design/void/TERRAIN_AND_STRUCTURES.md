@@ -1,3 +1,26 @@
+## 2026-10-13: geological underhangs and native Void support-source implementation
+
+The next geometry pass grows faults beneath Shatterfields fragments, hanging crystalline
+needles beneath Prism Drift, and exposed petrified ribs beneath Rootfall. These use a
+native-stone underside scan (maximum 32 blocks); if no actual free underside exists,
+the feature does not place. The old Rootfall downward replacements inside solid rock
+remain intact, but exposed roots no longer have to rely on buried replacement alone.
+
+**Companion worldgen implementation staged, not activated in distributed pack:** the
+new `alfheim_companion:void_surface` structure type samples nine generated base-terrain
+columns, checks true solid depth, rejects empty/mismatched/steep terrain, and anchors
+the intact end of severed spans independently from their missing ends. It is
+registered in the first-party mod Java source. The Surface Works generator can emit
+the corresponding twelve registrations via `--native-void-hosts` **only after**
+the updated companion JAR has been built, installed and confirmed to contain this
+new type. The repository's existing compiled JAR is older; shipping JSON is
+deliberately still on the compatible absolute-altitude vanilla jigsaw path.
+Switching the JSON beforehand would make datapack registry loading fail.
+
+This is a true implementation dependency, not evidence that a successful
+native terrain-hosted runtime placement has already been achieved. Build and
+fresh-world evidence are mandatory before the native switch is claimed deployed.
+
 # Void Margins — terrain and supported structure contract
 
 **Role:** implementation-facing extension of `../VOID_MARGINS.md`.
