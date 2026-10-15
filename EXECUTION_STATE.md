@@ -1,5 +1,22 @@
 # Execution State
 
+## Continuity Works district refit — 2026-10-15
+
+Structure work resumed with the local Continuity Works skill/capability. All twelve
+district families are refitted through the supported downstream provider, with
+an eightfold detail-block floor and preserved sockets, fixtures and walking clearance.
+Purple Faultwork formations are separated into the independent ley_fracture artifact;
+automatic fracture placement is blocked pending the 500-block reservation adapter.
+Current evidence and remaining gates: `alfheim_reclaimed_design/CONTINUITY_DISTRICT_REFIT.md`.
+Previous district assembly evidence describes the earlier corpus. Broad terrain and
+player saves remain untouched.
+Focused gates pass for 109 templates (122,361 changed cells, 31,445 supported relief
+cells; per-family detail ratios 8.239–47.959×). All twelve family static checks pass.
+The saved gallery validates 113 templates / 31,551 relief and fixture cells; shipping
+hashes match `tools/continuity_refit_runtime_report.json`. The 39-file terrain guard
+passes. Two historical global checkers still report the documented legacy findings;
+client visual, current-corpus jigsaw and natural placement acceptance remain pending.
+
 ## Enemy roster implemented; structure work held — 2026-10-15
 
 At the user's direction, enemies take priority while Continuity Works converts

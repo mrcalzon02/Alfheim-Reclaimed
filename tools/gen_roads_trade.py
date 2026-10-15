@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import nbt
+from district_refit import detail_nbt
 from structure_nbt import Piece
 from gen_ancient_districts import B,box,bed,elven_remains,skeletal_remains,stone_debris,HOME_BIOMES
 from gen_elder_lineage import royal,bench,desk,mounted_banner,lift,STONE,CARVED,FLOOR,AIR,DEPTH
@@ -117,7 +118,7 @@ def generate(root=ROOT):
     def emit(path,value):
         p=data/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
-        p=data/'structures/ancient/roads_trade'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',build(name).to_nbt());files.append(p)
+        p=data/'structures/ancient/roads_trade'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',detail_nbt(build(name), 'roads_trade', name));files.append(p)
         emit(f'worldgen/template_pool/ancient/roads_trade/{name}.json',{'name':'alfheim:ancient/roads_trade/'+name,'fallback':'minecraft:empty','elements':[{'weight':1,'element':{'element_type':'minecraft:single_pool_element','location':'alfheim:ancient/roads_trade/'+name,'projection':'rigid','processors':'minecraft:empty'}}]})
     emit('worldgen/structure/roads_trade.json',{'type':'minecraft:jigsaw','biomes':'#alfheim:has_roads_trade','step':'surface_structures','terrain_adaptation':'beard_thin','spawn_overrides':{},'start_pool':'alfheim:ancient/roads_trade/caravan_court','size':3,'start_height':{'absolute':-DEPTH},'project_start_to_heightmap':'WORLD_SURFACE_WG','max_distance_from_center':116,'use_expansion_hack':False})
     emit('worldgen/structure_set/roads_trade.json',{'structures':[{'structure':'alfheim:roads_trade','weight':1}],'placement':{'type':'minecraft:random_spread','spacing':56,'separation':32,'salt':101220269}})

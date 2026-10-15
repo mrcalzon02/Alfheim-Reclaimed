@@ -1,0 +1,70 @@
+{
+  "world": "New World staven",
+  "mode": "read-only",
+  "chunk_range": [
+    -12,
+    12,
+    -12,
+    12
+  ],
+  "chunks": 625,
+  "crying_obsidian_count": {},
+  "samples": [],
+  "structure_starts": [
+    {
+      "chunk": [
+        3,
+        4
+      ],
+      "structure": "alfheim:hillcrown_keep",
+      "bounds": null,
+      "pieces": 1
+    },
+    {
+      "chunk": [
+        4,
+        5
+      ],
+      "structure": "alfheim:scholastic_quarter",
+      "bounds": null,
+      "pieces": 9
+    },
+    {
+      "chunk": [
+        9,
+        5
+      ],
+      "structure": "alfheim:roads_trade",
+      "bounds": null,
+      "pieces": 10
+    },
+    {
+      "chunk": [
+        4,
+        6
+      ],
+      "structure": "alfheim:pixie_winter_hamlet",
+      "bounds": null,
+      "pieces": 7
+    },
+    {
+      "chunk": [
+        10,
+        6
+      ],
+      "structure": "alfheim:deep_quarry",
+      "bounds": null,
+      "pieces": 9
+    },
+    {
+      "chunk": [
+        10,
+        6
+      ],
+      "structure": "alfheim:deepworks_headworks",
+      "bounds": null,
+      "pieces": 5
+    }
+  ],
+  "limit": "Bounded spawn-area sample; exact screenshot anomaly location has not been confirmed."
+}

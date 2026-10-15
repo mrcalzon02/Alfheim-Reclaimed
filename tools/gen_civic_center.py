@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import nbt
+from district_refit import detail_nbt
 from structure_nbt import Piece
 from gen_ancient_districts import B,box,bed,elven_remains,stone_debris,HOME_BIOMES
 from gen_elder_lineage import royal,bench,desk,mounted_banner,lift,STONE,CARVED,FLOOR,AIR,DEPTH
@@ -122,7 +123,7 @@ def generate(root=ROOT):
         p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
         p=data/'structures/ancient/civic_center'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True)
-        nbt.save(str(p),'',build(name).to_nbt());files.append(p)
+        nbt.save(str(p),'',detail_nbt(build(name), 'civic_center', name));files.append(p)
         emit(f'worldgen/template_pool/ancient/civic_center/{name}.json',{'name':'alfheim:ancient/civic_center/'+name,'fallback':'minecraft:empty','elements':[{'weight':1,'element':{'element_type':'minecraft:single_pool_element','location':'alfheim:ancient/civic_center/'+name,'projection':'rigid','processors':'minecraft:empty'}}]})
     emit('worldgen/structure/civic_center.json',{'type':'minecraft:jigsaw','biomes':'#alfheim:has_civic_center','step':'surface_structures','terrain_adaptation':'beard_thin','spawn_overrides':{},'start_pool':'alfheim:ancient/civic_center/assembly_hall','size':3,'start_height':{'absolute':-DEPTH},'project_start_to_heightmap':'WORLD_SURFACE_WG','max_distance_from_center':116,'use_expansion_hack':False})
     emit('worldgen/structure_set/civic_center.json',{'structures':[{'structure':'alfheim:civic_center','weight':1}],'placement':{'type':'minecraft:random_spread','spacing':56,'separation':32,'salt':101220264}})

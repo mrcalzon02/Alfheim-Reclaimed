@@ -163,5 +163,17 @@
     "validation_exit_code": 0,
     "background_markers": {},
     "client_visual": "pending"
+  },
+  "detail_refit_evidence": {
+    "date": "2026-10-15",
+    "state": "template_runtime_validated_visual_and_natural_pending",
+    "capability": "Continuity Works 0.3.2",
+    "report": "tools/continuity_district_refit_report.json",
+    "runtime_report": "tools/continuity_refit_runtime_report.json",
+    "changed_cells": 9529,
+    "relief_cells": 2570,
+    "detail_before": 194,
+    "detail_after": 2764,
+    "detail_ratio": 14.247
   }
 }

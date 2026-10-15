@@ -139,5 +139,17 @@
     "observation_stair": "clear_and_present",
     "exit_code": 0,
     "client_visual": "pending"
+  },
+  "detail_refit_evidence": {
+    "date": "2026-10-15",
+    "state": "template_runtime_validated_visual_and_natural_pending",
+    "capability": "Continuity Works 0.3.2",
+    "report": "tools/continuity_district_refit_report.json",
+    "runtime_report": "tools/continuity_refit_runtime_report.json",
+    "changed_cells": 10901,
+    "relief_cells": 2606,
+    "detail_before": 360,
+    "detail_after": 2966,
+    "detail_ratio": 8.239
   }
 }

@@ -1,7 +1,9 @@
 """Sacred-life roster: ritual courts repurposed as shelter, infirmary and mortuary."""
+import argparse
 import json
 from pathlib import Path
 import nbt
+from district_refit import detail_nbt
 from structure_nbt import Piece
 from gen_ancient_districts import B,box,bed,elven_remains,stone_debris,HOME_BIOMES
 from gen_elder_lineage import royal,bench,desk,mounted_banner,lift,STONE,CARVED,FLOOR,AIR,DEPTH
@@ -105,7 +107,7 @@ def generate(root=ROOT):
     def emit(path,value):
         p=data/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
-        p=data/'structures/ancient/sacred_precinct'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',build(name).to_nbt());files.append(p)
+        p=data/'structures/ancient/sacred_precinct'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',detail_nbt(build(name), 'sacred_precinct', name));files.append(p)
         emit(f'worldgen/template_pool/ancient/sacred_precinct/{name}.json',{'name':'alfheim:ancient/sacred_precinct/'+name,'fallback':'minecraft:empty','elements':[{'weight':1,'element':{'element_type':'minecraft:single_pool_element','location':'alfheim:ancient/sacred_precinct/'+name,'projection':'rigid','processors':'minecraft:empty'}}]})
     emit('worldgen/structure/sacred_precinct.json',{'type':'minecraft:jigsaw','biomes':'#alfheim:has_sacred_precinct','step':'surface_structures','terrain_adaptation':'beard_thin','spawn_overrides':{},'start_pool':'alfheim:ancient/sacred_precinct/great_temple_court','size':3,'start_height':{'absolute':-DEPTH},'project_start_to_heightmap':'WORLD_SURFACE_WG','max_distance_from_center':116,'use_expansion_hack':False})
     emit('tags/worldgen/biome/has_sacred_precinct.json',{'replace':False,'values':HOME_BIOMES})
@@ -113,4 +115,6 @@ def generate(root=ROOT):
         emit(f'loot_tables/chests/sacred/{table}.json',{'type':'minecraft:chest','pools':[{'rolls':2,'entries':[{'type':'minecraft:item','name':item} for item in items]}]})
     return files
 
-if __name__=='__main__':print('Sacred Precinct:',len(generate()),'files')
+if __name__=='__main__':
+    ap=argparse.ArgumentParser();ap.add_argument('--output-root',default=str(ROOT));args=ap.parse_args()
+    print('sacred_precinct:',len(generate(Path(args.output_root).resolve())),'files')

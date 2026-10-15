@@ -1,5 +1,13 @@
 # Backlog
 
+### Current structure follow-up — 2026-10-15
+
+Continuity Works district refit: eightfold detail floors, route preservation and separate
+ley-fracture authoring are implemented. Next: client review, current-corpus jigsaw and
+natural placement tests, independent 500-block reservation adapter, district/spawn
+setbacks and supported terrain approaches. Keep the approximate bounded harbor fitter.
+Existing roof-orphan/global-check coverage issues remain in the refit review record.
+
 ### B-94 — The September 11 field review: the ocean had nowhere to stop — **FRESH-WORLD MEASURED; CLIENT WALK PENDING**
 
 Three rejections, one defect. Reproduced against `saves/New World Ferngale`, 764,672 columns.

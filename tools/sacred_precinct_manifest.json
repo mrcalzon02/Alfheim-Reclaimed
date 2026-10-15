@@ -1,6 +1,6 @@
 {
-  "status": "runtime_validated_visual_pending",
-  "source_fingerprint": "0693641921078e0f09e470d053e46d68d391cf6254d170557df6c9a22a74b8c7",
+  "status": "static_validated_runtime_pending",
+  "source_fingerprint": "752af5e04fab2c02d10dbd162945303d94399690fe6fb1b5c81488b951fe96d7",
   "files": 18,
   "members": 7,
   "joins": 6,
@@ -127,15 +127,18 @@
     }
   ],
   "block_counts": {
-    "alfheim:ivory_livingrock_bricks": 55760,
-    "alfheim:moonstone_livingrock_carved": 16476,
-    "alfheim:ivory_livingrock_polished": 7942,
-    "minecraft:air": 196937,
+    "alfheim:ivory_livingrock_bricks": 52949,
+    "alfheim:moonstone_livingrock_carved": 17908,
+    "alfheim:ivory_livingrock_polished": 5935,
+    "minecraft:air": 195196,
     "minecraft:jigsaw": 12,
+    "botania:livingrock_bricks": 3386,
     "botania:elf_glass": 224,
-    "botania:dreamwood_log": 434,
+    "alfheim:ivory_livingrock_stairs": 1741,
+    "botania:dreamwood_log": 367,
     "botania:dreamwood_planks": 56,
     "minecraft:white_bed": 18,
+    "botania:stripped_dreamwood_log": 67,
     "alfheim:royal_lineage_stele_base": 6,
     "minecraft:barrel": 7,
     "minecraft:flower_pot": 6,
@@ -161,5 +164,17 @@
     "minecraft:green_carpet": 1,
     "alfheim:royal_tall_cabinet": 5,
     "minecraft:bookshelf": 1
+  },
+  "detail_refit_evidence": {
+    "date": "2026-10-15",
+    "state": "template_runtime_validated_visual_and_natural_pending",
+    "capability": "Continuity Works 0.3.2",
+    "report": "tools/continuity_district_refit_report.json",
+    "runtime_report": "tools/continuity_refit_runtime_report.json",
+    "changed_cells": 7229,
+    "relief_cells": 1741,
+    "detail_before": 97,
+    "detail_after": 1838,
+    "detail_ratio": 18.948
   }
 }

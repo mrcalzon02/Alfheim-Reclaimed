@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import nbt
+from district_refit import detail_nbt
 from structure_nbt import Piece
 from gen_ancient_districts import B,box,bed,elven_remains,skeletal_remains,stone_debris,HOME_BIOMES
 
@@ -228,7 +229,7 @@ def generate(root=ROOT):
         p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
         p=data/'structures/ancient/elder_lineage'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True)
-        nbt.save(str(p),'',build(name).to_nbt());files.append(p)
+        nbt.save(str(p),'',detail_nbt(build(name), 'elder_lineage', name));files.append(p)
         emit(f'worldgen/template_pool/ancient/elder_lineage/{name}.json',{
             'name':'alfheim:ancient/elder_lineage/'+name,'fallback':'minecraft:empty',
             'elements':[{'weight':1,'element':{'element_type':'minecraft:single_pool_element',

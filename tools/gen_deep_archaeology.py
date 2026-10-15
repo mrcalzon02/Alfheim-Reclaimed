@@ -962,16 +962,14 @@ def fault_centre(size, seed):
     shell_and_floor(p, cracked, floor)
     four_doors(p, 3, 4, 9)
     cx, cz = sx // 2, sz // 2
-    for radius in (7, 12, 17):
-        for y in range(3, 14 if radius == 7 else 8):
-            ring(p, cx, cz, y, radius, 1.2,
-                 B("minecraft:crying_obsidian") if y % 3 else B("alfheim:magmatic_livingrock"))
+    # The purple fracture is an independent ley_fracture structure now. The mine
+    # keeps its survey gantry, arches and services, without an anomaly occupying them.
     for x in range(2, sx - 2):
         for z in range(cz - 2, cz + 3):
             p.set(x, 2, z, rng.choice([B("alfheim:mana_glass_shadow"),
                                        B("alfheim:mana_glass_fire"),
                                        B("alfheim:mana_glass_light")]))
-    # A fractured multi-level survey ring crosses the anomaly instead of circling it at floor level.
+    # A multi-level survey gantry serves the instrument hall.
     gantry_rect(p, 7, 7, sx - 8, sz - 8, 9, "alfheim:gloam_livingrock_slab",
                 B("alfheim:leyline_livingrock_wall"), B("alfheim:leyline_livingrock_carved"))
     stair_flight_z(p, 9, 8, 3, 7, 2, "alfheim:gloam_livingrock_stairs", "south")
@@ -1041,12 +1039,7 @@ def fault_wing(size, seed):
                 if d < 1:
                     p.set(x, y, z, AIR)
                 elif d < 1.16 and rng.random() < 0.42:
-                    p.set(x, y, z, rng.choice([B("minecraft:crying_obsidian"),
-                                               B("alfheim:magmatic_livingrock"),
-                                               B("alfheim:mana_glass_shadow"),
-                                               B("alfheim:mana_glass_fire")]))
-    for radius in (10, 15, 20):
-        ring(p, cx, cz, 2 + radius // 5, radius, 1.3, B("minecraft:crying_obsidian"))
+                    p.set(x, y, z, cracked)
     # Suspended fracture bridges at two elevations, joined by opposing stair towers.
     #
     # Both decks used to be two slabs wide with their railings standing one block OUTSIDE the
@@ -1074,9 +1067,12 @@ def fault_wing(size, seed):
                   stair("alfheim:cracked_livingrock_stairs", "south" if z < cz else "north", "top"))
     cornice_rect(p, 3, 3, sx - 4, sz - 4, 22, "alfheim:cracked_livingrock_stairs",
                  "alfheim:gloam_livingrock_slab")
-    for _ in range(140):
-        p.set(rng.randrange(3, sx - 3), rng.randrange(3, 11), rng.randrange(3, sz - 3),
-              rng.choice([cracked, B("minecraft:crying_obsidian"), B("alfheim:magmatic_livingrock")]))
+    # No free-floating purple debris in the mine's crossing routes.
+    # Retain the mine's working technology as flush, supported instrument channels,
+    # rather than decorating its cavern shell with the independent purple fracture.
+    for x in range(6, sx - 6):
+        for z in (cz - 4, cz + 4):
+            p.set(x, 2, z, B("alfheim:mana_glass_fire" if x % 8 == 0 else "alfheim:mana_glass_shadow"))
     for pos in ((7, 3, 37), (39, 3, 37), (23, 3, 40)):
         barrel(p, *pos, "faultwork_salvage")
     wing_jigsaw(p, "faultwork")

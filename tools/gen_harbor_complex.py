@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import nbt
+from district_refit import detail_nbt
 from structure_nbt import Piece
 from gen_ancient_districts import B,box,bed,elven_remains,stone_debris
 from gen_elder_lineage import royal,bench,desk,mounted_banner,lift,STONE,CARVED,FLOOR,AIR,DEPTH
@@ -111,7 +112,7 @@ def generate(root=ROOT):
     def emit(path,value):
         p=data/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
-        p=data/'structures/ancient/harbor_complex'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',build(name).to_nbt());files.append(p)
+        p=data/'structures/ancient/harbor_complex'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',detail_nbt(build(name), 'harbor_complex', name));files.append(p)
         emit(f'worldgen/template_pool/ancient/harbor_complex/{name}.json',{'name':'alfheim:ancient/harbor_complex/'+name,'fallback':'minecraft:empty','elements':[{'weight':1,'element':{'element_type':'minecraft:single_pool_element','location':'alfheim:ancient/harbor_complex/'+name,'projection':'rigid','processors':'minecraft:empty'}}]})
     for sx,sz in sorted({(size[0],size[2]) for size in SIZES.values()}):
         for lift_by in (2,4,6):

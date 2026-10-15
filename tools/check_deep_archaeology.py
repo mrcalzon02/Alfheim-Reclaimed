@@ -283,7 +283,8 @@ def main():
     for role in manifest["families"][2]["pieces"]:
         _, piece = nbt.load(os.path.join(DATA, "structures", "deepworks_archaeology", "faultwork", role + ".nbt"))
         fault_names |= {entry["Name"] for entry in piece["palette"]}
-    assert "minecraft:crying_obsidian" in fault_names
+    assert not {"minecraft:crying_obsidian", "alfheim:magmatic_livingrock"} & fault_names, \
+        'The independent ley fracture must not be authored inside mine templates'
     assert {"alfheim:mana_glass_shadow", "alfheim:mana_glass_fire", "alfheim:mana_glass_light"} <= fault_names
     salvage = read(os.path.join(DATA, "loot_tables", "chests", "faultwork_salvage.json"))
     assert "occultism:burnt_otherstone" in json.dumps(salvage)

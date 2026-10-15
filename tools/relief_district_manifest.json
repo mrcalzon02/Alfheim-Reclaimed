@@ -162,5 +162,17 @@
     "remains_clusters_skulls": 40,
     "exit_code": 0,
     "client_visual": "pending"
+  },
+  "detail_refit_evidence": {
+    "date": "2026-10-15",
+    "state": "template_runtime_validated_visual_and_natural_pending",
+    "capability": "Continuity Works 0.3.2",
+    "report": "tools/continuity_district_refit_report.json",
+    "runtime_report": "tools/continuity_refit_runtime_report.json",
+    "changed_cells": 10986,
+    "relief_cells": 2448,
+    "detail_before": 238,
+    "detail_after": 2686,
+    "detail_ratio": 11.286
   }
 }

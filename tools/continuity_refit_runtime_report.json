@@ -1,0 +1,1369 @@
+{
+  "status": "LOCALLY_VALIDATED",
+  "runtime": "dedicated Forge 1.20.1 template placement and saved-world census",
+  "natural_placement": "RUNTIME_TEST_REQUIRED",
+  "visual_review": "pending",
+  "world": "validation-cw-refit-gallery-20261015",
+  "console": "server\\console-20261015-013631.log",
+  "templates": [
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\artisan_house_shop.nbt",
+      "origin": [
+        0,
+        112,
+        0
+      ],
+      "relief_and_fixture_cells": 153,
+      "sample_matched": 265,
+      "sample_total": 265,
+      "sha256": "e58e46627ee06aaea6ac0b39cc7f83aeb09905e2f462354c2dd604cd6b52a050"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\avenue_east.nbt",
+      "origin": [
+        64,
+        112,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 257,
+      "sample_total": 257,
+      "sha256": "6a48e5bbc2b19a39359086e50aad7dfc2873e41f894f9419844aeb2f07542ddf"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\avenue_north.nbt",
+      "origin": [
+        128,
+        112,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 258,
+      "sample_total": 258,
+      "sha256": "93679ba69db70908f5726f28518c352c5e9f09145cbcd7be70a7646360b3ab2a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\avenue_south.nbt",
+      "origin": [
+        192,
+        112,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 257,
+      "sample_total": 257,
+      "sha256": "f0c0c39b9a38cf788d8c1800bca010ba820c267e3377727ce2f76b93ef66589e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\avenue_west.nbt",
+      "origin": [
+        256,
+        112,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 257,
+      "sample_total": 257,
+      "sha256": "95aa65aacbc536f4448c9c3533ae4f800b0159072feb78a8cfaa1019baf0633c"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\collapsed_trace_field.nbt",
+      "origin": [
+        320,
+        112,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 328,
+      "sample_total": 328,
+      "sha256": "295d9d8463713c0ee0a5ca3d71ea0fb1b11b19f03c3080ee80f3e1f3b09a7e62"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\common_row_house.nbt",
+      "origin": [
+        0,
+        112,
+        64
+      ],
+      "relief_and_fixture_cells": 172,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "9170287b31518dfb77d9fdb1c8904a5fd4a6df64cfc13ea320da55e25ae6f2bb"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\courtyard_home.nbt",
+      "origin": [
+        64,
+        112,
+        64
+      ],
+      "relief_and_fixture_cells": 152,
+      "sample_matched": 263,
+      "sample_total": 263,
+      "sha256": "74589d61025530883a0a4f11e67ec162fe6f26aa7b4e07157729b5602055379b"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\district_cistern.nbt",
+      "origin": [
+        128,
+        112,
+        64
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 257,
+      "sample_total": 257,
+      "sha256": "ccaa1b6279ac1e0856917ba4aaa4f6f95f95f6f10cb06d5131243ee77e0670f1"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\district_mass_grave.nbt",
+      "origin": [
+        192,
+        112,
+        64
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "56f2f5965e3c0301d73143e1dfbdfccfa73b50c140778cc118ac51e3564c1540"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\extended_kin_hall.nbt",
+      "origin": [
+        256,
+        112,
+        64
+      ],
+      "relief_and_fixture_cells": 221,
+      "sample_matched": 267,
+      "sample_total": 267,
+      "sha256": "ca152735be4a77ac5f389101468df58e8932caa4c004098f61bf86749b23ea88"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\common_residential\\neighborhood_common_hall.nbt",
+      "origin": [
+        320,
+        112,
+        64
+      ],
+      "relief_and_fixture_cells": 559,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "9a1f41f27ef4c862d2b51208324e026440c5f4e9405952b007fcbb1ac8a06a9e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\ancestor_court.nbt",
+      "origin": [
+        0,
+        112,
+        128
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "20537591cf5e5547e64981719a19b73163cb08714e17c3ced5ab13165e2a84dc"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\ancestral_gallery.nbt",
+      "origin": [
+        64,
+        112,
+        128
+      ],
+      "relief_and_fixture_cells": 524,
+      "sample_matched": 251,
+      "sample_total": 252,
+      "sha256": "84bbeb51ff2425efdc68963f39c2a4cd6ed379b4d0eaa76e544a9a4727827a26"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\family_mausoleum.nbt",
+      "origin": [
+        128,
+        112,
+        128
+      ],
+      "relief_and_fixture_cells": 611,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "0a4a863db1e928f157b345988e2cad8da40b236dbb984a0d4f4358d38c1457a0"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\family_residence.nbt",
+      "origin": [
+        192,
+        112,
+        128
+      ],
+      "relief_and_fixture_cells": 634,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "18edb9ad3aab69bd1f9478b08a047f65973c46e1da1e007868a7e3f1caf31a1d"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\gate_court.nbt",
+      "origin": [
+        256,
+        112,
+        128
+      ],
+      "relief_and_fixture_cells": 49,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "fcac28581f69a484487a877b68dda3edd7a7798508fabbf0dcd513473a0e3fc2"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\household_service.nbt",
+      "origin": [
+        320,
+        112,
+        128
+      ],
+      "relief_and_fixture_cells": 495,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "e1c13cc34b0805f5b1fd2c0e5ebf9136285db48f5abd25911a4ab129b94957de"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\palace_center.nbt",
+      "origin": [
+        0,
+        112,
+        192
+      ],
+      "relief_and_fixture_cells": 702,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "44575416f7543cd07ba8fdc01d9013fa5bc2c9d7ce09465c79efd20084d02da6"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\processional_entry.nbt",
+      "origin": [
+        64,
+        112,
+        192
+      ],
+      "relief_and_fixture_cells": 25,
+      "sample_matched": 259,
+      "sample_total": 259,
+      "sha256": "e673c487659943ec5ed19850ffaaf11392b996dc0b13bd03de8e0863cab9fb1a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\elder_lineage\\retainer_house.nbt",
+      "origin": [
+        128,
+        112,
+        192
+      ],
+      "relief_and_fixture_cells": 495,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "fafeb3f0be066c32fab1ed6589728671ece52a6f7bd3360f8e729fc243df7fb4"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\assembly_hall.nbt",
+      "origin": [
+        192,
+        112,
+        192
+      ],
+      "relief_and_fixture_cells": 681,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "7b51fca0f76247a866398f58118453aa948fea2d439bdc4ce0949c99e1a0e12e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\census_hall.nbt",
+      "origin": [
+        256,
+        112,
+        192
+      ],
+      "relief_and_fixture_cells": 490,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "41c34d6354c89d433b6f5cccb2ff0d65b9aa56888f897196548246562c975408"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\council_house.nbt",
+      "origin": [
+        320,
+        112,
+        192
+      ],
+      "relief_and_fixture_cells": 634,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "a62f4abc20fb8847811d3e6481e875bde04ed2c776f88d0fcf6ad8d3f610b9f0"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\market_court.nbt",
+      "origin": [
+        0,
+        112,
+        256
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "4f676f30254c6d00d3382602031c4661f2d0d4b8324ff1f5eb392506d96a6849"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\processional_avenue.nbt",
+      "origin": [
+        64,
+        112,
+        256
+      ],
+      "relief_and_fixture_cells": 25,
+      "sample_matched": 260,
+      "sample_total": 260,
+      "sha256": "5c49e5f3873ca233cddc7b0282e29b9c1f40e5458e461a2f1515ed139dee56dd"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\public_forum.nbt",
+      "origin": [
+        128,
+        112,
+        256
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "36785504a1888aa52f037d9525eadd8ede3f4e6f72cc6b8170219d27044a4abb"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\public_kitchen.nbt",
+      "origin": [
+        192,
+        112,
+        256
+      ],
+      "relief_and_fixture_cells": 497,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "633a9ff2205f3694265f92d487af05c54b39adf9ebcf07f17fa285e634be6b2c"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\record_house.nbt",
+      "origin": [
+        256,
+        112,
+        256
+      ],
+      "relief_and_fixture_cells": 609,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "660385b5c1f9f7883fa43bc49e4cb765bf55a62b7010691cdd2e87994a43e71f"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\civic_center\\service_court.nbt",
+      "origin": [
+        320,
+        112,
+        256
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "74cc176d7900f1838b0dc426e8b6cf5ce83fe1ee8a9f281153ab63d2b5d9ec10"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\ash_pits.nbt",
+      "origin": [
+        0,
+        112,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 259,
+      "sample_total": 259,
+      "sha256": "e1aad8d0c157d6336996d6267bd49768bf9714a2e3a1696a2601ba5ab9347ca3"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\corpse_cart_way.nbt",
+      "origin": [
+        64,
+        112,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 257,
+      "sample_total": 257,
+      "sha256": "4a84f7b9bde51b912535ae7d5dcca8819de3115b278b2e6faec37026c4abeb92"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\digger_shelter.nbt",
+      "origin": [
+        128,
+        112,
+        320
+      ],
+      "relief_and_fixture_cells": 307,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "7493c7a44ad022cd82170c800a28c5d63d65f3049dd6bcb386e2a0eb60e6a271"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\healer_cloister.nbt",
+      "origin": [
+        192,
+        112,
+        320
+      ],
+      "relief_and_fixture_cells": 521,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "b171c2073dbc2a6f150ca591ad13528742e7bff896ad0281abcf4e5e0810486e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\hospice_hall.nbt",
+      "origin": [
+        256,
+        112,
+        320
+      ],
+      "relief_and_fixture_cells": 523,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "e7d87abf4c301df3ff1805525cac38f291a46e1e23ab84242dca08ab2a02c824"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\mass_grave.nbt",
+      "origin": [
+        320,
+        112,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "2edf79d236d9dd97b345b337ec163a6a1793d7c295e01095cfaa05916606ddcf"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\quarantine_checkpoint.nbt",
+      "origin": [
+        0,
+        160,
+        0
+      ],
+      "relief_and_fixture_cells": 23,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "af263e840a92d263df904511ce38ab9d4538d5cdcfe7c5d63fc68b153f24919d"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\ration_hall.nbt",
+      "origin": [
+        64,
+        160,
+        0
+      ],
+      "relief_and_fixture_cells": 413,
+      "sample_matched": 255,
+      "sample_total": 255,
+      "sha256": "36d88871f57165f303be4494da8cbe3fae3dd9c9061618d5c4c021fdcdd934a4"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\sealed_store.nbt",
+      "origin": [
+        128,
+        160,
+        0
+      ],
+      "relief_and_fixture_cells": 499,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "1ae6bff01b43f3a21523cd7d6633975a3e0d7720aaf79c60956cd58600014e7d"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\supply_court.nbt",
+      "origin": [
+        192,
+        160,
+        0
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "9d3b3a99547cfd40dac0bb0d229fd8218105aa759d18e0c61683499af1efca83"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\relief_district\\triage_court.nbt",
+      "origin": [
+        256,
+        160,
+        0
+      ],
+      "relief_and_fixture_cells": 169,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "3872a79e4e0d0fb09193a5385b65416dad87c5567863c3f2511920633eeb6d23"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\archive_cloister.nbt",
+      "origin": [
+        320,
+        160,
+        0
+      ],
+      "relief_and_fixture_cells": 650,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "fb0fa1f8050207239c5d5fd75409824a3c6535b8f0766d2ad6d210a53a9be73c"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\astral_conservatory.nbt",
+      "origin": [
+        0,
+        160,
+        64
+      ],
+      "relief_and_fixture_cells": 46,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "8a6b6db2c4f18e380e8b79315930a15a2d81aaa26cb0729993b8a900bc449c22"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\botanical_research_garden.nbt",
+      "origin": [
+        64,
+        160,
+        64
+      ],
+      "relief_and_fixture_cells": 32,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "7d584452a8b9ac414f1633087a3dbe9cfd4c08c466c4f63255f32c3689b4a59a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\entry_court.nbt",
+      "origin": [
+        128,
+        160,
+        64
+      ],
+      "relief_and_fixture_cells": 7,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "f96ded73a3e6931d6f66894257fc6a4f077cd4f902f75d8bac06713a86df3bc8"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\lore_college.nbt",
+      "origin": [
+        192,
+        160,
+        64
+      ],
+      "relief_and_fixture_cells": 697,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "4600c8249664bb9b450c6fbc5868485f6c4740b601bbb8744b62e5797bc9ae84"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\philosopher_court.nbt",
+      "origin": [
+        256,
+        160,
+        64
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "e9e500d4ba7844efec3bfff45ee88465f2c329e8ef468d6895b7b4666e4e78d8"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\runic_engineering_hall.nbt",
+      "origin": [
+        320,
+        160,
+        64
+      ],
+      "relief_and_fixture_cells": 648,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "a5a07973e8a911294a9a96ce7c83e69df967ce12bacd981920061c45e680af8e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\scholars_avenue.nbt",
+      "origin": [
+        0,
+        160,
+        128
+      ],
+      "relief_and_fixture_cells": 25,
+      "sample_matched": 258,
+      "sample_total": 258,
+      "sha256": "aa905ffe506ac3c2746562a2b07b4955def0a4dac344bb02567ed676620f57ae"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\scholastic_quarter\\student_residence.nbt",
+      "origin": [
+        64,
+        160,
+        128
+      ],
+      "relief_and_fixture_cells": 509,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "df62ccc87d2b2d3d84235b19efa8acb08910dd08ba383fb41c110ca37ddfb242"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\distribution_depot.nbt",
+      "origin": [
+        128,
+        160,
+        128
+      ],
+      "relief_and_fixture_cells": 709,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "c10effc59cfe74574bac0b74f69c9c747866f9835a79ab4ae81156b24e28f4ca"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\dreamwood_shaping_court.nbt",
+      "origin": [
+        192,
+        160,
+        128
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 255,
+      "sample_total": 255,
+      "sha256": "9dab304b27a127a01300d3f809643ac9a5c9786e58d3be5e177fe4fe82ad8dea"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\freight_approach.nbt",
+      "origin": [
+        256,
+        160,
+        128
+      ],
+      "relief_and_fixture_cells": 9,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "9669c66c293613996d39a599461672093b01efb21a830b4bda8ba960aaf43686"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\freight_yard.nbt",
+      "origin": [
+        320,
+        160,
+        128
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "c19767eb35f56da17458582d17b1a575959caaa6bc45b32742554ce6d8e9c189"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\glass_bloom_house.nbt",
+      "origin": [
+        0,
+        160,
+        192
+      ],
+      "relief_and_fixture_cells": 509,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "b612f13bd5e8de347476e79b2a0c6da2e99082067cb526b40fbfcd6b022052cc"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\guard_post.nbt",
+      "origin": [
+        64,
+        160,
+        192
+      ],
+      "relief_and_fixture_cells": 430,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "01df8c060184dfc505e07d18de3a45ab98e62ed90d021ed246065d550bec700a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\mana_mill.nbt",
+      "origin": [
+        128,
+        160,
+        192
+      ],
+      "relief_and_fixture_cells": 643,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "b1fae09ddfa0e6284022c56e4fffae5cb57c88836d1acefbad33625f6f1e2366"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\resonance_foundry.nbt",
+      "origin": [
+        192,
+        160,
+        192
+      ],
+      "relief_and_fixture_cells": 673,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "1ad93d3cddaf4023272f1289677c69ce6f18ea79c3df16b4f1d676adf551328f"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\waterworks.nbt",
+      "origin": [
+        256,
+        160,
+        192
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "960650edc81d188ae7dbe8dd9112595fe4cdff6f8c05200e43e1ba766e6c603a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\production_district\\worker_housing.nbt",
+      "origin": [
+        320,
+        160,
+        192
+      ],
+      "relief_and_fixture_cells": 509,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "f7c41ddd9ea2b549090ee59572b79538200a35ef58391aa043f23b9fbc2b8099"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\farm_approach.nbt",
+      "origin": [
+        0,
+        160,
+        256
+      ],
+      "relief_and_fixture_cells": 9,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "f00b59a3e7de86a2196d2626196271a5f2402deebdaa9a353a37130c52e355a4"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\fungus_conservatory.nbt",
+      "origin": [
+        64,
+        160,
+        256
+      ],
+      "relief_and_fixture_cells": 698,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "d9e0fd167326e83ef723bc2ee24dfc2222f0f3c9897b1aa410daf851de5c4b98"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\harvest_court.nbt",
+      "origin": [
+        128,
+        160,
+        256
+      ],
+      "relief_and_fixture_cells": 4,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "9f3025f5971ca51ef07f3b61e097af32f97349f8f3a6357a76abea4d0f7b7f32"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\keeper_housing.nbt",
+      "origin": [
+        192,
+        160,
+        256
+      ],
+      "relief_and_fixture_cells": 551,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "9e8d9ac80bbe05e5996a5ed9eca4ec4adc8ee1d3b0d163276c5b6358dc2183f7"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\pollinator_sanctuary.nbt",
+      "origin": [
+        256,
+        160,
+        256
+      ],
+      "relief_and_fixture_cells": 32,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "ea92e7dfd46edcb31973290799bc0f19e98c58d8f396800bba17affd443abf77"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\root_granary.nbt",
+      "origin": [
+        320,
+        160,
+        256
+      ],
+      "relief_and_fixture_cells": 710,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "ca23edbbf68378dc1d79a6804d96ff2dbd08f06b7980a5579d85152b0e9cd190"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\seed_vault.nbt",
+      "origin": [
+        0,
+        160,
+        320
+      ],
+      "relief_and_fixture_cells": 573,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "c43702658ecf6c314b2fc73348085c965e97db85f9e18ba267b32c211511ac01"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\survival_terraces.nbt",
+      "origin": [
+        64,
+        160,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "e530f487707df88ecf9811a2b742495f71d7b46befd29eee96f0bbc3c6a9d708"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\terraced_orchard.nbt",
+      "origin": [
+        128,
+        160,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "a14df5697e9e6b0fe1b0ef70c96c70188cddd82beba3338ec16945e3fac6b0f9"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\agricultural_estate\\water_garden.nbt",
+      "origin": [
+        192,
+        160,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "2722857ede40fa6c6a31154761dd9955a6ea278aceb20e391e8c183af1faf7a9"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\bonded_store.nbt",
+      "origin": [
+        256,
+        160,
+        320
+      ],
+      "relief_and_fixture_cells": 573,
+      "sample_matched": 255,
+      "sample_total": 255,
+      "sha256": "ce2cac06929388884fa0c873d39d4d360079da86f42c2a129ea4e23e78d6051a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\bridge_gate.nbt",
+      "origin": [
+        320,
+        160,
+        320
+      ],
+      "relief_and_fixture_cells": 25,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "2059e6f9376954d7e33a2fceaee85c369c4d501a92d74abff830b94f6b2e316a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\caravan_court.nbt",
+      "origin": [
+        0,
+        208,
+        0
+      ],
+      "relief_and_fixture_cells": 77,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "85798f089da168d5f6be1ffc0411dc5a68992bb22f08e633eab684344d236fba"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\custom_house.nbt",
+      "origin": [
+        64,
+        208,
+        0
+      ],
+      "relief_and_fixture_cells": 716,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "98a98b2289a51716946c22e05c95916975604d1473a99a445656524dda2d1763"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\freight_exchange.nbt",
+      "origin": [
+        128,
+        208,
+        0
+      ],
+      "relief_and_fixture_cells": 698,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "48c02aa88ab95de0e51346fbc3b458bd149717993f4ff6c8ac42d84fae16cb56"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\processional_avenue.nbt",
+      "origin": [
+        192,
+        208,
+        0
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "fb8d84d24acf6d6b45526f6cf44b4afafaf3f4b82d465462ef39a3f9692b1bdb"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\refugee_lodge.nbt",
+      "origin": [
+        256,
+        208,
+        0
+      ],
+      "relief_and_fixture_cells": 551,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "99be45fa0ce84a6f1dca4d7a17377e23c9e70eef1688285883fdf7e9b62f8d20"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\road_approach.nbt",
+      "origin": [
+        320,
+        208,
+        0
+      ],
+      "relief_and_fixture_cells": 9,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "4c095108601ccdfa946f98be774314d306cddbabfc6d0675ed22647a19d0bdbe"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\road_checkpoint.nbt",
+      "origin": [
+        0,
+        208,
+        64
+      ],
+      "relief_and_fixture_cells": 7,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "1e0d8439d27282a84f59aac63501007e3d8c1f46e744c3c173c3278632af9f7d"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\roads_trade\\wayshrine_rest.nbt",
+      "origin": [
+        64,
+        208,
+        64
+      ],
+      "relief_and_fixture_cells": 477,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "ccccc46acb9e0372b0548cd8b6a1cc9816866a9ac768fd4386a7cfc8737e23fe"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\bonded_warehouse.nbt",
+      "origin": [
+        128,
+        208,
+        64
+      ],
+      "relief_and_fixture_cells": 720,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "cb7a5bf2e700fe9d25f0f465cfd4dd3394a8514e3cb01fdfe61a61a708efb327"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\dockworker_housing.nbt",
+      "origin": [
+        192,
+        208,
+        64
+      ],
+      "relief_and_fixture_cells": 551,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "57a29354e45d2cdd6b2364217943267a79d04a7c23f0b55d2b9e5a52efe649eb"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\harbor_approach.nbt",
+      "origin": [
+        256,
+        208,
+        64
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 255,
+      "sample_total": 255,
+      "sha256": "00ef59faa6d9a34a0112f0e0119445f2d26cf094f94068538ce6b327ceed2004"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\harbor_exchange.nbt",
+      "origin": [
+        320,
+        208,
+        64
+      ],
+      "relief_and_fixture_cells": 769,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "9d6402def1e7b57f8586fad7bf94e88a4995afb2e43490c4de0d1b94e763e5de"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\harbormaster_house.nbt",
+      "origin": [
+        0,
+        208,
+        128
+      ],
+      "relief_and_fixture_cells": 697,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "09a771dcdcd7b566c2357a0db86a51df1257ed1ce2f712eb144748e52ab98d05"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\quay_court.nbt",
+      "origin": [
+        64,
+        208,
+        128
+      ],
+      "relief_and_fixture_cells": 4,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "3d352decc5ce379e95330dacc885b372e2cfd19cd41cdc472535d89a45716874"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\signal_lighthouse.nbt",
+      "origin": [
+        128,
+        208,
+        128
+      ],
+      "relief_and_fixture_cells": 520,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "92f82f8bfaba9bc55f13640a9590f2a7f43d9d3901be41a85de3a55bfcc71cbb"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\sunken_drydock.nbt",
+      "origin": [
+        192,
+        208,
+        128
+      ],
+      "relief_and_fixture_cells": 17,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "3c20996c56452c9f9b0899bafceba7314e4326a8ed7068fc6d3c5e65d32fa7c8"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\tide_temple.nbt",
+      "origin": [
+        256,
+        208,
+        128
+      ],
+      "relief_and_fixture_cells": 551,
+      "sample_matched": 251,
+      "sample_total": 251,
+      "sha256": "8726aada3da86f15759f63e8aad081b634b74e8358272f09039b02f16898d03a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\harbor_complex\\wavebreak_pier.nbt",
+      "origin": [
+        320,
+        208,
+        128
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "3d6f8b1a43a2dac62d74c6ed422b739f6c0f4f49161ec893cdadb858e6582100"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\ancestor_reflection_pool.nbt",
+      "origin": [
+        0,
+        208,
+        192
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "0c5e552884fa13b48ca912e73d932faf6ace8cdc70dfb6692b414fb9a20bca3e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\great_temple_court.nbt",
+      "origin": [
+        64,
+        208,
+        192
+      ],
+      "relief_and_fixture_cells": 563,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "d4e5aac308aa04ed18b8a9624e5ec77b7fd42b841559aec71cecca99817f87e9"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\pilgrim_chapel.nbt",
+      "origin": [
+        128,
+        208,
+        192
+      ],
+      "relief_and_fixture_cells": 349,
+      "sample_matched": 255,
+      "sample_total": 255,
+      "sha256": "5cd9daa48315dd44bd356623b231502805e649243504421945973988c4a014f5"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\processional_approach.nbt",
+      "origin": [
+        192,
+        208,
+        192
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 257,
+      "sample_total": 257,
+      "sha256": "1efed191c96b172b68ce1020446b308321102cfeebfb01c7f790c0753e47cee4"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\rite_house.nbt",
+      "origin": [
+        256,
+        208,
+        192
+      ],
+      "relief_and_fixture_cells": 407,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "a2ba7fe7f2954a91948b01db8dd631fb77602c0b2c4debb3b9dcede876dcddd5"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\root_star_shrine.nbt",
+      "origin": [
+        320,
+        208,
+        192
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "eef52fa07989b7187c4904cf90d8910618a4dd305e7785a8b85e4032ea8788c1"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\sacred_precinct\\temple_reliquary.nbt",
+      "origin": [
+        0,
+        208,
+        256
+      ],
+      "relief_and_fixture_cells": 426,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "5ba8a7764e2be1d13ecdb395b328d6726224855b800331b1ed33b7df61e6dac3"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\military_warden\\border_keep.nbt",
+      "origin": [
+        64,
+        208,
+        256
+      ],
+      "relief_and_fixture_cells": 809,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "9d05bf23595f403351000b78739d027dbe79652b62730d13f3c2a48860c5ca59"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\military_warden\\discipline_guard_court.nbt",
+      "origin": [
+        128,
+        208,
+        256
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "f5132de55cd0ee2a262873f7be4af9250b982bc0cf8f6677e9a930d5d3a3f596"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\military_warden\\gate_barracks.nbt",
+      "origin": [
+        192,
+        208,
+        256
+      ],
+      "relief_and_fixture_cells": 287,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "47419ad9ab79122c68059e2b6d87cf9187a4e551ae2ae34697006e4d61a923f0"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\military_warden\\last_muster_ground.nbt",
+      "origin": [
+        256,
+        208,
+        256
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "ad234f90a2937969eb17b7aa16daa3488ea73a7a88a17282b4e26444e891e5b4"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\military_warden\\warden_tower.nbt",
+      "origin": [
+        320,
+        208,
+        256
+      ],
+      "relief_and_fixture_cells": 523,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "5a91b0b5fbf16179d79d31e131c7c6a23956c69671f32ff522abc3323e2af4d8"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\military_warden\\watch_captain_house.nbt",
+      "origin": [
+        0,
+        208,
+        320
+      ],
+      "relief_and_fixture_cells": 298,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "6bcdb5b638b4fa8b0ee3f47a10e20434dc9915cf41290561990844de49c0411d"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\frontier_stewardship\\forest_waystation.nbt",
+      "origin": [
+        64,
+        208,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "29a5fed733376e352fb036a68dde59658d2f16a75372e72cb84b78b277f2cea7"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\frontier_stewardship\\green_noble_lodge.nbt",
+      "origin": [
+        128,
+        208,
+        320
+      ],
+      "relief_and_fixture_cells": 545,
+      "sample_matched": 253,
+      "sample_total": 253,
+      "sha256": "6869ddfb8798b84af20715b9a9697d3eed7862ed888fc98505fbf503c124c56a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\frontier_stewardship\\moon_pool_sanctuary.nbt",
+      "origin": [
+        192,
+        208,
+        320
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "0c8f1db61fbc99873fd114524deb93f2f68084c3c04f3d9ddf3a678f03ff6db1"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\frontier_stewardship\\outlying_retreat_hall.nbt",
+      "origin": [
+        256,
+        208,
+        320
+      ],
+      "relief_and_fixture_cells": 477,
+      "sample_matched": 254,
+      "sample_total": 254,
+      "sha256": "5890b7a626660d46d9244cbb55a16c42627f5c6c00694a97dee8936edbe6ff1e"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\frontier_stewardship\\surveyor_tower.nbt",
+      "origin": [
+        320,
+        208,
+        320
+      ],
+      "relief_and_fixture_cells": 1019,
+      "sample_matched": 255,
+      "sample_total": 255,
+      "sha256": "e399b63378ed45ed381cb55af49a1174b4861880b5398ac5c0d3313bc407e962"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ancient\\frontier_stewardship\\wild_ward_shrine.nbt",
+      "origin": [
+        0,
+        256,
+        0
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 256,
+      "sample_total": 256,
+      "sha256": "a2a0001c2e1b540e2618c48a840c2568370b3c77cb7d14c4a365851bc7af7e6f"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\deepworks_archaeology\\faultwork\\approach.nbt",
+      "origin": [
+        64,
+        256,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 249,
+      "sample_total": 253,
+      "sha256": "724bb2a766a0cad51b7abeb7483420466859d20c86551995316d7d16ab7ba5fc"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\deepworks_archaeology\\faultwork\\centre.nbt",
+      "origin": [
+        128,
+        256,
+        0
+      ],
+      "relief_and_fixture_cells": 0,
+      "sample_matched": 248,
+      "sample_total": 255,
+      "sha256": "40a0dad5daf896e6c90182b9afd9370ed4869aa200e2f4a167e694d68734f77a"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\deepworks_archaeology\\faultwork\\wing.nbt",
+      "origin": [
+        192,
+        256,
+        0
+      ],
+      "relief_and_fixture_cells": 3,
+      "sample_matched": 250,
+      "sample_total": 254,
+      "sha256": "1db534b6d87006e23bbff3c1ecce01c8fb0afa03d8041306f3bc3bd70029c67c"
+    },
+    {
+      "template": "kubejs\\data\\alfheim\\structures\\ley_fracture\\core.nbt",
+      "origin": [
+        256,
+        256,
+        0
+      ],
+      "relief_and_fixture_cells": 1,
+      "sample_matched": 252,
+      "sample_total": 252,
+      "sha256": "7c518861c7caaf2e746ac93efdd4a0984edee72d9bc3450cc77817b32011a8db"
+    }
+  ],
+  "seed": "3536368297089363045",
+  "minecraft": "1.20.1",
+  "forge": "47.4.10"
+}

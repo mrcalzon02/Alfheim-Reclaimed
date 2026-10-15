@@ -60,11 +60,20 @@ Screenshot reference: `codex-clipboard-f5dc3c85-97db-41e8-a51e-6160b0d5ed5f.png`
    and scale redesign; source existence and assembly joins do not establish
    acceptable architecture. Do not admit Sacred/Warden/Frontier yet. Preserve the
    accepted approximate, bounded harbor policy.
+   October 15: the Continuity Works refit adds at least eight times the original
+   detail-block count across all twelve families, with protected routes and fixtures.
+   See `CONTINUITY_DISTRICT_REFIT.md`; natural placement/scale/visual acceptance
+   remains open, and this does not repair the existing district overlap policy.
 4. **Underground connections:** identify the crying-obsidian/magmatic-livingrock
    intrusion in the save. These materials appear in Faultwork templates; this is
    a candidate identity, not proof of an independent overlapping structure.
    Shared headworks/dungeon grid coordinates do not guarantee connected sockets:
    verify actual rotation, shaft termination, depth and entrance attachment.
+   October 15: removed the confirmed authored purple anomaly geometry from the
+   Faultwork mine builders; a separate ley_fracture template/pool/structure now
+   owns it. Its natural set is blocked pending the 500-block reservation adapter.
+   The bounded saved-world sample did not locate the precise photographed intrusion;
+   existing player chunks and shaft-attachment verification remain untouched.
 5. **Void island foundations:** add bounded, tapered native geological undersides
    to ruins, with distinct silhouettes and roots where appropriate. Preserve
    broken-span gaps and fit to the structure datum. These have not been added by

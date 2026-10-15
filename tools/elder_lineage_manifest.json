@@ -129,5 +129,17 @@
     "dynastic_burials": 4,
     "exit_code": 0,
     "client_visual": "pending"
+  },
+  "detail_refit_evidence": {
+    "date": "2026-10-15",
+    "state": "template_runtime_validated_visual_and_natural_pending",
+    "capability": "Continuity Works 0.3.2",
+    "report": "tools/continuity_district_refit_report.json",
+    "runtime_report": "tools/continuity_refit_runtime_report.json",
+    "changed_cells": 12433,
+    "relief_cells": 3527,
+    "detail_before": 410,
+    "detail_after": 3937,
+    "detail_ratio": 9.602
   }
 }

@@ -1,7 +1,9 @@
 """Remote elven stewardship retreat, adapted into a final wilderness refuge."""
+import argparse
 import json
 from pathlib import Path
 import nbt
+from district_refit import detail_nbt
 from structure_nbt import Piece
 from gen_ancient_districts import B,box,bed,elven_remains,HOME_BIOMES
 from gen_elder_lineage import royal,bench,desk,canopy_bed,lift,STONE,CARVED,FLOOR,AIR,DEPTH
@@ -109,7 +111,7 @@ def generate(root=ROOT):
     def emit(path,value):
         p=data/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
-        p=data/'structures/ancient/frontier_stewardship'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',build(name).to_nbt());files.append(p)
+        p=data/'structures/ancient/frontier_stewardship'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',detail_nbt(build(name), 'frontier_stewardship', name));files.append(p)
         emit(f'worldgen/template_pool/ancient/frontier_stewardship/{name}.json',{'name':'alfheim:ancient/frontier_stewardship/'+name,'fallback':'minecraft:empty','elements':[{'weight':1,'element':{'element_type':'minecraft:single_pool_element','location':'alfheim:ancient/frontier_stewardship/'+name,'projection':'rigid','processors':'minecraft:empty'}}]})
     emit('worldgen/structure/frontier_stewardship.json',{'type':'minecraft:jigsaw','biomes':'#alfheim:has_frontier_stewardship','step':'surface_structures','terrain_adaptation':'beard_thin','spawn_overrides':{},'start_pool':'alfheim:ancient/frontier_stewardship/green_noble_lodge','size':3,'start_height':{'absolute':-DEPTH},'project_start_to_heightmap':'WORLD_SURFACE_WG','max_distance_from_center':116,'use_expansion_hack':False})
     emit('tags/worldgen/biome/has_frontier_stewardship.json',{'replace':False,'values':HOME_BIOMES})
@@ -117,4 +119,6 @@ def generate(root=ROOT):
         emit(f'loot_tables/chests/frontier/{table}.json',{'type':'minecraft:chest','pools':[{'rolls':2,'entries':[{'type':'minecraft:item','name':item} for item in items]}]})
     return files
 
-if __name__=='__main__':print('Frontier Stewardship:',len(generate()),'files')
+if __name__=='__main__':
+    ap=argparse.ArgumentParser();ap.add_argument('--output-root',default=str(ROOT));args=ap.parse_args()
+    print('frontier_stewardship:',len(generate(Path(args.output_root).resolve())),'files')

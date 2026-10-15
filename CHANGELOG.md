@@ -1,5 +1,15 @@
 # Changelog
 
+## District architectural refit and separate ley fracture — 2026-10-15
+
+Refitted all twelve district families through Continuity Works' provider interface.
+Supported upper-wall mouldings and eight architectural treatments increase detail while
+preserving the original bounding boxes, streets, stairs, loot, sockets and foundations.
+Removed the purple rings/fracture lining from Faultwork mine interiors; added a separate
+ley_fracture template, pool and structure. Its natural set remains disabled until an
+independent 500-block reservation adapter is available. Validation and limits:
+`alfheim_reclaimed_design/CONTINUITY_DISTRICT_REFIT.md`.
+
 ## Biome-themed enemy roster — 2026-10-15
 
 Added five vanilla-behaviour enemy types with three animated outfit shapes and

@@ -1,0 +1,5571 @@
+{
+  "capability": "Continuity Works",
+  "execution": "StructureCapability.audit / plan / generate",
+  "source": "C:\\GITS\\Structuresmith\\StructureSmith",
+  "version": "1.20.1",
+  "loader": "Forge 47.4.10",
+  "capability_version": "0.3.2",
+  "capability_source_sha256": "01a17ab1dd5044faecf395cd862ccd14300d52ef2e189f8dbb693b94c9152846",
+  "seed_policy": "original deterministic authoring seeds retained",
+  "block_registry_evidence": {
+    "path": "server\\local\\kubejs\\export\\registries\\block.json",
+    "sha256": "f7201971f1ac35e653c010acb15321c159306bde3d1a158e3c93692a1405dfa3"
+  },
+  "natural_placement": "unchanged; independent 500-block exclusion requires runtime adapter",
+  "visual_state": "RUNTIME_TEST_REQUIRED",
+  "families": [
+    {
+      "family": "common_residential",
+      "totals": {
+        "changed_cells": 4875,
+        "relief_cells": 1252,
+        "detail_before": 148,
+        "detail_after": 1400,
+        "detail_ratio": 9.459
+      },
+      "metrics": [
+        {
+          "piece": "artisan_house_shop",
+          "changed_cells": 524,
+          "relief_cells": 152,
+          "detail_before": 9,
+          "detail_after": 161,
+          "sha256": "e58e46627ee06aaea6ac0b39cc7f83aeb09905e2f462354c2dd604cd6b52a050"
+        },
+        {
+          "piece": "avenue_east",
+          "changed_cells": 143,
+          "relief_cells": 0,
+          "detail_before": 0,
+          "detail_after": 0,
+          "sha256": "6a48e5bbc2b19a39359086e50aad7dfc2873e41f894f9419844aeb2f07542ddf"
+        },
+        {
+          "piece": "avenue_north",
+          "changed_cells": 144,
+          "relief_cells": 0,
+          "detail_before": 0,
+          "detail_after": 0,
+          "sha256": "93679ba69db70908f5726f28518c352c5e9f09145cbcd7be70a7646360b3ab2a"
+        },
+        {
+          "piece": "avenue_south",
+          "changed_cells": 144,
+          "relief_cells": 0,
+          "detail_before": 0,
+          "detail_after": 0,
+          "sha256": "f0c0c39b9a38cf788d8c1800bca010ba820c267e3377727ce2f76b93ef66589e"
+        },
+        {
+          "piece": "avenue_west",
+          "changed_cells": 144,
+          "relief_cells": 0,
+          "detail_before": 0,
+          "detail_after": 0,
+          "sha256": "95aa65aacbc536f4448c9c3533ae4f800b0159072feb78a8cfaa1019baf0633c"
+        },
+        {
+          "piece": "collapsed_trace_field",
+          "changed_cells": 6,
+          "relief_cells": 0,
+          "detail_before": 0,
+          "detail_after": 0,
+          "sha256": "295d9d8463713c0ee0a5ca3d71ea0fb1b11b19f03c3080ee80f3e1f3b09a7e62"
+        },
+        {
+          "piece": "common_row_house",
+          "changed_cells": 568,
+          "relief_cells": 171,
+          "detail_before": 8,
+          "detail_after": 179,
+          "sha256": "9170287b31518dfb77d9fdb1c8904a5fd4a6df64cfc13ea320da55e25ae6f2bb"
+        },
+        {
+          "piece": "courtyard_home",
+          "changed_cells": 516,
+          "relief_cells": 151,
+          "detail_before": 7,
+          "detail_after": 158,
+          "sha256": "74589d61025530883a0a4f11e67ec162fe6f26aa7b4e07157729b5602055379b"
+        },
+        {
+          "piece": "district_cistern",
+          "changed_cells": 6,
+          "relief_cells": 0,
+          "detail_before": 3,
+          "detail_after": 3,
+          "sha256": "ccaa1b6279ac1e0856917ba4aaa4f6f95f95f6f10cb06d5131243ee77e0670f1"
+        },
+        {
+          "piece": "district_mass_grave",
+          "changed_cells": 0,
+          "relief_cells": 0,
+          "detail_before": 68,
+          "detail_after": 68,
+          "sha256": "56f2f5965e3c0301d73143e1dfbdfccfa73b50c140778cc118ac51e3564c1540"
+        },
+        {
+          "piece": "extended_kin_hall",
+          "changed_cells": 659,
+          "relief_cells": 220,
+          "detail_before": 25,
+          "detail_after": 245,
+          "sha256": "ca152735be4a77ac5f389101468df58e8932caa4c004098f61bf86749b23ea88"
+        },
+        {
+          "piece": "neighborhood_common_hall",
+          "changed_cells": 2021,
+          "relief_cells": 558,
+          "detail_before": 28,
+          "detail_after": 586,
+          "sha256": "9a1f41f27ef4c862d2b51208324e026440c5f4e9405952b007fcbb1ac8a06a9e"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:crafting_table": {
+          "id": "minecraft:crafting_table",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "ars_nouveau:sourcestone": {
+          "id": "ars_nouveau:sourcestone",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:anvil": {
+          "id": "minecraft:anvil",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:amethyst_block": {
+          "id": "minecraft:amethyst_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:sea_lantern": {
+          "id": "minecraft:sea_lantern",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_bed": {
+          "id": "minecraft:green_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_polished": {
+          "id": "feywild:elven_quartz_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_brick": {
+          "id": "feywild:elven_quartz_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_pillar": {
+          "id": "feywild:elven_quartz_pillar",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:chiseled_elf_quartz": {
+          "id": "botania:chiseled_elf_quartz",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_brick_stairs": {
+          "id": "feywild:elven_quartz_brick_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:blue_stained_glass": {
+          "id": "minecraft:blue_stained_glass",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_bed": {
+          "id": "minecraft:purple_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_bed": {
+          "id": "minecraft:light_blue_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:composter": {
+          "id": "minecraft:composter",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water": {
+          "id": "minecraft:water",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:coarse_dirt": {
+          "id": "minecraft:coarse_dirt",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:dark_prismarine": {
+          "id": "minecraft:dark_prismarine",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_sign": {
+          "id": "minecraft:oak_sign",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_stairs": {
+          "id": "botania:dreamwood_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_fence": {
+          "id": "botania:dreamwood_fence",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:campfire": {
+          "id": "minecraft:campfire",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093133Z-alfheim_refit_common_residential-generate-d3477764"
+    },
+    {
+      "family": "elder_lineage",
+      "totals": {
+        "changed_cells": 12433,
+        "relief_cells": 3527,
+        "detail_before": 410,
+        "detail_after": 3937,
+        "detail_ratio": 9.602
+      },
+      "metrics": [
+        {
+          "piece": "ancestor_court",
+          "changed_cells": 434,
+          "relief_cells": 0,
+          "detail_before": 10,
+          "detail_after": 10,
+          "sha256": "20537591cf5e5547e64981719a19b73163cb08714e17c3ced5ab13165e2a84dc"
+        },
+        {
+          "piece": "ancestral_gallery",
+          "changed_cells": 1688,
+          "relief_cells": 523,
+          "detail_before": 43,
+          "detail_after": 566,
+          "sha256": "84bbeb51ff2425efdc68963f39c2a4cd6ed379b4d0eaa76e544a9a4727827a26"
+        },
+        {
+          "piece": "family_mausoleum",
+          "changed_cells": 1989,
+          "relief_cells": 610,
+          "detail_before": 74,
+          "detail_after": 684,
+          "sha256": "0a4a863db1e928f157b345988e2cad8da40b236dbb984a0d4f4358d38c1457a0"
+        },
+        {
+          "piece": "family_residence",
+          "changed_cells": 1987,
+          "relief_cells": 633,
+          "detail_before": 49,
+          "detail_after": 682,
+          "sha256": "18edb9ad3aab69bd1f9478b08a047f65973c46e1da1e007868a7e3f1caf31a1d"
+        },
+        {
+          "piece": "gate_court",
+          "changed_cells": 637,
+          "relief_cells": 48,
+          "detail_before": 5,
+          "detail_after": 53,
+          "sha256": "fcac28581f69a484487a877b68dda3edd7a7798508fabbf0dcd513473a0e3fc2"
+        },
+        {
+          "piece": "household_service",
+          "changed_cells": 1505,
+          "relief_cells": 494,
+          "detail_before": 61,
+          "detail_after": 555,
+          "sha256": "e1c13cc34b0805f5b1fd2c0e5ebf9136285db48f5abd25911a4ab129b94957de"
+        },
+        {
+          "piece": "palace_center",
+          "changed_cells": 2369,
+          "relief_cells": 701,
+          "detail_before": 94,
+          "detail_after": 795,
+          "sha256": "44575416f7543cd07ba8fdc01d9013fa5bc2c9d7ce09465c79efd20084d02da6"
+        },
+        {
+          "piece": "processional_entry",
+          "changed_cells": 298,
+          "relief_cells": 24,
+          "detail_before": 1,
+          "detail_after": 25,
+          "sha256": "e673c487659943ec5ed19850ffaaf11392b996dc0b13bd03de8e0863cab9fb1a"
+        },
+        {
+          "piece": "retainer_house",
+          "changed_cells": 1526,
+          "relief_cells": 494,
+          "detail_before": 73,
+          "detail_after": 567,
+          "sha256": "fafeb3f0be066c32fab1ed6589728671ece52a6f7bd3360f8e729fc243df7fb4"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_lineage_stele_base": {
+          "id": "alfheim:royal_lineage_stele_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_mid": {
+          "id": "alfheim:royal_lineage_stele_mid",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_crown": {
+          "id": "alfheim:royal_lineage_stele_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:water": {
+          "id": "minecraft:water",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_pedestal_planter": {
+          "id": "alfheim:royal_pedestal_planter",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:coarse_dirt": {
+          "id": "minecraft:coarse_dirt",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_pillar": {
+          "id": "feywild:elven_quartz_pillar",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_slab": {
+          "id": "alfheim:ivory_livingrock_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_mana_brazier": {
+          "id": "alfheim:royal_mana_brazier",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_sarcophagus_head": {
+          "id": "alfheim:elder_sarcophagus_head",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_sarcophagus_middle": {
+          "id": "alfheim:elder_sarcophagus_middle",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_sarcophagus_foot": {
+          "id": "alfheim:elder_sarcophagus_foot",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_statue_base": {
+          "id": "alfheim:elder_statue_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_statue_body": {
+          "id": "alfheim:elder_statue_body",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_statue_crown": {
+          "id": "alfheim:elder_statue_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_head_left": {
+          "id": "alfheim:royal_canopy_bed_head_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_middle_left": {
+          "id": "alfheim:royal_canopy_bed_middle_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_foot_left": {
+          "id": "alfheim:royal_canopy_bed_foot_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_head_right": {
+          "id": "alfheim:royal_canopy_bed_head_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_middle_right": {
+          "id": "alfheim:royal_canopy_bed_middle_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_foot_right": {
+          "id": "alfheim:royal_canopy_bed_foot_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_grave_door_left_base": {
+          "id": "alfheim:elder_grave_door_left_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_grave_door_left_middle": {
+          "id": "alfheim:elder_grave_door_left_middle",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_grave_door_left_crown": {
+          "id": "alfheim:elder_grave_door_left_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_grave_door_right_base": {
+          "id": "alfheim:elder_grave_door_right_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_grave_door_right_middle": {
+          "id": "alfheim:elder_grave_door_right_middle",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:elder_grave_door_right_crown": {
+          "id": "alfheim:elder_grave_door_right_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_weapon_rack_left": {
+          "id": "alfheim:royal_weapon_rack_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_weapon_rack_right": {
+          "id": "alfheim:royal_weapon_rack_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:iron_bars": {
+          "id": "minecraft:iron_bars",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:tripwire_hook": {
+          "id": "minecraft:tripwire_hook",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:campfire": {
+          "id": "minecraft:campfire",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_lidded_amphora": {
+          "id": "alfheim:royal_lidded_amphora",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_bed": {
+          "id": "minecraft:purple_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_stairs": {
+          "id": "botania:dreamwood_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:green_bed": {
+          "id": "minecraft:green_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093151Z-alfheim_refit_elder_lineage-generate-a0ff128e"
+    },
+    {
+      "family": "civic_center",
+      "totals": {
+        "changed_cells": 11892,
+        "relief_cells": 2930,
+        "detail_before": 320,
+        "detail_after": 3250,
+        "detail_ratio": 10.156
+      },
+      "metrics": [
+        {
+          "piece": "assembly_hall",
+          "changed_cells": 2385,
+          "relief_cells": 680,
+          "detail_before": 15,
+          "detail_after": 695,
+          "sha256": "7b51fca0f76247a866398f58118453aa948fea2d439bdc4ce0949c99e1a0e12e"
+        },
+        {
+          "piece": "census_hall",
+          "changed_cells": 1575,
+          "relief_cells": 489,
+          "detail_before": 7,
+          "detail_after": 496,
+          "sha256": "41c34d6354c89d433b6f5cccb2ff0d65b9aa56888f897196548246562c975408"
+        },
+        {
+          "piece": "council_house",
+          "changed_cells": 2181,
+          "relief_cells": 633,
+          "detail_before": 6,
+          "detail_after": 639,
+          "sha256": "a62f4abc20fb8847811d3e6481e875bde04ed2c776f88d0fcf6ad8d3f610b9f0"
+        },
+        {
+          "piece": "market_court",
+          "changed_cells": 513,
+          "relief_cells": 0,
+          "detail_before": 5,
+          "detail_after": 5,
+          "sha256": "4f676f30254c6d00d3382602031c4661f2d0d4b8324ff1f5eb392506d96a6849"
+        },
+        {
+          "piece": "processional_avenue",
+          "changed_cells": 298,
+          "relief_cells": 24,
+          "detail_before": 1,
+          "detail_after": 25,
+          "sha256": "5c49e5f3873ca233cddc7b0282e29b9c1f40e5458e461a2f1515ed139dee56dd"
+        },
+        {
+          "piece": "public_forum",
+          "changed_cells": 713,
+          "relief_cells": 0,
+          "detail_before": 11,
+          "detail_after": 11,
+          "sha256": "36785504a1888aa52f037d9525eadd8ede3f4e6f72cc6b8170219d27044a4abb"
+        },
+        {
+          "piece": "public_kitchen",
+          "changed_cells": 1568,
+          "relief_cells": 496,
+          "detail_before": 12,
+          "detail_after": 508,
+          "sha256": "633a9ff2205f3694265f92d487af05c54b39adf9ebcf07f17fa285e634be6b2c"
+        },
+        {
+          "piece": "record_house",
+          "changed_cells": 2101,
+          "relief_cells": 608,
+          "detail_before": 261,
+          "detail_after": 869,
+          "sha256": "660385b5c1f9f7883fa43bc49e4cb765bf55a62b7010691cdd2e87994a43e71f"
+        },
+        {
+          "piece": "service_court",
+          "changed_cells": 558,
+          "relief_cells": 0,
+          "detail_before": 2,
+          "detail_after": 2,
+          "sha256": "74cc176d7900f1838b0dc426e8b6cf5ce83fe1ee8a9f281153ab63d2b5d9ec10"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_bed": {
+          "id": "minecraft:purple_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:chiseled_stone_bricks": {
+          "id": "minecraft:chiseled_stone_bricks",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:iron_bars": {
+          "id": "minecraft:iron_bars",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:tripwire_hook": {
+          "id": "minecraft:tripwire_hook",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_wool": {
+          "id": "minecraft:purple_wool",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:white_bed": {
+          "id": "minecraft:white_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:campfire": {
+          "id": "minecraft:campfire",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bookshelf": {
+          "id": "minecraft:bookshelf",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:coal_block": {
+          "id": "minecraft:coal_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093206Z-alfheim_refit_civic_center-generate-3a6cec9e"
+    },
+    {
+      "family": "relief_district",
+      "totals": {
+        "changed_cells": 10986,
+        "relief_cells": 2448,
+        "detail_before": 238,
+        "detail_after": 2686,
+        "detail_ratio": 11.286
+      },
+      "metrics": [
+        {
+          "piece": "ash_pits",
+          "changed_cells": 240,
+          "relief_cells": 0,
+          "detail_before": 7,
+          "detail_after": 7,
+          "sha256": "e1aad8d0c157d6336996d6267bd49768bf9714a2e3a1696a2601ba5ab9347ca3"
+        },
+        {
+          "piece": "corpse_cart_way",
+          "changed_cells": 215,
+          "relief_cells": 0,
+          "detail_before": 1,
+          "detail_after": 1,
+          "sha256": "4a84f7b9bde51b912535ae7d5dcca8819de3115b278b2e6faec37026c4abeb92"
+        },
+        {
+          "piece": "digger_shelter",
+          "changed_cells": 980,
+          "relief_cells": 306,
+          "detail_before": 10,
+          "detail_after": 316,
+          "sha256": "7493c7a44ad022cd82170c800a28c5d63d65f3049dd6bcb386e2a0eb60e6a271"
+        },
+        {
+          "piece": "healer_cloister",
+          "changed_cells": 1965,
+          "relief_cells": 520,
+          "detail_before": 10,
+          "detail_after": 530,
+          "sha256": "b171c2073dbc2a6f150ca591ad13528742e7bff896ad0281abcf4e5e0810486e"
+        },
+        {
+          "piece": "hospice_hall",
+          "changed_cells": 1909,
+          "relief_cells": 522,
+          "detail_before": 49,
+          "detail_after": 571,
+          "sha256": "e7d87abf4c301df3ff1805525cac38f291a46e1e23ab84242dca08ab2a02c824"
+        },
+        {
+          "piece": "mass_grave",
+          "changed_cells": 135,
+          "relief_cells": 0,
+          "detail_before": 71,
+          "detail_after": 71,
+          "sha256": "2edf79d236d9dd97b345b337ec163a6a1793d7c295e01095cfaa05916606ddcf"
+        },
+        {
+          "piece": "quarantine_checkpoint",
+          "changed_cells": 505,
+          "relief_cells": 22,
+          "detail_before": 7,
+          "detail_after": 29,
+          "sha256": "af263e840a92d263df904511ce38ab9d4538d5cdcfe7c5d63fc68b153f24919d"
+        },
+        {
+          "piece": "ration_hall",
+          "changed_cells": 1433,
+          "relief_cells": 412,
+          "detail_before": 31,
+          "detail_after": 443,
+          "sha256": "36d88871f57165f303be4494da8cbe3fae3dd9c9061618d5c4c021fdcdd934a4"
+        },
+        {
+          "piece": "sealed_store",
+          "changed_cells": 1621,
+          "relief_cells": 498,
+          "detail_before": 5,
+          "detail_after": 503,
+          "sha256": "1ae6bff01b43f3a21523cd7d6633975a3e0d7720aaf79c60956cd58600014e7d"
+        },
+        {
+          "piece": "supply_court",
+          "changed_cells": 554,
+          "relief_cells": 0,
+          "detail_before": 2,
+          "detail_after": 2,
+          "sha256": "9d3b3a99547cfd40dac0bb0d229fd8218105aa759d18e0c61683499af1efca83"
+        },
+        {
+          "piece": "triage_court",
+          "changed_cells": 1429,
+          "relief_cells": 168,
+          "detail_before": 45,
+          "detail_after": 213,
+          "sha256": "3872a79e4e0d0fb09193a5385b65416dad87c5567863c3f2511920633eeb6d23"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:coal_block": {
+          "id": "minecraft:coal_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:chiseled_stone_bricks": {
+          "id": "minecraft:chiseled_stone_bricks",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:brown_bed": {
+          "id": "minecraft:brown_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:composter": {
+          "id": "minecraft:composter",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:white_bed": {
+          "id": "minecraft:white_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:white_wool": {
+          "id": "minecraft:white_wool",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:iron_bars": {
+          "id": "minecraft:iron_bars",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:tripwire_hook": {
+          "id": "minecraft:tripwire_hook",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:coarse_dirt": {
+          "id": "minecraft:coarse_dirt",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_fence": {
+          "id": "minecraft:oak_fence",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093221Z-alfheim_refit_relief_district-generate-ef5ca1a3"
+    },
+    {
+      "family": "scholastic_quarter",
+      "totals": {
+        "changed_cells": 10901,
+        "relief_cells": 2606,
+        "detail_before": 360,
+        "detail_after": 2966,
+        "detail_ratio": 8.239
+      },
+      "metrics": [
+        {
+          "piece": "archive_cloister",
+          "changed_cells": 2174,
+          "relief_cells": 649,
+          "detail_before": 261,
+          "detail_after": 910,
+          "sha256": "fb0fa1f8050207239c5d5fd75409824a3c6535b8f0766d2ad6d210a53a9be73c"
+        },
+        {
+          "piece": "astral_conservatory",
+          "changed_cells": 752,
+          "relief_cells": 45,
+          "detail_before": 26,
+          "detail_after": 71,
+          "sha256": "8a6b6db2c4f18e380e8b79315930a15a2d81aaa26cb0729993b8a900bc449c22"
+        },
+        {
+          "piece": "botanical_research_garden",
+          "changed_cells": 388,
+          "relief_cells": 31,
+          "detail_before": 17,
+          "detail_after": 48,
+          "sha256": "7d584452a8b9ac414f1633087a3dbe9cfd4c08c466c4f63255f32c3689b4a59a"
+        },
+        {
+          "piece": "entry_court",
+          "changed_cells": 559,
+          "relief_cells": 6,
+          "detail_before": 3,
+          "detail_after": 9,
+          "sha256": "f96ded73a3e6931d6f66894257fc6a4f077cd4f902f75d8bac06713a86df3bc8"
+        },
+        {
+          "piece": "lore_college",
+          "changed_cells": 2433,
+          "relief_cells": 696,
+          "detail_before": 7,
+          "detail_after": 703,
+          "sha256": "4600c8249664bb9b450c6fbc5868485f6c4740b601bbb8744b62e5797bc9ae84"
+        },
+        {
+          "piece": "philosopher_court",
+          "changed_cells": 560,
+          "relief_cells": 0,
+          "detail_before": 7,
+          "detail_after": 7,
+          "sha256": "e9e500d4ba7844efec3bfff45ee88465f2c329e8ef468d6895b7b4666e4e78d8"
+        },
+        {
+          "piece": "runic_engineering_hall",
+          "changed_cells": 2140,
+          "relief_cells": 647,
+          "detail_before": 9,
+          "detail_after": 656,
+          "sha256": "a5a07973e8a911294a9a96ce7c83e69df967ce12bacd981920061c45e680af8e"
+        },
+        {
+          "piece": "scholars_avenue",
+          "changed_cells": 298,
+          "relief_cells": 24,
+          "detail_before": 1,
+          "detail_after": 25,
+          "sha256": "aa905ffe506ac3c2746562a2b07b4955def0a4dac344bb02567ed676620f57ae"
+        },
+        {
+          "piece": "student_residence",
+          "changed_cells": 1597,
+          "relief_cells": 508,
+          "detail_before": 29,
+          "detail_after": 537,
+          "sha256": "df62ccc87d2b2d3d84235b19efa8acb08910dd08ba383fb41c110ca37ddfb242"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:bookshelf": {
+          "id": "minecraft:bookshelf",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:coal_block": {
+          "id": "minecraft:coal_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_fence": {
+          "id": "minecraft:oak_fence",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_stairs": {
+          "id": "botania:dreamwood_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:grass_block": {
+          "id": "minecraft:grass_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:fern": {
+          "id": "minecraft:fern",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:poppy": {
+          "id": "minecraft:poppy",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:dandelion": {
+          "id": "minecraft:dandelion",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:grass": {
+          "id": "minecraft:grass",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:end_rod": {
+          "id": "minecraft:end_rod",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_bed": {
+          "id": "minecraft:purple_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093238Z-alfheim_refit_scholastic_quarter-generate-025e161d"
+    },
+    {
+      "family": "production_district",
+      "totals": {
+        "changed_cells": 13300,
+        "relief_cells": 3475,
+        "detail_before": 74,
+        "detail_after": 3549,
+        "detail_ratio": 47.959
+      },
+      "metrics": [
+        {
+          "piece": "distribution_depot",
+          "changed_cells": 2236,
+          "relief_cells": 708,
+          "detail_before": 6,
+          "detail_after": 714,
+          "sha256": "c10effc59cfe74574bac0b74f69c9c747866f9835a79ab4ae81156b24e28f4ca"
+        },
+        {
+          "piece": "dreamwood_shaping_court",
+          "changed_cells": 548,
+          "relief_cells": 0,
+          "detail_before": 5,
+          "detail_after": 5,
+          "sha256": "9dab304b27a127a01300d3f809643ac9a5c9786e58d3be5e177fe4fe82ad8dea"
+        },
+        {
+          "piece": "freight_approach",
+          "changed_cells": 240,
+          "relief_cells": 8,
+          "detail_before": 1,
+          "detail_after": 9,
+          "sha256": "9669c66c293613996d39a599461672093b01efb21a830b4bda8ba960aaf43686"
+        },
+        {
+          "piece": "freight_yard",
+          "changed_cells": 844,
+          "relief_cells": 0,
+          "detail_before": 5,
+          "detail_after": 5,
+          "sha256": "c19767eb35f56da17458582d17b1a575959caaa6bc45b32742554ce6d8e9c189"
+        },
+        {
+          "piece": "glass_bloom_house",
+          "changed_cells": 1561,
+          "relief_cells": 508,
+          "detail_before": 5,
+          "detail_after": 513,
+          "sha256": "b612f13bd5e8de347476e79b2a0c6da2e99082067cb526b40fbfcd6b022052cc"
+        },
+        {
+          "piece": "guard_post",
+          "changed_cells": 1337,
+          "relief_cells": 429,
+          "detail_before": 8,
+          "detail_after": 437,
+          "sha256": "01df8c060184dfc505e07d18de3a45ab98e62ed90d021ed246065d550bec700a"
+        },
+        {
+          "piece": "mana_mill",
+          "changed_cells": 2198,
+          "relief_cells": 642,
+          "detail_before": 5,
+          "detail_after": 647,
+          "sha256": "b1fae09ddfa0e6284022c56e4fffae5cb57c88836d1acefbad33625f6f1e2366"
+        },
+        {
+          "piece": "resonance_foundry",
+          "changed_cells": 2139,
+          "relief_cells": 672,
+          "detail_before": 5,
+          "detail_after": 677,
+          "sha256": "1ad93d3cddaf4023272f1289677c69ce6f18ea79c3df16b4f1d676adf551328f"
+        },
+        {
+          "piece": "waterworks",
+          "changed_cells": 600,
+          "relief_cells": 0,
+          "detail_before": 5,
+          "detail_after": 5,
+          "sha256": "960650edc81d188ae7dbe8dd9112595fe4cdff6f8c05200e43e1ba766e6c603a"
+        },
+        {
+          "piece": "worker_housing",
+          "changed_cells": 1597,
+          "relief_cells": 508,
+          "detail_before": 29,
+          "detail_after": 537,
+          "sha256": "f7c41ddd9ea2b549090ee59572b79538200a35ef58391aa043f23b9fbc2b8099"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:furnace": {
+          "id": "minecraft:furnace",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_bed": {
+          "id": "minecraft:purple_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:iron_bars": {
+          "id": "minecraft:iron_bars",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:tripwire_hook": {
+          "id": "minecraft:tripwire_hook",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "ars_nouveau:sourcestone": {
+          "id": "ars_nouveau:sourcestone",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:coal_block": {
+          "id": "minecraft:coal_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:brown_bed": {
+          "id": "minecraft:brown_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093256Z-alfheim_refit_production_district-generate-e6d09f04"
+    },
+    {
+      "family": "agricultural_estate",
+      "totals": {
+        "changed_cells": 9529,
+        "relief_cells": 2570,
+        "detail_before": 194,
+        "detail_after": 2764,
+        "detail_ratio": 14.247
+      },
+      "metrics": [
+        {
+          "piece": "farm_approach",
+          "changed_cells": 240,
+          "relief_cells": 8,
+          "detail_before": 1,
+          "detail_after": 9,
+          "sha256": "f00b59a3e7de86a2196d2626196271a5f2402deebdaa9a353a37130c52e355a4"
+        },
+        {
+          "piece": "fungus_conservatory",
+          "changed_cells": 2020,
+          "relief_cells": 697,
+          "detail_before": 39,
+          "detail_after": 736,
+          "sha256": "d9e0fd167326e83ef723bc2ee24dfc2222f0f3c9897b1aa410daf851de5c4b98"
+        },
+        {
+          "piece": "harvest_court",
+          "changed_cells": 546,
+          "relief_cells": 3,
+          "detail_before": 2,
+          "detail_after": 5,
+          "sha256": "9f3025f5971ca51ef07f3b61e097af32f97349f8f3a6357a76abea4d0f7b7f32"
+        },
+        {
+          "piece": "keeper_housing",
+          "changed_cells": 1627,
+          "relief_cells": 550,
+          "detail_before": 29,
+          "detail_after": 579,
+          "sha256": "9e8d9ac80bbe05e5996a5ed9eca4ec4adc8ee1d3b0d163276c5b6358dc2183f7"
+        },
+        {
+          "piece": "pollinator_sanctuary",
+          "changed_cells": 362,
+          "relief_cells": 31,
+          "detail_before": 17,
+          "detail_after": 48,
+          "sha256": "ea92e7dfd46edcb31973290799bc0f19e98c58d8f396800bba17affd443abf77"
+        },
+        {
+          "piece": "root_granary",
+          "changed_cells": 2103,
+          "relief_cells": 709,
+          "detail_before": 6,
+          "detail_after": 715,
+          "sha256": "ca23edbbf68378dc1d79a6804d96ff2dbd08f06b7980a5579d85152b0e9cd190"
+        },
+        {
+          "piece": "seed_vault",
+          "changed_cells": 1693,
+          "relief_cells": 572,
+          "detail_before": 5,
+          "detail_after": 577,
+          "sha256": "c43702658ecf6c314b2fc73348085c965e97db85f9e18ba267b32c211511ac01"
+        },
+        {
+          "piece": "survival_terraces",
+          "changed_cells": 386,
+          "relief_cells": 0,
+          "detail_before": 77,
+          "detail_after": 77,
+          "sha256": "e530f487707df88ecf9811a2b742495f71d7b46befd29eee96f0bbc3c6a9d708"
+        },
+        {
+          "piece": "terraced_orchard",
+          "changed_cells": 552,
+          "relief_cells": 0,
+          "detail_before": 13,
+          "detail_after": 13,
+          "sha256": "a14df5697e9e6b0fe1b0ef70c96c70188cddd82beba3338ec16945e3fac6b0f9"
+        },
+        {
+          "piece": "water_garden",
+          "changed_cells": 0,
+          "relief_cells": 0,
+          "detail_before": 5,
+          "detail_after": 5,
+          "sha256": "2722857ede40fa6c6a31154761dd9955a6ea278aceb20e391e8c183af1faf7a9"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:mycelium": {
+          "id": "minecraft:mycelium",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:brown_mushroom": {
+          "id": "minecraft:brown_mushroom",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:purple_mushroom": {
+          "id": "feywild:purple_mushroom",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:pink_mushroom": {
+          "id": "feywild:pink_mushroom",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:yellow_mushroom": {
+          "id": "feywild:yellow_mushroom",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:red_mushroom": {
+          "id": "minecraft:red_mushroom",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:blue_mushroom": {
+          "id": "feywild:blue_mushroom",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:orange_mushroom": {
+          "id": "feywild:orange_mushroom",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:green_mushroom": {
+          "id": "feywild:green_mushroom",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:brown_bed": {
+          "id": "minecraft:brown_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:grass_block": {
+          "id": "minecraft:grass_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:dandelion": {
+          "id": "minecraft:dandelion",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:blue_orchid": {
+          "id": "minecraft:blue_orchid",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:azure_bluet": {
+          "id": "minecraft:azure_bluet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:poppy": {
+          "id": "minecraft:poppy",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:allium": {
+          "id": "minecraft:allium",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oxeye_daisy": {
+          "id": "minecraft:oxeye_daisy",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:beehive": {
+          "id": "minecraft:beehive",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:farmland": {
+          "id": "minecraft:farmland",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:wheat": {
+          "id": "minecraft:wheat",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:dreamwood_stairs": {
+          "id": "botania:dreamwood_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:carrots": {
+          "id": "minecraft:carrots",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "mythicbotany:dreamwood_leaves": {
+          "id": "mythicbotany:dreamwood_leaves",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water": {
+          "id": "minecraft:water",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:clay": {
+          "id": "minecraft:clay",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093312Z-alfheim_refit_agricultural_estate-generate-61d80d87"
+    },
+    {
+      "family": "harbor_complex",
+      "totals": {
+        "changed_cells": 13565,
+        "relief_cells": 3821,
+        "detail_before": 266,
+        "detail_after": 4087,
+        "detail_ratio": 15.365
+      },
+      "metrics": [
+        {
+          "piece": "bonded_warehouse",
+          "changed_cells": 2182,
+          "relief_cells": 719,
+          "detail_before": 5,
+          "detail_after": 724,
+          "sha256": "cb7a5bf2e700fe9d25f0f465cfd4dd3394a8514e3cb01fdfe61a61a708efb327"
+        },
+        {
+          "piece": "dockworker_housing",
+          "changed_cells": 1627,
+          "relief_cells": 550,
+          "detail_before": 29,
+          "detail_after": 579,
+          "sha256": "57a29354e45d2cdd6b2364217943267a79d04a7c23f0b55d2b9e5a52efe649eb"
+        },
+        {
+          "piece": "harbor_approach",
+          "changed_cells": 225,
+          "relief_cells": 0,
+          "detail_before": 1,
+          "detail_after": 1,
+          "sha256": "00ef59faa6d9a34a0112f0e0119445f2d26cf094f94068538ce6b327ceed2004"
+        },
+        {
+          "piece": "harbor_exchange",
+          "changed_cells": 2413,
+          "relief_cells": 768,
+          "detail_before": 63,
+          "detail_after": 831,
+          "sha256": "9d6402def1e7b57f8586fad7bf94e88a4995afb2e43490c4de0d1b94e763e5de"
+        },
+        {
+          "piece": "harbormaster_house",
+          "changed_cells": 2214,
+          "relief_cells": 696,
+          "detail_before": 8,
+          "detail_after": 704,
+          "sha256": "09a771dcdcd7b566c2357a0db86a51df1257ed1ce2f712eb144748e52ab98d05"
+        },
+        {
+          "piece": "quay_court",
+          "changed_cells": 546,
+          "relief_cells": 3,
+          "detail_before": 2,
+          "detail_after": 5,
+          "sha256": "3d352decc5ce379e95330dacc885b372e2cfd19cd41cdc472535d89a45716874"
+        },
+        {
+          "piece": "signal_lighthouse",
+          "changed_cells": 1529,
+          "relief_cells": 519,
+          "detail_before": 29,
+          "detail_after": 548,
+          "sha256": "92f82f8bfaba9bc55f13640a9590f2a7f43d9d3901be41a85de3a55bfcc71cbb"
+        },
+        {
+          "piece": "sunken_drydock",
+          "changed_cells": 500,
+          "relief_cells": 16,
+          "detail_before": 61,
+          "detail_after": 77,
+          "sha256": "3c20996c56452c9f9b0899bafceba7314e4326a8ed7068fc6d3c5e65d32fa7c8"
+        },
+        {
+          "piece": "tide_temple",
+          "changed_cells": 1542,
+          "relief_cells": 550,
+          "detail_before": 63,
+          "detail_after": 613,
+          "sha256": "8726aada3da86f15759f63e8aad081b634b74e8358272f09039b02f16898d03a"
+        },
+        {
+          "piece": "wavebreak_pier",
+          "changed_cells": 787,
+          "relief_cells": 0,
+          "detail_before": 5,
+          "detail_after": 5,
+          "sha256": "3d6f8b1a43a2dac62d74c6ed422b739f6c0f4f49161ec893cdadb858e6582100"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:brown_bed": {
+          "id": "minecraft:brown_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water": {
+          "id": "minecraft:water",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_fence": {
+          "id": "minecraft:oak_fence",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_bed": {
+          "id": "minecraft:purple_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_mana_brazier": {
+          "id": "alfheim:royal_mana_brazier",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_stairs": {
+          "id": "botania:dreamwood_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:white_bed": {
+          "id": "minecraft:white_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_lineage_stele_base": {
+          "id": "alfheim:royal_lineage_stele_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_mid": {
+          "id": "alfheim:royal_lineage_stele_mid",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_crown": {
+          "id": "alfheim:royal_lineage_stele_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093351Z-alfheim_refit_harbor_complex-generate-cddffa63"
+    },
+    {
+      "family": "sacred_precinct",
+      "totals": {
+        "changed_cells": 7229,
+        "relief_cells": 1741,
+        "detail_before": 97,
+        "detail_after": 1838,
+        "detail_ratio": 18.948
+      },
+      "metrics": [
+        {
+          "piece": "ancestor_reflection_pool",
+          "changed_cells": 292,
+          "relief_cells": 0,
+          "detail_before": 53,
+          "detail_after": 53,
+          "sha256": "0c5e552884fa13b48ca912e73d932faf6ace8cdc70dfb6692b414fb9a20bca3e"
+        },
+        {
+          "piece": "great_temple_court",
+          "changed_cells": 2225,
+          "relief_cells": 562,
+          "detail_before": 15,
+          "detail_after": 577,
+          "sha256": "d4e5aac308aa04ed18b8a9624e5ec77b7fd42b841559aec71cecca99817f87e9"
+        },
+        {
+          "piece": "pilgrim_chapel",
+          "changed_cells": 1204,
+          "relief_cells": 348,
+          "detail_before": 13,
+          "detail_after": 361,
+          "sha256": "5cd9daa48315dd44bd356623b231502805e649243504421945973988c4a014f5"
+        },
+        {
+          "piece": "processional_approach",
+          "changed_cells": 202,
+          "relief_cells": 0,
+          "detail_before": 1,
+          "detail_after": 1,
+          "sha256": "1efed191c96b172b68ce1020446b308321102cfeebfb01c7f790c0753e47cee4"
+        },
+        {
+          "piece": "rite_house",
+          "changed_cells": 1420,
+          "relief_cells": 406,
+          "detail_before": 5,
+          "detail_after": 411,
+          "sha256": "a2ba7fe7f2954a91948b01db8dd631fb77602c0b2c4debb3b9dcede876dcddd5"
+        },
+        {
+          "piece": "root_star_shrine",
+          "changed_cells": 350,
+          "relief_cells": 0,
+          "detail_before": 4,
+          "detail_after": 4,
+          "sha256": "eef52fa07989b7187c4904cf90d8910618a4dd305e7785a8b85e4032ea8788c1"
+        },
+        {
+          "piece": "temple_reliquary",
+          "changed_cells": 1536,
+          "relief_cells": 425,
+          "detail_before": 6,
+          "detail_after": 431,
+          "sha256": "5ba8a7764e2be1d13ecdb395b328d6726224855b800331b1ed33b7df61e6dac3"
+        }
+      ],
+      "registry_probes": {
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_base": {
+          "id": "alfheim:royal_lineage_stele_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_mid": {
+          "id": "alfheim:royal_lineage_stele_mid",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_crown": {
+          "id": "alfheim:royal_lineage_stele_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:water": {
+          "id": "minecraft:water",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_fence": {
+          "id": "minecraft:oak_fence",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:white_bed": {
+          "id": "minecraft:white_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:calcite": {
+          "id": "minecraft:calcite",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:white_wool": {
+          "id": "minecraft:white_wool",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:bookshelf": {
+          "id": "minecraft:bookshelf",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093402Z-alfheim_refit_sacred_precinct-generate-f6f6bc86"
+    },
+    {
+      "family": "military_warden",
+      "totals": {
+        "changed_cells": 8586,
+        "relief_cells": 1913,
+        "detail_before": 142,
+        "detail_after": 2055,
+        "detail_ratio": 14.472
+      },
+      "metrics": [
+        {
+          "piece": "border_keep",
+          "changed_cells": 2595,
+          "relief_cells": 808,
+          "detail_before": 6,
+          "detail_after": 814,
+          "sha256": "9d05bf23595f403351000b78739d027dbe79652b62730d13f3c2a48860c5ca59"
+        },
+        {
+          "piece": "discipline_guard_court",
+          "changed_cells": 765,
+          "relief_cells": 0,
+          "detail_before": 40,
+          "detail_after": 40,
+          "sha256": "f5132de55cd0ee2a262873f7be4af9250b982bc0cf8f6677e9a930d5d3a3f596"
+        },
+        {
+          "piece": "gate_barracks",
+          "changed_cells": 1173,
+          "relief_cells": 286,
+          "detail_before": 25,
+          "detail_after": 311,
+          "sha256": "47419ad9ab79122c68059e2b6d87cf9187a4e551ae2ae34697006e4d61a923f0"
+        },
+        {
+          "piece": "last_muster_ground",
+          "changed_cells": 893,
+          "relief_cells": 0,
+          "detail_before": 17,
+          "detail_after": 17,
+          "sha256": "ad234f90a2937969eb17b7aa16daa3488ea73a7a88a17282b4e26444e891e5b4"
+        },
+        {
+          "piece": "warden_tower",
+          "changed_cells": 1940,
+          "relief_cells": 522,
+          "detail_before": 47,
+          "detail_after": 569,
+          "sha256": "5a91b0b5fbf16179d79d31e131c7c6a23956c69671f32ff522abc3323e2af4d8"
+        },
+        {
+          "piece": "watch_captain_house",
+          "changed_cells": 1220,
+          "relief_cells": 297,
+          "detail_before": 7,
+          "detail_after": 304,
+          "sha256": "6bcdb5b638b4fa8b0ee3f47a10e20434dc9915cf41290561990844de49c0411d"
+        }
+      ],
+      "registry_probes": {
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_weapon_rack_left": {
+          "id": "alfheim:royal_weapon_rack_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_weapon_rack_right": {
+          "id": "alfheim:royal_weapon_rack_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:iron_bars": {
+          "id": "minecraft:iron_bars",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:white_bed": {
+          "id": "minecraft:white_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:water_cauldron": {
+          "id": "minecraft:water_cauldron",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:gray_bed": {
+          "id": "minecraft:gray_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:iron_door": {
+          "id": "minecraft:iron_door",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093414Z-alfheim_refit_military_warden-generate-ac09c050"
+    },
+    {
+      "family": "frontier_stewardship",
+      "totals": {
+        "changed_cells": 7299,
+        "relief_cells": 2038,
+        "detail_before": 251,
+        "detail_after": 2289,
+        "detail_ratio": 9.12
+      },
+      "metrics": [
+        {
+          "piece": "forest_waystation",
+          "changed_cells": 439,
+          "relief_cells": 0,
+          "detail_before": 15,
+          "detail_after": 15,
+          "sha256": "29a5fed733376e352fb036a68dde59658d2f16a75372e72cb84b78b277f2cea7"
+        },
+        {
+          "piece": "green_noble_lodge",
+          "changed_cells": 2018,
+          "relief_cells": 544,
+          "detail_before": 19,
+          "detail_after": 563,
+          "sha256": "6869ddfb8798b84af20715b9a9697d3eed7862ed888fc98505fbf503c124c56a"
+        },
+        {
+          "piece": "moon_pool_sanctuary",
+          "changed_cells": 491,
+          "relief_cells": 0,
+          "detail_before": 81,
+          "detail_after": 81,
+          "sha256": "0c8f1db61fbc99873fd114524deb93f2f68084c3c04f3d9ddf3a678f03ff6db1"
+        },
+        {
+          "piece": "outlying_retreat_hall",
+          "changed_cells": 1570,
+          "relief_cells": 476,
+          "detail_before": 80,
+          "detail_after": 556,
+          "sha256": "5890b7a626660d46d9244cbb55a16c42627f5c6c00694a97dee8936edbe6ff1e"
+        },
+        {
+          "piece": "surveyor_tower",
+          "changed_cells": 2439,
+          "relief_cells": 1018,
+          "detail_before": 47,
+          "detail_after": 1065,
+          "sha256": "e399b63378ed45ed381cb55af49a1174b4861880b5398ac5c0d3313bc407e962"
+        },
+        {
+          "piece": "wild_ward_shrine",
+          "changed_cells": 342,
+          "relief_cells": 0,
+          "detail_before": 9,
+          "detail_after": 9,
+          "sha256": "a2a0001c2e1b540e2618c48a840c2568370b3c77cb7d14c4a365851bc7af7e6f"
+        }
+      ],
+      "registry_probes": {
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_polished": {
+          "id": "alfheim:moonstone_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "ars_nouveau:sourcestone": {
+          "id": "ars_nouveau:sourcestone",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:green_bed": {
+          "id": "minecraft:green_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:moss_carpet": {
+          "id": "minecraft:moss_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:chiseled_elf_quartz": {
+          "id": "botania:chiseled_elf_quartz",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:elf_glass": {
+          "id": "botania:elf_glass",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_head_left": {
+          "id": "alfheim:royal_canopy_bed_head_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_middle_left": {
+          "id": "alfheim:royal_canopy_bed_middle_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_foot_left": {
+          "id": "alfheim:royal_canopy_bed_foot_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_head_right": {
+          "id": "alfheim:royal_canopy_bed_head_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_middle_right": {
+          "id": "alfheim:royal_canopy_bed_middle_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_canopy_bed_foot_right": {
+          "id": "alfheim:royal_canopy_bed_foot_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:white_bed": {
+          "id": "minecraft:white_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:water": {
+          "id": "minecraft:water",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_fence": {
+          "id": "minecraft:oak_fence",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:farmland": {
+          "id": "minecraft:farmland",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:wheat": {
+          "id": "minecraft:wheat",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bookshelf": {
+          "id": "minecraft:bookshelf",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_lineage_stele_base": {
+          "id": "alfheim:royal_lineage_stele_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_mid": {
+          "id": "alfheim:royal_lineage_stele_mid",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_crown": {
+          "id": "alfheim:royal_lineage_stele_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093425Z-alfheim_refit_frontier_stewardship-generate-aae92951"
+    },
+    {
+      "family": "roads_trade",
+      "totals": {
+        "changed_cells": 11766,
+        "relief_cells": 3124,
+        "detail_before": 107,
+        "detail_after": 3231,
+        "detail_ratio": 30.196
+      },
+      "metrics": [
+        {
+          "piece": "bonded_store",
+          "changed_cells": 1621,
+          "relief_cells": 572,
+          "detail_before": 5,
+          "detail_after": 577,
+          "sha256": "ce2cac06929388884fa0c873d39d4d360079da86f42c2a129ea4e23e78d6051a"
+        },
+        {
+          "piece": "bridge_gate",
+          "changed_cells": 378,
+          "relief_cells": 24,
+          "detail_before": 29,
+          "detail_after": 53,
+          "sha256": "2059e6f9376954d7e33a2fceaee85c369c4d501a92d74abff830b94f6b2e316a"
+        },
+        {
+          "piece": "caravan_court",
+          "changed_cells": 938,
+          "relief_cells": 76,
+          "detail_before": 9,
+          "detail_after": 85,
+          "sha256": "85798f089da168d5f6be1ffc0411dc5a68992bb22f08e633eab684344d236fba"
+        },
+        {
+          "piece": "custom_house",
+          "changed_cells": 2254,
+          "relief_cells": 715,
+          "detail_before": 6,
+          "detail_after": 721,
+          "sha256": "98a98b2289a51716946c22e05c95916975604d1473a99a445656524dda2d1763"
+        },
+        {
+          "piece": "freight_exchange",
+          "changed_cells": 2120,
+          "relief_cells": 697,
+          "detail_before": 5,
+          "detail_after": 702,
+          "sha256": "48c02aa88ab95de0e51346fbc3b458bd149717993f4ff6c8ac42d84fae16cb56"
+        },
+        {
+          "piece": "processional_avenue",
+          "changed_cells": 628,
+          "relief_cells": 0,
+          "detail_before": 7,
+          "detail_after": 7,
+          "sha256": "fb8d84d24acf6d6b45526f6cf44b4afafaf3f4b82d465462ef39a3f9692b1bdb"
+        },
+        {
+          "piece": "refugee_lodge",
+          "changed_cells": 1627,
+          "relief_cells": 550,
+          "detail_before": 29,
+          "detail_after": 579,
+          "sha256": "99be45fa0ce84a6f1dca4d7a17377e23c9e70eef1688285883fdf7e9b62f8d20"
+        },
+        {
+          "piece": "road_approach",
+          "changed_cells": 240,
+          "relief_cells": 8,
+          "detail_before": 1,
+          "detail_after": 9,
+          "sha256": "4c095108601ccdfa946f98be774314d306cddbabfc6d0675ed22647a19d0bdbe"
+        },
+        {
+          "piece": "road_checkpoint",
+          "changed_cells": 593,
+          "relief_cells": 6,
+          "detail_before": 7,
+          "detail_after": 13,
+          "sha256": "1e0d8439d27282a84f59aac63501007e3d8c1f46e744c3c173c3278632af9f7d"
+        },
+        {
+          "piece": "wayshrine_rest",
+          "changed_cells": 1367,
+          "relief_cells": 476,
+          "detail_before": 9,
+          "detail_after": 485,
+          "sha256": "ccccc46acb9e0372b0548cd8b6a1cc9816866a9ac768fd4386a7cfc8737e23fe"
+        }
+      ],
+      "registry_probes": {
+        "minecraft:air": {
+          "id": "minecraft:air",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:ivory_livingrock_bricks": {
+          "id": "alfheim:ivory_livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_log": {
+          "id": "botania:dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:dreamwood_planks": {
+          "id": "botania:dreamwood_planks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_left": {
+          "id": "alfheim:royal_writing_desk_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_writing_desk_right": {
+          "id": "alfheim:royal_writing_desk_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:barrel": {
+          "id": "minecraft:barrel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:jigsaw": {
+          "id": "minecraft:jigsaw",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:flower_pot": {
+          "id": "minecraft:flower_pot",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:skeleton_skull": {
+          "id": "minecraft:skeleton_skull",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:light_blue_carpet": {
+          "id": "minecraft:light_blue_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:bone_block": {
+          "id": "minecraft:bone_block",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_brick_slab": {
+          "id": "feywild:elven_quartz_brick_slab",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_polished": {
+          "id": "alfheim:ivory_livingrock_polished",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:moonstone_livingrock_carved": {
+          "id": "alfheim:moonstone_livingrock_carved",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:livingrock_bricks": {
+          "id": "botania:livingrock_bricks",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:ivory_livingrock_stairs": {
+          "id": "alfheim:ivory_livingrock_stairs",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "botania:stripped_dreamwood_log": {
+          "id": "botania:stripped_dreamwood_log",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_wall_banner": {
+          "id": "alfheim:royal_wall_banner",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:iron_bars": {
+          "id": "minecraft:iron_bars",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:tripwire_hook": {
+          "id": "minecraft:tripwire_hook",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:green_carpet": {
+          "id": "minecraft:green_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:oak_fence": {
+          "id": "minecraft:oak_fence",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:brown_bed": {
+          "id": "minecraft:brown_bed",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "minecraft:purple_carpet": {
+          "id": "minecraft:purple_carpet",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_tall_cabinet": {
+          "id": "alfheim:royal_tall_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:gravel": {
+          "id": "minecraft:gravel",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "feywild:elven_quartz_cracked_brick": {
+          "id": "feywild:elven_quartz_cracked_brick",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "minecraft:coarse_dirt": {
+          "id": "minecraft:coarse_dirt",
+          "kind": "block",
+          "level": "vanilla",
+          "namespace_known": true,
+          "evidence": [
+            "minecraft namespace"
+          ]
+        },
+        "alfheim:royal_audience_bench_left": {
+          "id": "alfheim:royal_audience_bench_left",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_audience_bench_right": {
+          "id": "alfheim:royal_audience_bench_right",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_base": {
+          "id": "alfheim:royal_lineage_stele_base",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_mid": {
+          "id": "alfheim:royal_lineage_stele_mid",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim:royal_lineage_stele_crown": {
+          "id": "alfheim:royal_lineage_stele_crown",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      },
+      "runtime_state": "RUNTIME_TEST_REQUIRED",
+      "snapshot_id": "20261015T093502Z-alfheim_refit_roads_trade-generate-c74c51fe"
+    }
+  ],
+  "anomaly": {
+    "placement_status": "BLOCKED_PENDING_500_BLOCK_RESERVATION_ADAPTER",
+    "envelope": [
+      47,
+      32,
+      47
+    ],
+    "registry_probes": [
+      {
+        "id": "alfheim:cracked_livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      {
+        "id": "minecraft:air",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      {
+        "id": "alfheim:gloam_livingrock_polished",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      {
+        "id": "alfheim:magmatic_livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      {
+        "id": "minecraft:crying_obsidian",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      {
+        "id": "alfheim:mana_glass_light",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      {
+        "id": "minecraft:barrel",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      }
+    ],
+    "emitted_files": [
+      "kubejs\\data\\alfheim\\structures\\ley_fracture\\core.nbt",
+      "kubejs\\data\\alfheim\\worldgen\\template_pool\\ley_fracture\\core.json",
+      "kubejs\\data\\alfheim\\worldgen\\structure\\ley_fracture.json"
+    ],
+    "snapshot_id": "20261015T093425Z-alfheim_ley_fracture-generate-5514ab7b"
+  }
+}

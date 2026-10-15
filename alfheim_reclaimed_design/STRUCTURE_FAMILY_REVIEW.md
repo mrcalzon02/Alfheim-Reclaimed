@@ -1,5 +1,14 @@
 # Structure family review queue
 
+## Current refit corpus — 2026-10-15
+
+All twelve families receive the Continuity Works architectural detail pass. The saved
+assembly counts below describe the previous corpus; they do not validate the new detail
+placements. New source equality, route protection, detail ratios and disposable template
+placement evidence are recorded in `CONTINUITY_DISTRICT_REFIT.md` and its linked reports.
+Existing natural admission is unchanged. New jigsaw/natural-fit/client visual review is
+pending; the independent purple ley fracture has no natural structure set.
+
 All twelve sequencing families now have source implementations. Saved assembly evidence is listed below; a saved assembly pass is not natural terrain-fit, visual, loot-balance or production admission. Natural sets for older families are already enabled and still need representative field review. Sacred, Military/Warden and Frontier remain controlled-placement prototypes.
 
 | Family | Saved members | Supported joins | Natural set |

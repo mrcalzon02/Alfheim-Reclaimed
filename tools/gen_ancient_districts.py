@@ -25,6 +25,7 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nbt  # noqa: E402
+from district_refit import detail_nbt
 from structure_nbt import ADAPTATION_MARGIN, MAX_AXIS, Piece  # noqa: E402
 
 NS = "alfheim"
@@ -483,7 +484,7 @@ def main():
         assert all(v <= MAX_AXIS for v in p.size), (name, p.size)
         assert p.dropped == 0, f"{name}: {p.dropped} out-of-bounds placements"
         path = STRUCT / f"{name}.nbt"
-        nbt.save(path, "", p.to_nbt())
+        nbt.save(path, "", detail_nbt(p, "common_residential", name))
 
     pools = {
         "start": pool("start", [("neighborhood_common_hall", 1)]),
