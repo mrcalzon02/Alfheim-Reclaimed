@@ -1,0 +1,7 @@
+{
+  "type": "alfheim_companion:upper_underworld",
+  "biomes": "#alfheim:has_upper_underworld",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:jigsaw",
+  "type": "alfheim_companion:remote_district",
   "biomes": "#alfheim:has_scholastic_quarter",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
@@ -11,5 +11,19 @@
   },
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
   "max_distance_from_center": 116,
-  "use_expansion_hack": false
+  "use_expansion_hack": false,
+  "layout": {
+    "biomes": "#alfheim:has_scholastic_quarter",
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "spawn_overrides": {},
+    "start_pool": "alfheim:ancient/scholastic_quarter/lore_college",
+    "size": 3,
+    "start_height": {
+      "absolute": -8
+    },
+    "project_start_to_heightmap": "WORLD_SURFACE_WG",
+    "max_distance_from_center": 116,
+    "use_expansion_hack": false
+  }
 }

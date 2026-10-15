@@ -1,0 +1,44 @@
+{
+  "status": "STATIC_AND_JAVA_TESTS_PASS",
+  "java_tests": 61,
+  "families": [
+    "common_residential_quarter",
+    "elder_lineage_precinct",
+    "civic_center",
+    "relief_district",
+    "scholastic_quarter",
+    "production_district",
+    "agricultural_estate",
+    "roads_trade",
+    "harbor_complex",
+    "sacred_precinct",
+    "military_warden",
+    "frontier_stewardship"
+  ],
+  "grid": {
+    "type": "minecraft:random_spread",
+    "spacing": 192,
+    "separation": 96,
+    "salt": 202610150
+  },
+  "origin_exclusion_radius": 6000,
+  "actual_spawn_exclusion_radius": 4096,
+  "conservative_footprint_gap": 1024,
+  "castle_ring": {
+    "distance": 32,
+    "count": 3,
+    "nominal_radius_blocks": [
+      1024,
+      1792
+    ],
+    "spread": 3,
+    "maximum_natural_castles": 1,
+    "maximum_height_probes": 27
+  },
+  "terrain_files_changed": 0,
+  "jar_sha256": "d4683a85dff72e455bab383b1ed07bcee6fed2a871e197c42e1f3d6ade9924c2",
+  "new_content_static": {
+    "royal_castle": 6,
+    "upper_underworld": 12
+  }
+}

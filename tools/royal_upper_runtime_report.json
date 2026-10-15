@@ -1,0 +1,27 @@
+{
+  "status": "LOCALLY_VALIDATED",
+  "world": "validation-royal-upper-20261015",
+  "seed": "3536368297089363045",
+  "console": "server\\console-20261015-101124.log",
+  "gallery_templates": 18,
+  "castle_tiles": 25,
+  "castle_base_y": 89,
+  "castle_origin": [
+    -1573,
+    523
+  ],
+  "verified_samples": 7819,
+  "foundation_columns": 9,
+  "near_spawn_district_veto": "pass",
+  "native_castle_placement": "forced structure command; natural ring locate output in console",
+  "upper_natural_placement": "RUNTIME_TEST_REQUIRED",
+  "visual_review": "pending",
+  "installed_jar_sha256": "d4683a85dff72e455bab383b1ed07bcee6fed2a871e197c42e1f3d6ade9924c2",
+  "natural_castle_locator": {
+    "position": [
+      -1088,
+      1392
+    ],
+    "distance": 1766
+  }
+}

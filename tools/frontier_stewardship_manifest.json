@@ -1,6 +1,6 @@
 {
   "status": "static_validated_runtime_pending",
-  "source_fingerprint": "2425bb79ae292436d95dca2dbc8aba88d155ca36cf168a2fcd1d3ac0d36327fe",
+  "source_fingerprint": "bfab395d57930459ea5a25b1038245fa7fc5eced304b60741b38a50354f1c38b",
   "files": 16,
   "members": 6,
   "joins": 5,
@@ -152,17 +152,5 @@
     "alfheim:royal_lineage_stele_base": 4,
     "alfheim:royal_lineage_stele_mid": 3,
     "alfheim:royal_lineage_stele_crown": 3
-  },
-  "detail_refit_evidence": {
-    "date": "2026-10-15",
-    "state": "template_runtime_validated_visual_and_natural_pending",
-    "capability": "Continuity Works 0.3.2",
-    "report": "tools/continuity_district_refit_report.json",
-    "runtime_report": "tools/continuity_refit_runtime_report.json",
-    "changed_cells": 7299,
-    "relief_cells": 2038,
-    "detail_before": 251,
-    "detail_after": 2289,
-    "detail_ratio": 9.12
   }
 }

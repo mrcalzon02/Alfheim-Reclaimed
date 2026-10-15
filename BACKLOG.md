@@ -1,5 +1,13 @@
 # Backlog
 
+### District spacing and new underground content — 2026-10-15
+
+Shared native district reservations and spawn setbacks are implemented. The 235-square
+royal citadel, three-candidate single-winner near-spawn policy, and twelve upper-rock
+discoveries are built. Saved castle/gallery acceptance passes. Next: client review,
+representative natural underground starts/density, and existing-world placement review.
+No already generated player structures were relocated.
+
 ### Current structure follow-up — 2026-10-15
 
 Continuity Works district refit: eightfold detail floors, route preservation and separate

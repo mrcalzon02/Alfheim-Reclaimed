@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+from district_policy import apply as district_policy
 import nbt
 from district_refit import detail_nbt
 from structure_nbt import Piece
@@ -225,6 +226,7 @@ def lift(p):
 def generate(root=ROOT):
     data=root/'kubejs/data/alfheim';files=[]
     def emit(path,value):
+        value=district_policy(path,value)
         p=data/path;p.parent.mkdir(parents=True,exist_ok=True)
         p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:

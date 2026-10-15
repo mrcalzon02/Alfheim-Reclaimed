@@ -24,6 +24,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from district_policy import apply as district_policy
 import nbt  # noqa: E402
 from district_refit import detail_nbt
 from structure_nbt import ADAPTATION_MARGIN, MAX_AXIS, Piece  # noqa: E402
@@ -433,6 +434,7 @@ def foundation(p, name):
 
 
 def write_json(path, obj):
+    obj=district_policy(path,obj)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=2) + "\n", encoding="utf-8", newline='\n')
 

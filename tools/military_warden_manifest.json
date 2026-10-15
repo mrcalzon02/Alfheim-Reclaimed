@@ -1,6 +1,6 @@
 {
   "status": "static_validated_runtime_pending",
-  "source_fingerprint": "452885aa79bc1deacf05b92af07fa7c2eb92d95d89de22de22db47182bd76f9c",
+  "source_fingerprint": "ef49b834e1dd8ae58c5734c8c00a37d1cbc14eecba29b7b1815a2660898bac05",
   "files": 16,
   "members": 6,
   "joins": 5,
@@ -141,17 +141,5 @@
     "minecraft:iron_bars": 27,
     "minecraft:white_bed": 16,
     "minecraft:water_cauldron": 1
-  },
-  "detail_refit_evidence": {
-    "date": "2026-10-15",
-    "state": "template_runtime_validated_visual_and_natural_pending",
-    "capability": "Continuity Works 0.3.2",
-    "report": "tools/continuity_district_refit_report.json",
-    "runtime_report": "tools/continuity_refit_runtime_report.json",
-    "changed_cells": 8586,
-    "relief_cells": 1913,
-    "detail_before": 142,
-    "detail_after": 2055,
-    "detail_ratio": 14.472
   }
 }

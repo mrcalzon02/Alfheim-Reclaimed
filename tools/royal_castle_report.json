@@ -1,0 +1,70 @@
+{
+  "capability": "Continuity Works 0.3.2",
+  "method": "StructureCapability.generate with registered CastleProvider",
+  "snapshot_id": "20261015T181102Z-alfheim_royal_castle-generate-05460bfa",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_royal_castle_v1"
+  },
+  "layout": {
+    "footprint": [
+      235,
+      235
+    ],
+    "tiles": 25,
+    "native_foundation_pieces": 1,
+    "templates": [
+      {
+        "kind": "keep",
+        "file": "kubejs/data/alfheim/structures/royal_castle/keep.nbt",
+        "sha256": "19eececd113baae155c66a36190c05b3587cc943dda30eb21d234660306b6747",
+        "blocks": 106032
+      },
+      {
+        "kind": "tower",
+        "file": "kubejs/data/alfheim/structures/royal_castle/tower.nbt",
+        "sha256": "576ea63cc3f0288b39c9262afbdac10c4c4397a9880f3774016e9bae42084479",
+        "blocks": 106032
+      },
+      {
+        "kind": "gate",
+        "file": "kubejs/data/alfheim/structures/royal_castle/gate.nbt",
+        "sha256": "e98b241e9b10e20d51206e2b6afb3c100a96a96fb6b6699b4cce80fe2f06f95f",
+        "blocks": 106032
+      },
+      {
+        "kind": "curtain",
+        "file": "kubejs/data/alfheim/structures/royal_castle/curtain.nbt",
+        "sha256": "b80855fbb4774b99f37df4f681e49ae4eabdc0e035bbfbc0150fc784ced86e28",
+        "blocks": 106032
+      },
+      {
+        "kind": "hall",
+        "file": "kubejs/data/alfheim/structures/royal_castle/hall.nbt",
+        "sha256": "af40988ca5c6825f5d21c694c7eb20cba5a004015cf3df3a4de1121b39f6d1cc",
+        "blocks": 106032
+      },
+      {
+        "kind": "garden",
+        "file": "kubejs/data/alfheim/structures/royal_castle/garden.nbt",
+        "sha256": "c4fc6aa406191e58ebd312e1f3db7e413e0161b9c86357cd12f2addb1e83b1d6",
+        "blocks": 106032
+      }
+    ],
+    "emitted_json": [
+      "worldgen/structure/royal_castle.json",
+      "worldgen/structure_set/royal_castle.json",
+      "tags/worldgen/biome/has_royal_castle.json"
+    ]
+  }
+}

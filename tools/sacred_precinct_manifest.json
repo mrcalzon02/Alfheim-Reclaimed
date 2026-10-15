@@ -1,6 +1,6 @@
 {
   "status": "static_validated_runtime_pending",
-  "source_fingerprint": "752af5e04fab2c02d10dbd162945303d94399690fe6fb1b5c81488b951fe96d7",
+  "source_fingerprint": "832fbebf23a4e84f59d5b969556d170c0a9f5496e4c0abfeb227f1c38ada63a3",
   "files": 18,
   "members": 7,
   "joins": 6,
@@ -164,17 +164,5 @@
     "minecraft:green_carpet": 1,
     "alfheim:royal_tall_cabinet": 5,
     "minecraft:bookshelf": 1
-  },
-  "detail_refit_evidence": {
-    "date": "2026-10-15",
-    "state": "template_runtime_validated_visual_and_natural_pending",
-    "capability": "Continuity Works 0.3.2",
-    "report": "tools/continuity_district_refit_report.json",
-    "runtime_report": "tools/continuity_refit_runtime_report.json",
-    "changed_cells": 7229,
-    "relief_cells": 1741,
-    "detail_before": 97,
-    "detail_after": 1838,
-    "detail_ratio": 18.948
   }
 }

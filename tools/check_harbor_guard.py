@@ -15,7 +15,8 @@ assert actual==expected,(actual,expected)
 settings=json.loads((ROOT/'kubejs/data/alfheim/worldgen/structure/harbor_complex.json').read_text())
 assert settings['type']=='alfheim_companion:shoreline_harbor' and settings['terrain_adaptation']=='none'
 placement=json.loads((ROOT/'kubejs/data/alfheim/worldgen/structure_set/harbor_complex.json').read_text(encoding='utf-8'))['placement']
-assert placement['spacing']==80 and placement['separation']==48
+from district_policy import PLACEMENT
+assert placement==PLACEMENT
 policy=(ROOT/'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/worldgen/HarborSite.java').read_text(encoding='utf-8')
 assert 'GENERATION_COLUMN_LIMIT=32' in policy and 'GENERATION_TIME_LIMIT=150_000_000L' in policy
 report=ET.parse(ROOT/'first_party_mods/alfheim_companion/build/test-results/test/TEST-com.continuityworks.alfheimcompanion.worldgen.HarborSiteTest.xml').getroot()

@@ -1,5 +1,18 @@
 # Execution State
 
+## District reservations, royal castle and upper-rock discoveries — 2026-10-15
+
+Added a native one-family-per-cell district reservation policy: rare 192/96-chunk
+shared grid, 6,000-block origin and 4,096-block bound-spawn exclusions, conservative
+1,024-block district footprint gap. Prototype admissions and bounded harbor fitting
+are unchanged. Continuity Works emitted a 235×235 royal citadel and twelve upper-rock
+cave/ruin/geology variants above the Deep envelope. Java17 build/61 tests and all
+twelve district source/layout checkers pass; saved runtime acceptance passes for all 25 castle sections, nine foundation columns
+and eighteen gallery templates (7,819 geometry samples). The natural castle locator
+finds a suitable site 1,766 blocks from the test origin. Upper-rock natural density
+and client visual review remain pending.
+See `alfheim_reclaimed_design/DISTRICT_ROYAL_UPPER_20261015.md` for exact scope and gates.
+
 ## Continuity Works district refit — 2026-10-15
 
 Structure work resumed with the local Continuity Works skill/capability. All twelve

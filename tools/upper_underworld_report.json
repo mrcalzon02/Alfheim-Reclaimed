@@ -1,0 +1,95 @@
+{
+  "capability": "Continuity Works 0.3.2",
+  "snapshot_id": "20261015T174925Z-alfheim_upper_underworld-generate-495d808f",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_upper_underworld_v1"
+  },
+  "layout": {
+    "templates": [
+      {
+        "name": "moss_grotto",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/moss_grotto.nbt",
+        "sha256": "e1164d313849200c27b62ef93354f83eeab6bea61c54f47798356e4903fadbbf"
+      },
+      {
+        "name": "calcite_drapery",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/calcite_drapery.nbt",
+        "sha256": "f05c596b3ad4130ff0191a4e3d71fd33adef39bbb2b1da339b5785f8a92da867"
+      },
+      {
+        "name": "root_vault",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/root_vault.nbt",
+        "sha256": "f5688a8cbaf290f8c685ca8ca0638cb2e42253e2b3a86e2a77c537562b47e2b8"
+      },
+      {
+        "name": "buried_cistern",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/buried_cistern.nbt",
+        "sha256": "01d7a0edf540a941b4bcf28f2cff75c6329919d747bf4e50fc8d38115767f6f3"
+      },
+      {
+        "name": "abandoned_gallery",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/abandoned_gallery.nbt",
+        "sha256": "e813866f9541619691bd3c638db89cdd1d3ac482a8ab5f8cccaa0f92434113f1"
+      },
+      {
+        "name": "collapsed_archive",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/collapsed_archive.nbt",
+        "sha256": "12aac03fa95c0f627ec0813c8c2cdd5edb1e6f67343bcd38e0a65a97c2fed09b"
+      },
+      {
+        "name": "silt_pool",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/silt_pool.nbt",
+        "sha256": "9f861505752fd278a4bdd47f8b327573f27f20f59a1b2d547322625b5f12547b"
+      },
+      {
+        "name": "basalt_columns",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/basalt_columns.nbt",
+        "sha256": "ee975378aa47b20ae79bc0427cc3b8e07714e08252d9e2cee21b0aa1f12ff416"
+      },
+      {
+        "name": "fossil_pocket",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/fossil_pocket.nbt",
+        "sha256": "520d745cf898d101554c9f473382e0f024d71e07f74318a4b3b757f899fb13d4"
+      },
+      {
+        "name": "crystal_beds",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/crystal_beds.nbt",
+        "sha256": "799f5f79bd0c9616fff0f22b338eea05216409a0822367fc0f05e377ab2e989a"
+      },
+      {
+        "name": "buried_bridge",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/buried_bridge.nbt",
+        "sha256": "e209b8083dc964d6264191d45e6dba0733fd897b01562cbe6b4c32011dff54f9"
+      },
+      {
+        "name": "lithic_fault",
+        "file": "kubejs/data/alfheim/structures/upper_underworld/lithic_fault.nbt",
+        "sha256": "7dbf645d884430a15b66984db0ee49f9d7f4bfc8ffa42a5f4e2b812390409a66"
+      }
+    ],
+    "json": [
+      "worldgen/structure/upper_underworld.json",
+      "worldgen/structure_set/upper_underworld.json",
+      "tags/worldgen/biome/has_upper_underworld.json"
+    ],
+    "min_y": 32,
+    "max_base_y": 96,
+    "max_top_y": 115,
+    "deep_density_envelope": [
+      -60,
+      27
+    ],
+    "minimum_roof_cover": 12
+  }
+}

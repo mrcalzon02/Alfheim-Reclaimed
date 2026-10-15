@@ -1,5 +1,10 @@
 # Structure family review queue
 
+Current placement revision: all district families now share a rare, mutually exclusive
+reservation grid and native spawn-distance guard. Nine natural families remain enabled;
+the three prototype admissions remain closed. Royal castle and upper-rock content:
+`DISTRICT_ROYAL_UPPER_20261015.md`. Existing generated districts are not moved.
+
 ## Current refit corpus — 2026-10-15
 
 All twelve families receive the Continuity Works architectural detail pass. The saved

@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:royal_castle",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:concentric_rings",
+    "distance": 32,
+    "spread": 3,
+    "count": 3,
+    "salt": 202610152,
+    "preferred_biomes": "#alfheim:has_royal_castle"
+  }
+}

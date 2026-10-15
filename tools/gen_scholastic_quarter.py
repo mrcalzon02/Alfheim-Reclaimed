@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+from district_policy import apply as district_policy
 import nbt
 from district_refit import detail_nbt
 from structure_nbt import Piece
@@ -129,6 +130,7 @@ def build(name):
 def generate(root=ROOT):
     data=root/'kubejs/data/alfheim';files=[]
     def emit(path,value):
+        value=district_policy(path,value)
         p=data/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8',newline='\n');files.append(p)
     for name in SIZES:
         p=data/'structures/ancient/scholastic_quarter'/f'{name}.nbt';p.parent.mkdir(parents=True,exist_ok=True);nbt.save(str(p),'',detail_nbt(build(name), 'scholastic_quarter', name));files.append(p)

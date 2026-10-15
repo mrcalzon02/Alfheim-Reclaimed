@@ -22,6 +22,7 @@ public final class HarborStructure extends Structure {
     public HarborStructure(StructureSettings settings) { super(settings); }
 
     @Override protected Optional<GenerationStub> findGenerationPoint(GenerationContext c) {
+        if(!DistrictPolicy.allowed(c,"harbor_complex"))return Optional.empty();
         int sea=c.chunkGenerator().getSeaLevel();
         var site=auditGeneratedBounded(c.chunkGenerator(),c.randomState(),c.heightAccessor(),c.chunkPos().getMinBlockX(),c.chunkPos().getMinBlockZ(),false,HarborGeometry.PARTS).site();
         return site.map(s->new GenerationStub(new BlockPos(s.x(),sea+2,s.z()),builder->

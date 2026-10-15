@@ -41,7 +41,8 @@ def main():
     assert len(files)==46
     placement=json.loads((ROOT/'kubejs/data/alfheim/worldgen/structure_set/harbor_complex.json').read_text(encoding='utf-8'))
     assert placement['structures']==[{'structure':'alfheim:harbor_complex','weight':1}]
-    assert placement['placement']=={'type':'minecraft:random_spread','spacing':80,'separation':48,'salt':101320269}
+    from district_policy import PLACEMENT
+    assert placement['placement']==PLACEMENT
     registry=set(json.loads((ROOT/'server/local/kubejs/export/registries/block.json').read_text()))
     for script in (ROOT/'kubejs/startup_scripts').glob('*.js'):
         text=script.read_text(encoding='utf-8')

@@ -1,0 +1,7 @@
+{
+  "type": "alfheim_companion:royal_castle",
+  "biomes": "#alfheim:has_royal_castle",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}
