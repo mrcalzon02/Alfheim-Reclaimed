@@ -147,6 +147,17 @@ def install():
     return r.returncode
 
 
+def is_harness_server(command_line, executable):
+    """Do not mistake an unrelated NeoForge/other-version Java server for ours."""
+    normal=lambda value:str(value or '').replace('\\','/').casefold()
+    target=f'libraries/net/minecraftforge/forge/{MC}-{FORGE}/win_args.txt'
+    return target in normal(command_line) and normal(executable)==normal(os.path.abspath(JAVA17))
+
+
+def ready_for_commands(console_text):
+    return 'For help, type "help"' in console_text
+
+
 def running_servers():
     """PIDs of server processes already launched from this harness.
 
@@ -162,10 +173,12 @@ def running_servers():
         r = subprocess.run(
             ['powershell', '-NoProfile', '-Command',
              "Get-CimInstance Win32_Process -Filter \"Name='java.exe'\" | "
-             "Where-Object { $_.CommandLine -like '*forge*win_args*' } | "
-             "Select-Object -ExpandProperty ProcessId"],
+             "Select-Object ProcessId,CommandLine,ExecutablePath | ConvertTo-Json -Compress"],
             capture_output=True, text=True, timeout=60)
-        return [int(x) for x in r.stdout.split() if x.strip().isdigit()]
+        rows=json.loads(r.stdout) if r.stdout.strip() else []
+        if isinstance(rows,dict):rows=[rows]
+        return [int(row['ProcessId']) for row in rows
+                if is_harness_server(row.get('CommandLine'),row.get('ExecutablePath'))]
     except Exception:
         return []
 
@@ -259,11 +272,18 @@ def run(seed, level_name, heap, commands, timeout):
     with open(console, 'w', encoding='utf-8', errors='replace', newline='\n') as log:
         p = subprocess.Popen(cmd, cwd=SERVER, stdin=subprocess.PIPE, stdout=log,
                              stderr=subprocess.STDOUT, text=True, bufsize=1)
-        # Commands are fed on stdin after a delay rather than on a "Done" match, because a
-        # crash during worldgen never prints Done and we would wait forever for it.
+        # Keep the requested minimum delay, but never enqueue commands against an
+        # uninitialised command source on a slow boot. Readiness has a finite deadline.
         try:
-            for delay, line in commands:
+            for index,(delay, line) in enumerate(commands):
                 time.sleep(delay)
+                if index==0:
+                    while p.poll() is None:
+                        with open(console,encoding='utf-8',errors='replace') as status:
+                            if ready_for_commands(status.read()):break
+                        if time.time()-started>=300:
+                            raise subprocess.TimeoutExpired(cmd,300)
+                        time.sleep(0.5)
                 if p.poll() is not None:
                     print(f'server exited early with {p.returncode} before: {line}')
                     harness_exit = 3
@@ -272,9 +292,9 @@ def run(seed, level_name, heap, commands, timeout):
                 p.stdin.flush()
                 print(f'  -> {line}')
             p.wait(timeout=timeout)
-        except subprocess.TimeoutExpired:
+        except subprocess.TimeoutExpired as e:
             harness_exit = 124
-            print(f'!! still running after {timeout}s; terminating')
+            print(f'!! still running after {e.timeout}s; terminating')
             p.terminate()
             try:
                 p.wait(timeout=60)
@@ -298,6 +318,7 @@ def run(seed, level_name, heap, commands, timeout):
         'properties': props, 'omitted_mods': SERVER_MOD_OMIT,
         'mods_jars': len(glob.glob(os.path.join(SERVER, 'mods', '*.jar'))),
         'commands': [c for _, c in commands],
+        'command_startup_gate': 'dedicated-server-ready; maximum 300 seconds',
         'console': os.path.basename(console),
     }
     with open(os.path.join(SERVER, f'manifest-{stamp}.json'), 'w', encoding='utf-8', newline='\n') as f:

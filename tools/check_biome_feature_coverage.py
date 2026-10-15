@@ -47,6 +47,10 @@ def main():
         row=next(r for r in rows if r['biome']==bid)
         assert {'alfheim:void_bramble','alfheim:void_thornbush'}<=set(row['vegetation']),bid
         assert {'alfheim:thorn_gate','alfheim:shore_memorial_court'}<=set(row['natural_structures']),bid
+    for biome,feature in (('alfheim:mistbark_shore','mistbark_stone_scatter'),
+                          ('alfheim:void_shore','void_shore_wrack')):
+        row=next(r for r in rows if r['biome']==biome)
+        assert 'alfheim:'+feature in row['vegetation'],('shore detail absent from effective modifiers',biome,feature)
     for feature in ('void_bramble','void_thornbush'):
         config=json.loads((data/f'worldgen/configured_feature/{feature}.json').read_text(encoding='utf-8'))['config']
         supports=config['feature']['placement'][0]['predicate']['predicates'][1]['blocks']
@@ -70,6 +74,13 @@ def main():
             '', 'Void identities: Shatterfields anchor needles, Prism Drift crystal crowns, Rootfall fossil root aprons, Sepulchral Reach mourning steles, and Starless Reach astralite flecks. Source registration alone does not establish their natural success rate or visual quality; controlled placement evidence is recorded separately.',
             '', 'Void Shore and Void Verge both receive bramble and thorn patches plus Thorn Gate and Shore Memorial Court. Their substrate filter now includes their actual chalk/shale/sand/gravel surfaces. This corrects a placement blocker; it does not establish final natural density.',
             '', 'Broad density, noise, biome selection and surface rules are unchanged. See tools/biome_feature_coverage.json for exact feature and structure IDs.']
+    shore_path=ROOT/'tools/shore_detail_runtime.json'
+    shore=json.loads(shore_path.read_text(encoding='utf-8')) if shore_path.exists() else {}
+    shore_hashes=shore.get('source_sha256',{})
+    shore_current=bool(shore_hashes) and all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in shore_hashes.items())
+    shore_status=(f"Controlled saved-world validation passes {len(shore['cases'])} cases and {shore['saved_log_axis_states']} log axis/default states. Two 64-chunk natural-generation samples also save successfully; natural counts cannot identify individual decorations or establish their frequency."
+                  if shore_current else 'Runtime support tests remain pending for the current source.')
+    lines+=['','Shore detail additions: Mistbark stone scatter and Void Shore chalk/shale wrack. Driftwood now accepts sand, gravel and native shoreline stone, uses horizontal logs and requires support at every cell. '+shore_status+' Client review remains pending; see `SHORE_DETAIL_REVIEW.md`.']
     runtime_path=ROOT/'tools/void_undergrowth_runtime.json'
     if runtime_path.exists():
         runtime=json.loads(runtime_path.read_text(encoding='utf-8'))

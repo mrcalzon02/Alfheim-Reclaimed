@@ -1,36 +1,1205 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 8,
-    "xz_spread": 6,
+    "tries": 2,
+    "xz_spread": 5,
     "y_spread": 1,
     "feature": {
       "feature": {
-        "type": "minecraft:simple_block",
+        "type": "minecraft:simple_random_selector",
         "config": {
-          "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "data": {
-                  "Name": "alfheim:gloambark_log"
-                },
-                "weight": 4
+          "features": [
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
               },
-              {
-                "data": {
-                  "Name": "alfheim:hushbark_log"
-                },
-                "weight": 3
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
               },
-              {
-                "data": {
-                  "Name": "minecraft:dead_bush"
-                },
-                "weight": 2
-              }
-            ]
-          }
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:gloambark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:hushbark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:hushbark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:hushbark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:hushbark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:simple_random_selector",
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "east",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:hushbark_log",
+                                      "Properties": {
+                                        "axis": "x"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    },
+                    {
+                      "feature": {
+                        "type": "minecraft:block_column",
+                        "config": {
+                          "direction": "south",
+                          "allowed_placement": {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:air"
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": [
+                                  "minecraft:grass_block",
+                                  "minecraft:dirt",
+                                  "minecraft:coarse_dirt",
+                                  "minecraft:podzol",
+                                  "minecraft:mycelium",
+                                  "minecraft:rooted_dirt",
+                                  "minecraft:sand",
+                                  "minecraft:gravel",
+                                  "botania:livingrock",
+                                  "alfheim:tide_livingrock",
+                                  "alfheim:storm_livingrock",
+                                  "alfheim:rootbound_livingrock",
+                                  "alfheim:moss_livingrock",
+                                  "alfheim:amber_livingrock",
+                                  "alfheim:fern_livingrock",
+                                  "alfheim:frost_livingrock",
+                                  "alfheim:silvermist_livingrock",
+                                  "alfheim:moonstone_livingrock",
+                                  "alfheim:amethyst_livingrock",
+                                  "alfheim:gloam_livingrock",
+                                  "alfheim:ivory_livingrock",
+                                  "alfheim:abyssal_livingrock",
+                                  "alfheim:riftchalk_livingrock",
+                                  "alfheim:riftshale_livingrock"
+                                ],
+                                "offset": [
+                                  0,
+                                  -1,
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "prioritize_tip": false,
+                          "layers": [
+                            {
+                              "height": {
+                                "type": "minecraft:uniform",
+                                "value": {
+                                  "min_inclusive": 2,
+                                  "max_inclusive": 4
+                                }
+                              },
+                              "provider": {
+                                "type": "minecraft:weighted_state_provider",
+                                "entries": [
+                                  {
+                                    "data": {
+                                      "Name": "alfheim:hushbark_log",
+                                      "Properties": {
+                                        "axis": "z"
+                                      }
+                                    },
+                                    "weight": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "placement": []
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
         }
       },
       "placement": [
@@ -43,11 +1212,6 @@
                 "type": "minecraft:matching_blocks",
                 "blocks": [
                   "minecraft:air"
-                ],
-                "offset": [
-                  0,
-                  0,
-                  0
                 ]
               },
               {
@@ -58,7 +1222,25 @@
                   "minecraft:coarse_dirt",
                   "minecraft:podzol",
                   "minecraft:mycelium",
-                  "botania:livingrock"
+                  "minecraft:rooted_dirt",
+                  "minecraft:sand",
+                  "minecraft:gravel",
+                  "botania:livingrock",
+                  "alfheim:tide_livingrock",
+                  "alfheim:storm_livingrock",
+                  "alfheim:rootbound_livingrock",
+                  "alfheim:moss_livingrock",
+                  "alfheim:amber_livingrock",
+                  "alfheim:fern_livingrock",
+                  "alfheim:frost_livingrock",
+                  "alfheim:silvermist_livingrock",
+                  "alfheim:moonstone_livingrock",
+                  "alfheim:amethyst_livingrock",
+                  "alfheim:gloam_livingrock",
+                  "alfheim:ivory_livingrock",
+                  "alfheim:abyssal_livingrock",
+                  "alfheim:riftchalk_livingrock",
+                  "alfheim:riftshale_livingrock"
                 ],
                 "offset": [
                   0,

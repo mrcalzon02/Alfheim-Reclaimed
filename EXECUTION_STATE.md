@@ -1,5 +1,25 @@
 # Execution State
 
+## Shore details and grove log axes - 2026-10-14
+
+Added sparse Mistbark silvermist/frost stone scatter and low Void Shore chalk/shale
+wrack. Repaired shore driftwood to accept real beach substrates and form supported
+horizontal trunks, retaining its rarity and maximum eight log blocks per patch.
+All three grove logs now register axes and matching rotated models while keeping
+their IDs and vertical defaults. Both generators preserve the changes.
+
+Saved-world review passes 27 substrate/edge/obstacle cases, 65 horizontal fallen
+logs, 12 explicit axis/default states and two 64-chunk fully generated natural
+samples. Natural raw-material counts do not prove individual feature frequency.
+Client appearance and manual placement callback review remain pending. Proof:
+`tools/shore_detail_runtime.json`; review: `alfheim_reclaimed_design/SHORE_DETAIL_REVIEW.md`.
+
+Validation tooling now excludes unrelated NeoForge/Java processes and waits for
+the actual dedicated-server ready signal (300-second bound) before commands.
+The final run saved/exited zero in 282.2s; its separate saved-world census passes.
+Broad terrain's 39 protected files remain unchanged; harbor policy is unchanged.
+
+
 ## Void formation support repairs and runtime proof - 2026-10-14
 
 Verge markers, Shatter anchors and mourning steles now require native support.

@@ -11,7 +11,7 @@ Configuration audit, 2026-10-14. Includes jar defaults, datapack overrides and F
 | alfheim:hollow_marches | 6 | 6 | 15 | 4 |
 | alfheim:infested_warren | 6 | 5 | 15 | 4 |
 | alfheim:mana_fen | 4 | 6 | 15 | 4 |
-| alfheim:mistbark_shore | 5 | 4 | 8 | 1 |
+| alfheim:mistbark_shore | 6 | 4 | 8 | 1 |
 | alfheim:prism_drift | 2 | 3 | 2 | 1 |
 | alfheim:rootfall | 2 | 3 | 2 | 1 |
 | alfheim:scorchfell | 3 | 5 | 15 | 4 |
@@ -23,7 +23,7 @@ Configuration audit, 2026-10-14. Includes jar defaults, datapack overrides and F
 | alfheim:starved_reach | 4 | 5 | 16 | 4 |
 | alfheim:sundered_highlands | 6 | 5 | 15 | 4 |
 | alfheim:tidewood_shore | 6 | 4 | 8 | 1 |
-| alfheim:void_shore | 4 | 4 | 9 | 1 |
+| alfheim:void_shore | 5 | 4 | 9 | 1 |
 | alfheim:void_verge | 3 | 3 | 4 | 1 |
 | mythicbotany:alfheim_hills | 5 | 7 | 16 | 4 |
 | mythicbotany:alfheim_lakes | 4 | 5 | 7 | 1 |
@@ -40,6 +40,8 @@ Void identities: Shatterfields anchor needles, Prism Drift crystal crowns, Rootf
 Void Shore and Void Verge both receive bramble and thorn patches plus Thorn Gate and Shore Memorial Court. Their substrate filter now includes their actual chalk/shale/sand/gravel surfaces. This corrects a placement blocker; it does not establish final natural density.
 
 Broad density, noise, biome selection and surface rules are unchanged. See tools/biome_feature_coverage.json for exact feature and structure IDs.
+
+Shore detail additions: Mistbark stone scatter and Void Shore chalk/shale wrack. Driftwood now accepts sand, gravel and native shoreline stone, uses horizontal logs and requires support at every cell. Controlled saved-world validation passes 27 cases and 12 log axis/default states. Two 64-chunk natural-generation samples also save successfully; natural counts cannot identify individual decorations or establish their frequency. Client review remains pending; see `SHORE_DETAIL_REVIEW.md`.
 
 ## Observed void undergrowth
 

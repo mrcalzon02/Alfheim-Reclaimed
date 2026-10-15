@@ -1261,15 +1261,15 @@ SHORE_CAPS = ['feywild:purple_mushroom_block', 'feywild:blue_mushroom_block',
               'feywild:pink_mushroom_block', 'feywild:orange_mushroom_block',
               'feywild:yellow_mushroom_block', 'feywild:green_mushroom_block']
 
+from gen_shore_details import driftwood as _supported_shore_driftwood
+
 SHORE_CONFIGURED = {
     # Undergrowth shared by all three shores: fern and grass thickets that make the floor read
     # as forest rather than lawn, without adding a third grass feature to every inland biome.
     'shore_undergrowth': _patch('minecraft:simple_block', [
         ('minecraft:fern', 6), ('minecraft:grass', 5), ('minecraft:tall_grass', 2)], tries=40),
     # Driftwood and fallen trunks along the tide line.
-    'shore_driftwood': _patch('minecraft:simple_block', [
-        ('alfheim:gloambark_log', 4), ('alfheim:hushbark_log', 3),
-        ('minecraft:dead_bush', 2)], tries=8, xz=6, y=1),
+    'shore_driftwood': _supported_shore_driftwood(),
     'shore_sporecaps': {'type': 'minecraft:simple_random_selector', 'config': {
         'features': [{'feature': f'{NS}:shore_sporecap_{i}', 'placement': []}
                      for i in range(len(SHORE_CAPS))]}},

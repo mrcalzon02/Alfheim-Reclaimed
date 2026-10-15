@@ -29,6 +29,7 @@ import json
 import os
 import sys
 import zipfile
+from gen_grove_log_axes import builder as log_axis_builder, assets as log_axis_assets
 
 from PIL import Image
 
@@ -184,7 +185,9 @@ def build_trees(trees, jar, dry):
             f".tagBlock('minecraft:logs_that_burn').tagBlock('{NS}:grove_logs')"
             f".textureAll('{NS}:block/{tid}_log')"
             f".texture('up', '{NS}:block/{tid}_log_top')"
-            f".texture('down', '{NS}:block/{tid}_log_top')")
+            f".texture('down', '{NS}:block/{tid}_log_top')"+log_axis_builder(tid))
+        for relative,doc in log_axis_assets(tid).items():
+            write_json(relative,doc,dry)
         reg.append(
             f"    event.create('{NS}:{tid}_leaves')"
             f".displayName('{t['name']} Leaves').soundType('grass')"

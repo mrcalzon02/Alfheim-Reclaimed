@@ -1,0 +1,68 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 5,
+    "xz_spread": 3,
+    "y_spread": 1,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "alfheim:silvermist_livingrock"
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "alfheim:frost_livingrock"
+                },
+                "weight": 2
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:grass_block",
+                  "minecraft:dirt",
+                  "minecraft:podzol",
+                  "minecraft:sand",
+                  "minecraft:gravel",
+                  "alfheim:tide_livingrock",
+                  "alfheim:frost_livingrock",
+                  "alfheim:silvermist_livingrock",
+                  "alfheim:fern_livingrock",
+                  "alfheim:moonstone_livingrock"
+                ],
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

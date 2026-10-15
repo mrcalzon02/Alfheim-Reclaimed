@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:void_shore"
+  ],
+  "features": "alfheim:void_shore_wrack",
+  "step": "vegetal_decoration"
+}

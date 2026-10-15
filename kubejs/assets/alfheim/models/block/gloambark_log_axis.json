@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "alfheim:block/gloambark_log_top",
+    "side": "alfheim:block/gloambark_log"
+  }
+}

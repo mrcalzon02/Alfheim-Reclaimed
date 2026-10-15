@@ -1,0 +1,188 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 2,
+    "xz_spread": 3,
+    "y_spread": 0,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_random_selector",
+        "config": {
+          "features": [
+            {
+              "feature": {
+                "type": "minecraft:block_column",
+                "config": {
+                  "direction": "east",
+                  "allowed_placement": {
+                    "type": "minecraft:all_of",
+                    "predicates": [
+                      {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": [
+                          "minecraft:air"
+                        ]
+                      },
+                      {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": [
+                          "minecraft:sand",
+                          "minecraft:gravel",
+                          "alfheim:riftchalk_livingrock",
+                          "alfheim:riftshale_livingrock",
+                          "alfheim:tide_livingrock",
+                          "alfheim:ivory_livingrock",
+                          "alfheim:frost_livingrock",
+                          "alfheim:gloam_livingrock",
+                          "alfheim:abyssal_livingrock"
+                        ],
+                        "offset": [
+                          0,
+                          -1,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "prioritize_tip": false,
+                  "layers": [
+                    {
+                      "height": {
+                        "type": "minecraft:uniform",
+                        "value": {
+                          "min_inclusive": 1,
+                          "max_inclusive": 3
+                        }
+                      },
+                      "provider": {
+                        "type": "minecraft:weighted_state_provider",
+                        "entries": [
+                          {
+                            "data": {
+                              "Name": "alfheim:riftchalk_livingrock"
+                            },
+                            "weight": 2
+                          },
+                          {
+                            "data": {
+                              "Name": "alfheim:riftshale_livingrock"
+                            },
+                            "weight": 3
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            },
+            {
+              "feature": {
+                "type": "minecraft:block_column",
+                "config": {
+                  "direction": "south",
+                  "allowed_placement": {
+                    "type": "minecraft:all_of",
+                    "predicates": [
+                      {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": [
+                          "minecraft:air"
+                        ]
+                      },
+                      {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": [
+                          "minecraft:sand",
+                          "minecraft:gravel",
+                          "alfheim:riftchalk_livingrock",
+                          "alfheim:riftshale_livingrock",
+                          "alfheim:tide_livingrock",
+                          "alfheim:ivory_livingrock",
+                          "alfheim:frost_livingrock",
+                          "alfheim:gloam_livingrock",
+                          "alfheim:abyssal_livingrock"
+                        ],
+                        "offset": [
+                          0,
+                          -1,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "prioritize_tip": false,
+                  "layers": [
+                    {
+                      "height": {
+                        "type": "minecraft:uniform",
+                        "value": {
+                          "min_inclusive": 1,
+                          "max_inclusive": 3
+                        }
+                      },
+                      "provider": {
+                        "type": "minecraft:weighted_state_provider",
+                        "entries": [
+                          {
+                            "data": {
+                              "Name": "alfheim:riftchalk_livingrock"
+                            },
+                            "weight": 2
+                          },
+                          {
+                            "data": {
+                              "Name": "alfheim:riftshale_livingrock"
+                            },
+                            "weight": 3
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "placement": []
+            }
+          ]
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:sand",
+                  "minecraft:gravel",
+                  "alfheim:riftchalk_livingrock",
+                  "alfheim:riftshale_livingrock",
+                  "alfheim:tide_livingrock",
+                  "alfheim:ivory_livingrock",
+                  "alfheim:frost_livingrock",
+                  "alfheim:gloam_livingrock",
+                  "alfheim:abyssal_livingrock"
+                ],
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

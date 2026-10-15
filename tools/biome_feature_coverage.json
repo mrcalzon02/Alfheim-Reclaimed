@@ -648,6 +648,7 @@
     {
       "biome": "alfheim:mistbark_shore",
       "vegetation": [
+        "alfheim:mistbark_stone_scatter",
         "alfheim:shore_driftwood",
         "alfheim:shore_mistbark_canopy",
         "alfheim:shore_undergrowth",
@@ -694,6 +695,7 @@
         "underground_decoration": [],
         "fluid_springs": [],
         "vegetal_decoration": [
+          "alfheim:mistbark_stone_scatter",
           "alfheim:shore_driftwood",
           "alfheim:shore_mistbark_canopy",
           "alfheim:shore_undergrowth",
@@ -1459,6 +1461,7 @@
       "vegetation": [
         "alfheim:shore_driftwood",
         "alfheim:void_bramble",
+        "alfheim:void_shore_wrack",
         "alfheim:void_thornbush",
         "botania:mystical_flowers"
       ],
@@ -1504,6 +1507,7 @@
         "vegetal_decoration": [
           "alfheim:shore_driftwood",
           "alfheim:void_bramble",
+          "alfheim:void_shore_wrack",
           "alfheim:void_thornbush",
           "botania:mystical_flowers"
         ],

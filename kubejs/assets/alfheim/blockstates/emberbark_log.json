@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "alfheim:block/emberbark_log_axis",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "alfheim:block/emberbark_log_axis"
+    },
+    "axis=z": {
+      "model": "alfheim:block/emberbark_log_axis",
+      "x": 90
+    }
+  }
+}

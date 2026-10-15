@@ -1,0 +1,201 @@
+{
+  "world": "validation-shore-details-axes-20261014",
+  "console": "server/console-20261014-180220.log",
+  "server_exit_code": 0,
+  "source_sha256": {
+    "kubejs/assets/alfheim/blockstates/emberbark_log.json": "9f79e5b32da24c5a549d09f76b1ae3127f95998dc88f3106f02d6290b2f6238b",
+    "kubejs/assets/alfheim/blockstates/gloambark_log.json": "692de281aad83577401ab76c01c5c738d6ae3849a551bfaa966e8c0b1182a885",
+    "kubejs/assets/alfheim/blockstates/hushbark_log.json": "8e1b918a263b3b279e9dd85a7ce949415245d9114f29f84d817b49da7fa582b2",
+    "kubejs/assets/alfheim/models/block/emberbark_log_axis.json": "5960ca93381e36e2a4efce7c67e60426b20d76f2974dab534a12afcd93af4223",
+    "kubejs/assets/alfheim/models/block/gloambark_log_axis.json": "da25d2f2064cc16c65602b1a841c08809944706a8cbd73889c97d765e9505183",
+    "kubejs/assets/alfheim/models/block/hushbark_log_axis.json": "fde50bc4f92bbac6395d741924b68e1ce0dce5ef6912a2c50e506d9050c40aa7",
+    "kubejs/data/alfheim/forge/biome_modifier/shore_mistbark_stone_scatter.json": "dd0935eccb11fa68e06d3997847a89b1271486f0deaabd5e66bbd92a9d8c3ef3",
+    "kubejs/data/alfheim/forge/biome_modifier/shore_void_shore_wrack.json": "bb4293b5aa62c218bb15581f5ced7e1696621fd63be260fc47daaeeb716fd68d",
+    "kubejs/data/alfheim/worldgen/configured_feature/mistbark_stone_scatter.json": "9584581a1b7f5e797f5e68be99a757b158404f64b33c432de29cccda63e8ddf0",
+    "kubejs/data/alfheim/worldgen/configured_feature/shore_driftwood.json": "d30ed706a119cb662e50f15c3760deeb313ab175f4e58e5159020cdd5b4a8fc2",
+    "kubejs/data/alfheim/worldgen/configured_feature/void_shore_wrack.json": "c2bf332608de1c145c00c22a06594ea25b3644fa1e8e17f0ac09753c4fa6c175",
+    "kubejs/data/alfheim/worldgen/placed_feature/mistbark_stone_scatter.json": "7870c8c083953d58c6fc2add8a77c3d554cd858bae04cab7d7631bdb1765c017",
+    "kubejs/data/alfheim/worldgen/placed_feature/shore_driftwood.json": "419efb4e2c67ff97d5ca8842b972f3a4464aaddb8f37943254714824b147ff82",
+    "kubejs/data/alfheim/worldgen/placed_feature/void_shore_wrack.json": "34a08850c5ddd6cb7cf9b4bbd60aade55077e9c26f01dbb9ab5d8cd0872e7dc4",
+    "kubejs/startup_scripts/12_groves.js": "47eb444f1ff1c44525207e9106053605d225d1ea62b31d5ae0c8bf7481d37786"
+  },
+  "cases": [
+    {
+      "feature": "shore_driftwood",
+      "scenario": "grass",
+      "placed_blocks": 14
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "sand",
+      "placed_blocks": 12
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "gravel",
+      "placed_blocks": 13
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "native_stone",
+      "placed_blocks": 10
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "wrong_host",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "unsupported",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "water",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "edge",
+      "placed_blocks": 16
+    },
+    {
+      "feature": "shore_driftwood",
+      "scenario": "occupied",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "grass",
+      "placed_blocks": 10
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "sand",
+      "placed_blocks": 12
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "gravel",
+      "placed_blocks": 14
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "native_stone",
+      "placed_blocks": 11
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "wrong_host",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "unsupported",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "water",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "edge",
+      "placed_blocks": 22
+    },
+    {
+      "feature": "mistbark_stone_scatter",
+      "scenario": "occupied",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "grass",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "sand",
+      "placed_blocks": 15
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "gravel",
+      "placed_blocks": 12
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "native_stone",
+      "placed_blocks": 14
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "wrong_host",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "unsupported",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "water",
+      "placed_blocks": 0
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "edge",
+      "placed_blocks": 13
+    },
+    {
+      "feature": "void_shore_wrack",
+      "scenario": "occupied",
+      "placed_blocks": 0
+    }
+  ],
+  "horizontal_log_axes": {
+    "x": 27,
+    "z": 38
+  },
+  "natural_sample_chunks": {
+    "void": 64,
+    "mistbark": 64
+  },
+  "saved_log_axis_states": 12,
+  "natural_log_blocks": [
+    {
+      "sample": "mistbark",
+      "biome": "alfheim:mistbark_shore",
+      "block": "alfheim:hushbark_log",
+      "count": 118
+    },
+    {
+      "sample": "mistbark",
+      "biome": "mythicbotany:alfheim_lakes",
+      "block": "alfheim:gloambark_log",
+      "count": 6
+    },
+    {
+      "sample": "mistbark",
+      "biome": "mythicbotany:alfheim_lakes",
+      "block": "alfheim:hushbark_log",
+      "count": 6
+    },
+    {
+      "sample": "void",
+      "biome": "alfheim:void_shore",
+      "block": "alfheim:gloambark_log",
+      "count": 2
+    },
+    {
+      "sample": "void",
+      "biome": "alfheim:void_shore",
+      "block": "alfheim:hushbark_log",
+      "count": 2
+    }
+  ],
+  "limits": "Configured features on artificial hosts prove support and obstacle behavior, not outer rarity or biome filtering. Two untouched 64-chunk patches prove bounded natural generation loads, but their raw stone/log counts cannot uniquely identify individual features or establish final frequency. Client appearance pending."
+}

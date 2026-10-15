@@ -1,5 +1,19 @@
 # Changelog
 
+## Shore detail variety and fallen-log repair - 2026-10-14
+
+Added sparse silvermist/frost stone clusters to Mistbark Shore and short supported
+chalk/shale wrack to Void Shore. Driftwood now accepts sand, gravel and native
+shore stone and forms horizontal fallen trunks with support beneath every cell.
+Emberbark, Gloambark and Hushbark logs gained axis states and rotated models;
+existing IDs and vertical defaults are retained.
+
+Saved-world checks pass 27 controlled placement cases and 12 log-axis/default
+fixtures, plus 128 fully generated natural sample chunks. Visual quality and
+natural frequency remain pending. Broad terrain is unchanged. Test tooling now
+recognizes the correct Forge/Java process and waits for startup readiness with a
+finite deadline, avoiding unrelated NeoForge processes and premature commands.
+
 ## Void formations grounded and underside scans verified - 2026-10-14
 
 Added native-stone support checks to Verge markers, Shatter anchors and mourning

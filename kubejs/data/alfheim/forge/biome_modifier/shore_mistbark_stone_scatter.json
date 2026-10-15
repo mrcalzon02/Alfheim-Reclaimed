@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:mistbark_shore"
+  ],
+  "features": "alfheim:mistbark_stone_scatter",
+  "step": "vegetal_decoration"
+}
