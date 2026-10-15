@@ -41,6 +41,8 @@ Void Shore and Void Verge both receive bramble and thorn patches plus Thorn Gate
 
 Broad density, noise, biome selection and surface rules are unchanged. See tools/biome_feature_coverage.json for exact feature and structure IDs.
 
+Golden Fields now removes native wheat_fields decoration, which could replace polished structure floors with farmland. Soil-only meadow grass replaces it; bounded golden_field_dais structures retain worked fields. Native abandoned apothecaries require air over natural ground, retaining the pack sparse count 1 / rarity 20. Frontier natural-trial review remains rejected on dreamwood leaves in the shrine; see `AUDIT_CLOSEOUT_20261014.md`.
+
 Shore detail additions: Mistbark stone scatter and Void Shore chalk/shale wrack. Driftwood now accepts sand, gravel and native shoreline stone, uses horizontal logs and requires support at every cell. Controlled saved-world validation passes 27 cases and 12 log axis/default states. Two 64-chunk natural-generation samples also save successfully; natural counts cannot identify individual decorations or establish their frequency. Client review remains pending; see `SHORE_DETAIL_REVIEW.md`.
 
 ## Observed void undergrowth

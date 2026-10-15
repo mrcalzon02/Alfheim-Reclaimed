@@ -1,5 +1,19 @@
 # Changelog
 
+## Native decoration guards and natural Frontier audit — 2026-10-14
+
+Golden Fields' native wheat decoration could convert polished structure floors
+into farmland. Replaced it with soil-only grass/fern/flower patches; worked-field
+dais structures remain. Native abandoned apothecaries now require empty targets
+over natural ground, retaining the pack's sparse rate and native contents.
+Assembly checks now detect replaced doorway floors.
+
+One bounded natural Frontier trial generated six members and saved cleanly,
+but the room census rejected dreamwood leaves inside the shrine. Its production
+set remains disabled. The audit inventories 26 biomes and 12 structure families;
+protected broad terrain remains unchanged. See
+`alfheim_reclaimed_design/AUDIT_CLOSEOUT_20261014.md` for evidence and limits.
+
 ## Shore detail variety and fallen-log repair - 2026-10-14
 
 Added sparse silvermist/frost stone clusters to Mistbark Shore and short supported

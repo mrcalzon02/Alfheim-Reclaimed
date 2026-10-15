@@ -1,0 +1,12 @@
+{
+  "type": "forge:remove_features",
+  "biomes": [
+    "mythicbotany:golden_fields"
+  ],
+  "features": [
+    "mythicbotany:wheat_fields"
+  ],
+  "steps": [
+    "vegetal_decoration"
+  ]
+}

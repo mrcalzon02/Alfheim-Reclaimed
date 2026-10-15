@@ -637,16 +637,8 @@ def pt(cont, ero=(-1.0, 1.0), weird=(-1.0, 1.0), temp=(-1.0, 1.0), hum=(-1.0, 1.
 #
 # SPAWN_ZONE.md §3.2 wants them DENSER inside the Hollow Court specifically. That is a
 # biome-scoped modifier and belongs with the city, not here; this is the global default.
-APOTHECARY_PLACEMENT = {
-    'feature': 'mythicbotany:abandoned_apothecaries',
-    'placement': [
-        {'type': 'minecraft:count', 'count': 1},
-        {'type': 'minecraft:rarity_filter', 'chance': 20},
-        {'type': 'minecraft:in_square'},
-        {'type': 'mythicbotany:alfheim_ground'},
-        {'type': 'minecraft:biome'},
-    ],
-}
+from gen_native_feature_guards import placement as _guarded_apothecary_placement
+APOTHECARY_PLACEMENT = _guarded_apothecary_placement()
 
 # MythicBotany's mana crystals are the source of the loose bifrost and diluted mana pools, and
 # they ship at the same scenery density the apothecaries did. Reported by the user 2026-09-04:

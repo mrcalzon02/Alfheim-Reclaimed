@@ -1945,10 +1945,10 @@
     {
       "biome": "mythicbotany:golden_fields",
       "vegetation": [
+        "alfheim:golden_meadow_grass",
         "alfheim:tree_feywild_summer",
         "alfheim:tree_jaffa_orange_warm",
-        "botania:mystical_flowers",
-        "mythicbotany:wheat_fields"
+        "botania:mystical_flowers"
       ],
       "surface_details": [
         "alfheim:deepworks/formations/crystal_chandeliers",
@@ -2001,10 +2001,10 @@
         "underground_decoration": [],
         "fluid_springs": [],
         "vegetal_decoration": [
+          "alfheim:golden_meadow_grass",
           "alfheim:tree_feywild_summer",
           "alfheim:tree_jaffa_orange_warm",
-          "botania:mystical_flowers",
-          "mythicbotany:wheat_fields"
+          "botania:mystical_flowers"
         ],
         "top_layer_modification": [
           "alfheim:geode_greening_marker"

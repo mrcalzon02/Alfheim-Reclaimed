@@ -1,0 +1,116 @@
+{
+  "status": "rejected",
+  "world": "validation-frontier-natural-guarded-20261014",
+  "console": "server/console-20261014-192626.log",
+  "seed": "3536368297089363045",
+  "source_sha256": {
+    "kubejs/data/alfheim/forge/biome_modifier/golden_meadow_grass.json": "d9b444629227eb7c4cb4f7cf51197c683e5e83ec87e1bd809aabda6e3f4da420",
+    "kubejs/data/alfheim/forge/biome_modifier/golden_meadow_remove_wheat.json": "063a66354b547437d73ba858de4c82ca286a210b1d5f8b2b111d1de65f0eef2b",
+    "kubejs/data/alfheim/loot_tables/chests/frontier/records.json": "3da6f922845daadfbc3b6ff96ae3752d26b8b5170845aa5a4670bf2fb80b314f",
+    "kubejs/data/alfheim/loot_tables/chests/frontier/supplies.json": "8a49303e1d36423ed327afa1feb6551c3c2c9e4c3191bda24b70773eba447521",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/forest_waystation.nbt": "806fd520132bf578a54db20758aed28eb0f21041b11f999f082df0dc18a9cc7c",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/green_noble_lodge.nbt": "8adb4b1f170e3685a26c18f37f0fc65a53e44daa9b680a921ead51509935dfc1",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/moon_pool_sanctuary.nbt": "d89816156236d6a602e418e8c32b494f9a41da7654ea363f48ca7ea6d2f4970d",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/outlying_retreat_hall.nbt": "cf805de819c2ceacb85bef73d870251a51f22b17d5224206c81a5e4edabcd84a",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/surveyor_tower.nbt": "fab2877fd4f18348715b55f3561230e818bff0b17c52ccb78c352128486ecc28",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/wild_ward_shrine.nbt": "873ce78930fc0da518084cf00148361f12ee148ef97ec4682a2855eff18e9f64",
+    "kubejs/data/alfheim/tags/worldgen/biome/has_frontier_stewardship.json": "07111b0a2264b737a4873c62fd63fc8c1fe45d55aa1c5043cc943a2b3183125c",
+    "kubejs/data/alfheim/worldgen/configured_feature/golden_meadow_grass.json": "019218f97ce0d9446076c7467ed60af288402f0ffda725d8a315961f83232e6f",
+    "kubejs/data/alfheim/worldgen/placed_feature/golden_meadow_grass.json": "50deae9d4dae0c73b9c5cc1c238f9bd548baf717b494123200fd3c29cdb931d0",
+    "kubejs/data/alfheim/worldgen/structure/frontier_stewardship.json": "22145528ec51edca31730ff32d4cf2229b5faabf3bdb48f13a1819ecd5b43d59",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/forest_waystation.json": "a05bdd6de22bcfc6274bfa45029802dfbab5be47103bda53b27a0c6fc6e6bc59",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/green_noble_lodge.json": "84ba5e29447fa2fa4f32f37158f6794dc47c34d49a7b0886764190feded24199",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/moon_pool_sanctuary.json": "7ffd33f31d296aeb74d3942338feca9eee65feac0f1c4f67fac83f6736cb0fa2",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/outlying_retreat_hall.json": "faaa9d310171fce6be1df759ce699110ac76c98f31c5fc5393dcf879662f0b68",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/surveyor_tower.json": "11b22a62b2e7897a2a696dbcfe202b4cc079de9e9a6d3e08043704fca8d57a2a",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/wild_ward_shrine.json": "d0cb8b490b9ce71693608c8eaf439e19d700be501a7175a393e3b532aa22135b",
+    "kubejs/data/mythicbotany/worldgen/placed_feature/abandoned_apothecaries.json": "23e11ccbba131afd9e14e430918aa4a24459c6909b350362355811f56ff9a020"
+  },
+  "tested_source_sha256": {
+    "kubejs/data/alfheim/forge/biome_modifier/golden_meadow_grass.json": "d9b444629227eb7c4cb4f7cf51197c683e5e83ec87e1bd809aabda6e3f4da420",
+    "kubejs/data/alfheim/forge/biome_modifier/golden_meadow_remove_wheat.json": "063a66354b547437d73ba858de4c82ca286a210b1d5f8b2b111d1de65f0eef2b",
+    "kubejs/data/alfheim/loot_tables/chests/frontier/records.json": "3da6f922845daadfbc3b6ff96ae3752d26b8b5170845aa5a4670bf2fb80b314f",
+    "kubejs/data/alfheim/loot_tables/chests/frontier/supplies.json": "8a49303e1d36423ed327afa1feb6551c3c2c9e4c3191bda24b70773eba447521",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/forest_waystation.nbt": "806fd520132bf578a54db20758aed28eb0f21041b11f999f082df0dc18a9cc7c",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/green_noble_lodge.nbt": "8adb4b1f170e3685a26c18f37f0fc65a53e44daa9b680a921ead51509935dfc1",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/moon_pool_sanctuary.nbt": "d89816156236d6a602e418e8c32b494f9a41da7654ea363f48ca7ea6d2f4970d",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/outlying_retreat_hall.nbt": "cf805de819c2ceacb85bef73d870251a51f22b17d5224206c81a5e4edabcd84a",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/surveyor_tower.nbt": "fab2877fd4f18348715b55f3561230e818bff0b17c52ccb78c352128486ecc28",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/wild_ward_shrine.nbt": "873ce78930fc0da518084cf00148361f12ee148ef97ec4682a2855eff18e9f64",
+    "kubejs/data/alfheim/tags/worldgen/biome/has_frontier_stewardship.json": "07111b0a2264b737a4873c62fd63fc8c1fe45d55aa1c5043cc943a2b3183125c",
+    "kubejs/data/alfheim/worldgen/configured_feature/golden_meadow_grass.json": "019218f97ce0d9446076c7467ed60af288402f0ffda725d8a315961f83232e6f",
+    "kubejs/data/alfheim/worldgen/placed_feature/golden_meadow_grass.json": "50deae9d4dae0c73b9c5cc1c238f9bd548baf717b494123200fd3c29cdb931d0",
+    "kubejs/data/alfheim/worldgen/structure/frontier_stewardship.json": "22145528ec51edca31730ff32d4cf2229b5faabf3bdb48f13a1819ecd5b43d59",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/forest_waystation.json": "a05bdd6de22bcfc6274bfa45029802dfbab5be47103bda53b27a0c6fc6e6bc59",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/green_noble_lodge.json": "84ba5e29447fa2fa4f32f37158f6794dc47c34d49a7b0886764190feded24199",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/moon_pool_sanctuary.json": "7ffd33f31d296aeb74d3942338feca9eee65feac0f1c4f67fac83f6736cb0fa2",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/outlying_retreat_hall.json": "faaa9d310171fce6be1df759ce699110ac76c98f31c5fc5393dcf879662f0b68",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/surveyor_tower.json": "11b22a62b2e7897a2a696dbcfe202b4cc079de9e9a6d3e08043704fca8d57a2a",
+    "kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/wild_ward_shrine.json": "d0cb8b490b9ce71693608c8eaf439e19d700be501a7175a393e3b532aa22135b",
+    "kubejs/data/mythicbotany/worldgen/placed_feature/abandoned_apothecaries.json": "2f0e4b2253d8f134741aaf1c80922a6835a2ff962aa4a9157735dda546d043d5"
+  },
+  "apothecary_frequency_stress": {
+    "tested": [
+      {
+        "type": "minecraft:count",
+        "count": {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_inclusive": 3,
+            "min_inclusive": 1
+          }
+        }
+      },
+      {
+        "type": "minecraft:rarity_filter",
+        "chance": 2
+      }
+    ],
+    "published": [
+      {
+        "type": "minecraft:count",
+        "count": 1
+      },
+      {
+        "type": "minecraft:rarity_filter",
+        "chance": 20
+      }
+    ]
+  },
+  "test_structure_set": {
+    "structures": [
+      {
+        "structure": "alfheim:frontier_stewardship",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spacing": 32,
+      "separation": 8,
+      "spread_type": "linear",
+      "salt": 1014208980
+    }
+  },
+  "candidate_checks": {
+    "placement_regions_checked": 8,
+    "reference_full_chunks": 929,
+    "other_candidates_outside_reference_plus_9_chunk_margin": true
+  },
+  "natural_starts": [
+    {
+      "chunk": [
+        -91,
+        40
+      ],
+      "children": 6,
+      "bounds": null
+    }
+  ],
+  "forced_chunks": 256,
+  "manual_placement_commands": 0,
+  "server_exit_code": 0,
+  "census_exit_code": 1,
+  "census_error": "Traceback (most recent call last):\n  File \"C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\tools\\check_ancient_assembly.py\", line 243, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\tools\\check_ancient_assembly.py\", line 196, in main\n    assert block(*point)=='minecraft:air',('infilled authored volume',node['name'],point,block(*point))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('infilled authored volume', 'wild_ward_shrine', (-1340, 94, 621), 'mythicbotany:dreamwood_leaves')",
+  "limits": "Census stopped at the first obstruction; no complete AIR or foundation pass. One chosen Golden Fields locality. Apothecary stress frequency differs from the sparse published rate. Production Frontier set remains disabled."
+}

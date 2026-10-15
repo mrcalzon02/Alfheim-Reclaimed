@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "mythicbotany:golden_fields"
+  ],
+  "features": "alfheim:golden_meadow_grass",
+  "step": "vegetal_decoration"
+}

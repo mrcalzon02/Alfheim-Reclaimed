@@ -70,6 +70,12 @@ def main():
     from gen_golden_terraces import surface_rule
     assert rule['before_biomes']['sequence'][0]==surface_rule()
     assert 'above_preliminary_surface' in json.dumps(surface_rule()) and 'minecraft:dirt_path' not in json.dumps(surface_rule())
+    from gen_golden_meadow import build as golden_meadow
+    for relative,data in golden_meadow().items():assert (ROOT/relative).read_bytes()==data,relative
+    from gen_native_feature_guards import build as native_guards
+    for relative,data in native_guards().items():assert (ROOT/relative).read_bytes()==data,relative
+    meadow=json.loads((ROOT/'kubejs/data/alfheim/worldgen/configured_feature/golden_meadow_grass.json').read_text())
+    assert 'minecraft:wheat' not in json.dumps(meadow) and 'minecraft:farmland' not in json.dumps(meadow)
     for name in ('golden_field_dais','thorn_gate','shore_memorial_court'):
         spec=json.loads((ROOT/f'kubejs/data/alfheim/worldgen/structure/{name}.json').read_text())
         assert spec['size']==1, (name,'zero-depth single-piece structures fail world placement on this runtime')

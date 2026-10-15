@@ -1,5 +1,23 @@
 # Execution State
 
+## Natural Frontier audit and decoration repairs — 2026-10-14
+
+Replaced Golden Fields' floor-overwriting native wheat decorator with soil-only
+meadow patches, retaining bounded worked-field dais structures. Guarded native
+apothecaries against occupied targets and architectural support while preserving
+count 1 / rarity 20. The biome generator shares that guarded definition.
+
+The final disposable normal-generation trial saved/exited zero, generated 256
+requested chunks and one six-member Frontier start. Assembly/join checks passed;
+the AIR census then rejected dreamwood leaves inside the wild ward shrine at
+[-1340,94,621]. Frontier remains disabled, as do Sacred and Military/Warden.
+Apothecary runtime evidence used denser stress placement; published sparse
+frequency remains uncalibrated. Next: isolate leaf intrusion and repeat a bounded
+trial, then client review. No broad terrain or harbor-policy change.
+
+Inventory, failure witnesses and limits: `alfheim_reclaimed_design/AUDIT_CLOSEOUT_20261014.md`.
+Machine rejection: `tools/frontier_natural_runtime.json`.
+
 ## Shore details and grove log axes - 2026-10-14
 
 Added sparse Mistbark silvermist/frost stone scatter and low Void Shore chalk/shale

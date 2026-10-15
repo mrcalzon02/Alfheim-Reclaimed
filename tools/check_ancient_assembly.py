@@ -30,6 +30,7 @@ def world_pos(pos,origin,r):
 def main():
     global TEMPLATES,POOL
     ap=argparse.ArgumentParser();ap.add_argument('world')
+    ap.add_argument('--output',type=Path,help='Separate census output, preserving previous placement evidence')
     ap.add_argument('--family',choices=('common_residential','elder_lineage','civic_center','relief_district','scholastic_quarter','production_district','agricultural_estate','roads_trade','harbor_complex','sacred_precinct','military_warden','frontier_stewardship'),default='common_residential');args=ap.parse_args()
     lineage=args.family=='elder_lineage'
     civic=args.family=='civic_center'
@@ -151,9 +152,13 @@ def main():
             cx,cy,cz=world_pos(socket['pos'],(0,0,0),cr)
             co=(target[0]-cx,target[1]-cy,target[2]-cz)
             assert depth<(4 if relief else 3),('unexpected expansion',name)
-            for point in (world,target):
+            for point,template,local in ((world,p,b['pos']),(target,cp,socket['pos'])):
                 x,y,z=point
                 assert block(x,y-1,z) not in ('minecraft:air','minecraft:water','minecraft:lava'),('unsupported join',name,point)
+                floor_pos=[int(local[0]),int(local[1])-1,int(local[2])]
+                source_floor=next(cell for cell in template['blocks'] if list(map(int,cell['pos']))==floor_pos)
+                expected_floor=template['palette'][int(source_floor['state'])]['Name']
+                assert block(x,y-1,z)==expected_floor,('replaced join floor',name,point,expected_floor,block(x,y-1,z))
                 assert block(x,y,z)=='minecraft:air' and block(x,y+1,z)=='minecraft:air',('blocked join',name,point,block(x,y,z),block(x,y+1,z),origin,r)
             joins.append([name,childname,world,target])
             queue.append((childname,co,cr,depth+1))
@@ -230,7 +235,8 @@ def main():
     if sacred:census='sacred_precinct_runtime_census.json'
     if military:census='military_warden_runtime_census.json'
     if frontier:census='frontier_stewardship_runtime_census.json'
-    (ROOT/'tools'/census).write_text(json.dumps(result,indent=2)+'\n')
+    output=args.output or ROOT/'tools'/census
+    output.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print(f'SAVED ASSEMBLY PASS: {len(seen)} members, {len(joins)} clear supported joins; family={args.family}')
 
 

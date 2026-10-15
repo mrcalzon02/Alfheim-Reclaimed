@@ -17,7 +17,13 @@ All twelve sequencing families now have source implementations. Saved assembly e
 | Military / Warden | 6 | 5 | not enabled |
 | Frontier / Wilderness | 6 | 5 | not enabled |
 
-Next work: review the three new families in the client and on representative land, then choose sparse natural frequencies. Review existing enabled families for terrain fit and destructive overlaps. Harbor may remain approximate under the user's explicit direction; do not reinstate exhaustive site searches.
+Frontier update, 2026-10-14: a test-only natural set produced one six-member start
+and passed assembly/join checks in a bounded Golden Fields patch. Its room census
+rejected dreamwood leaves inside the wild ward shrine. Two earlier trials exposed
+floor-overwriting wheat and apothecary intrusions; source guards are now present.
+See `AUDIT_CLOSEOUT_20261014.md`. Frontier is not naturally accepted or enabled.
+
+Next work: repair the shrine intrusion, repeat a bounded trial, review the three new families in the client and on representative land, then choose sparse natural frequencies. Review existing enabled families for terrain fit and destructive overlaps. Harbor may remain approximate under the user's explicit direction; do not reinstate exhaustive site searches.
 
 The first bounded inland terrain review is recorded in `INLAND_TERRAIN_REVIEW.md`.
 It compares the three saved forced assemblies with one current same-seed Golden

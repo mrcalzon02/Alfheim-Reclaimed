@@ -36,6 +36,10 @@ def main():
                          natural_structures=natural,controlled_only_structures=controlled))
     expected_void={'shatterfields':'shatter_anchors','prism_drift':'prism_crowns','rootfall':'root_aprons',
                    'sepulchral_reach':'mourning_steles','starless_reach':'astralite_flecks'}
+    golden=next(r for r in rows if r['biome']=='mythicbotany:golden_fields')
+    assert 'mythicbotany:wheat_fields' not in golden['vegetation'],'Native wheat decorator can overwrite structure floors'
+    assert 'alfheim:golden_meadow_grass' in golden['vegetation']
+    assert 'alfheim:golden_field_dais' in golden['natural_structures'],'Worked fields must retain their bounded replacement'
     for biome,feature in expected_void.items():
         row=next(r for r in rows if r['biome']=='alfheim:'+biome)
         assert 'alfheim:void/'+feature in row['surface_details'],('void geology missing from effective features',biome)
@@ -74,6 +78,7 @@ def main():
             '', 'Void identities: Shatterfields anchor needles, Prism Drift crystal crowns, Rootfall fossil root aprons, Sepulchral Reach mourning steles, and Starless Reach astralite flecks. Source registration alone does not establish their natural success rate or visual quality; controlled placement evidence is recorded separately.',
             '', 'Void Shore and Void Verge both receive bramble and thorn patches plus Thorn Gate and Shore Memorial Court. Their substrate filter now includes their actual chalk/shale/sand/gravel surfaces. This corrects a placement blocker; it does not establish final natural density.',
             '', 'Broad density, noise, biome selection and surface rules are unchanged. See tools/biome_feature_coverage.json for exact feature and structure IDs.']
+    lines+=['','Golden Fields now removes native wheat_fields decoration, which could replace polished structure floors with farmland. Soil-only meadow grass replaces it; bounded golden_field_dais structures retain worked fields. Native abandoned apothecaries require air over natural ground, retaining the pack sparse count 1 / rarity 20. Frontier natural-trial review remains rejected on dreamwood leaves in the shrine; see `AUDIT_CLOSEOUT_20261014.md`.']
     shore_path=ROOT/'tools/shore_detail_runtime.json'
     shore=json.loads(shore_path.read_text(encoding='utf-8')) if shore_path.exists() else {}
     shore_hashes=shore.get('source_sha256',{})
