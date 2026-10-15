@@ -41,6 +41,7 @@ public final class AlfheimCompanion {
         modBus.addListener(this::commonSetup);
         modBus.addListener(this::addCreativeItems);
         MinecraftForge.EVENT_BUS.register(CompanionEvents.class);
+        MinecraftForge.EVENT_BUS.addListener(com.continuityworks.alfheimcompanion.worldgen.BedrockFloorGuard::onChunkLoad);
     }
 
     private void registerAttributes(EntityAttributeCreationEvent event) {

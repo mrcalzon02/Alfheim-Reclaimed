@@ -1,0 +1,155 @@
+{
+  "world": "New World staven",
+  "seed": "-3282135118187884121",
+  "sample": "four origin regions, full chunks only; biome classified at Y64",
+  "counts": {
+    "full_chunks": 3836,
+    "non_void_columns": 982016,
+    "non_void_without_bedrock": 17547
+  },
+  "missing_floor_examples": [
+    {
+      "pos": [
+        44,
+        -64,
+        0
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        45,
+        -64,
+        0
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        44,
+        -64,
+        123
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        44,
+        -64,
+        124
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        45,
+        -64,
+        124
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        46,
+        -64,
+        124
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        52,
+        -64,
+        128
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        56,
+        -64,
+        131
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        56,
+        -64,
+        132
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        57,
+        -64,
+        132
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        58,
+        -64,
+        132
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    },
+    {
+      "pos": [
+        59,
+        -64,
+        132
+      ],
+      "biome_at_y64": "mythicbotany:alfheim_hills",
+      "block": "minecraft:lava"
+    }
+  ],
+  "structure_boxes_reaching_world_floor": [],
+  "baked_hub_anchors": [
+    [
+      0.5,
+      81.0,
+      -5.5
+    ]
+  ],
+  "burial_probe_blocks": [
+    {
+      "pos": [
+        0,
+        181,
+        -6
+      ],
+      "block": "botania:livingrock"
+    },
+    {
+      "pos": [
+        0,
+        191,
+        -6
+      ],
+      "block": "botania:livingrock"
+    },
+    {
+      "pos": [
+        0,
+        201,
+        -6
+      ],
+      "block": "botania:livingrock"
+    }
+  ],
+  "limits": "Read-only snapshot of a potentially running save. Floor results are a bounded sample, not whole-world acceptance."
+}

@@ -1,0 +1,32 @@
+{
+  "condition": "minecraft:all_of",
+  "terms": [
+    {
+      "condition": "minecraft:location_check",
+      "offsetY": 100,
+      "predicate": {
+        "block": {
+          "tag": "alfheim:hub_burial_ground"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:location_check",
+      "offsetY": 110,
+      "predicate": {
+        "block": {
+          "tag": "alfheim:hub_burial_ground"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:location_check",
+      "offsetY": 120,
+      "predicate": {
+        "block": {
+          "tag": "alfheim:hub_burial_ground"
+        }
+      }
+    }
+  ]
+}

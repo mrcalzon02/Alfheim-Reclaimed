@@ -1,5 +1,24 @@
 # Execution State
 
+## New field regressions — 2026-10-14
+
+Reproduced a baked hub at Y81 beneath Y245–268 terrain in `New World staven`.
+Removed fixed-Y80 full assembly fallback; emergency landings now follow the
+surface. Complete high-hill hub placement and protection-aware relocation remain
+pending. Corridor rails are recessed into the shell, dripstone reduced, moss and
+vines increased. Void ruin/court candidate grids are substantially sparser.
+
+Read-only floor audit finds 17,547 missing bedrock columns in 982,016 sampled
+non-Void columns. First-party minimum-layer guard builds/tests with Java17;
+disposable saved-copy runtime evidence is separate. No broad terrain expression
+changed. Full repair queue and the 390-appearance enemy roster requirement:
+`alfheim_reclaimed_design/FIELD_REPAIR_QUEUE_20261014.md`.
+
+Runtime floor proof now passes 40 copied chunks / 10,240 columns: 22 original
+holes, zero remaining, clean save/exit. Emergency platform marker was at Y222.
+Legacy buried-anchor evacuation and login/respawn redirection have source/static
+checks; final client recovery and runtime Void exclusion remain pending.
+
 ## Natural Frontier audit and decoration repairs — 2026-10-14
 
 Replaced Golden Fields' floor-overwriting native wheat decorator with soil-only

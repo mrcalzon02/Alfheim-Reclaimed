@@ -6,11 +6,13 @@
 #
 # Creates the hub only once per world; #created survives in the scoreboard.
 
+function alfheim:hub/inspect_burial
+schedule function alfheim:hub/inspect_burial 5s replace
 scoreboard objectives add alfheim.hub dummy
 execute unless score #final alfheim.hub matches 1 run function alfheim:hub/create
 
 # Re-assert the force-load every load: forceload state is per-world and an operator may
 # legitimately have cleared it.
-execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run forceload add ~-80 ~-128 ~80 ~32
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run forceload add ~-80 ~-128 ~80 ~32
 execute if score #final alfheim.hub matches 1 unless score #foundation_v1 alfheim.hub matches 1 run scoreboard players set #foundation_attempts alfheim.hub 0
 execute if score #final alfheim.hub matches 1 unless score #foundation_v1 alfheim.hub matches 1 run schedule function alfheim:hub/repair_foundation 5s replace

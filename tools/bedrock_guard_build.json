@@ -1,0 +1,7 @@
+{
+  "installed": "mods/alfheim_companion-0.2.0.jar",
+  "sha256": "f9a1ba70449268bc7df85b73bbadbee966e0c600207677e5c9ac94de2ffac5d4",
+  "backup": "quarantine/alfheim_companion-before-floor-20261014.jar",
+  "backup_sha256": "88cb6ef189b80d2f4fccd5733a7e8b753b3b8f3e33dc984e3a2d21700b4d2448",
+  "build": "Java 17 Gradle build --offline; tests passed"
+}

@@ -11,6 +11,6 @@ execute unless score #created alfheim.hub matches 1 run say [Alfheim] hub: NOT C
 execute if score #created alfheim.hub matches 1 run say [Alfheim] hub: created
 
 # Prints the anchor position straight into the console log.
-execute in mythicbotany:alfheim run data get entity @e[type=minecraft:marker,tag=alfheim_hub,limit=1] Pos
+execute in mythicbotany:alfheim run data get entity @e[type=minecraft:marker,tag=alfheim_hub,tag=!alfheim_hub_buried,limit=1] Pos
 
 execute in mythicbotany:alfheim unless entity @e[type=minecraft:marker,tag=alfheim_hub] run say [Alfheim] WARNING: no anchor entity in mythicbotany:alfheim -- the hub flag is set but the anchor is gone

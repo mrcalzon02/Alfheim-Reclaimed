@@ -1,5 +1,18 @@
 # Changelog
 
+## Buried-spawn containment, floor guard and corridor repairs — 2026-10-14
+
+Removed the hub's fixed-Y80 assembly fallback, which buried it beneath mountains.
+Emergency landings now follow surface height. Complete high-hill hub relocation
+and existing buried-hub recovery remain pending. Recessed corridor walls, reduced
+dripstone and added moss/vines. Reduced Void ruin and edge-court candidate density.
+
+Added a first-party chunk-load guard for missing bedrock on Alfheim's minimum
+layer, excluding Void columns. Java17 build/tests pass; saved-copy runtime proof
+is tracked separately. Broad terrain is unchanged. New district, access-shaft,
+island foundation and themed-enemy requirements are recorded in
+`alfheim_reclaimed_design/FIELD_REPAIR_QUEUE_20261014.md`.
+
 ## Native decoration guards and natural Frontier audit — 2026-10-14
 
 Golden Fields' native wheat decoration could convert polished structure floors

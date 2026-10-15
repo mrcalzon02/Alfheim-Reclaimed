@@ -137,9 +137,9 @@ def channel_line(p, rng, length, axis):
 
 
 def lane_rails(p, rng, length, axis):
-    """A low rail marking each two-block maintenance lane, broken in places."""
+    """Recess the broken stone trim into the shell, preserving both walking lanes."""
     for i in range(2, length - 2):
-        for d in (-2, 2):
+        for d in (-3, 3):
             if rng.random() < 0.62:
                 x, z = (C + d, i) if axis == 'z' else (i, C + d)
                 p.set(x, FLOOR + 2, z, RAIL)
@@ -336,8 +336,19 @@ def detail_section(piece, seed, name='straight'):
                       conduit=0.55 if grand else 0.0, sockets=3 if grand else 0,
                       corbel=0.30 if grand else 0.0)
     counts.update(sd.aftermath(piece, seed, kit, ground=FLOOR + 1, rubble=0.10, reach=1,
-                               heap=2, seep='damp', seep_rate=0.07, roots=0.10, hang='drip',
+                               heap=2, seep='moss', seep_rate=0.14, roots=0.025, hang='drip',
                                roofed_ok=True, webs=0.03))
+    # Wall-attached vines, outside the two clear maintenance lanes. Avoid mouths.
+    vine_rng=random.Random(seed ^ 0x714E)
+    for (x,y,z),(idx,be) in sorted(list(piece.blocks.items())):
+        if be is not None or piece.palette[idx]['Name']!='minecraft:air' or y<2:
+            continue
+        for dx,dz,face in ((-1,0,'west'),(1,0,'east'),(0,-1,'north'),(0,1,'south')):
+            if x+dx not in (0,piece.size[0]-1) and z+dz not in (0,piece.size[2]-1):
+                continue
+            if sd.is_solid(piece,x+dx,y,z+dz) and vine_rng.random()<0.08:
+                piece.set(x,y,z,B('minecraft:vine',**{f:f==face for f in ('north','south','east','west','up')}))
+                break
     return counts
 
 

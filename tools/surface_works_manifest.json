@@ -553,8 +553,8 @@
       "separation": 13
     },
     "void": {
-      "spacing": 7,
-      "separation": 2
+      "spacing": 18,
+      "separation": 7
     }
   },
   "encounter_profiles": {

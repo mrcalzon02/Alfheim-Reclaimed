@@ -69,8 +69,8 @@ COURT_ANNEX_EMBED = 5        # matches gen_spawn_hub.COURT_FLOOR_Y; deeper autho
 
 AWAIT = 'alfheim_awaiting_hub'  # a player placed provisionally, owed a move to the hub
 BAKED = 'alfheim_hub_baked'  # carried inside greatbole/base.nbt by gen_spawn_hub.hub_anchor
-SELECT = f'@e[type={MARKER},tag={TAG},limit=1]'
-SELECT_BAKED = f'@e[type={MARKER},tag={BAKED},limit=1]'
+SELECT = f'@e[type={MARKER},tag={TAG},tag=!alfheim_hub_buried,limit=1]'
+SELECT_BAKED = f'@e[type={MARKER},tag={BAKED},tag=!alfheim_hub_buried,limit=1]'
 
 
 def header(title, *notes):
@@ -83,6 +83,20 @@ def header(title, *notes):
 
 
 FILES = {}
+
+# Detect the reproduced deeply buried legacy hub without deleting its structures.
+# The authored canopy ends below these three samples. All must be natural rock.
+FILES['inspect_burial'] = header('exclude deeply buried legacy anchors from spawn delivery') + [
+    f'execute in {HOME} as @e[type={MARKER},tag={BAKED},tag=!alfheim_hub_buried] '
+    f'at @s if predicate {NS}:hub/buried run function {NS}:hub/mark_buried',
+]
+FILES['mark_buried'] = header('retain the old hub but use a safe provisional spawn') + [
+    'tag @s add alfheim_hub_buried',
+    f'scoreboard players set #final {OBJ} 0',
+    f'scoreboard players set #created {OBJ} 0',
+    f'function {NS}:hub/fallback',
+    f'execute as @a[distance=..16] run function {NS}:hub/send',
+]
 
 # ---------------------------------------------------------------------------- assemble
 FILES['assemble'] = header(
@@ -125,7 +139,7 @@ FILES['assemble'] = header(
     f'if score #north_result {OBJ} matches 1 '
     f'run scoreboard players set #place_result {OBJ} 1',
     f'execute if score #place_result {OBJ} matches 1 run scoreboard players set #foundation_v1 {OBJ} 1',
-    f'execute if score #place_result {OBJ} matches 0 run kill @e[type={MARKER},tag={BAKED}]',
+    f'execute if score #place_result {OBJ} matches 0 run kill {SELECT_BAKED}',
     f'execute if score #place_result {OBJ} matches 0 run kill '
     '@e[type=minecraft:marker,tag=alfheim_crown_probe]',
     f'execute if score #place_result {OBJ} matches 0 run kill '
@@ -161,9 +175,6 @@ for x, z in CANDIDATES:
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
         f'if score #place_result {OBJ} matches 0 positioned {x} 0 {z} '
         f'positioned over motion_blocking_no_leaves if predicate {NS}:hub/ground_height '
-        f'run function {NS}:hub/assemble',
-        f'execute in {HOME} unless score #already {OBJ} matches 1 '
-        f'if score #place_result {OBJ} matches 0 positioned {x} 80 {z} '
         f'run function {NS}:hub/assemble',
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
         f'if score #place_result {OBJ} matches 0 run forceload remove all',
@@ -283,20 +294,32 @@ FILES['fallback'] = header(
     'pretend they can.',
 ) + [
     f'execute in {HOME} run kill @e[type={MARKER},tag={TAG},tag=!{BAKED}]',
-    f'execute in {HOME} run forceload add -16 48 16 80',
-    f'execute in {HOME} run fill -2 99 62 2 99 66 botania:livingrock',
-    f'execute in {HOME} run fill -2 100 62 2 103 66 minecraft:air',
-    f'execute in {HOME} run summon {MARKER} 0 100 64 {{Tags:["{TAG}"]}}',
+    f'execute in {HOME} run forceload add -16 -16 16 16',
+    f'scoreboard players set #landing_result {OBJ} 0',
+    f'execute in {HOME} positioned 0 0 0 positioned over motion_blocking_no_leaves '
+    f'if predicate {NS}:hub/emergency_height run function {NS}:hub/platform',
+    f'execute in {HOME} if score #landing_result {OBJ} matches 0 positioned 0 315 0 '
+    f'run function {NS}:hub/platform',
     f'execute in {HOME} at {SELECT} run setworldspawn ~ ~1 ~',
     '',
     f'execute in {HOME} run forceload remove all',
-    f'execute in {HOME} run forceload add -16 48 16 80',
+    f'execute in {HOME} run forceload add -16 -16 16 16',
     '',
     f'scoreboard players set #created {OBJ} 1',
     'tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; '
     'using a provisional spawn at the origin. It will move to the tree automatically once the '
     'chunks finish.","color":"yellow"}',
     'say [Alfheim] provisional origin spawn set; still waiting for the Greatbole.',
+]
+
+# No fixed underground Y fallback: surface height is authoritative. On an empty
+# column or an exceptionally high summit, the finite emergency platform is at
+# Y315, with its floor and all headroom still inside the build limit.
+FILES['platform'] = header('build a supported emergency landing at the current position') + [
+    'fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 botania:livingrock',
+    'fill ~-2 ~ ~-2 ~2 ~3 ~2 minecraft:air',
+    f'summon {MARKER} ~ ~ ~ {{Tags:["{TAG}"]}}',
+    f'scoreboard players set #landing_result {OBJ} 1',
 ]
 
 # ---------------------------------------------------------------------------- autoload
@@ -306,6 +329,8 @@ FILES['autoload'] = header(
     'player: the tag fires on server start with nobody connected.',
     'Creates the hub only once per world; #created survives in the scoreboard.',
 ) + [
+    f'function {NS}:hub/inspect_burial',
+    f'schedule function {NS}:hub/inspect_burial 5s replace',
     f'scoreboard objectives add {OBJ} dummy',
     f'execute unless score #final {OBJ} matches 1 run function {NS}:hub/create',
     '',
@@ -356,6 +381,7 @@ FILES['send'] = header(
     'Sets the respawn point too, so dying bedless returns them here rather than to Midgard.',
 ) + [
     '# 1. PREPARE. Never teleport until a supported anchor or fallback exists.',
+    f'function {NS}:hub/inspect_burial',
     f'execute in {HOME} unless entity {SELECT} run function {NS}:hub/fallback',
     f'execute in {HOME} at {SELECT} run function {NS}:hub/ensure_landing',
     '',
@@ -433,6 +459,19 @@ def main():
         with open(predicate,'w',encoding='utf-8') as f:
             json.dump({'condition':'minecraft:location_check',
                        'predicate':{'position':{'y':{'min':64,'max':200}}}},f,indent=2)
+        with open(os.path.join(os.path.dirname(predicate),'emergency_height.json'),'w',encoding='utf-8') as f:
+            json.dump({'condition':'minecraft:location_check',
+                       'predicate':{'position':{'y':{'min':64,'max':315}}}},f,indent=2)
+        with open(os.path.join(os.path.dirname(predicate),'buried.json'),'w',encoding='utf-8') as f:
+            json.dump({'condition':'minecraft:all_of','terms':[
+                {'condition':'minecraft:location_check','offsetY':height,
+                 'predicate':{'block':{'tag':'alfheim:hub_burial_ground'}}}
+                for height in (100,110,120)]},f,indent=2)
+        tagpath=os.path.join('kubejs','data',NS,'tags','blocks','hub_burial_ground.json')
+        os.makedirs(os.path.dirname(tagpath),exist_ok=True)
+        with open(tagpath,'w',encoding='utf-8') as f:
+            json.dump({'replace':False,'values':['#alfheim:livingrock_natural','botania:livingrock',
+                       'minecraft:stone','minecraft:deepslate','minecraft:dirt','minecraft:grass_block']},f,indent=2)
 
     for name, lines in FILES.items():
         p = os.path.join(FUNC, name + '.mcfunction')

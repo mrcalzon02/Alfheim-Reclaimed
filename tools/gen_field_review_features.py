@@ -108,7 +108,7 @@ def main():
     emit('worldgen/structure_set/void_edge_courts.json',{
         'structures':[{'structure':f'alfheim:{name}','weight':1}
                       for name in ('thorn_gate','shore_memorial_court')],
-        'placement':{'type':'minecraft:random_spread','spacing':12,'separation':6,'salt':101220262}})
+        'placement':{'type':'minecraft:random_spread','spacing':28,'separation':14,'salt':101220262}})
     predicate={'type':'minecraft:all_of','predicates':[
         {'type':'minecraft:matching_blocks','blocks':['minecraft:air']},
         {'type':'minecraft:matching_blocks','blocks':['minecraft:grass_block','minecraft:dirt',
