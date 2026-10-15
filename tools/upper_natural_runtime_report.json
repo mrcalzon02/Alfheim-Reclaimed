@@ -1,0 +1,379 @@
+{
+  "status": "RESERVATION_STARVATION_OBSERVED",
+  "seed": "3536368297089363045",
+  "world": "validation-upper-natural-20261015",
+  "survey_console": "server\\console-20261015-104547.log",
+  "summaries": [
+    "Upper audit seed=3536368297089363045 region=4,4 tested=32 accepted=0 ms=2008 reasons={alfheim:agricultural_estate=2, alfheim:common_residential_quarter=3, alfheim:elder_lineage_precinct=2, alfheim:harbor_complex=1, alfheim:leyline_corridors=19, mythicbotany:andwari_cave=5}",
+    "Upper audit seed=3536368297089363045 region=-12,4 tested=30 accepted=0 ms=2023 reasons={alfheim:common_residential_quarter=1, alfheim:harbor_complex=1, alfheim:leyline_corridors=19, mythicbotany:andwari_cave=9}",
+    "Upper audit seed=3536368297089363045 region=4,-12 tested=36 accepted=0 ms=2006 reasons={alfheim:elder_lineage_precinct=1, alfheim:leyline_corridors=21, alfheim:relief_district=3, mythicbotany:andwari_cave=11}",
+    "Upper audit seed=3536368297089363045 region=-12,-12 tested=45 accepted=0 ms=2017 reasons={alfheim:agricultural_estate=2, alfheim:common_residential_quarter=3, alfheim:leyline_corridors=22, alfheim:relief_district=1, alfheim:scholastic_quarter=2, mythicbotany:andwari_cave=15}"
+  ],
+  "accepted_candidates": [],
+  "natural_starts": "NONE_OBSERVED",
+  "survey_jar_sha256": "bb32b9fc493a43e41cd6d2729b13f7383c7e816fee65cbf23edc2087377ce169",
+  "installed_jar_sha256": "88b66822d5da1ce21baec8431481361772e15c3a74d4036bc8e81fcdc21ceee6",
+  "final_java_tests": 61,
+  "final_build_runtime": "Not rerun after removing unsuccessful expensive eligibility experiment; diagnostic-build observations preserved separately",
+  "final_changes": [
+    "Reject fluid-filled roof anchor",
+    "Namespace-aware reservation identities",
+    "Reserve only the shared district winner",
+    "Bounded operator audit command"
+  ],
+  "next_action": "Design a coordinated reservation policy with existing dungeon families; do not weaken 500-block contract or change broad terrain",
+  "before_fix": {
+    "survey_console": "server\\console-20261015-104217.log",
+    "summaries": [
+      "Upper audit seed=3536368297089363045 region=4,4 tested=64 accepted=0 ms=6 reasons={alfheim:deepworks_archaeology=49, alfheim:production_district=15}",
+      "Upper audit seed=3536368297089363045 region=-12,4 tested=64 accepted=0 ms=2 reasons={alfheim:deepworks_archaeology=50, alfheim:production_district=14}",
+      "Upper audit seed=3536368297089363045 region=4,-12 tested=64 accepted=0 ms=1 reasons={alfheim:deepworks_archaeology=47, alfheim:production_district=17}",
+      "Upper audit seed=3536368297089363045 region=-12,-12 tested=64 accepted=0 ms=1 reasons={alfheim:deepworks_archaeology=49, alfheim:production_district=15}"
+    ],
+    "installed_jar_sha256": "261864b5cd6cd66a0f14c4eb77d84a1aaf7414e90dc7bf265c04f0ce1458d9d1"
+  },
+  "eligibility_experiment": "Biome-valid vanilla jigsaw checks: 143 candidates, zero admitted; experiment removed because costly and ineffective. Final worldgen retains cheap conservative reservations.",
+  "continuity_works_audit": {
+    "capability": "Continuity Works 0.3.2",
+    "execution": "StructureCapability.audit",
+    "records": [
+      {
+        "template": "abandoned_gallery",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\abandoned_gallery.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 7,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "e813866f9541619691bd3c638db89cdd1d3ac482a8ab5f8cccaa0f92434113f1",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "e813866f9541619691bd3c638db89cdd1d3ac482a8ab5f8cccaa0f92434113f1"
+      },
+      {
+        "template": "basalt_columns",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\basalt_columns.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 3,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "ee975378aa47b20ae79bc0427cc3b8e07714e08252d9e2cee21b0aa1f12ff416",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "ee975378aa47b20ae79bc0427cc3b8e07714e08252d9e2cee21b0aa1f12ff416"
+      },
+      {
+        "template": "buried_bridge",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\buried_bridge.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 8,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "e209b8083dc964d6264191d45e6dba0733fd897b01562cbe6b4c32011dff54f9",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "e209b8083dc964d6264191d45e6dba0733fd897b01562cbe6b4c32011dff54f9"
+      },
+      {
+        "template": "buried_cistern",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\buried_cistern.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 8,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "01d7a0edf540a941b4bcf28f2cff75c6329919d747bf4e50fc8d38115767f6f3",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "01d7a0edf540a941b4bcf28f2cff75c6329919d747bf4e50fc8d38115767f6f3"
+      },
+      {
+        "template": "calcite_drapery",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\calcite_drapery.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 6,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "f05c596b3ad4130ff0191a4e3d71fd33adef39bbb2b1da339b5785f8a92da867",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "f05c596b3ad4130ff0191a4e3d71fd33adef39bbb2b1da339b5785f8a92da867"
+      },
+      {
+        "template": "collapsed_archive",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\collapsed_archive.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 7,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "12aac03fa95c0f627ec0813c8c2cdd5edb1e6f67343bcd38e0a65a97c2fed09b",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "12aac03fa95c0f627ec0813c8c2cdd5edb1e6f67343bcd38e0a65a97c2fed09b"
+      },
+      {
+        "template": "crystal_beds",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\crystal_beds.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 5,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "799f5f79bd0c9616fff0f22b338eea05216409a0822367fc0f05e377ab2e989a",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "799f5f79bd0c9616fff0f22b338eea05216409a0822367fc0f05e377ab2e989a"
+      },
+      {
+        "template": "fossil_pocket",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\fossil_pocket.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 6,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "520d745cf898d101554c9f473382e0f024d71e07f74318a4b3b757f899fb13d4",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "520d745cf898d101554c9f473382e0f024d71e07f74318a4b3b757f899fb13d4"
+      },
+      {
+        "template": "lithic_fault",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\lithic_fault.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 6,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "7dbf645d884430a15b66984db0ee49f9d7f4bfc8ffa42a5f4e2b812390409a66",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "7dbf645d884430a15b66984db0ee49f9d7f4bfc8ffa42a5f4e2b812390409a66"
+      },
+      {
+        "template": "moss_grotto",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\moss_grotto.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 8,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "e1164d313849200c27b62ef93354f83eeab6bea61c54f47798356e4903fadbbf",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "e1164d313849200c27b62ef93354f83eeab6bea61c54f47798356e4903fadbbf"
+      },
+      {
+        "template": "root_vault",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\root_vault.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 8,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "f5688a8cbaf290f8c685ca8ca0638cb2e42253e2b3a86e2a77c537562b47e2b8",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "f5688a8cbaf290f8c685ca8ca0638cb2e42253e2b3a86e2a77c537562b47e2b8"
+      },
+      {
+        "template": "silt_pool",
+        "audit": {
+          "source": "C:\\Users\\Admin\\curseforge\\minecraft\\Instances\\Alfheim Reclaimed\\kubejs\\data\\alfheim\\structures\\upper_underworld\\silt_pool.nbt",
+          "exists": true,
+          "findings": [],
+          "metrics": {
+            "format": "minecraft-structure-nbt",
+            "size": [
+              31,
+              20,
+              31
+            ],
+            "block_count": 13540,
+            "palette_count": 5,
+            "entity_count": 0,
+            "data_version": 3465
+          },
+          "sha256": "9f861505752fd278a4bdd47f8b327573f27f20f59a1b2d547322625b5f12547b",
+          "required_clearance": {
+            "width": 1,
+            "height": 2,
+            "class": "person"
+          },
+          "status": "PASS"
+        },
+        "sha256": "9f861505752fd278a4bdd47f8b327573f27f20f59a1b2d547322625b5f12547b"
+      }
+    ],
+    "natural_placement": "separate native runtime survey required"
+  }
+}

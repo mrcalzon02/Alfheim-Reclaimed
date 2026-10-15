@@ -1,5 +1,16 @@
 # Changelog
 
+## Underground placement audit and roof guard — 2026-10-15
+
+Added a finite operator-only noise survey, corrected namespace/district-winner
+reservation checks, and rejected fluid-filled roof anchors. Two diagnostic surveys
+found no available upper-rock starts: overlapping underground reservations remain
+unresolved. Removed an expensive eligibility experiment before closeout. All twelve
+templates pass Continuity Works audits; final build/61 tests and terrain/model/harbor
+guards pass. Final build runtime and natural-start acceptance remain pending.
+Evidence: `tools/upper_natural_runtime_report.json`. Broad terrain and player saves
+unchanged.
+
 ## District reservations, royal castle and upper-rock discoveries — 2026-10-15
 
 Added a native one-family-per-cell district reservation policy: rare 192/96-chunk

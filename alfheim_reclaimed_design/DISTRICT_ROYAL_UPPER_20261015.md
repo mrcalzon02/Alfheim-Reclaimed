@@ -1,5 +1,33 @@
 # District spacing, royal citadel and upper-rock discoveries
 
+## Natural upper-rock audit closeout
+
+The new upper-rock family is **not yet naturally accepted**. On seed
+3536368297089363045, four 8×8 region surveys rejected all 256 candidates before
+terrain evaluation. A second experiment checked vanilla jigsaw start/biome
+eligibility without assembling pieces; it rejected all 143 candidates reached
+within four two-second diagnostic budgets. Ley-line and Andwari cave reservations
+still covered the gaps. This costly experiment was removed from the final build.
+The next task is coordinated allocation with existing underground families, not
+additional template authoring or a broad terrain change.
+
+The final build keeps cheap conservative reservations, checks full namespace
+identities, reserves only each district cell's winning family, and rejects fluid
+at the roof anchor as well as the floor. `alfheimupper audit regionX regionZ count`
+is operator-only, accepts 1–64 candidates, and stops between candidates after two
+seconds. It performs noise queries without loading chunks or placing structures.
+A single base-column query cannot safely be interrupted. Exclusion remains 800
+blocks on both axes; the independent 500-block contract is unchanged.
+
+Both diagnostic builds stopped cleanly in disposable world
+`validation-upper-natural-20261015`. The final build passes 61 Java tests and the
+harbor/terrain/model guards; its runtime was not repeated after experiment removal.
+`tools/upper_natural_runtime_report.json` separates final installed and survey hashes,
+baseline/experimental observations, and actual Continuity Works audits of all
+twelve templates. No natural-start saved-world proof was obtained. The optional
+populate/verify modes of `tools/run_upper_natural_validation.py` remain unexecuted
+because no accepted site exists in these surveys. Client visuals remain pending.
+
 ## District placement
 
 All twelve district definitions now use a shared 192/96-chunk candidate grid and

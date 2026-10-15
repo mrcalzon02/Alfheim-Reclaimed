@@ -1,5 +1,22 @@
 # Execution State
 
+## Underground audit closeout — 2026-10-15
+
+Natural upper-rock placement is **not accepted**. A bounded 256-candidate survey
+found zero available sites; a separate biome-valid reservation experiment tested
+143 candidates and still admitted none. Overlapping archaeology, ley-line and
+Andwari cave reservations starve this family. The expensive experiment was removed.
+Final changes reject fluid-filled roof anchors, use namespace-aware reservation
+identities, reserve only the winning district family, and add an operator-only
+noise survey (`alfheimupper audit regionX regionZ count`, maximum 64 / two seconds
+between candidates, no chunk loads or placement). Existing exclusion distances stay.
+Java17 build/61 tests, harbor guard, and 39-file terrain/106-model guard pass.
+Continuity Works audits all twelve existing templates successfully. Final build
+was not re-booted after removing the unsuccessful experiment; diagnostic-build
+hashes and observations are retained in `tools/upper_natural_runtime_report.json`.
+Next: coordinated underground reservations, then natural-start saved-world proof.
+Player worlds and broad terrain remain untouched. User requested closeout here.
+
 ## District reservations, royal castle and upper-rock discoveries — 2026-10-15
 
 Added a native one-family-per-cell district reservation policy: rare 192/96-chunk

@@ -1,5 +1,17 @@
 # Backlog
 
+### Upper-rock placement starvation — next development
+
+Both bounded native surveys admitted zero sites (256 baseline candidates; 143
+experimental eligibility candidates). Archaeology, ley-line and Andwari cave
+reservations cover the sampled regions. Plan a coordinated placement allocation
+before claiming natural coverage or adding more upper-rock variants. Preserve
+the independent 500-block contract, existing terrain, and bounded server work.
+Do not restore recursive/expensive reservation eligibility checks. The final build
+needs its own runtime survey; existing evidence explicitly identifies diagnostic builds.
+Evidence: `tools/upper_natural_runtime_report.json`; operator tooling and a bounded
+future natural-start validator: `tools/run_upper_natural_validation.py`.
+
 ### District spacing and new underground content — 2026-10-15
 
 Shared native district reservations and spawn setbacks are implemented. The 235-square
