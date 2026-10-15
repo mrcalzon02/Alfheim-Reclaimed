@@ -86,4 +86,8 @@ do not silently interpret Overworld as only `mythicbotany:alfheim`. Define a
 matching palette for Midgard biomes and avoid introducing duplicate vanilla
 spawn entries or excessive pillager/endermite groups. Validate spawn caps,
 despawning, loot and Mine and Slash integration on one species/biome slice before
-expanding the roster. This roster is planned, not registered or shipped yet.
+expanding the roster. This roster is implemented in the 2026-10-15 checkpoint;
+see `THEMED_ENEMIES.md` for its 390 appearance combinations, spawn integration
+and bounded runtime evidence. Client appearance and combat/frequency review
+remain pending. Structure repairs are held until Continuity Works completes its
+skill conversion, per the user's latest instruction.

@@ -1,0 +1,235 @@
+{
+  "profiles": [
+    {
+      "biome": "alfheim:alfheim_ocean",
+      "title": "Drowned",
+      "theme": "tide",
+      "body": "93c6bd",
+      "accent": "8fe3df"
+    },
+    {
+      "biome": "alfheim:ashen_grove",
+      "title": "Ashen",
+      "theme": "ash",
+      "body": "a19b93",
+      "accent": "eab071"
+    },
+    {
+      "biome": "alfheim:bloomfall_vale",
+      "title": "Bloomfall",
+      "theme": "root",
+      "body": "d5baaa",
+      "accent": "e6a8c7"
+    },
+    {
+      "biome": "alfheim:decayed_mire",
+      "title": "Mire",
+      "theme": "fungus",
+      "body": "a3b197",
+      "accent": "bf8c9c"
+    },
+    {
+      "biome": "alfheim:hollow_marches",
+      "title": "Hollow",
+      "theme": "root",
+      "body": "b6bea0",
+      "accent": "d1c486"
+    },
+    {
+      "biome": "alfheim:infested_warren",
+      "title": "Warren",
+      "theme": "fungus",
+      "body": "b0ad86",
+      "accent": "cc875e"
+    },
+    {
+      "biome": "alfheim:mana_fen",
+      "title": "Fen",
+      "theme": "mist",
+      "body": "83bcaf",
+      "accent": "a5d3ce"
+    },
+    {
+      "biome": "alfheim:mistbark_shore",
+      "title": "Mistbark",
+      "theme": "mist",
+      "body": "c2d1d3",
+      "accent": "a6bfd3"
+    },
+    {
+      "biome": "alfheim:prism_drift",
+      "title": "Prism",
+      "theme": "crystal",
+      "body": "bdb5e0",
+      "accent": "8ee0e2"
+    },
+    {
+      "biome": "alfheim:rootfall",
+      "title": "Rootfall",
+      "theme": "root",
+      "body": "c2a38c",
+      "accent": "b3c091"
+    },
+    {
+      "biome": "alfheim:scorchfell",
+      "title": "Scorchfell",
+      "theme": "ash",
+      "body": "ae948d",
+      "accent": "ed9f73"
+    },
+    {
+      "biome": "alfheim:sepulchral_reach",
+      "title": "Sepulchral",
+      "theme": "mist",
+      "body": "b8b2c7",
+      "accent": "c3a3d9"
+    },
+    {
+      "biome": "alfheim:shatterfields",
+      "title": "Shatter",
+      "theme": "crystal",
+      "body": "b7bfca",
+      "accent": "e6caab"
+    },
+    {
+      "biome": "alfheim:silverbark_wood",
+      "title": "Silverbark",
+      "theme": "root",
+      "body": "c4cebb",
+      "accent": "a8c8b2"
+    },
+    {
+      "biome": "alfheim:sporebank_shore",
+      "title": "Sporebank",
+      "theme": "fungus",
+      "body": "d0bcb3",
+      "accent": "d9b1ce"
+    },
+    {
+      "biome": "alfheim:starless_reach",
+      "title": "Starless",
+      "theme": "crystal",
+      "body": "938da5",
+      "accent": "b7a5d1"
+    },
+    {
+      "biome": "alfheim:starved_reach",
+      "title": "Rime",
+      "theme": "frost",
+      "body": "bdc9da",
+      "accent": "91b7d8"
+    },
+    {
+      "biome": "alfheim:sundered_highlands",
+      "title": "Sundered",
+      "theme": "crystal",
+      "body": "c5bbaa",
+      "accent": "d7c792"
+    },
+    {
+      "biome": "alfheim:tidewood_shore",
+      "title": "Tidewood",
+      "theme": "tide",
+      "body": "a9c7b6",
+      "accent": "d6d6ad"
+    },
+    {
+      "biome": "alfheim:void_shore",
+      "title": "Chalkshore",
+      "theme": "tide",
+      "body": "c7cbd0",
+      "accent": "b0b7cf"
+    },
+    {
+      "biome": "alfheim:void_verge",
+      "title": "Verge",
+      "theme": "crystal",
+      "body": "b3acc6",
+      "accent": "d0b6e3"
+    },
+    {
+      "biome": "mythicbotany:alfheim_hills",
+      "title": "Highland",
+      "theme": "field",
+      "body": "b9c4a5",
+      "accent": "d1d5af"
+    },
+    {
+      "biome": "mythicbotany:alfheim_lakes",
+      "title": "Lakeside",
+      "theme": "tide",
+      "body": "9bbfb3",
+      "accent": "b8d8cd"
+    },
+    {
+      "biome": "mythicbotany:alfheim_plains",
+      "title": "Meadow",
+      "theme": "field",
+      "body": "c3c99d",
+      "accent": "e0ce99"
+    },
+    {
+      "biome": "mythicbotany:dreamwood_forest",
+      "title": "Dreamwood",
+      "theme": "root",
+      "body": "b1bcda",
+      "accent": "d4b6e1"
+    },
+    {
+      "biome": "mythicbotany:golden_fields",
+      "title": "Golden",
+      "theme": "field",
+      "body": "dbcf9b",
+      "accent": "e6ba76"
+    }
+  ],
+  "species": [
+    "zombie",
+    "skeleton",
+    "pillager",
+    "enderman",
+    "endermite"
+  ],
+  "styles": [
+    "bound",
+    "shrouded",
+    "crowned"
+  ],
+  "themes": {
+    "root": [
+      "stripped_dark_oak_log",
+      "oak_leaves"
+    ],
+    "fungus": [
+      "mushroom_block_inside",
+      "red_mushroom_block"
+    ],
+    "crystal": [
+      "amethyst_block",
+      "budding_amethyst"
+    ],
+    "mist": [
+      "white_wool",
+      "prismarine"
+    ],
+    "frost": [
+      "packed_ice",
+      "blue_ice"
+    ],
+    "ash": [
+      "basalt_side",
+      "magma"
+    ],
+    "tide": [
+      "prismarine",
+      "dark_prismarine"
+    ],
+    "field": [
+      "stripped_birch_log",
+      "hay_block_side"
+    ]
+  },
+  "appearances": 390,
+  "creeper_variants": 0,
+  "visual_method": "Vanilla rigs plus animated, material-specific native model layers; no texture replacements for vanilla entities."
+}

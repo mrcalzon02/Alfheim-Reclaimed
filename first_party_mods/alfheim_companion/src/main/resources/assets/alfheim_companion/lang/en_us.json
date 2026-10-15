@@ -11,5 +11,15 @@
   "message.alfheim_companion.offer_accepted": "I accept %s.",
   "message.alfheim_companion.inventory_full": "I have no safe place to carry that.",
   "key.categories.alfheim_companion": "Alfheim Companion",
-  "key.alfheim_companion.command_wheel": "Open Companion Command Wheel"
+  "key.alfheim_companion.command_wheel": "Open Companion Command Wheel",
+  "entity.alfheim_companion.biome_zombie": "Alfheim Revenant",
+  "item.alfheim_companion.biome_zombie_spawn_egg": "Alfheim Revenant Spawn Egg",
+  "entity.alfheim_companion.biome_skeleton": "Alfheim Boneguard",
+  "item.alfheim_companion.biome_skeleton_spawn_egg": "Alfheim Boneguard Spawn Egg",
+  "entity.alfheim_companion.biome_pillager": "Alfheim Outcast",
+  "item.alfheim_companion.biome_pillager_spawn_egg": "Alfheim Outcast Spawn Egg",
+  "entity.alfheim_companion.biome_enderman": "Alfheim Riftwalker",
+  "item.alfheim_companion.biome_enderman_spawn_egg": "Alfheim Riftwalker Spawn Egg",
+  "entity.alfheim_companion.biome_endermite": "Alfheim Riftmite",
+  "item.alfheim_companion.biome_endermite_spawn_egg": "Alfheim Riftmite Spawn Egg"
 }

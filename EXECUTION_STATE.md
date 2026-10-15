@@ -1,5 +1,22 @@
 # Execution State
 
+## Enemy roster implemented; structure work held — 2026-10-15
+
+At the user's direction, enemies take priority while Continuity Works converts
+to a skill. Structures remain deferred. Added zombie, skeleton, pillager,
+enderman and endermite subclasses: 26 biome profiles × three physical outfits
+× five species = 390 appearance combinations. No creeper variants. Vanilla
+AI/attributes/direct loot persist; appearance synchronizes and saves.
+
+Home and Overworld spawning preserves existing weights/groups/costs; missing
+species have modest defaults. Java17 build/58 tests and the 390-appearance saved
+roster pass. Restart retains all 390 UUIDs and appearances. Thirty biome tables,
+natural-placement predicates in both dimensions, spawn-time weapons/loot and
+Mine and Slash / Library of Exile capability attachment pass bounded tests.
+Client appearance, combat balance and live-player density remain pending.
+Proof: `tools/themed_enemy_runtime_roster.json`; review:
+`alfheim_reclaimed_design/THEMED_ENEMIES.md`. No broad terrain change.
+
 ## New field regressions — 2026-10-14
 
 Reproduced a baked hub at Y81 beneath Y245–268 terrain in `New World staven`.

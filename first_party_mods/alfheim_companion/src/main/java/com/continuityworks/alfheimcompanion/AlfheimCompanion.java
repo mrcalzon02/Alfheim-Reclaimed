@@ -33,6 +33,10 @@ public final class AlfheimCompanion {
 
     public AlfheimCompanion(FMLJavaModLoadingContext context) {
         IEventBus modBus = context.getModEventBus();
+        com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies.initialize();
+        com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies.BIOME_MODIFIERS.register(modBus);
+        modBus.addListener(com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies::attributes);
+        modBus.addListener(com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies::placements);
         ModEntities.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModMenus.REGISTRY.register(modBus);
@@ -59,6 +63,8 @@ public final class AlfheimCompanion {
     }
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
+            com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies.EGGS.forEach(egg->event.accept(egg.get()));
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.COMPANION_SIGIL);
             event.accept(ModItems.COMPANION_CLAIM_PAPER);
@@ -72,6 +78,12 @@ public final class AlfheimCompanion {
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(ModEntities.ELVEN_COMPANION.get(), ElvenCompanionRenderer::new);
+            com.continuityworks.alfheimcompanion.client.ThemedEnemyRenderers.register(event);
+        }
+
+        @net.minecraftforge.eventbus.api.SubscribeEvent
+        public static void registerEnemyLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            com.continuityworks.alfheimcompanion.client.ThemedMaterialLayer.registerLayers(event);
         }
 
         @net.minecraftforge.eventbus.api.SubscribeEvent

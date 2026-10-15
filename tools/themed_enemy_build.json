@@ -1,0 +1,9 @@
+{
+  "jar": "mods/alfheim_companion-0.2.0.jar",
+  "sha256": "3b5ea64e11c5e04fa8a0ded573619e015ca26b7243e7f02f74d001341990e6f3",
+  "backup": "quarantine/alfheim_companion-before-enemies-20261015.jar",
+  "backup_sha256": "f9a1ba70449268bc7df85b73bbadbee966e0c600207677e5c9ac94de2ffac5d4",
+  "build": "Java 17 build --offline; 58 tests pass, including 120 outfit meshes, pillager torso clearance and endermite shell contact",
+  "slice_jar_sha256": "6fa3e0ce9985100fbc668ce1bc67fbffb7aaf90e02064b0715e3f2cb50b8d0b4",
+  "initial_roster_jar_sha256": "35c6dbfcbae640a3f5628f58ea6c6c6f9334a0d046b7e383cee108e1577561ec"
+}

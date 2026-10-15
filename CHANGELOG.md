@@ -1,5 +1,18 @@
 # Changelog
 
+## Biome-themed enemy roster — 2026-10-15
+
+Added five vanilla-behaviour enemy types with three animated outfit shapes and
+26 biome profiles: 390 appearance combinations for zombies, skeletons, pillagers,
+endermen and endermites. No creeper variants. Saved choices synchronize to
+clients; vanilla animation, equipment and direct loot inheritance are retained.
+
+Home and Overworld spawn tables preserve existing weights/groups/costs; missing
+species receive modest defaults. Java17 build/58 tests and all 390 saved/reloaded
+appearances pass. Natural placement rules, spawn-time weapons/loot and combat
+capability attachment are verified; client visuals and balance remain pending.
+Structure work is held until the Continuity Works skill conversion finishes.
+
 ## Buried-spawn containment, floor guard and corridor repairs — 2026-10-14
 
 Removed the hub's fixed-Y80 assembly fallback, which buried it beneath mountains.

@@ -1,0 +1,4439 @@
+{
+  "world": "validation-enemies-roster-20261015",
+  "console": "server/console-20261015-004907.log",
+  "server_exit": 0,
+  "fixture_appearances": 390,
+  "source_sha256": {
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/EnemyAppearance.java": "645b3bb6aa266094f92ebcecc84ad0f140cc84852f3cb875dc3527d96e7a3351",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/EnemyAuditCommands.java": "0238e933bc41abea3ba1835e81b3e3ccbf5aae43bbf1d1edd67e0a4183971a14",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/EnemyProfiles.java": "f3560dee7f421f41b90042ed5c6a655580edd4813f0b0c6cad887448a2e28905",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ModThemedEnemies.java": "55772d561ef6aaf70084a0429de4aaa3ebedf2b71a3a68aa277166d147acdb0a",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedEnderman.java": "3cf579e2408bbfe7d319eb6dd525962aa87c6b765ae3641d6e4ab5a01d583fed",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedEndermite.java": "97e05a6019490599ab593a5c491f84c8266540a902491e41270aa66efd39f8a9",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedEnemy.java": "4f886c7a5002d7a266fca89bd660732c3b3d19d0e28cf3f56a7d274ea5971b28",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedEnemyBiomeModifier.java": "a950ef42579e52dc37af392be4e5a018dd5f7c2798146ba44c7c9b08f31445a6",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedPillager.java": "7d95b3bacea633253b09137f926b07d89e93b14f3a310965a1aa2aa58e1df185",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedSkeleton.java": "8b5b225a7bf76c4c8ed35a243327ae6857aae2b05c8c7e413d16311dd12c99ee",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/ThemedZombie.java": "e7ac06c423ac8c88db74e39d3bd840e1fe4c2f0d7d245e2f969709bcab280f93",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/ThemedMaterialLayer.java": "3e08ee80803bc00da88242d6714f7afb4b646cfe96cb8a6c0f8127bb05922ee3",
+    "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/ThemedEnemyRenderers.java": "2bcdb0f919f0212639ec0a0b54319c0c63c8b519e610cadba02aebeef86d5b98"
+  },
+  "shipping_jar_sha256": "35c6dbfcbae640a3f5628f58ea6c6c6f9334a0d046b7e383cee108e1577561ec",
+  "spawn_audits": [
+    {
+      "dimension": "minecraft:overworld",
+      "biomes": [
+        {
+          "biome": "alfheim:alfheim_ocean",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:ashen_grove",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:bloomfall_vale",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:decayed_mire",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:hollow_marches",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:infested_warren",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:mana_fen",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:mistbark_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:prism_drift",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:rootfall",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:scorchfell",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:sepulchral_reach",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:shatterfields",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:silverbark_wood",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:sporebank_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:starless_reach",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:starved_reach",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:sundered_highlands",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:tidewood_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:void_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:void_verge",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:alfheim_hills",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:alfheim_lakes",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:alfheim_plains",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:dreamwood_forest",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:golden_fields",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:plains",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 95,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 100,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 10,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:desert",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 19,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 100,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 10,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:taiga",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 95,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 100,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 10,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:mushroom_fields",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        }
+      ],
+      "coverage_gaps": 0,
+      "unreplaced_vanilla_entries": 0,
+      "rules_at_command_position": [
+        {
+          "type": "alfheim_companion:biome_zombie",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_skeleton",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_pillager",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_enderman",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_endermite",
+          "natural_rule_acceptances": 32
+        }
+      ]
+    },
+    {
+      "dimension": "mythicbotany:alfheim",
+      "biomes": [
+        {
+          "biome": "alfheim:alfheim_ocean",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:ashen_grove",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:bloomfall_vale",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:decayed_mire",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:hollow_marches",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:infested_warren",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:mana_fen",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:mistbark_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:prism_drift",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:rootfall",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:scorchfell",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:sepulchral_reach",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:shatterfields",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:silverbark_wood",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:sporebank_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:starless_reach",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:starved_reach",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:sundered_highlands",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:tidewood_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:void_shore",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "alfheim:void_verge",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:alfheim_hills",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:alfheim_lakes",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:alfheim_plains",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:dreamwood_forest",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "mythicbotany:golden_fields",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 12,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:plains",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 95,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 100,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 10,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:desert",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 19,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 100,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 10,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:taiga",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 95,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 100,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 10,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        },
+        {
+          "biome": "minecraft:mushroom_fields",
+          "mobs": [
+            {
+              "type": "alfheim_companion:biome_zombie",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_skeleton",
+              "weight": 20,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_pillager",
+              "weight": 2,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_enderman",
+              "weight": 4,
+              "entries": 1
+            },
+            {
+              "type": "alfheim_companion:biome_endermite",
+              "weight": 2,
+              "entries": 1
+            }
+          ]
+        }
+      ],
+      "coverage_gaps": 0,
+      "unreplaced_vanilla_entries": 0,
+      "rules_at_command_position": [
+        {
+          "type": "alfheim_companion:biome_zombie",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_skeleton",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_pillager",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_enderman",
+          "natural_rule_acceptances": 32
+        },
+        {
+          "type": "alfheim_companion:biome_endermite",
+          "natural_rule_acceptances": 32
+        }
+      ]
+    }
+  ],
+  "natural_reason_factory_probes": [
+    {
+      "dimension": "minecraft:overworld",
+      "mobs": [
+        {
+          "type": "alfheim_companion:biome_zombie",
+          "biome": "mythicbotany:alfheim_plains",
+          "expected_biome": "mythicbotany:alfheim_plains",
+          "style": 1,
+          "loot": "minecraft:entities/zombie",
+          "main_hand": "minecraft:air"
+        },
+        {
+          "type": "alfheim_companion:biome_skeleton",
+          "biome": "mythicbotany:alfheim_plains",
+          "expected_biome": "mythicbotany:alfheim_plains",
+          "style": 2,
+          "loot": "minecraft:entities/skeleton",
+          "main_hand": "minecraft:bow"
+        },
+        {
+          "type": "alfheim_companion:biome_pillager",
+          "biome": "mythicbotany:alfheim_plains",
+          "expected_biome": "mythicbotany:alfheim_plains",
+          "style": 1,
+          "loot": "minecraft:entities/pillager",
+          "main_hand": "minecraft:crossbow"
+        },
+        {
+          "type": "alfheim_companion:biome_enderman",
+          "biome": "mythicbotany:alfheim_plains",
+          "expected_biome": "mythicbotany:alfheim_plains",
+          "style": 0,
+          "loot": "minecraft:entities/enderman",
+          "main_hand": "minecraft:air"
+        },
+        {
+          "type": "alfheim_companion:biome_endermite",
+          "biome": "mythicbotany:alfheim_plains",
+          "expected_biome": "mythicbotany:alfheim_plains",
+          "style": 2,
+          "loot": "minecraft:entities/endermite",
+          "main_hand": "minecraft:air"
+        }
+      ]
+    },
+    {
+      "dimension": "mythicbotany:alfheim",
+      "mobs": [
+        {
+          "type": "alfheim_companion:biome_zombie",
+          "biome": "alfheim:alfheim_ocean",
+          "expected_biome": "alfheim:alfheim_ocean",
+          "style": 2,
+          "loot": "minecraft:entities/zombie",
+          "main_hand": "minecraft:air"
+        },
+        {
+          "type": "alfheim_companion:biome_skeleton",
+          "biome": "alfheim:alfheim_ocean",
+          "expected_biome": "alfheim:alfheim_ocean",
+          "style": 2,
+          "loot": "minecraft:entities/skeleton",
+          "main_hand": "minecraft:bow"
+        },
+        {
+          "type": "alfheim_companion:biome_pillager",
+          "biome": "alfheim:alfheim_ocean",
+          "expected_biome": "alfheim:alfheim_ocean",
+          "style": 2,
+          "loot": "minecraft:entities/pillager",
+          "main_hand": "minecraft:crossbow"
+        },
+        {
+          "type": "alfheim_companion:biome_enderman",
+          "biome": "alfheim:void_shore",
+          "expected_biome": "alfheim:void_shore",
+          "style": 1,
+          "loot": "minecraft:entities/enderman",
+          "main_hand": "minecraft:air"
+        },
+        {
+          "type": "alfheim_companion:biome_endermite",
+          "biome": "alfheim:alfheim_ocean",
+          "expected_biome": "alfheim:alfheim_ocean",
+          "style": 1,
+          "loot": "minecraft:entities/endermite",
+          "main_hand": "minecraft:air"
+        }
+      ]
+    }
+  ],
+  "combat_capability_comparison": {
+    "zombie": {
+      "shared_combat_capabilities": [
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data"
+      ],
+      "custom_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ],
+      "vanilla_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ]
+    },
+    "skeleton": {
+      "shared_combat_capabilities": [
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data"
+      ],
+      "custom_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ],
+      "vanilla_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ]
+    },
+    "pillager": {
+      "shared_combat_capabilities": [
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data"
+      ],
+      "custom_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ],
+      "vanilla_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ]
+    },
+    "enderman": {
+      "shared_combat_capabilities": [
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data"
+      ],
+      "custom_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ],
+      "vanilla_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ]
+    },
+    "endermite": {
+      "shared_combat_capabilities": [
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data"
+      ],
+      "custom_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ],
+      "vanilla_capability_keys": [
+        "ancient_obelisks:entity",
+        "botania:loonium_drop",
+        "curios:inventory",
+        "dungeon_realm:entity",
+        "library_of_exile:entity_info",
+        "mmorpg:entity_data",
+        "the_harvest:entity"
+      ]
+    }
+  },
+  "saved_appearances": [
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:ashen_grove",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:ashen_grove",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:ashen_grove",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:ashen_grove",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:ashen_grove",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:decayed_mire",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:decayed_mire",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:decayed_mire",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:decayed_mire",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:decayed_mire",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:hollow_marches",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:hollow_marches",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:hollow_marches",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:hollow_marches",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:hollow_marches",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:ashen_grove",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:ashen_grove",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:ashen_grove",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:ashen_grove",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:ashen_grove",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:ashen_grove",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:decayed_mire",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:decayed_mire",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:decayed_mire",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:decayed_mire",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:decayed_mire",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:decayed_mire",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:hollow_marches",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:hollow_marches",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:hollow_marches",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:hollow_marches",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:hollow_marches",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:hollow_marches",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:infested_warren",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:infested_warren",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:infested_warren",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:infested_warren",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:infested_warren",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:mana_fen",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:mana_fen",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:mana_fen",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:mana_fen",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:mana_fen",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:mistbark_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:mistbark_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:mistbark_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:mistbark_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:mistbark_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:prism_drift",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:prism_drift",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:prism_drift",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:prism_drift",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:prism_drift",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:rootfall",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:rootfall",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:rootfall",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:rootfall",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:rootfall",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:scorchfell",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:scorchfell",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:scorchfell",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:scorchfell",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:scorchfell",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:infested_warren",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:infested_warren",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:infested_warren",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:infested_warren",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:infested_warren",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:infested_warren",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:mana_fen",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:mana_fen",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:mana_fen",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:mana_fen",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:mana_fen",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:mana_fen",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:mistbark_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:mistbark_shore",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:mistbark_shore",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:mistbark_shore",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:mistbark_shore",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:mistbark_shore",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:prism_drift",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:prism_drift",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:prism_drift",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:prism_drift",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:prism_drift",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:prism_drift",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:rootfall",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:rootfall",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:rootfall",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:rootfall",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:rootfall",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:rootfall",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:scorchfell",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:scorchfell",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:scorchfell",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:scorchfell",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:scorchfell",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:scorchfell",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:shatterfields",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:shatterfields",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:shatterfields",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:shatterfields",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:shatterfields",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:silverbark_wood",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:silverbark_wood",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:silverbark_wood",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:silverbark_wood",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:silverbark_wood",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sporebank_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sporebank_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sporebank_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sporebank_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sporebank_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:starless_reach",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:starless_reach",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:starless_reach",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:starless_reach",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:starless_reach",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:shatterfields",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:shatterfields",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:shatterfields",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:shatterfields",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:shatterfields",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:shatterfields",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:silverbark_wood",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:silverbark_wood",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:silverbark_wood",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:silverbark_wood",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:silverbark_wood",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:silverbark_wood",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sporebank_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sporebank_shore",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sporebank_shore",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sporebank_shore",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sporebank_shore",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sporebank_shore",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:starless_reach",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:starless_reach",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:starless_reach",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:starless_reach",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:starless_reach",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:starless_reach",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:starved_reach",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:starved_reach",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:starved_reach",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:starved_reach",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:starved_reach",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sundered_highlands",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sundered_highlands",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:sundered_highlands",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sundered_highlands",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sundered_highlands",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:tidewood_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:tidewood_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:tidewood_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:tidewood_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:tidewood_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:void_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:void_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:void_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:void_shore",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:void_shore",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:void_verge",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:void_verge",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "alfheim:void_verge",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:void_verge",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:void_verge",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:starved_reach",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:starved_reach",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:starved_reach",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:starved_reach",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:starved_reach",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:starved_reach",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:sundered_highlands",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sundered_highlands",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sundered_highlands",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:sundered_highlands",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sundered_highlands",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sundered_highlands",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:tidewood_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:tidewood_shore",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:tidewood_shore",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:tidewood_shore",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:tidewood_shore",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:tidewood_shore",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:void_shore",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:void_shore",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:void_shore",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:void_shore",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:void_shore",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:void_shore",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "alfheim:void_verge",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:void_verge",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:void_verge",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "alfheim:void_verge",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:void_verge",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:void_verge",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:golden_fields",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:golden_fields",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_zombie",
+      "biome": "mythicbotany:golden_fields",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:golden_fields",
+      "style": 0,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:golden_fields",
+      "style": 1,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_skeleton",
+      "biome": "mythicbotany:golden_fields",
+      "style": 2,
+      "health": 20.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:golden_fields",
+      "style": 0,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:golden_fields",
+      "style": 1,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_pillager",
+      "biome": "mythicbotany:golden_fields",
+      "style": 2,
+      "health": 24.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:golden_fields",
+      "style": 0,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:golden_fields",
+      "style": 1,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:alfheim_ocean",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:ashen_grove",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:ashen_grove",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:ashen_grove",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:ashen_grove",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:bloomfall_vale",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:decayed_mire",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:decayed_mire",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:decayed_mire",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:decayed_mire",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:hollow_marches",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:hollow_marches",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:hollow_marches",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:hollow_marches",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:infested_warren",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:infested_warren",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:infested_warren",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:infested_warren",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:mana_fen",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:mana_fen",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:mana_fen",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:mana_fen",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:mistbark_shore",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:mistbark_shore",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:mistbark_shore",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:mistbark_shore",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:prism_drift",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:prism_drift",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:prism_drift",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:prism_drift",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:rootfall",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:rootfall",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:rootfall",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:rootfall",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:scorchfell",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:scorchfell",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:scorchfell",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:scorchfell",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sepulchral_reach",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:shatterfields",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:shatterfields",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:shatterfields",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:shatterfields",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:silverbark_wood",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:silverbark_wood",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:silverbark_wood",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:silverbark_wood",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sporebank_shore",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sporebank_shore",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sporebank_shore",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sporebank_shore",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:starless_reach",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:starless_reach",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:starless_reach",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:starless_reach",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:starved_reach",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:starved_reach",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:starved_reach",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:starved_reach",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:sundered_highlands",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sundered_highlands",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sundered_highlands",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:sundered_highlands",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:tidewood_shore",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:tidewood_shore",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:tidewood_shore",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:tidewood_shore",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:void_shore",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:void_shore",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:void_shore",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:void_shore",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "alfheim:void_verge",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:void_verge",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:void_verge",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "alfheim:void_verge",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_hills",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_lakes",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:alfheim_plains",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:dreamwood_forest",
+      "style": 2,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_enderman",
+      "biome": "mythicbotany:golden_fields",
+      "style": 2,
+      "health": 40.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:golden_fields",
+      "style": 0,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:golden_fields",
+      "style": 1,
+      "health": 8.0
+    },
+    {
+      "id": "alfheim_companion:biome_endermite",
+      "biome": "mythicbotany:golden_fields",
+      "style": 2,
+      "health": 8.0
+    }
+  ],
+  "limits": "Controlled NoAI fixtures, NATURAL-reason spawn factory, spawn tables and placement predicates. Factory probes are operator-triggered; no live-player natural-density observation, combat balance or client visual admission."
+}
