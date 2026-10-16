@@ -16,6 +16,16 @@ public final class ThemedEnemyRenderers {
             @Override public net.minecraft.resources.ResourceLocation getTextureLocation(net.minecraft.world.entity.monster.Zombie mob){return skin(mob,"zombie");}
         });
         event.registerEntityRenderer(ModThemedEnemies.SKELETON.get(),ctx->new SkeletonRenderer(ctx) {
+            private final net.minecraft.client.model.SkeletonModel<net.minecraft.world.entity.monster.AbstractSkeleton> normal=this.model;
+            private final net.minecraft.client.model.SkeletonModel<net.minecraft.world.entity.monster.AbstractSkeleton> silverbark=
+                new net.minecraft.client.model.SkeletonModel<>(ctx.bakeLayer(SilverbarkBoneguardModel.LAYER));
+            @Override public void render(net.minecraft.world.entity.monster.AbstractSkeleton mob,float yaw,float tick,
+                    com.mojang.blaze3d.vertex.PoseStack pose,net.minecraft.client.renderer.MultiBufferSource buffers,int light) {
+                boolean custom=com.continuityworks.alfheimcompanion.enemy.EnemyAppearance.profile(mob)==13 &&
+                    com.continuityworks.alfheimcompanion.enemy.EnemyAppearance.style(mob)==0;
+                this.model=custom?silverbark:normal;
+                try {super.render(mob,yaw,tick,pose,buffers,light);} finally {this.model=normal;}
+            }
             @Override public net.minecraft.resources.ResourceLocation getTextureLocation(net.minecraft.world.entity.monster.AbstractSkeleton mob){return skin(mob,"skeleton");}
         });
         event.registerEntityRenderer(ModThemedEnemies.PILLAGER.get(),ctx->new PillagerRenderer(ctx) {

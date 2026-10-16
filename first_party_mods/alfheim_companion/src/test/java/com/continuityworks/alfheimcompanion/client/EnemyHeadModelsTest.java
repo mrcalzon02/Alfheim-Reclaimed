@@ -77,7 +77,9 @@ class EnemyHeadModelsTest {
             Set<String> shapes=new HashSet<>();
             for(int p=0;p<EnemyProfiles.ALL.length;p++)for(int style=0;style<3;style++) {
                 String species=SPECIES[s];var profile=EnemyProfiles.get(p);
-                JsonArray elements=new JsonArray();append(elements,base(species),"base",false);
+                boolean custom=species.equals("skeleton") && p==13 && style==0;
+                JsonArray elements=new JsonArray();
+                append(elements,custom?SilverbarkBoneguardModel.layer().bakeRoot().getChild("head"):base(species),"base",false);
                 double[] low={1e9,1e9,1e9},high={-1e9,-1e9,-1e9};
                 List<String> bounds=new ArrayList<>();
                 for(var value:elements) {
@@ -102,7 +104,7 @@ class EnemyHeadModelsTest {
                 display.add("gui",gui);model.add("display",display);
                 models.add(species+"_"+p+"_"+style,model);count++;
             }
-            assertEquals(1,shapes.size(),SPECIES[s]+" uses one clean head template");
+            assertEquals(SPECIES[s].equals("skeleton")?2:1,shapes.size(),SPECIES[s]);
         }
         assertEquals(390,count);catalogue.add("models",models);
         Path source=Path.of("src/main/java/com/continuityworks/alfheimcompanion/client/ThemedMaterialLayer.java");

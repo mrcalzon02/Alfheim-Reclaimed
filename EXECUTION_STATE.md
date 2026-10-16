@@ -1,5 +1,16 @@
 # Execution State
 
+## One custom Silverbark Boneguard — 2026-10-16
+
+Silverbark Bound Boneguard (skeleton profile 13/style 0) now uses an authored
+native model: a six-wide elongated skull, angled ears, open rib cage, narrow
+spine, pelvis and slender limbs. A dedicated 64x64 UV skin uses pale bone,
+moss recesses and small cool eyes. Its spawn-item head uses the same skin/model.
+Only this one appearance changes. Skeleton locomotion/bow animation and saved IDs
+remain compatible. Java17 build/67 tests and skin/head source checks pass.
+Client visual review remains pending; full restart required. Sources:
+`SilverbarkBoneguardModel.java`, `tools/silverbark_boneguard.py`.
+
 ## Simplified creature recolors and all variant spawn selections — 2026-10-16
 
 User rejected block-material outfits and ornamental geometry, then explicitly

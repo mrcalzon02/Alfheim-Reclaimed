@@ -1,0 +1,10 @@
+{
+  "variant": "Silverbark Bound Boneguard",
+  "profile": 13,
+  "style": 0,
+  "custom_model": "SilverbarkBoneguardModel",
+  "skin": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/textures/entity/themed/skeleton_13_0.png",
+  "jar_sha256": "96bb1fb23fdbe385c50389d5b2624805db506ea9ed53e2d8d3128d418abe710a",
+  "java_tests": 67,
+  "client_visual_acceptance": "pending"
+}

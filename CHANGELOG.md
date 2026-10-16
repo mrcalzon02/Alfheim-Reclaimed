@@ -1,5 +1,12 @@
 # Changelog
 
+## One custom Silverbark Boneguard model and skin — 2026-10-16
+
+Added a narrow elven skull with angled ears, open rib cage and slender limbs for
+Silverbark Bound Boneguard only. Authored a dedicated pale bone/moss 64x64 skin
+and matching head icon. Native skeleton/bow animations are retained. Java17 build
+and all 67 tests pass; restart required and client visual review pending.
+
 ## Clean recolored creatures and all 390 spawn selections — 2026-10-16
 
 Replaced the themed enemies' block-material outfits with five clean vanilla rigs

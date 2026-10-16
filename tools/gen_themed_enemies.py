@@ -5,6 +5,7 @@ inventory models. Vanilla/third-party assets and terrain/structures are unchange
 """
 import argparse,json,hashlib,io,zipfile
 from PIL import Image
+from silverbark_boneguard import skin as silverbark_skin
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 JAVA='first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/'
@@ -82,6 +83,7 @@ def build():
    for p,row in enumerate(rows):
     for style in range(3):
      out[RES+f'assets/alfheim_companion/textures/entity/themed/{species}_{p}_{style}.png']=recolor_skin(original,row['body'],row['accent'],style)
+ out[RES+'assets/alfheim_companion/textures/entity/themed/skeleton_13_0.png']=silverbark_skin()
  for r in rows:
   tex,accent=THEMES[r['theme']]
   records.append('        new Profile("%s", "%s", %d, 0x%s, 0x%s, material("%s"), material("%s"))'%(

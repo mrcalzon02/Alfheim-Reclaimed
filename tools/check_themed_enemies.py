@@ -34,5 +34,5 @@ def main():
     for element in model['elements']:
      assert all(0<=a<b<=16 for a,b in zip(element['from'],element['to'])),key
      assert all('tintindex' not in face for face in element['faces'].values()),key
- print('THEMED ENEMIES STATIC PASS: 390 recolored skins and matching heads; 390 ordered variant selections; five clean species rigs; exact 26-biome coverage')
+ print('THEMED ENEMIES STATIC PASS: 390 skins and matching heads; 390 ordered variant selections; five species with one custom Silverbark rig; exact 26-biome coverage')
 if __name__=='__main__':main()
