@@ -106,6 +106,7 @@ public final class Leyworks {
     public static final RegistryObject<Item> MEMORIAL_URN_ITEM = registerBlockItem("memorial_urn", MEMORIAL_URN);
 
     public static final java.util.Map<String,RegistryObject<Block>> DISTRICT_FURNISHINGS = DistrictFurnishings.register();
+    public static final java.util.Map<String,RegistryObject<Block>> ELVEN_DECOR = ElvenDecor.register();
 
     public static final RegistryObject<BlockEntityType<LeyConduitNodeBlockEntity>> NODE_ENTITY =
             BLOCK_ENTITIES.register("ley_conduit_node",
@@ -153,6 +154,8 @@ public final class Leyworks {
             event.accept(MEMORIAL_URN_ITEM.get());
             DISTRICT_FURNISHINGS.values().forEach(block->event.accept(block.get()));
         }
+        if(event.getTabKey()==CreativeModeTabs.BUILDING_BLOCKS)
+            ELVEN_DECOR.values().forEach(block->event.accept(block.get()));
     }
 
     private static RegistryObject<Block> registerContainer(String name, ElvenContainerBlock.Style style, MapColor color) {
@@ -171,6 +174,7 @@ public final class Leyworks {
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerScreens(FMLClientSetupEvent event) {
             event.enqueueWork(() -> MenuScreens.register(MANNA_STORAGE_MENU.get(), MannaStoneStorageScreen::new));
+            event.enqueueWork(() -> ELVEN_DECOR.values().forEach(block->net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(block.get(),net.minecraft.client.renderer.RenderType.cutout())));
         }
     }
 }

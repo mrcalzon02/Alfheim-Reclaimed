@@ -1,5 +1,14 @@
 # Backlog
 
+### Decorative elven collection — built; client review remains
+
+38 purely decorative, craftable objects now cover seating, fixed displays,
+honors, trophies, wall weapons, knight/goddess statues and other ornaments.
+Native placement/assembly/drop/reload checks pass. Review glass, texture/item
+presentation and multiplayer visuals after restart, then plan supported placements
+inside existing district rooms. No natural decoration placement was added here.
+See `alfheim_reclaimed_design/ELVEN_DECORATIVE_COLLECTION.md`.
+
 ### District room furnishing — shipped in new templates
 
 55 existing room templates across all twelve district families now place 109

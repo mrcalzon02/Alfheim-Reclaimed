@@ -1,5 +1,23 @@
 # Execution State
 
+## Purely decorative elven collection — 2026-10-15
+
+Added 38 craftable scenery objects: eight seating pieces, four display cabinets,
+six honors, four trophies, four weapon wall displays, six knight/goddess statues
+and six ornaments. Fifty-two block-model parts share directional collision;
+fourteen assembled objects have complete inventory models and single-item recovery.
+The collection uses fixed contents and no inventories, effects or tickers.
+
+Continuity Works generated all 38 recipes. Independent model/recipe checks and
+native placement, four-facing, assembly, support, item-consumption and drop checks
+pass. Separate restart evidence checks all 38 objects / 52 parts. Existing storage,
+station and hopper regression tests run on the same installed Leyworks jar.
+39 protected terrain hashes and 175 custom block-model face checks pass. No natural
+placement changes or player-save edits. Client glass/textures/item presentation
+and multiplayer review remain pending; Minecraft requires a full restart.
+See `alfheim_reclaimed_design/ELVEN_DECORATIVE_COLLECTION.md` and the decorative
+static/runtime reports. Geometry sheets are diagrams, not game screenshots.
+
 ## Functional district room placement — 2026-10-15
 
 Continuity Works furnished 55 of the existing 109 district templates with 109

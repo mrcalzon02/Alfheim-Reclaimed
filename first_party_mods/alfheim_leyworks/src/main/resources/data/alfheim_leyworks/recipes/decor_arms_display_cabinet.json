@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "AEA"
+  ],
+  "key": {
+    "A": {
+      "item": "botania:dreamwood"
+    },
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "item": "minecraft:white_dye"
+    },
+    "D": {
+      "item": "botania:elf_quartz"
+    },
+    "E": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "alfheim_leyworks:decor_arms_display_cabinet"
+  }
+}

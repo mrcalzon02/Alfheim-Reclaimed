@@ -1,0 +1,17 @@
+{
+  "status": "STATIC_PASS",
+  "objects": 38,
+  "block_model_parts": 52,
+  "complete_assembly_item_models": 14,
+  "categories": {
+    "honors": 6,
+    "seating": 8,
+    "display": 4,
+    "trophy": 4,
+    "arms": 4,
+    "statue": 6,
+    "ornament": 6
+  },
+  "recipes": 38,
+  "coplanar_overlaps": 0
+}

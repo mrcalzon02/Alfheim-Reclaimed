@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "AEA"
+  ],
+  "key": {
+    "A": {
+      "item": "botania:dreamwood"
+    },
+    "B": {
+      "item": "minecraft:cyan_dye"
+    },
+    "C": {
+      "item": "minecraft:white_dye"
+    },
+    "D": {
+      "item": "botania:elf_quartz"
+    },
+    "E": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "item": "alfheim_leyworks:decor_royal_audience_chair"
+  }
+}

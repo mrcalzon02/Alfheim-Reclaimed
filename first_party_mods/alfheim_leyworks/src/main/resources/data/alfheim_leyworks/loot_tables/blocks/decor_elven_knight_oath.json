@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "alfheim_leyworks:decor_elven_knight_oath",
+          "properties": {
+            "part": "base"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim_leyworks:decor_elven_knight_oath"
+        }
+      ]
+    }
+  ]
+}

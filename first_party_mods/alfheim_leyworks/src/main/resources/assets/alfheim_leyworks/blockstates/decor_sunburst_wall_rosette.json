@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,part=base": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 0
+    },
+    "facing=north,part=extension": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 0
+    },
+    "facing=east,part=base": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 90
+    },
+    "facing=east,part=extension": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 90
+    },
+    "facing=south,part=base": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 180
+    },
+    "facing=south,part=extension": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 180
+    },
+    "facing=west,part=base": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 270
+    },
+    "facing=west,part=extension": {
+      "model": "alfheim_leyworks:block/decor_sunburst_wall_rosette",
+      "y": 270
+    }
+  }
+}

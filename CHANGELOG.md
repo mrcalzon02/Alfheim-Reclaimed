@@ -1,5 +1,18 @@
 # Changelog
 
+## Thirty-eight purely decorative elven objects — 2026-10-15
+
+Added chairs, sofas, ottomans, fixed display cabinets, medals and medallions,
+trophies, mounted shields/blades, three knight and three goddess statues, a harp,
+screen, relief, rosette, wind chime and incense stand. All 38 have unique recipes.
+Fourteen objects assemble automatically from one item across two cells. Wall
+support, rotated collision and single-item recovery are handled natively.
+
+Static geometry/recipe checks, native placement and saved-world restart checks
+pass, alongside the previous functional furniture regression. Includes a relative
+review gallery and three labeled geometry sheets. Client visual review remains
+pending. No district spawning rules, broad terrain or player saves are rewritten.
+
 ## Functional furnishings installed in district templates — 2026-10-15
 
 Added 109 empty functional furnishings to 55 existing district room templates,

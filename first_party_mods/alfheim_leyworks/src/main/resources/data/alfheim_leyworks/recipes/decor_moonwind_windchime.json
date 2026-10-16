@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "AEA"
+  ],
+  "key": {
+    "A": {
+      "item": "botania:dreamwood"
+    },
+    "B": {
+      "item": "minecraft:magenta_dye"
+    },
+    "C": {
+      "item": "minecraft:magenta_dye"
+    },
+    "D": {
+      "item": "botania:elf_quartz"
+    },
+    "E": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "alfheim_leyworks:decor_moonwind_windchime"
+  }
+}
