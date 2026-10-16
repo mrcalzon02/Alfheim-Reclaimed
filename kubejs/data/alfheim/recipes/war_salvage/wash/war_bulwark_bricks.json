@@ -1,0 +1,10 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "alfheim:war_bulwark_bricks"
+  },
+  "output": {
+    "item": "alfheim:washed_golem_grit"
+  },
+  "mana": 6000
+}

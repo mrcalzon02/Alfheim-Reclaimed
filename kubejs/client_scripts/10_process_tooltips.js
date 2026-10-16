@@ -346,6 +346,46 @@ ItemEvents.tooltip(event => {
             "shapeless crafting: Barkcloth Scrap -> String"
         ]
     },
+    "alfheim:bio_sludge_coagulated": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Gray Dye, Slime Ball -> Bio Sludge Coagulated"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Bio Sludge Coagulated -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:bio_sludge_desiccated": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Green Dye, Slime Ball -> Bio Sludge Desiccated"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Bio Sludge Desiccated -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:bio_sludge_mineralized": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Black Dye, Slime Ball -> Bio Sludge Mineralized"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Bio Sludge Mineralized -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:bio_sludge_putrefied": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Brown Dye, Slime Ball -> Bio Sludge Putrefied"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Bio Sludge Putrefied -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:bio_sludge_saturated": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, White Dye, Slime Ball -> Bio Sludge Saturated"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Bio Sludge Saturated -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
     "alfheim:bone_fetish": {
         "from": [],
         "uses": [
@@ -1348,6 +1388,57 @@ ItemEvents.tooltip(event => {
         ],
         "uses": []
     },
+    "alfheim:golem_conduit_severed": {
+        "from": [
+            "shapeless crafting: Amethyst Block, Clay Ball, Purple Dye -> Golem Conduit Severed"
+        ],
+        "uses": [
+            "shapeless crafting: Golem Conduit Severed, Livingrock -> Severed Conduit Display",
+            "mana infusion in a Mana Pool: Golem Conduit Severed -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:golem_core_socket_empty": {
+        "from": [
+            "shapeless crafting: Amethyst Block, Clay Ball, Green Dye -> Golem Core Socket Empty"
+        ],
+        "uses": [
+            "shapeless crafting: Golem Core Socket Empty, Livingrock -> Salvaged Core Cradle",
+            "mana infusion in a Mana Pool: Golem Core Socket Empty -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:golem_crystal_fractured": {
+        "from": [
+            "shapeless crafting: Amethyst Block, Clay Ball, White Dye -> Golem Crystal Fractured"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Golem Crystal Fractured -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:golem_crystal_scorched": {
+        "from": [
+            "shapeless crafting: Amethyst Block, Clay Ball, Gray Dye -> Golem Crystal Scorched"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Golem Crystal Scorched -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:golem_crystal_voidscarred": {
+        "from": [
+            "shapeless crafting: Amethyst Block, Clay Ball, Brown Dye -> Golem Crystal Voidscarred"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Golem Crystal Voidscarred -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:golem_lattice_shards": {
+        "from": [
+            "shapeless crafting: Amethyst Block, Clay Ball, Black Dye -> Golem Lattice Shards"
+        ],
+        "uses": [
+            "Source enchantment at the Enchanting Apparatus: Golem Lattice Shards, Tempered War Lattice, Mana Powder, Source Gem -> Restored Lattice Lamp (2,000 Source)",
+            "mana infusion in a Mana Pool: Golem Lattice Shards -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
     "alfheim:grave_braid": {
         "from": [
             "petal binding in the Petal Apothecary: Reckoned Thread, Dreamwood, Seed Apothecary Reagent (ingredient group) -> Grave Braid"
@@ -1663,7 +1754,8 @@ ItemEvents.tooltip(event => {
             "shapeless: Living Fibre, Mana Powder -> Charged Fibre",
             "shapeless: Quickened Palebloom, Living Fibre -> Iron Ingot",
             "application with a Deployer: Living Fibre, Bread -> Golden Carrot",
-            "mixing in a Basin: Living Fibre, Quickened Sparkroot -> Glistering Melon Slice"
+            "mixing in a Basin: Living Fibre, Quickened Sparkroot -> Glistering Melon Slice",
+            "runic binding at the Runic Altar: Purified Titan Resin, Living Fibre, Mana Powder -> Floral Fertilizer (8,000 mana)"
         ]
     },
     "alfheim:magmatic_livingrock": {
@@ -2243,6 +2335,17 @@ ItemEvents.tooltip(event => {
         ],
         "uses": []
     },
+    "alfheim:purified_titan_resin": {
+        "from": [
+            "Source enchantment at the Enchanting Apparatus: Washed Titan Biomass, Mana Powder, Source Gem -> Purified Titan Resin (2,000 Source)"
+        ],
+        "uses": [
+            "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Mana Powder -> Slime Ball (1,500 Source)",
+            "runic binding at the Runic Altar: Purified Titan Resin, Living Fibre, Mana Powder -> Floral Fertilizer (8,000 mana)",
+            "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Tempered War Lattice, Wildmarch Sinew -> Orb of Relief (6,000 Source)",
+            "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Mana Powder -> Leather (2,000 Source)"
+        ]
+    },
     "alfheim:quenched_thread": {
         "from": [
             "mixing in a Basin: Scorched Filament, Dreamwood -> Quenched Thread",
@@ -2641,6 +2744,12 @@ ItemEvents.tooltip(event => {
             "shapeless: Reckoned Thread, Mana Powder -> Golden Carrot"
         ]
     },
+    "alfheim:reclaimed_ward_brazier": {
+        "from": [
+            "Source enchantment at the Enchanting Apparatus: War Wardplate Fractured, Tempered War Lattice, Mana Powder, Source Gem -> Reclaimed Ward Brazier (2,000 Source)"
+        ],
+        "uses": []
+    },
     "alfheim:refined_bifrost": {
         "from": [
             "deep mana infusion in the Mana Infuser: Condensed Bifrost, Alfglass, Mana Powder -> Refined Bifrost (40,000 mana)"
@@ -2695,6 +2804,12 @@ ItemEvents.tooltip(event => {
     "alfheim:resinshale_livingrock_wall": {
         "from": [
             "Stonecutting: Resinshale Livingrock -> Resinshale Livingrock Wall"
+        ],
+        "uses": []
+    },
+    "alfheim:restored_lattice_lamp": {
+        "from": [
+            "Source enchantment at the Enchanting Apparatus: Golem Lattice Shards, Tempered War Lattice, Mana Powder, Source Gem -> Restored Lattice Lamp (2,000 Source)"
         ],
         "uses": []
     },
@@ -2842,7 +2957,8 @@ ItemEvents.tooltip(event => {
             "transmutation in Spirit Fire: Rimebound Lattice -> Ash Of Names",
             "application with a Deployer: Rimebound Lattice, Duskglass Shard -> Gunpowder",
             "mixing in a Basin: Raw Elementium, Rimebound Lattice -> Elementium Ingot",
-            "aura transmutation at the Natural Altar: Rimebound Lattice, Apple -> Golden Apple (12,000 aura)"
+            "aura transmutation at the Natural Altar: Rimebound Lattice, Apple -> Golden Apple (12,000 aura)",
+            "Source enchantment at the Enchanting Apparatus: Tempered War Lattice, Rimebound Lattice -> Orb of Quality (10,000 Source)"
         ]
     },
     "alfheim:rimebound_layered": {
@@ -3053,6 +3169,12 @@ ItemEvents.tooltip(event => {
         ],
         "uses": []
     },
+    "alfheim:salvaged_core_cradle": {
+        "from": [
+            "shapeless crafting: Golem Core Socket Empty, Livingrock -> Salvaged Core Cradle"
+        ],
+        "uses": []
+    },
     "alfheim:scorched_filament": {
         "from": [
             "transmutation in Spirit Fire: Wildmarch Sinew -> Scorched Filament"
@@ -3082,6 +3204,12 @@ ItemEvents.tooltip(event => {
             "milling in a Millstone: Sealed Lattice -> Source Gem",
             "mixing in a Basin: Sealed Lattice, Quickened Cinderbloom -> Torch"
         ]
+    },
+    "alfheim:sealed_organ_vessel": {
+        "from": [
+            "shapeless crafting: Titan Organ Calcified, Livingrock -> Sealed Organ Vessel"
+        ],
+        "uses": []
     },
     "alfheim:seamstone_livingrock": {
         "from": [
@@ -3145,6 +3273,12 @@ ItemEvents.tooltip(event => {
             "shapeless: Settled Thread, Quickened Sparkroot -> Glistering Melon Slice",
             "Haunting: Settled Thread -> Mana Powder"
         ]
+    },
+    "alfheim:severed_conduit_display": {
+        "from": [
+            "shapeless crafting: Golem Conduit Severed, Livingrock -> Severed Conduit Display"
+        ],
+        "uses": []
     },
     "alfheim:shardbreccia_livingrock": {
         "from": [
@@ -3375,6 +3509,17 @@ ItemEvents.tooltip(event => {
             "aura transmutation at the Natural Altar: Sunbleached Floss, Emberglass Shard -> Blaze Powder (12,000 aura)"
         ]
     },
+    "alfheim:tempered_war_lattice": {
+        "from": [
+            "Source enchantment at the Enchanting Apparatus: Washed Golem Grit, Mana Powder, Source Gem -> Tempered War Lattice (3,000 Source)"
+        ],
+        "uses": [
+            "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Tempered War Lattice, Wildmarch Sinew -> Orb of Relief (6,000 Source)",
+            "Source enchantment at the Enchanting Apparatus: Tempered War Lattice, Rimebound Lattice -> Orb of Quality (10,000 Source)",
+            "Source enchantment at the Enchanting Apparatus: War Wardplate Fractured, Tempered War Lattice, Mana Powder, Source Gem -> Reclaimed Ward Brazier (2,000 Source)",
+            "Source enchantment at the Enchanting Apparatus: Golem Lattice Shards, Tempered War Lattice, Mana Powder, Source Gem -> Restored Lattice Lamp (2,000 Source)"
+        ]
+    },
     "alfheim:tempered_weave": {
         "from": [
             "mana infusion in a Mana Pool: Bound Weave -> Tempered Weave (12,000 mana)",
@@ -3448,6 +3593,158 @@ ItemEvents.tooltip(event => {
             "shapeless: Mourning Dust, Tidewake Shard -> Redstone",
             "aura transmutation at the Natural Altar: Yggdrasil Floss, Tidewake Shard -> Redstone (12,000 aura)",
             "mixing in a Basin: Crown Filament, Tidewake Shard -> Redstone"
+        ]
+    },
+    "alfheim:titan_bone": {
+        "from": [
+            "shapeless crafting: Bone Block, Clay Ball, White Dye -> Titan Bone"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Bone -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_bone_fractured": {
+        "from": [
+            "shapeless crafting: Bone Block, Clay Ball, Gray Dye -> Titan Bone Fractured"
+        ],
+        "uses": [
+            "shapeless crafting: Titan Bone Fractured, Livingrock -> Titan Rib Reliquary",
+            "mana infusion in a Mana Pool: Titan Bone Fractured -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_bone_marrow": {
+        "from": [
+            "shapeless crafting: Bone Block, Clay Ball, Brown Dye -> Titan Bone Marrow"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Bone Marrow -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_cartilage_ossified": {
+        "from": [
+            "shapeless crafting: Bone Block, Clay Ball, Green Dye -> Titan Cartilage Ossified"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Cartilage Ossified -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_flesh_desiccated": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Green Dye, Beetroot -> Titan Flesh Desiccated"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Flesh Desiccated -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_flesh_fibrous": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, White Dye, Beetroot -> Titan Flesh Fibrous"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Flesh Fibrous -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_flesh_necrotic": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Gray Dye, Beetroot -> Titan Flesh Necrotic"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Flesh Necrotic -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_flesh_putrescent": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Brown Dye, Beetroot -> Titan Flesh Putrescent"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Flesh Putrescent -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_hide_bruised": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Gray Dye, Leather -> Titan Hide Bruised"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Hide Bruised -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_hide_charred": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Brown Dye, Leather -> Titan Hide Charred"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Hide Charred -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_hide_pallid": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, White Dye, Leather -> Titan Hide Pallid"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Hide Pallid -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_hide_petrified": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Black Dye, Leather -> Titan Hide Petrified"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Hide Petrified -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_hide_sloughed": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Green Dye, Leather -> Titan Hide Sloughed"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Hide Sloughed -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_ligament_torn": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Purple Dye, Beetroot -> Titan Ligament Torn"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Ligament Torn -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_organ_calcified": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Brown Dye, Kelp -> Titan Organ Calcified"
+        ],
+        "uses": [
+            "shapeless crafting: Titan Organ Calcified, Livingrock -> Sealed Organ Vessel",
+            "mana infusion in a Mana Pool: Titan Organ Calcified -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_organ_liquefied": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Gray Dye, Kelp -> Titan Organ Liquefied"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Organ Liquefied -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_organ_matter": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, White Dye, Kelp -> Titan Organ Matter"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Organ Matter -> Washed Titan Biomass (4,000 mana)"
+        ]
+    },
+    "alfheim:titan_rib_reliquary": {
+        "from": [
+            "shapeless crafting: Titan Bone Fractured, Livingrock -> Titan Rib Reliquary"
+        ],
+        "uses": []
+    },
+    "alfheim:titan_sinew": {
+        "from": [
+            "shapeless crafting: Rotten Flesh, Clay Ball, Black Dye, Beetroot -> Titan Sinew"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: Titan Sinew -> Washed Titan Biomass (4,000 mana)"
         ]
     },
     "alfheim:toad_gland": {
@@ -3525,6 +3822,31 @@ ItemEvents.tooltip(event => {
             "mixing in a Basin: Verdant Filament, Melon Slice -> Glistering Melon Slice"
         ]
     },
+    "alfheim:war_bulwark_bricks": {
+        "from": [
+            "shapeless crafting: Stone Bricks, Clay Ball, White Dye -> War Bulwark Bricks"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: War Bulwark Bricks -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:war_masonry_scorched": {
+        "from": [
+            "shapeless crafting: Stone Bricks, Clay Ball, Brown Dye -> War Masonry Scorched"
+        ],
+        "uses": [
+            "mana infusion in a Mana Pool: War Masonry Scorched -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
+    "alfheim:war_wardplate_fractured": {
+        "from": [
+            "shapeless crafting: Stone Bricks, Clay Ball, Gray Dye -> War Wardplate Fractured"
+        ],
+        "uses": [
+            "Source enchantment at the Enchanting Apparatus: War Wardplate Fractured, Tempered War Lattice, Mana Powder, Source Gem -> Reclaimed Ward Brazier (2,000 Source)",
+            "mana infusion in a Mana Pool: War Wardplate Fractured -> Washed Golem Grit (6,000 mana)"
+        ]
+    },
     "alfheim:warded_sinew": {
         "from": [
             "exchange through the Alfheim Gate: Sinew Braid -> Warded Sinew"
@@ -3534,6 +3856,52 @@ ItemEvents.tooltip(event => {
             "aura transmutation at the Natural Altar: Warded Sinew, Quickened Farbloom -> Ender Eye (12,000 aura)",
             "runic binding at the Runic Altar: Warded Sinew, Mana Powder -> Wildmarch Drawn (3,000 mana)",
             "shapeless: Quickened Rimebloom, Warded Sinew -> Diamond"
+        ]
+    },
+    "alfheim:washed_golem_grit": {
+        "from": [
+            "mana infusion in a Mana Pool: Golem Conduit Severed -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: Golem Core Socket Empty -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: Golem Crystal Fractured -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: Golem Crystal Scorched -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: Golem Crystal Voidscarred -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: Golem Lattice Shards -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: War Bulwark Bricks -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: War Masonry Scorched -> Washed Golem Grit (6,000 mana)",
+            "mana infusion in a Mana Pool: War Wardplate Fractured -> Washed Golem Grit (6,000 mana)"
+        ],
+        "uses": [
+            "Source enchantment at the Enchanting Apparatus: Washed Golem Grit, Mana Powder, Source Gem -> Tempered War Lattice (3,000 Source)"
+        ]
+    },
+    "alfheim:washed_titan_biomass": {
+        "from": [
+            "mana infusion in a Mana Pool: Bio Sludge Coagulated -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Bio Sludge Desiccated -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Bio Sludge Mineralized -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Bio Sludge Putrefied -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Bio Sludge Saturated -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Bone -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Bone Fractured -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Bone Marrow -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Cartilage Ossified -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Flesh Desiccated -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Flesh Fibrous -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Flesh Necrotic -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Flesh Putrescent -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Hide Bruised -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Hide Charred -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Hide Pallid -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Hide Petrified -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Hide Sloughed -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Ligament Torn -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Organ Calcified -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Organ Liquefied -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Organ Matter -> Washed Titan Biomass (4,000 mana)",
+            "mana infusion in a Mana Pool: Titan Sinew -> Washed Titan Biomass (4,000 mana)"
+        ],
+        "uses": [
+            "Source enchantment at the Enchanting Apparatus: Washed Titan Biomass, Mana Powder, Source Gem -> Purified Titan Resin (2,000 Source)"
         ]
     },
     "alfheim:whitetail_hide": {
@@ -3583,7 +3951,8 @@ ItemEvents.tooltip(event => {
         "uses": [
             "transmutation in Spirit Fire: Wildmarch Sinew -> Scorched Filament",
             "shapeless: Wildmarch Sinew, Rootglass Shard -> Glowstone Dust",
-            "application with a Deployer: Quickened Sunbloom, Wildmarch Sinew -> Gold Ingot"
+            "application with a Deployer: Quickened Sunbloom, Wildmarch Sinew -> Gold Ingot",
+            "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Tempered War Lattice, Wildmarch Sinew -> Orb of Relief (6,000 Source)"
         ]
     },
     "alfheim:wildmarch_stilled": {

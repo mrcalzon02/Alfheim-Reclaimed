@@ -1,0 +1,22 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:washed_golem_grit"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "botania:mana_powder"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "output": {
+    "item": "alfheim:tempered_war_lattice",
+    "count": 1
+  },
+  "sourceCost": 3000,
+  "keepNbtOfReagent": false
+}

@@ -1,0 +1,19 @@
+{
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "alfheim:purified_titan_resin"
+    },
+    {
+      "item": "alfheim:living_fibre"
+    },
+    {
+      "item": "botania:mana_powder"
+    }
+  ],
+  "output": {
+    "item": "botania:fertilizer",
+    "count": 4
+  },
+  "mana": 8000
+}

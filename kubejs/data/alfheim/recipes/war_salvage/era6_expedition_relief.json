@@ -1,0 +1,22 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:purified_titan_resin"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "alfheim:tempered_war_lattice"
+    },
+    {
+      "item": "alfheim:wildmarch_sinew"
+    }
+  ],
+  "output": {
+    "item": "mmorpg:currency/orb_of_relief",
+    "count": 2
+  },
+  "sourceCost": 6000,
+  "keepNbtOfReagent": false
+}

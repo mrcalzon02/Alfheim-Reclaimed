@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alfheim:titan_bone_fractured"
+    },
+    {
+      "item": "botania:livingrock"
+    }
+  ],
+  "result": {
+    "item": "alfheim:titan_rib_reliquary"
+  }
+}

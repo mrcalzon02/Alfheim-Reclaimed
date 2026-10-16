@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alfheim:golem_core_socket_empty"
+    },
+    {
+      "item": "botania:livingrock"
+    }
+  ],
+  "result": {
+    "item": "alfheim:salvaged_core_cradle"
+  }
+}

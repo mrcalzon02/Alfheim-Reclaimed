@@ -1,0 +1,22 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:washed_titan_biomass"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "botania:mana_powder"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "output": {
+    "item": "alfheim:purified_titan_resin",
+    "count": 1
+  },
+  "sourceCost": 2000,
+  "keepNbtOfReagent": false
+}

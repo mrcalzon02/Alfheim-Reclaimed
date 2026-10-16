@@ -1,0 +1,25 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:golem_lattice_shards"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "alfheim:tempered_war_lattice"
+    },
+    {
+      "item": "botania:mana_powder"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "output": {
+    "item": "alfheim:restored_lattice_lamp",
+    "count": 1
+  },
+  "sourceCost": 2000,
+  "keepNbtOfReagent": false
+}

@@ -1,5 +1,10 @@
 # The war at the end of the world
 
+Recipe/model follow-up: [War salvage progression](WAR_SALVAGE_PROGRESSION.md)
+adds recipes and recovery uses for all 32 remains blocks, four processed components
+and six modeled display/light objects. The original full-cube structure materials
+and empty-core geometry remain intact.
+
 ## Intent
 
 These are the remnants of a magical civilization locked in a war it could neither

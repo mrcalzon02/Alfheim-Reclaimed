@@ -1,5 +1,14 @@
 # Backlog
 
+### War salvage uses — implemented; play review remains
+
+All 32 remains blocks now have recipes and mana recovery uses. Four processed
+components supply building lights, binding/preservation supplies, Era III farming,
+Era VI expedition relief and Era VIII gear quality. Six custom object models and
+Shift recipe/use tooltips are included. Review in-client texture/item presentation,
+manual station operation and currency balance; this branch does not bypass or
+replace existing tier ladders. See `void/WAR_SALVAGE_PROGRESSION.md` in design docs.
+
 ### Void frontier war remnants — built and runtime sampled
 
 Eight biome-restricted war families, 25 templates, 32 material blocks and 96 textures

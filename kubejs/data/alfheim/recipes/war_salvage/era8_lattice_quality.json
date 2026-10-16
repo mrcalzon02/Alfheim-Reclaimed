@@ -1,0 +1,22 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:tempered_war_lattice"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "alfheim:tempered_war_lattice"
+    },
+    {
+      "item": "alfheim:rimebound_lattice"
+    }
+  ],
+  "output": {
+    "item": "mmorpg:currency/orb_of_quality",
+    "count": 2
+  },
+  "sourceCost": 10000,
+  "keepNbtOfReagent": false
+}

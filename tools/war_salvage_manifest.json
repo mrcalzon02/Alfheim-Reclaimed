@@ -1,0 +1,4357 @@
+{
+  "capability": "Continuity Works minecraft_recipe_generate, Java 1.20.1",
+  "id_policy": "namespace during authoring; actual recipe/ingredient registries checked separately in Forge",
+  "recipes": {
+    "replica/bio_sludge_saturated": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        },
+        {
+          "item": "minecraft:slime_ball"
+        }
+      ],
+      "result": {
+        "item": "alfheim:bio_sludge_saturated"
+      }
+    },
+    "wash/bio_sludge_saturated": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:bio_sludge_saturated"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/bio_sludge_coagulated": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        },
+        {
+          "item": "minecraft:slime_ball"
+        }
+      ],
+      "result": {
+        "item": "alfheim:bio_sludge_coagulated"
+      }
+    },
+    "wash/bio_sludge_coagulated": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:bio_sludge_coagulated"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/bio_sludge_putrefied": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        },
+        {
+          "item": "minecraft:slime_ball"
+        }
+      ],
+      "result": {
+        "item": "alfheim:bio_sludge_putrefied"
+      }
+    },
+    "wash/bio_sludge_putrefied": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:bio_sludge_putrefied"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/bio_sludge_desiccated": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:green_dye"
+        },
+        {
+          "item": "minecraft:slime_ball"
+        }
+      ],
+      "result": {
+        "item": "alfheim:bio_sludge_desiccated"
+      }
+    },
+    "wash/bio_sludge_desiccated": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:bio_sludge_desiccated"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/bio_sludge_mineralized": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:black_dye"
+        },
+        {
+          "item": "minecraft:slime_ball"
+        }
+      ],
+      "result": {
+        "item": "alfheim:bio_sludge_mineralized"
+      }
+    },
+    "wash/bio_sludge_mineralized": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:bio_sludge_mineralized"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_flesh_fibrous": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        },
+        {
+          "item": "minecraft:beetroot"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_flesh_fibrous"
+      }
+    },
+    "wash/titan_flesh_fibrous": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_flesh_fibrous"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_flesh_necrotic": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        },
+        {
+          "item": "minecraft:beetroot"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_flesh_necrotic"
+      }
+    },
+    "wash/titan_flesh_necrotic": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_flesh_necrotic"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_flesh_putrescent": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        },
+        {
+          "item": "minecraft:beetroot"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_flesh_putrescent"
+      }
+    },
+    "wash/titan_flesh_putrescent": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_flesh_putrescent"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_flesh_desiccated": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:green_dye"
+        },
+        {
+          "item": "minecraft:beetroot"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_flesh_desiccated"
+      }
+    },
+    "wash/titan_flesh_desiccated": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_flesh_desiccated"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_organ_matter": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        },
+        {
+          "item": "minecraft:kelp"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_organ_matter"
+      }
+    },
+    "wash/titan_organ_matter": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_organ_matter"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_organ_liquefied": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        },
+        {
+          "item": "minecraft:kelp"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_organ_liquefied"
+      }
+    },
+    "wash/titan_organ_liquefied": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_organ_liquefied"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_organ_calcified": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        },
+        {
+          "item": "minecraft:kelp"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_organ_calcified"
+      }
+    },
+    "wash/titan_organ_calcified": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_organ_calcified"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_hide_pallid": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        },
+        {
+          "item": "minecraft:leather"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_hide_pallid"
+      }
+    },
+    "wash/titan_hide_pallid": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_hide_pallid"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_hide_bruised": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        },
+        {
+          "item": "minecraft:leather"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_hide_bruised"
+      }
+    },
+    "wash/titan_hide_bruised": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_hide_bruised"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_hide_charred": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        },
+        {
+          "item": "minecraft:leather"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_hide_charred"
+      }
+    },
+    "wash/titan_hide_charred": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_hide_charred"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_hide_sloughed": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:green_dye"
+        },
+        {
+          "item": "minecraft:leather"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_hide_sloughed"
+      }
+    },
+    "wash/titan_hide_sloughed": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_hide_sloughed"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_hide_petrified": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:black_dye"
+        },
+        {
+          "item": "minecraft:leather"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_hide_petrified"
+      }
+    },
+    "wash/titan_hide_petrified": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_hide_petrified"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_bone": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:bone_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_bone"
+      }
+    },
+    "wash/titan_bone": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_bone"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_bone_fractured": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:bone_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_bone_fractured"
+      }
+    },
+    "wash/titan_bone_fractured": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_bone_fractured"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_bone_marrow": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:bone_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_bone_marrow"
+      }
+    },
+    "wash/titan_bone_marrow": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_bone_marrow"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_cartilage_ossified": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:bone_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:green_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_cartilage_ossified"
+      }
+    },
+    "wash/titan_cartilage_ossified": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_cartilage_ossified"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_sinew": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:black_dye"
+        },
+        {
+          "item": "minecraft:beetroot"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_sinew"
+      }
+    },
+    "wash/titan_sinew": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_sinew"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/titan_ligament_torn": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:rotten_flesh"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:purple_dye"
+        },
+        {
+          "item": "minecraft:beetroot"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_ligament_torn"
+      }
+    },
+    "wash/titan_ligament_torn": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:titan_ligament_torn"
+      },
+      "output": {
+        "item": "alfheim:washed_titan_biomass"
+      },
+      "mana": 4000
+    },
+    "replica/golem_crystal_fractured": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:amethyst_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:golem_crystal_fractured"
+      }
+    },
+    "wash/golem_crystal_fractured": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:golem_crystal_fractured"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/golem_crystal_scorched": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:amethyst_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:golem_crystal_scorched"
+      }
+    },
+    "wash/golem_crystal_scorched": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:golem_crystal_scorched"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/golem_crystal_voidscarred": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:amethyst_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:golem_crystal_voidscarred"
+      }
+    },
+    "wash/golem_crystal_voidscarred": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:golem_crystal_voidscarred"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/golem_core_socket_empty": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:amethyst_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:green_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:golem_core_socket_empty"
+      }
+    },
+    "wash/golem_core_socket_empty": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:golem_core_socket_empty"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/golem_lattice_shards": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:amethyst_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:black_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:golem_lattice_shards"
+      }
+    },
+    "wash/golem_lattice_shards": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:golem_lattice_shards"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/golem_conduit_severed": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:amethyst_block"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:purple_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:golem_conduit_severed"
+      }
+    },
+    "wash/golem_conduit_severed": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:golem_conduit_severed"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/war_bulwark_bricks": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:stone_bricks"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:white_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:war_bulwark_bricks"
+      }
+    },
+    "wash/war_bulwark_bricks": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:war_bulwark_bricks"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/war_wardplate_fractured": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:stone_bricks"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:gray_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:war_wardplate_fractured"
+      }
+    },
+    "wash/war_wardplate_fractured": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:war_wardplate_fractured"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "replica/war_masonry_scorched": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:stone_bricks"
+        },
+        {
+          "item": "minecraft:clay_ball"
+        },
+        {
+          "item": "minecraft:brown_dye"
+        }
+      ],
+      "result": {
+        "item": "alfheim:war_masonry_scorched"
+      }
+    },
+    "wash/war_masonry_scorched": {
+      "type": "botania:mana_infusion",
+      "input": {
+        "item": "alfheim:war_masonry_scorched"
+      },
+      "output": {
+        "item": "alfheim:washed_golem_grit"
+      },
+      "mana": 6000
+    },
+    "purify_resin": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:washed_titan_biomass"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "botania:mana_powder"
+        },
+        {
+          "item": "ars_nouveau:source_gem"
+        }
+      ],
+      "output": {
+        "item": "alfheim:purified_titan_resin",
+        "count": 1
+      },
+      "sourceCost": 2000,
+      "keepNbtOfReagent": false
+    },
+    "temper_lattice": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:washed_golem_grit"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "botania:mana_powder"
+        },
+        {
+          "item": "ars_nouveau:source_gem"
+        }
+      ],
+      "output": {
+        "item": "alfheim:tempered_war_lattice",
+        "count": 1
+      },
+      "sourceCost": 3000,
+      "keepNbtOfReagent": false
+    },
+    "era3_reclamation_fertilizer": {
+      "type": "botania:runic_altar",
+      "ingredients": [
+        {
+          "item": "alfheim:purified_titan_resin"
+        },
+        {
+          "item": "alfheim:living_fibre"
+        },
+        {
+          "item": "botania:mana_powder"
+        }
+      ],
+      "output": {
+        "item": "botania:fertilizer",
+        "count": 4
+      },
+      "mana": 8000
+    },
+    "binding_slime": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:purified_titan_resin"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "botania:mana_powder"
+        }
+      ],
+      "output": {
+        "item": "minecraft:slime_ball",
+        "count": 4
+      },
+      "sourceCost": 1500,
+      "keepNbtOfReagent": false
+    },
+    "preserved_leather": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:purified_titan_resin"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "minecraft:leather"
+        },
+        {
+          "item": "botania:mana_powder"
+        }
+      ],
+      "output": {
+        "item": "minecraft:leather",
+        "count": 4
+      },
+      "sourceCost": 2000,
+      "keepNbtOfReagent": false
+    },
+    "era6_expedition_relief": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:purified_titan_resin"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "alfheim:tempered_war_lattice"
+        },
+        {
+          "item": "alfheim:wildmarch_sinew"
+        }
+      ],
+      "output": {
+        "item": "mmorpg:currency/orb_of_relief",
+        "count": 2
+      },
+      "sourceCost": 6000,
+      "keepNbtOfReagent": false
+    },
+    "era8_lattice_quality": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:tempered_war_lattice"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "alfheim:tempered_war_lattice"
+        },
+        {
+          "item": "alfheim:rimebound_lattice"
+        }
+      ],
+      "output": {
+        "item": "mmorpg:currency/orb_of_quality",
+        "count": 2
+      },
+      "sourceCost": 10000,
+      "keepNbtOfReagent": false
+    },
+    "display/salvaged_core_cradle": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "alfheim:golem_core_socket_empty"
+        },
+        {
+          "item": "botania:livingrock"
+        }
+      ],
+      "result": {
+        "item": "alfheim:salvaged_core_cradle"
+      }
+    },
+    "display/severed_conduit_display": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "alfheim:golem_conduit_severed"
+        },
+        {
+          "item": "botania:livingrock"
+        }
+      ],
+      "result": {
+        "item": "alfheim:severed_conduit_display"
+      }
+    },
+    "display/titan_rib_reliquary": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "alfheim:titan_bone_fractured"
+        },
+        {
+          "item": "botania:livingrock"
+        }
+      ],
+      "result": {
+        "item": "alfheim:titan_rib_reliquary"
+      }
+    },
+    "display/sealed_organ_vessel": {
+      "type": "minecraft:crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "alfheim:titan_organ_calcified"
+        },
+        {
+          "item": "botania:livingrock"
+        }
+      ],
+      "result": {
+        "item": "alfheim:sealed_organ_vessel"
+      }
+    },
+    "restore/reclaimed_ward_brazier": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:war_wardplate_fractured"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "alfheim:tempered_war_lattice"
+        },
+        {
+          "item": "botania:mana_powder"
+        },
+        {
+          "item": "ars_nouveau:source_gem"
+        }
+      ],
+      "output": {
+        "item": "alfheim:reclaimed_ward_brazier",
+        "count": 1
+      },
+      "sourceCost": 2000,
+      "keepNbtOfReagent": false
+    },
+    "restore/restored_lattice_lamp": {
+      "type": "ars_nouveau:enchanting_apparatus",
+      "reagent": [
+        {
+          "item": "alfheim:golem_lattice_shards"
+        }
+      ],
+      "pedestalItems": [
+        {
+          "item": "alfheim:tempered_war_lattice"
+        },
+        {
+          "item": "botania:mana_powder"
+        },
+        {
+          "item": "ars_nouveau:source_gem"
+        }
+      ],
+      "output": {
+        "item": "alfheim:restored_lattice_lamp",
+        "count": 1
+      },
+      "sourceCost": 2000,
+      "keepNbtOfReagent": false
+    }
+  },
+  "objects": {
+    "salvaged_core_cradle": [
+      "golem_core_socket_empty",
+      0,
+      [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            15,
+            3,
+            15
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            5,
+            12,
+            14
+          ]
+        ],
+        [
+          [
+            11,
+            3,
+            2
+          ],
+          [
+            14,
+            12,
+            14
+          ]
+        ],
+        [
+          [
+            5,
+            3,
+            2
+          ],
+          [
+            11,
+            12,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            3,
+            11
+          ],
+          [
+            11,
+            12,
+            14
+          ]
+        ]
+      ]
+    ],
+    "severed_conduit_display": [
+      "golem_conduit_severed",
+      0,
+      [
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            15,
+            2,
+            14
+          ]
+        ],
+        [
+          [
+            3,
+            2,
+            5
+          ],
+          [
+            6,
+            6,
+            11
+          ]
+        ],
+        [
+          [
+            10,
+            2,
+            5
+          ],
+          [
+            13,
+            6,
+            11
+          ]
+        ],
+        [
+          [
+            2,
+            6,
+            4
+          ],
+          [
+            7,
+            10,
+            12
+          ]
+        ],
+        [
+          [
+            9,
+            6,
+            4
+          ],
+          [
+            14,
+            10,
+            12
+          ]
+        ]
+      ]
+    ],
+    "titan_rib_reliquary": [
+      "titan_bone",
+      0,
+      [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            15,
+            2,
+            15
+          ]
+        ],
+        [
+          [
+            7,
+            2,
+            2
+          ],
+          [
+            9,
+            5,
+            14
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            4,
+            11,
+            5
+          ]
+        ],
+        [
+          [
+            12,
+            2,
+            3
+          ],
+          [
+            14,
+            11,
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            11
+          ],
+          [
+            4,
+            11,
+            13
+          ]
+        ],
+        [
+          [
+            12,
+            2,
+            11
+          ],
+          [
+            14,
+            11,
+            13
+          ]
+        ],
+        [
+          [
+            4,
+            10,
+            3
+          ],
+          [
+            12,
+            12,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            10,
+            11
+          ],
+          [
+            12,
+            12,
+            13
+          ]
+        ]
+      ]
+    ],
+    "sealed_organ_vessel": [
+      "titan_organ_calcified",
+      0,
+      [
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          [
+            13,
+            2,
+            13
+          ]
+        ],
+        [
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            12,
+            11,
+            12
+          ]
+        ],
+        [
+          [
+            3,
+            11,
+            3
+          ],
+          [
+            13,
+            13,
+            13
+          ]
+        ],
+        [
+          [
+            6,
+            13,
+            6
+          ],
+          [
+            10,
+            15,
+            10
+          ]
+        ]
+      ]
+    ],
+    "reclaimed_ward_brazier": [
+      "war_wardplate_fractured",
+      12,
+      [
+        [
+          [
+            2,
+            0,
+            2
+          ],
+          [
+            14,
+            2,
+            14
+          ]
+        ],
+        [
+          [
+            6,
+            2,
+            6
+          ],
+          [
+            10,
+            8,
+            10
+          ]
+        ],
+        [
+          [
+            2,
+            8,
+            2
+          ],
+          [
+            14,
+            10,
+            14
+          ]
+        ],
+        [
+          [
+            2,
+            10,
+            2
+          ],
+          [
+            4,
+            14,
+            14
+          ]
+        ],
+        [
+          [
+            12,
+            10,
+            2
+          ],
+          [
+            14,
+            14,
+            14
+          ]
+        ],
+        [
+          [
+            4,
+            10,
+            2
+          ],
+          [
+            12,
+            14,
+            4
+          ]
+        ],
+        [
+          [
+            4,
+            10,
+            12
+          ],
+          [
+            12,
+            14,
+            14
+          ]
+        ]
+      ]
+    ],
+    "restored_lattice_lamp": [
+      "golem_lattice_shards",
+      15,
+      [
+        [
+          [
+            2,
+            0,
+            2
+          ],
+          [
+            14,
+            2,
+            14
+          ]
+        ],
+        [
+          [
+            5,
+            2,
+            5
+          ],
+          [
+            11,
+            4,
+            11
+          ]
+        ],
+        [
+          [
+            4,
+            4,
+            4
+          ],
+          [
+            12,
+            12,
+            12
+          ]
+        ],
+        [
+          [
+            5,
+            12,
+            5
+          ],
+          [
+            11,
+            14,
+            11
+          ]
+        ],
+        [
+          [
+            3,
+            14,
+            3
+          ],
+          [
+            13,
+            16,
+            13
+          ]
+        ]
+      ]
+    ]
+  },
+  "items": {
+    "washed_titan_biomass": [
+      "bio_sludge_mineralized",
+      "Mana-washed remains. Purify with Source into titan resin."
+    ],
+    "washed_golem_grit": [
+      "golem_crystal_fractured",
+      "Mana-washed salvage. Temper with Source into inert war lattice."
+    ],
+    "purified_titan_resin": [
+      "titan_organ_calcified",
+      "Era III fertilizer and binding supplies; Era VI expedition relief. No active titan tissue."
+    ],
+    "tempered_war_lattice": [
+      "golem_lattice_shards",
+      "Restored lamps, Era VI relief and Era VIII gear-quality supplies. No recovered active core."
+    ]
+  },
+  "cw_gates": [
+    {
+      "id": "alfheim:war_salvage/replica/bio_sludge_saturated",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:bio_sludge_saturated was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:bio_sludge_saturated",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:slime_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:slime_ball",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/bio_sludge_coagulated",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:bio_sludge_coagulated was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:bio_sludge_coagulated",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:slime_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:slime_ball",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/bio_sludge_putrefied",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:bio_sludge_putrefied was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:bio_sludge_putrefied",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:slime_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:slime_ball",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/bio_sludge_desiccated",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:bio_sludge_desiccated was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:bio_sludge_desiccated",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:green_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:green_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:slime_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:slime_ball",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/bio_sludge_mineralized",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:bio_sludge_mineralized was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:bio_sludge_mineralized",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:black_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:black_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:slime_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:slime_ball",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_flesh_fibrous",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_flesh_fibrous was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_flesh_fibrous",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:beetroot is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:beetroot",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_flesh_necrotic",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_flesh_necrotic was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_flesh_necrotic",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:beetroot is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:beetroot",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_flesh_putrescent",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_flesh_putrescent was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_flesh_putrescent",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:beetroot is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:beetroot",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_flesh_desiccated",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_flesh_desiccated was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_flesh_desiccated",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:green_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:green_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:beetroot is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:beetroot",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_organ_matter",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_organ_matter was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_organ_matter",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:kelp is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:kelp",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_organ_liquefied",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_organ_liquefied was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_organ_liquefied",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:kelp is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:kelp",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_organ_calcified",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_organ_calcified was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_organ_calcified",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:kelp is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:kelp",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_hide_pallid",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_hide_pallid was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_hide_pallid",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:leather is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:leather",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_hide_bruised",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_hide_bruised was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_hide_bruised",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:leather is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:leather",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_hide_charred",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_hide_charred was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_hide_charred",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:leather is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:leather",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_hide_sloughed",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_hide_sloughed was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_hide_sloughed",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:green_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:green_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:leather is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:leather",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_hide_petrified",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_hide_petrified was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_hide_petrified",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:black_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:black_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:leather is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:leather",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_bone",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_bone was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_bone",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:bone_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:bone_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_bone_fractured",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_bone_fractured was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_bone_fractured",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:bone_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:bone_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_bone_marrow",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_bone_marrow was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_bone_marrow",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:bone_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:bone_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_cartilage_ossified",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_cartilage_ossified was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_cartilage_ossified",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:bone_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:bone_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:green_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:green_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_sinew",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_sinew was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_sinew",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:black_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:black_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:beetroot is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:beetroot",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/titan_ligament_torn",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_ligament_torn was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_ligament_torn",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:rotten_flesh is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:rotten_flesh",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:purple_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:purple_dye",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:beetroot is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:beetroot",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/golem_crystal_fractured",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_crystal_fractured was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_crystal_fractured",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:amethyst_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:amethyst_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/golem_crystal_scorched",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_crystal_scorched was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_crystal_scorched",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:amethyst_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:amethyst_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/golem_crystal_voidscarred",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_crystal_voidscarred was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_crystal_voidscarred",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:amethyst_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:amethyst_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/golem_core_socket_empty",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_core_socket_empty was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_core_socket_empty",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:amethyst_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:amethyst_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:green_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:green_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/golem_lattice_shards",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_lattice_shards was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_lattice_shards",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:amethyst_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:amethyst_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:black_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:black_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/golem_conduit_severed",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_conduit_severed was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_conduit_severed",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:amethyst_block is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:amethyst_block",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:purple_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:purple_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/war_bulwark_bricks",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:war_bulwark_bricks was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:war_bulwark_bricks",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:stone_bricks is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:stone_bricks",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:white_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:white_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/war_wardplate_fractured",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:war_wardplate_fractured was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:war_wardplate_fractured",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:stone_bricks is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:stone_bricks",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:gray_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:gray_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/replica/war_masonry_scorched",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:war_masonry_scorched was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:war_masonry_scorched",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:stone_bricks is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:stone_bricks",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:clay_ball is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:clay_ball",
+              "confidence": "vanilla"
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "VANILLA_ID",
+            "message": "minecraft:brown_dye is a vanilla namespace ID.",
+            "evidence": {
+              "id": "minecraft:brown_dye",
+              "confidence": "vanilla"
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/display/salvaged_core_cradle",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:salvaged_core_cradle was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:salvaged_core_cradle",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_core_socket_empty was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_core_socket_empty",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "MOD_ID_EXACT",
+            "message": "botania:livingrock was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "botania:livingrock",
+              "kind": "item",
+              "level": "exact",
+              "namespace_known": true,
+              "evidence": [
+                "explicit_registry_id"
+              ]
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/display/severed_conduit_display",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:severed_conduit_display was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:severed_conduit_display",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:golem_conduit_severed was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:golem_conduit_severed",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "MOD_ID_EXACT",
+            "message": "botania:livingrock was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "botania:livingrock",
+              "kind": "item",
+              "level": "exact",
+              "namespace_known": true,
+              "evidence": [
+                "explicit_registry_id"
+              ]
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/display/titan_rib_reliquary",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_rib_reliquary was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_rib_reliquary",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_bone_fractured was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_bone_fractured",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "MOD_ID_EXACT",
+            "message": "botania:livingrock was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "botania:livingrock",
+              "kind": "item",
+              "level": "exact",
+              "namespace_known": true,
+              "evidence": [
+                "explicit_registry_id"
+              ]
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    },
+    {
+      "id": "alfheim:war_salvage/display/sealed_organ_vessel",
+      "gate": {
+        "status": "WARN",
+        "findings": [
+          {
+            "gate": "version",
+            "status": "PASS",
+            "code": "VERSION_RESOLVED",
+            "message": "Recipe format resolved for Minecraft Java 1.20.1.",
+            "evidence": {
+              "family": "modern_1_18_to_1_20"
+            }
+          },
+          {
+            "gate": "recipe_type",
+            "status": "PASS",
+            "code": "RECIPE_TYPE_SUPPORTED",
+            "message": "Recipe type crafting_shapeless is supported by the simplified materializer.",
+            "evidence": null
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:sealed_organ_vessel was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:sealed_organ_vessel",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "WARN",
+            "code": "MOD_ID_CANDIDATE",
+            "message": "alfheim:titan_organ_calcified was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "alfheim:titan_organ_calcified",
+              "kind": "item",
+              "level": "candidate",
+              "namespace_known": true,
+              "evidence": [
+                "resource:item_candidate"
+              ]
+            }
+          },
+          {
+            "gate": "registry_id",
+            "status": "PASS",
+            "code": "MOD_ID_EXACT",
+            "message": "botania:livingrock was discovered in the connected project inventory.",
+            "evidence": {
+              "id": "botania:livingrock",
+              "kind": "item",
+              "level": "exact",
+              "namespace_known": true,
+              "evidence": [
+                "explicit_registry_id"
+              ]
+            }
+          }
+        ],
+        "public_reasoning": "Deterministic validation gates and reason codes only; no hidden chain-of-thought is exposed."
+      }
+    }
+  ]
+}

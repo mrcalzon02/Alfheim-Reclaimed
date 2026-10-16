@@ -1,0 +1,25 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:war_wardplate_fractured"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "alfheim:tempered_war_lattice"
+    },
+    {
+      "item": "botania:mana_powder"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "output": {
+    "item": "alfheim:reclaimed_ward_brazier",
+    "count": 1
+  },
+  "sourceCost": 2000,
+  "keepNbtOfReagent": false
+}

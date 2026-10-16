@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alfheim:golem_conduit_severed"
+    },
+    {
+      "item": "botania:livingrock"
+    }
+  ],
+  "result": {
+    "item": "alfheim:severed_conduit_display"
+  }
+}

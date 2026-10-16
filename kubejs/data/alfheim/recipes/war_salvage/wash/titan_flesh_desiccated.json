@@ -1,0 +1,10 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "alfheim:titan_flesh_desiccated"
+  },
+  "output": {
+    "item": "alfheim:washed_titan_biomass"
+  },
+  "mana": 4000
+}

@@ -1,0 +1,10 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "alfheim:golem_crystal_fractured"
+  },
+  "output": {
+    "item": "alfheim:washed_golem_grit"
+  },
+  "mana": 6000
+}

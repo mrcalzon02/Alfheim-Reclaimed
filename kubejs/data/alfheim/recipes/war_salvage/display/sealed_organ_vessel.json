@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alfheim:titan_organ_calcified"
+    },
+    {
+      "item": "botania:livingrock"
+    }
+  ],
+  "result": {
+    "item": "alfheim:sealed_organ_vessel"
+  }
+}

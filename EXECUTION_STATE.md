@@ -1,5 +1,19 @@
 # Execution State
 
+## War salvage recipes and era uses — 2026-10-15
+
+Added 77 additive recipes: all 32 remains blocks have distinct crafting inputs and
+Mana Pool recovery uses. Four useful processing components route salvage through
+mana and Source; Era III fertilizer, Era VI relief currency and Era VIII quality
+currency consume existing ladder materials. Added six custom display/light models,
+matching collision, self-drops and recipe/use Shift tooltips. Original titan hulls,
+structure templates, era ladders and broad terrain are retained.
+
+Evidence and remaining client/station/balance review:
+`alfheim_reclaimed_design/void/WAR_SALVAGE_PROGRESSION.md`,
+`tools/war_salvage_static_report.json`, `tools/war_salvage_runtime_report.json`.
+Full restart required for four item and six block registrations.
+
 ## Void frontier war remnants implemented — 2026-10-15
 
 User-confirmed habitats: Void Verge and Void Shore only. Added eight war-remnant

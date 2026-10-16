@@ -1,0 +1,22 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim:purified_titan_resin"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "botania:mana_powder"
+    }
+  ],
+  "output": {
+    "item": "minecraft:leather",
+    "count": 4
+  },
+  "sourceCost": 2000,
+  "keepNbtOfReagent": false
+}

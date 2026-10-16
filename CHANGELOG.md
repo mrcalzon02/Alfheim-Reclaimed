@@ -1,5 +1,18 @@
 # Changelog
 
+## War salvage crafting, models and era supply routes — 2026-10-15
+
+Added 77 recipes covering 32 remains blocks, four mana/Source processing components
+and six custom objects. Distinct dye/binder crafting inputs make every decay state
+selectable. Salvage now supplies fertilizer, slime, preserved leather, modeled
+static lighting and era-material-gated Mine and Slash relief/quality currency.
+Shift tooltips expose recovery and use routes. No existing recipes are removed;
+structure geometry, placement and broad terrain are retained. New models reuse
+the authored war textures and clip hidden/coplanar faces.
+
+See `alfheim_reclaimed_design/void/WAR_SALVAGE_PROGRESSION.md` for costs, era boundaries,
+actual isolated Forge evidence and remaining station/client/balance review.
+
 ## Void frontier war ruins, crystal hulks and biomass titans — 2026-10-15
 
 Added eight rare Void Verge/Void Shore war-remnant families, including 141-square
