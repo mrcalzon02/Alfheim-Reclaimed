@@ -55,7 +55,38 @@ public final class EnemyAuditCommands {
             report.add("rules_at_command_position",rules);
             source.sendSuccess(()->Component.literal("ALFHEIM_ENEMY_AUDIT "+report),false);
             return gaps==0 && vanilla==0 ? 1 : 0;
-        }).then(Commands.literal("probe").executes(c->probe(c.getSource()))));
+        }).then(Commands.literal("probe").executes(c->probe(c.getSource())))
+          .then(Commands.literal("items").executes(c->items(c.getSource()))));
+    }
+    private static int items(net.minecraft.commands.CommandSourceStack source) {
+        var level=source.getLevel();var pos=net.minecraft.core.BlockPos.containing(source.getPosition());
+        List<EntityType<? extends Monster>> types=List.of(ModThemedEnemies.ZOMBIE.get(),ModThemedEnemies.SKELETON.get(),
+            ModThemedEnemies.PILLAGER.get(),ModThemedEnemies.ENDERMAN.get(),ModThemedEnemies.ENDERMITE.get());
+        int checked=0;java.util.Set<String> selections=new java.util.HashSet<>();
+        for(int species=0;species<5;species++) for(int profile=0;profile<EnemyProfiles.ALL.length;profile++) for(int style=0;style<3;style++) {
+            var stack=EnemySpawnItems.variant(species,profile,style);
+            var restored=net.minecraft.world.item.ItemStack.of(stack.save(new net.minecraft.nbt.CompoundTag()));
+            int expected=profile*3+style+1;
+            if(EnemySpawnItems.modelKey(restored)!=expected || restored.hasCustomHoverName()
+                || !restored.getHoverName().getString().contains(EnemyProfiles.get(profile).title()))
+                throw new IllegalStateException("Spawn selection serialization/name mismatch");
+            if(!selections.add(species+":"+EnemySpawnItems.modelKey(restored)))throw new IllegalStateException("Duplicate selection");
+            var mob=types.get(species).spawn(level,restored,null,pos,MobSpawnType.SPAWN_EGG,false,false);
+            if(mob==null)throw new IllegalStateException("Egg spawn rejected");
+            try {
+                if(EnemyAppearance.profile(mob)!=profile || EnemyAppearance.style(mob)!=style || mob.hasCustomName())
+                    throw new IllegalStateException("Egg does not spawn matching profile/style "+species+":"+profile+":"+style);
+                var saved=new net.minecraft.nbt.CompoundTag();mob.addAdditionalSaveData(saved);
+                if(!saved.getString("AlfheimBiome").equals(EnemyProfiles.get(profile).biome()) || saved.getInt("AlfheimStyle")!=style)
+                    throw new IllegalStateException("Spawned appearance does not persist");
+            } finally {mob.discard();}
+            checked++;
+        }
+        for(var egg:ModThemedEnemies.EGGS)if(EnemySpawnItems.modelKey(new net.minecraft.world.item.ItemStack(egg.get()))!=0)
+            throw new IllegalStateException("Automatic egg no longer selects default icon");
+        final int result=checked;
+        source.sendSuccess(()->Component.literal("ALFHEIM_ENEMY_ITEMS_PASS selections="+result+" saved_stacks="+result+" actual_egg_spawns="+result+" persisted_appearances="+result+" automatic_eggs=5"),false);
+        return checked;
     }
     private static int probe(net.minecraft.commands.CommandSourceStack source) {
         var level=source.getLevel();String dimension=level.dimension().location().toString();

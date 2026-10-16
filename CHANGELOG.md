@@ -1,5 +1,23 @@
 # Changelog
 
+## Clean recolored creatures and all 390 spawn selections — 2026-10-16
+
+Replaced the themed enemies' block-material outfits with five clean vanilla rigs
+and 390 biome/style skin recolors. Added all 390 named variants to Spawn Eggs,
+with head icons matching the actual spawned skin. Kept the five automatic eggs
+and the 18 original wildlife head icons. Existing entity IDs and spawn rules are
+retained. Java17 build/67 tests, asset/source checks and all 390 real egg-spawn
+and item save/load checks pass. Client visual review remains pending; restart required.
+
+## Skinned creature heads for spawn items — 2026-10-16
+
+Replaced default egg inventory appearances for all 18 custom wildlife spawn items
+with native head models using their own creature geometry and skin atlas. Antlers,
+horns, ears and aquatic faces are retained. Models have no spawn-egg tint indices.
+The wildlife generator owns the new assets; 125-file source equality, static
+wildlife checks and textured offline model review pass. Inventory/JEI client
+review remains pending; reload resources with F3+T or restart Minecraft.
+
 ## Thirty-eight purely decorative elven objects — 2026-10-15
 
 Added chairs, sofas, ottomans, fixed display cabinets, medals and medallions,
@@ -12,6 +30,14 @@ Static geometry/recipe checks, native placement and saved-world restart checks
 pass, alongside the previous functional furniture regression. Includes a relative
 review gallery and three labeled geometry sheets. Client visual review remains
 pending. No district spawning rules, broad terrain or player saves are rewritten.
+
+## Livingrock slab icons and JourneyMap fallback colors — 2026-10-15
+
+Repaired the missing inventory model references for all 42 Deep/Void Livingrock
+slabs. Assigned texture-derived map colors to all 301 blocks in those libraries,
+providing JourneyMap with visible fallback colors when texture sampling fails.
+Both source generators retain the fixes. Texture/model checks and source equality
+pass; client visual acceptance requires a full restart and JourneyMap review.
 
 ## Functional furnishings installed in district templates — 2026-10-15
 

@@ -1,0 +1,12 @@
+{
+  "jar": "mods\\alfheim_companion-0.2.0.jar",
+  "sha256": "d293c55f5954ff234edd160a05033570e5c048bde93af8eee4b9fae329f84187",
+  "backup": "quarantine/alfheim_companion-before-clean-variants-20261016.jar",
+  "tests": 67,
+  "resource_equality": 780,
+  "models": 5,
+  "skin_variants": 390,
+  "head_icons": 390,
+  "runtime_report": "tools/enemy_item_runtime_report.json",
+  "client_visual_acceptance": "pending"
+}

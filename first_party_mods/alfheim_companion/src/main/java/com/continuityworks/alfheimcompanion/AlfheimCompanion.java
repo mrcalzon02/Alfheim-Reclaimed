@@ -65,7 +65,7 @@ public final class AlfheimCompanion {
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
-            com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies.EGGS.forEach(egg->event.accept(egg.get()));
+            com.continuityworks.alfheimcompanion.enemy.EnemySpawnItems.addCreativeItems(event);
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.COMPANION_SIGIL);
             event.accept(ModItems.COMPANION_CLAIM_PAPER);
@@ -89,8 +89,14 @@ public final class AlfheimCompanion {
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerScreens(FMLClientSetupEvent event) {
-            event.enqueueWork(() -> MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(),
-                    CompanionInventoryScreen::new));
+            event.enqueueWork(() -> {
+                MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(), CompanionInventoryScreen::new);
+                com.continuityworks.alfheimcompanion.client.EnemySpawnItemAppearance.registerProperties();
+            });
+        }
+        @net.minecraftforge.eventbus.api.SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)
+        public static void registerEnemyItemColors(net.minecraftforge.client.event.RegisterColorHandlersEvent.Item event) {
+            com.continuityworks.alfheimcompanion.client.EnemySpawnItemAppearance.colors(event);
         }
     }
 }

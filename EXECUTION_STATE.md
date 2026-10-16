@@ -1,5 +1,38 @@
 # Execution State
 
+## Simplified creature recolors and all variant spawn selections — 2026-10-16
+
+User rejected block-material outfits and ornamental geometry, then explicitly
+requested one model per species with recolors. The five themed enemy renderers
+now use their vanilla rigs and 390 dedicated biome/style skins, without the
+material outfit layer. All 390 named NBT selections appear in Spawn Eggs alongside
+the five automatic eggs. Matching native head icons use those exact skins.
+Dynamic item names avoid assigning an egg's display name to the spawned mob.
+The original 18 EntityJS wildlife head icons remain installed separately.
+
+Java17 build/67 tests and 390 skin/model/selection checks pass. Full client restart
+is required; in-game visual acceptance remains pending. The disposable server
+passes all 390 item save/load, actual egg-spawn and persisted appearance checks,
+plus five automatic-egg controls: `tools/enemy_item_runtime_report.json`.
+Existing entity IDs, saved appearances, AI and natural spawn rules are retained.
+
+## Creature spawn items use skinned heads — 2026-10-16
+
+All 18 custom EntityJS spawn-egg items now have native item models extracted from
+their matching creature head geometry and original `fey_materials.png` UVs. Head
+children retain antlers/horns. Abyssal Watcher and Mire Tentacle use their face-bearing
+central bodies. Models omit tint indices so spawn-egg dye colors cannot recolor
+the skins. The static icons use the skin atlas; celestial deer retain their shared
+deer skin rather than attempting to reproduce the live end-portal shader.
+
+Authoritative generation: `tools/gen_fey_wildlife.py`. Source equality passes all
+125 owned artifacts, including 18 new item models; wildlife static checks pass.
+`tools/render_fey_heads.py` verifies model bounds/UVs/no egg tint and produces the
+visually inspected `tools/fey_spawn_heads_review.png` from the actual textured
+models, including 16px samples. Acceptance: static validated; client inventory/JEI
+review pending. F3+T resource reload or client restart loads the new assets.
+Entity registrations, skins, spawning and item behavior are unchanged.
+
 ## Purely decorative elven collection — 2026-10-15
 
 Added 38 craftable scenery objects: eight seating pieces, four display cabinets,
@@ -17,6 +50,23 @@ placement changes or player-save edits. Client glass/textures/item presentation
 and multiplayer review remain pending; Minecraft requires a full restart.
 See `alfheim_reclaimed_design/ELVEN_DECORATIVE_COLLECTION.md` and the decorative
 static/runtime reports. Geometry sheets are diagrams, not game screenshots.
+
+## Livingrock inventory models and map colors — 2026-10-15
+
+Client `logs/latest.log` confirms missing inventory parents for all 42 Deep/Void
+Livingrock slabs: authored item models referenced `<id>`, while KubeJS 2001.6.5
+generates only `<id>_bottom`, `<id>_top` and `<id>_double`. Both material generators
+now emit self-contained vanilla slab inventory models with the existing brick
+textures. All 301 Deep/Void library blocks also receive explicit map colors from
+their alpha-weighted source textures. The installed KubeJS default is MapColor.NONE;
+the installed JourneyMap 5.9.20 uses block map color when texture derivation fails.
+This establishes a plausible black-map cause, not a visual reproduction.
+
+`check_material_textures.py` passes texture integrity, 42 slab model/texture
+references and 301 explicit map-color checks. Both generators pass `--check`.
+Acceptance: static validated. Full client restart and inventory/JourneyMap visual
+review remain pending; cached map pixels may need remapping. No map caches or
+player saves were deleted. Other mods' model warnings remain outside this repair.
 
 ## Functional district room placement — 2026-10-15
 

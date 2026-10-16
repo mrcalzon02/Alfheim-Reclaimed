@@ -1,9 +1,10 @@
 """Generate the finite biome appearance catalogue and vanilla enemy subclasses.
 
-Visuals are native model layers using existing Minecraft material textures;
-this generator neither edits raster art nor changes terrain/structures.
+Visuals retain five vanilla rigs with biome/style skin recolors and matching head
+inventory models. Vanilla/third-party assets and terrain/structures are unchanged.
 """
-import argparse,json
+import argparse,json,hashlib,io,zipfile
+from PIL import Image
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 JAVA='first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/'
@@ -50,11 +51,37 @@ SPECIES=[('Zombie','Zombie','zombie','Revenant'),('Skeleton','Skeleton','skeleto
 def profiles():
  return [dict(zip(('biome','title','theme','body','accent'),line.split('|'))) for line in ROWS.splitlines()]
 
+def recolor_skin(data,body,accent,style):
+ image=Image.open(io.BytesIO(data)).convert('RGBA')
+ primary=tuple(bytes.fromhex(body));secondary=tuple(bytes.fromhex(accent))
+ blend=(0,.18,.36)[style]
+ primary=tuple(round(a*(1-blend)+b*blend) for a,b in zip(primary,secondary))
+ pixels=[]
+ for r,g,b,a in image.getdata():
+  value=(r*3+g*6+b)/10
+  tint=secondary if max(r,g,b)-min(r,g,b)>25 and (b>g*1.12 or r>g*1.3) else primary
+  pixels.append(tuple(min(255,round(value*c/180)) for c in tint)+(a,))
+ image.putdata(pixels);out=io.BytesIO();image.save(out,format='PNG');return out.getvalue()
+
 def build():
  out={}
  def emit(p,text):out[p]=text.encode('utf-8')
  def js(p,value):emit(p,json.dumps(value,indent=2)+'\n')
  rows=profiles();records=[]
+ heads=json.loads((ROOT/'tools/themed_enemy_head_geometry.json').read_text())
+ layer=ROOT/'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/ThemedMaterialLayer.java'
+ exporter=ROOT/'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/EnemyHeadModelsTest.java'
+ assert heads['layer_sha256']==hashlib.sha256(layer.read_bytes()).hexdigest(),'Re-export baked head geometry after layer changes'
+ assert heads['exporter_sha256']==hashlib.sha256(exporter.read_bytes()).hexdigest(),'Re-export after head-exporter changes'
+ assert len(heads['models'])==390
+ skins={'zombie':'zombie/zombie','skeleton':'skeleton/skeleton','pillager':'illager/pillager',
+        'enderman':'enderman/enderman','endermite':'endermite'}
+ with zipfile.ZipFile(ROOT.parent.parent/'Install/versions/1.20.1/1.20.1.jar') as archive:
+  for species,skin in skins.items():
+   original=archive.read('assets/minecraft/textures/entity/'+skin+'.png')
+   for p,row in enumerate(rows):
+    for style in range(3):
+     out[RES+f'assets/alfheim_companion/textures/entity/themed/{species}_{p}_{style}.png']=recolor_skin(original,row['body'],row['accent'],style)
  for r in rows:
   tex,accent=THEMES[r['theme']]
   records.append('        new Profile("%s", "%s", %d, 0x%s, 0x%s, material("%s"), material("%s"))'%(
@@ -128,7 +155,15 @@ public final class Themed{name} extends {parent} implements ThemedEnemy {{
     @Override protected net.minecraft.resources.ResourceLocation getDefaultLootTable() {{ return EntityType.{vanilla.upper()}.getDefaultLootTable(); }}
 }}
 ''')
-  js(RES+'assets/alfheim_companion/models/item/biome_'+vanilla+'_spawn_egg.json',{'parent':'minecraft:item/template_spawn_egg'})
+  overrides=[]
+  for profile in range(len(rows)):
+   for style in range(3):
+    key=f'{vanilla}_{profile}_{style}'
+    js(RES+'assets/alfheim_companion/models/item/enemy_heads/'+key+'.json',heads['models'][key])
+    overrides.append({'predicate':{'alfheim_companion:appearance':profile*3+style+1},
+                      'model':'alfheim_companion:item/enemy_heads/'+key})
+  js(RES+'assets/alfheim_companion/models/item/biome_'+vanilla+'_spawn_egg.json',
+     {'parent':f'alfheim_companion:item/enemy_heads/{vanilla}_23_0','overrides':overrides})
  js('kubejs/data/alfheim/tags/worldgen/biome/themed_enemy_biomes.json',{'replace':False,'values':['#minecraft:is_overworld']+[r['biome'] for r in rows]})
  js('kubejs/data/alfheim/forge/biome_modifier/themed_enemies.json',{'type':'alfheim_companion:themed_enemies','biomes':'#alfheim:themed_enemy_biomes'})
  js(RES+'data/minecraft/tags/entity_types/skeletons.json',{'replace':False,'values':['alfheim_companion:biome_skeleton']})
@@ -143,7 +178,7 @@ public final class Themed{name} extends {parent} implements ThemedEnemy {{
  current.update(names);js(lang.relative_to(ROOT).as_posix(),current)
  js('tools/themed_enemy_inventory.json',{'profiles':rows,'species':[s[2] for s in SPECIES],
     'styles':['bound','shrouded','crowned'],'themes':THEMES,'appearances':len(rows)*len(SPECIES)*3,
-    'creeper_variants':0,'visual_method':'Vanilla rigs plus animated, material-specific native model layers; no texture replacements for vanilla entities.'})
+    'creeper_variants':0,'visual_method':'Five clean vanilla rigs with 390 biome/style skin recolors and matching head inventory models; custom entity textures only.'})
  return out
 
 def main():

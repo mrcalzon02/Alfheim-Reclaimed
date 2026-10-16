@@ -231,5 +231,5 @@
   },
   "appearances": 390,
   "creeper_variants": 0,
-  "visual_method": "Vanilla rigs plus animated, material-specific native model layers; no texture replacements for vanilla entities."
+  "visual_method": "Five clean vanilla rigs with 390 biome/style skin recolors and matching head inventory models; custom entity textures only."
 }

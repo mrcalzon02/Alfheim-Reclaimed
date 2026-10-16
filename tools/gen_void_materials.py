@@ -8,7 +8,7 @@ import io
 import json
 from PIL import Image, ImageDraw, ImageFont
 from material_texture import VARIANT_COUNT, ROTATIONS, render_texture
-from gen_deepworks import ROOT, png, _variant_name, _model_variant_name
+from gen_deepworks import ROOT, png, _variant_name, _model_variant_name, texture_map_color, shaped_item_model
 
 CATALOG = ROOT/'alfheim_reclaimed_design/void/void_catalog.json'
 
@@ -66,8 +66,7 @@ def build():
                 emit('kubejs/assets/alfheim/blockstates/'+name+'.json',
                      {'variants':{'':alternatives}})
             emit('kubejs/assets/alfheim/models/item/'+name+'.json',
-                 {'parent':'minecraft:block/wall_inventory','textures':{'wall':tid}}
-                 if form=='wall' else {'parent':'alfheim:block/'+name})
+                 shaped_item_model(name, tid, form))
             entry={'type':'minecraft:item','name':id}
             if form=='slab':
                 entry['functions']=[{
@@ -106,6 +105,7 @@ def build():
                 ".soundType('stone').hardness(2.0).resistance(6.0).requiresTool(true)"
                 ".tagBlock('minecraft:mineable/pickaxe').tagBoth('alfheim:livingrock_library')"
                 f".tagBoth('alfheim:void_stone').textureAll('{tid}').lightLevel({light:.8f})"
+                f".mapColor('{texture_map_color(textures[tex][0])}')"
             )
             if shaped:
                 line+=f".tagBlock('minecraft:{'walls' if form=='wall' else 'slabs' if form=='slab' else 'stairs'}')"
@@ -113,7 +113,8 @@ def build():
             blocks.append(dict(
                 id=id,name=display,form=form,texture=tex,
                 texture_variants=[_variant_name(tex,v) for v in range(VARIANT_COUNT)],
-                rotations=list(ROTATIONS),light=family['light'],glass=False,slag=False
+                rotations=list(ROTATIONS),light=family['light'],glass=False,slag=False,
+                map_color=texture_map_color(textures[tex][0])
             ))
     script.append('})\n')
     emit('kubejs/startup_scripts/21_void_stones.js','\n'.join(script).encode())

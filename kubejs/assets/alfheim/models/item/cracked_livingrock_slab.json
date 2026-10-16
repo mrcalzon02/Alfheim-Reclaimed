@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/cracked_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/cracked_livingrock_bricks",
+    "top": "alfheim:block/cracked_livingrock_bricks",
+    "side": "alfheim:block/cracked_livingrock_bricks"
+  }
 }

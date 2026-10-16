@@ -1,0 +1,8 @@
+{
+  "world": "validation-enemy-items-20261016",
+  "console": "console-20261016-003055.log",
+  "server_exit": 0,
+  "proof": "ALFHEIM_ENEMY_ITEMS_PASS selections=390 saved_stacks=390 actual_egg_spawns=390 persisted_appearances=390 automatic_eggs=5",
+  "jar_sha256": "d293c55f5954ff234edd160a05033570e5c048bde93af8eee4b9fae329f84187",
+  "client_visual_review": "pending"
+}

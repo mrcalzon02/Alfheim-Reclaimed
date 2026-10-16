@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/anchorstone_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/anchorstone_livingrock_bricks",
+    "top": "alfheim:block/anchorstone_livingrock_bricks",
+    "side": "alfheim:block/anchorstone_livingrock_bricks"
+  }
 }

@@ -41,6 +41,24 @@ def _variant_name(texture, variant):
 def _model_variant_name(block_id, variant):
     return block_id if variant == 0 else f"{block_id}__v{variant}"
 
+def texture_map_color(image):
+    """Opaque-pixel weighted RGB; KubeJS maps #RRGGBB to a non-NONE MapColor."""
+    pixels = list(image.convert('RGBA').getdata())
+    weight = sum(p[3] for p in pixels)
+    assert weight, 'A visible block must have a nontransparent map-color source'
+    return '#' + ''.join(f'{round(sum(p[c]*p[3] for p in pixels)/weight):02x}' for c in range(3))
+
+
+def shaped_item_model(block_id, texture_id, form):
+    # SlabBlockBuilder emits <id>_bottom, _top and _double, never <id>.
+    # A vanilla slab parent also makes the authored inventory model self-contained.
+    if form == 'slab':
+        return {'parent':'minecraft:block/slab',
+                'textures':{face:texture_id for face in ('bottom','top','side')}}
+    if form == 'wall':
+        return {'parent':'minecraft:block/wall_inventory','textures':{'wall':texture_id}}
+    return {'parent':'alfheim:block/'+block_id}
+
 def build():
     manifest = json.loads((ROOT/'tools/deepworks_manifest.json').read_text())
     crystals = json.loads((ROOT/'tools/crystals_manifest.json').read_text())['crystals']
@@ -66,7 +84,8 @@ def build():
         variant_textures = variant_textures or [tex]
         row = dict(
             id='alfheim:'+id, name=name, texture=tex, texture_variants=variant_textures,
-            rotations=list(ROTATIONS), form=form, light=light, glass=glass, slag=slag
+            rotations=list(ROTATIONS), form=form, light=light, glass=glass, slag=slag,
+            map_color=texture_map_color(textures[tex][0])
         )
         blocks.append(row)
         if form not in ('slab','stairs','wall'):
@@ -87,8 +106,7 @@ def build():
         texture_id = 'alfheim:block/'+tex
         write(
             f'{ASSETS}/models/item/{id}.json',
-            {'parent':'minecraft:block/wall_inventory','textures':{'wall':texture_id}}
-            if form=='wall' else {'parent':'alfheim:block/'+id}
+            shaped_item_model(id, texture_id, form)
         )
         conditions = [{'condition':'minecraft:survives_explosion'}]
         if glass:
@@ -188,6 +206,7 @@ def build():
         line += ".requiresTool(true).tagBlock('minecraft:mineable/pickaxe').tagBoth('alfheim:livingrock_library')"
         normalized_light = (b['light']+0.01)/15 if b['light'] else 0
         line += f".textureAll('alfheim:block/{b['texture']}').lightLevel({normalized_light:.8f})"
+        line += f".mapColor('{b['map_color']}')"
         if b['glass']:
             line += ".defaultTranslucent()"
         if shaped:

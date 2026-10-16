@@ -60,11 +60,31 @@ def main():
     deep_catalog=json.loads(deep['kubejs/deepworks_catalog.json'])
     void_catalog=json.loads(void['kubejs/void_stones_catalog.json'])
     for source,catalog in ((deep,deep_catalog),(void,void_catalog)):
+        script_path = ('kubejs/startup_scripts/20_deepworks.js' if source is deep
+                       else 'kubejs/startup_scripts/21_void_stones.js')
+        script = (ROOT/script_path).read_text(encoding='utf-8')
         for row in catalog['blocks']:
             assert len(row['texture_variants'])==VARIANT_COUNT, row['id']
             assert row['rotations']==list(ROTATIONS), row['id']
             if row['form'] not in ('slab','stairs','wall'):
                 _assert_blockstate(source,row['id'].split(':',1)[1])
+            # JourneyMap's texture fallback must have a real map color. KubeJS
+            # defaults to NONE (black), even when textureAll is present.
+            line = next(s for s in script.splitlines() if f"event.create('{row['id']}'" in s)
+            color = row['map_color']
+            assert len(color)==7 and color.startswith('#') and int(color[1:],16)>0, row['id']
+            assert f".mapColor('{color}')" in line, row['id']
+            item_path = f"kubejs/assets/alfheim/models/item/{row['id'].split(':')[1]}.json"
+            assert (ROOT/item_path).read_bytes()==source[item_path], item_path
+            if row['form']=='slab':
+                item = json.loads((ROOT/item_path).read_bytes())
+                # The former parent <id> never exists: the installed shape builder
+                # generates only <id>_bottom, <id>_top and <id>_double.
+                assert item['parent']=='minecraft:block/slab', row['id']
+                assert set(item['textures'])=={'top','bottom','side'}, row['id']
+                for texture in item['textures'].values():
+                    ns, name = texture.split(':')
+                    assert (ROOT/f'kubejs/assets/{ns}/textures/{name}.png').is_file(), texture
 
     # Mana-glass is now truly transparent, not a uniformly translucent coloured square.
     glass_rows=[r for r in deep_catalog['blocks'] if r['glass']]
@@ -90,7 +110,8 @@ def main():
     print(
         f'PASS: 42 material grammars, {len(expected)} unique RGBA {OUTPUT_SIZE}x{OUTPUT_SIZE} stone tiles '
         f'({VARIANT_COUNT} variants × 168 source textures), 4-way weighted rotations wired for full cubes, '
-        'mana-glass has true per-pixel transparency, generator output byte-identical'
+        'mana-glass has true per-pixel transparency, 42 slab inventory models resolve, '
+        'all 301 blocks have explicit map colors, generator output byte-identical'
     )
 
 if __name__=='__main__':

@@ -36,6 +36,51 @@ def bone(name, cubes, pivot=None, parent='root', rotation=None):
     return b
 
 
+def head_item_model(bones):
+    """Native inventory geometry from the creature's head and original skin UVs.
+
+    The two headless aquatic creatures use their face-bearing central body.
+    No tintindex: EntityJS spawn-egg tinting must not recolor the custom skin.
+    """
+    names = {b['name'] for b in bones}
+    selected = {'head'} if 'head' in names else {'body', 'eye'} & names
+    while True:
+        descendants = {b['name'] for b in bones if b.get('parent') in selected}
+        if descendants <= selected:
+            break
+        selected |= descendants
+    parts = [b for b in bones if b['name'] in selected]
+    assert parts and all(not b.get('rotation') for b in parts)
+    cubes = [c for b in parts for c in b.get('cubes', [])]
+    low = [min(c['origin'][i] for c in cubes) for i in range(3)]
+    high = [max(c['origin'][i]+c['size'][i] for c in cubes) for i in range(3)]
+    scale = 14/max(high[i]-low[i] for i in range(3))
+    center = [(low[i]+high[i])/2 for i in range(3)]
+    elements = []
+    for c in cubes:
+        faces = {}
+        for direction, face in c['uv'].items():
+            u, v = face['uv']; w, h = face['uv_size']
+            faces[direction] = {'texture':'#skin',
+                                'uv':[round(n/64, 7) for n in (u, v, u+w, v+h)]}
+        elements.append({
+            'from':[round(8+(c['origin'][i]-center[i])*scale, 7) for i in range(3)],
+            'to':[round(8+(c['origin'][i]+c['size'][i]-center[i])*scale, 7) for i in range(3)],
+            'faces':faces,
+        })
+    return {'parent':'minecraft:block/block', 'gui_light':'front',
+            'textures':{'skin':'alfheim:entity/fey_materials',
+                        'particle':'alfheim:entity/fey_materials'},
+            'elements':elements,
+            'display':{
+                'gui':{'rotation':[15, 155, 0], 'translation':[0,0,0], 'scale':[.85,.85,.85]},
+                'ground':{'rotation':[0,0,0], 'translation':[0,3,0], 'scale':[.35,.35,.35]},
+                'fixed':{'rotation':[0,180,0], 'translation':[0,0,0], 'scale':[.6,.6,.6]},
+                'thirdperson_righthand':{'rotation':[75,45,0], 'translation':[0,2,0], 'scale':[.4,.4,.4]},
+                'firstperson_righthand':{'rotation':[0,135,0], 'translation':[0,0,0], 'scale':[.6,.6,.6]},
+            }}
+
+
 def deer(buck):
     b = [bone('body', [cube([-3.5, 11, -7], [7, 8, 15], 0),
                        cube([-3, 10.7, -5], [6, 1, 11], 1)]),
@@ -144,6 +189,7 @@ def add(name, family, bones, biomes, weight, width, height, health, speed,
         {'description':{'identifier':'geometry.'+name,'texture_width':1024,'texture_height':1024,
                         'visible_bounds_width':6,'visible_bounds_height':6,'visible_bounds_offset':[0,1,0]},
          'bones':[{'name':'root','pivot':[0,0,0]}]+bones}]})
+    write(ASSETS/f'models/item/{name}_spawn_egg.json', head_item_model(bones))
     move = {}
     idle = {'head':{'rotation':[0,'math.sin(query.anim_time * 35) * 4',0]}} if family!='sea' else {}
     for b in bones:

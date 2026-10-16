@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/veilstone_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/veilstone_livingrock_bricks",
+    "top": "alfheim:block/veilstone_livingrock_bricks",
+    "side": "alfheim:block/veilstone_livingrock_bricks"
+  }
 }

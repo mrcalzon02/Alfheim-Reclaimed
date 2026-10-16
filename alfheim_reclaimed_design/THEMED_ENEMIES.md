@@ -1,5 +1,20 @@
 # Biome-themed vanilla enemies — 2026-10-15
 
+## Visual revision — 2026-10-16
+
+The user rejected material-block outfits and additional ornamental geometry.
+The final direction is explicitly one clean vanilla model per species plus
+recolors. The renderers now select 390 generated biome/style skins, with no
+material outfit layer. Native head inventory models sample the matching skins.
+All 390 variants are named NBT selections in Spawn Eggs, alongside the existing
+five automatic eggs. This reuses the five item/entity IDs. Selection NBT controls
+both the item model and spawned appearance; item names do not rename creatures.
+The former geometry descriptions below document the superseded implementation.
+Java17 build/67 tests, generator equality and 390 resource/selection checks pass;
+all 390 item serialization, real egg-spawn and persisted-appearance checks pass
+in a disposable server world (`tools/enemy_item_runtime_report.json`). Client
+visual acceptance remains pending. Restart Minecraft after installation.
+
 Implemented in the first-party companion mod. Structure development is deferred
 at the user's direction until the Continuity Works skill conversion finishes.
 No structure, noise, terrain or biome-selection file is changed by this work.

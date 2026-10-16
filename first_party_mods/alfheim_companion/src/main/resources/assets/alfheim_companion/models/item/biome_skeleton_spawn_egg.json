@@ -1,3 +1,473 @@
 {
-  "parent": "minecraft:item/template_spawn_egg"
+  "parent": "alfheim_companion:item/enemy_heads/skeleton_23_0",
+  "overrides": [
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 1
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_0_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 2
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_0_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 3
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_0_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 4
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_1_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 5
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_1_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 6
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_1_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 7
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_2_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 8
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_2_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 9
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_2_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 10
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_3_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 11
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_3_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 12
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_3_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 13
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_4_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 14
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_4_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 15
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_4_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 16
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_5_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 17
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_5_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 18
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_5_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 19
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_6_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 20
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_6_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 21
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_6_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 22
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_7_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 23
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_7_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 24
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_7_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 25
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_8_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 26
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_8_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 27
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_8_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 28
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_9_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 29
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_9_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 30
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_9_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 31
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_10_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 32
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_10_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 33
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_10_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 34
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_11_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 35
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_11_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 36
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_11_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 37
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_12_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 38
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_12_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 39
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_12_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 40
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_13_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 41
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_13_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 42
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_13_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 43
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_14_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 44
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_14_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 45
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_14_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 46
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_15_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 47
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_15_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 48
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_15_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 49
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_16_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 50
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_16_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 51
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_16_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 52
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_17_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 53
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_17_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 54
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_17_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 55
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_18_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 56
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_18_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 57
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_18_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 58
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_19_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 59
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_19_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 60
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_19_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 61
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_20_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 62
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_20_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 63
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_20_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 64
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_21_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 65
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_21_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 66
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_21_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 67
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_22_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 68
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_22_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 69
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_22_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 70
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_23_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 71
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_23_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 72
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_23_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 73
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_24_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 74
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_24_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 75
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_24_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 76
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_25_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 77
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_25_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:appearance": 78
+      },
+      "model": "alfheim_companion:item/enemy_heads/skeleton_25_2"
+    }
+  ]
 }

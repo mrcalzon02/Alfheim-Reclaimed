@@ -36,7 +36,11 @@ public final class ModThemedEnemies {
     public static final RegistryObject<Codec<? extends BiomeModifier>> MODIFIER=
         BIOME_MODIFIERS.register("themed_enemies",()->ThemedEnemyBiomeModifier.CODEC);
     private static RegistryObject<Item> egg(String id,RegistryObject<? extends EntityType<? extends Mob>> type,int base,int accent) {
-        return ModItems.REGISTRY.register("biome_"+id+"_spawn_egg",()->new ForgeSpawnEggItem(type,base,accent,new Item.Properties()));
+        String label=switch(id) {
+            case "zombie"->"Revenant";case "skeleton"->"Boneguard";case "pillager"->"Outcast";
+            case "enderman"->"Riftwalker";default->"Riftmite";
+        };
+        return ModItems.REGISTRY.register("biome_"+id+"_spawn_egg",()->new ThemedSpawnEggItem(type,base,accent,label));
     }
     public static void initialize() {} // force registration before the buses are attached
     public static void attributes(EntityAttributeCreationEvent event) {

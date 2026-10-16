@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/magmatic_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/magmatic_livingrock_bricks",
+    "top": "alfheim:block/magmatic_livingrock_bricks",
+    "side": "alfheim:block/magmatic_livingrock_bricks"
+  }
 }
