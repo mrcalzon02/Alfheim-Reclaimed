@@ -84,6 +84,8 @@ public final class AlfheimCompanion {
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerEnemyLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.MireRiftmiteModel.LAYER,
+                com.continuityworks.alfheimcompanion.client.MireRiftmiteModel::layer);
             event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.SilverbarkBoneguardModel.LAYER,
                 com.continuityworks.alfheimcompanion.client.SilverbarkBoneguardModel::layer);
             com.continuityworks.alfheimcompanion.client.ThemedMaterialLayer.registerLayers(event);

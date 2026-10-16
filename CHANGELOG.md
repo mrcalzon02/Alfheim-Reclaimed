@@ -1,5 +1,12 @@
 # Changelog
 
+## One custom Mire Riftmite model and skin — 2026-10-16
+
+Added a low segmented marsh arthropod model, short legs, mandibles, authored
+peat/moss skin and matching head icon for Mire Bound Riftmite. Native curling
+animation is retained. Java17 build/68 tests and resource checks pass; restart
+required and in-game visual review pending.
+
 ## One custom Silverbark Boneguard model and skin — 2026-10-16
 
 Added a narrow elven skull with angled ears, open rib cage and slender limbs for

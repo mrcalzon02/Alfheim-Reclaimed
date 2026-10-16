@@ -71,6 +71,19 @@ class EnemyHeadModelsTest {
             default -> LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE,0),64,64).bakeRoot().getChild("head");
         };
     }
+    @Test void customMiteRetainsAllFourFiniteAnimationSegments() {
+        var root=MireRiftmiteModel.layer().bakeRoot();
+        EndermiteModel<net.minecraft.world.entity.monster.Endermite> model=new EndermiteModel<>(root);
+        for(int tick=0;tick<40;tick++) {
+            model.setupAnim(null,0,0,tick,0,0);
+            for(int i=0;i<4;i++) {
+                var segment=root.getChild("segment"+i);
+                assertTrue(Float.isFinite(segment.x+segment.y+segment.z+segment.yRot));
+            }
+        }
+        assertTrue(root.getChild("segment0").hasChild("mandible-1"));
+        assertTrue(root.getChild("segment1").hasChild("leg1"));
+    }
     @Test void exportAllHeadsWithSharedSpeciesGeometry() throws Exception {
         JsonObject catalogue=new JsonObject(),models=new JsonObject();int count=0;
         for(int s=0;s<5;s++) {
@@ -78,8 +91,10 @@ class EnemyHeadModelsTest {
             for(int p=0;p<EnemyProfiles.ALL.length;p++)for(int style=0;style<3;style++) {
                 String species=SPECIES[s];var profile=EnemyProfiles.get(p);
                 boolean custom=species.equals("skeleton") && p==13 && style==0;
+                boolean mire=species.equals("endermite") && p==3 && style==0;
                 JsonArray elements=new JsonArray();
-                append(elements,custom?SilverbarkBoneguardModel.layer().bakeRoot().getChild("head"):base(species),"base",false);
+                append(elements,custom?SilverbarkBoneguardModel.layer().bakeRoot().getChild("head"):
+                    mire?MireRiftmiteModel.layer().bakeRoot().getChild("segment0"):base(species),"base",false);
                 double[] low={1e9,1e9,1e9},high={-1e9,-1e9,-1e9};
                 List<String> bounds=new ArrayList<>();
                 for(var value:elements) {
@@ -104,7 +119,7 @@ class EnemyHeadModelsTest {
                 display.add("gui",gui);model.add("display",display);
                 models.add(species+"_"+p+"_"+style,model);count++;
             }
-            assertEquals(SPECIES[s].equals("skeleton")?2:1,shapes.size(),SPECIES[s]);
+            assertEquals(SPECIES[s].equals("skeleton") || SPECIES[s].equals("endermite")?2:1,shapes.size(),SPECIES[s]);
         }
         assertEquals(390,count);catalogue.add("models",models);
         Path source=Path.of("src/main/java/com/continuityworks/alfheimcompanion/client/ThemedMaterialLayer.java");

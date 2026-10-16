@@ -35,6 +35,16 @@ public final class ThemedEnemyRenderers {
             @Override public net.minecraft.resources.ResourceLocation getTextureLocation(net.minecraft.world.entity.monster.EnderMan mob){return skin(mob,"enderman");}
         });
         event.registerEntityRenderer(ModThemedEnemies.ENDERMITE.get(),ctx->new EndermiteRenderer(ctx) {
+            private final net.minecraft.client.model.EndermiteModel<net.minecraft.world.entity.monster.Endermite> normal=this.model;
+            private final net.minecraft.client.model.EndermiteModel<net.minecraft.world.entity.monster.Endermite> mire=
+                new net.minecraft.client.model.EndermiteModel<>(ctx.bakeLayer(MireRiftmiteModel.LAYER));
+            @Override public void render(net.minecraft.world.entity.monster.Endermite mob,float yaw,float tick,
+                    com.mojang.blaze3d.vertex.PoseStack pose,net.minecraft.client.renderer.MultiBufferSource buffers,int light) {
+                boolean custom=com.continuityworks.alfheimcompanion.enemy.EnemyAppearance.profile(mob)==3 &&
+                    com.continuityworks.alfheimcompanion.enemy.EnemyAppearance.style(mob)==0;
+                this.model=custom?mire:normal;
+                try {super.render(mob,yaw,tick,pose,buffers,light);} finally {this.model=normal;}
+            }
             @Override public net.minecraft.resources.ResourceLocation getTextureLocation(net.minecraft.world.entity.monster.Endermite mob){return skin(mob,"endermite");}
         });
     }

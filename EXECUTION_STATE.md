@@ -1,5 +1,15 @@
 # Execution State
 
+## One additional custom Mire Riftmite — 2026-10-16
+
+Mire Bound Riftmite (endermite profile 3/style 0) now has an authored low,
+four-segment arthropod model with short attached legs and paired mandibles.
+Dedicated 64x32 peat/moss skin with amber eyes; the spawn-item head uses the
+same mesh and skin. Native four-segment curling animation remains active.
+Only this existing appearance changes; IDs, AI, spawn rules and lifespan remain.
+Java17 build/68 tests, including forty native animation frames, and 390 skin/head
+resource checks pass. Client visual review remains pending; restart required.
+
 ## One custom Silverbark Boneguard — 2026-10-16
 
 Silverbark Bound Boneguard (skeleton profile 13/style 0) now uses an authored

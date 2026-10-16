@@ -1,0 +1,14 @@
+{
+  "variant": "Mire Bound Riftmite",
+  "profile": 3,
+  "style": 0,
+  "custom_model": "MireRiftmiteModel",
+  "skin_size": [
+    64,
+    32
+  ],
+  "java_tests": 68,
+  "native_animation_frames": 40,
+  "jar_sha256": "5381798f772afb54ef1ac5ebb14e78c8bffdfa3ae46aff213be0d8137267e9ec",
+  "client_visual_acceptance": "pending"
+}
