@@ -1557,7 +1557,8 @@ def build_outputs(check=False):
                           "structure", "ignored.json")] = {
         "replace": False, "values": ["alfheim:deep_quarry", "alfheim:elder_kings_tomb",
                                      "alfheim:faultwork", "alfheim:deepworks_headworks"]}
-    return json_out, nbt_expected
+    from underground_policy import apply as allocate_underground
+    return {path:allocate_underground(path,body) for path,body in json_out.items()}, nbt_expected
 
 
 def main():

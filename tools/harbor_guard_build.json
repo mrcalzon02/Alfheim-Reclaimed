@@ -1,7 +1,7 @@
 {
   "previous_backup": "quarantine\\first-party-harbor-guard-20261012\\alfheim_companion-0.2.0.jar",
   "previous_sha256": "c365301ed155d51f5d38bfe4ce8c21bbd01ef7f72de7fd178634486dbdf71716",
-  "installed_sha256": "88b66822d5da1ce21baec8431481361772e15c3a74d4036bc8e81fcdc21ceee6",
+  "installed_sha256": "6647542de0d3117b8d4afe9875ed08cf077e0b342a22e57dd565b64452f898cb",
   "build": "Java 17 Gradle build/test pass",
   "native_audit_previous_backup": "quarantine\\first-party-harbor-native-audit-20261012\\alfheim_companion-0.2.0.jar",
   "native_audit_previous_sha256": "ba357ef471b3daeb0cb8af14e5726b27fa31fe8b03aea27999a08a694f5a1799",

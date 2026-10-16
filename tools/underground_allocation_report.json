@@ -1,0 +1,136 @@
+{
+  "status": "STATIC_AND_JAVA_TESTS_PASS",
+  "java_tests": 64,
+  "managed_layouts": [
+    {
+      "family": "deep_quarry",
+      "reach": 116,
+      "sha256": "5de4f809bf5ff4e72a8b4ed1b5b9bb1c99c2123219de2d8212b80a51f54f68a6"
+    },
+    {
+      "family": "deepworks_headworks",
+      "reach": 116,
+      "sha256": "060b5baeda5e14b1929c89b3dc5d9356a21e18558ed290e4a47d1e5eb3481880"
+    },
+    {
+      "family": "elder_kings_tomb",
+      "reach": 128,
+      "sha256": "66b2c87879c605fdfcaff9dc5254e8a85fdcf8986affe2df58163b80dd4b049c"
+    },
+    {
+      "family": "faultwork",
+      "reach": 116,
+      "sha256": "d830d2a96a71f6eade08213867b272a29d16ef5e2e0f1d8f730fc451f31150d7"
+    },
+    {
+      "family": "leyline_corridors",
+      "reach": 128,
+      "sha256": "ccd8359b6eac4c3cedefbfbd651b2ed44c8ea7069f33ee53e0def7568530fc7d"
+    }
+  ],
+  "reserved_axis_distance": 800,
+  "conservative_footprint_gap": 593,
+  "selected_fraction": 0.25,
+  "legacy_candidate_probes": 9,
+  "third_party_untouched": [
+    {
+      "jar": "mods\\MythicBotany-1.20.1-4.0.4.jar",
+      "jar_sha256": "395ccecf60321fede08a5a528087af273269f21ddce062270df6568d405a463d",
+      "definition": {
+        "type": "minecraft:jigsaw",
+        "biomes": "#mythicbotany:andwari_cave",
+        "max_distance_from_center": 80,
+        "project_start_to_heightmap": "WORLD_SURFACE_WG",
+        "size": 1,
+        "spawn_overrides": {},
+        "start_height": {
+          "absolute": -6
+        },
+        "start_pool": "mythicbotany:andwari_cave",
+        "step": "underground_structures",
+        "use_expansion_hack": false
+      },
+      "biome_tag": {
+        "values": [
+          "mythicbotany:golden_fields"
+        ]
+      }
+    }
+  ],
+  "capability": "Continuity Works 0.3.2 StructureCapability.audit",
+  "template_audits": [
+    {
+      "template": "abandoned_gallery",
+      "status": "PASS",
+      "sha256": "e813866f9541619691bd3c638db89cdd1d3ac482a8ab5f8cccaa0f92434113f1"
+    },
+    {
+      "template": "basalt_columns",
+      "status": "PASS",
+      "sha256": "ee975378aa47b20ae79bc0427cc3b8e07714e08252d9e2cee21b0aa1f12ff416"
+    },
+    {
+      "template": "buried_bridge",
+      "status": "PASS",
+      "sha256": "e209b8083dc964d6264191d45e6dba0733fd897b01562cbe6b4c32011dff54f9"
+    },
+    {
+      "template": "buried_cistern",
+      "status": "PASS",
+      "sha256": "01d7a0edf540a941b4bcf28f2cff75c6329919d747bf4e50fc8d38115767f6f3"
+    },
+    {
+      "template": "calcite_drapery",
+      "status": "PASS",
+      "sha256": "f05c596b3ad4130ff0191a4e3d71fd33adef39bbb2b1da339b5785f8a92da867"
+    },
+    {
+      "template": "collapsed_archive",
+      "status": "PASS",
+      "sha256": "12aac03fa95c0f627ec0813c8c2cdd5edb1e6f67343bcd38e0a65a97c2fed09b"
+    },
+    {
+      "template": "crystal_beds",
+      "status": "PASS",
+      "sha256": "799f5f79bd0c9616fff0f22b338eea05216409a0822367fc0f05e377ab2e989a"
+    },
+    {
+      "template": "fossil_pocket",
+      "status": "PASS",
+      "sha256": "520d745cf898d101554c9f473382e0f024d71e07f74318a4b3b757f899fb13d4"
+    },
+    {
+      "template": "lithic_fault",
+      "status": "PASS",
+      "sha256": "7dbf645d884430a15b66984db0ee49f9d7f4bfc8ffa42a5f4e2b812390409a66"
+    },
+    {
+      "template": "moss_grotto",
+      "status": "PASS",
+      "sha256": "e1164d313849200c27b62ef93354f83eeab6bea61c54f47798356e4903fadbbf"
+    },
+    {
+      "template": "root_vault",
+      "status": "PASS",
+      "sha256": "f5688a8cbaf290f8c685ca8ca0638cb2e42253e2b3a86e2a77c537562b47e2b8"
+    },
+    {
+      "template": "silt_pool",
+      "status": "PASS",
+      "sha256": "9f861505752fd278a4bdd47f8b327573f27f20f59a1b2d547322625b5f12547b"
+    }
+  ],
+  "installed_jar_sha256": "6647542de0d3117b8d4afe9875ed08cf077e0b342a22e57dd565b64452f898cb",
+  "scope": "Future generation; previously generated neighboring legacy starts require separate existing-world audit",
+  "runtime": {
+    "status": "NATURAL_STARTS_VALIDATED",
+    "world": "validation-upper-natural-20261015",
+    "seed": "3536368297089363045",
+    "starts": 3,
+    "samples": 909,
+    "matched": 905,
+    "console": "server\\console-20261015-155542.log",
+    "visual_review": "pending",
+    "unrelated_surface_spacing": "Not established by this scoped underground allocation"
+  }
+}

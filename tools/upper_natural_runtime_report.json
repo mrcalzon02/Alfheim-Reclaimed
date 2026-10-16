@@ -1,27 +1,110 @@
 {
-  "status": "RESERVATION_STARVATION_OBSERVED",
+  "status": "NATURAL_STARTS_VALIDATED",
   "seed": "3536368297089363045",
   "world": "validation-upper-natural-20261015",
-  "survey_console": "server\\console-20261015-104547.log",
+  "survey_console": "server\\console-20261015-155258.log",
   "summaries": [
-    "Upper audit seed=3536368297089363045 region=4,4 tested=32 accepted=0 ms=2008 reasons={alfheim:agricultural_estate=2, alfheim:common_residential_quarter=3, alfheim:elder_lineage_precinct=2, alfheim:harbor_complex=1, alfheim:leyline_corridors=19, mythicbotany:andwari_cave=5}",
-    "Upper audit seed=3536368297089363045 region=-12,4 tested=30 accepted=0 ms=2023 reasons={alfheim:common_residential_quarter=1, alfheim:harbor_complex=1, alfheim:leyline_corridors=19, mythicbotany:andwari_cave=9}",
-    "Upper audit seed=3536368297089363045 region=4,-12 tested=36 accepted=0 ms=2006 reasons={alfheim:elder_lineage_precinct=1, alfheim:leyline_corridors=21, alfheim:relief_district=3, mythicbotany:andwari_cave=11}",
-    "Upper audit seed=3536368297089363045 region=-12,-12 tested=45 accepted=0 ms=2017 reasons={alfheim:agricultural_estate=2, alfheim:common_residential_quarter=3, alfheim:leyline_corridors=22, alfheim:relief_district=1, alfheim:scholastic_quarter=2, mythicbotany:andwari_cave=15}"
+    "Upper audit seed=3536368297089363045 region=4,4 tested=33 accepted=1 ms=2137 reasons={accepted=1, alfheim:agricultural_estate=2, alfheim:elder_lineage_precinct=1, allocation=24, terrain_or_biome=5}",
+    "Upper audit seed=3536368297089363045 region=-12,4 tested=64 accepted=1 ms=1342 reasons={accepted=1, alfheim:harbor_complex=2, allocation=52, mythicbotany:andwari_cave=4, terrain_or_biome=5}",
+    "Upper audit seed=3536368297089363045 region=4,-12 tested=44 accepted=2 ms=2153 reasons={accepted=2, alfheim:relief_district=1, allocation=32, mythicbotany:andwari_cave=4, terrain_or_biome=5}",
+    "Upper audit seed=3536368297089363045 region=-12,-12 tested=64 accepted=0 ms=2211 reasons={alfheim:civic_center=1, alfheim:common_residential_quarter=2, allocation=48, mythicbotany:andwari_cave=4, terrain_or_biome=9}"
   ],
-  "accepted_candidates": [],
-  "natural_starts": "NONE_OBSERVED",
-  "survey_jar_sha256": "bb32b9fc493a43e41cd6d2729b13f7383c7e816fee65cbf23edc2087377ce169",
-  "installed_jar_sha256": "88b66822d5da1ce21baec8431481361772e15c3a74d4036bc8e81fcdc21ceee6",
-  "final_java_tests": 61,
-  "final_build_runtime": "Not rerun after removing unsuccessful expensive eligibility experiment; diagnostic-build observations preserved separately",
-  "final_changes": [
-    "Reject fluid-filled roof anchor",
-    "Namespace-aware reservation identities",
-    "Reserve only the shared district winner",
-    "Bounded operator audit command"
+  "accepted_candidates": [
+    {
+      "x": 10673,
+      "y": 82,
+      "z": 9393,
+      "chunk_x": 668,
+      "chunk_z": 588
+    },
+    {
+      "x": -7599,
+      "y": 38,
+      "z": 5441,
+      "chunk_x": -474,
+      "chunk_z": 341
+    },
+    {
+      "x": 5281,
+      "y": 36,
+      "z": -12415,
+      "chunk_x": 331,
+      "chunk_z": -775
+    },
+    {
+      "x": 9217,
+      "y": 57,
+      "z": -11439,
+      "chunk_x": 577,
+      "chunk_z": -714
+    }
   ],
-  "next_action": "Design a coordinated reservation policy with existing dungeon families; do not weaken 500-block contract or change broad terrain",
+  "natural_starts": [
+    {
+      "candidate": {
+        "x": 10673,
+        "y": 82,
+        "z": 9393,
+        "chunk_x": 668,
+        "chunk_z": 588
+      },
+      "template": "alfheim:upper_underworld/basalt_columns",
+      "bounds": [
+        10673,
+        82,
+        9393,
+        10703,
+        101,
+        9423
+      ],
+      "samples": 303,
+      "matched": 303,
+      "natural_start_id": "alfheim:upper_underworld"
+    },
+    {
+      "candidate": {
+        "x": -7599,
+        "y": 38,
+        "z": 5441,
+        "chunk_x": -474,
+        "chunk_z": 341
+      },
+      "template": "alfheim:upper_underworld/moss_grotto",
+      "bounds": [
+        -7599,
+        38,
+        5441,
+        -7569,
+        57,
+        5471
+      ],
+      "samples": 303,
+      "matched": 299,
+      "natural_start_id": "alfheim:upper_underworld"
+    },
+    {
+      "candidate": {
+        "x": 5281,
+        "y": 36,
+        "z": -12415,
+        "chunk_x": 331,
+        "chunk_z": -775
+      },
+      "template": "alfheim:upper_underworld/basalt_columns",
+      "bounds": [
+        5281,
+        36,
+        -12415,
+        5311,
+        55,
+        -12385
+      ],
+      "samples": 303,
+      "matched": 303,
+      "natural_start_id": "alfheim:upper_underworld"
+    }
+  ],
+  "installed_jar_sha256": "6647542de0d3117b8d4afe9875ed08cf077e0b342a22e57dd565b64452f898cb",
   "before_fix": {
     "survey_console": "server\\console-20261015-104217.log",
     "summaries": [
@@ -32,7 +115,6 @@
     ],
     "installed_jar_sha256": "261864b5cd6cd66a0f14c4eb77d84a1aaf7414e90dc7bf265c04f0ce1458d9d1"
   },
-  "eligibility_experiment": "Biome-valid vanilla jigsaw checks: 143 candidates, zero admitted; experiment removed because costly and ineffective. Final worldgen retains cheap conservative reservations.",
   "continuity_works_audit": {
     "capability": "Continuity Works 0.3.2",
     "execution": "StructureCapability.audit",
@@ -375,5 +457,8 @@
       }
     ],
     "natural_placement": "separate native runtime survey required"
-  }
+  },
+  "population_console": "server\\console-20261015-155542.log",
+  "visual_review": "pending",
+  "density_review": "bounded one-seed sample; not a population-wide density claim"
 }

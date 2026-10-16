@@ -69,10 +69,14 @@ def populate(verify_only=False):
         commands.append((1,f'execute in {HOME} run forceload add {x-32} {z-32} {x+47} {z+47}'))
     commands.extend([(90,'save-all flush'),(2,f'execute in {HOME} run forceload remove all'),(2,'stop')])
     if verify_only:
-        console=max((ROOT/'server').glob('console-*.log'),key=lambda p:p.stat().st_mtime)
+        assert result.get('population_console'),'Run populate first to record the owned population console'
+        console=ROOT/result['population_console']
         text=console.read_text(errors='replace')
     else:
         console,text=launch(commands)
+        result.update(status='POPULATED_PENDING_VERIFICATION',population_console=str(console.relative_to(ROOT)))
+        REPORT.write_text(json.dumps(result,indent=2)+'\n')
+    assert WORLD in text,'Population console belongs to a different disposable world'
     assert 'That position is not loaded' not in text
     grid={}
     for path in (ROOT/'server'/WORLD/'dimensions/mythicbotany/alfheim/region').glob('*.mca'):

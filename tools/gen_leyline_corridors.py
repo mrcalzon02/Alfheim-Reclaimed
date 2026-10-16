@@ -391,7 +391,8 @@ def json_files(manifest_biomes):
         'placement': {'type': 'minecraft:random_spread', 'spacing': 40, 'separation': 18,
                       'spread_type': 'linear',
                       'salt': int(hashlib.sha1(b'alfheim:leyline_corridors').hexdigest()[:7], 16)}}
-    return out
+    from underground_policy import apply as allocate_underground
+    return {path:allocate_underground(path,body) for path,body in out.items()}
 
 
 def main():

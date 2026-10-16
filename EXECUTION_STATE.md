@@ -1,5 +1,23 @@
 # Execution State
 
+## Underground allocation repaired — 2026-10-15
+
+Sparse seed-stable discovery reservations now have priority over the pack's own
+archaeology, matching headworks and ley corridors. Their vanilla jigsaw layouts,
+grids and templates are unchanged; wrappers yield before terrain work using nine
+pure candidate probes. Andwari remains unchanged and receives a scoped vanilla
+start/biome check, avoiding Golden Fields reservations across every other biome.
+The independent gap for these protected dungeon families is conservatively >=593.
+Four valid sites were found among 205 bounded survey candidates. Three natural
+starts then passed saved-world origin/bounds and 905/909 block-sample checks, with
+no placement commands. Java17 build/64 tests, twelve CW template audits, both
+generator closures, terrain/model/harbor guards and feature-order checks pass.
+Proof: `tools/upper_natural_runtime_report.json`, `tools/underground_allocation_report.json`.
+Design: `alfheim_reclaimed_design/UNDERGROUND_ALLOCATION_20261015.md`.
+Next: client visuals/density and mixed old/new chunk boundaries. This scoped
+adapter does not establish spacing from every unrelated surface structure.
+Broad terrain and player saves remain untouched.
+
 ## Underground audit closeout — 2026-10-15
 
 Natural upper-rock placement is **not accepted**. A bounded 256-candidate survey

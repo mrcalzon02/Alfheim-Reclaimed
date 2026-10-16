@@ -1,5 +1,17 @@
 # Changelog
 
+## Shared underground allocation and natural placement proof — 2026-10-15
+
+Added sparse deterministic discovery reservations and a native wrapper for five
+pack-owned dungeon/headworks layouts. Nearby dungeons yield using nine cheap
+candidate probes; existing layouts, templates and grids are retained. Andwari cave
+eligibility is checked only where relevant; its third-party data/jar stay unchanged.
+Four bounded survey sites passed eligibility, and three naturally generated starts
+passed saved-world checks (905/909 sampled blocks). Build/64 tests, twelve CW audits,
+source equality and terrain/model/harbor/feature-order guards pass. Client visuals,
+broader density, old/new boundaries and unrelated surface spacing remain pending.
+See `alfheim_reclaimed_design/UNDERGROUND_ALLOCATION_20261015.md`.
+
 ## Underground placement audit and roof guard — 2026-10-15
 
 Added a finite operator-only noise survey, corrected namespace/district-winner

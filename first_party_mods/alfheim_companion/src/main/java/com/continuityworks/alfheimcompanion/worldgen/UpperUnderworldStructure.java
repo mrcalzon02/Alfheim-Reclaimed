@@ -8,6 +8,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
@@ -24,9 +25,12 @@ public final class UpperUnderworldStructure extends Structure {
     static String reservation(GenerationContext c) {
         int x=c.chunkPos().getMinBlockX(),z=c.chunkPos().getMinBlockZ();
         if((long)x*x+(long)z*z<4000L*4000)return "origin"; // castle + hub reservation
+        if(!UndergroundAllocation.selected(c.seed(),c.chunkPos().x,c.chunkPos().z))return "allocation";
         for(var entry:c.registryAccess().registryOrThrow(Registries.STRUCTURE_SET).entrySet()) {
             var key=entry.getKey().location();String id=key.getPath();var set=entry.getValue();
             if(key.toString().equals("alfheim:upper_underworld"))continue;
+            // These pack-owned layouts enforce the inverse reservation themselves.
+            if(set.structures().stream().allMatch(s->s.structure().value() instanceof AllocatedUndergroundStructure))continue;
             boolean district=key.getNamespace().equals("alfheim") && DistrictPolicy.FAMILIES.contains(id);
             boolean protect=district || set.structures().stream().anyMatch(
                 s->s.structure().value().step()==GenerationStep.Decoration.UNDERGROUND_STRUCTURES
@@ -39,6 +43,19 @@ public final class UpperUnderworldStructure extends Structure {
                 if(Math.abs((long)candidate.getMinBlockX()-x)<800 && Math.abs((long)candidate.getMinBlockZ()-z)<800) {
                     // Only the shared-grid winner can actually start a district.
                     if(district && DistrictPolicy.winner(c.seed(),candidate.x,candidate.z)!=DistrictPolicy.FAMILIES.indexOf(id))continue;
+                    // Scope eligibility probing to the verified, surface-projected Andwari
+                    // definition. Do not probe arbitrary families or assemble any pieces.
+                    if(key.toString().equals("mythicbotany:andwari_cave")
+                        && set.structures().stream().allMatch(s->s.structure().value() instanceof JigsawStructure)) {
+                        boolean viable=false;
+                        for(var s:set.structures()) {
+                            var structure=s.structure().value();
+                            var other=new GenerationContext(c.registryAccess(),c.chunkGenerator(),c.biomeSource(),c.randomState(),
+                                c.structureTemplateManager(),c.seed(),candidate,c.heightAccessor(),structure.biomes()::contains);
+                            if(structure.findValidGenerationPoint(other).isPresent()) {viable=true;break;}
+                        }
+                        if(!viable)continue;
+                    }
                     return key.toString();
                 }
             }

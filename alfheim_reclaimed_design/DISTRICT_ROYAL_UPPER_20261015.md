@@ -1,5 +1,14 @@
 # District spacing, royal citadel and upper-rock discoveries
 
+## Follow-up: natural upper-rock starts now validated
+
+The historical starvation diagnosis below is superseded by the coordinated adapter
+in `UNDERGROUND_ALLOCATION_20261015.md`. The repaired allocation admits four survey
+sites and three natural saved starts pass 905/909 block samples with the installed
+build. Java64 tests and the terrain/model/harbor/generator/feature-order gates pass.
+Client/density review and old/new chunk boundaries remain pending; unrelated surface
+spacing is outside this scoped underground proof.
+
 ## Natural upper-rock audit closeout
 
 The new upper-rock family is **not yet naturally accepted**. On seed

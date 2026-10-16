@@ -61,7 +61,9 @@ def main():
         fid = family["id"]
         structure = read(os.path.join(DATA, "worldgen", "structure", fid + ".json"))
         expected_depth = 3 if "gallery" in family["pieces"] else 2
-        assert structure["type"] == "minecraft:jigsaw" and structure["size"] == expected_depth, fid
+        from underground_policy import TYPE
+        assert structure["type"] == TYPE and structure["size"] == expected_depth, fid
+        assert structure['layout']=={k:v for k,v in structure.items() if k not in ('type','layout')},fid
         assert structure["max_distance_from_center"] >= (128 if expected_depth == 3 else 110), fid
         assert structure["max_distance_from_center"] <= 128, \
             f"{fid}: Minecraft 1.20.1 rejects jigsaw reach above 128"

@@ -1,6 +1,15 @@
 # Backlog
 
-### Upper-rock placement starvation — next development
+### Upper-rock allocation follow-up — natural placement now passes
+
+The shared dungeon adapter resolves the zero-start blocker. Three natural saved
+starts and 905/909 geometry samples pass; 64 Java tests and generator/terrain gates
+pass. Next: client appearance, broader density/discovery review, old/new generation
+boundaries, and compatibility with unrelated surface structures. Existing player
+dungeons were not relocated. Evidence and precise scope:
+`alfheim_reclaimed_design/UNDERGROUND_ALLOCATION_20261015.md`.
+
+### Upper-rock placement starvation — historical diagnosis, superseded above
 
 Both bounded native surveys admitted zero sites (256 baseline candidates; 143
 experimental eligibility candidates). Archaeology, ley-line and Andwari cave
