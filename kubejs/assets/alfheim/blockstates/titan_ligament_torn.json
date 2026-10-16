@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_ligament_torn"
+      },
+      {
+        "model": "alfheim:block/titan_ligament_torn_v1"
+      },
+      {
+        "model": "alfheim:block/titan_ligament_torn_v2"
+      }
+    ]
+  }
+}

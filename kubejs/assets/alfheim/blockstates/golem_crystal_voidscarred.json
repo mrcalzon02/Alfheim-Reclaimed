@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/golem_crystal_voidscarred"
+      },
+      {
+        "model": "alfheim:block/golem_crystal_voidscarred_v1"
+      },
+      {
+        "model": "alfheim:block/golem_crystal_voidscarred_v2"
+      }
+    ]
+  }
+}

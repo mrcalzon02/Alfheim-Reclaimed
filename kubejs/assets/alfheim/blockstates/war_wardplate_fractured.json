@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/war_wardplate_fractured"
+      },
+      {
+        "model": "alfheim:block/war_wardplate_fractured_v1"
+      },
+      {
+        "model": "alfheim:block/war_wardplate_fractured_v2"
+      }
+    ]
+  }
+}

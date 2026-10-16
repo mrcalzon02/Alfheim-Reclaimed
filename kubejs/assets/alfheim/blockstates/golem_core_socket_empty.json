@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/golem_core_socket_empty"
+      },
+      {
+        "model": "alfheim:block/golem_core_socket_empty_v1"
+      },
+      {
+        "model": "alfheim:block/golem_core_socket_empty_v2"
+      }
+    ]
+  }
+}

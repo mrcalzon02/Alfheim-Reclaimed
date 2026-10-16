@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_hide_pallid"
+      },
+      {
+        "model": "alfheim:block/titan_hide_pallid_v1"
+      },
+      {
+        "model": "alfheim:block/titan_hide_pallid_v2"
+      }
+    ]
+  }
+}

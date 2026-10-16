@@ -1,5 +1,21 @@
 # Changelog
 
+## Void frontier war ruins, crystal hulks and biomass titans — 2026-10-15
+
+Added eight rare Void Verge/Void Shore war-remnant families, including 141-square
+military labyrinth complexes, last bulwarks, abandoned camps, paired titan battlefields
+and compact buried outposts. Twenty-five templates include torn-core crystal golems,
+severed limbs and ruptured/decayed/ossified biomass titans. Added 32 stable material
+blocks and 96 textures covering sludge decay, flesh, organs, hide, bone, dead crystal
+and ruined wards. Shared reservations, dry host/biome checks and continuous stair
+connections govern placement; existing frontier layouts and broad terrain are retained.
+
+Build/66 tests and generation/navigation/regression gates pass. Two natural sites
+validate 20 pieces and both allowed biomes; all 25 gallery templates validate 4,534
+block samples and saved encounter/cache data. Wrong-biome and origin controls reject.
+Client visuals/combat, density and existing-world compatibility remain pending.
+Details: `alfheim_reclaimed_design/void/VOID_WAR_REMNANTS.md`.
+
 ## Shared underground allocation and natural placement proof — 2026-10-15
 
 Added sparse deterministic discovery reservations and a native wrapper for five

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/bio_sludge_coagulated"
+      },
+      {
+        "model": "alfheim:block/bio_sludge_coagulated_v1"
+      },
+      {
+        "model": "alfheim:block/bio_sludge_coagulated_v2"
+      }
+    ]
+  }
+}

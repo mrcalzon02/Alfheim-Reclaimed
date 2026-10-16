@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_organ_liquefied"
+      },
+      {
+        "model": "alfheim:block/titan_organ_liquefied_v1"
+      },
+      {
+        "model": "alfheim:block/titan_organ_liquefied_v2"
+      }
+    ]
+  }
+}

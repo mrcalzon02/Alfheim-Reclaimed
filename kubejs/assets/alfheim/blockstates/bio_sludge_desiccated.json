@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/bio_sludge_desiccated"
+      },
+      {
+        "model": "alfheim:block/bio_sludge_desiccated_v1"
+      },
+      {
+        "model": "alfheim:block/bio_sludge_desiccated_v2"
+      }
+    ]
+  }
+}

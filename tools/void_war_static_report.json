@@ -1,0 +1,179 @@
+{
+  "status": "STATIC_VALIDATED_RUNTIME_REQUIRED",
+  "biomes": [
+    "alfheim:void_verge",
+    "alfheim:void_shore"
+  ],
+  "templates": [
+    {
+      "name": "abandoned_barracks",
+      "sha256": "db0e702ca5360f1f399e236524f4ad0100e7b010973b268a22a0f112495c0c16",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "artillery_ward",
+      "sha256": "107f333aa78c313f71e15c36dc4cb95644e87528ff8d15dc6c2a239ff9a30e2f",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "battlefield_craters",
+      "sha256": "4ec286441a91eac78f786f6bdd516d88fd53321bfd551a2d3b1c07d6dc753db2",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "bio_titan",
+      "sha256": "240ee8452f6c4c52a19d991e6eca6024e488bbd3af8959fdd879b1257d68262a",
+      "blocks": 106029,
+      "spawners": []
+    },
+    {
+      "name": "bio_titan_desiccated",
+      "sha256": "11e61f7a7d45f6184357b42f524a54e092d875358355d880237613502cfde7ee",
+      "blocks": 106029,
+      "spawners": []
+    },
+    {
+      "name": "bio_titan_ossified",
+      "sha256": "f3d54707277ca99da279227872ff8ce644c355cde90e39469b7d617e76c11565",
+      "blocks": 106029,
+      "spawners": []
+    },
+    {
+      "name": "breach_gate",
+      "sha256": "4eb012a80fe2e388a5537174c4f77201cccaebe0991633521691c0be6c08283b",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "bulwark_keep",
+      "sha256": "6cea122e71ca82900e708527cb090984a80ab1bed739af8d5cbde8161575479b",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "carrion_pools",
+      "sha256": "5528555e1a61ad3ef4a00e5d9a2ae85db841265ecb048e521adece83be3ce3a9",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "crystal_hulk",
+      "sha256": "abc26b1bb5dc6fc4d185da94d6abc53fb05a10846fda06ba0032e9698faaffc8",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "crystal_hulk_voidscarred",
+      "sha256": "6bcb7102b6aab3e8002922c9f4de886a38fc2c704d3c67ca1ba10ffafb8346da",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "entry_redoubt",
+      "sha256": "ae9a5da9a52dc2c76221a6738d22b4b1f67e6fbd560f34cb2ff823433b33e458",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "entry_redoubt_ossuary",
+      "sha256": "b632463a324c0a82a03ccba5a0b357a28951f1be9c7ecb9074e0a896629e4ddb",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "field_hospital",
+      "sha256": "51f3a114bce56d5606ff229f7e67c372e297112b96f50421393e47ba88abfc0a",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "supply_encampment",
+      "sha256": "94c9668b4bb5db5336d5bfe55ececfa97657d531f250eb5a645f645b97a319d3",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "torn_crystal_limbs",
+      "sha256": "916ba3caa01a454a5d8600c790ec5a68bcccb34125a46ffadd4621ac8ef049bf",
+      "blocks": 106032,
+      "spawners": []
+    },
+    {
+      "name": "entry_descent",
+      "sha256": "68bf64b8693528dea6d30724f702b8431567acaee93aac19dffd786f73e2b0a3",
+      "blocks": 49318,
+      "spawners": [],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "entry_descent_ossuary",
+      "sha256": "1f584a0eb87ad9ccd5d9b747071264bac1c706008f9a72fc526d3b0777d3d665",
+      "blocks": 49318,
+      "spawners": [],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "maze_of_orders",
+      "sha256": "2146c4c79da786d2531eddd0543d38bfe7d58daa345bc78e60f8dc11649e76e0",
+      "blocks": 48598,
+      "spawners": [],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "siege_magazine",
+      "sha256": "3ae4fa15a236ac937142efc30822073a07019a55a317fec7bd8a32c46c8b1b7b",
+      "blocks": 48598,
+      "spawners": [
+        "alfheim_companion:biome_skeleton"
+      ],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "buried_barracks",
+      "sha256": "2acfcd573db2a7bc539544ecb5514460cf712c0978e1ac2c0ddcc38deac77fc1",
+      "blocks": 48598,
+      "spawners": [],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "war_infirmary",
+      "sha256": "963609607a22665daa006f66110bbc986ec4f52d9ccc878bc6a7bfcebe84c3f9",
+      "blocks": 48598,
+      "spawners": [],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "ossuary_vault",
+      "sha256": "3f34757b9835d35cc28bb0c3b637d5f7d31c390c37afb7111384fcf6bd486050",
+      "blocks": 48598,
+      "spawners": [],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "severed_ward_vault",
+      "sha256": "f0cf481e2dd06e5e7e0627d97a113bc1c93d90cff879af1f12e383a536ebaa2b",
+      "blocks": 48598,
+      "spawners": [
+        "alfheim_companion:biome_endermite"
+      ],
+      "reachable_room_cells": 25
+    },
+    {
+      "name": "titan_dissection_gallery",
+      "sha256": "797f73e8ad99305781e9253be98e4fdae0bb3c3268876f8afef6042937c81b73",
+      "blocks": 48598,
+      "spawners": [],
+      "reachable_room_cells": 25
+    }
+  ],
+  "java_tests": 66,
+  "materials": 32,
+  "textures": 96,
+  "continuous_steps": 24,
+  "max_rooms_large_site": 201,
+  "spatial_scope": "900-block reservation from cooperating Void neighbors/dungeons; unrelated non-Void surface proximity requires review",
+  "installed_jar_sha256": "19d99e149cdf7478f749141007f154e3b8616a189a56f112a997bef20bfbc96f"
+}

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/golem_lattice_shards"
+      },
+      {
+        "model": "alfheim:block/golem_lattice_shards_v1"
+      },
+      {
+        "model": "alfheim:block/golem_lattice_shards_v2"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_hide_charred"
+      },
+      {
+        "model": "alfheim:block/titan_hide_charred_v1"
+      },
+      {
+        "model": "alfheim:block/titan_hide_charred_v2"
+      }
+    ]
+  }
+}

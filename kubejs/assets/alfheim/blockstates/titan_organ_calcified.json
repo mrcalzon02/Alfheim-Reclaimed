@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_organ_calcified"
+      },
+      {
+        "model": "alfheim:block/titan_organ_calcified_v1"
+      },
+      {
+        "model": "alfheim:block/titan_organ_calcified_v2"
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "structures": [
+    {
+      "structure": "alfheim:last_bulwark",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:abandoned_war_encampment",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:shattered_ward_fortress",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:titanfall_battlefield",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:crystal_execution_ground",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:rotting_colossus_redoubt",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:war_rift_redoubt",
+      "weight": 1
+    },
+    {
+      "structure": "alfheim:buried_war_bastion",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 192,
+    "separation": 128,
+    "salt": 202610153
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_cartilage_ossified"
+      },
+      {
+        "model": "alfheim:block/titan_cartilage_ossified_v1"
+      },
+      {
+        "model": "alfheim:block/titan_cartilage_ossified_v2"
+      }
+    ]
+  }
+}

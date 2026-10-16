@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_hide_sloughed"
+      },
+      {
+        "model": "alfheim:block/titan_hide_sloughed_v1"
+      },
+      {
+        "model": "alfheim:block/titan_hide_sloughed_v2"
+      }
+    ]
+  }
+}

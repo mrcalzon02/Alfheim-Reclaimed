@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_bone_marrow"
+      },
+      {
+        "model": "alfheim:block/titan_bone_marrow_v1"
+      },
+      {
+        "model": "alfheim:block/titan_bone_marrow_v2"
+      }
+    ]
+  }
+}

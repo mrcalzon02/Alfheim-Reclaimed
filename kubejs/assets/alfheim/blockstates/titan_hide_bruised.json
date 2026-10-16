@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_hide_bruised"
+      },
+      {
+        "model": "alfheim:block/titan_hide_bruised_v1"
+      },
+      {
+        "model": "alfheim:block/titan_hide_bruised_v2"
+      }
+    ]
+  }
+}

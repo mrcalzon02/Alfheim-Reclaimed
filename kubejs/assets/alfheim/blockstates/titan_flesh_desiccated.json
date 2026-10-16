@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_flesh_desiccated"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_desiccated_v1"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_desiccated_v2"
+      }
+    ]
+  }
+}

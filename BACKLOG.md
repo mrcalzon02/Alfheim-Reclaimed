@@ -1,5 +1,16 @@
 # Backlog
 
+### Void frontier war remnants — built and runtime sampled
+
+Eight biome-restricted war families, 25 templates, 32 material blocks and 96 textures
+are implemented. A full natural fortress and compact redoubt pass in Void Shore
+and Void Verge respectively; all 25 templates pass the saved gallery and both
+biome/origin negative controls reject. Both footprints' saved biome cells pass.
+Next: client review of corpses, fortress silhouettes and atmosphere; live combat and
+salvage balance; population rarity; mixed old/new boundaries; unrelated mainland
+surface-neighbor compatibility. Existing player worlds have not been rewritten.
+Authority/evidence: `alfheim_reclaimed_design/void/VOID_WAR_REMNANTS.md`.
+
 ### Upper-rock allocation follow-up — natural placement now passes
 
 The shared dungeon adapter resolves the zero-start blocker. Three natural saved

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_flesh_necrotic"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_necrotic_v1"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_necrotic_v2"
+      }
+    ]
+  }
+}

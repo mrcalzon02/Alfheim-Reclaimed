@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_bone_fractured"
+      },
+      {
+        "model": "alfheim:block/titan_bone_fractured_v1"
+      },
+      {
+        "model": "alfheim:block/titan_bone_fractured_v2"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_hide_petrified"
+      },
+      {
+        "model": "alfheim:block/titan_hide_petrified_v1"
+      },
+      {
+        "model": "alfheim:block/titan_hide_petrified_v2"
+      }
+    ]
+  }
+}

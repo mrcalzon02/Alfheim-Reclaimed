@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/bio_sludge_putrefied"
+      },
+      {
+        "model": "alfheim:block/bio_sludge_putrefied_v1"
+      },
+      {
+        "model": "alfheim:block/bio_sludge_putrefied_v2"
+      }
+    ]
+  }
+}

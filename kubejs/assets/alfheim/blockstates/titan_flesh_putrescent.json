@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_flesh_putrescent"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_putrescent_v1"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_putrescent_v2"
+      }
+    ]
+  }
+}

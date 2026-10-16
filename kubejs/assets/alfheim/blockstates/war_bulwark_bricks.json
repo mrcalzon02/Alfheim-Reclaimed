@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/war_bulwark_bricks"
+      },
+      {
+        "model": "alfheim:block/war_bulwark_bricks_v1"
+      },
+      {
+        "model": "alfheim:block/war_bulwark_bricks_v2"
+      }
+    ]
+  }
+}

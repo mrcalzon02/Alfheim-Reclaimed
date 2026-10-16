@@ -41,6 +41,8 @@ public final class UpperUnderworldStructure extends Structure {
             for(int dx=-reach;dx<=reach;dx++)for(int dz=-reach;dz<=reach;dz++) {
                 var candidate=placement.getPotentialStructureChunk(c.seed(),(rx+dx)*spacing,(rz+dz)*spacing);
                 if(Math.abs((long)candidate.getMinBlockX()-x)<800 && Math.abs((long)candidate.getMinBlockZ()-z)<800) {
+                    if(set.structures().stream().allMatch(s->s.structure().value() instanceof VoidWarStructure)
+                        && !VoidWarPolicy.eligible(c,candidate))continue;
                     // Only the shared-grid winner can actually start a district.
                     if(district && DistrictPolicy.winner(c.seed(),candidate.x,candidate.z)!=DistrictPolicy.FAMILIES.indexOf(id))continue;
                     // Scope eligibility probing to the verified, surface-projected Andwari

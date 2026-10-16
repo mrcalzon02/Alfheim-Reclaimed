@@ -18,6 +18,8 @@ def B(name, **props):
 
 
 def emit(path, obj):
+    from void_war_policy import apply as void_war_policy
+    obj=void_war_policy(path,obj)
     target = DATA / path
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(obj, indent=2) + '\n', encoding='utf-8')

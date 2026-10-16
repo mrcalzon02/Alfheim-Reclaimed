@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_flesh_fibrous"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_fibrous_v1"
+      },
+      {
+        "model": "alfheim:block/titan_flesh_fibrous_v2"
+      }
+    ]
+  }
+}

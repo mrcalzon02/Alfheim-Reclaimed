@@ -17,6 +17,10 @@ public final class ModHarborStructures {
         REGISTRY.register("upper_underworld",()->()->UpperUnderworldStructure.CODEC);
     public static final RegistryObject<StructureType<AllocatedUndergroundStructure>> ALLOCATED_UNDERGROUND=
         REGISTRY.register("allocated_underground",()->()->AllocatedUndergroundStructure.CODEC);
+    public static final RegistryObject<StructureType<VoidWarStructure>> VOID_WAR=
+        REGISTRY.register("void_war",()->()->VoidWarStructure.CODEC);
+    public static final RegistryObject<StructureType<VoidWarNeighborStructure>> VOID_WAR_NEIGHBOR=
+        REGISTRY.register("void_war_neighbor",()->()->VoidWarNeighborStructure.CODEC);
     public static final DeferredRegister<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> PIECES=
         DeferredRegister.create(Registries.STRUCTURE_PIECE,AlfheimCompanion.MOD_ID);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> ROYAL_FOUNDATION=

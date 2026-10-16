@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/titan_sinew"
+      },
+      {
+        "model": "alfheim:block/titan_sinew_v1"
+      },
+      {
+        "model": "alfheim:block/titan_sinew_v2"
+      }
+    ]
+  }
+}

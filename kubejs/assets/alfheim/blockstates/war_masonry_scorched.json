@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/war_masonry_scorched"
+      },
+      {
+        "model": "alfheim:block/war_masonry_scorched_v1"
+      },
+      {
+        "model": "alfheim:block/war_masonry_scorched_v2"
+      }
+    ]
+  }
+}

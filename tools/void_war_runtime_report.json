@@ -1,0 +1,536 @@
+{
+  "status": "NATURAL_WAR_SITES_VALIDATED",
+  "world": "validation-void-war-final-20261015",
+  "seed": "3536368297089363045",
+  "console": "server\\console-20261015-162459.log",
+  "sites": [
+    {
+      "chunk_x": -763,
+      "chunk_z": -1685,
+      "x": -12270,
+      "surface_y": 76,
+      "z": -27022,
+      "profile": "large",
+      "columns": 25,
+      "biome_queries": 2593
+    },
+    {
+      "chunk_x": 3292,
+      "chunk_z": -2281,
+      "x": 52657,
+      "surface_y": 84,
+      "z": -36511,
+      "profile": "compact",
+      "columns": 25,
+      "biome_queries": 289
+    }
+  ],
+  "summaries": [
+    "War audit region=2,2 tested=9 accepted=0 ms=2390 reasons={altitude=1, biome_or_origin=6, relief=2}",
+    "War audit region=-10,2 tested=64 accepted=0 ms=2365 reasons={altitude=6, biome_or_origin=58}",
+    "War audit region=2,-10 tested=64 accepted=0 ms=911 reasons={altitude=2, biome_or_origin=62}",
+    "War audit region=-10,-10 tested=15 accepted=1 ms=2322 reasons={accepted=1, altitude=2, biome_or_origin=11, relief=1}",
+    "War audit region=10,10 tested=64 accepted=0 ms=1813 reasons={altitude=3, biome_or_origin=60, relief=1}",
+    "War audit region=-18,10 tested=45 accepted=0 ms=2677 reasons={altitude=1, biome_or_origin=41, host_volume=1, relief=2}",
+    "War audit region=10,-18 tested=56 accepted=1 ms=2169 reasons={accepted=1, altitude=4, biome_or_origin=51}",
+    "War audit region=-18,-18 tested=45 accepted=0 ms=2849 reasons={altitude=1, biome_or_origin=41, host_volume=1, relief=2}"
+  ],
+  "installed_jar_sha256": "19d99e149cdf7478f749141007f154e3b8616a189a56f112a997bef20bfbc96f",
+  "survey_jar_sha256": "e6e281b07bee6d45ce10349d2915d7d78aefbc1786c9edf98e0d9b350d048755",
+  "population_console": "server\\console-20261015-164630.log",
+  "population_sites": [
+    {
+      "chunk_x": -763,
+      "chunk_z": -1685,
+      "x": -12270,
+      "surface_y": 76,
+      "z": -27022,
+      "profile": "large",
+      "columns": 25,
+      "biome_queries": 2593
+    },
+    {
+      "chunk_x": 3292,
+      "chunk_z": -2281,
+      "x": 52657,
+      "surface_y": 84,
+      "z": -36511,
+      "profile": "compact",
+      "columns": 25,
+      "biome_queries": 289
+    }
+  ],
+  "visual_review": "pending",
+  "existing_world_boundary_review": "pending",
+  "survey_world": "validation-void-war-20261015",
+  "previous_population_world": "validation-void-war-20261015",
+  "previous_population_jar_sha256": "c137a87a8733a94fd903dd99db442f2be75a822726220836c0dc8c366040053b",
+  "previous_population_console": "server\\console-20261015-163817.log",
+  "natural_proof": [
+    {
+      "structure": "alfheim:shattered_ward_fortress",
+      "candidate": {
+        "chunk_x": -763,
+        "chunk_z": -1685,
+        "x": -12270,
+        "surface_y": 76,
+        "z": -27022,
+        "profile": "large",
+        "columns": 25,
+        "biome_queries": 2593
+      },
+      "pieces": [
+        {
+          "template": "alfheim:void_war/bulwark_keep",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/breach_gate",
+          "samples": 183,
+          "matched": 182,
+          "native_ore_substitutions": [
+            {
+              "position": [
+                17,
+                2,
+                15
+              ],
+              "native_ore": "alfheim:verdigris_riftshale_ore"
+            }
+          ]
+        },
+        {
+          "template": "alfheim:void_war/artillery_ward",
+          "samples": 183,
+          "matched": 183,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/torn_crystal_limbs",
+          "samples": 183,
+          "matched": 183,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/entry_redoubt",
+          "samples": 181,
+          "matched": 180,
+          "native_ore_substitutions": [
+            {
+              "position": [
+                0,
+                1,
+                32
+              ],
+              "native_ore": "alfheim:cinderbloom_riftshale_ore"
+            }
+          ]
+        },
+        {
+          "template": "alfheim:void_war/abandoned_barracks",
+          "samples": 181,
+          "matched": 180,
+          "native_ore_substitutions": [
+            {
+              "position": [
+                2,
+                2,
+                28
+              ],
+              "native_ore": "alfheim:cinderbloom_riftshale_ore"
+            }
+          ]
+        },
+        {
+          "template": "alfheim:void_war/battlefield_craters",
+          "samples": 183,
+          "matched": 181,
+          "native_ore_substitutions": [
+            {
+              "position": [
+                29,
+                2,
+                4
+              ],
+              "native_ore": "alfheim:verdigris_riftshale_ore"
+            },
+            {
+              "position": [
+                39,
+                1,
+                31
+              ],
+              "native_ore": "alfheim:cinderbloom_riftshale_ore"
+            }
+          ]
+        },
+        {
+          "template": "alfheim:void_war/carrion_pools",
+          "samples": 182,
+          "matched": 180,
+          "native_ore_substitutions": [
+            {
+              "position": [
+                16,
+                3,
+                42
+              ],
+              "native_ore": "alfheim:cinderbloom_riftshale_ore"
+            },
+            {
+              "position": [
+                30,
+                4,
+                27
+              ],
+              "native_ore": "alfheim:verdigris_riftshale_ore"
+            }
+          ]
+        },
+        {
+          "template": "alfheim:void_war/bulwark_keep",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/buried_barracks",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/war_infirmary",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/ossuary_vault",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/severed_ward_vault",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/entry_descent",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/maze_of_orders",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/siege_magazine",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/buried_barracks",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        },
+        {
+          "template": "alfheim:void_war/war_infirmary",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        }
+      ],
+      "continuous_steps": 24,
+      "spawners": 2,
+      "loot_containers": 8,
+      "saved_biomes": [
+        "alfheim:void_shore",
+        "alfheim:void_verge"
+      ],
+      "saved_biome_cells_checked": 2592
+    },
+    {
+      "structure": "alfheim:war_rift_redoubt",
+      "candidate": {
+        "chunk_x": 3292,
+        "chunk_z": -2281,
+        "x": 52657,
+        "surface_y": 84,
+        "z": -36511,
+        "profile": "compact",
+        "columns": 25,
+        "biome_queries": 289
+      },
+      "pieces": [
+        {
+          "template": "alfheim:void_war/entry_redoubt",
+          "samples": 181,
+          "matched": 178,
+          "native_ore_substitutions": [
+            {
+              "position": [
+                0,
+                3,
+                17
+              ],
+              "native_ore": "alfheim:cinderbloom_riftshale_ore"
+            },
+            {
+              "position": [
+                7,
+                0,
+                43
+              ],
+              "native_ore": "alfheim:cinderbloom_riftshale_ore"
+            },
+            {
+              "position": [
+                29,
+                0,
+                42
+              ],
+              "native_ore": "alfheim:verdigris_riftshale_ore"
+            }
+          ]
+        },
+        {
+          "template": "alfheim:void_war/entry_descent",
+          "samples": 181,
+          "matched": 181,
+          "native_ore_substitutions": []
+        }
+      ],
+      "continuous_steps": 24,
+      "spawners": 0,
+      "loot_containers": 0,
+      "saved_biomes": [
+        "alfheim:void_verge"
+      ],
+      "saved_biome_cells_checked": 288
+    }
+  ],
+  "gallery_console": "server\\console-20261015-165139.log",
+  "gallery_names": [
+    "abandoned_barracks",
+    "artillery_ward",
+    "battlefield_craters",
+    "bio_titan",
+    "bio_titan_desiccated",
+    "bio_titan_ossified",
+    "breach_gate",
+    "bulwark_keep",
+    "carrion_pools",
+    "crystal_hulk",
+    "crystal_hulk_voidscarred",
+    "entry_redoubt",
+    "entry_redoubt_ossuary",
+    "field_hospital",
+    "supply_encampment",
+    "torn_crystal_limbs",
+    "entry_descent",
+    "entry_descent_ossuary",
+    "maze_of_orders",
+    "siege_magazine",
+    "buried_barracks",
+    "war_infirmary",
+    "ossuary_vault",
+    "severed_ward_vault",
+    "titan_dissection_gallery"
+  ],
+  "gallery_status": "SAVED_TEMPLATES_VALIDATED",
+  "gallery_proof": [
+    {
+      "template": "abandoned_barracks",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "artillery_ward",
+      "samples": 183,
+      "matched": 183,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "battlefield_craters",
+      "samples": 183,
+      "matched": 183,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "bio_titan",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "bio_titan_desiccated",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "bio_titan_ossified",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "breach_gate",
+      "samples": 183,
+      "matched": 183,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "bulwark_keep",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "carrion_pools",
+      "samples": 182,
+      "matched": 182,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "crystal_hulk",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "crystal_hulk_voidscarred",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "entry_redoubt",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "entry_redoubt_ossuary",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "field_hospital",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "supply_encampment",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "torn_crystal_limbs",
+      "samples": 183,
+      "matched": 183,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "entry_descent",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "entry_descent_ossuary",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "maze_of_orders",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "siege_magazine",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "buried_barracks",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "war_infirmary",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "ossuary_vault",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "severed_ward_vault",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    },
+    {
+      "template": "titan_dissection_gallery",
+      "samples": 181,
+      "matched": 181,
+      "native_ore_substitutions": []
+    }
+  ],
+  "wrong_biome_and_origin": "rejected",
+  "gallery_spawners": 2,
+  "gallery_loot_containers": 11,
+  "generation_snapshot_id": "20261016T004440Z-alfheim_void_war_remnants-generate-73021ed0",
+  "verified_template_hashes": {
+    "abandoned_barracks": "db0e702ca5360f1f399e236524f4ad0100e7b010973b268a22a0f112495c0c16",
+    "artillery_ward": "107f333aa78c313f71e15c36dc4cb95644e87528ff8d15dc6c2a239ff9a30e2f",
+    "battlefield_craters": "4ec286441a91eac78f786f6bdd516d88fd53321bfd551a2d3b1c07d6dc753db2",
+    "bio_titan": "240ee8452f6c4c52a19d991e6eca6024e488bbd3af8959fdd879b1257d68262a",
+    "bio_titan_desiccated": "11e61f7a7d45f6184357b42f524a54e092d875358355d880237613502cfde7ee",
+    "bio_titan_ossified": "f3d54707277ca99da279227872ff8ce644c355cde90e39469b7d617e76c11565",
+    "breach_gate": "4eb012a80fe2e388a5537174c4f77201cccaebe0991633521691c0be6c08283b",
+    "bulwark_keep": "6cea122e71ca82900e708527cb090984a80ab1bed739af8d5cbde8161575479b",
+    "carrion_pools": "5528555e1a61ad3ef4a00e5d9a2ae85db841265ecb048e521adece83be3ce3a9",
+    "crystal_hulk": "abc26b1bb5dc6fc4d185da94d6abc53fb05a10846fda06ba0032e9698faaffc8",
+    "crystal_hulk_voidscarred": "6bcb7102b6aab3e8002922c9f4de886a38fc2c704d3c67ca1ba10ffafb8346da",
+    "entry_redoubt": "ae9a5da9a52dc2c76221a6738d22b4b1f67e6fbd560f34cb2ff823433b33e458",
+    "entry_redoubt_ossuary": "b632463a324c0a82a03ccba5a0b357a28951f1be9c7ecb9074e0a896629e4ddb",
+    "field_hospital": "51f3a114bce56d5606ff229f7e67c372e297112b96f50421393e47ba88abfc0a",
+    "supply_encampment": "94c9668b4bb5db5336d5bfe55ececfa97657d531f250eb5a645f645b97a319d3",
+    "torn_crystal_limbs": "916ba3caa01a454a5d8600c790ec5a68bcccb34125a46ffadd4621ac8ef049bf",
+    "entry_descent": "68bf64b8693528dea6d30724f702b8431567acaee93aac19dffd786f73e2b0a3",
+    "entry_descent_ossuary": "1f584a0eb87ad9ccd5d9b747071264bac1c706008f9a72fc526d3b0777d3d665",
+    "maze_of_orders": "2146c4c79da786d2531eddd0543d38bfe7d58daa345bc78e60f8dc11649e76e0",
+    "siege_magazine": "3ae4fa15a236ac937142efc30822073a07019a55a317fec7bd8a32c46c8b1b7b",
+    "buried_barracks": "2acfcd573db2a7bc539544ecb5514460cf712c0978e1ac2c0ddcc38deac77fc1",
+    "war_infirmary": "963609607a22665daa006f66110bbc986ec4f52d9ccc878bc6a7bfcebe84c3f9",
+    "ossuary_vault": "3f34757b9835d35cc28bb0c3b637d5f7d31c390c37afb7111384fcf6bd486050",
+    "severed_ward_vault": "f0cf481e2dd06e5e7e0627d97a113bc1c93d90cff879af1f12e383a536ebaa2b",
+    "titan_dissection_gallery": "797f73e8ad99305781e9253be98e4fdae0bb3c3268876f8afef6042937c81b73"
+  },
+  "generation_report_sha256_lf": "981e282752158cb80ab5ea7640030c2b8180b5020fc2213be9b102ae5ef4d670",
+  "material_catalog_sha256": "850d4fcfb6d68af59fbc5566af241135d5021e9e96771991695ec452644a2d43"
+}

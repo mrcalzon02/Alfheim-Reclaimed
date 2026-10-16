@@ -1,0 +1,229 @@
+{
+  "blocks": [
+    {
+      "id": "alfheim:bio_sludge_saturated",
+      "family": "sludge",
+      "name": "Bio Sludge Saturated",
+      "variants": 3,
+      "decay_state": "saturated"
+    },
+    {
+      "id": "alfheim:bio_sludge_coagulated",
+      "family": "sludge",
+      "name": "Bio Sludge Coagulated",
+      "variants": 3,
+      "decay_state": "coagulated"
+    },
+    {
+      "id": "alfheim:bio_sludge_putrefied",
+      "family": "sludge",
+      "name": "Bio Sludge Putrefied",
+      "variants": 3,
+      "decay_state": "putrefied"
+    },
+    {
+      "id": "alfheim:bio_sludge_desiccated",
+      "family": "sludge",
+      "name": "Bio Sludge Desiccated",
+      "variants": 3,
+      "decay_state": "desiccated"
+    },
+    {
+      "id": "alfheim:bio_sludge_mineralized",
+      "family": "sludge",
+      "name": "Bio Sludge Mineralized",
+      "variants": 3,
+      "decay_state": "mineralized"
+    },
+    {
+      "id": "alfheim:titan_flesh_fibrous",
+      "family": "flesh",
+      "name": "Titan Flesh Fibrous",
+      "variants": 3,
+      "decay_state": "fibrous"
+    },
+    {
+      "id": "alfheim:titan_flesh_necrotic",
+      "family": "flesh",
+      "name": "Titan Flesh Necrotic",
+      "variants": 3,
+      "decay_state": "necrotic"
+    },
+    {
+      "id": "alfheim:titan_flesh_putrescent",
+      "family": "flesh",
+      "name": "Titan Flesh Putrescent",
+      "variants": 3,
+      "decay_state": "putrescent"
+    },
+    {
+      "id": "alfheim:titan_flesh_desiccated",
+      "family": "flesh",
+      "name": "Titan Flesh Desiccated",
+      "variants": 3,
+      "decay_state": "desiccated"
+    },
+    {
+      "id": "alfheim:titan_organ_matter",
+      "family": "organ",
+      "name": "Titan Organ Matter",
+      "variants": 3,
+      "decay_state": "matter"
+    },
+    {
+      "id": "alfheim:titan_organ_liquefied",
+      "family": "organ",
+      "name": "Titan Organ Liquefied",
+      "variants": 3,
+      "decay_state": "liquefied"
+    },
+    {
+      "id": "alfheim:titan_organ_calcified",
+      "family": "organ",
+      "name": "Titan Organ Calcified",
+      "variants": 3,
+      "decay_state": "calcified"
+    },
+    {
+      "id": "alfheim:titan_hide_pallid",
+      "family": "hide",
+      "name": "Titan Hide Pallid",
+      "variants": 3,
+      "decay_state": "pallid"
+    },
+    {
+      "id": "alfheim:titan_hide_bruised",
+      "family": "hide",
+      "name": "Titan Hide Bruised",
+      "variants": 3,
+      "decay_state": "bruised"
+    },
+    {
+      "id": "alfheim:titan_hide_charred",
+      "family": "hide",
+      "name": "Titan Hide Charred",
+      "variants": 3,
+      "decay_state": "charred"
+    },
+    {
+      "id": "alfheim:titan_hide_sloughed",
+      "family": "hide",
+      "name": "Titan Hide Sloughed",
+      "variants": 3,
+      "decay_state": "sloughed"
+    },
+    {
+      "id": "alfheim:titan_hide_petrified",
+      "family": "hide",
+      "name": "Titan Hide Petrified",
+      "variants": 3,
+      "decay_state": "petrified"
+    },
+    {
+      "id": "alfheim:titan_bone",
+      "family": "bone",
+      "name": "Titan Bone",
+      "variants": 3,
+      "decay_state": "bone"
+    },
+    {
+      "id": "alfheim:titan_bone_fractured",
+      "family": "bone",
+      "name": "Titan Bone Fractured",
+      "variants": 3,
+      "decay_state": "fractured"
+    },
+    {
+      "id": "alfheim:titan_bone_marrow",
+      "family": "bone",
+      "name": "Titan Bone Marrow",
+      "variants": 3,
+      "decay_state": "marrow"
+    },
+    {
+      "id": "alfheim:titan_cartilage_ossified",
+      "family": "bone",
+      "name": "Titan Cartilage Ossified",
+      "variants": 3,
+      "decay_state": "ossified"
+    },
+    {
+      "id": "alfheim:titan_sinew",
+      "family": "flesh",
+      "name": "Titan Sinew",
+      "variants": 3,
+      "decay_state": "sinew"
+    },
+    {
+      "id": "alfheim:titan_ligament_torn",
+      "family": "flesh",
+      "name": "Titan Ligament Torn",
+      "variants": 3,
+      "decay_state": "torn"
+    },
+    {
+      "id": "alfheim:golem_crystal_fractured",
+      "family": "crystal",
+      "name": "Golem Crystal Fractured",
+      "variants": 3,
+      "decay_state": "fractured"
+    },
+    {
+      "id": "alfheim:golem_crystal_scorched",
+      "family": "crystal",
+      "name": "Golem Crystal Scorched",
+      "variants": 3,
+      "decay_state": "scorched"
+    },
+    {
+      "id": "alfheim:golem_crystal_voidscarred",
+      "family": "crystal",
+      "name": "Golem Crystal Voidscarred",
+      "variants": 3,
+      "decay_state": "voidscarred"
+    },
+    {
+      "id": "alfheim:golem_core_socket_empty",
+      "family": "socket",
+      "name": "Golem Core Socket Empty",
+      "variants": 3,
+      "decay_state": "empty"
+    },
+    {
+      "id": "alfheim:golem_lattice_shards",
+      "family": "crystal",
+      "name": "Golem Lattice Shards",
+      "variants": 3,
+      "decay_state": "shards"
+    },
+    {
+      "id": "alfheim:golem_conduit_severed",
+      "family": "socket",
+      "name": "Golem Conduit Severed",
+      "variants": 3,
+      "decay_state": "severed"
+    },
+    {
+      "id": "alfheim:war_bulwark_bricks",
+      "family": "brick",
+      "name": "War Bulwark Bricks",
+      "variants": 3,
+      "decay_state": "bricks"
+    },
+    {
+      "id": "alfheim:war_wardplate_fractured",
+      "family": "socket",
+      "name": "War Wardplate Fractured",
+      "variants": 3,
+      "decay_state": "fractured"
+    },
+    {
+      "id": "alfheim:war_masonry_scorched",
+      "family": "brick",
+      "name": "War Masonry Scorched",
+      "variants": 3,
+      "decay_state": "scorched"
+    }
+  ],
+  "mechanics": "stable decorative decay states; no fluid ticks or spreading"
+}

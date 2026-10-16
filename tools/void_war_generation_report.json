@@ -1,0 +1,859 @@
+{
+  "capability": "Continuity Works 0.3.2",
+  "snapshot_id": "20261016T004440Z-alfheim_void_war_remnants-generate-73021ed0",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_void_war_v1"
+  },
+  "layout": {
+    "templates": [
+      {
+        "name": "abandoned_barracks",
+        "file": "kubejs/data/alfheim/structures/void_war/abandoned_barracks.nbt",
+        "sha256": "db0e702ca5360f1f399e236524f4ad0100e7b010973b268a22a0f112495c0c16",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "artillery_ward",
+        "file": "kubejs/data/alfheim/structures/void_war/artillery_ward.nbt",
+        "sha256": "107f333aa78c313f71e15c36dc4cb95644e87528ff8d15dc6c2a239ff9a30e2f",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "battlefield_craters",
+        "file": "kubejs/data/alfheim/structures/void_war/battlefield_craters.nbt",
+        "sha256": "4ec286441a91eac78f786f6bdd516d88fd53321bfd551a2d3b1c07d6dc753db2",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "bio_titan",
+        "file": "kubejs/data/alfheim/structures/void_war/bio_titan.nbt",
+        "sha256": "240ee8452f6c4c52a19d991e6eca6024e488bbd3af8959fdd879b1257d68262a",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "bio_titan_desiccated",
+        "file": "kubejs/data/alfheim/structures/void_war/bio_titan_desiccated.nbt",
+        "sha256": "11e61f7a7d45f6184357b42f524a54e092d875358355d880237613502cfde7ee",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "bio_titan_ossified",
+        "file": "kubejs/data/alfheim/structures/void_war/bio_titan_ossified.nbt",
+        "sha256": "f3d54707277ca99da279227872ff8ce644c355cde90e39469b7d617e76c11565",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "breach_gate",
+        "file": "kubejs/data/alfheim/structures/void_war/breach_gate.nbt",
+        "sha256": "4eb012a80fe2e388a5537174c4f77201cccaebe0991633521691c0be6c08283b",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "bulwark_keep",
+        "file": "kubejs/data/alfheim/structures/void_war/bulwark_keep.nbt",
+        "sha256": "6cea122e71ca82900e708527cb090984a80ab1bed739af8d5cbde8161575479b",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "carrion_pools",
+        "file": "kubejs/data/alfheim/structures/void_war/carrion_pools.nbt",
+        "sha256": "5528555e1a61ad3ef4a00e5d9a2ae85db841265ecb048e521adece83be3ce3a9",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "crystal_hulk",
+        "file": "kubejs/data/alfheim/structures/void_war/crystal_hulk.nbt",
+        "sha256": "abc26b1bb5dc6fc4d185da94d6abc53fb05a10846fda06ba0032e9698faaffc8",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "crystal_hulk_voidscarred",
+        "file": "kubejs/data/alfheim/structures/void_war/crystal_hulk_voidscarred.nbt",
+        "sha256": "6bcb7102b6aab3e8002922c9f4de886a38fc2c704d3c67ca1ba10ffafb8346da",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "entry_redoubt",
+        "file": "kubejs/data/alfheim/structures/void_war/entry_redoubt.nbt",
+        "sha256": "ae9a5da9a52dc2c76221a6738d22b4b1f67e6fbd560f34cb2ff823433b33e458",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "entry_redoubt_ossuary",
+        "file": "kubejs/data/alfheim/structures/void_war/entry_redoubt_ossuary.nbt",
+        "sha256": "b632463a324c0a82a03ccba5a0b357a28951f1be9c7ecb9074e0a896629e4ddb",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "field_hospital",
+        "file": "kubejs/data/alfheim/structures/void_war/field_hospital.nbt",
+        "sha256": "51f3a114bce56d5606ff229f7e67c372e297112b96f50421393e47ba88abfc0a",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "supply_encampment",
+        "file": "kubejs/data/alfheim/structures/void_war/supply_encampment.nbt",
+        "sha256": "94c9668b4bb5db5336d5bfe55ececfa97657d531f250eb5a645f645b97a319d3",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "torn_crystal_limbs",
+        "file": "kubejs/data/alfheim/structures/void_war/torn_crystal_limbs.nbt",
+        "sha256": "916ba3caa01a454a5d8600c790ec5a68bcccb34125a46ffadd4621ac8ef049bf",
+        "size": [
+          47,
+          48,
+          47
+        ]
+      },
+      {
+        "name": "entry_descent",
+        "file": "kubejs/data/alfheim/structures/void_war/entry_descent.nbt",
+        "sha256": "68bf64b8693528dea6d30724f702b8431567acaee93aac19dffd786f73e2b0a3",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "entry_descent_ossuary",
+        "file": "kubejs/data/alfheim/structures/void_war/entry_descent_ossuary.nbt",
+        "sha256": "1f584a0eb87ad9ccd5d9b747071264bac1c706008f9a72fc526d3b0777d3d665",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "maze_of_orders",
+        "file": "kubejs/data/alfheim/structures/void_war/maze_of_orders.nbt",
+        "sha256": "2146c4c79da786d2531eddd0543d38bfe7d58daa345bc78e60f8dc11649e76e0",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "siege_magazine",
+        "file": "kubejs/data/alfheim/structures/void_war/siege_magazine.nbt",
+        "sha256": "3ae4fa15a236ac937142efc30822073a07019a55a317fec7bd8a32c46c8b1b7b",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "buried_barracks",
+        "file": "kubejs/data/alfheim/structures/void_war/buried_barracks.nbt",
+        "sha256": "2acfcd573db2a7bc539544ecb5514460cf712c0978e1ac2c0ddcc38deac77fc1",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "war_infirmary",
+        "file": "kubejs/data/alfheim/structures/void_war/war_infirmary.nbt",
+        "sha256": "963609607a22665daa006f66110bbc986ec4f52d9ccc878bc6a7bfcebe84c3f9",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "ossuary_vault",
+        "file": "kubejs/data/alfheim/structures/void_war/ossuary_vault.nbt",
+        "sha256": "3f34757b9835d35cc28bb0c3b637d5f7d31c390c37afb7111384fcf6bd486050",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "severed_ward_vault",
+        "file": "kubejs/data/alfheim/structures/void_war/severed_ward_vault.nbt",
+        "sha256": "f0cf481e2dd06e5e7e0627d97a113bc1c93d90cff879af1f12e383a536ebaa2b",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      },
+      {
+        "name": "titan_dissection_gallery",
+        "file": "kubejs/data/alfheim/structures/void_war/titan_dissection_gallery.nbt",
+        "sha256": "797f73e8ad99305781e9253be98e4fdae0bb3c3268876f8afef6042937c81b73",
+        "size": [
+          47,
+          32,
+          47
+        ]
+      }
+    ],
+    "json": [
+      "tags/worldgen/biome/has_void_war_remnants.json",
+      "worldgen/structure_set/void_war_remnants.json",
+      "loot_tables/chests/void_war_salvage.json",
+      "worldgen/structure/last_bulwark.json",
+      "worldgen/structure/abandoned_war_encampment.json",
+      "worldgen/structure/shattered_ward_fortress.json",
+      "worldgen/structure/titanfall_battlefield.json",
+      "worldgen/structure/crystal_execution_ground.json",
+      "worldgen/structure/rotting_colossus_redoubt.json",
+      "worldgen/structure/war_rift_redoubt.json",
+      "worldgen/structure/buried_war_bastion.json"
+    ],
+    "families": [
+      "last_bulwark",
+      "abandoned_war_encampment",
+      "shattered_ward_fortress",
+      "titanfall_battlefield",
+      "crystal_execution_ground",
+      "rotting_colossus_redoubt",
+      "war_rift_redoubt",
+      "buried_war_bastion"
+    ],
+    "surface": [
+      [
+        "bulwark_keep",
+        "breach_gate",
+        "bulwark_keep",
+        "abandoned_barracks",
+        "entry_redoubt",
+        "artillery_ward",
+        "supply_encampment",
+        "field_hospital",
+        "battlefield_craters"
+      ],
+      [
+        "abandoned_barracks",
+        "supply_encampment",
+        "abandoned_barracks",
+        "field_hospital",
+        "entry_redoubt",
+        "artillery_ward",
+        "battlefield_craters",
+        "torn_crystal_limbs",
+        "carrion_pools"
+      ],
+      [
+        "bulwark_keep",
+        "breach_gate",
+        "artillery_ward",
+        "torn_crystal_limbs",
+        "entry_redoubt",
+        "abandoned_barracks",
+        "battlefield_craters",
+        "carrion_pools",
+        "bulwark_keep"
+      ],
+      [
+        "crystal_hulk",
+        "bio_titan",
+        "torn_crystal_limbs",
+        "artillery_ward",
+        "entry_redoubt",
+        "field_hospital",
+        "battlefield_craters",
+        "carrion_pools",
+        "battlefield_craters"
+      ],
+      [
+        "crystal_hulk",
+        "bio_titan_desiccated",
+        "crystal_hulk_voidscarred",
+        "battlefield_craters",
+        "entry_redoubt",
+        "artillery_ward",
+        "carrion_pools",
+        "torn_crystal_limbs",
+        "supply_encampment"
+      ],
+      [
+        "bio_titan_ossified",
+        "crystal_hulk",
+        "bio_titan_desiccated",
+        "field_hospital",
+        "entry_redoubt",
+        "abandoned_barracks",
+        "torn_crystal_limbs",
+        "carrion_pools",
+        "battlefield_craters"
+      ],
+      [
+        "entry_redoubt"
+      ],
+      [
+        "entry_redoubt_ossuary"
+      ]
+    ],
+    "underground": [
+      [
+        "maze_of_orders",
+        "siege_magazine",
+        "buried_barracks",
+        "war_infirmary",
+        "entry_descent",
+        "severed_ward_vault",
+        "titan_dissection_gallery",
+        "maze_of_orders",
+        "siege_magazine"
+      ],
+      [
+        "siege_magazine",
+        "buried_barracks",
+        "war_infirmary",
+        "ossuary_vault",
+        "entry_descent",
+        "titan_dissection_gallery",
+        "maze_of_orders",
+        "siege_magazine",
+        "buried_barracks"
+      ],
+      [
+        "buried_barracks",
+        "war_infirmary",
+        "ossuary_vault",
+        "severed_ward_vault",
+        "entry_descent",
+        "maze_of_orders",
+        "siege_magazine",
+        "buried_barracks",
+        "war_infirmary"
+      ],
+      [
+        "war_infirmary",
+        "ossuary_vault",
+        "severed_ward_vault",
+        "titan_dissection_gallery",
+        "entry_descent",
+        "siege_magazine",
+        "buried_barracks",
+        "war_infirmary",
+        "ossuary_vault"
+      ],
+      [
+        "ossuary_vault",
+        "severed_ward_vault",
+        "titan_dissection_gallery",
+        "maze_of_orders",
+        "entry_descent",
+        "buried_barracks",
+        "war_infirmary",
+        "ossuary_vault",
+        "severed_ward_vault"
+      ],
+      [
+        "severed_ward_vault",
+        "titan_dissection_gallery",
+        "maze_of_orders",
+        "siege_magazine",
+        "entry_descent",
+        "war_infirmary",
+        "ossuary_vault",
+        "severed_ward_vault",
+        "titan_dissection_gallery"
+      ],
+      [
+        "entry_descent"
+      ],
+      [
+        "entry_descent_ossuary"
+      ]
+    ],
+    "registry_probes": {
+      "alfheim:riftshale_livingrock": {
+        "id": "alfheim:riftshale_livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:war_masonry_scorched": {
+        "id": "alfheim:war_masonry_scorched",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:war_bulwark_bricks": {
+        "id": "alfheim:war_bulwark_bricks",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:air": {
+        "id": "minecraft:air",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "alfheim:war_wardplate_fractured": {
+        "id": "alfheim:war_wardplate_fractured",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "botania:dreamwood_planks": {
+        "id": "botania:dreamwood_planks",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:white_wool": {
+        "id": "minecraft:white_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "alfheim:mana_glass_light": {
+        "id": "alfheim:mana_glass_light",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:golem_conduit_severed": {
+        "id": "alfheim:golem_conduit_severed",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:bio_sludge_mineralized": {
+        "id": "alfheim:bio_sludge_mineralized",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_bone_fractured": {
+        "id": "alfheim:titan_bone_fractured",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:bio_sludge_coagulated": {
+        "id": "alfheim:bio_sludge_coagulated",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_flesh_necrotic": {
+        "id": "alfheim:titan_flesh_necrotic",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_hide_pallid": {
+        "id": "alfheim:titan_hide_pallid",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_hide_bruised": {
+        "id": "alfheim:titan_hide_bruised",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_hide_sloughed": {
+        "id": "alfheim:titan_hide_sloughed",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_bone": {
+        "id": "alfheim:titan_bone",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_bone_marrow": {
+        "id": "alfheim:titan_bone_marrow",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_organ_matter": {
+        "id": "alfheim:titan_organ_matter",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_organ_liquefied": {
+        "id": "alfheim:titan_organ_liquefied",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_organ_calcified": {
+        "id": "alfheim:titan_organ_calcified",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_hide_charred": {
+        "id": "alfheim:titan_hide_charred",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_sinew": {
+        "id": "alfheim:titan_sinew",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:bio_sludge_desiccated": {
+        "id": "alfheim:bio_sludge_desiccated",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_flesh_desiccated": {
+        "id": "alfheim:titan_flesh_desiccated",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_hide_petrified": {
+        "id": "alfheim:titan_hide_petrified",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:ivory_livingrock_stairs": {
+        "id": "alfheim:ivory_livingrock_stairs",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:bio_sludge_putrefied": {
+        "id": "alfheim:bio_sludge_putrefied",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_flesh_putrescent": {
+        "id": "alfheim:titan_flesh_putrescent",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:golem_lattice_shards": {
+        "id": "alfheim:golem_lattice_shards",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:golem_crystal_scorched": {
+        "id": "alfheim:golem_crystal_scorched",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:golem_crystal_voidscarred": {
+        "id": "alfheim:golem_crystal_voidscarred",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:golem_crystal_fractured": {
+        "id": "alfheim:golem_crystal_fractured",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:golem_core_socket_empty": {
+        "id": "alfheim:golem_core_socket_empty",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:gray_wool": {
+        "id": "minecraft:gray_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:black_wool": {
+        "id": "minecraft:black_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:barrel": {
+        "id": "minecraft:barrel",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:bookshelf": {
+        "id": "minecraft:bookshelf",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:spawner": {
+        "id": "minecraft:spawner",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      }
+    },
+    "minimum_y": 32,
+    "surface_widths": [
+      141,
+      141,
+      141,
+      141,
+      141,
+      141,
+      47,
+      47
+    ],
+    "pieces_per_site": [
+      18,
+      18,
+      18,
+      18,
+      18,
+      18,
+      2,
+      2
+    ],
+    "route": "four aligned floor-level portals per basement tile; continuous 24-step entry"
+  },
+  "registry_evidence": {
+    "status": "REGISTERED_IN_FORGE",
+    "registered_ids": [
+      "alfheim:bio_sludge_coagulated",
+      "alfheim:bio_sludge_desiccated",
+      "alfheim:bio_sludge_mineralized",
+      "alfheim:bio_sludge_putrefied",
+      "alfheim:bio_sludge_saturated",
+      "alfheim:golem_conduit_severed",
+      "alfheim:golem_core_socket_empty",
+      "alfheim:golem_crystal_fractured",
+      "alfheim:golem_crystal_scorched",
+      "alfheim:golem_crystal_voidscarred",
+      "alfheim:golem_lattice_shards",
+      "alfheim:titan_bone",
+      "alfheim:titan_bone_fractured",
+      "alfheim:titan_bone_marrow",
+      "alfheim:titan_cartilage_ossified",
+      "alfheim:titan_flesh_desiccated",
+      "alfheim:titan_flesh_fibrous",
+      "alfheim:titan_flesh_necrotic",
+      "alfheim:titan_flesh_putrescent",
+      "alfheim:titan_hide_bruised",
+      "alfheim:titan_hide_charred",
+      "alfheim:titan_hide_pallid",
+      "alfheim:titan_hide_petrified",
+      "alfheim:titan_hide_sloughed",
+      "alfheim:titan_ligament_torn",
+      "alfheim:titan_organ_calcified",
+      "alfheim:titan_organ_liquefied",
+      "alfheim:titan_organ_matter",
+      "alfheim:titan_sinew",
+      "alfheim:war_bulwark_bricks",
+      "alfheim:war_masonry_scorched",
+      "alfheim:war_wardplate_fractured"
+    ],
+    "expected_count": 32,
+    "world": "validation-void-war-20261015",
+    "console": "server\\console-20261015-161942.log",
+    "installed_jar_sha256": "1775646bfa0c573c1eba5ea5204f618c4c4bf56ef0b851cc539444f504bb0c53"
+  }
+}

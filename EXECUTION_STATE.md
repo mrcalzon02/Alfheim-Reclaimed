@@ -1,5 +1,32 @@
 # Execution State
 
+## Void frontier war remnants implemented — 2026-10-15
+
+User-confirmed habitats: Void Verge and Void Shore only. Added eight war-remnant
+families, 25 CW-generated templates, 32 registered decay/crystal/military blocks and
+96 texture variants. Six 141-square complexes have nine connected underground tiles
+(200 maze chambers plus an atrium); two compact profiles fit 47-square surviving
+hosts. Empty-core crystal hulks, severed limbs and three biomass-titan decay forms
+share battlefields with breached defenses, camps, medical and military ruins.
+All entries have a validated 24-step descent and restored crossroads bridge.
+
+Java17 build/66 tests, source equality, navigation/core/fixture/material audits and
+terrain/model/harbor/feature-order guards pass. Fresh natural generation passes a
+Void Shore fortress (18 pieces) and Void Verge redoubt (2 pieces), including 2,880
+saved biome cells, stairs/headroom, two bounded spawners and eight salvage caches.
+Natural geometry: 3,619/3,629 sampled blocks match; the ten substitutions are existing
+native ore features in Riftshale foundations. All 25 gallery templates pass 4,534/4,534
+samples, two spawner and eleven cache records. Far Overworld biome and protected
+home-origin negative controls explicitly reject. Installed/built/server jar and
+25 emitted template hashes match the runtime proof.
+
+Design: `alfheim_reclaimed_design/void/VOID_WAR_REMNANTS.md`. Evidence:
+`tools/void_war_runtime_report.json`, `tools/void_war_generation_report.json`,
+`tools/void_war_registry_report.json`, `tools/void_war_static_report.json`.
+Next: client visuals/combat/density and old/new chunk boundaries; unrelated non-Void
+surface proximity remains a separate compatibility review. Broad terrain and player
+saves remain unchanged. Requires a full Minecraft restart for new registrations.
+
 ## Underground allocation repaired — 2026-10-15
 
 Sparse seed-stable discovery reservations now have priority over the pack's own

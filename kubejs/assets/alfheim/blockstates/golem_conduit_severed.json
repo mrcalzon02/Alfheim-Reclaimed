@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alfheim:block/golem_conduit_severed"
+      },
+      {
+        "model": "alfheim:block/golem_conduit_severed_v1"
+      },
+      {
+        "model": "alfheim:block/golem_conduit_severed_v2"
+      }
+    ]
+  }
+}

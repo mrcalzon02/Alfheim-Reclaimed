@@ -1392,6 +1392,8 @@ def salt_for(sid):
 
 
 def write_json(path, obj, dry):
+    from void_war_policy import apply as void_war_policy
+    obj=void_war_policy(path,obj)
     if dry:
         return
     os.makedirs(os.path.dirname(path), exist_ok=True)
