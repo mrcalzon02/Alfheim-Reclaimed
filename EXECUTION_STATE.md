@@ -1,5 +1,26 @@
 # Execution State
 
+## Functional district room placement — 2026-10-15
+
+Continuity Works furnished 55 of the existing 109 district templates with 109
+functional objects across all twelve district families. All eleven utility models
+are used. The deterministic shared source hook selects at most two supported,
+covered corners with a two-wide approach and preserves each original walking
+component. All 310 original block-entity records remain unchanged.
+
+Independent source/cell/route checks, the previous twelve eightfold architectural
+floors, 39 protected terrain hashes and 123 model face checks pass. The isolated
+55-template saved gallery verifies 60 empty storage block entities, 49 correctly
+facing workstations and 55 retained unopened loot records. Vanilla placement assigns
+loot seeds; original template loot metadata is unchanged. No district placement
+policy or player rooms are rewritten. New layouts appear in newly generated chunks
+after structure templates reload. Client exploration remains pending.
+
+Evidence: `alfheim_reclaimed_design/DISTRICT_FURNISHING_PLACEMENT.md`,
+`tools/district_furnishing_placement_report.json`,
+`tools/district_furnishing_placement_static_report.json`,
+`tools/furnished_district_runtime_report.json`.
+
 ## District utility furnishings — 2026-10-15
 
 Added eleven native modeled furnishings in Alfheim Leyworks: six persistent storage

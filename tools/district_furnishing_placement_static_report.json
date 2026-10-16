@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "source_templates": 109,
+  "furnished_templates": 55,
+  "placed_objects": 109,
+  "families": {
+    "agricultural_estate": 4,
+    "civic_center": 5,
+    "common_residential": 5,
+    "elder_lineage": 1,
+    "frontier_stewardship": 3,
+    "harbor_complex": 6,
+    "military_warden": 4,
+    "production_district": 6,
+    "relief_district": 6,
+    "roads_trade": 6,
+    "sacred_precinct": 4,
+    "scholastic_quarter": 5
+  },
+  "objects": {
+    "alfheim_leyworks:district_seed_cabinet": 4,
+    "alfheim_leyworks:district_artificer_desk": 14,
+    "alfheim_leyworks:district_market_counter": 17,
+    "alfheim_leyworks:district_archive_cabinet": 15,
+    "alfheim_leyworks:district_provision_hutch": 14,
+    "alfheim_leyworks:district_weaving_frame": 10,
+    "alfheim_leyworks:district_cartographers_table": 15,
+    "alfheim_leyworks:district_armory_locker": 4,
+    "alfheim_leyworks:district_mending_bench": 4,
+    "alfheim_leyworks:district_masons_bench": 6,
+    "alfheim_leyworks:district_apothecary_cabinet": 6
+  },
+  "protected_block_entities": 310,
+  "contracts": [
+    "unchanged template size/cell ownership/entities",
+    "all original block entities and loot unchanged",
+    "original supported walking components remain connected",
+    "two-wide approach and wall backing",
+    "two objects per template maximum",
+    "all generated furnishing cells reproduce deterministic source"
+  ]
+}

@@ -63,12 +63,12 @@ spines' processed supplies. They do not yield a tier ladder item or bypass a run
 
 ## Placement boundary
 
-This wave supplies usable objects and the district furnishing inventory. It does
-not automatically replace existing dungeon loot barrels or rewrite saved rooms.
+The [district room placement pass](DISTRICT_FURNISHING_PLACEMENT.md) now installs
+109 empty functional objects in 55 existing templates across all twelve district
+families. Unopened loot barrels and previously generated rooms are retained.
 No natural structure set, district spacing rule, foundation or terrain file is
 changed. In particular, the new fixed containers do not implement randomized loot
-tables, so replacing a loot-bearing barrel would lose its unopened loot contract.
-That conversion is deliberately outside this modeling wave.
+tables. They occupy validated room-corner air cells instead of replacing loot.
 
 For a manual review, `/function alfheim_leyworks:district_furnishings/review` places
 all eleven **empty** fixtures relative to the caller in a 16×4-block gallery. Use a

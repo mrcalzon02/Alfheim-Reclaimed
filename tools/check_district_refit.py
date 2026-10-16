@@ -16,6 +16,9 @@ def orphan_cells(root):
 
 
 def main():
+    if (ROOT/'tools/district_furnishing_placement_report.json').exists():
+        from check_furnished_districts import main as check_furnishings
+        check_furnishings()
     report=json.loads((ROOT/'tools/continuity_district_refit_report.json').read_text())
     changed=relief=pieces=0
     for family in report['families']:
@@ -25,6 +28,10 @@ def main():
             relative=Path('kubejs/data/alfheim/structures/ancient')/family['family']/(metric['piece']+'.nbt')
             before=nbt.load(ROOT/'build/continuity-district-refit/baseline'/relative)[1]
             after=nbt.load(ROOT/relative)[1]
+            # Furnishing placement has its own exact-cell/loot/connectivity audit;
+            # retain this older eightfold architectural metric on its original air cells.
+            from district_furnishing_placement import without_furnishings
+            after=without_furnishings(after)
             actual=compare(before,after)
             assert not orphan_cells(after)-orphan_cells(before),('new orphan geometry',relative)
             assert all(actual[k]==metric[k] for k in actual),relative

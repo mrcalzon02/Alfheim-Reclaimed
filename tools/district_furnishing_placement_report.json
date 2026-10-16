@@ -1,0 +1,2068 @@
+{
+  "capability": "Continuity Works StructureCapability.generate",
+  "target_version": "1.20.1",
+  "registry_evidence": "tools/district_furnishings_runtime_report.json",
+  "placement_policy": "unchanged existing same-family rooms; no independent structures added",
+  "families": [
+    {
+      "snapshot_id": "20261016T060818Z-alfheim_district_furnishings_common_residential-generate-6e9eb82f",
+      "family": "common_residential",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/common_residential/artisan_house_shop.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                17,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "0ef6366929a6dab0bf60f7a8fb12818169019627799356920a132e89a81448ef"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/common_residential/common_row_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                10,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "cf56deead8bced34151b8d02c8d6e39c8de47d53ac30c704ee4b078f47e6f8f0"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/common_residential/courtyard_home.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                11,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "68ad20bb7d4ea545450dd192f35c2283fb727dcf8245ef39b852a4a71ae654fc"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/common_residential/extended_kin_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                17,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "54e3d9eba7004f0a862f3f029ec2119b1e99d361fe4500a19553027d407fcfe1"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/common_residential/neighborhood_common_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                45,
+                7,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "9d23b1a623c3e3a8d803ec9b762bc5087f48e1e3ec8d4a32f7398153305f570c"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_provision_hutch": {
+          "id": "alfheim_leyworks:district_provision_hutch",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_weaving_frame": {
+          "id": "alfheim_leyworks:district_weaving_frame",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060827Z-alfheim_district_furnishings_elder_lineage-generate-9b68f8c9",
+      "family": "elder_lineage",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/elder_lineage/family_residence.nbt",
+          "placements": [
+            {
+              "pos": [
+                10,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                2,
+                9,
+                13
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "915784d6407f15479d09eca702dab6ab1068edc071c49463e438a56772ffbfad"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_archive_cabinet": {
+          "id": "alfheim_leyworks:district_archive_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_weaving_frame": {
+          "id": "alfheim_leyworks:district_weaving_frame",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060837Z-alfheim_district_furnishings_civic_center-generate-2d7ba016",
+      "family": "civic_center",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/civic_center/assembly_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "7c9f5c63d49788766f9ca5364db254bab5a528e6ab4b681336fde0572494d601"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/civic_center/census_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "f495b5a6afec0eb7130459d07c9c3c2597b416b8440c7c52cf44616496465d3e"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/civic_center/council_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "a96df5848c519f4f41042d40977e99b45a2023cea9ff2d221c6903c1946bbcda"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/civic_center/public_kitchen.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "4585bdb1262b23c16fbd0e5fabb0562551a4bd77b5367dddaa4acf41f57f0068"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/civic_center/record_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "7f220660567e583ae3e8da846c29cc53907c80b28adfcb839ba19ab7a0e68bab"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_market_counter": {
+          "id": "alfheim_leyworks:district_market_counter",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_archive_cabinet": {
+          "id": "alfheim_leyworks:district_archive_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060848Z-alfheim_district_furnishings_relief_district-generate-4a97e4de",
+      "family": "relief_district",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/relief_district/digger_shelter.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_apothecary_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "81f4b99d835eec312c7619f3c6ff0ded933f4708b6a7da7ef5436e704b2a1de1"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/relief_district/healer_cloister.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_apothecary_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "0ccd1b6172e0b03432ffb52d79e1bd96cba7cddf8bd08c9c76a75f26a58b7bcd"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/relief_district/hospice_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_apothecary_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "fe999df505362964d2496a5004565ceea3487b3d3b1ffd07759ce90ad62efdab"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/relief_district/ration_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_apothecary_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "3578e747ba84f2b4df5dc64b065df9108d6602cc68f54c199280565c76502ee3"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/relief_district/sealed_store.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_apothecary_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "379f421f817fa12838fef0ee44df5d08c69c557c228ce47513f74d03a0e664b0"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/relief_district/triage_court.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_apothecary_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "7db51016c428437d72cea50e72c028996c070a7de6a0e6324fec9e6bf6c5d0ce"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_apothecary_cabinet": {
+          "id": "alfheim_leyworks:district_apothecary_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_provision_hutch": {
+          "id": "alfheim_leyworks:district_provision_hutch",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060859Z-alfheim_district_furnishings_scholastic_quarter-generate-16fab051",
+      "family": "scholastic_quarter",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/archive_cloister.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "f2c07b524844b58770356b7ed53be84c9b5d8ce95c428cd0231428281940db9b"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/astral_conservatory.nbt",
+          "placements": [
+            {
+              "pos": [
+                31,
+                9,
+                10
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 1,
+          "sha256": "e026801106996107405daac4e6e0bd77a8063e6e5507762aee0bd10fda846d50"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/lore_college.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "c4aa5ee09ef684428fe025ef178a4c580fe3a173b2d8a51df8445243c47a677d"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/runic_engineering_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "8a41aac928cd69ddf0946e24a663e519458101704161cabaa3eb6199ba58cfcd"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/student_residence.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "f4f42c4b40d5b10c274ecdd78cbc967a293303d204dde8e8c6b82a58cd73291f"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_archive_cabinet": {
+          "id": "alfheim_leyworks:district_archive_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_artificer_desk": {
+          "id": "alfheim_leyworks:district_artificer_desk",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060911Z-alfheim_district_furnishings_production_district-generate-e69a0194",
+      "family": "production_district",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/production_district/distribution_depot.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_masons_bench",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "1f876085403d78914bd7a7afb6fcf74d4793d8cff090d379073c1bb490ce0ea7"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/production_district/glass_bloom_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_masons_bench",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "04240d7396cbd5325007b68af7a70a8e21cea7e0d41669bb7ff7bfbd799c525e"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/production_district/guard_post.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_masons_bench",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "46dc45402523adc5e24531e0453049298e402f886d9ed91538ef7275708ab3be"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/production_district/mana_mill.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_masons_bench",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 3,
+          "changed_cells": 2,
+          "sha256": "08580e3a146f21bbd4a4db71528ac4bc531829cb7709bd3b72303533733ebd6d"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/production_district/resonance_foundry.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_masons_bench",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 3,
+          "changed_cells": 2,
+          "sha256": "30c2fcb9699d918d04fd11e770ca30b957550c2193369128700bbf1bdafe7001"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/production_district/worker_housing.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_masons_bench",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "73c6c68059520abf170803c0bbbf3b2ddb831e624ac6e9914f059871ae927ed4"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_masons_bench": {
+          "id": "alfheim_leyworks:district_masons_bench",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_artificer_desk": {
+          "id": "alfheim_leyworks:district_artificer_desk",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060921Z-alfheim_district_furnishings_agricultural_estate-generate-67203421",
+      "family": "agricultural_estate",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/agricultural_estate/fungus_conservatory.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_seed_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "13b4707c416327c681674ef2b7c0071a5a8f866d74e0742859747142e643087a"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/agricultural_estate/keeper_housing.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_seed_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "b879c9f52dd3bf85121b9245722424292a59bc2f6a3bcd75f8569410e3a54fca"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/agricultural_estate/root_granary.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_seed_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 3,
+          "changed_cells": 2,
+          "sha256": "20ae644b5426ee481055150f359630393eb27c1cbfad8b35a87f453e8b4698ab"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/agricultural_estate/seed_vault.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_seed_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_artificer_desk",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "2e7dbbc4ed63a95f6147e1161c8ac4c263991b4e052edd22e3cbf5ba285c8d93"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_seed_cabinet": {
+          "id": "alfheim_leyworks:district_seed_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_artificer_desk": {
+          "id": "alfheim_leyworks:district_artificer_desk",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060932Z-alfheim_district_furnishings_roads_trade-generate-81252479",
+      "family": "roads_trade",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/roads_trade/bonded_store.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "3385fd8dc969bde3ddc6af7d1eae6d18158365d92aea43a42827b408f297b41d"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/roads_trade/bridge_gate.nbt",
+          "placements": [
+            {
+              "pos": [
+                20,
+                4,
+                14
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                20,
+                4,
+                24
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "27e4fbb518b57d855ac1c93b1a4bdcb4ae2bd0f696b888755e0865fa7374601a"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/roads_trade/custom_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 3,
+          "changed_cells": 2,
+          "sha256": "0c374390e55b866256afcb7decb1ece14db14f8733a666fe7d6efa8eb6261bf1"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/roads_trade/freight_exchange.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "f695cd08b40ca01b130254017df5605a2922411db6fa3c178221119d93d6cb96"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/roads_trade/refugee_lodge.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "37a32733e94aeb2ba09203d9902a7e25906d52375cdef06e8a640365f5df54b1"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/roads_trade/wayshrine_rest.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "77437a37137b22be5cbd1cbdee13885e72bb579fc40053f0bc8e609edbc65212"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_market_counter": {
+          "id": "alfheim_leyworks:district_market_counter",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_cartographers_table": {
+          "id": "alfheim_leyworks:district_cartographers_table",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060945Z-alfheim_district_furnishings_harbor_complex-generate-811f8d1c",
+      "family": "harbor_complex",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/harbor_complex/bonded_warehouse.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 3,
+          "changed_cells": 2,
+          "sha256": "bc8b8217603a8c757f1c2662109757e85cec4ab4fca59d096e20d9afd8285446"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/harbor_complex/dockworker_housing.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "c09dff64889db1394a87835824fbe5f22e05fc9c8b25d7fd9d471de760cfbcb4"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/harbor_complex/harbor_exchange.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "4a854bc7f33febec8ca28258ed1b6fdb730f3215279d641fbf09415c8a4f9613"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/harbor_complex/harbormaster_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "2c2ec47651feac6ef3451e33e9af1944a68cb4f93b86170f7d07a4cb9daa2329"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/harbor_complex/signal_lighthouse.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "2dce73b8ea5600d2fc5da45ddd842b1cea1d3f2ff87b38962dfb3d04e1c9e2bd"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/harbor_complex/tide_temple.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_market_counter",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "b2bdae9c8977208ce438df8b251c4752f98c7575fda3f36b5d414fe8a76e4800"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_market_counter": {
+          "id": "alfheim_leyworks:district_market_counter",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_cartographers_table": {
+          "id": "alfheim_leyworks:district_cartographers_table",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T060952Z-alfheim_district_furnishings_sacred_precinct-generate-e612fc63",
+      "family": "sacred_precinct",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/sacred_precinct/great_temple_court.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "67d8e3290e06b296c10aa0b786a85a4bea7f1486cc9b44dce72a870d10cbb6f2"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/sacred_precinct/pilgrim_chapel.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "1203882d26b074b90a08fc227c7135bb40d737d1956ae3ba9fb3b4552714e7b5"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/sacred_precinct/rite_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "a4e7a1e24ab9abe1d13ee3d5ac1b461a4998f7a3b75e2db432875876748b0936"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/sacred_precinct/temple_reliquary.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_archive_cabinet",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_weaving_frame",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "300f1639c7f89469ae60fe441c4758ab63c77ca15d52f73cfe36384edde3daf6"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_archive_cabinet": {
+          "id": "alfheim_leyworks:district_archive_cabinet",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_weaving_frame": {
+          "id": "alfheim_leyworks:district_weaving_frame",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T061001Z-alfheim_district_furnishings_military_warden-generate-f1f13e6e",
+      "family": "military_warden",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/military_warden/border_keep.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_armory_locker",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_mending_bench",
+              "facing": "west",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "b7969f20ef3843aa2432d3df5d9eb7ae408025653d4f23005bf5c47b7f7c4988"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/military_warden/gate_barracks.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_armory_locker",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_mending_bench",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "5e09b17a070d349b6f50fe1f2f76c3dadd5cfc73906043439ad871e7eba0d7d7"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/military_warden/warden_tower.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_armory_locker",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_mending_bench",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "b982e71f6bba8bfea70a3d149b4d7492f5c8d5e3aa6a63bffc9208fcf0650f8c"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/military_warden/watch_captain_house.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_armory_locker",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_mending_bench",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "3f5491e1440e6a04147adaf58f97e31d2fc05809df2d18987d74d9bb7c4b0785"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_armory_locker": {
+          "id": "alfheim_leyworks:district_armory_locker",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_mending_bench": {
+          "id": "alfheim_leyworks:district_mending_bench",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    },
+    {
+      "snapshot_id": "20261016T061008Z-alfheim_district_furnishings_frontier_stewardship-generate-261c3628",
+      "family": "frontier_stewardship",
+      "templates": [
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/frontier_stewardship/green_noble_lodge.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                44,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 5,
+          "changed_cells": 2,
+          "sha256": "8b80b248f13ba81820aeacda41e66e77359fba331551a0fd3dc61cd948868ceb"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/frontier_stewardship/outlying_retreat_hall.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                36,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "255d31c6618dc6f6700f45057457f78281fd07c262fdc3f2a37a3b45c276660d"
+        },
+        {
+          "file": "kubejs/data/alfheim/structures/ancient/frontier_stewardship/surveyor_tower.nbt",
+          "placements": [
+            {
+              "pos": [
+                2,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_cartographers_table",
+              "facing": "east",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "pos": [
+                28,
+                9,
+                2
+              ],
+              "id": "alfheim_leyworks:district_provision_hutch",
+              "facing": "south",
+              "original": {
+                "Name": "minecraft:air"
+              }
+            }
+          ],
+          "preserved_block_entities": 2,
+          "changed_cells": 2,
+          "sha256": "2c604c7beb0d5827afc207ed57ef0baee4de16fa0aa950b1970c673e3902213a"
+        }
+      ],
+      "registry_probes": {
+        "alfheim_leyworks:district_cartographers_table": {
+          "id": "alfheim_leyworks:district_cartographers_table",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        },
+        "alfheim_leyworks:district_provision_hutch": {
+          "id": "alfheim_leyworks:district_provision_hutch",
+          "kind": "block",
+          "level": "exact",
+          "namespace_known": true,
+          "evidence": [
+            "explicit_registry_id"
+          ]
+        }
+      }
+    }
+  ]
+}

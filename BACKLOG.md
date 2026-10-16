@@ -1,11 +1,20 @@
 # Backlog
 
+### District room furnishing — shipped in new templates
+
+55 existing room templates across all twelve district families now place 109
+functional objects: 60 empty inventories and 49 workstations. All eleven models are
+used, with two objects per template maximum. Source/route/loot audits and the full
+saved template gallery pass. Next: visual exploration in newly generated districts,
+including rotated jigsaw pieces and transitions into previously generated chunks.
+Existing rooms and loot barrels remain intact.
+
 ### District utility furniture — functional library built
 
 Eleven modeled, craftable objects now provide six storage capacities/profiles and
 five real crafting/processing interfaces. New storage and workstation recipes use
 Purified Titan Resin and Tempered War Lattice. Complete client visual, hand-placement
-and multiplayer interface review. A later district placement pass may use the
+and multiplayer interface review. The district placement pass now uses the
 room-role inventory in `DISTRICT_UTILITY_FURNISHINGS.md`; preserve unopened loot
 barrels because these fixed inventories do not implement randomized loot tables.
 

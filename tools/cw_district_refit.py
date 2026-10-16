@@ -92,7 +92,8 @@ class DistrictProvider:
         for path in sorted(new_dir.glob('*.nbt')):
             before = nbt.load(old_dir/path.name)[1]
             after = nbt.load(path)[1]
-            metric = compare(before,after)
+            from district_furnishing_placement import without_furnishings
+            metric = compare(before,without_furnishings(after))
             for state in after['palette']:
                 rid = state['Name']
                 if rid not in probes:
@@ -127,6 +128,8 @@ def main():
     # Published inventory extension: use an actual running-server registry export,
     # rather than treating a discovered namespace/model as proof of registration.
     cap.inventory.add_registry_ids(json.loads(registry_path.read_text()),kind='block')
+    from district_furnishing_placement import verified_registry_ids
+    cap.inventory.add_registry_ids(verified_registry_ids(),kind='block')
     stage.mkdir(parents=True,exist_ok=True)
     (stage/'tool-catalog.json').write_text(json.dumps(cap.tools(),indent=2))
     (stage/'inventory.json').write_text(json.dumps(cap.inventory_project(),indent=2))

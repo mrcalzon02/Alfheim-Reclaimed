@@ -1,0 +1,579 @@
+{
+  "status": "SAVED_FURNISHED_TEMPLATES_PASS",
+  "world": "validation-furnished-districts-20261015",
+  "console": "server\\console-20261015-221145.log",
+  "templates": 55,
+  "families": [
+    "agricultural_estate",
+    "civic_center",
+    "common_residential",
+    "elder_lineage",
+    "frontier_stewardship",
+    "harbor_complex",
+    "military_warden",
+    "production_district",
+    "relief_district",
+    "roads_trade",
+    "sacred_precinct",
+    "scholastic_quarter"
+  ],
+  "storage_block_entities": 60,
+  "workstations": 49,
+  "preserved_loot_records": 55,
+  "native_loot_seeds": [
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/common_residential/artisan_house_shop.nbt",
+      "pos": [
+        4,
+        87,
+        15
+      ],
+      "seed": 1895144514370695220
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/common_residential/common_row_house.nbt",
+      "pos": [
+        52,
+        87,
+        12
+      ],
+      "seed": 7269022297259492408
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/common_residential/courtyard_home.nbt",
+      "pos": [
+        100,
+        87,
+        13
+      ],
+      "seed": 7673880861440762914
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/common_residential/extended_kin_hall.nbt",
+      "pos": [
+        148,
+        87,
+        16
+      ],
+      "seed": 6702220304828733322
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/common_residential/neighborhood_common_hall.nbt",
+      "pos": [
+        8,
+        87,
+        72
+      ],
+      "seed": 5401715442067674186
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/elder_lineage/family_residence.nbt",
+      "pos": [
+        55,
+        89,
+        58
+      ],
+      "seed": 6123850921291250748
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/civic_center/assembly_hall.nbt",
+      "pos": [
+        103,
+        89,
+        58
+      ],
+      "seed": 4816736125663455100
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/civic_center/census_hall.nbt",
+      "pos": [
+        151,
+        89,
+        58
+      ],
+      "seed": 5186892529409457029
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/civic_center/council_house.nbt",
+      "pos": [
+        7,
+        89,
+        106
+      ],
+      "seed": -7466242843984902445
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/civic_center/public_kitchen.nbt",
+      "pos": [
+        55,
+        89,
+        106
+      ],
+      "seed": -8799797383964546030
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/civic_center/record_house.nbt",
+      "pos": [
+        103,
+        89,
+        106
+      ],
+      "seed": -8408158689811715844
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/relief_district/digger_shelter.nbt",
+      "pos": [
+        151,
+        89,
+        106
+      ],
+      "seed": 9080144697314246501
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/relief_district/healer_cloister.nbt",
+      "pos": [
+        7,
+        89,
+        154
+      ],
+      "seed": -8976613165459159058
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/relief_district/hospice_hall.nbt",
+      "pos": [
+        55,
+        89,
+        154
+      ],
+      "seed": 8077086942405349292
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/relief_district/ration_hall.nbt",
+      "pos": [
+        103,
+        89,
+        154
+      ],
+      "seed": -4514906517611959076
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/relief_district/sealed_store.nbt",
+      "pos": [
+        151,
+        89,
+        154
+      ],
+      "seed": -4111700436647372698
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/relief_district/triage_court.nbt",
+      "pos": [
+        7,
+        137,
+        10
+      ],
+      "seed": -5517964272520856285
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/archive_cloister.nbt",
+      "pos": [
+        55,
+        137,
+        10
+      ],
+      "seed": -4681807399806467336
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/astral_conservatory.nbt",
+      "pos": [
+        103,
+        137,
+        10
+      ],
+      "seed": -6025276843381182985
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/lore_college.nbt",
+      "pos": [
+        151,
+        137,
+        10
+      ],
+      "seed": -5732787185179073442
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/runic_engineering_hall.nbt",
+      "pos": [
+        7,
+        137,
+        58
+      ],
+      "seed": -6597036285461994455
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/scholastic_quarter/student_residence.nbt",
+      "pos": [
+        55,
+        137,
+        58
+      ],
+      "seed": 8655522138614240020
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/production_district/distribution_depot.nbt",
+      "pos": [
+        103,
+        137,
+        58
+      ],
+      "seed": 8951316763249717819
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/production_district/glass_bloom_house.nbt",
+      "pos": [
+        151,
+        137,
+        58
+      ],
+      "seed": 8087067662966796806
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/production_district/guard_post.nbt",
+      "pos": [
+        7,
+        137,
+        106
+      ],
+      "seed": 8384514770818958733
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/production_district/mana_mill.nbt",
+      "pos": [
+        55,
+        137,
+        106
+      ],
+      "seed": 7087314878786235150
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/production_district/resonance_foundry.nbt",
+      "pos": [
+        103,
+        137,
+        106
+      ],
+      "seed": 6173491256232986519
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/production_district/worker_housing.nbt",
+      "pos": [
+        151,
+        137,
+        106
+      ],
+      "seed": 6474243334813483998
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/agricultural_estate/fungus_conservatory.nbt",
+      "pos": [
+        7,
+        137,
+        154
+      ],
+      "seed": -6496168949328214235
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/agricultural_estate/keeper_housing.nbt",
+      "pos": [
+        55,
+        137,
+        154
+      ],
+      "seed": -5714544044239237992
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/agricultural_estate/root_granary.nbt",
+      "pos": [
+        103,
+        137,
+        154
+      ],
+      "seed": -7120807880112721578
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/agricultural_estate/seed_vault.nbt",
+      "pos": [
+        151,
+        137,
+        154
+      ],
+      "seed": -6710991861986431392
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/roads_trade/bonded_store.nbt",
+      "pos": [
+        7,
+        185,
+        10
+      ],
+      "seed": -7677694973243375896
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/roads_trade/bridge_gate.nbt",
+      "pos": [
+        55,
+        185,
+        10
+      ],
+      "seed": -9021164412523124249
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/roads_trade/custom_house.nbt",
+      "pos": [
+        103,
+        185,
+        10
+      ],
+      "seed": -8262674285352627686
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/roads_trade/freight_exchange.nbt",
+      "pos": [
+        151,
+        185,
+        10
+      ],
+      "seed": -2830959568405049537
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/roads_trade/refugee_lodge.nbt",
+      "pos": [
+        7,
+        185,
+        58
+      ],
+      "seed": -2417838579550423798
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/roads_trade/wayshrine_rest.nbt",
+      "pos": [
+        55,
+        185,
+        58
+      ],
+      "seed": -3761308023125139447
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/harbor_complex/bonded_warehouse.nbt",
+      "pos": [
+        103,
+        185,
+        58
+      ],
+      "seed": -4736273554760471887
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/harbor_complex/dockworker_housing.nbt",
+      "pos": [
+        151,
+        185,
+        58
+      ],
+      "seed": -4328110015555898533
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/harbor_complex/harbor_exchange.nbt",
+      "pos": [
+        7,
+        185,
+        106
+      ],
+      "seed": -5314642934002987166
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/harbor_complex/harbormaster_house.nbt",
+      "pos": [
+        55,
+        185,
+        106
+      ],
+      "seed": -4903174428365045556
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/harbor_complex/signal_lighthouse.nbt",
+      "pos": [
+        103,
+        185,
+        106
+      ],
+      "seed": 530192776094184018
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/harbor_complex/tide_temple.nbt",
+      "pos": [
+        151,
+        185,
+        106
+      ],
+      "seed": -441467784812812870
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/sacred_precinct/great_temple_court.nbt",
+      "pos": [
+        7,
+        185,
+        154
+      ],
+      "seed": -61396477471738876
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/sacred_precinct/pilgrim_chapel.nbt",
+      "pos": [
+        55,
+        185,
+        154
+      ],
+      "seed": -1383383630639626269
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/sacred_precinct/rite_house.nbt",
+      "pos": [
+        103,
+        185,
+        154
+      ],
+      "seed": -659595663904398283
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/sacred_precinct/temple_reliquary.nbt",
+      "pos": [
+        151,
+        185,
+        154
+      ],
+      "seed": -1946880656637017099
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/military_warden/border_keep.nbt",
+      "pos": [
+        7,
+        233,
+        10
+      ],
+      "seed": -1626298770866375491
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/military_warden/gate_barracks.nbt",
+      "pos": [
+        55,
+        233,
+        10
+      ],
+      "seed": -9150782150184158331
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/military_warden/warden_tower.nbt",
+      "pos": [
+        103,
+        233,
+        10
+      ],
+      "seed": 7962407383545749700
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/military_warden/watch_captain_house.nbt",
+      "pos": [
+        151,
+        233,
+        10
+      ],
+      "seed": 8261506978909563052
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/frontier_stewardship/green_noble_lodge.nbt",
+      "pos": [
+        7,
+        233,
+        58
+      ],
+      "seed": 7382385516791582998
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/frontier_stewardship/outlying_retreat_hall.nbt",
+      "pos": [
+        55,
+        233,
+        58
+      ],
+      "seed": 7683137595372080478
+    },
+    {
+      "template": "kubejs/data/alfheim/structures/ancient/frontier_stewardship/surveyor_tower.nbt",
+      "pos": [
+        103,
+        233,
+        58
+      ],
+      "seed": 6341320635014048957
+    }
+  ],
+  "template_sha256": {
+    "kubejs/data/alfheim/structures/ancient/common_residential/artisan_house_shop.nbt": "0ef6366929a6dab0bf60f7a8fb12818169019627799356920a132e89a81448ef",
+    "kubejs/data/alfheim/structures/ancient/common_residential/common_row_house.nbt": "cf56deead8bced34151b8d02c8d6e39c8de47d53ac30c704ee4b078f47e6f8f0",
+    "kubejs/data/alfheim/structures/ancient/common_residential/courtyard_home.nbt": "68ad20bb7d4ea545450dd192f35c2283fb727dcf8245ef39b852a4a71ae654fc",
+    "kubejs/data/alfheim/structures/ancient/common_residential/extended_kin_hall.nbt": "54e3d9eba7004f0a862f3f029ec2119b1e99d361fe4500a19553027d407fcfe1",
+    "kubejs/data/alfheim/structures/ancient/common_residential/neighborhood_common_hall.nbt": "9d23b1a623c3e3a8d803ec9b762bc5087f48e1e3ec8d4a32f7398153305f570c",
+    "kubejs/data/alfheim/structures/ancient/elder_lineage/family_residence.nbt": "915784d6407f15479d09eca702dab6ab1068edc071c49463e438a56772ffbfad",
+    "kubejs/data/alfheim/structures/ancient/civic_center/assembly_hall.nbt": "7c9f5c63d49788766f9ca5364db254bab5a528e6ab4b681336fde0572494d601",
+    "kubejs/data/alfheim/structures/ancient/civic_center/census_hall.nbt": "f495b5a6afec0eb7130459d07c9c3c2597b416b8440c7c52cf44616496465d3e",
+    "kubejs/data/alfheim/structures/ancient/civic_center/council_house.nbt": "a96df5848c519f4f41042d40977e99b45a2023cea9ff2d221c6903c1946bbcda",
+    "kubejs/data/alfheim/structures/ancient/civic_center/public_kitchen.nbt": "4585bdb1262b23c16fbd0e5fabb0562551a4bd77b5367dddaa4acf41f57f0068",
+    "kubejs/data/alfheim/structures/ancient/civic_center/record_house.nbt": "7f220660567e583ae3e8da846c29cc53907c80b28adfcb839ba19ab7a0e68bab",
+    "kubejs/data/alfheim/structures/ancient/relief_district/digger_shelter.nbt": "81f4b99d835eec312c7619f3c6ff0ded933f4708b6a7da7ef5436e704b2a1de1",
+    "kubejs/data/alfheim/structures/ancient/relief_district/healer_cloister.nbt": "0ccd1b6172e0b03432ffb52d79e1bd96cba7cddf8bd08c9c76a75f26a58b7bcd",
+    "kubejs/data/alfheim/structures/ancient/relief_district/hospice_hall.nbt": "fe999df505362964d2496a5004565ceea3487b3d3b1ffd07759ce90ad62efdab",
+    "kubejs/data/alfheim/structures/ancient/relief_district/ration_hall.nbt": "3578e747ba84f2b4df5dc64b065df9108d6602cc68f54c199280565c76502ee3",
+    "kubejs/data/alfheim/structures/ancient/relief_district/sealed_store.nbt": "379f421f817fa12838fef0ee44df5d08c69c557c228ce47513f74d03a0e664b0",
+    "kubejs/data/alfheim/structures/ancient/relief_district/triage_court.nbt": "7db51016c428437d72cea50e72c028996c070a7de6a0e6324fec9e6bf6c5d0ce",
+    "kubejs/data/alfheim/structures/ancient/scholastic_quarter/archive_cloister.nbt": "f2c07b524844b58770356b7ed53be84c9b5d8ce95c428cd0231428281940db9b",
+    "kubejs/data/alfheim/structures/ancient/scholastic_quarter/astral_conservatory.nbt": "e026801106996107405daac4e6e0bd77a8063e6e5507762aee0bd10fda846d50",
+    "kubejs/data/alfheim/structures/ancient/scholastic_quarter/lore_college.nbt": "c4aa5ee09ef684428fe025ef178a4c580fe3a173b2d8a51df8445243c47a677d",
+    "kubejs/data/alfheim/structures/ancient/scholastic_quarter/runic_engineering_hall.nbt": "8a41aac928cd69ddf0946e24a663e519458101704161cabaa3eb6199ba58cfcd",
+    "kubejs/data/alfheim/structures/ancient/scholastic_quarter/student_residence.nbt": "f4f42c4b40d5b10c274ecdd78cbc967a293303d204dde8e8c6b82a58cd73291f",
+    "kubejs/data/alfheim/structures/ancient/production_district/distribution_depot.nbt": "1f876085403d78914bd7a7afb6fcf74d4793d8cff090d379073c1bb490ce0ea7",
+    "kubejs/data/alfheim/structures/ancient/production_district/glass_bloom_house.nbt": "04240d7396cbd5325007b68af7a70a8e21cea7e0d41669bb7ff7bfbd799c525e",
+    "kubejs/data/alfheim/structures/ancient/production_district/guard_post.nbt": "46dc45402523adc5e24531e0453049298e402f886d9ed91538ef7275708ab3be",
+    "kubejs/data/alfheim/structures/ancient/production_district/mana_mill.nbt": "08580e3a146f21bbd4a4db71528ac4bc531829cb7709bd3b72303533733ebd6d",
+    "kubejs/data/alfheim/structures/ancient/production_district/resonance_foundry.nbt": "30c2fcb9699d918d04fd11e770ca30b957550c2193369128700bbf1bdafe7001",
+    "kubejs/data/alfheim/structures/ancient/production_district/worker_housing.nbt": "73c6c68059520abf170803c0bbbf3b2ddb831e624ac6e9914f059871ae927ed4",
+    "kubejs/data/alfheim/structures/ancient/agricultural_estate/fungus_conservatory.nbt": "13b4707c416327c681674ef2b7c0071a5a8f866d74e0742859747142e643087a",
+    "kubejs/data/alfheim/structures/ancient/agricultural_estate/keeper_housing.nbt": "b879c9f52dd3bf85121b9245722424292a59bc2f6a3bcd75f8569410e3a54fca",
+    "kubejs/data/alfheim/structures/ancient/agricultural_estate/root_granary.nbt": "20ae644b5426ee481055150f359630393eb27c1cbfad8b35a87f453e8b4698ab",
+    "kubejs/data/alfheim/structures/ancient/agricultural_estate/seed_vault.nbt": "2e7dbbc4ed63a95f6147e1161c8ac4c263991b4e052edd22e3cbf5ba285c8d93",
+    "kubejs/data/alfheim/structures/ancient/roads_trade/bonded_store.nbt": "3385fd8dc969bde3ddc6af7d1eae6d18158365d92aea43a42827b408f297b41d",
+    "kubejs/data/alfheim/structures/ancient/roads_trade/bridge_gate.nbt": "27e4fbb518b57d855ac1c93b1a4bdcb4ae2bd0f696b888755e0865fa7374601a",
+    "kubejs/data/alfheim/structures/ancient/roads_trade/custom_house.nbt": "0c374390e55b866256afcb7decb1ece14db14f8733a666fe7d6efa8eb6261bf1",
+    "kubejs/data/alfheim/structures/ancient/roads_trade/freight_exchange.nbt": "f695cd08b40ca01b130254017df5605a2922411db6fa3c178221119d93d6cb96",
+    "kubejs/data/alfheim/structures/ancient/roads_trade/refugee_lodge.nbt": "37a32733e94aeb2ba09203d9902a7e25906d52375cdef06e8a640365f5df54b1",
+    "kubejs/data/alfheim/structures/ancient/roads_trade/wayshrine_rest.nbt": "77437a37137b22be5cbd1cbdee13885e72bb579fc40053f0bc8e609edbc65212",
+    "kubejs/data/alfheim/structures/ancient/harbor_complex/bonded_warehouse.nbt": "bc8b8217603a8c757f1c2662109757e85cec4ab4fca59d096e20d9afd8285446",
+    "kubejs/data/alfheim/structures/ancient/harbor_complex/dockworker_housing.nbt": "c09dff64889db1394a87835824fbe5f22e05fc9c8b25d7fd9d471de760cfbcb4",
+    "kubejs/data/alfheim/structures/ancient/harbor_complex/harbor_exchange.nbt": "4a854bc7f33febec8ca28258ed1b6fdb730f3215279d641fbf09415c8a4f9613",
+    "kubejs/data/alfheim/structures/ancient/harbor_complex/harbormaster_house.nbt": "2c2ec47651feac6ef3451e33e9af1944a68cb4f93b86170f7d07a4cb9daa2329",
+    "kubejs/data/alfheim/structures/ancient/harbor_complex/signal_lighthouse.nbt": "2dce73b8ea5600d2fc5da45ddd842b1cea1d3f2ff87b38962dfb3d04e1c9e2bd",
+    "kubejs/data/alfheim/structures/ancient/harbor_complex/tide_temple.nbt": "b2bdae9c8977208ce438df8b251c4752f98c7575fda3f36b5d414fe8a76e4800",
+    "kubejs/data/alfheim/structures/ancient/sacred_precinct/great_temple_court.nbt": "67d8e3290e06b296c10aa0b786a85a4bea7f1486cc9b44dce72a870d10cbb6f2",
+    "kubejs/data/alfheim/structures/ancient/sacred_precinct/pilgrim_chapel.nbt": "1203882d26b074b90a08fc227c7135bb40d737d1956ae3ba9fb3b4552714e7b5",
+    "kubejs/data/alfheim/structures/ancient/sacred_precinct/rite_house.nbt": "a4e7a1e24ab9abe1d13ee3d5ac1b461a4998f7a3b75e2db432875876748b0936",
+    "kubejs/data/alfheim/structures/ancient/sacred_precinct/temple_reliquary.nbt": "300f1639c7f89469ae60fe441c4758ab63c77ca15d52f73cfe36384edde3daf6",
+    "kubejs/data/alfheim/structures/ancient/military_warden/border_keep.nbt": "b7969f20ef3843aa2432d3df5d9eb7ae408025653d4f23005bf5c47b7f7c4988",
+    "kubejs/data/alfheim/structures/ancient/military_warden/gate_barracks.nbt": "5e09b17a070d349b6f50fe1f2f76c3dadd5cfc73906043439ad871e7eba0d7d7",
+    "kubejs/data/alfheim/structures/ancient/military_warden/warden_tower.nbt": "b982e71f6bba8bfea70a3d149b4d7492f5c8d5e3aa6a63bffc9208fcf0650f8c",
+    "kubejs/data/alfheim/structures/ancient/military_warden/watch_captain_house.nbt": "3f5491e1440e6a04147adaf58f97e31d2fc05809df2d18987d74d9bb7c4b0785",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/green_noble_lodge.nbt": "8b80b248f13ba81820aeacda41e66e77359fba331551a0fd3dc61cd948868ceb",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/outlying_retreat_hall.nbt": "255d31c6618dc6f6700f45057457f78281fd07c262fdc3f2a37a3b45c276660d",
+    "kubejs/data/alfheim/structures/ancient/frontier_stewardship/surveyor_tower.nbt": "2c604c7beb0d5827afc207ed57ef0baee4de16fa0aa950b1970c673e3902213a"
+  },
+  "installed_leyworks_sha256": "510704ed782673eb7c9b93dc14b7158b11857895791a998341a21ae18f0d1a94",
+  "limits": "Template placement, facing, empty storage initialization and untouched loot verified; this does not re-prove natural site selection or client appearance."
+}

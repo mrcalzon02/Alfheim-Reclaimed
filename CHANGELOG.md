@@ -1,5 +1,19 @@
 # Changelog
 
+## Functional furnishings installed in district templates — 2026-10-15
+
+Added 109 empty functional furnishings to 55 existing district room templates,
+covering all twelve families and all eleven utility models. Each template receives
+at most two supported corner objects with a clear two-wide approach. The shared
+generator hook retains them during regeneration. Existing loot, jigsaw metadata,
+geometry, terrain ownership and natural placement rules are preserved.
+
+Continuity Works snapshots and independent source/route checks pass. All 55 changed
+templates pass the isolated saved-world gallery: 60 storage inventories, 49
+workstations and 55 original unopened loot records. The twelve eightfold detail
+floors, protected terrain baseline and custom model face checks remain green.
+Previously generated rooms are retained; updated furnishing appears in new chunks.
+
 ## Eleven functional district furnishing models — 2026-10-15
 
 Added seed/apothecary cabinets, armory locker, provision hutch, archive cabinet and

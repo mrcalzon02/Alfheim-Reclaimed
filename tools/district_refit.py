@@ -120,4 +120,7 @@ def detail_nbt(piece, family, name):
                 piece.set(px,y,pz,(stair,{'facing':face,'half':'top','shape':'straight','waterlogged':'false'}))
                 counts['upper_moulding'] += 1
     piece.refit_counts = dict(counts)
+    from district_furnishing_placement import apply
+    piece.connect_walls()
+    piece.furnishing_placements = apply(piece,family,name)
     return piece.to_nbt()
