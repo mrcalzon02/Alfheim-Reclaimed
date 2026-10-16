@@ -34,7 +34,13 @@ public final class ElvenContainerBlock extends BaseEntityBlock {
         PROVISION_CRATE(27, box(1,0,1,15,15,15)),
         SCROLL_CRATE(27, box(1,0,1,15,13,15)),
         TALL_VASE(9, box(4,0,4,12,16,12)),
-        MEMORIAL_URN(9, box(4,0,4,12,14,12));
+        MEMORIAL_URN(9, box(4,0,4,12,14,12)),
+        DISTRICT_SEED_CABINET(27,DistrictFurnishingShapes.SEED_CABINET),
+        DISTRICT_APOTHECARY_CABINET(18,DistrictFurnishingShapes.APOTHECARY_CABINET),
+        DISTRICT_ARMORY_LOCKER(54,DistrictFurnishingShapes.ARMORY_LOCKER),
+        DISTRICT_PROVISION_HUTCH(27,DistrictFurnishingShapes.PROVISION_HUTCH),
+        DISTRICT_ARCHIVE_CABINET(54,DistrictFurnishingShapes.ARCHIVE_CABINET),
+        DISTRICT_MARKET_COUNTER(27,DistrictFurnishingShapes.MARKET_COUNTER);
 
         private final int capacity;
         private final VoxelShape shape;
@@ -44,15 +50,18 @@ public final class ElvenContainerBlock extends BaseEntityBlock {
     }
 
     private final Style style;
+    private final VoxelShape[] shapes;
     public ElvenContainerBlock(Properties properties,Style style){
-        super(properties);this.style=style;
+        super(properties);this.style=style;this.shapes=DistrictStationBlock.rotations(style.shape());
         registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH));
     }
     public Style style(){return style;}
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<net.minecraft.world.level.block.Block,BlockState> builder){builder.add(FACING);}
     @Override public @Nullable BlockState getStateForPlacement(BlockPlaceContext context){return defaultBlockState().setValue(FACING,context.getHorizontalDirection().getOpposite());}
     @Override public RenderShape getRenderShape(BlockState state){return RenderShape.MODEL;}
-    @Override public VoxelShape getShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context){return style.shape();}
+    @Override public VoxelShape getShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context){return shapes[state.getValue(FACING).get2DDataValue()];}
+    @Override public BlockState rotate(BlockState state,net.minecraft.world.level.block.Rotation rotation){return state.setValue(FACING,rotation.rotate(state.getValue(FACING)));}
+    @Override public BlockState mirror(BlockState state,net.minecraft.world.level.block.Mirror mirror){return state.rotate(mirror.getRotation(state.getValue(FACING)));}
     @Override public @Nullable BlockEntity newBlockEntity(BlockPos pos,BlockState state){return new ElvenContainerBlockEntity(pos,state);}
 
     @Override public InteractionResult use(BlockState state,Level level,BlockPos pos,Player player,InteractionHand hand,BlockHitResult hit){

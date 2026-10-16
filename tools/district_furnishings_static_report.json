@@ -1,0 +1,22 @@
+{
+  "status": "STATIC_PASS",
+  "functional_models": 11,
+  "storage_profiles": 6,
+  "station_types": 5,
+  "recipes": 11,
+  "distinct_crafting_inputs": true,
+  "coplanar_overlaps": 0,
+  "recipe_sha256": {
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_seed_cabinet.json": "7f10d845f31d06602e027c7991914493666eb40303c241f9742c1a54aa8b9d52",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_apothecary_cabinet.json": "013786d7445fb5e57bef3b9f8585e0af46874586c23ac2e1aaaec7cbd1857e4e",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_armory_locker.json": "998fc0f5dbb59a04c9a08b40d00ecab709adf3e2646d2f678800e63f532b84f6",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_provision_hutch.json": "e75c345b000d179be05468f6dc6c5fde0890c41149f8a20aff3c16e3965c21c7",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_archive_cabinet.json": "27e180944fa99f0d240174bd3c1dd8d60ad0a72e137fb69a76f3dfde6ece93ed",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_market_counter.json": "0740ea6b820ab65b0e96690df92f65d45e76928795e90a4229669b2def0548a3",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_artificer_desk.json": "abe8a0769269a74120a8c0a2d6dced409097ab5fa88cf58450bde497f252200e",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_masons_bench.json": "94f5c969a67ae572b8c1a7627496de1b43561e244b3cc58ef556ee7101f9e380",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_weaving_frame.json": "8b2b0e446e8e075d8a08765f8bdd8a68504474b693a02341203ce2e19c62c15c",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_cartographers_table.json": "8ffa712f81fa725ecba47a0c0d1f0a1696606c9daa250c60018e54c3ef675c89",
+    "first_party_mods/alfheim_leyworks/src/main/resources/data/alfheim_leyworks/recipes/district_mending_bench.json": "2860ee5e6aba6f55699b5a34b91dbee49fbaa5c0dcb4fc4e34ad1ba68f199b49"
+  }
+}

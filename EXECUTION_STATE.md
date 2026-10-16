@@ -1,5 +1,23 @@
 # Execution State
 
+## District utility furnishings — 2026-10-15
+
+Added eleven native modeled furnishings in Alfheim Leyworks: six persistent storage
+profiles (18/27/54 slots) and five working stations for crafting, stonecutting,
+banner weaving, cartography and grindstone repair. Directional collision uses the
+same cuboids as the visible models. Eleven distinct recipes consume the existing
+spine supplies and war-salvage resin/lattice. Native tooltips and a relative review
+gallery describe the actual functions.
+
+The native disposable-world audit exercises output pickup/input consumption,
+custom-block and distance validity, capacity locks, shift-click conservation,
+NBT round trips, comparator signal, break-content recovery and real hoppers.
+A separate server restart checks saved cabinet/hopper contents. Evidence:
+`tools/district_furnishings_runtime_report.json`,
+`alfheim_reclaimed_design/DISTRICT_UTILITY_FURNISHINGS.md`.
+Client screens/multiplayer synchronization and visual texture review remain pending.
+This models/utility wave adds no natural generation and rewrites no player rooms.
+
 ## War salvage recipes and era uses — 2026-10-15
 
 Added 77 additive recipes: all 32 remains blocks have distinct crafting inputs and

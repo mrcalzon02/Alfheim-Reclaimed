@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim_leyworks:district_seed_cabinet",
+    "alfheim_leyworks:district_apothecary_cabinet",
+    "alfheim_leyworks:district_armory_locker",
+    "alfheim_leyworks:district_provision_hutch",
+    "alfheim_leyworks:district_archive_cabinet",
+    "alfheim_leyworks:district_market_counter",
+    "alfheim_leyworks:district_artificer_desk",
+    "alfheim_leyworks:district_masons_bench",
+    "alfheim_leyworks:district_weaving_frame",
+    "alfheim_leyworks:district_cartographers_table",
+    "alfheim_leyworks:district_mending_bench"
+  ]
+}

@@ -1,5 +1,20 @@
 # Changelog
 
+## Eleven functional district furnishing models — 2026-10-15
+
+Added seed/apothecary cabinets, armory locker, provision hutch, archive cabinet and
+service counter with persistent inventories, comparator output and hopper access.
+Added custom crafting, stonecutting, weaving, cartography and mending stations using
+native Minecraft interfaces and real material consumption. Custom menu validity
+supports the new blocks and closes at distance/removal. Eleven recipes route the
+objects through existing magical supplies and the recent war-salvage materials.
+
+Generated visible models, matching rotated collision, item models, self-drop loot,
+translations, player tooltips and a review gallery. Existing elven containers now
+rotate their collision and facing correctly as well. Added isolated native
+interaction/automation/reload tests and the district utility furnishing guide.
+Natural structure placement, terrain and existing player worlds are unchanged.
+
 ## War salvage crafting, models and era supply routes — 2026-10-15
 
 Added 77 recipes covering 32 remains blocks, four mana/Source processing components

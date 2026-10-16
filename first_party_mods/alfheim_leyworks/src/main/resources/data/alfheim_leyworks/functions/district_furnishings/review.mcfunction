@@ -1,0 +1,12 @@
+# Player-invoked gallery; relative coordinates. Empty inventories, no free progression loot.
+setblock ~0 ~ ~0 alfheim_leyworks:district_seed_cabinet[facing=north]
+setblock ~3 ~ ~0 alfheim_leyworks:district_apothecary_cabinet[facing=north]
+setblock ~6 ~ ~0 alfheim_leyworks:district_armory_locker[facing=north]
+setblock ~9 ~ ~0 alfheim_leyworks:district_provision_hutch[facing=north]
+setblock ~12 ~ ~0 alfheim_leyworks:district_archive_cabinet[facing=north]
+setblock ~15 ~ ~0 alfheim_leyworks:district_market_counter[facing=north]
+setblock ~0 ~ ~3 alfheim_leyworks:district_artificer_desk[facing=north]
+setblock ~3 ~ ~3 alfheim_leyworks:district_masons_bench[facing=north]
+setblock ~6 ~ ~3 alfheim_leyworks:district_weaving_frame[facing=north]
+setblock ~9 ~ ~3 alfheim_leyworks:district_cartographers_table[facing=north]
+setblock ~12 ~ ~3 alfheim_leyworks:district_mending_bench[facing=north]

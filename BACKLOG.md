@@ -1,5 +1,14 @@
 # Backlog
 
+### District utility furniture — functional library built
+
+Eleven modeled, craftable objects now provide six storage capacities/profiles and
+five real crafting/processing interfaces. New storage and workstation recipes use
+Purified Titan Resin and Tempered War Lattice. Complete client visual, hand-placement
+and multiplayer interface review. A later district placement pass may use the
+room-role inventory in `DISTRICT_UTILITY_FURNISHINGS.md`; preserve unopened loot
+barrels because these fixed inventories do not implement randomized loot tables.
+
 ### War salvage uses — implemented; play review remains
 
 All 32 remains blocks now have recipes and mana recovery uses. Four processed

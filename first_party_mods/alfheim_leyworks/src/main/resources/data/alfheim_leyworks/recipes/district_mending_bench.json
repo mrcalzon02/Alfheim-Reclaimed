@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PMP",
+    "SCS",
+    "PDP"
+  ],
+  "key": {
+    "P": {
+      "item": "botania:dreamwood"
+    },
+    "M": {
+      "item": "botania:mana_powder"
+    },
+    "S": {
+      "item": "ars_nouveau:source_gem"
+    },
+    "C": {
+      "item": "minecraft:grindstone"
+    },
+    "D": {
+      "item": "alfheim:tempered_war_lattice"
+    }
+  },
+  "result": {
+    "item": "alfheim_leyworks:district_mending_bench"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PMP",
+    "SCS",
+    "PDP"
+  ],
+  "key": {
+    "P": {
+      "item": "botania:dreamwood"
+    },
+    "M": {
+      "item": "alfheim:purified_titan_resin"
+    },
+    "S": {
+      "item": "ars_nouveau:source_gem"
+    },
+    "C": {
+      "item": "minecraft:barrel"
+    },
+    "D": {
+      "item": "minecraft:wheat_seeds"
+    }
+  },
+  "result": {
+    "item": "alfheim_leyworks:district_seed_cabinet"
+  }
+}

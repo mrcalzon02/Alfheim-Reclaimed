@@ -105,6 +105,8 @@ public final class Leyworks {
     public static final RegistryObject<Item> TALL_VASE_ITEM = registerBlockItem("tall_vase", TALL_VASE);
     public static final RegistryObject<Item> MEMORIAL_URN_ITEM = registerBlockItem("memorial_urn", MEMORIAL_URN);
 
+    public static final java.util.Map<String,RegistryObject<Block>> DISTRICT_FURNISHINGS = DistrictFurnishings.register();
+
     public static final RegistryObject<BlockEntityType<LeyConduitNodeBlockEntity>> NODE_ENTITY =
             BLOCK_ENTITIES.register("ley_conduit_node",
                     () -> BlockEntityType.Builder
@@ -120,8 +122,8 @@ public final class Leyworks {
     public static final RegistryObject<BlockEntityType<ElvenContainerBlockEntity>> ELVEN_CONTAINER_ENTITY =
             BLOCK_ENTITIES.register("elven_container",
                     () -> BlockEntityType.Builder.of(ElvenContainerBlockEntity::new,
-                            ROYAL_CHEST.get(), GEMSTONE_COFFER.get(), DREAMWOOD_CRATE.get(),
-                            PROVISION_CRATE.get(), SCROLL_CRATE.get(), TALL_VASE.get(), MEMORIAL_URN.get())
+                            DistrictFurnishings.containerBlocks(ROYAL_CHEST.get(), GEMSTONE_COFFER.get(), DREAMWOOD_CRATE.get(),
+                            PROVISION_CRATE.get(), SCROLL_CRATE.get(), TALL_VASE.get(), MEMORIAL_URN.get()))
                             .build(null));
 
     public static final RegistryObject<MenuType<MannaStoneStorageMenu>> MANNA_STORAGE_MENU =
@@ -149,6 +151,7 @@ public final class Leyworks {
             event.accept(SCROLL_CRATE_ITEM.get());
             event.accept(TALL_VASE_ITEM.get());
             event.accept(MEMORIAL_URN_ITEM.get());
+            DISTRICT_FURNISHINGS.values().forEach(block->event.accept(block.get()));
         }
     }
 

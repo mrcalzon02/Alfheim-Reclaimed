@@ -1,5 +1,10 @@
 # Functional Elven Furnishings
 
+**New utility wave:** [District utility furnishings](DISTRICT_UTILITY_FURNISHINGS.md)
+adds six modeled storage profiles and five native crafting/processing stations,
+with recipes consuming the war-salvage resin/lattice. Its native interaction and
+reload evidence is separate from acceptance of the original seven containers.
+
 **Role:** implementation-facing contract for custom elven furnishing blocks whose interaction matters as much as their silhouette.
 
 **Status:** Manna Stone Storage and the seven-block fixed-container wave are implemented and statically built in Alfheim Leyworks. The first three statues, large crystal plinth, observatory prism stand and gemstone embellishments are registered/generated scenery blocks. Runtime acceptance remains pending.

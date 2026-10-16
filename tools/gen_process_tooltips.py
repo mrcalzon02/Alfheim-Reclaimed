@@ -42,7 +42,9 @@ def all_recipes():
         if isinstance(value, dict):
             return [value['item']] if 'item' in value else []
         return []
-    for path in sorted(Path('kubejs/data').glob('*/recipes/**/*.json')):
+    data_roots = [Path('kubejs/data'),
+                  Path('first_party_mods/alfheim_leyworks/src/main/resources/data')]
+    for path in sorted(p for root in data_roots for p in root.glob('*/recipes/**/*.json')):
         data = json.loads(path.read_text(encoding='utf-8'))
         outputs = items(data.get('result', data.get('output', data.get('results', []))))
         if not outputs:

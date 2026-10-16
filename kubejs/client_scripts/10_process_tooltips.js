@@ -816,7 +816,8 @@ ItemEvents.tooltip(event => {
             "fey binding at the Fey Altar: Elementium Core, Dreamwood, Gold Ingot, Livingrock -> March Hide",
             "aura transmutation at the Natural Altar: Elementium Core, Quickened Grievebloom -> Golden Apple (12,000 aura)",
             "Cutting: Elementium Core -> Galeglass Shard",
-            "shapeless: Elementium Core, Quickened Duskbloom -> Source Gem"
+            "shapeless: Elementium Core, Quickened Duskbloom -> Source Gem",
+            "shapeless crafting: Dormant Ley Conduit Node, Elementium Core -> Ley Conduit Node"
         ]
     },
     "alfheim:elementium_drawn": {
@@ -2340,6 +2341,12 @@ ItemEvents.tooltip(event => {
             "Source enchantment at the Enchanting Apparatus: Washed Titan Biomass, Mana Powder, Source Gem -> Purified Titan Resin (2,000 Source)"
         ],
         "uses": [
+            "shaped crafting: Dreamwood, Purified Titan Resin, Source Gem, Barrel, Glass Bottle -> Apothecary Cabinet",
+            "shaped crafting: Dreamwood, Purified Titan Resin, Source Gem, Chest, Book -> Scholar's Archive Cabinet",
+            "shaped crafting: Dreamwood, Purified Titan Resin, Source Gem, Chest, Leather -> Warden's Armory Locker",
+            "shaped crafting: Dreamwood, Purified Titan Resin, Source Gem, Barrel, Paper -> Tradehall Service Counter",
+            "shaped crafting: Dreamwood, Purified Titan Resin, Source Gem, Barrel, Bread -> Provision Hutch",
+            "shaped crafting: Dreamwood, Purified Titan Resin, Source Gem, Barrel, Wheat Seeds -> Living Seed Cabinet",
             "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Mana Powder -> Slime Ball (1,500 Source)",
             "runic binding at the Runic Altar: Purified Titan Resin, Living Fibre, Mana Powder -> Floral Fertilizer (8,000 mana)",
             "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Tempered War Lattice, Wildmarch Sinew -> Orb of Relief (6,000 Source)",
@@ -3514,6 +3521,11 @@ ItemEvents.tooltip(event => {
             "Source enchantment at the Enchanting Apparatus: Washed Golem Grit, Mana Powder, Source Gem -> Tempered War Lattice (3,000 Source)"
         ],
         "uses": [
+            "shaped crafting: Dreamwood, Mana Powder, Source Gem, Crafting Table, Tempered War Lattice -> Artificer's Workdesk",
+            "shaped crafting: Dreamwood, Mana Powder, Source Gem, Cartography Table, Tempered War Lattice -> Frontier Cartographer's Table",
+            "shaped crafting: Dreamwood, Mana Powder, Source Gem, Stonecutter, Tempered War Lattice -> Livingrock Mason's Bench",
+            "shaped crafting: Dreamwood, Mana Powder, Source Gem, Grindstone, Tempered War Lattice -> Warden's Mending Bench",
+            "shaped crafting: Dreamwood, Mana Powder, Source Gem, Loom, Tempered War Lattice -> Dreamwood Weaving Frame",
             "Source enchantment at the Enchanting Apparatus: Purified Titan Resin, Tempered War Lattice, Wildmarch Sinew -> Orb of Relief (6,000 Source)",
             "Source enchantment at the Enchanting Apparatus: Tempered War Lattice, Rimebound Lattice -> Orb of Quality (10,000 Source)",
             "Source enchantment at the Enchanting Apparatus: War Wardplate Fractured, Tempered War Lattice, Mana Powder, Source Gem -> Reclaimed Ward Brazier (2,000 Source)",

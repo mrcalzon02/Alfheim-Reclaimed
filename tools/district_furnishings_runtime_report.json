@@ -1,0 +1,39 @@
+{
+  "status": "NATIVE_INTERACTIONS_AND_RELOAD_PASS",
+  "world": "validation-district-furnishings-20261015",
+  "audit_console": "server\\console-20261015-215117.log",
+  "installed_jar_sha256": "510704ed782673eb7c9b93dc14b7158b11857895791a998341a21ae18f0d1a94",
+  "storage": [
+    "FURNISH_STORAGE_PASS alfheim_leyworks:district_seed_cabinet slots=27 shift=32 nbt=48 dropped=48 comparator=true",
+    "FURNISH_STORAGE_PASS alfheim_leyworks:district_apothecary_cabinet slots=18 shift=32 nbt=48 dropped=48 comparator=true",
+    "FURNISH_STORAGE_PASS alfheim_leyworks:district_armory_locker slots=54 shift=32 nbt=48 dropped=48 comparator=true",
+    "FURNISH_STORAGE_PASS alfheim_leyworks:district_provision_hutch slots=27 shift=32 nbt=48 dropped=48 comparator=true",
+    "FURNISH_STORAGE_PASS alfheim_leyworks:district_archive_cabinet slots=54 shift=32 nbt=48 dropped=48 comparator=true",
+    "FURNISH_STORAGE_PASS alfheim_leyworks:district_market_counter slots=27 shift=32 nbt=48 dropped=48 comparator=true"
+  ],
+  "stations": [
+    "FURNISH_STATION_PASS alfheim_leyworks:district_artificer_desk result=minecraft:oak_planks count=4 consumed=true distance=true removal=true",
+    "FURNISH_STATION_PASS alfheim_leyworks:district_masons_bench result=minecraft:chiseled_stone_bricks count=1 consumed=true distance=true removal=true",
+    "FURNISH_STATION_PASS alfheim_leyworks:district_weaving_frame result=minecraft:white_banner count=1 consumed=true distance=true removal=true",
+    "FURNISH_STATION_PASS alfheim_leyworks:district_cartographers_table result=minecraft:filled_map count=1 consumed=true distance=true removal=true",
+    "FURNISH_STATION_PASS alfheim_leyworks:district_mending_bench result=minecraft:iron_sword count=1 consumed=true distance=true removal=true"
+  ],
+  "hoppers": [
+    "FURNISH_HOPPER_PASS district_seed_cabinet cabinet=17 hopper=15 total=32",
+    "FURNISH_HOPPER_PASS district_apothecary_cabinet cabinet=17 hopper=15 total=32",
+    "FURNISH_HOPPER_PASS district_armory_locker cabinet=17 hopper=15 total=32",
+    "FURNISH_HOPPER_PASS district_provision_hutch cabinet=17 hopper=15 total=32",
+    "FURNISH_HOPPER_PASS district_archive_cabinet cabinet=17 hopper=15 total=32",
+    "FURNISH_HOPPER_PASS district_market_counter cabinet=17 hopper=15 total=32"
+  ],
+  "limits": "Native server menu transactions, storage, NBT, drops, hoppers and reload tested; multiplayer screen synchronization and client visuals require play review.",
+  "reload_console": "server\\console-20261015-215326.log",
+  "persistence": [
+    "FURNISH_PERSISTENCE_PASS district_seed_cabinet cabinet=0 hopper=32 total=32",
+    "FURNISH_PERSISTENCE_PASS district_apothecary_cabinet cabinet=0 hopper=32 total=32",
+    "FURNISH_PERSISTENCE_PASS district_armory_locker cabinet=0 hopper=32 total=32",
+    "FURNISH_PERSISTENCE_PASS district_provision_hutch cabinet=0 hopper=32 total=32",
+    "FURNISH_PERSISTENCE_PASS district_archive_cabinet cabinet=0 hopper=32 total=32",
+    "FURNISH_PERSISTENCE_PASS district_market_counter cabinet=0 hopper=32 total=32"
+  ]
+}

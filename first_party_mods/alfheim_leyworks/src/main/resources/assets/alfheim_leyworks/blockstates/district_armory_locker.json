@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "alfheim_leyworks:block/district_armory_locker",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "alfheim_leyworks:block/district_armory_locker",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "alfheim_leyworks:block/district_armory_locker",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alfheim_leyworks:block/district_armory_locker",
+      "y": 270
+    }
+  }
+}
