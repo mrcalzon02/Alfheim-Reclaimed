@@ -1,0 +1,15 @@
+{
+  "jar_sha256": "dca69fe51d5cfdb1186603d38f97814b10693fda845e7292f4380ae1bcd42c40",
+  "new_families": [
+    "Ashen Revenant",
+    "Rime Outcast",
+    "Verge Riftwalker"
+  ],
+  "new_authored_appearances": 9,
+  "catalogue_appearances": 390,
+  "regression_tests": 70,
+  "targeted_preview_tests": 2,
+  "packaged_resources_equal": 789,
+  "client_visual_acceptance": "pending",
+  "preview": "tools/regional_monstrosities_review.png"
+}

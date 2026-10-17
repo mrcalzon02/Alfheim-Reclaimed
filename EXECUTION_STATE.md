@@ -1,5 +1,23 @@
 # Execution State
 
+## Three-region monstrosity rebuilding pass — 2026-10-16
+
+Rebuilt Ashen Revenant (Ashen Grove), Rime Outcast (Starved Reach) and Verge
+Riftwalker (Void Verge): three authored native rigs, nine UV skins and matching
+head items across all three existing styles. Ashen forward mass/jaw, gaunt Rime
+face/coat and slender Verge limbs/fingers distinguish the regional silhouettes.
+Verge uses an aligned transparent eye map. Existing stored profiles select the
+models; spawn rules, AI, loot, physics and entity IDs remain unchanged.
+
+Java17 build/70 tests and 390-entry skin/head/resource checks pass; the corrected
+neutral-pose preview exports pass two focused tests. Installed/built jar and
+generated packaged-resource bytes match. Full-body previews use baked geometry
+and actual UV skins. Client motion/lighting/equipment visual acceptance remains
+pending; restart required. Design: `REGIONAL_MONSTROSITIES_20261016.md`.
+Evidence: `tools/regional_monstrosities_build.json` and
+`tools/regional_monstrosities_review.png`. This pass changes nine appearances;
+it does not claim the entire 390-entry catalogue has bespoke body geometry.
+
 ## One additional custom Mire Riftmite — 2026-10-16
 
 Mire Bound Riftmite (endermite profile 3/style 0) now has an authored low,

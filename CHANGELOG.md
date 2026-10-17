@@ -1,5 +1,14 @@
 # Changelog
 
+## Ashen, Rime and Verge regional monstrosities — 2026-10-16
+
+Added three regional body models with nine authored skin variations and matching
+head icons: Ashen Revenant, Rime Outcast and Verge Riftwalker. Preserved native
+animation/equipment behavior and stored regional identity. Added an aligned
+Verge eye-glow map and full-body baked-model previews. Java17 build/70 tests,
+asset/source checks and packaged-resource equality pass. Restart required;
+client visual acceptance remains pending.
+
 ## One custom Mire Riftmite model and skin — 2026-10-16
 
 Added a low segmented marsh arthropod model, short legs, mandibles, authored

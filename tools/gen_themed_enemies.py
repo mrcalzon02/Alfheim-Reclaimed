@@ -7,6 +7,7 @@ import argparse,json,hashlib,io,zipfile
 from PIL import Image
 from silverbark_boneguard import skin as silverbark_skin
 from mire_riftmite import skin as mire_skin
+from regional_monstrosity_skins import skin as regional_skin, verge_eyes, REGIONS
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 JAVA='first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/enemy/'
@@ -75,6 +76,8 @@ def build():
  exporter=ROOT/'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/EnemyHeadModelsTest.java'
  assert heads['layer_sha256']==hashlib.sha256(layer.read_bytes()).hexdigest(),'Re-export baked head geometry after layer changes'
  assert heads['exporter_sha256']==hashlib.sha256(exporter.read_bytes()).hexdigest(),'Re-export after head-exporter changes'
+ regional=ROOT/'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/RegionalMonstrosityModels.java'
+ assert heads['regional_sha256']==hashlib.sha256(regional.read_bytes()).hexdigest(),'Re-export after regional model changes'
  assert len(heads['models'])==390
  skins={'zombie':'zombie/zombie','skeleton':'skeleton/skeleton','pillager':'illager/pillager',
         'enderman':'enderman/enderman','endermite':'endermite'}
@@ -86,6 +89,10 @@ def build():
      out[RES+f'assets/alfheim_companion/textures/entity/themed/{species}_{p}_{style}.png']=recolor_skin(original,row['body'],row['accent'],style)
  out[RES+'assets/alfheim_companion/textures/entity/themed/skeleton_13_0.png']=silverbark_skin()
  out[RES+'assets/alfheim_companion/textures/entity/themed/endermite_3_0.png']=mire_skin()
+ for species,profile in REGIONS.items():
+  for style in range(3):
+   out[RES+f'assets/alfheim_companion/textures/entity/themed/{species}_{profile}_{style}.png']=regional_skin(species,style)
+ out[RES+'assets/alfheim_companion/textures/entity/themed/verge_eyes.png']=verge_eyes()
  for r in rows:
   tex,accent=THEMES[r['theme']]
   records.append('        new Profile("%s", "%s", %d, 0x%s, 0x%s, material("%s"), material("%s"))'%(
@@ -182,7 +189,7 @@ public final class Themed{name} extends {parent} implements ThemedEnemy {{
  current.update(names);js(lang.relative_to(ROOT).as_posix(),current)
  js('tools/themed_enemy_inventory.json',{'profiles':rows,'species':[s[2] for s in SPECIES],
     'styles':['bound','shrouded','crowned'],'themes':THEMES,'appearances':len(rows)*len(SPECIES)*3,
-    'creeper_variants':0,'visual_method':'Five clean vanilla rigs with 390 biome/style skin recolors and matching head inventory models; custom entity textures only.'})
+    'creeper_variants':0,'visual_method':'Five species; authored Silverbark, Mire, Ashen, Rime and Verge regional rigs; 390 biome/style skins and matching head inventory models; custom entity textures only.'})
  return out
 
 def main():

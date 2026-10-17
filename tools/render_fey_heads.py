@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT/'kubejs/assets/alfheim'
 
 
-def render(model, size=160, texture_images=None, tints=None):
+def render(model, size=160, texture_images=None, tints=None, directional_light=False):
     if texture_images is None:
         texture_images={'skin':np.asarray(Image.open(ASSETS/'textures/entity/fey_materials.png').convert('RGBA'))}
     ax, ay, az = [math.radians(a) for a in model['display']['gui']['rotation']]
@@ -57,6 +57,10 @@ def render(model, size=160, texture_images=None, tints=None):
                 tx=np.clip(coords[:,0].astype(int),0,skin.shape[1]-1)
                 ty=np.clip(coords[:,1].astype(int),0,skin.shape[0]-1)
                 colors=skin[ty,tx].reshape(*gx.shape,4)
+                if directional_light:
+                    colors=colors.copy()
+                    light={'north':1,'south':.86,'east':.74,'west':.74,'up':1.1,'down':.62}[face]
+                    colors[:,:,:3]=np.clip(colors[:,:,:3].astype(float)*light,0,255).astype(np.uint8)
                 if tints is not None and 'tintindex' in face_info:
                     colors=colors.copy()
                     tint=tints[face_info['tintindex']]

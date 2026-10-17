@@ -84,6 +84,9 @@ public final class AlfheimCompanion {
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerEnemyLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            for(String species:com.continuityworks.alfheimcompanion.client.RegionalMonstrosityModels.SPECIES)
+                event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.RegionalMonstrosityModels.location(species),
+                    ()->com.continuityworks.alfheimcompanion.client.RegionalMonstrosityModels.layer(species));
             event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.MireRiftmiteModel.LAYER,
                 com.continuityworks.alfheimcompanion.client.MireRiftmiteModel::layer);
             event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.SilverbarkBoneguardModel.LAYER,

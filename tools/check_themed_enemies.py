@@ -34,5 +34,12 @@ def main():
     for element in model['elements']:
      assert all(0<=a<b<=16 for a,b in zip(element['from'],element['to'])),key
      assert all('tintindex' not in face for face in element['faces'].values()),key
- print('THEMED ENEMIES STATIC PASS: 390 skins and matching heads; 390 ordered variant selections; custom Silverbark and Mire rigs; exact 26-biome coverage')
+ glow=Image.open(resources/'textures/entity/themed/verge_eyes.png')
+ assert glow.size==(64,64) and glow.mode=='RGBA' and glow.getchannel('A').getextrema()==(0,255)
+ from regional_monstrosity_skins import REGIONS
+ for species,profile in REGIONS.items():
+  fingerprints=[]
+  for style in range(3):fingerprints.append((resources/f'textures/entity/themed/{species}_{profile}_{style}.png').read_bytes())
+  assert len(set(fingerprints))==3,species
+ print('THEMED ENEMIES STATIC PASS: 390 skins and heads; nine new regional appearances; transparent aligned Verge eye layer; exact 26-biome coverage')
 if __name__=='__main__':main()

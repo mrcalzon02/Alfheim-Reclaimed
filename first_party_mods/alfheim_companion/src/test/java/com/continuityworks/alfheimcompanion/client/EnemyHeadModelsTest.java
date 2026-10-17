@@ -92,9 +92,11 @@ class EnemyHeadModelsTest {
                 String species=SPECIES[s];var profile=EnemyProfiles.get(p);
                 boolean custom=species.equals("skeleton") && p==13 && style==0;
                 boolean mire=species.equals("endermite") && p==3 && style==0;
+                boolean regional=RegionalMonstrosityModels.matches(species,p);
                 JsonArray elements=new JsonArray();
                 append(elements,custom?SilverbarkBoneguardModel.layer().bakeRoot().getChild("head"):
-                    mire?MireRiftmiteModel.layer().bakeRoot().getChild("segment0"):base(species),"base",false);
+                    mire?MireRiftmiteModel.layer().bakeRoot().getChild("segment0"):
+                    regional?RegionalMonstrosityModels.layer(species).bakeRoot().getChild("head"):base(species),"base",false);
                 double[] low={1e9,1e9,1e9},high={-1e9,-1e9,-1e9};
                 List<String> bounds=new ArrayList<>();
                 for(var value:elements) {
@@ -119,13 +121,15 @@ class EnemyHeadModelsTest {
                 display.add("gui",gui);model.add("display",display);
                 models.add(species+"_"+p+"_"+style,model);count++;
             }
-            assertEquals(SPECIES[s].equals("skeleton") || SPECIES[s].equals("endermite")?2:1,shapes.size(),SPECIES[s]);
+            assertEquals(2,shapes.size(),SPECIES[s]+" has its regional head template");
         }
         assertEquals(390,count);catalogue.add("models",models);
         Path source=Path.of("src/main/java/com/continuityworks/alfheimcompanion/client/ThemedMaterialLayer.java");
         catalogue.addProperty("layer_sha256",HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(source))));
         Path exporter=Path.of("src/test/java/com/continuityworks/alfheimcompanion/client/EnemyHeadModelsTest.java");
         catalogue.addProperty("exporter_sha256",HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(exporter))));
+        Path regional=Path.of("src/main/java/com/continuityworks/alfheimcompanion/client/RegionalMonstrosityModels.java");
+        catalogue.addProperty("regional_sha256",HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(regional))));
         Path out=Path.of("build/themed_head_models.json");Files.createDirectories(out.getParent());
         Files.writeString(out,new GsonBuilder().setPrettyPrinting().create().toJson(catalogue)+"\n");
     }
