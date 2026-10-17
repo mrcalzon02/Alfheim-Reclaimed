@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_orthoclase"
+    },
+    "1": {
+      "item": "alfheim:gem_sanidine"
+    },
+    "2": {
+      "item": "alfheim:gem_peridot"
+    },
+    "3": {
+      "item": "alfheim:gem_colorless_topaz"
+    },
+    "4": {
+      "item": "alfheim:gem_golden_topaz"
+    },
+    "5": {
+      "item": "alfheim:gem_imperial_topaz"
+    },
+    "6": {
+      "item": "alfheim:gem_pink_topaz"
+    },
+    "7": {
+      "item": "alfheim:gem_pale_blue_topaz"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_12",
+    "count": 1
+  }
+}

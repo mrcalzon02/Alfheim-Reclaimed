@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_andradite"
+    },
+    "1": {
+      "item": "alfheim:gem_demantoid"
+    },
+    "2": {
+      "item": "alfheim:gem_topazolite"
+    },
+    "3": {
+      "item": "alfheim:gem_uvarovite"
+    },
+    "4": {
+      "item": "alfheim:gem_rhodolite"
+    },
+    "5": {
+      "item": "alfheim:gem_malaya_garnet"
+    },
+    "6": {
+      "item": "alfheim:gem_color_change_garnet"
+    },
+    "7": {
+      "item": "alfheim:gem_elbaite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_09",
+    "count": 1
+  }
+}

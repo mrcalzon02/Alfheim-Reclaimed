@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_rutile"
+    },
+    "1": {
+      "item": "alfheim:gem_sphalerite"
+    },
+    "2": {
+      "item": "alfheim:gem_willemite"
+    },
+    "3": {
+      "item": "alfheim:gem_scheelite"
+    },
+    "4": {
+      "item": "alfheim:gem_zircon"
+    },
+    "5": {
+      "item": "alfheim:gem_hyacinth_zircon"
+    },
+    "6": {
+      "item": "alfheim:gem_green_zircon"
+    },
+    "7": {
+      "item": "alfheim:gem_euclase"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_22",
+    "count": 1
+  }
+}

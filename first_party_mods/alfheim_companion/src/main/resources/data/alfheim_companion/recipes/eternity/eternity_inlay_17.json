@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_scapolite"
+    },
+    "1": {
+      "item": "alfheim:gem_diopside"
+    },
+    "2": {
+      "item": "alfheim:gem_chrome_diopside"
+    },
+    "3": {
+      "item": "alfheim:gem_violane"
+    },
+    "4": {
+      "item": "alfheim:gem_enstatite"
+    },
+    "5": {
+      "item": "alfheim:gem_bronzite"
+    },
+    "6": {
+      "item": "alfheim:gem_hypersthene"
+    },
+    "7": {
+      "item": "alfheim:gem_actinolite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_17",
+    "count": 1
+  }
+}

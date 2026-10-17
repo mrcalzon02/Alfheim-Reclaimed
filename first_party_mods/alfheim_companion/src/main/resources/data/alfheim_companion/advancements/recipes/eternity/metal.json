@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:raw_gold"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "alfheim_companion:eternity/concentrate",
+      "alfheim_companion:eternity/refine_platinum",
+      "alfheim_companion:eternity/platinum_billet",
+      "alfheim_companion:eternity/unpack_platinum",
+      "alfheim_companion:eternity/royal_crown_segment",
+      "alfheim_companion:eternity/gold_platinum_crown",
+      "alfheim_companion:eternity/eternity_setter"
+    ]
+  }
+}

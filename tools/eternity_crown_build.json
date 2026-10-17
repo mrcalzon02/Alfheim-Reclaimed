@@ -1,0 +1,24 @@
+{
+  "status": "BUILD_AND_SOURCE_PACKAGE_AUDIT_PASS_RUNTIME_PENDING",
+  "gem_count": 232,
+  "inlay_count": 29,
+  "unique_inset_items": 232,
+  "native_gem_settings": 232,
+  "generated_files_verified": 139,
+  "all_recipe_inputs_resolved": true,
+  "native_classes_packaged": true,
+  "feature_order_cycles": 0,
+  "build": "./gradlew.bat build --offline -x test",
+  "tests_run": false,
+  "runtime_pending": [
+    "recipe loading and recipe-book/JEI transfer",
+    "repeated and shift crafting, setter return, saved progress",
+    "save/reload and multiplayer sync",
+    "worn and inventory models, completed advancement"
+  ],
+  "built_sha256": "5a915d5e0da4f95ce484bc9698b4c0751278e4ee0438eae795e8dcc6a77d68b6",
+  "installed_sha256": "5a915d5e0da4f95ce484bc9698b4c0751278e4ee0438eae795e8dcc6a77d68b6",
+  "previous_sha256": "fe341e37728687dff851b202048aa4ffc22855926ea9ec012d2c3d0608a35fd3",
+  "previous_jar": "quarantine\\alfheim_companion-before-eternity-crown-20261017.jar",
+  "restart_required": true
+}

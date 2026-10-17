@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_aquamarine"
+    },
+    "1": {
+      "item": "alfheim:gem_morganite"
+    },
+    "2": {
+      "item": "alfheim:gem_heliodor"
+    },
+    "3": {
+      "item": "alfheim:gem_goshenite"
+    },
+    "4": {
+      "item": "alfheim:gem_red_beryl"
+    },
+    "5": {
+      "item": "minecraft:quartz"
+    },
+    "6": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "7": {
+      "item": "alfheim:gem_citrine"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_03",
+    "count": 1
+  }
+}

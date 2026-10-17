@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_phenakite"
+    },
+    "1": {
+      "item": "alfheim:gem_beryllonite"
+    },
+    "2": {
+      "item": "alfheim:gem_amblygonite"
+    },
+    "3": {
+      "item": "alfheim:gem_montebrasite"
+    },
+    "4": {
+      "item": "alfheim:gem_petalite"
+    },
+    "5": {
+      "item": "alfheim:gem_lepidolite"
+    },
+    "6": {
+      "item": "alfheim:gem_herderite"
+    },
+    "7": {
+      "item": "alfheim:gem_hambergite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_23",
+    "count": 1
+  }
+}

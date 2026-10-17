@@ -1,0 +1,637 @@
+{
+  "capability": "Continuity Works",
+  "snapshot_id": "20261017T233845Z-alfheim_companion_eternity_crown-generate-c3ead25f",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_eternity_crown_v1"
+  },
+  "layout": {
+    "files": [
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/crown_geometry.json",
+        "sha256": "c54a416d25aa2bf6a79be82d9982240005127995ff683ec69c21704cff9c0078"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/textures/models/armor/eternity_crown.png",
+        "sha256": "9854e90fd677ff4c66fcbac370c8cb0fcfa6b6d6084f7b52b2726a0cd245d353"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_00.json",
+        "sha256": "b5a9bac653ae8982e78bced75adda03d480bde7992d581dfe25a3f7049323a57"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_01.json",
+        "sha256": "fe58d468333c9620da4ee121a31b209da3d5237550ccbc47867bf46bd51cc9ad"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_02.json",
+        "sha256": "47864df8eb2aed7e5bb7241bc8c5bd230d87bbb72b528ade126e417ccfe625ca"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_03.json",
+        "sha256": "27a7ce3de386681abd9d0f76b6130032237d42d193a680e7fc511888d91806fa"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_04.json",
+        "sha256": "da2d1ca634530534ee0214b23ca5200fe9c9a1a90ca3bbe1af1052c60c72fae2"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_05.json",
+        "sha256": "6d7d2562cae8fd22ca7b8c77d461015c70d3be9ca2ca1df0bc2510300c8b6fe3"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_06.json",
+        "sha256": "54dc195027cdd368419bca4d4a797cfa7a60f12f94533c15baa5772326e72d17"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_07.json",
+        "sha256": "21f03a1f836e12e30afc2042607dba8f5d50acf5a1a29b6b1d967aac1c418f4c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_08.json",
+        "sha256": "314f2d70efecb4197162e90d37d6b0f637eebe439b827044e922004345157bbf"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_09.json",
+        "sha256": "ccc4c52abf91701d79684718a528134ad92c7db9178aef37f0528d32d6c0feb0"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_10.json",
+        "sha256": "effbf50d0c621bf6320a97513c7a0cc479f421062771688fbb2eacab430ab29a"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_11.json",
+        "sha256": "1243a528abdab476f7a6746e71c6b4562af59398ceddab10645f845676ea45de"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_12.json",
+        "sha256": "f430f36da00f37780c1adc853ae28a42bdfc893a3aae45ff175b37e4addad382"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_13.json",
+        "sha256": "614995b7689db5d2ed65eacca2c7f1a3f02f4d32aa993d029f393041251dd163"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_14.json",
+        "sha256": "39044732c125ad9120ad53266254dbb115143869ca2ffbb68dfb00cdf0567272"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_15.json",
+        "sha256": "083ade928cabf15b20e8dc6a6cfa2408910607eeecde24e2d3f2e023ae7ca75f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_16.json",
+        "sha256": "e0a720725d920dd2c2735f060dd06bea0585901e61db5e8d7c75061461e509b9"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_17.json",
+        "sha256": "79307e67cd907aff79b749d619a3361914f1dd98363e16f8ede2bab9903d5c03"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_18.json",
+        "sha256": "d7037093b8f92fac7b79d8c4eced2eb8e9c8b28dde34696bfd4c2f10d6d2c37f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_19.json",
+        "sha256": "f8d352c6b19f52654d74b5df571427ff3d060e92bc4bb7063cb8d03b70081ddd"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_20.json",
+        "sha256": "40945d24936e2d8fdc28fcf6130d025178e7a041853c074f1b2dd91857691e67"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_21.json",
+        "sha256": "9410e61aafcafa12e23bc611d78e390217897d9bcd7e2c359f0cec70cea1b6d4"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_22.json",
+        "sha256": "9ad9a1a300ea8621a9b516f662a3b98ec8a0bb4c9cae967621882c4ef06be35e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_23.json",
+        "sha256": "8faae1c5360970957f63862efb510adc29e915eebab1ef4b69ea6e31208159f6"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_24.json",
+        "sha256": "976c735770fda1525d75ccbbc916cbc88d41473cf07012632ec987966f73465e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_25.json",
+        "sha256": "9e850bab6ece1366d10010697912415cc494704ec7be14bbf6ec8363e78b0e10"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_26.json",
+        "sha256": "2db8d3eb74aa0b9b88b4a385b7d0d5941b35f4ac0304c5e87f3b626c7ebe7f9e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_27.json",
+        "sha256": "7ff0802e15eebf174a043f55524a33dc63cfbba47992cfbe67430001211c7617"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity/crown_28.json",
+        "sha256": "af48c94463f6213413787eea67f48f4bee480ce24b12f5d69582478a6f5fd813"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/crown_of_eternity.json",
+        "sha256": "65e4ab7004f63eeaa9712a5f989aff3ed5b6f648ad1ef5ab870794ad366425bd"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/gold_platinum_crown.json",
+        "sha256": "d3f727a31588a0f2702e91da76fe5e0037cc8e1fad438e12fb98beee8c624f55"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/platinum_ingot.json",
+        "sha256": "f471c5a2c352d3b4ff01dacccdd3b3738d96a4c933db374730b1807c9cc797dd"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/platinum_billet.json",
+        "sha256": "19dbf3f96be347a388d0db683dc51d430321365f5c3836c20af392a018bef399"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/platinum_concentrate.json",
+        "sha256": "0a3e68fc776658c94f6487d2066e76fa0c2bbf9500642c5aa3378b18a660855d"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/royal_crown_segment.json",
+        "sha256": "b8e73b1acc0919d574658b51e72db5e668cc53245b1ccff8d154befbcb8d743e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_setter.json",
+        "sha256": "9fc4c4d54791484c78ca48f8c01738c41d96c60b112cbe32a149b1045a927b69"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/concentrate.json",
+        "sha256": "239dfe8671e44bcf3bc70e8dceff8c13ccdb5d6ed06adc1d67b47b68aeaab904"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/refine_platinum.json",
+        "sha256": "cf57ba00fa5bb3805b4cc704b0f9523be1ff5534cc959e4712b1637451aa0981"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/platinum_billet.json",
+        "sha256": "d81cb7e4bf8d40d226f6d95dc5aefa192a9d56535435336367731eba3f84fc49"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/unpack_platinum.json",
+        "sha256": "84f28f02fad79921436d95e1f7624d9c32009e608e14181c3485d2a1f959ae17"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/royal_crown_segment.json",
+        "sha256": "93164f8b0190fd61503f4647e2baf4108ec87aa77ce9fa067abb1ab99822f271"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/gold_platinum_crown.json",
+        "sha256": "c5370da77f59e72a821b596777050ccfb9d8ef78d5b072e85d755cd633aebdd9"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_setter.json",
+        "sha256": "f15470f6161bdae4857950ea5ea830e0187934287f1b0f6c20022bfcb41c7499"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_01.json",
+        "sha256": "9d6cb96bdb29c58db30b2dee546fb937879dec4e342985474955951b8fecf0e1"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_01.json",
+        "sha256": "5aabeb65e95b48b8f5c1d5badec37083f6fa3e347702ebf4d15a155f417cb4ea"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_01.json",
+        "sha256": "5a38ebff7ec84bba3960634d8ec47efbdb342c55f94f3203c5ca776ef80a36f7"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_02.json",
+        "sha256": "5252cf488f2c49f5fadcfbc88dbbcf953339347b54f9973624a740da1aae226c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_02.json",
+        "sha256": "5c3a53b1a3023e685c84c644138261c2698d21982c233e3058f4a396a3246dbc"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_02.json",
+        "sha256": "f42fd6897dc8c272912ea1a170fe0f688e167fe128c280e82f2786d8e2cc3aa1"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_03.json",
+        "sha256": "17e9d46919f0d60934fe19e9798161530e180e5e81f2d8e4e4ad140ee14ca5d3"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_03.json",
+        "sha256": "800c5c9b99638544765d82d7d4878b3919a35d646e34c23657d0190624189e14"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_03.json",
+        "sha256": "ee51c46872c216aa4d420f876efac5c445e151124cb2e7a4b4c21c82614d3154"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_04.json",
+        "sha256": "120ca6fe439f33ed3fbf8507ae9579227dc7b2aff8daa7374bbdb1cfa7701d9f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_04.json",
+        "sha256": "a3e1c3069ad453c68fb7583893ae8f9f48d6eb7694e10ccbc99a34d1124f0cc7"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_04.json",
+        "sha256": "d06d3bf5b4cdcbbe6dac33b53954b8324c5b7c39712bb18d304bdee71ae6f602"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_05.json",
+        "sha256": "e6f2905b20484df116d3cb4dbcf3969fa5104117616b247f963d0e827057dccf"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_05.json",
+        "sha256": "f8334f81b26faa43618b413c92ecfbcb96c814c00c8b7e13a940710a315f5c4a"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_05.json",
+        "sha256": "84c61e840342e81bdca8d67136e443692c834d1b3ec07d8bf21adcd3e0c3cc77"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_06.json",
+        "sha256": "5534f68955bf45cae2296a739c4c41bb3bb9fbe00c6e8a4343eeb64a264fa4da"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_06.json",
+        "sha256": "662600c16f99183b96cc1fc52da24e5db05fb3a696f611574eee4c7df13b2d1e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_06.json",
+        "sha256": "39fecb2369555d9718053b93fb1a24ae808771c435383804c14d2a67c5e09465"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_07.json",
+        "sha256": "0e4d8de86be9bb7575fe03f8742e2ec963fdf23adb47d39e99a7f9c1dff21338"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_07.json",
+        "sha256": "719154a195e07c4d96297ba26a072175f6e2ed97357ae2ff5013c4bd9bca6623"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_07.json",
+        "sha256": "b014df75dcafedf7951a3ab8c3ce0239818c71929a83b604fc70ff2fa4fe6e94"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_08.json",
+        "sha256": "80660d97e11ce072c8db98dadc0f3c69d953dc3c902b1862d2dde96f89e893b2"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_08.json",
+        "sha256": "a9826acb3b9f8e990a2c9eeda12a4af6548b2357712d37402f3f99309273e8d0"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_08.json",
+        "sha256": "cdef16c2427c9e27f1bdbeb3e7ccc0100428fa579240cc08e40b2bf2a69136c9"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_09.json",
+        "sha256": "e707ab5082aef71516c68f2f4803866aaa2b51edfcc4f60da033128d6493b81e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_09.json",
+        "sha256": "39960abc131b63b9f3c4ae5be377af20817751f0a34353ee1fd418e0497a9697"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_09.json",
+        "sha256": "b85c2beafc1b8f525597608a220e6a9d6d11f3b1b1e39d5f3c55eea116719d6b"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_10.json",
+        "sha256": "b87f9da759aec2dcf63b453ac6b5490a4343f9311b9749bd1cbe28a22fb66fd7"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_10.json",
+        "sha256": "b46e54c13bc8843aaff7bcb9d8239f6a358ff6f4c9f376cbdeefd1e49939b47b"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_10.json",
+        "sha256": "a1854fe5dd81bcbbd30e29d3582ee21cba2ba1df9633825015f693535972ebf6"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_11.json",
+        "sha256": "b96910ec4114fd89eafd00eaba21136a99ad32e2ccf872cf6bcb53e28209d5e3"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_11.json",
+        "sha256": "7b532b5c8acd0f22929c5a2c86a1f587a31e7e35c8af190f133aa3e6a1d52e0f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_11.json",
+        "sha256": "a8c672179fffbed35d203cafe9079d6c17a7f904d0c44d85abebfc2b3c1d9e2f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_12.json",
+        "sha256": "a9c9f0465c13b67ec7fc5a2c7c32f6a218325071e6d327c735b3c75cb9c19fad"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_12.json",
+        "sha256": "2378ca7546d0f81af06c77ea27097d80cee96a9b04c9b6da794aa83e19ed9d20"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_12.json",
+        "sha256": "c22c72b7bc3ba25870625e9ef56b384b88b562155aa2aa53d1e2775dad038214"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_13.json",
+        "sha256": "c27f086981a7330f9eb6121468c4fb6a074a715806daea2ce747df073711acb6"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_13.json",
+        "sha256": "6f56dbb80c1008764a3b4093c6e99938eb3c4bc76b1ce03fbe5eca1b0f165f79"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_13.json",
+        "sha256": "3250cd226ba4d51ca33820625974477273ad35d21d4dd66f6f94a40f6ae97a75"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_14.json",
+        "sha256": "68963564b9e3651d274266fabb528e0b21115faff551d26918b4f403d8728357"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_14.json",
+        "sha256": "e8c05bcb9285b15a64122894120a0236223b62c53227f55cfba265015ff062be"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_14.json",
+        "sha256": "18effcf866ef04dab3d3cbf68a9c831a2f2b09dadae3679ab448dd265473a56e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_15.json",
+        "sha256": "b2f742edcee15faf176e8a7a689cdb9f23db6c1bb4be546a8030c2841578b2cb"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_15.json",
+        "sha256": "725a20959abb1f6f64e5d0d8149b96bdbb4d0f8b237d3cda278dfdc3c08b3c2c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_15.json",
+        "sha256": "e101c7b287dbd0b9063ee0b297571df4a966f5a1b9f233a0363b487565bd56dc"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_16.json",
+        "sha256": "e91c02f72d4f4117b6484ea8ff816a4f4a7b9613cc2bd9d487c1ce961ae8b3d2"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_16.json",
+        "sha256": "7f5ab6ac82b428d201404fd6ba576e029897ba140d7c4ea99c06746159c561db"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_16.json",
+        "sha256": "be2c841274b81d57860a568164d5710489eac8f9ba8138b0092f34c15fd7ff17"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_17.json",
+        "sha256": "82d2cc752dedf8461dc988d11c413719b2c6a01390eb15615a2e2fca837bf73a"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_17.json",
+        "sha256": "2bf6fa4924f4ed70a6978c95c3ccd69b7f988faa689570f942dfaf871babdac2"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_17.json",
+        "sha256": "94f269586c2a9411c599909fdcf68eae829edfab852146858b8881bd72126652"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_18.json",
+        "sha256": "9cd6ad13bbda74044f9eed749105e9ee9419a34afdfad29d0cd7a6bf36d0ef33"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_18.json",
+        "sha256": "b88a0381022c2a12fafa10c4a365a81e47b7c6c75529f66510577e7d384b3088"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_18.json",
+        "sha256": "e24a67ee285becce255a489d6678422b0d2b0fa85e864b6d367a74fd9860d1e2"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_19.json",
+        "sha256": "7092eb45ca12f261a79986b79b87cb94101fb90f4b7bbb98268af297fb873cc5"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_19.json",
+        "sha256": "83b1321c6c470957156e8cfadaeb42c66f02de2054e1a5b89307287131914f9c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_19.json",
+        "sha256": "be83cdd95f00e4017c7eeeb89acb3eccc3c96e68a5c3744e0a20b5d6734e7fdc"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_20.json",
+        "sha256": "8938252d2c1aad8e2aef4838a5757f1c54565f18c76e7c7bf96fef64ea9742bf"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_20.json",
+        "sha256": "08a5f3f506de20e1244a6ef98f91d6b872bc381966dc761e1f7af895d7df52eb"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_20.json",
+        "sha256": "67c834333c031e527bf89f269e75dfe5c0a1383807deb6bc10096993c3ba3259"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_21.json",
+        "sha256": "86e7261ff72bae16b6d6ef15ddaf3db75b1e3c3bcf1dfabf7b99503dcf7c82ed"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_21.json",
+        "sha256": "8cd62a0554bd7b69434b90c9136a0907cce52a683471ae0c45c789d3b3bfcf9d"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_21.json",
+        "sha256": "cb39e9215e223229d976d935bed787001f5fe277968dccb241fbdd27e9d2abda"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_22.json",
+        "sha256": "ce501e06c9377c9cf56d465727d547340f544d0e5de64f1b19b0d1c0e5be14ce"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_22.json",
+        "sha256": "3860fe7bf7a48f296c02757228589b3c013e18438b664952e80330f09f503775"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_22.json",
+        "sha256": "13478fe275e617fc93a3bbcc0393be93ae65698cc64e4bb892090a3351032d06"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_23.json",
+        "sha256": "c49a1c255635e351b5bca2a7d118cb316a5dc81c40d19fb83a5f269beaac14b4"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_23.json",
+        "sha256": "4a07347dd58fc90fb4e9f56118dc96a9db609363178bcd10d910898277da0675"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_23.json",
+        "sha256": "09bcddd1f4260fc33dae30d9d5809b755e6f8adb357f3868e652ea8a7bb83a5d"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_24.json",
+        "sha256": "562b84a9e31f260bd947ef3edb00d52d0b89fa8ba59b12c64aeb454515f6eadd"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_24.json",
+        "sha256": "3879d4e032b5d541b1b722caf3f977be4c4fe12eeb3eb8538a2a3574f076a13c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_24.json",
+        "sha256": "5eb1186b4c370a498061eae057a89ed06c5217fd65f9beafd01ac2fb2db06519"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_25.json",
+        "sha256": "082145457c3ffbba7dd86d789e0072177c0e622a8b03499c559db73da2c0e0a1"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_25.json",
+        "sha256": "1f182cb80ecfccb878d8b6527694b21a05b2848c751abd26bcc6a485903efe1f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_25.json",
+        "sha256": "74ee3806854b60a5f6a9d533a164f0af381d83aa30551a17cfdc6d7bdce29cab"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_26.json",
+        "sha256": "12aa2717638c574f1d17ae771a055f1123faea4d122f62041450f97a4c8d3cbc"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_26.json",
+        "sha256": "d09b78d8b5b05ca4c55acaccb30755f58166d161e61718e3fef6de0dd6c437b6"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_26.json",
+        "sha256": "90a9765153755d30cd1d150700aaa8693c6147b5504be9d2bc9d53ec9b182452"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_27.json",
+        "sha256": "5be397e281fdef46d9ee8427ca1a83a3283e0dcb445d5e65394935612b3dcec0"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_27.json",
+        "sha256": "983900026592d4bc0631adff2faecd335e0a16a5f3bef5cd98647c4c73f39128"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_27.json",
+        "sha256": "2ad8cd6cfdea4bb2ddeacf6efc42e3d996556e143b9f6a7cf6539d7c7db0d8fa"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_28.json",
+        "sha256": "a7cb12acae8140fd55ab55eeb8b73a5aa772fa452877f5656fca4dbff5fb969c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_28.json",
+        "sha256": "e50b4206465d97dde7c478ad59f2cabbbd0c59d50ae27fb927463cc80f8a67ba"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_28.json",
+        "sha256": "d8d2fe202308980b8596b7c8abca5da0cc54467a507e0660ad7c9d18c33b6ad0"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/eternity_inlay_29.json",
+        "sha256": "6160806a43a7f3bce99b2f632813146331411bd3118aaf02972ad01bf030c2ae"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/recipes/eternity/set_inlay_29.json",
+        "sha256": "72574846e27c44688f806b7125d1c5d5fd11a4f6682f50395520dc7d06778294"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/eternity_inlay_29.json",
+        "sha256": "afd0ad1e864c0198bddd8aa90e9d01ae2d987d52a5d9d503ceffc74fa46a77f5"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/tags/items/platinum_ingots.json",
+        "sha256": "fd51ad245d9e92c5ee4a66b589de2ad65bd0ed292469aee121873930ebe6069f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/forge/tags/items/ingots/platinum.json",
+        "sha256": "fd51ad245d9e92c5ee4a66b589de2ad65bd0ed292469aee121873930ebe6069f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/forge/tags/items/ingots.json",
+        "sha256": "fd51ad245d9e92c5ee4a66b589de2ad65bd0ed292469aee121873930ebe6069f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/lang/en_us.json",
+        "sha256": "624122bdd04280b4ce80faa93d6af8db40ccd547cc03f240de4889f1225b166a"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/advancements/eternity/completed.json",
+        "sha256": "571a248a4fdc061cd10849c4377ea76ebda8bdbc42ea4b78ec13df6e88c7954c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/advancements/recipes/eternity/inlays.json",
+        "sha256": "2d267092c14f3b4336a4980b9482be6ca2a97148fbcdd5319650ac8cb6d619ca"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/data/alfheim_companion/advancements/recipes/eternity/metal.json",
+        "sha256": "7b26d7806007c638baf2085dfa2f3ff9cb331aab9b8baf12358fc4f84377910b"
+      }
+    ],
+    "registry_probes": {
+      "minecraft:raw_gold_block": {
+        "id": "minecraft:raw_gold_block",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:blaze_powder": {
+        "id": "minecraft:blaze_powder",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:blaze_rod": {
+        "id": "minecraft:blaze_rod",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:gold_block": {
+        "id": "minecraft:gold_block",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:nether_star": {
+        "id": "minecraft:nether_star",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:diamond": {
+        "id": "minecraft:diamond",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      }
+    },
+    "inlay_count": 29,
+    "gem_count": 232
+  },
+  "placement_contract": "No structures or world-generation changes"
+}

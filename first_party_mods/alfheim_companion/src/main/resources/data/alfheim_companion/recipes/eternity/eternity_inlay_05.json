@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_moss_agate"
+    },
+    "1": {
+      "item": "alfheim:gem_dendritic_agate"
+    },
+    "2": {
+      "item": "alfheim:gem_fire_agate"
+    },
+    "3": {
+      "item": "alfheim:gem_blue_lace_agate"
+    },
+    "4": {
+      "item": "alfheim:gem_carnelian"
+    },
+    "5": {
+      "item": "alfheim:gem_sard"
+    },
+    "6": {
+      "item": "alfheim:gem_onyx"
+    },
+    "7": {
+      "item": "alfheim:gem_sardonyx"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_05",
+    "count": 1
+  }
+}

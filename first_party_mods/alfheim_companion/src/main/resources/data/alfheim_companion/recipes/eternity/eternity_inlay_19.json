@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_fluorite"
+    },
+    "1": {
+      "item": "alfheim:gem_calcite"
+    },
+    "2": {
+      "item": "alfheim:gem_aragonite"
+    },
+    "3": {
+      "item": "alfheim:gem_azurite"
+    },
+    "4": {
+      "item": "alfheim:gem_malachite"
+    },
+    "5": {
+      "item": "alfheim:gem_chrysocolla"
+    },
+    "6": {
+      "item": "alfheim:gem_dioptase"
+    },
+    "7": {
+      "item": "alfheim:gem_smithsonite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_19",
+    "count": 1
+  }
+}

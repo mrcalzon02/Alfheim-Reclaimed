@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_liddicoatite"
+    },
+    "1": {
+      "item": "alfheim:gem_moonstone"
+    },
+    "2": {
+      "item": "alfheim:gem_rainbow_moonstone"
+    },
+    "3": {
+      "item": "alfheim:gem_labradorite"
+    },
+    "4": {
+      "item": "alfheim:gem_spectrolite"
+    },
+    "5": {
+      "item": "alfheim:gem_sunstone"
+    },
+    "6": {
+      "item": "alfheim:gem_amazonite"
+    },
+    "7": {
+      "item": "alfheim:gem_andesine"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_11",
+    "count": 1
+  }
+}

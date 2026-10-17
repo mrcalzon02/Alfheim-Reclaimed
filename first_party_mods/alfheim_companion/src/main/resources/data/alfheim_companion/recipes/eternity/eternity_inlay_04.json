@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_ametrine"
+    },
+    "1": {
+      "item": "alfheim:gem_rose_quartz"
+    },
+    "2": {
+      "item": "alfheim:gem_smoky_quartz"
+    },
+    "3": {
+      "item": "alfheim:gem_morion"
+    },
+    "4": {
+      "item": "alfheim:gem_rutilated_quartz"
+    },
+    "5": {
+      "item": "alfheim:gem_tourmalinated_quartz"
+    },
+    "6": {
+      "item": "alfheim:gem_prasiolite"
+    },
+    "7": {
+      "item": "alfheim:gem_agate"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_04",
+    "count": 1
+  }
+}

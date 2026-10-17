@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_red_spinel"
+    },
+    "1": {
+      "item": "alfheim:gem_blue_spinel"
+    },
+    "2": {
+      "item": "alfheim:gem_pink_spinel"
+    },
+    "3": {
+      "item": "alfheim:gem_black_spinel"
+    },
+    "4": {
+      "item": "alfheim:gem_color_change_spinel"
+    },
+    "5": {
+      "item": "alfheim:gem_chrysoberyl"
+    },
+    "6": {
+      "item": "alfheim:gem_alexandrite"
+    },
+    "7": {
+      "item": "alfheim:gem_chrysoberyl_catseye"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_13",
+    "count": 1
+  }
+}

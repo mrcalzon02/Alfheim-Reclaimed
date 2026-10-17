@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_water_opal"
+    },
+    "1": {
+      "item": "alfheim:gem_hyalite"
+    },
+    "2": {
+      "item": "alfheim:gem_almandine"
+    },
+    "3": {
+      "item": "alfheim:gem_pyrope"
+    },
+    "4": {
+      "item": "alfheim:gem_spessartine"
+    },
+    "5": {
+      "item": "alfheim:gem_grossular"
+    },
+    "6": {
+      "item": "alfheim:gem_hessonite"
+    },
+    "7": {
+      "item": "alfheim:gem_tsavorite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_08",
+    "count": 1
+  }
+}

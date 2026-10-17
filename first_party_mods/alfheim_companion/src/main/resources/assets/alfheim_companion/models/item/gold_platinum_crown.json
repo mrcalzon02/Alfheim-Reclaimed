@@ -1,0 +1,173 @@
+{
+  "parent": "alfheim_companion:item/eternity/crown_00",
+  "overrides": [
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 1
+      },
+      "model": "alfheim_companion:item/eternity/crown_01"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 2
+      },
+      "model": "alfheim_companion:item/eternity/crown_02"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 3
+      },
+      "model": "alfheim_companion:item/eternity/crown_03"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 4
+      },
+      "model": "alfheim_companion:item/eternity/crown_04"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 5
+      },
+      "model": "alfheim_companion:item/eternity/crown_05"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 6
+      },
+      "model": "alfheim_companion:item/eternity/crown_06"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 7
+      },
+      "model": "alfheim_companion:item/eternity/crown_07"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 8
+      },
+      "model": "alfheim_companion:item/eternity/crown_08"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 9
+      },
+      "model": "alfheim_companion:item/eternity/crown_09"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 10
+      },
+      "model": "alfheim_companion:item/eternity/crown_10"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 11
+      },
+      "model": "alfheim_companion:item/eternity/crown_11"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 12
+      },
+      "model": "alfheim_companion:item/eternity/crown_12"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 13
+      },
+      "model": "alfheim_companion:item/eternity/crown_13"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 14
+      },
+      "model": "alfheim_companion:item/eternity/crown_14"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 15
+      },
+      "model": "alfheim_companion:item/eternity/crown_15"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 16
+      },
+      "model": "alfheim_companion:item/eternity/crown_16"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 17
+      },
+      "model": "alfheim_companion:item/eternity/crown_17"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 18
+      },
+      "model": "alfheim_companion:item/eternity/crown_18"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 19
+      },
+      "model": "alfheim_companion:item/eternity/crown_19"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 20
+      },
+      "model": "alfheim_companion:item/eternity/crown_20"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 21
+      },
+      "model": "alfheim_companion:item/eternity/crown_21"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 22
+      },
+      "model": "alfheim_companion:item/eternity/crown_22"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 23
+      },
+      "model": "alfheim_companion:item/eternity/crown_23"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 24
+      },
+      "model": "alfheim_companion:item/eternity/crown_24"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 25
+      },
+      "model": "alfheim_companion:item/eternity/crown_25"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 26
+      },
+      "model": "alfheim_companion:item/eternity/crown_26"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 27
+      },
+      "model": "alfheim_companion:item/eternity/crown_27"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:inlays": 28
+      },
+      "model": "alfheim_companion:item/eternity/crown_28"
+    }
+  ]
+}

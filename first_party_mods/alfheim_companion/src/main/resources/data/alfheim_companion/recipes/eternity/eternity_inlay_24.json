@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_taaffeite"
+    },
+    "1": {
+      "item": "alfheim:gem_musgravite"
+    },
+    "2": {
+      "item": "alfheim:gem_benitoite"
+    },
+    "3": {
+      "item": "alfheim:gem_jeremejevite"
+    },
+    "4": {
+      "item": "alfheim:gem_grandidierite"
+    },
+    "5": {
+      "item": "alfheim:gem_kornerupine"
+    },
+    "6": {
+      "item": "alfheim:gem_serendibite"
+    },
+    "7": {
+      "item": "alfheim:gem_sinhalite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_24",
+    "count": 1
+  }
+}

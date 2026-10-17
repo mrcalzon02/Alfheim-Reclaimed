@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_aventurine"
+    },
+    "1": {
+      "item": "alfheim:gem_tiger_eye"
+    },
+    "2": {
+      "item": "alfheim:gem_hawk_eye"
+    },
+    "3": {
+      "item": "alfheim:gem_white_opal"
+    },
+    "4": {
+      "item": "alfheim:gem_black_opal"
+    },
+    "5": {
+      "item": "alfheim:gem_fire_opal"
+    },
+    "6": {
+      "item": "alfheim:gem_boulder_opal"
+    },
+    "7": {
+      "item": "alfheim:gem_common_opal"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_07",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "GGG",
+    "GPG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_billet"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:royal_crown_segment",
+    "count": 1
+  }
+}

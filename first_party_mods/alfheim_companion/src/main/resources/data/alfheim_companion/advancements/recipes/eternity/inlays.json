@@ -1,0 +1,78 @@
+{
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "alfheim_companion:gold_platinum_crown"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "alfheim_companion:eternity/eternity_inlay_01",
+      "alfheim_companion:eternity/eternity_inlay_02",
+      "alfheim_companion:eternity/eternity_inlay_03",
+      "alfheim_companion:eternity/eternity_inlay_04",
+      "alfheim_companion:eternity/eternity_inlay_05",
+      "alfheim_companion:eternity/eternity_inlay_06",
+      "alfheim_companion:eternity/eternity_inlay_07",
+      "alfheim_companion:eternity/eternity_inlay_08",
+      "alfheim_companion:eternity/eternity_inlay_09",
+      "alfheim_companion:eternity/eternity_inlay_10",
+      "alfheim_companion:eternity/eternity_inlay_11",
+      "alfheim_companion:eternity/eternity_inlay_12",
+      "alfheim_companion:eternity/eternity_inlay_13",
+      "alfheim_companion:eternity/eternity_inlay_14",
+      "alfheim_companion:eternity/eternity_inlay_15",
+      "alfheim_companion:eternity/eternity_inlay_16",
+      "alfheim_companion:eternity/eternity_inlay_17",
+      "alfheim_companion:eternity/eternity_inlay_18",
+      "alfheim_companion:eternity/eternity_inlay_19",
+      "alfheim_companion:eternity/eternity_inlay_20",
+      "alfheim_companion:eternity/eternity_inlay_21",
+      "alfheim_companion:eternity/eternity_inlay_22",
+      "alfheim_companion:eternity/eternity_inlay_23",
+      "alfheim_companion:eternity/eternity_inlay_24",
+      "alfheim_companion:eternity/eternity_inlay_25",
+      "alfheim_companion:eternity/eternity_inlay_26",
+      "alfheim_companion:eternity/eternity_inlay_27",
+      "alfheim_companion:eternity/eternity_inlay_28",
+      "alfheim_companion:eternity/eternity_inlay_29",
+      "alfheim_companion:eternity/set_inlay_01",
+      "alfheim_companion:eternity/set_inlay_02",
+      "alfheim_companion:eternity/set_inlay_03",
+      "alfheim_companion:eternity/set_inlay_04",
+      "alfheim_companion:eternity/set_inlay_05",
+      "alfheim_companion:eternity/set_inlay_06",
+      "alfheim_companion:eternity/set_inlay_07",
+      "alfheim_companion:eternity/set_inlay_08",
+      "alfheim_companion:eternity/set_inlay_09",
+      "alfheim_companion:eternity/set_inlay_10",
+      "alfheim_companion:eternity/set_inlay_11",
+      "alfheim_companion:eternity/set_inlay_12",
+      "alfheim_companion:eternity/set_inlay_13",
+      "alfheim_companion:eternity/set_inlay_14",
+      "alfheim_companion:eternity/set_inlay_15",
+      "alfheim_companion:eternity/set_inlay_16",
+      "alfheim_companion:eternity/set_inlay_17",
+      "alfheim_companion:eternity/set_inlay_18",
+      "alfheim_companion:eternity/set_inlay_19",
+      "alfheim_companion:eternity/set_inlay_20",
+      "alfheim_companion:eternity/set_inlay_21",
+      "alfheim_companion:eternity/set_inlay_22",
+      "alfheim_companion:eternity/set_inlay_23",
+      "alfheim_companion:eternity/set_inlay_24",
+      "alfheim_companion:eternity/set_inlay_25",
+      "alfheim_companion:eternity/set_inlay_26",
+      "alfheim_companion:eternity/set_inlay_27",
+      "alfheim_companion:eternity/set_inlay_28",
+      "alfheim_companion:eternity/set_inlay_29"
+    ]
+  }
+}

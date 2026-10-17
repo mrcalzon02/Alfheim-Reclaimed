@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alfheim_companion:platinum_billet"
+    }
+  ],
+  "result": {
+    "item": "alfheim_companion:platinum_ingot",
+    "count": 9
+  }
+}

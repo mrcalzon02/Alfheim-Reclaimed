@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_rhodochrosite"
+    },
+    "1": {
+      "item": "alfheim:gem_rhodonite"
+    },
+    "2": {
+      "item": "alfheim:gem_hemimorphite"
+    },
+    "3": {
+      "item": "alfheim:gem_cerussite"
+    },
+    "4": {
+      "item": "alfheim:gem_anglesite"
+    },
+    "5": {
+      "item": "alfheim:gem_barite"
+    },
+    "6": {
+      "item": "alfheim:gem_celestite"
+    },
+    "7": {
+      "item": "alfheim:gem_selenite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_20",
+    "count": 1
+  }
+}

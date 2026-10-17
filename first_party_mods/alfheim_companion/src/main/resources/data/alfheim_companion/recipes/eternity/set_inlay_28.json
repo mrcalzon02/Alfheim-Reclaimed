@@ -1,0 +1,19 @@
+{
+  "type": "alfheim_companion:crown_setting",
+  "category": "equipment",
+  "required_inlays": 27,
+  "ingredients": [
+    {
+      "item": "alfheim_companion:gold_platinum_crown"
+    },
+    {
+      "item": "alfheim_companion:eternity_setter"
+    },
+    {
+      "item": "alfheim_companion:eternity_inlay_28"
+    }
+  ],
+  "result": {
+    "item": "alfheim_companion:gold_platinum_crown"
+  }
+}

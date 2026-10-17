@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_pink_sapphire"
+    },
+    "1": {
+      "item": "alfheim:gem_yellow_sapphire"
+    },
+    "2": {
+      "item": "alfheim:gem_green_sapphire"
+    },
+    "3": {
+      "item": "alfheim:gem_purple_sapphire"
+    },
+    "4": {
+      "item": "alfheim:gem_white_sapphire"
+    },
+    "5": {
+      "item": "alfheim:gem_padparadscha"
+    },
+    "6": {
+      "item": "alfheim:gem_star_sapphire"
+    },
+    "7": {
+      "item": "minecraft:emerald"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_02",
+    "count": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_ammolite"
+    },
+    "1": {
+      "item": "alfheim:gem_agatized_coral"
+    },
+    "2": {
+      "item": "alfheim:gem_fossil_ivory"
+    },
+    "3": {
+      "item": "alfheim:gem_fossil_bone"
+    },
+    "4": {
+      "item": "alfheim:gem_white_pearl"
+    },
+    "5": {
+      "item": "alfheim:gem_cream_pearl"
+    },
+    "6": {
+      "item": "alfheim:gem_pink_pearl"
+    },
+    "7": {
+      "item": "alfheim:gem_golden_pearl"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_28",
+    "count": 1
+  }
+}

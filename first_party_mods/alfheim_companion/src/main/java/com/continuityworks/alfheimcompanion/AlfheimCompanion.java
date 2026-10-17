@@ -43,6 +43,7 @@ public final class AlfheimCompanion {
         com.continuityworks.alfheimcompanion.monstrosity.ModMenagerieSounds.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.REGISTRY.register(modBus);
         ModEntities.REGISTRY.register(modBus);
+        com.continuityworks.alfheimcompanion.gem.ModEternityCrown.RECIPES.register(modBus);
         com.continuityworks.alfheimcompanion.gem.ModGemDisplays.BLOCKS.register(modBus);
         com.continuityworks.alfheimcompanion.gem.ModGemDisplays.ENTITIES.register(modBus);
         com.continuityworks.alfheimcompanion.fey.ModFeyHomes.BLOCKS.register(modBus);
@@ -76,6 +77,18 @@ public final class AlfheimCompanion {
     }
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey()==CreativeModeTabs.INGREDIENTS){
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.PLATINUM.get());
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.PLATINUM_BLOCK.get());
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.CONCENTRATE.get());
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.SEGMENT.get());
+            for(var inlay:com.continuityworks.alfheimcompanion.gem.ModEternityCrown.INLAYS)event.accept(inlay.get());
+        }
+        if(event.getTabKey()==CreativeModeTabs.TOOLS_AND_UTILITIES)event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.SETTER.get());
+        if(event.getTabKey()==CreativeModeTabs.COMBAT){
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.BASE.get());
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.COMPLETE.get());
+        }
         if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)event.accept(com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.ITEM.get());
         if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)for(var home:com.continuityworks.alfheimcompanion.fey.ModFeyHomes.ITEMS)event.accept(home.get());
         if(event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS){
@@ -101,6 +114,10 @@ public final class AlfheimCompanion {
         private ClientEvents() {}
         @net.minecraftforge.eventbus.api.SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)
         public static void gemColours(net.minecraftforge.client.event.RegisterColorHandlersEvent.Item event){
+            for(int i=0;i<com.continuityworks.alfheimcompanion.gem.ModEternityCrown.LAYERS;i++){
+                final int first=i*8;
+                event.register((stack,tint)->tint<0||tint>7?0xFFFFFFFF:0xFF000000|Integer.parseUnsignedInt(com.continuityworks.alfheimcompanion.gem.ModGemDisplays.CATALOG.get(first+tint).color(),16),com.continuityworks.alfheimcompanion.gem.ModEternityCrown.INLAYS.get(i).get());
+            }
             for(int i=0;i<com.continuityworks.alfheimcompanion.gem.ModGemDisplays.CATALOG.size();i++){
                 var entry=com.continuityworks.alfheimcompanion.gem.ModGemDisplays.CATALOG.get(i);
                 int color=0xFF000000|Integer.parseUnsignedInt(entry.color(),16);
@@ -145,6 +162,7 @@ public final class AlfheimCompanion {
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerScreens(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
+                net.minecraft.client.renderer.item.ItemProperties.register(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.BASE.get(),new net.minecraft.resources.ResourceLocation(MOD_ID,"inlays"),(stack,world,mob,seed)->com.continuityworks.alfheimcompanion.gem.ModEternityCrown.progress(stack));
                 net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(com.continuityworks.alfheimcompanion.gem.ModGemDisplays.PEDESTAL.get(),net.minecraft.client.renderer.RenderType.cutout());
                 MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(), CompanionInventoryScreen::new);
                 com.continuityworks.alfheimcompanion.client.EnemySpawnItemAppearance.registerProperties();

@@ -1,5 +1,21 @@
 # Execution State
 
+## Crown of Eternity — 2026-10-17
+
+Added a reusable Jeweller's Eternity Setter and a wearable gold-and-platinum
+crown with 29 ordered eight-gem inlays, covering all 232 catalogue gemstones
+exactly once. Progress persists on the crown; incorrect or duplicate inlays
+are rejected. Native inventory and worn models reveal each installed gem.
+Added costly platinum concentration/refining, crown segments, recipe unlocks,
+next-inlay tooltips and a completion challenge. Total including tool: 64 gold
+blocks, 102 platinum ingots, one nether star, two extra diamonds and 232 gems;
+platinum refining consumes 816 raw gold blocks plus blaze powder and fuel.
+
+Continuity Works emitted 139 resources. Offline build, source/package audit
+and feature order pass (zero cycles). Built and installed; tests excluded and
+live crafting/equip/save/multiplayer checks remain pending. Restart required.
+Details: `CROWN_OF_ETERNITY_20261017.md`; `tools/eternity_crown_build.json`.
+
 ## Natural gemstone resources and geologist displays — 2026-10-17
 
 Added a first catalogue of 232 natural gem materials, including organics and

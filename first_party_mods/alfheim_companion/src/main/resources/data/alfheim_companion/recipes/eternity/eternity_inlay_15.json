@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_maw_sit_sit"
+    },
+    "1": {
+      "item": "alfheim:gem_turquoise"
+    },
+    "2": {
+      "item": "alfheim:gem_variscite"
+    },
+    "3": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "4": {
+      "item": "alfheim:gem_sodalite"
+    },
+    "5": {
+      "item": "alfheim:gem_hackmanite"
+    },
+    "6": {
+      "item": "alfheim:gem_sugilite"
+    },
+    "7": {
+      "item": "alfheim:gem_charoite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_15",
+    "count": 1
+  }
+}

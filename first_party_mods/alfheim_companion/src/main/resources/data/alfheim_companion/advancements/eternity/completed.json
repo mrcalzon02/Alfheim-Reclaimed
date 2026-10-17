@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "alfheim_companion:crown_of_eternity"
+    },
+    "title": "Crown of Eternity",
+    "description": "Set one of every gemstone into the gold and platinum crown.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "background": "minecraft:textures/block/gilded_blackstone.png"
+  },
+  "criteria": {
+    "crown": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "alfheim_companion:crown_of_eternity"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_gypsum"
+    },
+    "1": {
+      "item": "alfheim:gem_phosphophyllite"
+    },
+    "2": {
+      "item": "alfheim:gem_pyrite"
+    },
+    "3": {
+      "item": "alfheim:gem_marcasite"
+    },
+    "4": {
+      "item": "alfheim:gem_hematite"
+    },
+    "5": {
+      "item": "alfheim:gem_magnetite"
+    },
+    "6": {
+      "item": "alfheim:gem_cassiterite"
+    },
+    "7": {
+      "item": "alfheim:gem_cuprite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_21",
+    "count": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_rubellite"
+    },
+    "1": {
+      "item": "alfheim:gem_indicolite"
+    },
+    "2": {
+      "item": "alfheim:gem_verdelite"
+    },
+    "3": {
+      "item": "alfheim:gem_schorl"
+    },
+    "4": {
+      "item": "alfheim:gem_dravite"
+    },
+    "5": {
+      "item": "alfheim:gem_watermelon_tourmaline"
+    },
+    "6": {
+      "item": "alfheim:gem_bicolor_tourmaline"
+    },
+    "7": {
+      "item": "alfheim:gem_paraiba_tourmaline"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_10",
+    "count": 1
+  }
+}

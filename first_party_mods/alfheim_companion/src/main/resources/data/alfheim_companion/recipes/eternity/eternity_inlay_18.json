@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_clinohumite"
+    },
+    "1": {
+      "item": "alfheim:gem_axinite"
+    },
+    "2": {
+      "item": "alfheim:gem_epidote"
+    },
+    "3": {
+      "item": "alfheim:gem_prehnite"
+    },
+    "4": {
+      "item": "alfheim:gem_vesuvianite"
+    },
+    "5": {
+      "item": "alfheim:gem_seraphinite"
+    },
+    "6": {
+      "item": "alfheim:gem_titanite"
+    },
+    "7": {
+      "item": "alfheim:gem_apatite"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_18",
+    "count": 1
+  }
+}

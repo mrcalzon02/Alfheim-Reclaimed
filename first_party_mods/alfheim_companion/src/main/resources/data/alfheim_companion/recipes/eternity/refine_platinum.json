@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "alfheim_companion:platinum_concentrate"
+  },
+  "result": "alfheim_companion:platinum_ingot",
+  "experience": 3,
+  "cookingtime": 1200
+}

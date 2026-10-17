@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_black_pearl"
+    },
+    "1": {
+      "item": "alfheim:gem_conch_pearl"
+    },
+    "2": {
+      "item": "alfheim:gem_melo_pearl"
+    },
+    "3": {
+      "item": "alfheim:gem_mother_of_pearl"
+    },
+    "4": {
+      "item": "alfheim:gem_red_coral"
+    },
+    "5": {
+      "item": "alfheim:gem_pink_coral"
+    },
+    "6": {
+      "item": "alfheim:gem_white_coral"
+    },
+    "7": {
+      "item": "alfheim:gem_black_coral"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_29",
+    "count": 1
+  }
+}

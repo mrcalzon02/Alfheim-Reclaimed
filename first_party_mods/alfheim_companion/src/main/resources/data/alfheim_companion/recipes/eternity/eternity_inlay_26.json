@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "3P4",
+    "567"
+  ],
+  "key": {
+    "0": {
+      "item": "alfheim:gem_scolecite"
+    },
+    "1": {
+      "item": "alfheim:gem_natrolite"
+    },
+    "2": {
+      "item": "alfheim:gem_analcime"
+    },
+    "3": {
+      "item": "alfheim:gem_leucite"
+    },
+    "4": {
+      "item": "alfheim:gem_pollucite"
+    },
+    "5": {
+      "item": "alfheim:gem_legrandite"
+    },
+    "6": {
+      "item": "alfheim:gem_phenomenal_quartz"
+    },
+    "7": {
+      "item": "alfheim:gem_star_quartz"
+    },
+    "P": {
+      "item": "alfheim_companion:platinum_ingot"
+    }
+  },
+  "result": {
+    "item": "alfheim_companion:eternity_inlay_26",
+    "count": 1
+  }
+}
