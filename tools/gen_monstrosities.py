@@ -239,7 +239,12 @@ def build():
         js(f'data/alfheim_companion/loot_tables/entities/{species}.json',{'type':'minecraft:entity','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':DROPS[species],'functions':[{'function':'minecraft:set_count','count':{'type':'minecraft:uniform','min':1,'max':3}}]}]}]})
     from menagerie_sounds import build_sounds
     sounds,subtitles=build_sounds([row['id'] for row in geometry['species']],{r['id']:r['label'] for r in geometry['species']})
-    js(ASSETS+'sounds.json',sounds);lang.update(subtitles)
+    # Preserve audio owned by other content generators (for example elven voices).
+    sound_path=RES/(ASSETS+'sounds.json')
+    existing=json.loads(sound_path.read_text()) if sound_path.exists() else {}
+    existing={k:v for k,v in existing.items() if not k.startswith('monstrosity.') and k!='maggot_mound.ambient'}
+    existing.update(sounds)
+    js(ASSETS+'sounds.json',existing);lang.update(subtitles)
     from maggot_mounds import build_mounds
     out.update(build_mounds());lang['block.alfheim_companion.maggot_mound']='Maggot Mound'
     js(ASSETS+'lang/en_us.json',lang)

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-17",
+  "jar_sha256": "2c6e7d0a99deb59123e74b170f7db6550c160398d60ff9ff5721cffb6c082034",
+  "clips": 6,
+  "event": "alfheim_companion:elf.murmur",
+  "entities": [
+    "elven_citizen",
+    "elven_companion"
+  ],
+  "audio": "original procedurally synthesized breath/formant murmurs; nonverbal",
+  "volume": 0.28,
+  "attenuation_distance": 8,
+  "ambient_interval_ticks": 260,
+  "validation": [
+    "offline package build passed with tests excluded",
+    "all six Vorbis clips decoded; finite, non-silent and no clipping",
+    "packaged audio matches source",
+    "installed jar matches build"
+  ],
+  "in_game_listening": "pending",
+  "backup": "quarantine\\alfheim_companion-before-elven-whispers-20261017.jar"
+}

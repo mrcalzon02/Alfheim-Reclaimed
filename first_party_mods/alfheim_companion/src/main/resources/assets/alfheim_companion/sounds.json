@@ -1516,5 +1516,46 @@
         "volume": 0.4
       }
     ]
+  },
+  "elf.murmur": {
+    "subtitle": "subtitles.alfheim_companion.elf.murmur",
+    "sounds": [
+      {
+        "name": "alfheim_companion:elf/murmur_0",
+        "volume": 0.28,
+        "pitch": 0.94,
+        "attenuation_distance": 8
+      },
+      {
+        "name": "alfheim_companion:elf/murmur_1",
+        "volume": 0.28,
+        "pitch": 0.965,
+        "attenuation_distance": 8
+      },
+      {
+        "name": "alfheim_companion:elf/murmur_2",
+        "volume": 0.28,
+        "pitch": 0.99,
+        "attenuation_distance": 8
+      },
+      {
+        "name": "alfheim_companion:elf/murmur_3",
+        "volume": 0.28,
+        "pitch": 1.015,
+        "attenuation_distance": 8
+      },
+      {
+        "name": "alfheim_companion:elf/murmur_4",
+        "volume": 0.28,
+        "pitch": 1.04,
+        "attenuation_distance": 8
+      },
+      {
+        "name": "alfheim_companion:elf/murmur_5",
+        "volume": 0.28,
+        "pitch": 1.065,
+        "attenuation_distance": 8
+      }
+    ]
   }
 }

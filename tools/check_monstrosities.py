@@ -39,7 +39,7 @@ def main():
             assert HABITATS[species]==['alfheim:void_verge','alfheim:void_shore']
         assert DROPS[species].startswith('minecraft:')
     assert next(r for r in geometry['species'] if r['id']=='hulking_troll')['height']==3.6
-    sounds=json.loads(outputs[ASSETS+'sounds.json']);assert len(sounds)==19*6+1
+    sounds={k:v for k,v in json.loads(outputs[ASSETS+'sounds.json']).items() if k.startswith('monstrosity.') or k=='maggot_mound.ambient'};assert len(sounds)==19*6+1
     from menagerie_sounds import vanilla_events
     ids=vanilla_events()
     for sound in sounds.values():

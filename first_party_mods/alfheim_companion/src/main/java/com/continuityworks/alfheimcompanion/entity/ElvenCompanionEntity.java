@@ -47,6 +47,8 @@ import com.continuityworks.alfheimcompanion.menu.CompanionInventoryMenu;
 import java.util.UUID;
 
 public final class ElvenCompanionEntity extends PathfinderMob implements MenuProvider {
+    @Override protected net.minecraft.sounds.SoundEvent getAmbientSound(){return getTarget()!=null||hurtTime>0?null:com.continuityworks.alfheimcompanion.registry.ModElvenSounds.MURMUR.get();}
+    @Override public int getAmbientSoundInterval(){return 260;}
     private static final EntityDataAccessor<Integer> DATA_MODE = SynchedEntityData.defineId(
             ElvenCompanionEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> DATA_NUTRITION = SynchedEntityData.defineId(

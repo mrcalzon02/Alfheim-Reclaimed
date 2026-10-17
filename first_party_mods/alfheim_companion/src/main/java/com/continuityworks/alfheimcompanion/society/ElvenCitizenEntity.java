@@ -18,6 +18,8 @@ public final class ElvenCitizenEntity extends net.minecraft.world.entity.npc.Abs
     @Override protected void defineSynchedData(){super.defineSynchedData();entityData.define(ROLE,0);entityData.define(LOOK,0);}
     public int role(){return ElvenSociety.safeRole(entityData.get(ROLE));}
     public int appearance(){return Math.floorMod(entityData.get(LOOK),4);}
+    @Override protected net.minecraft.sounds.SoundEvent getAmbientSound(){return isTrading()||hurtTime>0?null:com.continuityworks.alfheimcompanion.registry.ModElvenSounds.MURMUR.get();}
+    @Override public int getAmbientSoundInterval(){return 260;}
     public static AttributeSupplier.Builder attributes(){return Mob.createMobAttributes().add(Attributes.MAX_HEALTH,20).add(Attributes.MOVEMENT_SPEED,.23).add(Attributes.FOLLOW_RANGE,16);}
     private long lastRestock=-1;
     @Override public AgeableMob getBreedOffspring(net.minecraft.server.level.ServerLevel level,AgeableMob partner){return null;}

@@ -177,5 +177,6 @@
   "subtitles.alfheim_companion.monstrosity.parasite_maw.windup": "Parasite Maw readies an attack",
   "subtitles.alfheim_companion.monstrosity.parasite_maw.attack": "Parasite Maw strikes",
   "subtitles.alfheim_companion.maggot_mound.ambient": "Maggots writhe",
-  "block.alfheim_companion.maggot_mound": "Maggot Mound"
+  "block.alfheim_companion.maggot_mound": "Maggot Mound",
+  "subtitles.alfheim_companion.elf.murmur": "Elf whispers"
 }

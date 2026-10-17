@@ -1,5 +1,14 @@
 # Changelog
 
+## Elven whispers — 2026-10-17
+
+Added six original synthesized, wordless breath/formant murmurs for both
+elven citizens and companions. Quiet close-range randomized ambience has
+subtitles and pauses during trading (citizens), combat (companions), and
+injury. Audio remains under the normal friendly-creature volume control.
+Built, installed and audio decode/package checks passed; in-game listening
+review is pending. Restart required. `tools/elven_whispers_build.json`.
+
 ## Void infestation and menagerie sounds — 2026-10-17
 
 Added three corrupted crystal golems and four corpse parasites, including
