@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:quartz",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_citrine",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_ametrine",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_rose_quartz",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_smoky_quartz",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_morion",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_rutilated_quartz",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_tourmalinated_quartz",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_prasiolite",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

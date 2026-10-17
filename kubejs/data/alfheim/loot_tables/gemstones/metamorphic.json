@@ -1,0 +1,110 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_andalusite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_chiastolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_kyanite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_iolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_staurolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_scapolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_diopside",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_chrome_diopside",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_violane",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_enstatite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_bronzite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hypersthene",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_actinolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_clinohumite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_axinite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_epidote",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_prehnite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_vesuvianite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_seraphinite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_titanite",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

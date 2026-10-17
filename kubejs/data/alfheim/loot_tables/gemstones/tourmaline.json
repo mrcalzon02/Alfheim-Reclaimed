@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_elbaite",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_rubellite",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_indicolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_verdelite",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_schorl",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_dravite",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_watermelon_tourmaline",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_bicolor_tourmaline",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_paraiba_tourmaline",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_liddicoatite",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

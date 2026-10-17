@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_red_coral",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pink_coral",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_white_coral",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_black_coral",
+          "weight": 3
+        }
+      ]
+    }
+  ]
+}

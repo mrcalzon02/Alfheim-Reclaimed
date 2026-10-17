@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_colorless_topaz",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_golden_topaz",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_imperial_topaz",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pink_topaz",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pale_blue_topaz",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

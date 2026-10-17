@@ -1,0 +1,180 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_zircon",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hyacinth_zircon",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_green_zircon",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_euclase",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_phenakite",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_beryllonite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_amblygonite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_montebrasite",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_petalite",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_lepidolite",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_herderite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hambergite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_taaffeite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_musgravite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_benitoite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_jeremejevite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_grandidierite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_kornerupine",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_serendibite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sinhalite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_painite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_poudretteite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pezzottaite",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_brazilianite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_apophyllite",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_danburite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_diaspore",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sillimanite",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_scolecite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_natrolite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_analcime",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_leucite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pollucite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_legrandite",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

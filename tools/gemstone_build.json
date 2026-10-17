@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-17",
+  "status": "BUILT_INSTALLED_RUNTIME_REQUIRED",
+  "jar_sha256": "fe341e37728687dff851b202048aa4ffc22855926ea9ec012d2c3d0608a35fd3",
+  "backup": "quarantine\\alfheim_companion-before-gemstones-20261017.jar",
+  "backup_sha256": "5435436df5f0343ccd096dab1766fe15ebf5b7f2eea1b93adfdf6f785abf1717",
+  "packaged_asset_data_files": 1693,
+  "cw_snapshot": "20261017T232635Z-alfheim_real_world_gemstones-generate-fa0360e4",
+  "generated_files": 5248,
+  "gem_materials": 232,
+  "new_gem_items": 227,
+  "reused_items": 5,
+  "source_pools": 28,
+  "deposit_blocks": 1040,
+  "geologist_display_selections": 232,
+  "empty_pedestal_recipe": true,
+  "art": {
+    "tool": "built-in image_gen",
+    "master": "tools/art/gemstone_masters.png",
+    "master_sha256": "1a77d0b17c035dc9bdf701e0211f71cb4305904f0122e962a1663d858cf59219",
+    "prompt": "tools/art/gemstone_masters_prompt.txt",
+    "master_forms": 32,
+    "sprite_size": 128,
+    "colour": "native item colour shader; selected accent material masks"
+  },
+  "validation": [
+    "offline Java build passed with tests excluded",
+    "all generated output hashes verified",
+    "full packaged resources equal source",
+    "installed jar equals built jar",
+    "232 positive-weight gem outcomes, native display entries and matching models checked",
+    "all model texture and biome references resolved",
+    "startup JavaScript syntax passed",
+    "merged feature order: zero cycles over 313 biomes and 691 placed features",
+    "native pedestal/revised sprite previews inspected"
+  ],
+  "runtime": "pending live startup registration, natural density, mining loot, native colour rendering, pedestal interactions and labels"
+}

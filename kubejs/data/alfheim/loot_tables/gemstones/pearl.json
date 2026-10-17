@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_white_pearl",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_cream_pearl",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pink_pearl",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_golden_pearl",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_black_pearl",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_conch_pearl",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_melo_pearl",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_mother_of_pearl",
+          "weight": 16
+        }
+      ]
+    }
+  ]
+}

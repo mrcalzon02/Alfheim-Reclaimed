@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alfheim_companion:item/geologist_pedestal_base",
+    "layer1": "alfheim_companion:item/gem_displays/chrysoberyl_catseye_display_pedestal"
+  }
+}

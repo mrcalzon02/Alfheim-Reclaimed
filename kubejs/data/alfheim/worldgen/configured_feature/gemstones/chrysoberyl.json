@@ -1,0 +1,414 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 4,
+    "discard_chance_on_air_exposure": 0.1,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:cracked_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_cracked_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:magmatic_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_magmatic_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:embervein_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_embervein_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:cinder_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_cinder_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:obsidian_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_obsidian_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:moonstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_moonstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:dawn_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_dawn_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rose_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_rose_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:ivory_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_ivory_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:silvermist_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_silvermist_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:moss_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_moss_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rootbound_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_rootbound_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:fern_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_fern_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:amber_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_amber_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:petrified_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_petrified_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:tide_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_tide_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:abyssal_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_abyssal_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:frost_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_frost_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:gale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_gale_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:storm_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_storm_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:amethyst_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_amethyst_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:leyline_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_leyline_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:gloam_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_gloam_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:starfleck_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_starfleck_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:riftchalk_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_riftchalk_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:riftshale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_riftshale_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:veilstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_veilstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:shardbreccia_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_shardbreccia_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:anchorstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_anchorstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:seamstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_seamstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:prismstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_prismstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:aetherquartzite_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_aetherquartzite_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:glintschist_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_glintschist_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:rootfossil_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_rootfossil_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:resinshale_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_resinshale_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:hollowheart_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_hollowheart_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:epitaph_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_epitaph_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:mourning_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_mourning_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:oathstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_oathstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:nightmantle_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_nightmantle_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:nullstone_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_nullstone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "alfheim:astralite_livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_astralite_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "botania:livingrock"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_livingrock_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:stone"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_stone_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:deepslate"
+        },
+        "state": {
+          "Name": "alfheim:gem_chrysoberyl_deepslate_deposit"
+        }
+      }
+    ]
+  }
+}

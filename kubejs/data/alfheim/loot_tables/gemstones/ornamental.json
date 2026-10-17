@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_turquoise",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_variscite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sodalite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hackmanite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sugilite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_charoite",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_larimar",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_lazulite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_dumortierite",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

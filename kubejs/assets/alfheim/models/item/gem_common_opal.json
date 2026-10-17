@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alfheim:item/gemstones/common_opal",
+    "layer1": "alfheim:item/gemstones/common_opal_accent"
+  }
+}

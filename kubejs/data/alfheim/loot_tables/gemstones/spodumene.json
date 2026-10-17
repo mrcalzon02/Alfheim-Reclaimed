@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_kunzite",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hiddenite",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_triphane",
+          "weight": 7
+        }
+      ]
+    }
+  ]
+}

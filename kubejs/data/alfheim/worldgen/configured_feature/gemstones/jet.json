@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 4,
+    "discard_chance_on_air_exposure": 0.1,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:dirt"
+        },
+        "state": {
+          "Name": "alfheim:gem_jet_bed_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:rooted_dirt"
+        },
+        "state": {
+          "Name": "alfheim:gem_jet_bed_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:coarse_dirt"
+        },
+        "state": {
+          "Name": "alfheim:gem_jet_bed_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:podzol"
+        },
+        "state": {
+          "Name": "alfheim:gem_jet_bed_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:coal_ore"
+        },
+        "state": {
+          "Name": "alfheim:gem_jet_bed_deposit"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:deepslate_coal_ore"
+        },
+        "state": {
+          "Name": "alfheim:gem_jet_bed_deposit"
+        }
+      }
+    ]
+  }
+}

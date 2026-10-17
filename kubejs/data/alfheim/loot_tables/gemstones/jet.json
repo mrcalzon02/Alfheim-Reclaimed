@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_jet",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_petrified_wood",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_agatized_wood",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

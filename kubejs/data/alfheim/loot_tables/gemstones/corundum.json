@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_ruby",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_star_ruby",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sapphire",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pink_sapphire",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_yellow_sapphire",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_green_sapphire",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_purple_sapphire",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_white_sapphire",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_padparadscha",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_star_sapphire",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

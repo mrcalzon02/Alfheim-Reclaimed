@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_white_opal",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_black_opal",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_fire_opal",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_boulder_opal",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_common_opal",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_water_opal",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hyalite",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

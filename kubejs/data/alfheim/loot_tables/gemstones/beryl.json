@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_aquamarine",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_morganite",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_heliodor",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_goshenite",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_red_beryl",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:mana_fen",
+    "alfheim:decayed_mire",
+    "mythicbotany:alfheim_lakes"
+  ],
+  "features": "alfheim:gemstones/freshwater_pearl",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,1626 @@
+[
+  {
+    "id": "diamond",
+    "name": "Diamond",
+    "item": "minecraft:diamond",
+    "color": "b7ebf5",
+    "accent": "b7ebf5"
+  },
+  {
+    "id": "yellow_diamond",
+    "name": "Yellow Diamond",
+    "item": "alfheim:gem_yellow_diamond",
+    "color": "f0d85f",
+    "accent": "f0d85f"
+  },
+  {
+    "id": "pink_diamond",
+    "name": "Pink Diamond",
+    "item": "alfheim:gem_pink_diamond",
+    "color": "e99dbb",
+    "accent": "e99dbb"
+  },
+  {
+    "id": "blue_diamond",
+    "name": "Blue Diamond",
+    "item": "alfheim:gem_blue_diamond",
+    "color": "7295d4",
+    "accent": "7295d4"
+  },
+  {
+    "id": "black_diamond",
+    "name": "Black Diamond",
+    "item": "alfheim:gem_black_diamond",
+    "color": "343b47",
+    "accent": "343b47"
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby",
+    "item": "alfheim:gem_ruby",
+    "color": "d93b67",
+    "accent": "d93b67"
+  },
+  {
+    "id": "star_ruby",
+    "name": "Star Ruby",
+    "item": "alfheim:gem_star_ruby",
+    "color": "bd5270",
+    "accent": "bd5270"
+  },
+  {
+    "id": "sapphire",
+    "name": "Sapphire",
+    "item": "alfheim:gem_sapphire",
+    "color": "4965db",
+    "accent": "4965db"
+  },
+  {
+    "id": "pink_sapphire",
+    "name": "Pink Sapphire",
+    "item": "alfheim:gem_pink_sapphire",
+    "color": "ef94b9",
+    "accent": "ef94b9"
+  },
+  {
+    "id": "yellow_sapphire",
+    "name": "Yellow Sapphire",
+    "item": "alfheim:gem_yellow_sapphire",
+    "color": "edcf56",
+    "accent": "edcf56"
+  },
+  {
+    "id": "green_sapphire",
+    "name": "Green Sapphire",
+    "item": "alfheim:gem_green_sapphire",
+    "color": "71a97b",
+    "accent": "71a97b"
+  },
+  {
+    "id": "purple_sapphire",
+    "name": "Purple Sapphire",
+    "item": "alfheim:gem_purple_sapphire",
+    "color": "a375cd",
+    "accent": "a375cd"
+  },
+  {
+    "id": "white_sapphire",
+    "name": "White Sapphire",
+    "item": "alfheim:gem_white_sapphire",
+    "color": "d5e9ee",
+    "accent": "d5e9ee"
+  },
+  {
+    "id": "padparadscha",
+    "name": "Padparadscha Sapphire",
+    "item": "alfheim:gem_padparadscha",
+    "color": "f49879",
+    "accent": "f49879"
+  },
+  {
+    "id": "star_sapphire",
+    "name": "Star Sapphire",
+    "item": "alfheim:gem_star_sapphire",
+    "color": "678dbf",
+    "accent": "678dbf"
+  },
+  {
+    "id": "emerald",
+    "name": "Emerald",
+    "item": "minecraft:emerald",
+    "color": "45bf7a",
+    "accent": "45bf7a"
+  },
+  {
+    "id": "aquamarine",
+    "name": "Aquamarine",
+    "item": "alfheim:gem_aquamarine",
+    "color": "76d7e8",
+    "accent": "76d7e8"
+  },
+  {
+    "id": "morganite",
+    "name": "Morganite",
+    "item": "alfheim:gem_morganite",
+    "color": "edb4c9",
+    "accent": "edb4c9"
+  },
+  {
+    "id": "heliodor",
+    "name": "Heliodor",
+    "item": "alfheim:gem_heliodor",
+    "color": "e5d56d",
+    "accent": "e5d56d"
+  },
+  {
+    "id": "goshenite",
+    "name": "Goshenite",
+    "item": "alfheim:gem_goshenite",
+    "color": "d9eef0",
+    "accent": "d9eef0"
+  },
+  {
+    "id": "red_beryl",
+    "name": "Red Beryl",
+    "item": "alfheim:gem_red_beryl",
+    "color": "d85b77",
+    "accent": "d85b77"
+  },
+  {
+    "id": "rock_crystal",
+    "name": "Rock Crystal",
+    "item": "minecraft:quartz",
+    "color": "e0eaf0",
+    "accent": "e0eaf0"
+  },
+  {
+    "id": "amethyst",
+    "name": "Amethyst",
+    "item": "minecraft:amethyst_shard",
+    "color": "a67cdf",
+    "accent": "a67cdf"
+  },
+  {
+    "id": "citrine",
+    "name": "Citrine",
+    "item": "alfheim:gem_citrine",
+    "color": "e5bb5e",
+    "accent": "e5bb5e"
+  },
+  {
+    "id": "ametrine",
+    "name": "Ametrine",
+    "item": "alfheim:gem_ametrine",
+    "color": "ba81d5",
+    "accent": "e6bd65"
+  },
+  {
+    "id": "rose_quartz",
+    "name": "Rose Quartz",
+    "item": "alfheim:gem_rose_quartz",
+    "color": "eeb2cd",
+    "accent": "eeb2cd"
+  },
+  {
+    "id": "smoky_quartz",
+    "name": "Smoky Quartz",
+    "item": "alfheim:gem_smoky_quartz",
+    "color": "9c897f",
+    "accent": "9c897f"
+  },
+  {
+    "id": "morion",
+    "name": "Morion",
+    "item": "alfheim:gem_morion",
+    "color": "47434d",
+    "accent": "47434d"
+  },
+  {
+    "id": "rutilated_quartz",
+    "name": "Rutilated Quartz",
+    "item": "alfheim:gem_rutilated_quartz",
+    "color": "dcbd7e",
+    "accent": "dcbd7e"
+  },
+  {
+    "id": "tourmalinated_quartz",
+    "name": "Tourmalinated Quartz",
+    "item": "alfheim:gem_tourmalinated_quartz",
+    "color": "b6c1c4",
+    "accent": "b6c1c4"
+  },
+  {
+    "id": "prasiolite",
+    "name": "Prasiolite",
+    "item": "alfheim:gem_prasiolite",
+    "color": "a8cfac",
+    "accent": "a8cfac"
+  },
+  {
+    "id": "agate",
+    "name": "Agate",
+    "item": "alfheim:gem_agate",
+    "color": "c58b74",
+    "accent": "c58b74"
+  },
+  {
+    "id": "moss_agate",
+    "name": "Moss Agate",
+    "item": "alfheim:gem_moss_agate",
+    "color": "709a78",
+    "accent": "709a78"
+  },
+  {
+    "id": "dendritic_agate",
+    "name": "Dendritic Agate",
+    "item": "alfheim:gem_dendritic_agate",
+    "color": "b6b894",
+    "accent": "b6b894"
+  },
+  {
+    "id": "fire_agate",
+    "name": "Fire Agate",
+    "item": "alfheim:gem_fire_agate",
+    "color": "d6974e",
+    "accent": "d6974e"
+  },
+  {
+    "id": "blue_lace_agate",
+    "name": "Blue Lace Agate",
+    "item": "alfheim:gem_blue_lace_agate",
+    "color": "a6c8ee",
+    "accent": "a6c8ee"
+  },
+  {
+    "id": "carnelian",
+    "name": "Carnelian",
+    "item": "alfheim:gem_carnelian",
+    "color": "e37745",
+    "accent": "e37745"
+  },
+  {
+    "id": "sard",
+    "name": "Sard",
+    "item": "alfheim:gem_sard",
+    "color": "945239",
+    "accent": "945239"
+  },
+  {
+    "id": "onyx",
+    "name": "Onyx",
+    "item": "alfheim:gem_onyx",
+    "color": "353c46",
+    "accent": "353c46"
+  },
+  {
+    "id": "sardonyx",
+    "name": "Sardonyx",
+    "item": "alfheim:gem_sardonyx",
+    "color": "b16a50",
+    "accent": "b16a50"
+  },
+  {
+    "id": "chrysoprase",
+    "name": "Chrysoprase",
+    "item": "alfheim:gem_chrysoprase",
+    "color": "75ce9b",
+    "accent": "75ce9b"
+  },
+  {
+    "id": "chrome_chalcedony",
+    "name": "Chrome Chalcedony",
+    "item": "alfheim:gem_chrome_chalcedony",
+    "color": "489c74",
+    "accent": "489c74"
+  },
+  {
+    "id": "bloodstone",
+    "name": "Bloodstone",
+    "item": "alfheim:gem_bloodstone",
+    "color": "43694d",
+    "accent": "d35675"
+  },
+  {
+    "id": "red_jasper",
+    "name": "Red Jasper",
+    "item": "alfheim:gem_red_jasper",
+    "color": "b65347",
+    "accent": "b65347"
+  },
+  {
+    "id": "yellow_jasper",
+    "name": "Yellow Jasper",
+    "item": "alfheim:gem_yellow_jasper",
+    "color": "d1a857",
+    "accent": "d1a857"
+  },
+  {
+    "id": "picture_jasper",
+    "name": "Picture Jasper",
+    "item": "alfheim:gem_picture_jasper",
+    "color": "b8a17c",
+    "accent": "b8a17c"
+  },
+  {
+    "id": "ocean_jasper",
+    "name": "Ocean Jasper",
+    "item": "alfheim:gem_ocean_jasper",
+    "color": "88ab96",
+    "accent": "88ab96"
+  },
+  {
+    "id": "dalmatian_stone",
+    "name": "Dalmatian Stone",
+    "item": "alfheim:gem_dalmatian_stone",
+    "color": "c9ba99",
+    "accent": "474038"
+  },
+  {
+    "id": "aventurine",
+    "name": "Aventurine",
+    "item": "alfheim:gem_aventurine",
+    "color": "70ac85",
+    "accent": "70ac85"
+  },
+  {
+    "id": "tiger_eye",
+    "name": "Tiger Eye",
+    "item": "alfheim:gem_tiger_eye",
+    "color": "b88d49",
+    "accent": "b88d49"
+  },
+  {
+    "id": "hawk_eye",
+    "name": "Hawk Eye",
+    "item": "alfheim:gem_hawk_eye",
+    "color": "598391",
+    "accent": "598391"
+  },
+  {
+    "id": "white_opal",
+    "name": "White Opal",
+    "item": "alfheim:gem_white_opal",
+    "color": "cadfe8",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "black_opal",
+    "name": "Black Opal",
+    "item": "alfheim:gem_black_opal",
+    "color": "4d5c7e",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "fire_opal",
+    "name": "Fire Opal",
+    "item": "alfheim:gem_fire_opal",
+    "color": "f39b55",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "boulder_opal",
+    "name": "Boulder Opal",
+    "item": "alfheim:gem_boulder_opal",
+    "color": "8c8b9a",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "common_opal",
+    "name": "Common Opal",
+    "item": "alfheim:gem_common_opal",
+    "color": "b3cfbe",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "water_opal",
+    "name": "Water Opal",
+    "item": "alfheim:gem_water_opal",
+    "color": "9fcbd8",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "hyalite",
+    "name": "Hyalite",
+    "item": "alfheim:gem_hyalite",
+    "color": "d2e9c2",
+    "accent": "74e0cc"
+  },
+  {
+    "id": "almandine",
+    "name": "Almandine Garnet",
+    "item": "alfheim:gem_almandine",
+    "color": "a24559",
+    "accent": "a24559"
+  },
+  {
+    "id": "pyrope",
+    "name": "Pyrope Garnet",
+    "item": "alfheim:gem_pyrope",
+    "color": "c23d53",
+    "accent": "c23d53"
+  },
+  {
+    "id": "spessartine",
+    "name": "Spessartine Garnet",
+    "item": "alfheim:gem_spessartine",
+    "color": "e79849",
+    "accent": "e79849"
+  },
+  {
+    "id": "grossular",
+    "name": "Grossular Garnet",
+    "item": "alfheim:gem_grossular",
+    "color": "b5ca73",
+    "accent": "b5ca73"
+  },
+  {
+    "id": "hessonite",
+    "name": "Hessonite Garnet",
+    "item": "alfheim:gem_hessonite",
+    "color": "c28445",
+    "accent": "c28445"
+  },
+  {
+    "id": "tsavorite",
+    "name": "Tsavorite Garnet",
+    "item": "alfheim:gem_tsavorite",
+    "color": "4db879",
+    "accent": "4db879"
+  },
+  {
+    "id": "andradite",
+    "name": "Andradite Garnet",
+    "item": "alfheim:gem_andradite",
+    "color": "b0a55c",
+    "accent": "b0a55c"
+  },
+  {
+    "id": "demantoid",
+    "name": "Demantoid Garnet",
+    "item": "alfheim:gem_demantoid",
+    "color": "7cb55c",
+    "accent": "7cb55c"
+  },
+  {
+    "id": "topazolite",
+    "name": "Topazolite Garnet",
+    "item": "alfheim:gem_topazolite",
+    "color": "d0b54d",
+    "accent": "d0b54d"
+  },
+  {
+    "id": "uvarovite",
+    "name": "Uvarovite Garnet",
+    "item": "alfheim:gem_uvarovite",
+    "color": "3a9b6c",
+    "accent": "3a9b6c"
+  },
+  {
+    "id": "rhodolite",
+    "name": "Rhodolite Garnet",
+    "item": "alfheim:gem_rhodolite",
+    "color": "b45880",
+    "accent": "b45880"
+  },
+  {
+    "id": "malaya_garnet",
+    "name": "Malaya Garnet",
+    "item": "alfheim:gem_malaya_garnet",
+    "color": "d7978b",
+    "accent": "d7978b"
+  },
+  {
+    "id": "color_change_garnet",
+    "name": "Color-change Garnet",
+    "item": "alfheim:gem_color_change_garnet",
+    "color": "937aa9",
+    "accent": "937aa9"
+  },
+  {
+    "id": "elbaite",
+    "name": "Elbaite",
+    "item": "alfheim:gem_elbaite",
+    "color": "8ecb96",
+    "accent": "8ecb96"
+  },
+  {
+    "id": "rubellite",
+    "name": "Rubellite",
+    "item": "alfheim:gem_rubellite",
+    "color": "d56c9f",
+    "accent": "d56c9f"
+  },
+  {
+    "id": "indicolite",
+    "name": "Indicolite",
+    "item": "alfheim:gem_indicolite",
+    "color": "4f9fb7",
+    "accent": "4f9fb7"
+  },
+  {
+    "id": "verdelite",
+    "name": "Verdelite",
+    "item": "alfheim:gem_verdelite",
+    "color": "54aa77",
+    "accent": "54aa77"
+  },
+  {
+    "id": "schorl",
+    "name": "Schorl",
+    "item": "alfheim:gem_schorl",
+    "color": "333b48",
+    "accent": "333b48"
+  },
+  {
+    "id": "dravite",
+    "name": "Dravite",
+    "item": "alfheim:gem_dravite",
+    "color": "ad946c",
+    "accent": "ad946c"
+  },
+  {
+    "id": "watermelon_tourmaline",
+    "name": "Watermelon Tourmaline",
+    "item": "alfheim:gem_watermelon_tourmaline",
+    "color": "d98cad",
+    "accent": "67b983"
+  },
+  {
+    "id": "bicolor_tourmaline",
+    "name": "Bicolor Tourmaline",
+    "item": "alfheim:gem_bicolor_tourmaline",
+    "color": "98b5d2",
+    "accent": "c786b7"
+  },
+  {
+    "id": "paraiba_tourmaline",
+    "name": "Paraiba-type Tourmaline",
+    "item": "alfheim:gem_paraiba_tourmaline",
+    "color": "5ad4cf",
+    "accent": "5ad4cf"
+  },
+  {
+    "id": "liddicoatite",
+    "name": "Liddicoatite",
+    "item": "alfheim:gem_liddicoatite",
+    "color": "ac84b1",
+    "accent": "ac84b1"
+  },
+  {
+    "id": "moonstone",
+    "name": "Moonstone",
+    "item": "alfheim:gem_moonstone",
+    "color": "c8d6eb",
+    "accent": "c8d6eb"
+  },
+  {
+    "id": "rainbow_moonstone",
+    "name": "Rainbow Moonstone",
+    "item": "alfheim:gem_rainbow_moonstone",
+    "color": "b4d8e8",
+    "accent": "b4d8e8"
+  },
+  {
+    "id": "labradorite",
+    "name": "Labradorite",
+    "item": "alfheim:gem_labradorite",
+    "color": "6ca5bb",
+    "accent": "6ca5bb"
+  },
+  {
+    "id": "spectrolite",
+    "name": "Spectrolite",
+    "item": "alfheim:gem_spectrolite",
+    "color": "637caa",
+    "accent": "637caa"
+  },
+  {
+    "id": "sunstone",
+    "name": "Sunstone",
+    "item": "alfheim:gem_sunstone",
+    "color": "e5a568",
+    "accent": "e5a568"
+  },
+  {
+    "id": "amazonite",
+    "name": "Amazonite",
+    "item": "alfheim:gem_amazonite",
+    "color": "7dccbb",
+    "accent": "7dccbb"
+  },
+  {
+    "id": "andesine",
+    "name": "Andesine",
+    "item": "alfheim:gem_andesine",
+    "color": "d9a38d",
+    "accent": "d9a38d"
+  },
+  {
+    "id": "orthoclase",
+    "name": "Orthoclase",
+    "item": "alfheim:gem_orthoclase",
+    "color": "e2d193",
+    "accent": "e2d193"
+  },
+  {
+    "id": "sanidine",
+    "name": "Sanidine",
+    "item": "alfheim:gem_sanidine",
+    "color": "ccbbae",
+    "accent": "ccbbae"
+  },
+  {
+    "id": "peridot",
+    "name": "Peridot",
+    "item": "alfheim:gem_peridot",
+    "color": "b4d25f",
+    "accent": "b4d25f"
+  },
+  {
+    "id": "colorless_topaz",
+    "name": "Colorless Topaz",
+    "item": "alfheim:gem_colorless_topaz",
+    "color": "d9e9e7",
+    "accent": "d9e9e7"
+  },
+  {
+    "id": "golden_topaz",
+    "name": "Golden Topaz",
+    "item": "alfheim:gem_golden_topaz",
+    "color": "e1ba67",
+    "accent": "e1ba67"
+  },
+  {
+    "id": "imperial_topaz",
+    "name": "Imperial Topaz",
+    "item": "alfheim:gem_imperial_topaz",
+    "color": "e39a66",
+    "accent": "e39a66"
+  },
+  {
+    "id": "pink_topaz",
+    "name": "Pink Topaz",
+    "item": "alfheim:gem_pink_topaz",
+    "color": "e6a6bd",
+    "accent": "e6a6bd"
+  },
+  {
+    "id": "pale_blue_topaz",
+    "name": "Pale Blue Topaz",
+    "item": "alfheim:gem_pale_blue_topaz",
+    "color": "afd6df",
+    "accent": "afd6df"
+  },
+  {
+    "id": "red_spinel",
+    "name": "Red Spinel",
+    "item": "alfheim:gem_red_spinel",
+    "color": "d7617c",
+    "accent": "d7617c"
+  },
+  {
+    "id": "blue_spinel",
+    "name": "Blue Spinel",
+    "item": "alfheim:gem_blue_spinel",
+    "color": "6d83c9",
+    "accent": "6d83c9"
+  },
+  {
+    "id": "pink_spinel",
+    "name": "Pink Spinel",
+    "item": "alfheim:gem_pink_spinel",
+    "color": "e99fbd",
+    "accent": "e99fbd"
+  },
+  {
+    "id": "black_spinel",
+    "name": "Black Spinel",
+    "item": "alfheim:gem_black_spinel",
+    "color": "343746",
+    "accent": "343746"
+  },
+  {
+    "id": "color_change_spinel",
+    "name": "Color-change Spinel",
+    "item": "alfheim:gem_color_change_spinel",
+    "color": "9f82b6",
+    "accent": "9f82b6"
+  },
+  {
+    "id": "chrysoberyl",
+    "name": "Chrysoberyl",
+    "item": "alfheim:gem_chrysoberyl",
+    "color": "c7cc73",
+    "accent": "c7cc73"
+  },
+  {
+    "id": "alexandrite",
+    "name": "Alexandrite",
+    "item": "alfheim:gem_alexandrite",
+    "color": "7da8a1",
+    "accent": "7da8a1"
+  },
+  {
+    "id": "chrysoberyl_catseye",
+    "name": "Chrysoberyl Cat's-eye",
+    "item": "alfheim:gem_chrysoberyl_catseye",
+    "color": "bab47d",
+    "accent": "bab47d"
+  },
+  {
+    "id": "kunzite",
+    "name": "Kunzite",
+    "item": "alfheim:gem_kunzite",
+    "color": "dfb3d9",
+    "accent": "dfb3d9"
+  },
+  {
+    "id": "hiddenite",
+    "name": "Hiddenite",
+    "item": "alfheim:gem_hiddenite",
+    "color": "a9c986",
+    "accent": "a9c986"
+  },
+  {
+    "id": "triphane",
+    "name": "Triphane",
+    "item": "alfheim:gem_triphane",
+    "color": "e0d9a2",
+    "accent": "e0d9a2"
+  },
+  {
+    "id": "tanzanite",
+    "name": "Tanzanite",
+    "item": "alfheim:gem_tanzanite",
+    "color": "8c86d6",
+    "accent": "8c86d6"
+  },
+  {
+    "id": "thulite",
+    "name": "Thulite",
+    "item": "alfheim:gem_thulite",
+    "color": "d18f9c",
+    "accent": "d18f9c"
+  },
+  {
+    "id": "ruby_in_zoisite",
+    "name": "Ruby in Zoisite",
+    "item": "alfheim:gem_ruby_in_zoisite",
+    "color": "719b77",
+    "accent": "d35675"
+  },
+  {
+    "id": "jadeite",
+    "name": "Jadeite",
+    "item": "alfheim:gem_jadeite",
+    "color": "80c69e",
+    "accent": "80c69e"
+  },
+  {
+    "id": "nephrite",
+    "name": "Nephrite",
+    "item": "alfheim:gem_nephrite",
+    "color": "6d9b7c",
+    "accent": "6d9b7c"
+  },
+  {
+    "id": "maw_sit_sit",
+    "name": "Maw-sit-sit",
+    "item": "alfheim:gem_maw_sit_sit",
+    "color": "5baf7a",
+    "accent": "5baf7a"
+  },
+  {
+    "id": "turquoise",
+    "name": "Turquoise",
+    "item": "alfheim:gem_turquoise",
+    "color": "5bc4bd",
+    "accent": "5bc4bd"
+  },
+  {
+    "id": "variscite",
+    "name": "Variscite",
+    "item": "alfheim:gem_variscite",
+    "color": "93c5a0",
+    "accent": "93c5a0"
+  },
+  {
+    "id": "lapis_lazuli",
+    "name": "Lapis Lazuli",
+    "item": "minecraft:lapis_lazuli",
+    "color": "4668bc",
+    "accent": "4668bc"
+  },
+  {
+    "id": "sodalite",
+    "name": "Sodalite",
+    "item": "alfheim:gem_sodalite",
+    "color": "6a80b9",
+    "accent": "6a80b9"
+  },
+  {
+    "id": "hackmanite",
+    "name": "Hackmanite",
+    "item": "alfheim:gem_hackmanite",
+    "color": "a48ab7",
+    "accent": "a48ab7"
+  },
+  {
+    "id": "sugilite",
+    "name": "Sugilite",
+    "item": "alfheim:gem_sugilite",
+    "color": "ae75bc",
+    "accent": "ae75bc"
+  },
+  {
+    "id": "charoite",
+    "name": "Charoite",
+    "item": "alfheim:gem_charoite",
+    "color": "a48dc3",
+    "accent": "a48dc3"
+  },
+  {
+    "id": "larimar",
+    "name": "Larimar",
+    "item": "alfheim:gem_larimar",
+    "color": "99d5df",
+    "accent": "99d5df"
+  },
+  {
+    "id": "lazulite",
+    "name": "Lazulite",
+    "item": "alfheim:gem_lazulite",
+    "color": "5878ba",
+    "accent": "5878ba"
+  },
+  {
+    "id": "dumortierite",
+    "name": "Dumortierite",
+    "item": "alfheim:gem_dumortierite",
+    "color": "667bb6",
+    "accent": "667bb6"
+  },
+  {
+    "id": "andalusite",
+    "name": "Andalusite",
+    "item": "alfheim:gem_andalusite",
+    "color": "b59b7d",
+    "accent": "b59b7d"
+  },
+  {
+    "id": "chiastolite",
+    "name": "Chiastolite",
+    "item": "alfheim:gem_chiastolite",
+    "color": "b0a28a",
+    "accent": "b0a28a"
+  },
+  {
+    "id": "kyanite",
+    "name": "Kyanite",
+    "item": "alfheim:gem_kyanite",
+    "color": "749dc9",
+    "accent": "749dc9"
+  },
+  {
+    "id": "iolite",
+    "name": "Iolite",
+    "item": "alfheim:gem_iolite",
+    "color": "7a79b8",
+    "accent": "7a79b8"
+  },
+  {
+    "id": "staurolite",
+    "name": "Staurolite",
+    "item": "alfheim:gem_staurolite",
+    "color": "a58b6c",
+    "accent": "a58b6c"
+  },
+  {
+    "id": "scapolite",
+    "name": "Scapolite",
+    "item": "alfheim:gem_scapolite",
+    "color": "dfcb88",
+    "accent": "dfcb88"
+  },
+  {
+    "id": "diopside",
+    "name": "Diopside",
+    "item": "alfheim:gem_diopside",
+    "color": "93b98c",
+    "accent": "93b98c"
+  },
+  {
+    "id": "chrome_diopside",
+    "name": "Chrome Diopside",
+    "item": "alfheim:gem_chrome_diopside",
+    "color": "4ea979",
+    "accent": "4ea979"
+  },
+  {
+    "id": "violane",
+    "name": "Violane",
+    "item": "alfheim:gem_violane",
+    "color": "9991bf",
+    "accent": "9991bf"
+  },
+  {
+    "id": "enstatite",
+    "name": "Enstatite",
+    "item": "alfheim:gem_enstatite",
+    "color": "b2a57d",
+    "accent": "b2a57d"
+  },
+  {
+    "id": "bronzite",
+    "name": "Bronzite",
+    "item": "alfheim:gem_bronzite",
+    "color": "b69b6a",
+    "accent": "b69b6a"
+  },
+  {
+    "id": "hypersthene",
+    "name": "Hypersthene",
+    "item": "alfheim:gem_hypersthene",
+    "color": "8d8191",
+    "accent": "8d8191"
+  },
+  {
+    "id": "actinolite",
+    "name": "Actinolite",
+    "item": "alfheim:gem_actinolite",
+    "color": "789c80",
+    "accent": "789c80"
+  },
+  {
+    "id": "clinohumite",
+    "name": "Clinohumite",
+    "item": "alfheim:gem_clinohumite",
+    "color": "d9aa6d",
+    "accent": "d9aa6d"
+  },
+  {
+    "id": "axinite",
+    "name": "Axinite",
+    "item": "alfheim:gem_axinite",
+    "color": "aa8a9a",
+    "accent": "aa8a9a"
+  },
+  {
+    "id": "epidote",
+    "name": "Epidote",
+    "item": "alfheim:gem_epidote",
+    "color": "93a565",
+    "accent": "93a565"
+  },
+  {
+    "id": "prehnite",
+    "name": "Prehnite",
+    "item": "alfheim:gem_prehnite",
+    "color": "b4d1a1",
+    "accent": "b4d1a1"
+  },
+  {
+    "id": "vesuvianite",
+    "name": "Vesuvianite",
+    "item": "alfheim:gem_vesuvianite",
+    "color": "adb77c",
+    "accent": "adb77c"
+  },
+  {
+    "id": "seraphinite",
+    "name": "Seraphinite",
+    "item": "alfheim:gem_seraphinite",
+    "color": "7d9d8c",
+    "accent": "7d9d8c"
+  },
+  {
+    "id": "titanite",
+    "name": "Titanite",
+    "item": "alfheim:gem_titanite",
+    "color": "c5bf75",
+    "accent": "c5bf75"
+  },
+  {
+    "id": "apatite",
+    "name": "Apatite",
+    "item": "alfheim:gem_apatite",
+    "color": "72c8ce",
+    "accent": "72c8ce"
+  },
+  {
+    "id": "fluorite",
+    "name": "Fluorite",
+    "item": "alfheim:gem_fluorite",
+    "color": "ae94cf",
+    "accent": "ae94cf"
+  },
+  {
+    "id": "calcite",
+    "name": "Calcite",
+    "item": "alfheim:gem_calcite",
+    "color": "ead9ac",
+    "accent": "ead9ac"
+  },
+  {
+    "id": "aragonite",
+    "name": "Aragonite",
+    "item": "alfheim:gem_aragonite",
+    "color": "e0c9a8",
+    "accent": "e0c9a8"
+  },
+  {
+    "id": "azurite",
+    "name": "Azurite",
+    "item": "alfheim:gem_azurite",
+    "color": "4c75bc",
+    "accent": "4c75bc"
+  },
+  {
+    "id": "malachite",
+    "name": "Malachite",
+    "item": "alfheim:gem_malachite",
+    "color": "57a47b",
+    "accent": "57a47b"
+  },
+  {
+    "id": "chrysocolla",
+    "name": "Chrysocolla",
+    "item": "alfheim:gem_chrysocolla",
+    "color": "63bbb2",
+    "accent": "63bbb2"
+  },
+  {
+    "id": "dioptase",
+    "name": "Dioptase",
+    "item": "alfheim:gem_dioptase",
+    "color": "46b395",
+    "accent": "46b395"
+  },
+  {
+    "id": "smithsonite",
+    "name": "Smithsonite",
+    "item": "alfheim:gem_smithsonite",
+    "color": "a3d2c1",
+    "accent": "a3d2c1"
+  },
+  {
+    "id": "rhodochrosite",
+    "name": "Rhodochrosite",
+    "item": "alfheim:gem_rhodochrosite",
+    "color": "df9dad",
+    "accent": "df9dad"
+  },
+  {
+    "id": "rhodonite",
+    "name": "Rhodonite",
+    "item": "alfheim:gem_rhodonite",
+    "color": "c78fa0",
+    "accent": "c78fa0"
+  },
+  {
+    "id": "hemimorphite",
+    "name": "Hemimorphite",
+    "item": "alfheim:gem_hemimorphite",
+    "color": "9ad5df",
+    "accent": "9ad5df"
+  },
+  {
+    "id": "cerussite",
+    "name": "Cerussite",
+    "item": "alfheim:gem_cerussite",
+    "color": "d6d9c2",
+    "accent": "d6d9c2"
+  },
+  {
+    "id": "anglesite",
+    "name": "Anglesite",
+    "item": "alfheim:gem_anglesite",
+    "color": "d5d5b1",
+    "accent": "d5d5b1"
+  },
+  {
+    "id": "barite",
+    "name": "Barite",
+    "item": "alfheim:gem_barite",
+    "color": "d7bba7",
+    "accent": "d7bba7"
+  },
+  {
+    "id": "celestite",
+    "name": "Celestite",
+    "item": "alfheim:gem_celestite",
+    "color": "a4c4e8",
+    "accent": "a4c4e8"
+  },
+  {
+    "id": "selenite",
+    "name": "Selenite",
+    "item": "alfheim:gem_selenite",
+    "color": "e3e0d5",
+    "accent": "e3e0d5"
+  },
+  {
+    "id": "gypsum",
+    "name": "Gypsum",
+    "item": "alfheim:gem_gypsum",
+    "color": "d4c9ba",
+    "accent": "d4c9ba"
+  },
+  {
+    "id": "phosphophyllite",
+    "name": "Phosphophyllite",
+    "item": "alfheim:gem_phosphophyllite",
+    "color": "a5d2c2",
+    "accent": "a5d2c2"
+  },
+  {
+    "id": "pyrite",
+    "name": "Pyrite",
+    "item": "alfheim:gem_pyrite",
+    "color": "c3ad67",
+    "accent": "c3ad67"
+  },
+  {
+    "id": "marcasite",
+    "name": "Marcasite",
+    "item": "alfheim:gem_marcasite",
+    "color": "adad8d",
+    "accent": "adad8d"
+  },
+  {
+    "id": "hematite",
+    "name": "Hematite",
+    "item": "alfheim:gem_hematite",
+    "color": "727c8c",
+    "accent": "727c8c"
+  },
+  {
+    "id": "magnetite",
+    "name": "Magnetite",
+    "item": "alfheim:gem_magnetite",
+    "color": "464c56",
+    "accent": "464c56"
+  },
+  {
+    "id": "cassiterite",
+    "name": "Cassiterite",
+    "item": "alfheim:gem_cassiterite",
+    "color": "887465",
+    "accent": "887465"
+  },
+  {
+    "id": "cuprite",
+    "name": "Cuprite",
+    "item": "alfheim:gem_cuprite",
+    "color": "b96b66",
+    "accent": "b96b66"
+  },
+  {
+    "id": "rutile",
+    "name": "Rutile",
+    "item": "alfheim:gem_rutile",
+    "color": "b68c70",
+    "accent": "b68c70"
+  },
+  {
+    "id": "sphalerite",
+    "name": "Sphalerite",
+    "item": "alfheim:gem_sphalerite",
+    "color": "c49360",
+    "accent": "c49360"
+  },
+  {
+    "id": "willemite",
+    "name": "Willemite",
+    "item": "alfheim:gem_willemite",
+    "color": "b1c985",
+    "accent": "b1c985"
+  },
+  {
+    "id": "scheelite",
+    "name": "Scheelite",
+    "item": "alfheim:gem_scheelite",
+    "color": "d8ac72",
+    "accent": "d8ac72"
+  },
+  {
+    "id": "zircon",
+    "name": "Zircon",
+    "item": "alfheim:gem_zircon",
+    "color": "b5cbca",
+    "accent": "b5cbca"
+  },
+  {
+    "id": "hyacinth_zircon",
+    "name": "Hyacinth Zircon",
+    "item": "alfheim:gem_hyacinth_zircon",
+    "color": "d4a17e",
+    "accent": "d4a17e"
+  },
+  {
+    "id": "green_zircon",
+    "name": "Green Zircon",
+    "item": "alfheim:gem_green_zircon",
+    "color": "9ab38f",
+    "accent": "9ab38f"
+  },
+  {
+    "id": "euclase",
+    "name": "Euclase",
+    "item": "alfheim:gem_euclase",
+    "color": "a6d7df",
+    "accent": "a6d7df"
+  },
+  {
+    "id": "phenakite",
+    "name": "Phenakite",
+    "item": "alfheim:gem_phenakite",
+    "color": "dce4dd",
+    "accent": "dce4dd"
+  },
+  {
+    "id": "beryllonite",
+    "name": "Beryllonite",
+    "item": "alfheim:gem_beryllonite",
+    "color": "e4e2c4",
+    "accent": "e4e2c4"
+  },
+  {
+    "id": "amblygonite",
+    "name": "Amblygonite",
+    "item": "alfheim:gem_amblygonite",
+    "color": "d8dba3",
+    "accent": "d8dba3"
+  },
+  {
+    "id": "montebrasite",
+    "name": "Montebrasite",
+    "item": "alfheim:gem_montebrasite",
+    "color": "c9dba9",
+    "accent": "c9dba9"
+  },
+  {
+    "id": "petalite",
+    "name": "Petalite",
+    "item": "alfheim:gem_petalite",
+    "color": "e4ced7",
+    "accent": "e4ced7"
+  },
+  {
+    "id": "lepidolite",
+    "name": "Lepidolite",
+    "item": "alfheim:gem_lepidolite",
+    "color": "b19cc5",
+    "accent": "b19cc5"
+  },
+  {
+    "id": "herderite",
+    "name": "Herderite",
+    "item": "alfheim:gem_herderite",
+    "color": "c9d7a3",
+    "accent": "c9d7a3"
+  },
+  {
+    "id": "hambergite",
+    "name": "Hambergite",
+    "item": "alfheim:gem_hambergite",
+    "color": "e0dfc7",
+    "accent": "e0dfc7"
+  },
+  {
+    "id": "taaffeite",
+    "name": "Taaffeite",
+    "item": "alfheim:gem_taaffeite",
+    "color": "bba0c3",
+    "accent": "bba0c3"
+  },
+  {
+    "id": "musgravite",
+    "name": "Musgravite",
+    "item": "alfheim:gem_musgravite",
+    "color": "a398b1",
+    "accent": "a398b1"
+  },
+  {
+    "id": "benitoite",
+    "name": "Benitoite",
+    "item": "alfheim:gem_benitoite",
+    "color": "8397dc",
+    "accent": "8397dc"
+  },
+  {
+    "id": "jeremejevite",
+    "name": "Jeremejevite",
+    "item": "alfheim:gem_jeremejevite",
+    "color": "adcce6",
+    "accent": "adcce6"
+  },
+  {
+    "id": "grandidierite",
+    "name": "Grandidierite",
+    "item": "alfheim:gem_grandidierite",
+    "color": "80bcb5",
+    "accent": "80bcb5"
+  },
+  {
+    "id": "kornerupine",
+    "name": "Kornerupine",
+    "item": "alfheim:gem_kornerupine",
+    "color": "a6b88d",
+    "accent": "a6b88d"
+  },
+  {
+    "id": "serendibite",
+    "name": "Serendibite",
+    "item": "alfheim:gem_serendibite",
+    "color": "537b80",
+    "accent": "537b80"
+  },
+  {
+    "id": "sinhalite",
+    "name": "Sinhalite",
+    "item": "alfheim:gem_sinhalite",
+    "color": "c4ad76",
+    "accent": "c4ad76"
+  },
+  {
+    "id": "painite",
+    "name": "Painite",
+    "item": "alfheim:gem_painite",
+    "color": "a76f64",
+    "accent": "a76f64"
+  },
+  {
+    "id": "poudretteite",
+    "name": "Poudretteite",
+    "item": "alfheim:gem_poudretteite",
+    "color": "e4b8d1",
+    "accent": "e4b8d1"
+  },
+  {
+    "id": "pezzottaite",
+    "name": "Pezzottaite",
+    "item": "alfheim:gem_pezzottaite",
+    "color": "d68aaf",
+    "accent": "d68aaf"
+  },
+  {
+    "id": "brazilianite",
+    "name": "Brazilianite",
+    "item": "alfheim:gem_brazilianite",
+    "color": "c2d57c",
+    "accent": "c2d57c"
+  },
+  {
+    "id": "apophyllite",
+    "name": "Apophyllite",
+    "item": "alfheim:gem_apophyllite",
+    "color": "d0e5d9",
+    "accent": "d0e5d9"
+  },
+  {
+    "id": "danburite",
+    "name": "Danburite",
+    "item": "alfheim:gem_danburite",
+    "color": "e4d7c7",
+    "accent": "e4d7c7"
+  },
+  {
+    "id": "diaspore",
+    "name": "Diaspore",
+    "item": "alfheim:gem_diaspore",
+    "color": "c7bd9c",
+    "accent": "c7bd9c"
+  },
+  {
+    "id": "sillimanite",
+    "name": "Sillimanite",
+    "item": "alfheim:gem_sillimanite",
+    "color": "a8b7a7",
+    "accent": "a8b7a7"
+  },
+  {
+    "id": "scolecite",
+    "name": "Scolecite",
+    "item": "alfheim:gem_scolecite",
+    "color": "e4e3d9",
+    "accent": "e4e3d9"
+  },
+  {
+    "id": "natrolite",
+    "name": "Natrolite",
+    "item": "alfheim:gem_natrolite",
+    "color": "d9e0d5",
+    "accent": "d9e0d5"
+  },
+  {
+    "id": "analcime",
+    "name": "Analcime",
+    "item": "alfheim:gem_analcime",
+    "color": "d6c9d0",
+    "accent": "d6c9d0"
+  },
+  {
+    "id": "leucite",
+    "name": "Leucite",
+    "item": "alfheim:gem_leucite",
+    "color": "d7d9c9",
+    "accent": "d7d9c9"
+  },
+  {
+    "id": "pollucite",
+    "name": "Pollucite",
+    "item": "alfheim:gem_pollucite",
+    "color": "d9d8df",
+    "accent": "d9d8df"
+  },
+  {
+    "id": "legrandite",
+    "name": "Legrandite",
+    "item": "alfheim:gem_legrandite",
+    "color": "ded18b",
+    "accent": "ded18b"
+  },
+  {
+    "id": "phenomenal_quartz",
+    "name": "Cat's-eye Quartz",
+    "item": "alfheim:gem_phenomenal_quartz",
+    "color": "ccc5a1",
+    "accent": "ccc5a1"
+  },
+  {
+    "id": "star_quartz",
+    "name": "Star Quartz",
+    "item": "alfheim:gem_star_quartz",
+    "color": "d6b7c5",
+    "accent": "d6b7c5"
+  },
+  {
+    "id": "fluorapatite",
+    "name": "Fluorapatite",
+    "item": "alfheim:gem_fluorapatite",
+    "color": "a3c5c9",
+    "accent": "a3c5c9"
+  },
+  {
+    "id": "sphene_catseye",
+    "name": "Cat's-eye Titanite",
+    "item": "alfheim:gem_sphene_catseye",
+    "color": "b7bd82",
+    "accent": "b7bd82"
+  },
+  {
+    "id": "amber",
+    "name": "Amber",
+    "item": "alfheim:gem_amber",
+    "color": "dfac54",
+    "accent": "dfac54"
+  },
+  {
+    "id": "inclusion_amber",
+    "name": "Inclusion Amber",
+    "item": "alfheim:gem_inclusion_amber",
+    "color": "d39442",
+    "accent": "d39442"
+  },
+  {
+    "id": "copal",
+    "name": "Copal",
+    "item": "alfheim:gem_copal",
+    "color": "e0bd6c",
+    "accent": "e0bd6c"
+  },
+  {
+    "id": "jet",
+    "name": "Jet",
+    "item": "alfheim:gem_jet",
+    "color": "373944",
+    "accent": "373944"
+  },
+  {
+    "id": "petrified_wood",
+    "name": "Petrified Wood",
+    "item": "alfheim:gem_petrified_wood",
+    "color": "bda07c",
+    "accent": "bda07c"
+  },
+  {
+    "id": "agatized_wood",
+    "name": "Agatized Wood",
+    "item": "alfheim:gem_agatized_wood",
+    "color": "ba8b6e",
+    "accent": "ba8b6e"
+  },
+  {
+    "id": "ammolite",
+    "name": "Ammolite",
+    "item": "alfheim:gem_ammolite",
+    "color": "82b6a5",
+    "accent": "82b6a5"
+  },
+  {
+    "id": "agatized_coral",
+    "name": "Agatized Coral",
+    "item": "alfheim:gem_agatized_coral",
+    "color": "c5aa8f",
+    "accent": "c5aa8f"
+  },
+  {
+    "id": "fossil_ivory",
+    "name": "Fossil Ivory",
+    "item": "alfheim:gem_fossil_ivory",
+    "color": "dfd3af",
+    "accent": "dfd3af"
+  },
+  {
+    "id": "fossil_bone",
+    "name": "Fossil Bone",
+    "item": "alfheim:gem_fossil_bone",
+    "color": "c9bfa3",
+    "accent": "c9bfa3"
+  },
+  {
+    "id": "white_pearl",
+    "name": "White Pearl",
+    "item": "alfheim:gem_white_pearl",
+    "color": "e7e2dc",
+    "accent": "e7e2dc"
+  },
+  {
+    "id": "cream_pearl",
+    "name": "Cream Pearl",
+    "item": "alfheim:gem_cream_pearl",
+    "color": "e5d9b2",
+    "accent": "e5d9b2"
+  },
+  {
+    "id": "pink_pearl",
+    "name": "Pink Pearl",
+    "item": "alfheim:gem_pink_pearl",
+    "color": "e6bfc7",
+    "accent": "e6bfc7"
+  },
+  {
+    "id": "golden_pearl",
+    "name": "Golden Pearl",
+    "item": "alfheim:gem_golden_pearl",
+    "color": "dcc17e",
+    "accent": "dcc17e"
+  },
+  {
+    "id": "black_pearl",
+    "name": "Black Pearl",
+    "item": "alfheim:gem_black_pearl",
+    "color": "6b7187",
+    "accent": "6b7187"
+  },
+  {
+    "id": "conch_pearl",
+    "name": "Conch Pearl",
+    "item": "alfheim:gem_conch_pearl",
+    "color": "e3a5ae",
+    "accent": "e3a5ae"
+  },
+  {
+    "id": "melo_pearl",
+    "name": "Melo Pearl",
+    "item": "alfheim:gem_melo_pearl",
+    "color": "dfaa77",
+    "accent": "dfaa77"
+  },
+  {
+    "id": "mother_of_pearl",
+    "name": "Mother-of-pearl",
+    "item": "alfheim:gem_mother_of_pearl",
+    "color": "b7d2d5",
+    "accent": "b7d2d5"
+  },
+  {
+    "id": "red_coral",
+    "name": "Red Precious Coral",
+    "item": "alfheim:gem_red_coral",
+    "color": "d46f62",
+    "accent": "d46f62"
+  },
+  {
+    "id": "pink_coral",
+    "name": "Pink Precious Coral",
+    "item": "alfheim:gem_pink_coral",
+    "color": "e4a9a7",
+    "accent": "e4a9a7"
+  },
+  {
+    "id": "white_coral",
+    "name": "White Precious Coral",
+    "item": "alfheim:gem_white_coral",
+    "color": "dfd8ca",
+    "accent": "dfd8ca"
+  },
+  {
+    "id": "black_coral",
+    "name": "Black Coral",
+    "item": "alfheim:gem_black_coral",
+    "color": "524a46",
+    "accent": "524a46"
+  }
+]

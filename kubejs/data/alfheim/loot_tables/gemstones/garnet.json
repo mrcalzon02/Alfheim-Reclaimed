@@ -1,0 +1,75 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_almandine",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pyrope",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_spessartine",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_grossular",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_hessonite",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_tsavorite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_andradite",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_demantoid",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_topazolite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_uvarovite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_rhodolite",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_malaya_garnet",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_color_change_garnet",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

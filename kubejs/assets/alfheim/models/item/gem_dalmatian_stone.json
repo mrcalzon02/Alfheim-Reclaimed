@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alfheim:item/gemstones/dalmatian_stone",
+    "layer1": "alfheim:item/gemstones/dalmatian_stone_accent"
+  }
+}

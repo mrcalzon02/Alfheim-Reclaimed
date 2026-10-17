@@ -1,0 +1,121 @@
+{
+  "textures": {
+    "particle": "alfheim:block/abyssal_livingrock",
+    "host": "alfheim:block/abyssal_livingrock",
+    "gem": "alfheim:block/gemstones/hydrothermal"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#host",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#host",
+          "cullface": "south"
+        },
+        "east": {
+          "texture": "#host",
+          "cullface": "east"
+        },
+        "west": {
+          "texture": "#host",
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#host",
+          "cullface": "up"
+        },
+        "down": {
+          "texture": "#host",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "faces": {
+        "north": {
+          "texture": "#gem",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#gem",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "south"
+        },
+        "east": {
+          "texture": "#gem",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "east"
+        },
+        "west": {
+          "texture": "#gem",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#gem",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "up"
+        },
+        "down": {
+          "texture": "#gem",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "down"
+        }
+      }
+    }
+  ]
+}

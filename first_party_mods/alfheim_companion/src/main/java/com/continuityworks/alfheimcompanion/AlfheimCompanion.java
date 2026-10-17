@@ -43,6 +43,8 @@ public final class AlfheimCompanion {
         com.continuityworks.alfheimcompanion.monstrosity.ModMenagerieSounds.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.REGISTRY.register(modBus);
         ModEntities.REGISTRY.register(modBus);
+        com.continuityworks.alfheimcompanion.gem.ModGemDisplays.BLOCKS.register(modBus);
+        com.continuityworks.alfheimcompanion.gem.ModGemDisplays.ENTITIES.register(modBus);
         com.continuityworks.alfheimcompanion.fey.ModFeyHomes.BLOCKS.register(modBus);
         com.continuityworks.alfheimcompanion.fey.ModFeyHomes.ENTITIES.register(modBus);
         ModItems.REGISTRY.register(modBus);
@@ -76,6 +78,10 @@ public final class AlfheimCompanion {
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)event.accept(com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.ITEM.get());
         if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)for(var home:com.continuityworks.alfheimcompanion.fey.ModFeyHomes.ITEMS)event.accept(home.get());
+        if(event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(com.continuityworks.alfheimcompanion.gem.ModGemDisplays.EMPTY.get());
+            for(var display:com.continuityworks.alfheimcompanion.gem.ModGemDisplays.FILLED)event.accept(display.get());
+        }
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
             for(var kind:com.continuityworks.alfheimcompanion.monstrosity.MonstrosityKind.values())
                 for(int variant=0;variant<3;variant++)event.accept(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.selection(kind,variant));
@@ -93,9 +99,21 @@ public final class AlfheimCompanion {
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static final class ClientEvents {
         private ClientEvents() {}
+        @net.minecraftforge.eventbus.api.SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)
+        public static void gemColours(net.minecraftforge.client.event.RegisterColorHandlersEvent.Item event){
+            for(int i=0;i<com.continuityworks.alfheimcompanion.gem.ModGemDisplays.CATALOG.size();i++){
+                var entry=com.continuityworks.alfheimcompanion.gem.ModGemDisplays.CATALOG.get(i);
+                int color=0xFF000000|Integer.parseUnsignedInt(entry.color(),16);
+                int accent=0xFF000000|Integer.parseUnsignedInt(entry.accent(),16);
+                var gem=net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(new net.minecraft.resources.ResourceLocation(entry.item()));
+                if(gem!=null&&gem!=net.minecraft.world.item.Items.AIR)event.register((stack,layer)->layer==0?color:layer==1?accent:0xFFFFFFFF,gem);
+                event.register((stack,layer)->layer==1?color:0xFFFFFFFF,com.continuityworks.alfheimcompanion.gem.ModGemDisplays.FILLED.get(i).get());
+            }
+        }
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(com.continuityworks.alfheimcompanion.gem.ModGemDisplays.DISPLAY.get(),com.continuityworks.alfheimcompanion.client.GemDisplayRenderer::new);
             event.registerEntityRenderer(ModEntities.ELVEN_CITIZEN.get(),com.continuityworks.alfheimcompanion.client.ElvenCitizenRenderer::new);
             event.registerEntityRenderer(ModEntities.ELVEN_COMPANION.get(), ElvenCompanionRenderer::new);
             com.continuityworks.alfheimcompanion.client.ThemedEnemyRenderers.register(event);
@@ -127,6 +145,7 @@ public final class AlfheimCompanion {
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerScreens(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
+                net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(com.continuityworks.alfheimcompanion.gem.ModGemDisplays.PEDESTAL.get(),net.minecraft.client.renderer.RenderType.cutout());
                 MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(), CompanionInventoryScreen::new);
                 com.continuityworks.alfheimcompanion.client.EnemySpawnItemAppearance.registerProperties();
                 com.continuityworks.alfheimcompanion.client.ElvenCitizenRenderer.itemProperties();

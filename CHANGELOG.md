@@ -1,5 +1,20 @@
 # Changelog
 
+## Natural gemstone resources and geologist displays — 2026-10-17
+
+Added a first catalogue of 232 natural gem materials, including organics and
+fossils, with 227 new gem items and five existing IDs reused. Added 28 altitude/
+source pools and 1,040 host-matched deposits across Alfheim, including marine
+and freshwater beds. Replaced the rejected flat art with detailed original
+32-form image-generated masters, native colour rendering and selected colour
+zoning/inclusion masks. Added craftable glass-topped geologist pedestals,
+persistent one-gem displays, readable labels, and 232 curator selections.
+
+CW outputs, source/asset checks, Java packaging and feature order pass (zero
+cycles). Built and installed. Actual startup, mining/generation density and
+live display/colour behavior remain pending. Restart and new chunks needed
+for deposits. Details: `GEMSTONES_20261017.md`; `tools/gemstone_build.json`.
+
 ## Harvestable fey apartment pixie dust — 2026-10-17
 
 Apartments accumulate five dust levels from returning plant-visiting pixies.

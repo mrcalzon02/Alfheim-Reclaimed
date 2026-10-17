@@ -1,0 +1,23 @@
+{
+  "status": "LOCALLY_VALIDATED_RUNTIME_REQUIRED",
+  "gem_materials": 232,
+  "new_items": 227,
+  "new_blocks": 1040,
+  "display_selections": 232,
+  "source_pools": 28,
+  "generated_files": 5248,
+  "model_texture_paths": 75,
+  "checks": [
+    "exact source equality",
+    "unique non-colliding startup IDs",
+    "all gem items reachable in positive-weight loot pools",
+    "Silk Touch preserves every deposit",
+    "Fortune applies to gem drops",
+    "existing host and reused item IDs verified",
+    "all biome and model texture IDs resolved including pedestal",
+    "bounded rarity/vein sizes and Y ranges",
+    "aquatic water and seabed predicates present",
+    "232 display entries and models match gem roster; empty pedestal recipe only"
+  ],
+  "runtime": "KubeJS startup registration, mining drops, displays and new-chunk generation still require a live game check"
+}

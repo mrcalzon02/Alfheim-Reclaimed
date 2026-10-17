@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_white_pearl",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_cream_pearl",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_pink_pearl",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_mother_of_pearl",
+          "weight": 16
+        }
+      ]
+    }
+  ]
+}

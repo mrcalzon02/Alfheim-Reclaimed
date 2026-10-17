@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alfheim:item/gemstones/ruby_in_zoisite",
+    "layer1": "alfheim:item/gemstones/ruby_in_zoisite_accent"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "alfheim:alfheim_ocean",
+    "alfheim:mistbark_shore",
+    "alfheim:sporebank_shore",
+    "alfheim:tidewood_shore"
+  ],
+  "features": "alfheim:gemstones/pearl",
+  "step": "vegetal_decoration"
+}

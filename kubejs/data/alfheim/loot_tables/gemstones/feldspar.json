@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_moonstone",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_rainbow_moonstone",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_labradorite",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_spectrolite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sunstone",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_amazonite",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_andesine",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_orthoclase",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alfheim:gem_sanidine",
+          "weight": 3
+        }
+      ]
+    }
+  ]
+}

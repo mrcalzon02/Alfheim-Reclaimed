@@ -1,0 +1,90 @@
+{
+  "feature": "alfheim:gemstones/freshwater_pearl",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 10
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:matching_fluids",
+            "fluids": [
+              "minecraft:water"
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "offset": [
+              0,
+              -1,
+              0
+            ],
+            "blocks": [
+              "minecraft:sand",
+              "minecraft:gravel",
+              "minecraft:clay",
+              "minecraft:dirt",
+              "minecraft:stone",
+              "alfheim:cracked_livingrock",
+              "alfheim:magmatic_livingrock",
+              "alfheim:embervein_livingrock",
+              "alfheim:cinder_livingrock",
+              "alfheim:obsidian_livingrock",
+              "alfheim:moonstone_livingrock",
+              "alfheim:dawn_livingrock",
+              "alfheim:rose_livingrock",
+              "alfheim:ivory_livingrock",
+              "alfheim:silvermist_livingrock",
+              "alfheim:moss_livingrock",
+              "alfheim:rootbound_livingrock",
+              "alfheim:fern_livingrock",
+              "alfheim:amber_livingrock",
+              "alfheim:petrified_livingrock",
+              "alfheim:tide_livingrock",
+              "alfheim:abyssal_livingrock",
+              "alfheim:frost_livingrock",
+              "alfheim:gale_livingrock",
+              "alfheim:storm_livingrock",
+              "alfheim:amethyst_livingrock",
+              "alfheim:leyline_livingrock",
+              "alfheim:gloam_livingrock",
+              "alfheim:starfleck_livingrock",
+              "alfheim:riftchalk_livingrock",
+              "alfheim:riftshale_livingrock",
+              "alfheim:veilstone_livingrock",
+              "alfheim:shardbreccia_livingrock",
+              "alfheim:anchorstone_livingrock",
+              "alfheim:seamstone_livingrock",
+              "alfheim:prismstone_livingrock",
+              "alfheim:aetherquartzite_livingrock",
+              "alfheim:glintschist_livingrock",
+              "alfheim:rootfossil_livingrock",
+              "alfheim:resinshale_livingrock",
+              "alfheim:hollowheart_livingrock",
+              "alfheim:epitaph_livingrock",
+              "alfheim:mourning_livingrock",
+              "alfheim:oathstone_livingrock",
+              "alfheim:nightmantle_livingrock",
+              "alfheim:nullstone_livingrock",
+              "alfheim:astralite_livingrock"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "alfheim_companion:block/geologist_pedestal",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "alfheim_companion:block/geologist_pedestal",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "alfheim_companion:block/geologist_pedestal",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alfheim_companion:block/geologist_pedestal",
+      "y": 270
+    }
+  }
+}
