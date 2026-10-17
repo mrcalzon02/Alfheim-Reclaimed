@@ -1,0 +1,293 @@
+{
+  "parent": "alfheim_companion:item/society/serf_0",
+  "overrides": [
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 1
+      },
+      "model": "alfheim_companion:item/society/serf_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 2
+      },
+      "model": "alfheim_companion:item/society/serf_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 3
+      },
+      "model": "alfheim_companion:item/society/serf_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 4
+      },
+      "model": "alfheim_companion:item/society/serf_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 5
+      },
+      "model": "alfheim_companion:item/society/servant_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 6
+      },
+      "model": "alfheim_companion:item/society/servant_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 7
+      },
+      "model": "alfheim_companion:item/society/servant_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 8
+      },
+      "model": "alfheim_companion:item/society/servant_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 9
+      },
+      "model": "alfheim_companion:item/society/steward_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 10
+      },
+      "model": "alfheim_companion:item/society/steward_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 11
+      },
+      "model": "alfheim_companion:item/society/steward_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 12
+      },
+      "model": "alfheim_companion:item/society/steward_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 13
+      },
+      "model": "alfheim_companion:item/society/artisan_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 14
+      },
+      "model": "alfheim_companion:item/society/artisan_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 15
+      },
+      "model": "alfheim_companion:item/society/artisan_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 16
+      },
+      "model": "alfheim_companion:item/society/artisan_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 17
+      },
+      "model": "alfheim_companion:item/society/nobleman_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 18
+      },
+      "model": "alfheim_companion:item/society/nobleman_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 19
+      },
+      "model": "alfheim_companion:item/society/nobleman_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 20
+      },
+      "model": "alfheim_companion:item/society/nobleman_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 21
+      },
+      "model": "alfheim_companion:item/society/noblewoman_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 22
+      },
+      "model": "alfheim_companion:item/society/noblewoman_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 23
+      },
+      "model": "alfheim_companion:item/society/noblewoman_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 24
+      },
+      "model": "alfheim_companion:item/society/noblewoman_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 25
+      },
+      "model": "alfheim_companion:item/society/lord_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 26
+      },
+      "model": "alfheim_companion:item/society/lord_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 27
+      },
+      "model": "alfheim_companion:item/society/lord_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 28
+      },
+      "model": "alfheim_companion:item/society/lord_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 29
+      },
+      "model": "alfheim_companion:item/society/lady_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 30
+      },
+      "model": "alfheim_companion:item/society/lady_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 31
+      },
+      "model": "alfheim_companion:item/society/lady_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 32
+      },
+      "model": "alfheim_companion:item/society/lady_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 33
+      },
+      "model": "alfheim_companion:item/society/prince_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 34
+      },
+      "model": "alfheim_companion:item/society/prince_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 35
+      },
+      "model": "alfheim_companion:item/society/prince_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 36
+      },
+      "model": "alfheim_companion:item/society/prince_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 37
+      },
+      "model": "alfheim_companion:item/society/princess_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 38
+      },
+      "model": "alfheim_companion:item/society/princess_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 39
+      },
+      "model": "alfheim_companion:item/society/princess_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 40
+      },
+      "model": "alfheim_companion:item/society/princess_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 41
+      },
+      "model": "alfheim_companion:item/society/king_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 42
+      },
+      "model": "alfheim_companion:item/society/king_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 43
+      },
+      "model": "alfheim_companion:item/society/king_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 44
+      },
+      "model": "alfheim_companion:item/society/king_3"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 45
+      },
+      "model": "alfheim_companion:item/society/queen_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 46
+      },
+      "model": "alfheim_companion:item/society/queen_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 47
+      },
+      "model": "alfheim_companion:item/society/queen_2"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:social_appearance": 48
+      },
+      "model": "alfheim_companion:item/society/queen_3"
+    }
+  ]
+}

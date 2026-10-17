@@ -1,0 +1,7 @@
+{
+  "jar_sha256": "b8461ce4708c4b5171505c25b75270d6ac2c0f3391ee3c7f56d766ae1fa0af62",
+  "runtime_manifest": "server\\manifest-20261016-215231.json",
+  "console": "server\\console-20261016-215231.log",
+  "result": "ALFHEIM_SOCIETY_PASS roles=12 appearances=48 actual_egg_spawns=48 saved_npc_roundtrips=48",
+  "client_visual_review": "pending; offline previews are not client screenshots"
+}

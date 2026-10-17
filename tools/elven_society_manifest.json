@@ -1,0 +1,137 @@
+{
+  "roles": [
+    {
+      "id": "serf",
+      "name": "Serf",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture"
+      ]
+    },
+    {
+      "id": "servant",
+      "name": "Servant",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture"
+      ]
+    },
+    {
+      "id": "steward",
+      "name": "Steward",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture"
+      ]
+    },
+    {
+      "id": "artisan",
+      "name": "Artisan",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture"
+      ]
+    },
+    {
+      "id": "nobleman",
+      "name": "Nobleman",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_2_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_male_1_texture"
+      ]
+    },
+    {
+      "id": "noblewoman",
+      "name": "Noblewoman",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_2_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture"
+      ]
+    },
+    {
+      "id": "lord",
+      "name": "Lord",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_2_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_male_1_texture"
+      ]
+    },
+    {
+      "id": "lady",
+      "name": "Lady",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_2_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture"
+      ]
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_2_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_male_1_texture"
+      ]
+    },
+    {
+      "id": "princess",
+      "name": "Princess",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_2_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture"
+      ]
+    },
+    {
+      "id": "king",
+      "name": "King",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_male_1_texture",
+        "richs_races_wood_elves:entities/woodelf_male_2_texture",
+        "richs_races_wood_elves:entities/woodelf_male_3_texture",
+        "richs_races_wood_elves:entities/woodelf_male_1_texture"
+      ]
+    },
+    {
+      "id": "queen",
+      "name": "Queen",
+      "base_skins": [
+        "richs_races_wood_elves:entities/woodelf_female_1_texture",
+        "richs_races_wood_elves:entities/woodelf_female_2_texture",
+        "richs_races_wood_elves:entities/woodelf_female_3_texture",
+        "richs_races_wood_elves:entities/woodelf_female_1_texture"
+      ]
+    }
+  ],
+  "source_skin_sha256": {
+    "richs_races_wood_elves:entities/woodelf_male_1_texture": "8b46119a1f6d6bd9418688c974668e1df710e1a6aabb518cbd53deef48d95fea",
+    "richs_races_wood_elves:entities/woodelf_female_1_texture": "a83c4a0fb717c594077abb6f0e619dae7b8acca7f39ebb69fd3cefa0e01e5763",
+    "richs_races_wood_elves:entities/woodelf_male_3_texture": "659e61ad4dc000cf61348afe9cf0b78553f24b5e0a9a8a4c7209bed301aead4b",
+    "richs_races_wood_elves:entities/woodelf_female_3_texture": "815f33f77d96e2a7cbce61f95a5bfee1dd5fe10cbe183949cc769c8cd06bca1b",
+    "richs_races_wood_elves:entities/woodelf_male_2_texture": "77e82f328d0288ccd2629e47ff8e0f855daed38efb4ea5b0eeef276d4764d3fa",
+    "richs_races_wood_elves:entities/woodelf_female_2_texture": "c97b09cc357722eb4f9bd577b4f864fb40cccf6394fc0e4ab8b3d1f6b9b8051c"
+  },
+  "appearances_per_role": 4,
+  "total_appearances": 48,
+  "natural_spawning": false,
+  "adult_only": true,
+  "identity_source": "Installed Richs Races wood-elf skins, including active pack overrides; faces and hair are unmodified external references"
+}

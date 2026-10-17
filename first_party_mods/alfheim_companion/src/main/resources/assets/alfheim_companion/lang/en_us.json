@@ -21,5 +21,7 @@
   "entity.alfheim_companion.biome_enderman": "Alfheim Riftwalker",
   "item.alfheim_companion.biome_enderman_spawn_egg": "Alfheim Riftwalker Spawn Egg",
   "entity.alfheim_companion.biome_endermite": "Alfheim Riftmite",
-  "item.alfheim_companion.biome_endermite_spawn_egg": "Alfheim Riftmite Spawn Egg"
+  "item.alfheim_companion.biome_endermite_spawn_egg": "Alfheim Riftmite Spawn Egg",
+  "entity.alfheim_companion.elven_citizen": "Elven Citizen",
+  "item.alfheim_companion.elven_citizen_spawn_egg": "Elven Citizen Spawn Egg"
 }

@@ -1,5 +1,21 @@
 # Changelog
 
+
+## Elven society and corrected reference-based finery — 2026-10-16
+
+Added 12 passive adult roles with 48 selectable appearances and matching head
+items. Uses the installed slim wood-elf rig and existing skins/pack overrides;
+original faces, hair, colors, gradients and layered clothing remain intact.
+Removed the rejected flat garment overlays. Added upward-sweeping ear geometry,
+role-specific crowns/hats, capes, split coats, tiered skirts, pleats, puffed
+sleeves and ruffled trim. Finery samples the supplied skins' fabric detail.
+Java17 build/71 tests, 48-item source checks and packaged asset/data equality
+pass. Dedicated-server spawn/save evidence: `tools/elven_society_build.json`.
+Installed companion jar; restart required. Offline front/side/back and full
+catalogue previews supplied; client animation/lighting review remains pending.
+No natural population or court/companion gameplay added. Details:
+`ELVEN_SOCIETY_20261016.md`.
+
 ## Ashen, Rime and Verge regional monstrosities — 2026-10-16
 
 Added three regional body models with nine authored skin variations and matching

@@ -18,5 +18,7 @@ public final class ModItems {
             "companion_claim_paper", () -> new Item(new Item.Properties().stacksTo(64))
     );
 
+    public static final RegistryObject<Item> ELVEN_CITIZEN_SPAWN_EGG=REGISTRY.register("elven_citizen_spawn_egg",
+        com.continuityworks.alfheimcompanion.society.ElvenCitizenSpawnEgg::new);
     private ModItems() {}
 }

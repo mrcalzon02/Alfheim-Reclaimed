@@ -50,6 +50,7 @@ public final class AlfheimCompanion {
     }
 
     private void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.ELVEN_CITIZEN.get(),com.continuityworks.alfheimcompanion.society.ElvenCitizenEntity.attributes().build());
         event.put(ModEntities.ELVEN_COMPANION.get(), ElvenCompanionEntity.createAttributes().build());
     }
 
@@ -65,6 +66,9 @@ public final class AlfheimCompanion {
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
+            for(int role=0;role<com.continuityworks.alfheimcompanion.society.ElvenSociety.IDS.length;role++)
+                for(int look=0;look<4;look++)event.accept(com.continuityworks.alfheimcompanion.society.ElvenSociety.selection(role,look));
+        if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
             com.continuityworks.alfheimcompanion.enemy.EnemySpawnItems.addCreativeItems(event);
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.COMPANION_SIGIL);
@@ -78,12 +82,20 @@ public final class AlfheimCompanion {
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(ModEntities.ELVEN_CITIZEN.get(),com.continuityworks.alfheimcompanion.client.ElvenCitizenRenderer::new);
             event.registerEntityRenderer(ModEntities.ELVEN_COMPANION.get(), ElvenCompanionRenderer::new);
             com.continuityworks.alfheimcompanion.client.ThemedEnemyRenderers.register(event);
         }
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerEnemyLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            for(int role=0;role<com.continuityworks.alfheimcompanion.society.ElvenSociety.IDS.length;role++){
+                final int selectedRole=role;
+                event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.ElvenSocietyModels.location(role),
+                    ()->com.continuityworks.alfheimcompanion.client.ElvenSocietyModels.layer(selectedRole));
+                event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.ElvenSocietyModels.wardrobeLocation(role),
+                    ()->com.continuityworks.alfheimcompanion.client.ElvenSocietyModels.wardrobe(selectedRole));
+            }
             for(String species:com.continuityworks.alfheimcompanion.client.RegionalMonstrosityModels.SPECIES)
                 event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.RegionalMonstrosityModels.location(species),
                     ()->com.continuityworks.alfheimcompanion.client.RegionalMonstrosityModels.layer(species));
@@ -99,6 +111,7 @@ public final class AlfheimCompanion {
             event.enqueueWork(() -> {
                 MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(), CompanionInventoryScreen::new);
                 com.continuityworks.alfheimcompanion.client.EnemySpawnItemAppearance.registerProperties();
+                com.continuityworks.alfheimcompanion.client.ElvenCitizenRenderer.itemProperties();
             });
         }
         @net.minecraftforge.eventbus.api.SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)

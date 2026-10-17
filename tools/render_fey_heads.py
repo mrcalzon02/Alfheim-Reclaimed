@@ -33,7 +33,7 @@ def render(model, size=160, texture_images=None, tints=None, directional_light=F
             'down':[(x,y,z),(X,y,z),(X,y,Z),(x,y,Z)],
         }
         for face, vertices in faces.items():
-            if (rot @ normals[face])[2] <= 0:
+            if face not in e['faces'] or (rot @ normals[face])[2] <= 0:
                 continue
             v = (np.array(vertices)-8) @ rot.T
             v[:,:2] *= [scale,-scale]; v[:,:2] += size/2
