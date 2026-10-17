@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-17",
+  "status": "BUILT_INSTALLED_RUNTIME_REQUIRED",
+  "jar_sha256": "5435436df5f0343ccd096dab1766fe15ebf5b7f2eea1b93adfdf6f785abf1717",
+  "backup": "quarantine\\alfheim_companion-before-fey-dust-harvest-20261017.jar",
+  "drop": "botania:pixie_dust",
+  "registry_evidence": "server/local/kubejs/export/registries/item.json",
+  "harvest": {
+    "full_level": 5,
+    "yield": 3,
+    "tool": "Forge shears harvest action",
+    "durability_cost": 1,
+    "resets_level": 0,
+    "disturbs_residents": false
+  },
+  "production": "one fill level per successful resident return after at least three plant visits; visits consumed on admission",
+  "persistence": "DustLevel stored with resident NBT in home block and dropped home item; clamped to 0..5 on load",
+  "readiness": "sparkles at full, empty-hand progress message and comparator output 0..5",
+  "validation": [
+    "offline build passed with tests excluded",
+    "packaged resources match source",
+    "built and installed hashes match"
+  ],
+  "in_game_harvest_and_resident_cycle": "pending"
+}

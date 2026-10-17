@@ -54,6 +54,21 @@ between attempts. They require a nearby player and loaded chunks; they do not
 force-load chunks. Picked-up home items preserve resident NBT, including a
 creative-break drop when occupied.
 
+## Pixie dust harvesting
+
+Apartments now accumulate one dust level when a matching wild resident returns
+after at least three plant visits. Those visits are consumed on admission;
+nursery creation and shelter without visits do not produce dust. At level five,
+right-click with shears to receive three existing Botania Pixie Dust items
+(`botania:pixie_dust`), consume one shear durability and reset the supply to
+zero. Residents remain inside. Full homes sparkle; empty-hand interaction
+shows readiness/progress, and comparators output the current level (0–5).
+Dust is saved with resident NBT and retained in picked-up home items.
+No honey, bottles or new dust item is introduced. Existing apartments start
+at zero on upgrade. This is manual harvesting; dispenser harvesting is not
+implemented. Build/install evidence: `tools/fey_dust_harvest_build.json`;
+the actual in-game production/harvest cycle remains pending review.
+
 ## World generation and provenance
 
 Executed local `StructureCapability.generate` from the installed Continuity

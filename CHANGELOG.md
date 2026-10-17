@@ -1,5 +1,14 @@
 # Changelog
 
+## Harvestable fey apartment pixie dust — 2026-10-17
+
+Apartments accumulate five dust levels from returning plant-visiting pixies.
+Shear a full home for three existing Botania Pixie Dust; supply resets,
+residents remain, and shears take one durability. Added full-home sparkles,
+progress messages, comparator output and saved dust in picked-up homes.
+Built and installed; in-game harvest/resident cycle remains pending.
+Restart required. `tools/fey_dust_harvest_build.json`.
+
 ## More vegetation on fey islands — 2026-10-17
 
 Added ten additional seasonal trees and roughly 1,000 flowers per island,

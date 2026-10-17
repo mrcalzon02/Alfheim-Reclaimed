@@ -18,10 +18,19 @@ public final class FeyHomeBlockEntity extends BlockEntity {
     private final List<CompoundTag> residents=new ArrayList<>();
     private boolean nursery=true;
     private long nextBirth=0;
+    private int dustLevel=0;
     public FeyHomeBlockEntity(BlockPos p,BlockState s){super(ModFeyHomes.HOME.get(),p,s);}
     public String entityId(){return "feywild:"+((FeyHomeBlock)getBlockState().getBlock()).season+"_pixie";}
     public int occupied(){return residents.size();}
-    @Override public void onLoad(){super.onLoad();if(level!=null&&!level.isClientSide)INDEX.computeIfAbsent(level,k->new HashSet<>()).add(worldPosition.immutable());}
+    public int dustLevel(){return dustLevel;}
+    private void syncDust(){
+        setChanged();if(level!=null&&!level.isClientSide){
+            var state=getBlockState();if(state.getValue(FeyHomeBlock.DUST_LEVEL)!=dustLevel)level.setBlock(worldPosition,state.setValue(FeyHomeBlock.DUST_LEVEL,dustLevel),3);
+            level.updateNeighbourForOutputSignal(worldPosition,state.getBlock());
+        }
+    }
+    public void harvestDust(){dustLevel=0;syncDust();}
+    @Override public void onLoad(){super.onLoad();if(level!=null&&!level.isClientSide){INDEX.computeIfAbsent(level,k->new HashSet<>()).add(worldPosition.immutable());syncDust();}}
     @Override public void setRemoved(){if(level!=null){var set=INDEX.get(level);if(set!=null)set.remove(worldPosition);}super.setRemoved();}
     public static List<FeyHomeBlockEntity> nearby(Level level,BlockPos pos,int range){
         var result=new ArrayList<FeyHomeBlockEntity>();var set=INDEX.get(level);if(set==null)return result;
@@ -35,8 +44,11 @@ public final class FeyHomeBlockEntity extends BlockEntity {
     }
     public boolean admit(Mob mob){
         if(residents.size()>=3||!freeWild(mob)||!Objects.equals(ForgeRegistries.ENTITY_TYPES.getKey(mob.getType()),new ResourceLocation(entityId()))||mob.distanceToSqr(worldPosition.getX()+.5,worldPosition.getY()+.5,worldPosition.getZ()+.5)>9)return false;
-        CompoundTag data=new CompoundTag();if(!mob.save(data))return false;
+        int visits=mob.getPersistentData().getInt("FeyVisits");
+        mob.getPersistentData().putInt("FeyVisits",0);
+        CompoundTag data=new CompoundTag();if(!mob.save(data)){mob.getPersistentData().putInt("FeyVisits",visits);return false;}
         var entry=new CompoundTag();entry.put("Entity",data);entry.putLong("ReleaseAt",level.getGameTime()+600+level.random.nextInt(600));residents.add(entry);
+        if(visits>=3){dustLevel=Math.min(5,dustLevel+1);syncDust();}
         setChanged();mob.discard();return true;
     }
     private boolean release(ServerLevel server,CompoundTag data){
@@ -76,9 +88,9 @@ public final class FeyHomeBlockEntity extends BlockEntity {
             }
         }
     }
-    @Override protected void saveAdditional(CompoundTag tag){super.saveAdditional(tag);ListTag list=new ListTag();residents.forEach(r->list.add(r.copy()));tag.put("Residents",list);tag.putBoolean("Nursery",nursery);tag.putLong("NextBirth",nextBirth);}
+    @Override protected void saveAdditional(CompoundTag tag){super.saveAdditional(tag);ListTag list=new ListTag();residents.forEach(r->list.add(r.copy()));tag.put("Residents",list);tag.putBoolean("Nursery",nursery);tag.putLong("NextBirth",nextBirth);tag.putInt("DustLevel",dustLevel);}
     @Override public void load(CompoundTag tag){super.load(tag);residents.clear();for(var r:tag.getList("Residents",Tag.TAG_COMPOUND)){
         var entry=(CompoundTag)r;String id=entry.getCompound("Entity").getString("id");
         if(residents.size()<3&&id.equals(entityId()))residents.add(entry.copy());
-    }nursery=!tag.contains("Nursery")||tag.getBoolean("Nursery");nextBirth=tag.getLong("NextBirth");}
+    }nursery=!tag.contains("Nursery")||tag.getBoolean("Nursery");nextBirth=tag.getLong("NextBirth");dustLevel=Math.max(0,Math.min(5,tag.getInt("DustLevel")));}
 }
