@@ -6,7 +6,13 @@ public enum MonstrosityKind {
     BRIAR("briar_beast","Briar Beast",1.6F,1.9F,52,7,.31,5,2.0,9,32,new String[]{"Rootbound","Withered","Bloomthorn"}),
     INFESTOR("thorn_infestor","Thorn Infestor",1.1F,2.25F,42,5,.21,3,4.0,14,48,new String[]{"Thornlash","Sporethorn","Frostthorn"}),
     GARGOYLE("stone_gargoyle","Stone Gargoyle",1.0F,2.1F,60,8,.29,8,2.0,10,38,new String[]{"Basalt","Prism","Grave"}),
-    HAG("fen_hag","Hag",.75F,2.35F,38,4,.27,1,6.5,20,65,new String[]{"Fen","Mire","Rime"});
+    HAG("fen_hag","Hag",.75F,2.35F,38,4,.27,1,6.5,20,65,new String[]{"Fen","Mire","Rime"}),
+    WENDIGO("hollow_stag_wendigo","Wendigo",1.4F,3.8F,100,13,.28,4,3.2,18,60,new String[]{"Hollowwood","Barrowbone","Hoarfrost"}),
+    DUSKWEAVER("duskweaver","Duskweaver",1.65F,1.55F,48,6,.32,3,2.2,10,38,new String[]{"Gloamsilk","Sporeveil","Starless"}),
+    BRIDE("hollow_bride","Hollow Bride",.85F,2.8F,48,6,.25,2,3.5,18,55,new String[]{"Moonveil","Mourning","Rimeveil"}),
+    MAW("barrow_maw","Barrow Maw",1.6F,2.1F,70,9,.24,7,2.4,14,48,new String[]{"Rootgrave","Mirebloom","Sepulchral"}),
+    NUCKELAVEE("nuckelavee","Nuckelavee",1.3F,3.2F,86,11,.31,4,3,16,55,new String[]{"Brinebound","Cinderhide","Rimebound"}),
+    REDCAP("redcap_reaver","Redcap Reaver",.8F,1.45F,32,6,.36,3,1.9,8,24,new String[]{"Thorncoat","Ashcoat","Frostcoat"});
 
     public final String id,label;public final float width,height;public final double health,damage,speed,armor,reach;
     public final int windup,cooldown;public final String[] variants;
@@ -20,6 +26,12 @@ public enum MonstrosityKind {
             case BRIAR->biome.contains("bloomfall")?2:biome.contains("hollow")||biome.contains("ashen")?1:0;
             case INFESTOR->biome.contains("starved")?2:biome.contains("mire")||biome.contains("fen")?1:0;
             case GARGOYLE->biome.contains("sepulchral")||biome.contains("starless")?2:biome.contains("prism")?1:0;
+            case WENDIGO->biome.contains("starved")?2:biome.contains("sepulchral")?1:0;
+            case DUSKWEAVER->biome.contains("starless")?2:biome.contains("sporebank")||biome.contains("fen")?1:0;
+            case BRIDE->biome.contains("starved")?2:biome.contains("sepulchral")||biome.contains("mire")?1:0;
+            case MAW->biome.contains("sepulchral")?2:biome.contains("mire")||biome.contains("sporebank")?1:0;
+            case NUCKELAVEE->biome.contains("starved")?2:biome.contains("scorch")?1:0;
+            case REDCAP->biome.contains("starved")?2:biome.contains("ashen")?1:0;
             case HAG->biome.contains("starved")?2:biome.contains("mire")||biome.contains("sporebank")?1:0;
         };
     }

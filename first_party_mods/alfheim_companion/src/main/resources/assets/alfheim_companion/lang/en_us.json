@@ -35,5 +35,17 @@
   "entity.alfheim_companion.stone_gargoyle": "Stone Gargoyle",
   "item.alfheim_companion.stone_gargoyle_spawn_egg": "Stone Gargoyle Spawn Egg",
   "entity.alfheim_companion.fen_hag": "Hag",
-  "item.alfheim_companion.fen_hag_spawn_egg": "Hag Spawn Egg"
+  "item.alfheim_companion.fen_hag_spawn_egg": "Hag Spawn Egg",
+  "entity.alfheim_companion.hollow_stag_wendigo": "Wendigo",
+  "item.alfheim_companion.hollow_stag_wendigo_spawn_egg": "Wendigo Spawn Egg",
+  "entity.alfheim_companion.duskweaver": "Duskweaver",
+  "item.alfheim_companion.duskweaver_spawn_egg": "Duskweaver Spawn Egg",
+  "entity.alfheim_companion.hollow_bride": "Hollow Bride",
+  "item.alfheim_companion.hollow_bride_spawn_egg": "Hollow Bride Spawn Egg",
+  "entity.alfheim_companion.barrow_maw": "Barrow Maw",
+  "item.alfheim_companion.barrow_maw_spawn_egg": "Barrow Maw Spawn Egg",
+  "entity.alfheim_companion.nuckelavee": "Nuckelavee",
+  "item.alfheim_companion.nuckelavee_spawn_egg": "Nuckelavee Spawn Egg",
+  "entity.alfheim_companion.redcap_reaver": "Redcap Reaver",
+  "item.alfheim_companion.redcap_reaver_spawn_egg": "Redcap Reaver Spawn Egg"
 }

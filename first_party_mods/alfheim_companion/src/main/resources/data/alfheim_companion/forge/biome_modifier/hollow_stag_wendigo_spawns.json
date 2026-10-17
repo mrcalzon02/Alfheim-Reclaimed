@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim_companion:hollow_stag_wendigo_habitats",
+  "spawners": {
+    "type": "alfheim_companion:hollow_stag_wendigo",
+    "weight": 2,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

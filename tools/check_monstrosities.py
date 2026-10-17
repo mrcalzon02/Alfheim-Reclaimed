@@ -1,4 +1,4 @@
-"""Source, UV, habitat and loot checks for the six authored monster species."""
+"""Source, UV, habitat and loot checks for the twelve authored monster species."""
 import io,json
 from PIL import Image
 from gen_monstrosities import ROOT,RES,ASSETS,HABITATS,DROPS,build
@@ -6,7 +6,7 @@ from gen_monstrosities import ROOT,RES,ASSETS,HABITATS,DROPS,build
 def main():
     outputs=build();geometry=json.loads((ROOT/'tools/monstrosity_geometry.json').read_text())
     for name,data in outputs.items():assert (RES/name).read_bytes()==data,name
-    assert len(geometry['species'])==6 and len(HABITATS)==6
+    assert len(geometry['species'])==12 and len(HABITATS)==12
     for row in geometry['species']:
         species=row['id']
         for variant in range(3):
@@ -28,6 +28,6 @@ def main():
         assert 1<=spawn['weight']<=4 and spawn['minCount']==spawn['maxCount']==1
         assert DROPS[species].startswith('minecraft:')
     assert next(r for r in geometry['species'] if r['id']=='hulking_troll')['height']==3.6
-    print('MONSTROSITIES STATIC PASS: six distinct rigs / 18 native skinned heads; 29 habitat entries; low singleton spawn weights; source equal')
+    print('MONSTROSITIES STATIC PASS: 12 distinct rigs / 36 native skinned heads; 53 habitat entries; low singleton spawn weights; source equal')
 
 if __name__=='__main__':main()

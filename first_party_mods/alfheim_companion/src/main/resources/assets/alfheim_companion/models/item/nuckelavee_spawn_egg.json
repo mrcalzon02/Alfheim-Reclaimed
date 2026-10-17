@@ -1,0 +1,23 @@
+{
+  "parent": "alfheim_companion:item/monstrosities/nuckelavee_0",
+  "overrides": [
+    {
+      "predicate": {
+        "alfheim_companion:monstrosity_variant": 1
+      },
+      "model": "alfheim_companion:item/monstrosities/nuckelavee_0"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:monstrosity_variant": 2
+      },
+      "model": "alfheim_companion:item/monstrosities/nuckelavee_1"
+    },
+    {
+      "predicate": {
+        "alfheim_companion:monstrosity_variant": 3
+      },
+      "model": "alfheim_companion:item/monstrosities/nuckelavee_2"
+    }
+  ]
+}

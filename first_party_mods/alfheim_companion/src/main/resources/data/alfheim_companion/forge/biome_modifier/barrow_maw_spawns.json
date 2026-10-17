@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim_companion:barrow_maw_habitats",
+  "spawners": {
+    "type": "alfheim_companion:barrow_maw",
+    "weight": 2,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

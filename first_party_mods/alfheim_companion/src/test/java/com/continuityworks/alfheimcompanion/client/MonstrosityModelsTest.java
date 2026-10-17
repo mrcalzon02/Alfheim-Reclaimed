@@ -28,7 +28,7 @@ class MonstrosityModelsTest {
             }
         });return quads;
     }
-    @Test void exportSixDistinctAnatomiesAndMatchingInventoryHeads()throws Exception{
+    @Test void exportDistinctAnatomiesAndMatchingInventoryHeads()throws Exception{
         var catalogue=new JsonObject();var models=new JsonObject();var heads=new JsonObject();var rows=new JsonArray();
         var shapes=new HashSet<String>();
         for(var kind:MonstrosityKind.values()){
@@ -51,7 +51,8 @@ class MonstrosityModelsTest {
             var row=new JsonObject();row.addProperty("id",kind.id);row.addProperty("label",kind.label);row.addProperty("height",kind.height);
             row.addProperty("width",kind.width);var names=new JsonArray();for(String name:kind.variants)names.add(name);row.add("variants",names);rows.add(row);
         }
-        assertEquals(3.6F,MonstrosityKind.TROLL.height);assertEquals(6,shapes.size());
+        assertEquals(3.6F,MonstrosityKind.TROLL.height);assertEquals(MonstrosityKind.values().length,shapes.size());
+        assertEquals(12,shapes.size());
         catalogue.addProperty("atlas_size",MonstrosityModel.ATLAS_SIZE);catalogue.add("models",models);catalogue.add("heads",heads);catalogue.add("species",rows);
         for(String source:List.of("client/MonstrosityModel.java","monstrosity/MonstrosityKind.java")){
             Path p=Path.of("src/main/java/com/continuityworks/alfheimcompanion/"+source);

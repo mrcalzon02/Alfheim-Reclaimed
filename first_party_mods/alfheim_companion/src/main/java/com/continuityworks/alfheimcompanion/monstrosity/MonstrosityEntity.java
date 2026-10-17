@@ -17,12 +17,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import java.util.EnumSet;
 
-/** Six different anatomies and combat timings; three stored habitat appearances each. */
+/** Twelve different anatomies and combat timings; three stored habitat appearances each. */
 public final class MonstrosityEntity extends Monster {
     private static final EntityDataAccessor<Integer> VARIANT=SynchedEntityData.defineId(MonstrosityEntity.class,EntityDataSerializers.INT);
     public final MonstrosityKind kind;
     private int animationTicks,attackCooldown;
     public MonstrosityEntity(EntityType<? extends Monster> type,Level level,MonstrosityKind kind){super(type,level);this.kind=kind;xpReward=kind==MonstrosityKind.TROLL||kind==MonstrosityKind.CYCLOPS?12:8;}
+    @Override public MobType getMobType(){return kind==MonstrosityKind.WENDIGO||kind==MonstrosityKind.BRIDE?MobType.UNDEAD:super.getMobType();}
     @Override protected void defineSynchedData(){super.defineSynchedData();entityData.define(VARIANT,0);}
     public int variant(){return Math.floorMod(entityData.get(VARIANT),3);}
     public static AttributeSupplier.Builder attributes(MonstrosityKind k){return Monster.createMonsterAttributes()
@@ -48,7 +49,7 @@ public final class MonstrosityEntity extends Monster {
     public boolean strike(LivingEntity target){
         if(level().isClientSide||!target.isAlive()||distanceToSqr(target)>kind.reach*kind.reach||!hasLineOfSight(target))return false;
         var before=MonstrosityDamageState.capture(target);boolean hit;
-        if(kind==MonstrosityKind.HAG){
+        if(kind==MonstrosityKind.HAG||kind==MonstrosityKind.BRIDE){
             hit=target.hurt(damageSources().indirectMagic(this,this),(float)getAttributeValue(Attributes.ATTACK_DAMAGE));
             ((ServerLevel)level()).sendParticles(ParticleTypes.WITCH,target.getX(),target.getY()+.8,target.getZ(),12,.3,.4,.3,.03);
         }else hit=doHurtTarget(target);
@@ -58,6 +59,11 @@ public final class MonstrosityEntity extends Monster {
                 case TROLL,CYCLOPS->target.knockback(kind==MonstrosityKind.TROLL?1.1:1.35,getX()-target.getX(),getZ()-target.getZ());
                 case BRIAR->target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);
                 case INFESTOR->{target.addEffect(new MobEffectInstance(MobEffects.POISON,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),this);}
+                case WENDIGO->{target.knockback(.85,getX()-target.getX(),getZ()-target.getZ());target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,0),this);target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0),this);}
+                case DUSKWEAVER->{target.addEffect(new MobEffectInstance(MobEffects.POISON,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),this);}
+                case BRIDE->{target.addEffect(new MobEffectInstance(MobEffects.DARKNESS,80,0),this);target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,100,0),this);}
+                case MAW->{target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),this);}
+                case NUCKELAVEE->{target.knockback(.7,getX()-target.getX(),getZ()-target.getZ());target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0),this);}
                 case HAG->target.addEffect(new MobEffectInstance(MobEffects.POISON,80,0),this);
                 default->{}
             }
@@ -87,7 +93,7 @@ public final class MonstrosityEntity extends Monster {
                 if(--windup==0){mob.strike(target);mob.attackCooldown=mob.kind.cooldown;}return;
             }
             if(mob.attackCooldown==0){
-                if(mob.kind==MonstrosityKind.GARGOYLE&&mob.onGround()){
+                if((mob.kind==MonstrosityKind.GARGOYLE||mob.kind==MonstrosityKind.DUSKWEAVER)&&mob.onGround()){
                     var direction=target.position().subtract(mob.position()).normalize();mob.setDeltaMovement(direction.x*.5,.42,direction.z*.5);
                 }
                 windup=mob.kind.windup;mob.windUp();

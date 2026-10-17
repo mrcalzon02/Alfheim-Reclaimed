@@ -1,4 +1,4 @@
-"""Exercise six new monster species, native AI attacks, habitat spawns and saved appearances."""
+"""Exercise the twelve monster species, native AI attacks, habitat spawns and saved appearances."""
 import hashlib,json,os,time
 from pathlib import Path
 import run_server
@@ -28,7 +28,7 @@ def main():
     manifests=[(p,json.loads(p.read_text())) for p in server.glob('manifest-*.json')]
     path,evidence=next((p,m) for p,m in sorted(manifests,reverse=True) if m.get('level_name')==world)
     console=server/evidence['console'];log=console.read_text(errors='replace')
-    marker='ALFHEIM_MONSTROSITIES_PASS species=6 appearances=18 attack_checks=18 sight_blocks=18 saved_variants=18 ai_attacks=6 habitat_entries=29 troll_player_height_ratio=2.0'
+    marker='ALFHEIM_MONSTROSITIES_PASS species=12 appearances=36 attack_checks=36 sight_blocks=36 saved_variants=36 ai_attacks=12 habitat_entries=53 troll_player_height_ratio=2.0'
     assert code==0 and evidence['exit_code']==0 and marker in log,(code,console)
     jar=ROOT/'mods/alfheim_companion-0.2.0.jar'
     assert jar.read_bytes()==(server/'mods/alfheim_companion-0.2.0.jar').read_bytes()

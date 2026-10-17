@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-17",
+  "jar_sha256": "e16b7debb1ee8a1b5dbb91966e1267f8ae97c04c3c3785d054ae57c3c8887935",
+  "added_species": [
+    "hollow_stag_wendigo",
+    "duskweaver",
+    "hollow_bride",
+    "barrow_maw",
+    "nuckelavee",
+    "redcap_reaver"
+  ],
+  "added_appearances": 18,
+  "catalogue_species": 12,
+  "catalogue_appearances": 36,
+  "new_habitat_entries": 24,
+  "packaged_asset_data_files": 1096,
+  "model_export": "passed; twelve distinct finite native rigs and exact head surfaces",
+  "asset_checks": "passed; generated source equality, materials, UVs, opaque body textures and transparent head icons",
+  "gameplay_validation": "pending for six new species; previous six-species server evidence is historical",
+  "rig_parts": {
+    "hollow_stag_wendigo": 171,
+    "duskweaver": 126,
+    "hollow_bride": 129,
+    "barrow_maw": 113,
+    "nuckelavee": 114,
+    "redcap_reaver": 84
+  },
+  "preview": "tools/fey_nightmares_review.png"
+}

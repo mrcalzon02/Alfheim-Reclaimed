@@ -21,6 +21,23 @@ HABITATS={
 'fen_hag':['alfheim:mana_fen','alfheim:mistbark_shore','alfheim:decayed_mire','alfheim:sporebank_shore','alfheim:starved_reach']}
 DROPS={'hulking_troll':'minecraft:leather','cyclops':'minecraft:bone','briar_beast':'minecraft:stick','thorn_infestor':'minecraft:vine','stone_gargoyle':'minecraft:flint','fen_hag':'minecraft:spider_eye'}
 
+PALETTES.update({
+'hollow_stag_wendigo':[(148,145,122),(113,106,119),(147,180,184)],
+'duskweaver':[(78,72,104),(103,80,111),(64,88,110)],
+'hollow_bride':[(177,184,175),(159,151,164),(160,187,198)],
+'barrow_maw':[(97,105,76),(93,78,101),(128,118,105)],
+'nuckelavee':[(129,107,104),(142,84,70),(110,143,153)],
+'redcap_reaver':[(137,145,105),(144,124,113),(129,158,157)]})
+HABITATS.update({
+'hollow_stag_wendigo':['alfheim:rootfall','alfheim:hollow_marches','alfheim:sepulchral_reach','alfheim:starved_reach'],
+'duskweaver':['alfheim:infested_warren','alfheim:sporebank_shore','alfheim:mana_fen','alfheim:starless_reach'],
+'hollow_bride':['alfheim:mistbark_shore','alfheim:sepulchral_reach','alfheim:decayed_mire','alfheim:starved_reach'],
+'barrow_maw':['alfheim:hollow_marches','alfheim:decayed_mire','alfheim:sporebank_shore','alfheim:sepulchral_reach'],
+'nuckelavee':['alfheim:mistbark_shore','alfheim:decayed_mire','alfheim:scorchfell','alfheim:starved_reach'],
+'redcap_reaver':['alfheim:rootfall','mythicbotany:dreamwood_forest','alfheim:ashen_grove','alfheim:starved_reach']})
+DROPS.update({'hollow_stag_wendigo':'minecraft:bone','duskweaver':'minecraft:string','hollow_bride':'minecraft:string','barrow_maw':'minecraft:brown_mushroom','nuckelavee':'minecraft:rotten_flesh','redcap_reaver':'minecraft:leather'})
+WEIGHTS={'briar_beast':4,'thorn_infestor':3,'fen_hag':3,'duskweaver':3,'redcap_reaver':4}
+
 def skin(species,variant,quads,size):
     # Paint each native face in its own island. All values are selected material ramps;
     # no shared noise sheet, repeated block texture, or disconnected concept artwork.
@@ -44,6 +61,19 @@ def skin(species,variant,quads,size):
       'rune':[(119,206,164),(213,141,186),(138,226,238)][variant],
       'fungus':[(163,61,59),(144,87,161),(83,162,172)][variant],
       'membrane':[(52,64,83),(72,53,85),(76,76,63)][variant]}
+    materials.update({'fur':[(69,65,55),(64,53,65),(117,142,148)][variant],
+      'web':[(192,194,174),(159,147,174),(168,202,211)][variant],
+      'chitin':tuple(int(c*.62) for c in flesh),
+      'sinew':[(126,68,70),(148,67,54),(94,117,132)][variant],
+      'iron':[(104,110,109),(114,97,96),(112,138,145)][variant],
+      'cap':[(151,41,48),(129,40,69),(132,68,91)][variant]})
+    if species=='hollow_stag_wendigo':
+        materials['bone']=[(197,181,143),(157,145,154),(178,210,212)][variant]
+        materials['ivory']=[(223,208,168),(182,167,180),(203,228,223)][variant]
+    if species=='hollow_bride':
+        materials['cloth']=[(171,179,166),(132,119,146),(150,180,197)][variant]
+        materials['trim']=[(153,139,101),(144,115,139),(148,199,209)][variant]
+    if species=='duskweaver':materials['membrane']=[(88,72,108),(113,76,113),(60,91,121)][variant]
     im=Image.new('RGBA',(size,size),(63,53,47,255));seen=set()
     def mul(c,f):return tuple(max(0,min(255,round(v*f))) for v in c)+(255,)
     for q in quads:
@@ -69,10 +99,14 @@ def skin(species,variant,quads,size):
                 elif mat=='bark':
                     grain=math.sin((x+.6*math.sin(y*.34))*1.7)
                     form*=.72 if grain<-.55 else 1.13 if grain>.82 else 1
-                elif mat in ('cloth','leather','hair','wrap'):
+                elif mat in ('cloth','leather','hair','wrap','fur','cap','sinew'):
                     fold=math.cos(x*1.5+.35*math.sin(y*.18))
                     form*=.76 if fold<-.4 else 1.12 if fold>.7 else 1
                     if mat=='wrap' and y%3==2:form*=.7
+                    if mat=='fur' and (x+y//3)%3==0:form*=.68
+                elif mat=='web':
+                    form*=.74 if (x+y)%3==0 else 1.12
+                elif mat in ('chitin','iron'):form=round((form+.08*math.sin(u*math.pi))*10)/10
                 elif mat in ('bone','ivory'):form*=1-.11*math.sin(x*2.1)
                 elif mat in ('stone','shadow_stone'):form=round(form*9)/9
                 elif mat=='membrane':form*=.9+.18*math.sin(u*math.pi)
@@ -148,7 +182,7 @@ def build():
         js(ASSETS+f'models/item/{species}_spawn_egg.json',{'parent':f'alfheim_companion:item/monstrosities/{species}_0','overrides':overrides})
         lang['entity.alfheim_companion.'+species]=row['label'];lang['item.alfheim_companion.'+species+'_spawn_egg']=row['label']+' Spawn Egg'
         js(f'data/alfheim_companion/tags/worldgen/biome/{species}_habitats.json',{'replace':False,'values':HABITATS[species]})
-        js(f'data/alfheim_companion/forge/biome_modifier/{species}_spawns.json',{'type':'forge:add_spawns','biomes':'#alfheim_companion:'+species+'_habitats','spawners':{'type':'alfheim_companion:'+species,'weight':4 if species=='briar_beast' else 3 if species in ('fen_hag','thorn_infestor') else 2,'minCount':1,'maxCount':1}})
+        js(f'data/alfheim_companion/forge/biome_modifier/{species}_spawns.json',{'type':'forge:add_spawns','biomes':'#alfheim_companion:'+species+'_habitats','spawners':{'type':'alfheim_companion:'+species,'weight':WEIGHTS.get(species,2),'minCount':1,'maxCount':1}})
         js(f'data/alfheim_companion/loot_tables/entities/{species}.json',{'type':'minecraft:entity','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':DROPS[species],'functions':[{'function':'minecraft:set_count','count':{'type':'minecraft:uniform','min':1,'max':3}}]}]}]})
     js(ASSETS+'lang/en_us.json',lang)
     return out
@@ -159,5 +193,5 @@ def main():
         path=RES/name
         if args.check:assert path.read_bytes()==data,name
         else:path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-    print('MONSTROSITIES: six native rigs / 18 skins and matching heads; habitat spawns and bounded existing-material drops; '+('source equal' if args.check else 'generated'))
+    print('MONSTROSITIES: 12 native rigs / 36 skins and matching heads; habitat spawns and bounded existing-material drops; '+('source equal' if args.check else 'generated'))
 if __name__=='__main__':main()

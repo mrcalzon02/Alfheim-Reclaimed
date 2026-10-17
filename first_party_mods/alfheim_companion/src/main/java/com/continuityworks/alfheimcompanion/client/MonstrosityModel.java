@@ -48,7 +48,7 @@ public final class MonstrosityModel extends HierarchicalModel<MonstrosityEntity>
     public static LayerDefinition layer(MonstrosityKind kind){
         ATLAS.set(new Atlas());var mesh=new MeshDefinition();var root=mesh.getRoot();
         for(String name:new String[]{"head","body","right_arm","left_arm","right_leg","left_leg","rear_right_leg","rear_left_leg","tail","wing_left","wing_right"})pivot(root,name,0,0,0,0,0,0);
-        switch(kind){case TROLL->troll(root);case CYCLOPS->cyclops(root);case BRIAR->briar(root);case INFESTOR->infestor(root);case GARGOYLE->gargoyle(root);case HAG->hag(root);}
+        switch(kind){case TROLL->troll(root);case CYCLOPS->cyclops(root);case BRIAR->briar(root);case INFESTOR->infestor(root);case GARGOYLE->gargoyle(root);case HAG->hag(root);case WENDIGO->wendigo(root);case DUSKWEAVER->duskweaver(root);case BRIDE->bride(root);case MAW->barrowMaw(root);case NUCKELAVEE->nuckelavee(root);case REDCAP->redcap(root);}
         return LayerDefinition.create(mesh,ATLAS_SIZE,ATLAS_SIZE);
     }
     private static void troll(PartDefinition r){
@@ -272,6 +272,230 @@ public final class MonstrosityModel extends HierarchicalModel<MonstrosityEntity>
             for(int i=0;i<3;i++)box(arm,"shoulder_feather"+i,"hair",-2.6F+i*1.5F,-1,-1,1.2F,5+i%2,3,PartPose.rotation(.15F,0,(i-1)*.2F));
             var leg=pivot(r,n+"_leg",s*1.8F,13,0,0,0,0);b(leg,"leg","shadow_skin",-1.1F,0,-1.2F,2.2F,9,2.4F);b(leg,"pointed_boot","leather",-1.4F,8,-3.5F,2.8F,3,5);
             if(s>0){rod(arm,"gnarled_staff","bark",0,13,-1,0,-31,-1,1.5F);horn(arm,"staff_fork_left","bark",-1,-18,-2,-1,6);horn(arm,"staff_fork_right","bark",1,-18,-2,1,5);b(arm,"staff_skull","bone",-2,-22,-3,4,4,3);b(arm,"skull_eye_r","void",-1.5F,-21,-3.3F,1,1,.5F);b(arm,"skull_eye_l","void",.5F,-21,-3.3F,1,1,.5F);b(arm,"staff_charm","rune",-.7F,-17,-3,.9F,2,1);}
+        }
+    }
+    private static void antler(PartDefinition p,String n,float x,float y,float z,int side){
+        rod(p,n+"_burr","bone",x,y,z,side*2,-5,1,2.2F);
+        rod(p,n+"_beam","bone",x+side*2,y-5,z+1,side*5,-7,2,1.8F);
+        rod(p,n+"_crown","bone",x+side*7,y-12,z+3,side*4,-4,-1,1.2F);
+        for(int i=0;i<4;i++){
+            float px=x+side*(2+i*1.6F),py=y-5-i*2;
+            rod(p,n+"_tine"+i,"bone",px,py,z+1+i*.5F,side*(1+i%2),-4-i%3,-2-i*.5F,1.1F-i*.12F);
+        }
+        rod(p,n+"_brow_tine","bone",x+side,y-3,z,side,-3,-5,1.1F);
+    }
+    private static void exposedRibs(PartDefinition p,String prefix,String mat,float y,float z,float width,int count){
+        for(int side:new int[]{-1,1})for(int i=0;i<count;i++){
+            float yy=y+i*3.1F,w=width-(i>count/2?(i-count/2)*.55F:0);
+            rod(p,prefix+side+"_back"+i,mat,0,yy,z,side*w,1,-2,1.25F);
+            rod(p,prefix+side+"_curve"+i,mat,side*w,yy+1,z-2,side*1.4F,2,-4,1.1F);
+            rod(p,prefix+side+"_tip"+i,mat,side*(w+1.4F),yy+3,z-6,-side*2.6F,1,-2,1);
+        }
+    }
+    private static void wendigo(PartDefinition r){
+        var body=pivot(r,"body",0,-6,3,.18F,0,0);
+        rod(body,"exposed_spinal_column","bone",0,-27,5,0,34,-1,2.5F);
+        for(int i=0;i<11;i++)box(body,"vertebra"+i,"bone",-1.8F,-27+i*3,4,3.6F,1.6F,3,PartPose.rotation(.12F,0,0));
+        exposedRibs(body,"stag_rib","bone",-20,5,6,6);
+        b(body,"hollow_sternum","void",-1.5F,-18,-3,3,17,1.4F);rod(body,"sternum_keel","bone",0,-18,-4,0,16,0,1.1F);
+        b(body,"fey_ember","rune",-.7F,-13,-4.7F,1.4F,3,.7F);
+        for(int side:new int[]{-1,1}){
+            box(body,"raised_scapula"+side,"bone",-2,-12,-1,4,14,2,PartPose.offsetAndRotation(side*5,-16,5,.18F,side*.35F,side*.3F));
+            rod(body,"collarbone"+side,"bone",0,-20,0,side*11,3,-1,1.9F);
+            box(body,"shoulder_pelt"+side,"fur",side<0?-10:3,-22,3,7,8,8,PartPose.rotation(.3F,0,-side*.22F));
+            for(int i=0;i<5;i++)box(body,"hanging_pelt"+side+i,"fur",side<0?-10+i:5+i,-15+i%2,5+i%3,1.4F,7+i%3,2,PartPose.rotation(.2F,0,side*.12F));
+        }
+        b(body,"open_pelvis","bone",-4,5,-2,8,4,7);b(body,"pelvic_void","void",-2.5F,5,-2.3F,5,3,1);
+        for(int i=0;i<4;i++)box(body,"hip_pelt_tatter"+i,"fur",-5+i*2.6F,7,3,2.2F,8+i%2,1.5F,PartPose.rotation(.16F,0,(i-1.5F)*.1F));
+        rod(body,"arched_neck_keel","bone",0,-28,5,0,3,-7,2.2F);
+        rod(body,"descending_neck","bone",0,-25,-2,0,7,-7,1.8F);
+        for(int i=0;i<4;i++)box(body,"hunched_neck_vertebra"+i,"bone",-2,-28+i*1.5F,3-i*2,4,1.7F,2.5F,PartPose.rotation(.3F,0,0));
+        var head=pivot(r,"head",0,-19,-11,.34F,0,-.08F);
+        b(head,"deer_cranium","bone",-3.7F,-9,-3,7.4F,9,8);b(head,"frontal_keel","ivory",-1,-10,-3,2,6,6);
+        box(head,"long_deer_rostrum","bone",-2.3F,-4,-12,4.6F,4.5F,11,PartPose.rotation(.1F,0,0));
+        for(int side:new int[]{-1,1}){
+            b(head,"empty_orbit"+side,"void",side<0?-3.6F:1.2F,-6.7F,-4.1F,2.4F,3.5F,1.5F);
+            b(head,"pinprick_eye"+side,"eye",side<0?-2.8F:2,-5.6F,-4.8F,.8F,1,.5F);
+            box(head,"orbital_rim"+side,"bone",side<0?-4.2F:1.3F,-8,-4.5F,3,1.5F,2,PartPose.rotation(0,0,side*.22F));
+            rod(head,"zygomatic_arch"+side,"bone",side*3,-3,-2,-side*.7F,3,-6,1.1F);
+            antler(head,"branching_antler"+side,side*3,-9,2,side);
+            box(head,"withered_ear"+side,"fur",-1.3F,-.7F,-1.5F,5,1.4F,3,PartPose.offsetAndRotation(side*4,-7,2,0,side*.3F,-side*.45F));
+        }
+        b(head,"nasal_opening","void",-1.5F,-3.8F,-12.4F,3,2.4F,.8F);
+        b(head,"jaw_gap","void",-2.4F,.2F,-10,4.8F,2,8);b(head,"skeletal_lower_jaw","bone",-2.5F,2,-11.5F,5,1.1F,10.5F);
+        for(int i=0;i<5;i++)for(int side:new int[]{-1,1})tooth(head,"deer_molar"+side+i,side*2,.1F,-10+i*1.7F,.8F,true);
+        for(int side:new int[]{-1,1}){
+            String n=side<0?"right":"left";var arm=pivot(r,n+"_arm",side*10,-21,1,.08F,0,-side*.1F);
+            rod(arm,"humerus","bone",0,0,0,side,15,-1,2.1F);b(arm,"elbow_knob","bone",side-1.6F,13,-2.5F,3.2F,3,3);
+            rod(arm,"radius","bone",side,15,-1,-side*.6F,13,-3,1.2F);rod(arm,"ulna","bone",side+1,15,0,-side*.6F,13,-3,1);
+            for(int i=0;i<3;i++)box(arm,"fur_strand"+i,"fur",-2+i*1.5F,2,1,1.3F,9-i,2,PartPose.rotation(.2F,0,0));
+            b(arm,"skeletal_palm","bone",-2,27,-5.5F,4,4,3);
+            for(int i=0;i<4;i++){rod(arm,"finger_bone"+i,"bone",-1.8F+i*1.2F,30,-4,side*(i-1.5F)*.5F,5,-2,.7F);rod(arm,"hooked_claw"+i,"shadow_stone",-1.8F+i*1.2F+side*(i-1.5F)*.5F,35,-6,0,2,-2,.55F);}
+            var leg=pivot(r,n+"_leg",side*4,7,2,-.12F,0,side*.06F);
+            rod(leg,"femur","bone",0,0,0,0,7,-1,2.2F);b(leg,"knee","bone",-1.6F,6,-3,3.2F,2.5F,3);
+            rod(leg,"rear_hock","bone",0,8,-1,0,5,3,1.7F);rod(leg,"metatarsal","bone",0,13,2,0,3,-3,1.3F);
+            for(int i=0;i<2;i++)b(leg,"cloven_hoof"+i,"shadow_stone",-2+i*2.1F,14,-4,1.8F,3,5);
+        }
+        for(int i=0;i<3;i++){rod(body,"fetish_cord"+i,"leather",-3+i*3,-18,-4,0,5+i,0,.45F);b(body,"bone_fetish"+i,"bone",-3.6F+i*3,-13+i,-4.6F,1.2F,2.5F,1);}
+    }
+    private static void duskweaver(PartDefinition r){
+        var body=pivot(r,"body",0,9,3,-.08F,0,0);
+        b(body,"thorax","chitin",-5,-3,-8,10,8,12);b(body,"abdomen_core","chitin",-6,-4,3,12,9,14);
+        box(body,"faceted_abdomen","chitin",-5,-6,5,10,5,10,PartPose.rotation(.13F,0,0));
+        for(int i=0;i<4;i++)box(body,"abdomen_band"+i,"fur",-5.4F,-4.5F,4+i*3,10.8F,2,1.2F,PartPose.rotation(-.1F,0,0));
+        for(int side:new int[]{-1,1})for(int i=0;i<5;i++)box(body,"thorax_fuzz"+side+i,"fur",side<0?-6:4,-3+i%2,-5+i*2,2,3.5F,2.5F,PartPose.rotation(0,0,side*.3F));
+        var head=pivot(r,"head",0,8,-7,.15F,0,0);b(head,"moth_mask","ivory",-4,-4,-3,8,6,5);b(head,"central_mask_split","void",-.6F,-3.5F,-3.5F,1.2F,5,.8F);
+        for(int side:new int[]{-1,1}){
+            box(head,"compound_eye"+side,"void",side<0?-4.4F:1.5F,-3.4F,-3.7F,2.9F,3.8F,1.5F,PartPose.rotation(0,side*.15F,side*.15F));
+            for(int i=0;i<3;i++)b(head,"eye_facet"+side+i,"eye",side<0?-3.8F:2.1F,-2.8F+i, -4.4F,.8F,.7F,.5F);
+            rod(head,"antenna"+side,"chitin",side*2,-4,0,side*5,-8,1,.7F);
+            for(int i=0;i<5;i++)rod(head,"antenna_feather"+side+i,"fur",side*(2.5F+i),-5-i*1.4F,.5F,side*2,-.6F,-1,.35F);
+            var jaw=pivot(head,"mandible"+side,side*2.7F,1,-3,0,0,-side*.35F);rod(jaw,"pincer_base","bone",0,0,0,side*1.5F,3,-2,1.1F);rod(jaw,"pincer_hook","bone",side*1.5F,3,-2,-side*2,1,-2,.7F);
+        }
+        for(int side:new int[]{-1,1})for(int pair=0;pair<3;pair++){
+            String name=pair==0?(side<0?"right_arm":"left_arm"):(pair==2?"rear_":"")+(side<0?"right_leg":"left_leg");
+            var leg=pivot(r,name,side*4.5F,12,-6+pair*8,0,0,0);
+            rod(leg,"coxa","chitin",0,0,0,side*6,-3,pair==0?-3:2,1.5F);rod(leg,"femur","chitin",side*6,-3,pair==0?-3:2,side*4,4,0,1.1F);
+            rod(leg,"needle_tibia","chitin",side*10,1,pair==0?-3:2,side*1.5F,10,-2,.75F);rod(leg,"foot_hook","bone",side*11.5F,11,pair==0?-5:0,-side*1.2F,1,-1,.5F);
+            for(int i=0;i<3;i++)rod(leg,"leg_bristle"+i,"fur",side*(3+i*2),-1,1,side,-2,0,.4F);
+        }
+        for(int side:new int[]{-1,1}){
+            var wing=pivot(r,side<0?"wing_right":"wing_left",side*3,6,4,.2F,side*.3F,0);
+            for(int i=0;i<9;i++){
+                float x=2+i*2,top=-5-Mth.sin(i*.33F)*4,h=11+Mth.sin(i*.4F)*9-(i%3==0?2:0);
+                b(wing,"moth_wing_lobe"+i,"membrane",side<0?-x-2:x,top,0,2.1F,h,.7F);
+            }
+            rod(wing,"leading_vein","chitin",0,0,0,side*18,-7,0,.7F);
+            for(int i=0;i<3;i++)rod(wing,"wing_vein"+i,"chitin",0,0,.2F,side*(8+i*5),5+i*2,0,.45F);
+            b(wing,"watching_wing_eye","ivory",side<0?-13:8,-3,-.3F,5,4,1);b(wing,"wing_eye_ring","void",side<0?-12:9,-2.5F,-.6F,3,3,.6F);b(wing,"wing_eye_glint","rune",side<0?-11:10,-2,-1,1,1,.5F);
+            for(int i=0;i<3;i++)box(wing,"frayed_wing_tip"+i,"web",side<0?-14-i*2:12+i*2,7+i%2,0,.7F,4+i,1,PartPose.rotation(0,0,side*.2F));
+        }
+        for(int i=0;i<3;i++)rod(body,"silk_spinneret"+i,"web",-2+i*2,3,15,0,3,5,.55F);
+    }
+    private static void bride(PartDefinition r){
+        var body=pivot(r,"body",0,-4,0,.045F,0,0);b(body,"funeral_bodice","cloth",-3.5F,0,-2.8F,7,12,5.6F);
+        b(body,"hollow_breast","void",-2.2F,1,-3.2F,4.4F,6,1);exposedRibs(body,"corset_bone","bone",1,1.5F,2.1F,2);
+        for(int i=0;i<10;i++){
+            float a=(float)(i*Math.PI/5),x=Mth.sin(a)*4,z=Mth.cos(a)*3;
+            box(body,"tattered_skirt_panel"+i,"cloth",-1.7F,0,-.5F,3.4F,15+i%3,.9F,PartPose.offsetAndRotation(x,11,z,-.13F,a,0));
+            box(body,"worn_lace_hem"+i,"web",-1.8F,12+i%3,-.7F,3.6F,2,.9F,PartPose.offsetAndRotation(x,11,z,-.13F,a,0));
+            rod(body,"hanging_skirt_thread"+i,"web",x,24+i%2,z,0,3+i%2,0,.35F);
+        }
+        belt(body,10,3.5F,3);b(body,"dead_bouquet_binding","leather",-1.8F,8,-4,3.6F,3,1);
+        for(int i=0;i<5;i++){rod(body,"bouquet_stem"+i,"bark",-1.6F+i*.8F,8,-4,0,-5-i%2,0,.4F);b(body,"withered_blossom"+i,"fungus",-2+i*.8F,2-i%2,-4.4F,1.3F,1.2F,1);}
+        rod(body,"long_neck","bone",0,-7,0,0,7,0,1.6F);
+        var head=pivot(r,"head",0,-12,-.5F,.08F,0,-.07F);b(head,"broken_porcelain_mask","ivory",-2.7F,-7,-3,5.4F,7,1.5F);b(head,"empty_head","void",-2.5F,-6.5F,-1.5F,5,6,4);
+        for(int side:new int[]{-1,1}){
+            b(head,"sorrow_orbit"+side,"void",side<0?-2.2F:.5F,-5.3F,-3.5F,1.7F,2,.8F);b(head,"distant_eye"+side,"eye",side<0?-1.7F:1,-4.8F,-4,.55F,.7F,.4F);
+            box(head,"thorn_circlet"+side,"bark",side<0?-3.6F:2.5F,-8,-1,1.1F,3.5F,4,PartPose.rotation(0,0,-side*.2F));horn(head,"veil_crown_thorn"+side,"bone",side*2,-8,0,side,3.7F);
+            for(int i=0;i<4;i++)box(head,"veil_lace_strand"+side+i,"web",side<0?-3.8F+i*.35F:2.7F+i*.35F,-7+i*.3F,-.7F+i, .55F,17+i%3,1.1F,PartPose.rotation(.12F,0,-side*.045F));
+        }
+        b(head,"mask_mouth","void",-.9F,-1.6F,-3.7F,1.8F,.8F,.7F);rod(head,"mask_fracture","shadow_stone",.5F,-6,-3.8F,1,4,0,.25F);
+        b(head,"veil_crown","web",-3.3F,-8,-2,6.6F,1.2F,6);
+        for(int i=0;i<7;i++)box(head,"trailing_veil"+i,"web",-3.3F+i,-7,3,.6F,22+i%3*2,.7F,PartPose.rotation(.12F,0,0));
+        for(int side:new int[]{-1,1}){
+            String n=side<0?"right":"left";var a=pivot(r,n+"_arm",side*4,-3,0,.1F,0,-side*.12F);
+            b(a,"lace_sleeve","web",-1.5F,0,-1.8F,3,9,3.6F);rod(a,"forearm_bone","bone",0,7,0,0,10,-1,1.1F);
+            for(int i=0;i<3;i++)box(a,"sleeve_ribbon"+i,"cloth",-1.5F+i,7,1,.7F,9+i*2,.8F,PartPose.rotation(.1F,0,side*.1F));
+            b(a,"palm","bone",-1.4F,16,-2,2.8F,3,2);
+            for(int i=0;i<4;i++){rod(a,"finger"+i,"bone",-1.2F+i*.8F,18,-1,-side*.2F,4,-1,.45F);rod(a,"talon"+i,"shadow_stone",-1.2F+i*.8F-side*.2F,22,-2,0,1,-1,.3F);}
+            var leg=pivot(r,n+"_leg",side*1.7F,16,0,0,0,0);rod(leg,"shin","bone",0,0,0,0,7,0,1);b(leg,"worn_slipper","leather",-1,6,-2,2,2,4);
+        }
+    }
+    private static void barrowMaw(PartDefinition r){
+        var body=pivot(r,"body",0,7,4,-.12F,0,0);b(body,"rotting_core","shadow_skin",-7,-3,-7,14,13,21);
+        box(body,"fungal_hump","fungus",-6,-8,0,12,9,13,PartPose.rotation(.18F,0,0));
+        exposedRibs(body,"grave_rib","bone",-2,4,5.7F,4);
+        for(int side:new int[]{-1,1})for(int i=0;i<4;i++)box(body,"armored_scute"+side+i,"chitin",side<0?-9:4,-3,-5+i*5,5,7,5,PartPose.rotation(0,0,side*.26F));
+        for(int i=0;i<7;i++){
+            float x=(i%3-1)*4,y=-6-i%2*3,z=1+i/3*5;
+            rod(body,"mushroom_stalk"+i,"bone",x,y,z,0,-3-i%2,0,1.1F);
+            b(body,"mushroom_gills"+i,"wrap",x-2.5F,y-3.8F-i%2,z-2.3F,5,1,4.6F);
+            box(body,"tiered_fungal_cap"+i,"fungus",x-3,y-5-i%2,z-2.8F,6,2,5.6F,PartPose.rotation(0,0,(i%3-1)*.13F));
+        }
+        var head=pivot(r,"head",0,6,-9,-.08F,0,0);b(head,"huge_maw_void","void",-5.5F,-6,-7,11,13,9);
+        b(head,"fractured_upper_skull","bone",-5,-9,-5.5F,10,4,8);b(head,"nasal_bridge","bone",-1.2F,-7,-8,2.4F,3,4);
+        for(int side:new int[]{-1,1}){
+            b(head,"empty_skull_orbit"+side,"void",side<0?-4.7F:1.5F,-7.5F,-6.1F,3.2F,2,.9F);
+            rod(head,"side_jaw_hinge"+side,"bone",side*5,-5,-3,side*1,11,-1,1.8F);
+            box(head,"cheek_blade"+side,"bone",-1,-4,-1,2,8,3,PartPose.offsetAndRotation(side*5,-3,-5,0,side*.2F,-side*.16F));
+            for(int i=0;i<3;i++)rod(head,"side_fang"+side+i,"bone",side*5,-2+i*3,-7,-side*2,.5F,-1,.7F);
+        }
+        b(head,"wide_lower_jaw","bone",-6,7,-8,12,2.5F,10);b(head,"wet_throat","sinew",-3.5F,-3,-3,7,10,2);
+        b(head,"throat_spore","rune",-1.5F,0,-4.2F,3,4,1);
+        for(int i=0;i<7;i++){tooth(head,"upper_needle"+i,-4.5F+i*1.5F,-5.5F,-8.2F,3+i%3,true);tooth(head,"lower_needle"+i,-4.5F+i*1.5F,7,-8.5F,2.3F+i%2,false);}
+        for(int side:new int[]{-1,1})for(int rear=0;rear<2;rear++){
+            var leg=pivot(r,(rear==1?"rear_":"")+(side<0?"right":"left")+"_leg",side*6,13,rear==1?15:-6,0,0,-side*.1F);
+            box(leg,"swollen_limb","shadow_skin",-2.8F,0,-3,5.6F,7,6,PartPose.rotation(rear==1?-.2F:.15F,0,0));
+            b(leg,"bone_splint","bone",-1,1,-3.4F,2,8,1.5F);b(leg,"knuckled_foot","chitin",-3,8,-5,6,3,8);
+            for(int i=0;i<3;i++)rod(leg,"burial_claw"+i,"bone",-2+i*2,9,-4,0,1,-4,.8F);
+        }
+        var tail=pivot(r,"tail",0,10,18,0,0,0);rod(tail,"bony_tail","bone",0,0,0,0,-1,9,1.5F);b(tail,"spore_sac","fungus",-2,-3,6,4,4,5);
+    }
+    private static void nuckelavee(PartDefinition r){
+        var body=pivot(r,"body",0,2,2,-.05F,0,0);b(body,"equine_ribcage","sinew",-5,5,-11,10,10,24);
+        box(body,"rounded_croup","skin",-5.5F,4,8,11,10,10,PartPose.rotation(-.12F,0,0));
+        for(int side:new int[]{-1,1})for(int i=0;i<6;i++)box(body,"equine_exposed_rib"+side+i,"bone",side<0?-5.8F:4.8F,6,-8+i*3.3F,1,8-i%2,1.2F,PartPose.rotation(0,0,side*.12F));
+        rod(body,"fused_human_spine","bone",0,-15,1,0,22,1,1.8F);b(body,"rider_torso","sinew",-3.7F,-12,-2.4F,7.4F,15,5.5F);
+        exposedRibs(body,"rider_rib","bone",-11,2,3.5F,4);
+        for(int i=0;i<5;i++)box(body,"spine_fin"+i,"chitin",-.8F,1,2+i*3,1.6F,5,3,PartPose.rotation(.25F,0,0));
+        var horse=pivot(body,"fused_horse_head",0,4,-13,.22F,0,0);b(horse,"equine_skull","skin",-2.8F,-7,-4,5.6F,9,7);
+        box(horse,"long_muzzle","bone",-2.1F,-2,-10,4.2F,5,9,PartPose.rotation(.15F,0,0));
+        for(int side:new int[]{-1,1}){b(horse,"horse_empty_eye"+side,"void",side<0?-3:1.5F,-5,-4.5F,1.5F,2,.9F);b(horse,"horse_eye_glint"+side,"eye",side<0?-2.5F:2,-4.5F,-5,.5F,.6F,.5F);box(horse,"ragged_ear"+side,"skin",-.7F,-4,-1,1.4F,5,2,PartPose.offsetAndRotation(side*2,-6,1,0,0,side*.2F));}
+        b(horse,"nostril_void","void",-1.5F,-.5F,-10.4F,3,2,.8F);
+        for(int i=0;i<6;i++)box(horse,"mane_lock"+i,"hair",-1,-8+i,2,2,5+i%3,3,PartPose.rotation(.25F+i*.03F,0,.1F));
+        var head=pivot(r,"head",0,-14,-1,.1F,0,0);b(head,"fused_rider_skull","skin",-3,-8,-3,6,8,6);
+        b(head,"raw_facial_mask","sinew",-2.7F,-6.5F,-3.7F,5.4F,6,1.8F);
+        for(int side:new int[]{-1,1}){b(head,"rider_orbit"+side,"void",side<0?-2.4F:.7F,-5.7F,-4.4F,1.7F,2,.8F);b(head,"rider_eye"+side,"eye",side<0?-1.9F:1.2F,-5,-4.9F,.6F,.6F,.5F);box(head,"skull_side_plate"+side,"bone",side<0?-3.4F:2.3F,-6,-1.8F,1.1F,5,4,PartPose.rotation(0,0,-side*.12F));}
+        b(head,"rider_vertical_maw","void",-1.4F,-3,-4.2F,2.8F,3.6F,1);
+        b(head,"exposed_nasal_keel","bone",-.5F,-6,-4.7F,1,2.5F,1.1F);
+        for(int i=0;i<3;i++)tooth(head,"rider_tooth"+i,-.9F+i*.9F,-2.8F,-4.9F,i==1?.65F:1.3F,true);
+        for(int side:new int[]{-1,1})box(head,"sunken_jaw_plate"+side,"bone",side<0?-2.8F:1.6F,-3.4F,-3.5F,1.2F,4,2,PartPose.rotation(0,0,-side*.2F));
+        for(int i=0;i<3;i++)b(body,"rider_neck_vertebra"+i,"bone",-1.2F,-15+i*1.5F,-.2F,2.4F,1,2);
+        for(int i=0;i<4;i++)rod(head,"wet_mane"+i,"hair",-2+i*1.3F,-8,2,0,12+i%2,2,.7F);
+        for(int side:new int[]{-1,1}){
+            var arm=pivot(r,side<0?"right_arm":"left_arm",side*5.5F,-9,0,.1F,0,-side*.08F);
+            b(arm,"elongated_upper_arm","sinew",-1.4F,0,-1.5F,2.8F,12,3);rod(arm,"forearm_bone","bone",0,11,0,0,12,-2,1.2F);b(arm,"rider_hand","skin",-1.6F,22,-3,3.2F,3,2.6F);
+            for(int i=0;i<4;i++)rod(arm,"needle_finger"+i,"bone",-1.3F+i*.85F,24,-2,0,5,-2,.5F);
+            for(int rear=0;rear<2;rear++){
+                var leg=pivot(r,(rear==1?"rear_":"")+(side<0?"right":"left")+"_leg",side*4.3F,14,rear==1?14:-7,0,0,0);
+                rod(leg,"equine_upper_leg","sinew",0,0,0,0,4,rear==1?-2:0,2.6F);rod(leg,"equine_cannon","bone",0,4,rear==1?-2:0,0,5,rear==1?1:-1,1.4F);
+                b(leg,"heavy_hoof","shadow_stone",-1.8F,8,-3,3.6F,2,4.5F);
+            }
+        }
+        var tail=pivot(r,"tail",0,9,19,.2F,0,0);rod(tail,"tail_bone","bone",0,0,0,0,4,4,1.2F);for(int i=0;i<5;i++)rod(tail,"tail_hair"+i,"hair",-1+i*.5F,3,3,0,9+i%3,2,.5F);
+    }
+    private static void redcap(PartDefinition r){
+        var body=pivot(r,"body",0,12,1,.15F,0,0);b(body,"crooked_torso","cloth",-3.5F,-3,-2.5F,7,10,5.5F);b(body,"leather_vest","leather",-3.8F,-2,-3.2F,7.6F,7,1.4F);
+        for(int side:new int[]{-1,1}){
+            box(body,"folded_lapel"+side,"cloth",side<0?-3.4F:1.2F,-2.5F,-4,2.2F,5,1,PartPose.rotation(0,0,side*.24F));
+            for(int i=0;i<3;i++)b(body,"brass_button"+side+i,"metal",side*1.5F-.3F,i*1.5F,-4.2F,.6F,.6F,.6F);
+            for(int i=0;i<2;i++)box(body,"coat_tail"+side+i,"cloth",side<0?-4+i*1.5F:1.3F+i*1.5F,5,1.6F,1.8F,6+i,1.5F,PartPose.rotation(.15F,0,side*.13F));
+        }
+        belt(body,4,3.7F,3);b(body,"stolen_pouch","leather",2.6F,6,-3.7F,2.8F,3,2);b(body,"pouch_flap","cloth",2.4F,5.7F,-4.1F,3.2F,1.3F,2);
+        b(body,"patched_pack","leather",-3,-2,2.5F,6,7,3);b(body,"pack_patch","wrap",-1.4F,-1,5.3F,2.8F,2.8F,.5F);
+        var head=pivot(r,"head",0,9,-2.5F,.07F,0,-.08F);b(head,"wizened_goblin_skull","skin",-3.5F,-6,-3,7,6.5F,6);
+        for(int side:new int[]{-1,1}){
+            b(head,"mean_orbit"+side,"void",side<0?-3:-.1F,-4.6F,-3.6F,3,1.8F,.8F);b(head,"mean_eye"+side,"eye",side<0?-2.4F:1,-4.3F,-4.2F,1.2F,.8F,.6F);
+            box(head,"angry_brow"+side,"skin",side<0?-3.5F:.3F,-5.3F,-4,3.2F,1.3F,1.7F,PartPose.rotation(0,0,side*.22F));
+            box(head,"knife_ear"+side,"skin",-1,-.7F,-.7F,5,1.4F,1.4F,PartPose.offsetAndRotation(side*3,-3.2F,0,0,side*.2F,-side*.3F));
+            b(head,"hollow_cheek"+side,"shadow_skin",side<0?-3.3F:1.8F,-2.7F,-3.7F,1.5F,2,1.6F);
+        }
+        b(head,"hooked_nose","skin",-.9F,-4,-5.4F,1.8F,3.4F,2.7F);b(head,"wide_sneer","void",-2.7F,-.9F,-3.8F,5.4F,1.6F,1);b(head,"jutting_chin","skin",-2,-.1F,-3.6F,4,1.8F,3);
+        for(int i=0;i<5;i++)tooth(head,"needle_tooth"+i,-2+i,-.8F,-4.4F,i%2==0?1.2F:.6F,true);
+        box(head,"broad_red_brim","cap",-5.5F,-7,-4.4F,11,1.6F,9,PartPose.rotation(.04F,0,0));
+        box(head,"red_cap_crown","cap",-4.7F,-10,-3.5F,9.4F,3.7F,7,PartPose.rotation(0,0,-.12F));
+        box(head,"slouching_cap_tip","cap",-2.7F,-12,-2.3F,6,3.5F,5,PartPose.rotation(0,0,-.38F));
+        b(head,"cap_leather_band","leather",-4.9F,-7.6F,-3.7F,9.8F,1.1F,7.4F);b(head,"hat_buckle","metal",-1,-7.8F,-4.4F,2,1.4F,1);
+        for(int i=0;i<3;i++)b(head,"cap_repair_stitch"+i,"wrap",2.5F+i*.5F,-9+i*.3F,-3.8F,.4F,1,.5F);
+        for(int side:new int[]{-1,1}){
+            String n=side<0?"right":"left";var arm=pivot(r,n+"_arm",side*4,12,0,.12F,0,-side*.18F);
+            b(arm,"puffed_sleeve","cloth",-1.8F,0,-1.8F,3.6F,5.5F,3.6F);b(arm,"cuff","leather",-1.9F,4,-2.1F,3.8F,1.7F,4);
+            b(arm,"forearm","skin",-1.1F,5,-1.4F,2.2F,3.5F,2.8F);b(arm,"fist","skin",-1.5F,8,-2.5F,3,2.8F,3);
+            for(int i=0;i<3;i++)b(arm,"knuckle"+i,"shadow_skin",-1.2F+i*.9F,8.5F,-3.1F,.7F,1.3F,1);
+            if(side<0){rod(arm,"cleaver_grip","leather",0,8,-1,0,5,0,1);box(arm,"hooked_cleaver","iron",-1,10,-5.5F,1.3F,7,5,PartPose.rotation(.1F,0,-.1F));b(arm,"cleaver_edge","ivory",-.9F,10,-5.9F,1.1F,6.7F,.6F);b(arm,"blade_rivet","metal",-.9F,11,-4.5F,1.4F,.8F,.8F);}
+            for(int i=0;i<3;i++)box(arm,"shoulder_scruff"+i,"fur",-2+i*1.4F,-.7F,1,1.5F,4+i%2,2,PartPose.rotation(.15F,0,(i-1)*.2F));
+            var leg=pivot(r,n+"_leg",side*2,19,0,0,0,side*.05F);b(leg,"stocking","cloth",-1.2F,0,-1.2F,2.4F,3,2.4F);b(leg,"iron_boot","iron",-1.8F,2,-3,3.6F,3,5);b(leg,"boot_buckle","metal",-1,2.5F,-3.4F,2,1,.7F);
         }
     }
     @Override public void setupAnim(MonstrosityEntity mob,float walk,float amount,float age,float yaw,float pitch){

@@ -1,5 +1,20 @@
 # Changelog
 
+## Six additional Fey Wilds nightmares — 2026-10-17
+
+Added a huge hunched skeletal Wendigo, spider-moth Duskweaver, veiled Hollow
+Bride, fungal Barrow Maw, fused equine/humanoid Nuckelavee and Redcap Reaver.
+Six different articulated anatomies, 18 regional skins and matching exact-head
+inventory icons use the accepted shaded material and independent UV system.
+Added 24 low-weight singleton habitat entries in Alfheim and distinct normal
+combat attacks/effects. No terrain grief or new progression ingredients.
+
+Focused native model export and generated-asset checks pass; built and
+installed. Gameplay validation for the new set remains pending. The historical
+server report covers the first six species. Details: `FEY_NIGHTMARES_20261017.md`;
+current build: `tools/fey_nightmares_build.json`. Restart required.
+
+
 
 ## Six new fantastical enemy species — 2026-10-16
 

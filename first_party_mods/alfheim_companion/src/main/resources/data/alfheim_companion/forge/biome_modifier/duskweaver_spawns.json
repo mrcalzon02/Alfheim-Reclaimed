@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#alfheim_companion:duskweaver_habitats",
+  "spawners": {
+    "type": "alfheim_companion:duskweaver",
+    "weight": 3,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}
