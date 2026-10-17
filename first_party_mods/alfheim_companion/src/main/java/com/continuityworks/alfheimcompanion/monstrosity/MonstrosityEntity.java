@@ -17,7 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import java.util.EnumSet;
 
-/** Twelve different anatomies and combat timings; three stored habitat appearances each. */
+/** Nineteen different anatomies and combat timings; three stored habitat appearances each. */
 public final class MonstrosityEntity extends Monster {
     private static final EntityDataAccessor<Integer> VARIANT=SynchedEntityData.defineId(MonstrosityEntity.class,EntityDataSerializers.INT);
     public final MonstrosityKind kind;
@@ -39,26 +39,40 @@ public final class MonstrosityEntity extends Monster {
         targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
         targetSelector.addGoal(3,new NearestAttackableTargetGoal<>(this,AbstractVillager.class,true));
     }
+    @Override protected net.minecraft.sounds.SoundEvent getAmbientSound(){return kind==null?null:ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.AMBIENT);}
+    @Override protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source){return ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.HURT);}
+    @Override protected net.minecraft.sounds.SoundEvent getDeathSound(){return ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.DEATH);}
+    @Override public void playAmbientSound(){super.playAmbientSound();if(kind!=null&&random.nextBoolean())playSound(ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.STEP),.13F,1);}
+    @Override public int getAmbientSoundInterval(){return kind!=null&&kind.spawnerOnly()?220:180;}
+    @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState state){playSound(ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.STEP),kind.spawnerOnly()?.14F:.35F,1);}
     @Override public void aiStep(){super.aiStep();if(animationTicks>0)animationTicks--;if(attackCooldown>0)attackCooldown--;}
     /** The command audit simulates entity ticks with a fixed server clock; prime normal goal selection once. */
     void selectAuditGoals(){goalSelector.tick();}
     public float attackMotion(float partial){return animationTicks<=0?0:(float)Math.sin(Math.PI*(1-(animationTicks-partial)/(kind.windup+10F)));}
-    private void windUp(){animationTicks=kind.windup+10;level().broadcastEntityEvent(this,(byte)4);}
+    private void windUp(){playSound(ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.WINDUP),.75F,1);animationTicks=kind.windup+10;level().broadcastEntityEvent(this,(byte)4);}
     @Override public void handleEntityEvent(byte event){if(event==4)animationTicks=kind.windup+10;else super.handleEntityEvent(event);}
     /** Recheck distance and sight at impact: no attacks through terrain or while the victim escapes. */
     public boolean strike(LivingEntity target){
         if(level().isClientSide||!target.isAlive()||distanceToSqr(target)>kind.reach*kind.reach||!hasLineOfSight(target))return false;
         var before=MonstrosityDamageState.capture(target);boolean hit;
-        if(kind==MonstrosityKind.HAG||kind==MonstrosityKind.BRIDE){
+        if(kind==MonstrosityKind.HAG||kind==MonstrosityKind.BRIDE||kind==MonstrosityKind.PRISM_WARDEN){
             hit=target.hurt(damageSources().indirectMagic(this,this),(float)getAttributeValue(Attributes.ATTACK_DAMAGE));
-            ((ServerLevel)level()).sendParticles(ParticleTypes.WITCH,target.getX(),target.getY()+.8,target.getZ(),12,.3,.4,.3,.03);
+            ((ServerLevel)level()).sendParticles(kind==MonstrosityKind.PRISM_WARDEN?ParticleTypes.ELECTRIC_SPARK:ParticleTypes.WITCH,target.getX(),target.getY()+.8,target.getZ(),12,.3,.4,.3,.03);
         }else hit=doHurtTarget(target);
         hit=hit||before.wasHarmed(target);
         if(hit){
+            playSound(ModMenagerieSounds.get(kind,ModMenagerieSounds.Cue.ATTACK),.8F,1);
             switch(kind){
                 case TROLL,CYCLOPS->target.knockback(kind==MonstrosityKind.TROLL?1.1:1.35,getX()-target.getX(),getZ()-target.getZ());
                 case BRIAR->target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);
                 case INFESTOR->{target.addEffect(new MobEffectInstance(MobEffects.POISON,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),this);}
+                case CRYSTAL_COLOSSUS->{target.knockback(1.3,getX()-target.getX(),getZ()-target.getZ());target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);}
+                case SHARD_REAVER->target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,40,0),this);
+                case PRISM_WARDEN->{target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.DARKNESS,60,0),this);}
+                case MARROW_TICK->target.addEffect(new MobEffectInstance(MobEffects.POISON,40,0),this);
+                case RIB_BURROWER->target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,60,0),this);
+                case PARASITE_MAW->{target.addEffect(new MobEffectInstance(MobEffects.POISON,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,60,0),this);}
+                case SINEW_LEECH->{target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0),this);target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),this);heal(1.5F);}
                 case WENDIGO->{target.knockback(.85,getX()-target.getX(),getZ()-target.getZ());target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,0),this);target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0),this);}
                 case DUSKWEAVER->{target.addEffect(new MobEffectInstance(MobEffects.POISON,60,0),this);target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),this);}
                 case BRIDE->{target.addEffect(new MobEffectInstance(MobEffects.DARKNESS,80,0),this);target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,100,0),this);}
@@ -72,7 +86,7 @@ public final class MonstrosityEntity extends Monster {
     @Override protected Component getTypeName(){return Component.literal(kind.variants[variant()]+" "+kind.label);}
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData group,CompoundTag tag){
         var result=super.finalizeSpawn(level,difficulty,reason,group,tag);
-        entityData.set(VARIANT,kind.variantFor(level.getBiome(blockPosition()).unwrapKey().map(k->k.location().toString()).orElse("")));return result;
+        entityData.set(VARIANT,kind.crystal()?random.nextInt(3):kind.variantFor(level.getBiome(blockPosition()).unwrapKey().map(k->k.location().toString()).orElse("")));return result;
     }
     @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putInt("MonstrosityVariant",variant());tag.putInt("MonstrosityCooldown",attackCooldown);}
     @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);entityData.set(VARIANT,Math.floorMod(tag.getInt("MonstrosityVariant"),3));attackCooldown=Math.max(0,Math.min(100,tag.getInt("MonstrosityCooldown")));}
@@ -93,7 +107,7 @@ public final class MonstrosityEntity extends Monster {
                 if(--windup==0){mob.strike(target);mob.attackCooldown=mob.kind.cooldown;}return;
             }
             if(mob.attackCooldown==0){
-                if((mob.kind==MonstrosityKind.GARGOYLE||mob.kind==MonstrosityKind.DUSKWEAVER)&&mob.onGround()){
+                if((mob.kind==MonstrosityKind.GARGOYLE||mob.kind==MonstrosityKind.DUSKWEAVER||mob.kind==MonstrosityKind.SHARD_REAVER)&&mob.onGround()){
                     var direction=target.position().subtract(mob.position()).normalize();mob.setDeltaMovement(direction.x*.5,.42,direction.z*.5);
                 }
                 windup=mob.kind.windup;mob.windUp();

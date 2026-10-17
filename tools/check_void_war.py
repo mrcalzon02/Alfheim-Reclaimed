@@ -37,7 +37,7 @@ def main():
             palette=root['palette'][int(b['state'])];assert palette['Name'] in probes
             if palette['Name']=='minecraft:spawner':
                 entity=b['nbt']['SpawnData']['entity']['id'];assert 'creeper' not in entity
-                assert entity in ('alfheim_companion:biome_skeleton','alfheim_companion:biome_endermite');spawners.append(entity)
+                assert entity in ('alfheim_companion:biome_skeleton','alfheim_companion:biome_endermite','alfheim_companion:marrow_tick','alfheim_companion:rib_burrower','alfheim_companion:sinew_leech','alfheim_companion:parasite_maw');spawners.append(entity)
             if 'LootTable' in b.get('nbt',{}):assert b['nbt']['LootTable']=='alfheim:chests/void_war_salvage'
         detail={'name':name,'sha256':record['sha256'],'blocks':len(root['blocks']),'spawners':spawners}
         if name in BASEMENT_NAMES:

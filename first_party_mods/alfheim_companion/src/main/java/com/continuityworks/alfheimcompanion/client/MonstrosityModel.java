@@ -47,8 +47,8 @@ public final class MonstrosityModel extends HierarchicalModel<MonstrosityEntity>
     }
     public static LayerDefinition layer(MonstrosityKind kind){
         ATLAS.set(new Atlas());var mesh=new MeshDefinition();var root=mesh.getRoot();
-        for(String name:new String[]{"head","body","right_arm","left_arm","right_leg","left_leg","rear_right_leg","rear_left_leg","tail","wing_left","wing_right"})pivot(root,name,0,0,0,0,0,0);
-        switch(kind){case TROLL->troll(root);case CYCLOPS->cyclops(root);case BRIAR->briar(root);case INFESTOR->infestor(root);case GARGOYLE->gargoyle(root);case HAG->hag(root);case WENDIGO->wendigo(root);case DUSKWEAVER->duskweaver(root);case BRIDE->bride(root);case MAW->barrowMaw(root);case NUCKELAVEE->nuckelavee(root);case REDCAP->redcap(root);}
+        for(String name:new String[]{"head","body","right_arm","left_arm","right_leg","left_leg","rear_right_leg","rear_left_leg","middle_right_leg","middle_left_leg","tail","wing_left","wing_right"})pivot(root,name,0,0,0,0,0,0);
+        switch(kind){case TROLL->troll(root);case CYCLOPS->cyclops(root);case BRIAR->briar(root);case INFESTOR->infestor(root);case GARGOYLE->gargoyle(root);case HAG->hag(root);case WENDIGO->wendigo(root);case DUSKWEAVER->duskweaver(root);case BRIDE->bride(root);case MAW->barrowMaw(root);case NUCKELAVEE->nuckelavee(root);case REDCAP->redcap(root);case CRYSTAL_COLOSSUS->crystalColossus(root);case SHARD_REAVER->shardReaver(root);case PRISM_WARDEN->prismWarden(root);case MARROW_TICK->marrowTick(root);case RIB_BURROWER->ribBurrower(root);case SINEW_LEECH->sinewLeech(root);case PARASITE_MAW->parasiteMaw(root);}
         return LayerDefinition.create(mesh,ATLAS_SIZE,ATLAS_SIZE);
     }
     private static void troll(PartDefinition r){
@@ -498,15 +498,192 @@ public final class MonstrosityModel extends HierarchicalModel<MonstrosityEntity>
             var leg=pivot(r,n+"_leg",side*2,19,0,0,0,side*.05F);b(leg,"stocking","cloth",-1.2F,0,-1.2F,2.4F,3,2.4F);b(leg,"iron_boot","iron",-1.8F,2,-3,3.6F,3,5);b(leg,"boot_buckle","metal",-1,2.5F,-3.4F,2,1,.7F);
         }
     }
+    private static void shard(PartDefinition p,String n,float x,float y,float z,float w,float h,float d,float rx,float rz){
+        var a=box(p,n,"crystal",-w/2,-h*.7F,-d/2,w,h*.72F,d,PartPose.offsetAndRotation(x,y,z,rx,0,rz));
+        b(a,n+"_facet","crystal",-w*.34F,-h*.92F,-d*.34F,w*.68F,h*.26F,d*.68F);
+        b(a,n+"_tip","core",-w*.14F,-h,-d*.14F,w*.28F,h*.12F,d*.28F);
+        if(w>=3)b(a,n+"_black_fissure","taint",-.3F,-h*.64F,-d/2-.2F,.6F,h*.5F,.45F);
+    }
+    private static void coreCage(PartDefinition p,float y,float z,float radius){
+        b(p,"core_socket","void",-radius,y-radius,z+1,radius*2,radius*2,2);
+        box(p,"corrupted_core","core",-2,-2,-1.5F,4,4,3,PartPose.offsetAndRotation(0,y,z,0,0,.785F));
+        for(int i=0;i<8;i++){
+            float a=(float)(i*Math.PI/4),xx=Mth.cos(a)*radius,yy=y+Mth.sin(a)*radius;
+            box(p,"core_cage_segment"+i,"obsidian",-1.6F,-.6F,-.8F,3.2F,1.2F,1.6F,PartPose.offsetAndRotation(xx,yy,z-.3F,0,0,a+1.57F));
+        }
+    }
+    private static void crystalColossus(PartDefinition r){
+        var body=pivot(r,"body",0,-5,1,.1F,0,0);b(body,"obsidian_backbone","obsidian",-5,-18,1,10,25,9);
+        box(body,"upper_mantle","obsidian",-9,-21,-3,18,10,12,PartPose.rotation(.15F,0,0));coreCage(body,-8,-6,5);
+        for(int side:new int[]{-1,1}){
+            box(body,"split_chest_plate"+side,"crystal",side<0?-10:5,-17,-7,5,14,5,PartPose.rotation(0,0,side*.15F));
+            for(int j=0;j<3;j++)shard(body,"shoulder_cluster"+side+j,side*(9+j*2),-15,1+j*2,4-j*.6F,9+j*3,4,.15F,side*(.2F+j*.14F));
+            box(body,"hip_shield"+side,"crystal",side<0?-8:2,4,-4,6,9,8,PartPose.rotation(0,0,-side*.18F));
+            for(int j=0;j<3;j++)rod(body,"corruption_tendril"+side+j,"taint",side*7,-12+j*3,-7,side*2,5,-1,.7F);
+        }
+        b(body,"waist_lattice","obsidian",-4,2,-2,8,6,7);b(body,"belt_fracture","core",-3,4,-3,6,.8F,1);
+        var head=pivot(r,"head",0,-24,-2,.08F,0,-.04F);b(head,"faceted_head","obsidian",-3.7F,-7,-3.4F,7.4F,7,7);
+        for(int side:new int[]{-1,1}){box(head,"face_crystal_plane"+side,"crystal",side<0?-4.4F:.6F,-7,-4,3.8F,7,3,PartPose.rotation(0,0,side*.12F));b(head,"eye_fissure"+side,"core",side<0?-3.3F:1.5F,-4.7F,-4.5F,1.8F,.8F,.8F);shard(head,"crown_splinter"+side,side*2.5F,-6,1,2,5,2,.1F,side*.2F);}
+        b(head,"black_face_cleft","taint",-.5F,-7.2F,-4.7F,1,6,1);b(head,"inset_jaw","obsidian",-2.5F,-.7F,-4,5,2,4);
+        for(int side:new int[]{-1,1}){
+            String n=side<0?"right":"left";var arm=pivot(r,n+"_arm",side*12,-17,1,.06F,0,-side*.13F);
+            b(arm,"armature","obsidian",-3,0,-3,6,24,6);shard(arm,"upper_arm_prism",0,10,0,8,14,8,-.06F,side*.05F);
+            b(arm,"elbow_core","core",-1.5F,12,-3.6F,3,2,1);shard(arm,"heavy_forearm",0,26,-1,side<0?10:8,13,9,.1F,-side*.08F);
+            b(arm,"obsidian_fist","obsidian",-4,25,-5,8,5,9);
+            for(int j=0;j<4;j++)shard(arm,"crystal_knuckle"+j,-3+j*2,27,-5.5F,1.7F,4,2,.2F,0);
+            if(side<0)for(int j=0;j<3;j++)shard(arm,"hammer_growth"+j,-4+j*4,22,2,3.5F,9+j%2*2,4,.35F,-.15F+j*.15F);
+            var leg=pivot(r,n+"_leg",side*5.5F,8,1,-.05F,0,side*.045F);b(leg,"leg_frame","obsidian",-2.8F,0,-2.8F,5.6F,16,5.6F);
+            shard(leg,"crystal_greave",0,13,-.5F,7,12,7,-.04F,0);b(leg,"massive_foot","obsidian",-4,13,-7,8,3,11);
+            for(int j=0;j<3;j++)box(leg,"crystal_toe"+j,"crystal",-3.2F+j*2.3F,14,-8.5F,1.9F,2,4,PartPose.rotation(.2F,0,0));
+        }
+        for(int j=0;j<5;j++)shard(body,"spinal_crystal"+j,0,-17+j*5,8,3,7,3,.5F,0);
+    }
+    private static void shardReaver(PartDefinition r){
+        var body=pivot(r,"body",0,-3,1,.17F,0,0);b(body,"spinal_armature","obsidian",-2.5F,-12,0,5,23,5);coreCage(body,-6,-3.5F,3.4F);
+        for(int side:new int[]{-1,1}){
+            for(int i=0;i<3;i++)box(body,"overlapping_rib_blade"+side+i,"crystal",-1.7F,-4,-1.5F,3.4F,7,3,PartPose.offsetAndRotation(side*(4-i*.6F),-8+i*5,-2,.12F,side*.2F,side*.45F));
+            shard(body,"shoulder_scythe"+side,side*7,-9,1,3.5F,14,4,.1F,side*.45F);
+        }
+        b(body,"narrow_pelvis","obsidian",-3,8,-2,6,4,5);
+        var head=pivot(r,"head",0,-17,-4,.18F,0,0);box(head,"blade_mask","crystal",-2.6F,-7,-2.5F,5.2F,8,5,PartPose.rotation(.15F,0,0));
+        b(head,"featureless_dark_face","taint",-2,-5.5F,-3.4F,4,5,1.5F);b(head,"vertical_eye","core",-.5F,-5,-4.2F,1,3.5F,1);
+        for(int i=0;i<3;i++)shard(head,"swept_crest"+i,-2+i*2,-5,1,1.7F,6+i%2*3,2,-.35F,(i-1)*.15F);
+        for(int side:new int[]{-1,1}){
+            String n=side<0?"right":"left";var arm=pivot(r,n+"_arm",side*7,-9,0,.2F,0,-side*.15F);rod(arm,"upper_arm","obsidian",0,0,0,side,11,0,2.5F);
+            b(arm,"elbow_hinge","core",side-1.3F,10,-1.3F,2.6F,2.6F,2.6F);
+            var blade=pivot(arm,"serrated_forearm",side,12,-1,-.25F,0,-side*.17F);
+            for(int j=0;j<6;j++)b(blade,"tapered_blade"+j,"crystal",-3+j*.4F,j*2.5F,-1.5F,6-j*.8F,3,3);
+            rod(blade,"black_blade_vein","taint",0,1,-1.7F,0,12,0,.65F);
+            for(int j=0;j<3;j++)shard(blade,"serration"+j,side*2,3+j*4,0,1.3F,4,1.5F,.2F,side*.7F);
+            var leg=pivot(r,n+"_leg",side*3.7F,9,1,-.3F,0,side*.08F);
+            rod(leg,"upper_leg","obsidian",0,0,0,0,6,1,2.5F);shard(leg,"thigh_shard",0,6,0,4,7,4,0,0);
+            rod(leg,"reverse_shin","obsidian",0,6,1,0,7,-3,1.9F);shard(leg,"shin_blade",0,12,-1,3,8,3,.2F,0);
+            b(leg,"clawed_foot","obsidian",-2,12,-5,4,3,7);for(int j=0;j<2;j++)rod(leg,"shard_talon"+j,"crystal",-1.2F+j*2.4F,14,-3,0,0,-4,.9F);
+        }
+    }
+    private static void prismWarden(PartDefinition r){
+        var body=pivot(r,"body",0,0,0,0,0,0);b(body,"hollow_obelisk_back","obsidian",-4,-8,1,8,22,6);coreCage(body,0,-4,4.5F);
+        for(int side:new int[]{-1,1}){
+            shard(body,"obelisk_side"+side,side*5,8,0,3,20,6,0,side*.12F);
+            for(int i=0;i<4;i++)rod(body,"binding_lattice"+side+i,"taint",side*3,-6+i*4,-4,side*2,2,0,.7F);
+        }
+        b(body,"lower_hex_core","core",-1.5F,9,-3.5F,3,3,2);b(body,"splayed_base","obsidian",-5,12,-3,10,4,7);
+        var head=pivot(r,"head",0,-12,0,.08F,0,0);b(head,"warden_mask","obsidian",-3,-6,-3,6,7,6);b(head,"mask_eye","core",-2,-4.5F,-3.7F,4,1,1);
+        shard(head,"faceted_brow",0,-5,-1,5.5F,4,4,0,0);var orbit=pivot(head,"orbit",0,-4,0,0,0,0);
+        for(int i=0;i<7;i++){float a=(float)(i*Math.PI*2/7);shard(orbit,"floating_crown_shard"+i,Mth.sin(a)*6,-2,Mth.cos(a)*6,1.8F,6+i%2*2,2,0,Mth.sin(a)*.3F);}
+        for(int side:new int[]{-1,1}){
+            String n=side<0?"right":"left";var arm=pivot(r,n+"_arm",side*6,-4,0,.1F,0,-side*.25F);rod(arm,"armature","obsidian",0,0,0,0,13,0,2);
+            shard(arm,"forearm_prism",0,14,-1,4,9,4,.1F,0);
+            for(int j=0;j<2;j++)shard(arm,"tuning_fork"+j,-2+j*4,16,-1,1.4F,9,1.5F,0,(j==0?-.2F:.2F));
+            for(int rear=0;rear<2;rear++){
+                var leg=pivot(r,(rear==1?"rear_":"")+n+"_leg",side*4,15,rear==1?4:-2,0,0,-side*.22F);
+                rod(leg,"root_strut","obsidian",0,0,0,side*2,7,rear==1?3:-3,2.2F);shard(leg,"root_prism",side,6,0,3.5F,8,4,.15F,0);
+                b(leg,"prism_foot","crystal",side*2-2,7,rear==1?1:-5,4,2,5);
+            }
+        }
+    }
+    private static void arthropodLeg(PartDefinition r,String n,int side,float y,float z,float spread,String material){
+        var a=pivot(r,n,side*2.5F,y,z,0,0,0);rod(a,"coxa",material,0,0,0,side*spread,-2,0,1);
+        rod(a,"jointed_tibia",material,side*spread,-2,0,side*1.4F,24-y+1,-1,.65F);rod(a,"hooked_tarsus","bone",side*(spread+1.4F),23-y,-1,-side*.8F,1,-1,.4F);
+    }
+    private static void marrowTick(PartDefinition r){
+        var body=pivot(r,"body",0,19,2,0,0,0);b(body,"swollen_abdomen","skin",-3.8F,-3,-1,7.6F,6,10);
+        box(body,"dorsal_shield","chitin",-4,-4,-2,8,3,10,PartPose.rotation(.1F,0,0));
+        for(int i=0;i<5;i++){b(body,"shell_ridge"+i,"bone",-3.5F,-4.3F,-1+i*2,7,.8F,.9F);b(body,"swollen_spiracle"+i,"sinew",3.3F,-1,-1+i*2,1.2F,1.3F,1.3F);}
+        for(int side:new int[]{-1,1})for(int i=0;i<4;i++)horn(body,"carapace_barb"+side+i,"bone",side*3,-3,i*2,side,2.2F);
+        var head=pivot(r,"head",0,18,-3,.1F,0,0);b(head,"armored_head","chitin",-2.7F,-2.2F,-2.3F,5.4F,4.4F,4.6F);b(head,"feeding_orifice","void",-1.8F,-.8F,-2.8F,3.6F,2,.8F);
+        for(int side:new int[]{-1,1}){
+            for(int i=0;i<3;i++)b(head,"eye_cluster"+side+i,"eye",side*(1.6F+i*.2F)-.35F,-1.5F+i*.8F,-2.8F,.7F,.6F,.65F);
+            rod(head,"mandible_base"+side,"bone",side*2,.5F,-2,side,1,-2,.8F);rod(head,"mandible_hook"+side,"bone",side*3,1.5F,-4,-side*1.4F,0,-1.5F,.5F);
+            for(int i=0;i<3;i++)rod(head,"sensory_bristle"+side+i,"hair",side*2,-1,-1+i,side*2,-1,-2,.25F);
+            for(int i=0;i<4;i++)arthropodLeg(r,i==0?(side<0?"right_arm":"left_arm"):(i==2?"middle_":i==3?"rear_":"")+(side<0?"right_leg":"left_leg"),side,19,-3+i*3,3+i%2,"chitin");
+        }
+        rod(head,"feeding_needle","bone",0,.7F,-2.5F,0,0,-4,.55F);
+    }
+    private static void ribBurrower(PartDefinition r){
+        var body=pivot(r,"body",0,17,1,0,0,0);
+        for(int i=0;i<7;i++){
+            var seg=pivot(body,"segment"+i,0,0,-8+i*3.3F,0,0,0);b(seg,"pale_body","skin",-3.1F,-2.5F,-1.7F,6.2F,5,3.4F);
+            box(seg,"rib_carapace","bone",-3.8F,-3.4F,-1.5F,7.6F,2,3,PartPose.rotation(.1F,0,0));
+            for(int side:new int[]{-1,1}){
+                box(seg,"clasping_rib"+side,"bone",side<0?-4:2.8F,-2.4F,-1.3F,1.2F,5,2.6F,PartPose.rotation(0,0,side*.15F));
+                var leg=pivot(seg,"scuttling_leg"+side,side*3,1,0,0,0,-side*.15F);rod(leg,"leg_upper","chitin",0,0,0,side*4,0,-1,.9F);rod(leg,"leg_lower","bone",side*4,0,-1,side*1.2F,6,-1,.65F);
+            }
+            if(i%2==0)horn(seg,"dorsal_spine","bone",0,-3,0,0,3.5F);
+        }
+        var head=pivot(r,"head",0,17,-11,.06F,0,0);b(head,"bone_drill_head","bone",-4,-4,-3,8,7,6);b(head,"black_mouth","void",-2.7F,-1.8F,-3.4F,5.4F,4,.9F);
+        for(int side:new int[]{-1,1}){
+            b(head,"vestigial_eye"+side,"eye",side<0?-3:-.1F,-3,-3.8F,1.4F,.8F,.65F);
+            rod(head,"drilling_mandible"+side,"bone",side*3,1,-3,side*2,2,-3,1.5F);rod(head,"mandible_tip"+side,"bone",side*5,3,-6,-side*2,-1,-2,1);
+            for(int i=0;i<3;i++)tooth(head,"rasping_fang"+side+i,side*(1+i*.6F),-.5F,-4,1.5F,true);
+        }
+        var tail=pivot(r,"tail",0,17,16,.15F,0,0);rod(tail,"tail_hook","chitin",0,0,0,0,-2,6,1.6F);rod(tail,"tail_needle","bone",0,-2,6,0,-3,2,.8F);
+    }
+    private static void sinewLeech(PartDefinition r){
+        var body=pivot(r,"body",0,19,0,0,0,0);
+        for(int i=0;i<8;i++){
+            float w=7-Math.abs(i-3.5F)*.6F;var seg=pivot(body,"segment"+i,0,0,-9+i*3.4F,0,0,0);
+            b(seg,"muscular_lobe","maggot",-w/2,-3,-1.8F,w,6,3.6F);b(seg,"annular_sinew","sinew",-w/2-.2F,-3.2F,-1.2F,w+.4F,6.4F,.8F);
+            for(int side:new int[]{-1,1}){b(seg,"breathing_pore"+side,"void",side*(w/2)-.4F,-.5F,-.5F,.8F,1,1);if(i%2==0)rod(seg,"grasping_tendril"+side,"sinew",side*w/2,1,0,side*3,3,-2,.8F);}
+        }
+        var head=pivot(r,"head",0,18,-12,.1F,0,0);b(head,"leech_maw_cavity","void",-3.6F,-3.6F,-3,7.2F,7.2F,3);
+        for(int i=0;i<8;i++){
+            float a=(float)(i*Math.PI/4),x=Mth.cos(a)*3.6F,y=Mth.sin(a)*3.6F;
+            box(head,"maw_lip"+i,"maggot",-1.6F,-.9F,-1.5F,3.2F,1.8F,3,PartPose.offsetAndRotation(x,y,-2,0,0,a+1.57F));
+            rod(head,"radial_tooth"+i,"bone",x*.8F,y*.8F,-3,-x*.4F,-y*.4F,-1.8F,.6F);
+        }
+        b(head,"inner_throat","sinew",-1.5F,-1.5F,-2.5F,3,3,1);rod(head,"proboscis","sinew",0,0,-3,0,0,-4,.8F);
+        var tail=pivot(r,"tail",0,19,17,0,0,0);for(int side:new int[]{-1,1})rod(tail,"tail_fluke"+side,"maggot",0,0,0,side*3,-2,6,1.3F);
+    }
+    private static void parasiteMaw(PartDefinition r){
+        var body=pivot(r,"body",0,14,4,0,0,0);b(body,"bloated_abdomen","maggot",-8,-10,-4,16,17,24);
+        box(body,"upper_bloat_sac","maggot",-6,-13,1,12,7,17,PartPose.rotation(.07F,0,0));b(body,"diseased_dorsal_sac","sinew",-4,-16,8,8,5,8);
+        for(int i=0;i<6;i++){
+            for(int side:new int[]{-1,1}){
+                box(body,"fleshy_fold"+side+i,"maggot",side<0?-8.8F:5.3F,-8,-3+i*4,3.5F,13,2.8F,PartPose.rotation(0,0,side*.12F));
+                b(body,"black_spiracle"+side+i,"void",side<0?-9.1F:8.3F,-1,-2+i*4,.8F,1.6F,1.7F);
+                if(i%2==0)b(body,"inflamed_gland"+side+i,"fungus",side<0?-8.8F:6.3F,-10,-1+i*4,2.5F,3,3);
+            }
+            b(body,"segment_saddle"+i,"sinew",-5,-11.6F,-2+i*4,10,1.2F,.9F);
+        }
+        var head=pivot(r,"head",0,11,-9,.12F,0,0);b(head,"massive_black_maw","void",-5.7F,-7,-5,11.4F,12,4);
+        for(int i=0;i<10;i++){
+            float a=(float)(i*Math.PI/5),x=Mth.cos(a)*6,y=-1+Mth.sin(a)*6;
+            box(head,"bloated_mouth_lobe"+i,"maggot",-2,-1.7F,-2,4,3.4F,4,PartPose.offsetAndRotation(x,y,-4,0,0,a+1.57F));
+            rod(head,"maw_hook"+i,"bone",x*.8F,-1+(y+1)*.8F,-5,-x*.35F,-(y+1)*.35F,-2.3F,.8F);
+            rod(head,"facial_bristle"+i,"hair",x*1.15F,-1+(y+1)*1.1F,-3,x*.3F,(y+1)*.3F,-1,.3F);
+        }
+        b(head,"throat_tissue","sinew",-3,-4,-3.8F,6,6,1.5F);b(head,"throat_inner_void","void",-1.3F,-2.4F,-4.5F,2.6F,2.8F,.8F);
+        for(int side:new int[]{-1,1}){
+            rod(head,"giant_feeding_hook"+side,"chitin",side*5,3,-5,side*2,2,-3,1.8F);rod(head,"feeding_hook_point"+side,"bone",side*7,5,-8,-side*3,-1,-1,1);
+            for(int i=0;i<3;i++)b(head,"sensory_nodule"+side+i,"sinew",side<0?-7:5.4F,-6+i*2,-1,1.6F,1.4F,2);
+            for(int pair=0;pair<3;pair++){
+                var leg=pivot(r,pair==0?(side<0?"right_arm":"left_arm"):(pair==2?"rear_":"")+(side<0?"right_leg":"left_leg"),side*6.5F,19,-4+pair*9,0,0,-side*.2F);
+                b(leg,"fleshy_proleg","maggot",-1.7F,0,-1.8F,3.4F,4,3.6F);b(leg,"gripping_pad","chitin",-2.1F,3,-2.7F,4.2F,2,5);for(int j=0;j<3;j++)rod(leg,"proleg_hook"+j,"bone",-1.4F+j*1.4F,4,-2,0,0,-1.8F,.45F);
+            }
+            var wing=pivot(r,side<0?"wing_right":"wing_left",side*6,3,10,.2F,side*.55F,0);
+            for(int i=0;i<5;i++)box(wing,"vestigial_fly_wing"+i,"membrane",side<0?-2-i*2:i*2,-4+i*.8F,0,2.2F,10-i,.45F,PartPose.rotation(0,0,side*.16F));
+            for(int i=0;i<3;i++)rod(wing,"wing_vein"+i,"chitin",0,0,0,side*(4+i*2),5-i,0,.4F);
+        }
+        var tail=pivot(r,"tail",0,16,24,.1F,0,0);for(int side:new int[]{-1,1})rod(tail,"respiratory_tube"+side,"sinew",side*2,0,0,side,-2,4,1.2F);
+    }
     @Override public void setupAnim(MonstrosityEntity mob,float walk,float amount,float age,float yaw,float pitch){
         root.getAllParts().forEach(ModelPart::resetPose);var head=root.getChild("head");head.yRot+=yaw*Mth.DEG_TO_RAD;head.xRot+=pitch*Mth.DEG_TO_RAD*.6F;
         float attack=mob==null?0:mob.attackMotion(0),step=Mth.cos(walk*.65F)*amount;
         for(int side:new int[]{-1,1}){
-            String n=side<0?"right":"left";root.getChild(n+"_leg").xRot+=step*side*.65F;root.getChild("rear_"+n+"_leg").xRot-=step*side*.65F;
+            String n=side<0?"right":"left";root.getChild(n+"_leg").xRot+=step*side*.65F;root.getChild("rear_"+n+"_leg").xRot-=step*side*.65F;root.getChild("middle_"+n+"_leg").xRot-=step*side*.5F;
             var arm=root.getChild(n+"_arm");arm.xRot+=-step*side*.32F-attack*(kind==MonstrosityKind.TROLL||kind==MonstrosityKind.CYCLOPS?1.2F:1.3F);
             if(kind==MonstrosityKind.INFESTOR){arm.zRot=-side*(1.05F-attack*.8F+Mth.sin(age*.06F)*.08F);arm.xRot=-attack*1.45F;var middle=arm.getChild("whip_middle");middle.zRot=side*(.6F-attack*.7F);middle.getChild("whip_tip").zRot=side*(.8F-attack*.8F);}
             if(kind==MonstrosityKind.HAG)arm.xRot-=attack*.3F;
             root.getChild(side<0?"wing_right":"wing_left").yRot+=side*(.15F+attack*.25F+(mob!=null&&!mob.onGround()?.2F:0));
+        }
+        if(kind==MonstrosityKind.PRISM_WARDEN)head.getChild("orbit").yRot+=age*.018F;
+        if(kind==MonstrosityKind.RIB_BURROWER||kind==MonstrosityKind.SINEW_LEECH){
+            var body=root.getChild("body");int segments=kind==MonstrosityKind.RIB_BURROWER?7:8;
+            for(int i=0;i<segments;i++){
+                var seg=body.getChild("segment"+i);seg.yRot+=Mth.sin(walk*.7F-i*.6F)*amount*.12F;
+                if(kind==MonstrosityKind.RIB_BURROWER)for(int side:new int[]{-1,1})seg.getChild("scuttling_leg"+side).zRot+=Mth.sin(walk*.8F-i*.9F)*amount*side*.25F;
+            }
         }
         root.getChild("tail").yRot+=Mth.sin(age*.08F)*.15F;root.getChild("body").xRot+=Mth.sin(age*.045F)*.012F;
     }

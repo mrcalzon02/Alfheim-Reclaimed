@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-17",
+  "status": "BUILT_INSTALLED_RUNTIME_REQUIRED",
+  "jar_sha256": "1c19e691d884418f4716137732a9837f68c2ad13808ef9c2a9b5a8dc8d085a42",
+  "backup": "quarantine\\alfheim_companion-before-void-infestation-20261017.jar",
+  "catalogue_species": 19,
+  "catalogue_appearances": 57,
+  "added_species": [
+    "corrupted_crystal_colossus",
+    "shard_reaver",
+    "prism_warden",
+    "marrow_tick",
+    "rib_burrower",
+    "sinew_leech",
+    "parasite_maw"
+  ],
+  "packaged_asset_data_files": 1205,
+  "sound_events": 115,
+  "audio_source": "Pitched native Minecraft 1.20.1 sound event references; no newly recorded OGG audio",
+  "natural_habitat_entries": 74,
+  "titan_spawners": 12,
+  "maggot_mounds": 48,
+  "validation": [
+    "native model export passed",
+    "offline build passed with tests excluded",
+    "generated asset equality passed",
+    "25-template Void War static checks passed",
+    "three Titan infestation NBT readbacks passed",
+    "installed jar hash and all packaged assets/data equal source",
+    "native model preview visually inspected"
+  ],
+  "pending": [
+    "in-game listening, animation and gameplay validation",
+    "actual runtime registry evidence for the new maggot mound block"
+  ],
+  "preview": "tools/void_infestation_review.png"
+}

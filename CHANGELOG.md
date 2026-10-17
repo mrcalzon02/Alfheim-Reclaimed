@@ -1,5 +1,19 @@
 # Changelog
 
+## Void infestation and menagerie sounds — 2026-10-17
+
+Added three corrupted crystal golems and four corpse parasites, including
+Parasite Maw: 19 monster species / 57 appearances total. Broadened regional
+habitats; crystal golems infest Void Verge/Shore and parasites remain
+spawner-only. Three Titan corpse templates now contain 12 bounded spawners
+and 48 modeled maggot mounds in matching decay states. Added 115 native
+sound palettes with subtitles across all nineteen species and the mounds.
+
+Built and installed; focused model, asset and structure checks passed.
+Gameplay and listening review remain pending. Restart required; Titan nest
+changes apply to newly generated structures. Details:
+`VOID_INFESTATION_20261017.md`; build: `tools/void_infestation_build.json`.
+
 ## Six additional Fey Wilds nightmares — 2026-10-17
 
 Added a huge hunched skeletal Wendigo, spider-moth Duskweaver, veiled Hollow

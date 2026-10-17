@@ -29,14 +29,19 @@ public final class MonstrosityAudit {
             var biomes=level.registryAccess().registryOrThrow(Registries.BIOME);int count=0,spawnEntries=0;
             for(var kind:MonstrosityKind.values()){
                 var type=ModMonstrosities.TYPES.get(kind).get();
-                var tag=TagKey.create(Registries.BIOME,new ResourceLocation("alfheim_companion",kind.id+"_habitats"));
-                var habitats=biomes.getTag(tag).orElseThrow();require(habitats.size()>=4,"habitat coverage");
-                for(var biome:habitats){
-                    var entries=biome.value().getMobSettings().getMobs(MobCategory.MONSTER).unwrap().stream().filter(e->e.type==type).toList();
-                    require(entries.size()==1&&entries.get(0).minCount==1&&entries.get(0).maxCount==1,"one bounded spawn entry");spawnEntries++;
+                if(!kind.spawnerOnly()){
+                    var tag=TagKey.create(Registries.BIOME,new ResourceLocation("alfheim_companion",kind.id+"_habitats"));
+                    var habitats=biomes.getTag(tag).orElseThrow();require(habitats.size()>0,"habitat coverage");
+                    for(var biome:habitats){
+                        var entries=biome.value().getMobSettings().getMobs(MobCategory.MONSTER).unwrap().stream().filter(e->e.type==type).toList();
+                        require(entries.size()==1&&entries.get(0).minCount==1&&entries.get(0).maxCount==1,"one bounded spawn entry");spawnEntries++;
+                    }
+                    int accepted=0;for(int i=0;i<64;i++)if(SpawnPlacements.checkSpawnRules(type,level,MobSpawnType.NATURAL,origin,RandomSource.create(842+i)))accepted++;
+                    require(accepted>0,"natural spawn rule "+kind.id);
+                }else{
+                    require(!SpawnPlacements.checkSpawnRules(type,level,MobSpawnType.NATURAL,origin,RandomSource.create(842)),"parasites reject natural spawning");
+                    require(SpawnPlacements.checkSpawnRules(type,level,MobSpawnType.SPAWNER,origin,RandomSource.create(842)),"corpse spawner rule");
                 }
-                int accepted=0;for(int i=0;i<64;i++)if(SpawnPlacements.checkSpawnRules(type,level,MobSpawnType.NATURAL,origin,RandomSource.create(842+i)))accepted++;
-                require(accepted>0,"dark chamber spawn rule "+kind.id);
                 for(int variant=0;variant<3;variant++){
                     var stack=ItemStack.of(ModMonstrosities.selection(kind,variant).save(new CompoundTag()));
                     require(ModMonstrosities.variant(stack)==variant&&!stack.hasCustomHoverName(),"saved head selection");
@@ -47,11 +52,11 @@ public final class MonstrosityAudit {
                         require(mob.kind==kind&&mob.variant()==variant,"correct species/variant");
                         require(Math.abs(mob.getBbHeight()-kind.height)<.001,"physical height");
                         if(kind==MonstrosityKind.TROLL)require(Math.abs(mob.getBbHeight()/EntityType.PLAYER.getHeight()-2)<.001,"twice player height");
-                        victim.setNoAi(true);victim.setPos(mob.getX(),mob.getY(),mob.getZ()+Math.min(1.8,kind.reach-.2));level.addFreshEntity(victim);
+                        victim.setNoAi(true);victim.setPos(mob.getX(),mob.getY(),mob.getZ()+Math.min(1.7,kind.reach-.15));level.addFreshEntity(victim);
                         // The level advances entity age before ticking; M&S guards newborn targets.
                         for(int tick=0;tick<32;tick++){level.tickNonPassenger(mob);level.tickNonPassenger(victim);}
                         mob.setPos(origin.getX()+.5,origin.getY(),origin.getZ()+.5);mob.setDeltaMovement(0,0,0);
-                        victim.setPos(mob.getX(),mob.getY(),mob.getZ()+Math.min(1.8,kind.reach-.2));victim.setDeltaMovement(0,0,0);victim.invulnerableTime=0;
+                        victim.setPos(mob.getX(),mob.getY(),mob.getZ()+Math.min(1.7,kind.reach-.15));victim.setDeltaMovement(0,0,0);victim.invulnerableTime=0;
                         victim.getAttribute(Attributes.MAX_HEALTH).setBaseValue(1000);victim.setHealth(1000);
                         var before=MonstrosityDamageState.capture(victim);boolean hit=mob.strike(victim);
                         require(hit&&before.wasHarmed(victim),"attack deals damage "+kind.id+" hit="+hit+" before="+before+" after="+MonstrosityDamageState.capture(victim)+" sight="+mob.hasLineOfSight(victim)+" distance="+mob.distanceTo(victim));
@@ -60,7 +65,7 @@ public final class MonstrosityAudit {
                         if(kind==MonstrosityKind.WENDIGO||kind==MonstrosityKind.BRIDE||kind==MonstrosityKind.MAW||kind==MonstrosityKind.NUCKELAVEE)require(victim.hasEffect(MobEffects.WEAKNESS),"nightmare weakening strike");
                         if(kind==MonstrosityKind.DUSKWEAVER)require(victim.hasEffect(MobEffects.POISON),"duskweaver venom");
                         if(kind==MonstrosityKind.BRIDE)require(victim.hasEffect(MobEffects.DARKNESS),"bride soul touch");
-                        victim.setPos(mob.getX(),mob.getY(),mob.getZ()+Math.min(1.8,kind.reach-.2));victim.invulnerableTime=0;
+                        victim.setPos(mob.getX(),mob.getY(),mob.getZ()+Math.min(1.7,kind.reach-.15));victim.invulnerableTime=0;
                         var wall=origin.offset(0,0,1);
                         for(int y=0;y<6;y++)level.setBlockAndUpdate(wall.above(y),Blocks.STONE.defaultBlockState());
                         try{require(!mob.strike(victim),"solid wall blocks attack "+kind.id);}

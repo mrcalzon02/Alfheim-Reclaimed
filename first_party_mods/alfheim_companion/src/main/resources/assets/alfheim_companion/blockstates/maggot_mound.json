@@ -1,0 +1,58 @@
+{
+  "variants": {
+    "decay=0": [
+      {
+        "model": "alfheim_companion:block/maggot_mound_0",
+        "y": 0
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_0",
+        "y": 90
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_0",
+        "y": 180
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_0",
+        "y": 270
+      }
+    ],
+    "decay=1": [
+      {
+        "model": "alfheim_companion:block/maggot_mound_1",
+        "y": 0
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_1",
+        "y": 90
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_1",
+        "y": 180
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_1",
+        "y": 270
+      }
+    ],
+    "decay=2": [
+      {
+        "model": "alfheim_companion:block/maggot_mound_2",
+        "y": 0
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_2",
+        "y": 90
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_2",
+        "y": 180
+      },
+      {
+        "model": "alfheim_companion:block/maggot_mound_2",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -25,21 +25,36 @@
     },
     {
       "name": "bio_titan",
-      "sha256": "240ee8452f6c4c52a19d991e6eca6024e488bbd3af8959fdd879b1257d68262a",
+      "sha256": "fb1a502655e6fcd1774cb2ad7f5dffbfe11e2a0152545521a2f83334cf928614",
       "blocks": 106029,
-      "spawners": []
+      "spawners": [
+        "alfheim_companion:marrow_tick",
+        "alfheim_companion:parasite_maw",
+        "alfheim_companion:rib_burrower",
+        "alfheim_companion:sinew_leech"
+      ]
     },
     {
       "name": "bio_titan_desiccated",
-      "sha256": "11e61f7a7d45f6184357b42f524a54e092d875358355d880237613502cfde7ee",
+      "sha256": "42e22d9f3bf0324afe7467fa1cd32592a0f2be3a8e7684c8110ba4b846996f45",
       "blocks": 106029,
-      "spawners": []
+      "spawners": [
+        "alfheim_companion:marrow_tick",
+        "alfheim_companion:parasite_maw",
+        "alfheim_companion:rib_burrower",
+        "alfheim_companion:sinew_leech"
+      ]
     },
     {
       "name": "bio_titan_ossified",
-      "sha256": "f3d54707277ca99da279227872ff8ce644c355cde90e39469b7d617e76c11565",
+      "sha256": "7044266ec79c9595b68b18d5deda921733d5d2c67a31f2c65e0a34d167b828b4",
       "blocks": 106029,
-      "spawners": []
+      "spawners": [
+        "alfheim_companion:marrow_tick",
+        "alfheim_companion:parasite_maw",
+        "alfheim_companion:rib_burrower",
+        "alfheim_companion:sinew_leech"
+      ]
     },
     {
       "name": "breach_gate",
@@ -169,11 +184,11 @@
       "reachable_room_cells": 25
     }
   ],
-  "java_tests": 66,
+  "java_tests": 1,
   "materials": 32,
   "textures": 96,
   "continuous_steps": 24,
   "max_rooms_large_site": 201,
   "spatial_scope": "900-block reservation from cooperating Void neighbors/dungeons; unrelated non-Void surface proximity requires review",
-  "installed_jar_sha256": "19d99e149cdf7478f749141007f154e3b8616a189a56f112a997bef20bfbc96f"
+  "installed_jar_sha256": "e16b7debb1ee8a1b5dbb91966e1267f8ae97c04c3c3785d054ae57c3c8887935"
 }

@@ -38,6 +38,36 @@ HABITATS.update({
 DROPS.update({'hollow_stag_wendigo':'minecraft:bone','duskweaver':'minecraft:string','hollow_bride':'minecraft:string','barrow_maw':'minecraft:brown_mushroom','nuckelavee':'minecraft:rotten_flesh','redcap_reaver':'minecraft:leather'})
 WEIGHTS={'briar_beast':4,'thorn_infestor':3,'fen_hag':3,'duskweaver':3,'redcap_reaver':4}
 
+PALETTES.update({
+'corrupted_crystal_colossus':[(137,97,176),(102,148,74),(85,107,146)],
+'shard_reaver':[(124,86,179),(85,144,112),(82,100,128)],
+'prism_warden':[(153,103,184),(110,165,70),(94,121,157)],
+'marrow_tick':[(141,125,106),(129,106,98),(164,164,147)],
+'rib_burrower':[(154,142,115),(145,119,103),(180,178,159)],
+'sinew_leech':[(167,142,125),(142,114,106),(159,174,160)],
+'parasite_maw':[(181,168,128),(151,124,110),(179,184,159)]})
+CRYSTALS={'corrupted_crystal_colossus','shard_reaver','prism_warden'}
+PARASITES={'marrow_tick','rib_burrower','sinew_leech','parasite_maw'}
+for species in CRYSTALS:HABITATS[species]=['alfheim:void_verge','alfheim:void_shore']
+for species in PARASITES:HABITATS[species]=[]
+DROPS.update({'corrupted_crystal_colossus':'minecraft:amethyst_shard','shard_reaver':'minecraft:amethyst_shard','prism_warden':'minecraft:amethyst_shard','marrow_tick':'minecraft:rotten_flesh','rib_burrower':'minecraft:bone','sinew_leech':'minecraft:rotten_flesh','parasite_maw':'minecraft:rotten_flesh'})
+WEIGHTS.update({'corrupted_crystal_colossus':2,'shard_reaver':5,'prism_warden':3})
+# Explicit habitat distribution: preserve regional identities and fill woodland/shore gaps.
+for species,extra in {
+'hulking_troll':['alfheim:silverbark_wood'],
+'cyclops':['alfheim:prism_drift'],
+'briar_beast':['alfheim:silverbark_wood'],
+ 'thorn_infestor':['alfheim:sporebank_shore'],
+ 'stone_gargoyle':['alfheim:void_shore'],
+ 'fen_hag':['alfheim:tidewood_shore'],
+ 'hollow_stag_wendigo':['alfheim:silverbark_wood','alfheim:sundered_highlands'],
+ 'duskweaver':['alfheim:bloomfall_vale'],
+ 'hollow_bride':['alfheim:hollow_marches'],
+ 'barrow_maw':['alfheim:infested_warren'],
+ 'nuckelavee':['alfheim:tidewood_shore','alfheim:void_shore'],
+ 'redcap_reaver':['alfheim:silverbark_wood','alfheim:bloomfall_vale']}.items():
+    HABITATS[species]=list(dict.fromkeys(HABITATS[species]+extra))
+
 def skin(species,variant,quads,size):
     # Paint each native face in its own island. All values are selected material ramps;
     # no shared noise sheet, repeated block texture, or disconnected concept artwork.
@@ -74,6 +104,11 @@ def skin(species,variant,quads,size):
         materials['cloth']=[(171,179,166),(132,119,146),(150,180,197)][variant]
         materials['trim']=[(153,139,101),(144,115,139),(148,199,209)][variant]
     if species=='duskweaver':materials['membrane']=[(88,72,108),(113,76,113),(60,91,121)][variant]
+    materials.update({'crystal':flesh,'obsidian':[(57,48,74),(53,64,47),(45,54,75)][variant],
+      'taint':[(35,22,45),(29,44,30),(18,26,38)][variant],
+      'core':[(196,103,240),(185,238,64),(90,220,238)][variant],
+      'maggot':[(187,175,139),(149,119,107),(178,185,163)][variant]})
+    if species in PARASITES:materials['bone']=[(207,189,145),(162,137,117),(195,194,168)][variant]
     im=Image.new('RGBA',(size,size),(63,53,47,255));seen=set()
     def mul(c,f):return tuple(max(0,min(255,round(v*f))) for v in c)+(255,)
     for q in quads:
@@ -93,7 +128,7 @@ def skin(species,variant,quads,size):
                 form=1.04-.22*v+.06*math.sin(u*math.pi)
                 if edge==0 and min(w,h)>3:
                     form*=(1.04 if y==0 or x==0 else .91) if mat in ('skin','shadow_skin','scar') else (1.12 if y==0 or x==0 else .76)
-                if mat in ('skin','shadow_skin','scar'):
+                if mat in ('skin','shadow_skin','scar','maggot'):
                     form+=.07*math.sin(u*7+math.sin(v*4))
                     form=round(form*12)/12
                 elif mat=='bark':
@@ -106,6 +141,10 @@ def skin(species,variant,quads,size):
                     if mat=='fur' and (x+y//3)%3==0:form*=.68
                 elif mat=='web':
                     form*=.74 if (x+y)%3==0 else 1.12
+                elif mat=='crystal':
+                    plane=u*.75+v*.25
+                    form*=(.63 if plane<.25 else .88 if plane<.5 else 1.27 if plane<.74 else .94)
+                elif mat in ('obsidian','taint'):form=round(form*8)/8
                 elif mat in ('chitin','iron'):form=round((form+.08*math.sin(u*math.pi))*10)/10
                 elif mat in ('bone','ivory'):form*=1-.11*math.sin(x*2.1)
                 elif mat in ('stone','shadow_stone'):form=round(form*9)/9
@@ -123,7 +162,7 @@ def skin(species,variant,quads,size):
         if mat=='trim':
             d.line((0,0,w-1,0),fill=mul(base,1.25));d.line((0,h-1,w-1,h-1),fill=mul(base,.55))
             for x in range(1,w,3):d.point((x,h//2),fill=mul(materials['cloth'],.65))
-        if mat in ('skin','shadow_skin') and w>=5 and h>=5:
+        if mat in ('skin','shadow_skin','maggot') and w>=5 and h>=5:
             # Creases describe the part: broad muscles, folded wrists, worn facial planes.
             if any(n in name for n in ('face','skull','cranium','cheek','jaw','brow','nose')):
                 for y in (h//3,2*h//3):
@@ -144,6 +183,13 @@ def skin(species,variant,quads,size):
                 for i in range(max(1,w*h//100)):
                     x=rng.randrange(w);y=rng.randrange(h)
                     d.rectangle((x,y,min(w-1,x+1),min(h-1,y+1)),fill=mul(materials['moss'],.8))
+        if mat=='crystal' and w>=3 and h>=4:
+            d.line((0,0,w//2,max(1,h//3),w-1,max(1,h//3-1)),fill=mul(base,1.55))
+            d.line((w//2,1,max(0,w//2-1),h//2,w//2,h-2),fill=mul(materials['taint'],.8))
+            d.point((min(w-1,w//2+1),1),fill=mul(materials['core'],1))
+        if mat=='maggot' and w>=4 and h>=4:
+            for y in range(2,h-1,3):
+                d.line((1,y,w-2,y),fill=mul(base,.68));d.line((1,y-1,w-2,y-1),fill=mul(base,1.12))
         if mat=='bone' and w>2 and h>3:
             d.line((0,1,0,h-2),fill=mul(base,.62));d.point((min(w-1,1),1),fill=mul(base,1.2))
         if mat=='fungus':
@@ -154,7 +200,7 @@ def skin(species,variant,quads,size):
             d.rectangle((0,0,w-1,h-1),fill=mul(base,.75))
             if w>1 and h>1:d.rectangle((0,0,w-1,max(0,h-2)),fill=mul(base,1.05))
             d.line((w//2,0,w//2,h-1),fill=(25,24,25,255));d.point((max(0,w//2-1),0),fill=(255,242,192,255))
-        if mat=='rune':
+        if mat in ('rune','core'):
             d.rectangle((0,0,w-1,h-1),fill=mul(base,.55))
             d.line((w//2,0,w//2,h-1),fill=mul(base,1.2))
             if w>2:d.line((0,h//3,w-1,h//2),fill=mul(base,1.12))
@@ -178,12 +224,24 @@ def build():
             icon=head_icon(geometry['heads'][species],out[ASSETS+f'textures/entity/monstrosities/{key}.png'])
             stream=io.BytesIO();icon.save(stream,format='PNG');out[ASSETS+f'textures/item/monstrosities/{key}.png']=stream.getvalue()
             js(ASSETS+f'models/item/monstrosities/{key}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'alfheim_companion:item/monstrosities/{key}'}})
+            if species in CRYSTALS:
+                glow=Image.new('RGBA',(geometry['atlas_size'],geometry['atlas_size']));body=Image.open(io.BytesIO(out[ASSETS+f'textures/entity/monstrosities/{key}.png']))
+                for q in geometry['models'][species]:
+                    if q['material']!='core':continue
+                    uv=q['uv'];rect=(int(math.floor(min(t[0] for t in uv)*body.width)),int(math.floor(min(t[1] for t in uv)*body.height)),int(math.ceil(max(t[0] for t in uv)*body.width)),int(math.ceil(max(t[1] for t in uv)*body.height)))
+                    glow.paste(body.crop(rect),rect[:2])
+                stream=io.BytesIO();glow.save(stream,format='PNG');out[ASSETS+f'textures/entity/monstrosities/{key}_glow.png']=stream.getvalue()
             overrides.append({'predicate':{'alfheim_companion:monstrosity_variant':variant+1},'model':f'alfheim_companion:item/monstrosities/{key}'})
         js(ASSETS+f'models/item/{species}_spawn_egg.json',{'parent':f'alfheim_companion:item/monstrosities/{species}_0','overrides':overrides})
         lang['entity.alfheim_companion.'+species]=row['label'];lang['item.alfheim_companion.'+species+'_spawn_egg']=row['label']+' Spawn Egg'
         js(f'data/alfheim_companion/tags/worldgen/biome/{species}_habitats.json',{'replace':False,'values':HABITATS[species]})
-        js(f'data/alfheim_companion/forge/biome_modifier/{species}_spawns.json',{'type':'forge:add_spawns','biomes':'#alfheim_companion:'+species+'_habitats','spawners':{'type':'alfheim_companion:'+species,'weight':WEIGHTS.get(species,2),'minCount':1,'maxCount':1}})
+        if HABITATS[species]:js(f'data/alfheim_companion/forge/biome_modifier/{species}_spawns.json',{'type':'forge:add_spawns','biomes':'#alfheim_companion:'+species+'_habitats','spawners':{'type':'alfheim_companion:'+species,'weight':WEIGHTS.get(species,2),'minCount':1,'maxCount':1}})
         js(f'data/alfheim_companion/loot_tables/entities/{species}.json',{'type':'minecraft:entity','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':DROPS[species],'functions':[{'function':'minecraft:set_count','count':{'type':'minecraft:uniform','min':1,'max':3}}]}]}]})
+    from menagerie_sounds import build_sounds
+    sounds,subtitles=build_sounds([row['id'] for row in geometry['species']],{r['id']:r['label'] for r in geometry['species']})
+    js(ASSETS+'sounds.json',sounds);lang.update(subtitles)
+    from maggot_mounds import build_mounds
+    out.update(build_mounds());lang['block.alfheim_companion.maggot_mound']='Maggot Mound'
     js(ASSETS+'lang/en_us.json',lang)
     return out
 
@@ -193,5 +251,5 @@ def main():
         path=RES/name
         if args.check:assert path.read_bytes()==data,name
         else:path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-    print('MONSTROSITIES: 12 native rigs / 36 skins and matching heads; habitat spawns and bounded existing-material drops; '+('source equal' if args.check else 'generated'))
+    print('MONSTROSITIES: 19 native rigs / 57 skins and matching heads; habitat spawns and bounded existing-material drops; '+('source equal' if args.check else 'generated'))
 if __name__=='__main__':main()

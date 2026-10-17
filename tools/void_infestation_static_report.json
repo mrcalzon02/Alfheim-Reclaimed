@@ -1,0 +1,158 @@
+{
+  "status": "LOCALLY_VALIDATED_RUNTIME_REQUIRED",
+  "corpse_templates": [
+    {
+      "template": "bio_titan",
+      "spawners": 4,
+      "mounds": 16,
+      "variant": 0,
+      "sha256": "fb1a502655e6fcd1774cb2ad7f5dffbfe11e2a0152545521a2f83334cf928614"
+    },
+    {
+      "template": "bio_titan_desiccated",
+      "spawners": 4,
+      "mounds": 16,
+      "variant": 1,
+      "sha256": "42e22d9f3bf0324afe7467fa1cd32592a0f2be3a8e7684c8110ba4b846996f45"
+    },
+    {
+      "template": "bio_titan_ossified",
+      "spawners": 4,
+      "mounds": 16,
+      "variant": 2,
+      "sha256": "7044266ec79c9595b68b18d5deda921733d5d2c67a31f2c65e0a34d167b828b4"
+    }
+  ],
+  "natural_habitat_entries": 74,
+  "crystal_habitats": {
+    "corrupted_crystal_colossus": [
+      "alfheim:void_verge",
+      "alfheim:void_shore"
+    ],
+    "prism_warden": [
+      "alfheim:void_verge",
+      "alfheim:void_shore"
+    ],
+    "shard_reaver": [
+      "alfheim:void_verge",
+      "alfheim:void_shore"
+    ]
+  },
+  "spawner_only_parasites": [
+    "marrow_tick",
+    "parasite_maw",
+    "rib_burrower",
+    "sinew_leech"
+  ],
+  "habitats": {
+    "hulking_troll": [
+      "alfheim:rootfall",
+      "alfheim:hollow_marches",
+      "alfheim:sundered_highlands",
+      "alfheim:shatterfields",
+      "alfheim:starved_reach",
+      "alfheim:silverbark_wood"
+    ],
+    "cyclops": [
+      "mythicbotany:alfheim_hills",
+      "alfheim:sundered_highlands",
+      "alfheim:ashen_grove",
+      "alfheim:scorchfell",
+      "alfheim:sepulchral_reach",
+      "alfheim:prism_drift"
+    ],
+    "briar_beast": [
+      "alfheim:rootfall",
+      "alfheim:hollow_marches",
+      "alfheim:ashen_grove",
+      "alfheim:bloomfall_vale",
+      "mythicbotany:dreamwood_forest",
+      "alfheim:silverbark_wood"
+    ],
+    "thorn_infestor": [
+      "alfheim:infested_warren",
+      "alfheim:rootfall",
+      "alfheim:decayed_mire",
+      "alfheim:mana_fen",
+      "alfheim:starved_reach",
+      "alfheim:sporebank_shore"
+    ],
+    "stone_gargoyle": [
+      "alfheim:shatterfields",
+      "alfheim:prism_drift",
+      "alfheim:sepulchral_reach",
+      "alfheim:starless_reach",
+      "alfheim:void_shore"
+    ],
+    "fen_hag": [
+      "alfheim:mana_fen",
+      "alfheim:mistbark_shore",
+      "alfheim:decayed_mire",
+      "alfheim:sporebank_shore",
+      "alfheim:starved_reach",
+      "alfheim:tidewood_shore"
+    ],
+    "hollow_stag_wendigo": [
+      "alfheim:rootfall",
+      "alfheim:hollow_marches",
+      "alfheim:sepulchral_reach",
+      "alfheim:starved_reach",
+      "alfheim:silverbark_wood",
+      "alfheim:sundered_highlands"
+    ],
+    "duskweaver": [
+      "alfheim:infested_warren",
+      "alfheim:sporebank_shore",
+      "alfheim:mana_fen",
+      "alfheim:starless_reach",
+      "alfheim:bloomfall_vale"
+    ],
+    "hollow_bride": [
+      "alfheim:mistbark_shore",
+      "alfheim:sepulchral_reach",
+      "alfheim:decayed_mire",
+      "alfheim:starved_reach",
+      "alfheim:hollow_marches"
+    ],
+    "barrow_maw": [
+      "alfheim:hollow_marches",
+      "alfheim:decayed_mire",
+      "alfheim:sporebank_shore",
+      "alfheim:sepulchral_reach",
+      "alfheim:infested_warren"
+    ],
+    "nuckelavee": [
+      "alfheim:mistbark_shore",
+      "alfheim:decayed_mire",
+      "alfheim:scorchfell",
+      "alfheim:starved_reach",
+      "alfheim:tidewood_shore",
+      "alfheim:void_shore"
+    ],
+    "redcap_reaver": [
+      "alfheim:rootfall",
+      "mythicbotany:dreamwood_forest",
+      "alfheim:ashen_grove",
+      "alfheim:starved_reach",
+      "alfheim:silverbark_wood",
+      "alfheim:bloomfall_vale"
+    ],
+    "prism_warden": [
+      "alfheim:void_verge",
+      "alfheim:void_shore"
+    ],
+    "shard_reaver": [
+      "alfheim:void_verge",
+      "alfheim:void_shore"
+    ],
+    "corrupted_crystal_colossus": [
+      "alfheim:void_verge",
+      "alfheim:void_shore"
+    ],
+    "sinew_leech": [],
+    "rib_burrower": [],
+    "marrow_tick": [],
+    "parasite_maw": []
+  },
+  "gameplay_and_listening_review": "pending; no live server or client validation in this change"
+}

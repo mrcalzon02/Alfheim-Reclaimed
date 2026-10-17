@@ -86,6 +86,23 @@ def carcass(p,crystal,decay=''):
                 p.set(xx,9 if i<3 else 8,zz,B('alfheim:titan_bone_fractured'))
         for x in range(6,41):p.set(x,7,12+(x%4),B('alfheim:titan_sinew'))
 
+PARASITE_IDS=('marrow_tick','rib_burrower','sinew_leech','parasite_maw')
+TITAN_NESTS=((12,17,'marrow_tick'),(34,17,'rib_burrower'),(34,30,'sinew_leech'),(12,30,'parasite_maw'))
+
+def parasite_nests(p,decay):
+    variant=2 if decay=='ossified' else 1 if decay=='desiccated' else 0
+    for x,z,species in TITAN_NESTS:
+        # A hollow organ burrow, connected to the existing floor-level approach axes.
+        box(p,x-3,5,z-3,x+3,9,z+3,AIR)
+        box(p,x-1,5,min(z,23),x+1,8,max(z,23),AIR)
+        for dx in (-2,2):
+            for dz in (-2,2):p.set(x+dx,5,z+dz,B('alfheim_companion:maggot_mound',decay=str(variant)))
+        p.set(x,4,z,B('alfheim:titan_organ_calcified' if variant==2 else 'alfheim:titan_flesh_desiccated' if variant==1 else 'alfheim:titan_flesh_putrescent'))
+        p.set(x,5,z,B('minecraft:spawner'),{'id':'minecraft:mob_spawner','Delay':nbt.Short(200),
+            'MinSpawnDelay':nbt.Short(500),'MaxSpawnDelay':nbt.Short(1000),'SpawnCount':nbt.Short(1),
+            'MaxNearbyEntities':nbt.Short(2 if species=='parasite_maw' else 3),'RequiredPlayerRange':nbt.Short(12),'SpawnRange':nbt.Short(3),
+            'SpawnData':{'entity':{'id':'alfheim_companion:'+species,'MonstrosityVariant':nbt.Int(variant)}}})
+
 def surface(name):
     ossuary=name.endswith('_ossuary')
     if ossuary:name='entry_redoubt'
@@ -159,6 +176,7 @@ def surface(name):
         if ossuary:
             ellipsoid(p,(33,8,33),(6,3,6),B('alfheim:titan_bone_fractured'))
             box(p,30,5,11,34,8,13,B('alfheim:golem_core_socket_empty'))
+    if name.startswith('bio_titan'):parasite_nests(p,name.removeprefix('bio_titan').lstrip('_'))
     assert p.dropped==0,(name,p.dropped)
     p.prune_orphans();return p.to_nbt()
 
@@ -260,7 +278,11 @@ def main():
     stage=ROOT/'build/void-war/generated';cap=StructureCapability(project_root=ROOT,state_root=stage/'snapshots')
     cap.inventory.add_registry_ids(json.loads((ROOT/'server/local/kubejs/export/registries/block.json').read_text()),kind='block')
     evidence=json.loads((ROOT/'tools/void_war_registry_report.json').read_text())
-    cap.inventory.add_registry_ids(evidence['registered_ids'],kind='block');cap.register_generator(Provider(stage))
+    cap.inventory.add_registry_ids(evidence['registered_ids'],kind='block')
+    # This new first-party ID is declared in the compiled Forge block registry; runtime admission is separate.
+    source=(ROOT/'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/monstrosity/MaggotMoundBlock.java').read_text()
+    assert 'REGISTRY.register("maggot_mound",MaggotMoundBlock::new)' in source
+    cap.inventory.add_registry_ids(['alfheim_companion:maggot_mound'],kind='block');cap.register_generator(Provider(stage))
     result=cap.generate({'structure_id':'alfheim:void_war_remnants','target_version':'1.20.1','grade':3,
         'purpose':{'kind':'defeated_magical_armies','required_zones':['connected subterranean labyrinth','military ruins','paired titan battlefield','accessible descent']},
         'context':{'dimension':'mythicbotany:alfheim','biomes':['alfheim:void_verge','alfheim:void_shore']},
@@ -270,7 +292,7 @@ def main():
     for rel in layout['json']:
         path=ROOT/'kubejs/data/alfheim'/rel;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes((stage/'kubejs/data/alfheim'/rel).read_bytes())
     (ROOT/'tools/void_war_generation_report.json').write_text(json.dumps({'capability':'Continuity Works 0.3.2','snapshot_id':result['snapshot']['snapshot_id'],
-        'generation':result['generation'],'layout':layout,'registry_evidence':evidence},indent=2)+'\n')
+        'generation':result['generation'],'layout':layout,'registry_evidence':evidence,'source_declared_new_block_ids':['alfheim_companion:maggot_mound'],'runtime_registry_pending':['alfheim_companion:maggot_mound']},indent=2)+'\n')
     print(f'CW emitted {len(layout["templates"])} templates / eight war families; runtime validation required')
 
 if __name__=='__main__':main()

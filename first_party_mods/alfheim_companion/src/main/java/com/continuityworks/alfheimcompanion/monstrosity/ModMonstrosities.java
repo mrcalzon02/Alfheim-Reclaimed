@@ -30,7 +30,9 @@ public final class ModMonstrosities {
     public static void placements(SpawnPlacementRegisterEvent event){
         for(var kind:MonstrosityKind.values())event.register(TYPES.get(kind).get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             (type,level,reason,pos,random)->level.getLevel().dimension().location().toString().equals("mythicbotany:alfheim")
-                &&Monster.checkMonsterSpawnRules(type,level,reason,pos,random)
+                && (kind.spawnerOnly()?reason==MobSpawnType.SPAWNER&&level.getDifficulty()!=net.minecraft.world.Difficulty.PEACEFUL
+                    :kind.crystal()?level.getDifficulty()!=net.minecraft.world.Difficulty.PEACEFUL&&Mob.checkMobSpawnRules(type,level,reason,pos,random)
+                    :Monster.checkMonsterSpawnRules(type,level,reason,pos,random))
                 &&level.noCollision(type.getAABB(pos.getX()+.5,pos.getY(),pos.getZ()+.5)),SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
     private ModMonstrosities(){}

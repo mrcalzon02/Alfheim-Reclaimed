@@ -52,7 +52,7 @@ class MonstrosityModelsTest {
             row.addProperty("width",kind.width);var names=new JsonArray();for(String name:kind.variants)names.add(name);row.add("variants",names);rows.add(row);
         }
         assertEquals(3.6F,MonstrosityKind.TROLL.height);assertEquals(MonstrosityKind.values().length,shapes.size());
-        assertEquals(12,shapes.size());
+        assertEquals(19,shapes.size());
         catalogue.addProperty("atlas_size",MonstrosityModel.ATLAS_SIZE);catalogue.add("models",models);catalogue.add("heads",heads);catalogue.add("species",rows);
         for(String source:List.of("client/MonstrosityModel.java","monstrosity/MonstrosityKind.java")){
             Path p=Path.of("src/main/java/com/continuityworks/alfheimcompanion/"+source);

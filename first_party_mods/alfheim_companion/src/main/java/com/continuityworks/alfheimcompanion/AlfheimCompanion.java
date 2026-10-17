@@ -40,6 +40,8 @@ public final class AlfheimCompanion {
         com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.initialize();
         modBus.addListener(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities::attributes);
         modBus.addListener(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities::placements);
+        com.continuityworks.alfheimcompanion.monstrosity.ModMenagerieSounds.REGISTRY.register(modBus);
+        com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.REGISTRY.register(modBus);
         ModEntities.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModMenus.REGISTRY.register(modBus);
@@ -68,6 +70,7 @@ public final class AlfheimCompanion {
     }
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)event.accept(com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.ITEM.get());
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
             for(var kind:com.continuityworks.alfheimcompanion.monstrosity.MonstrosityKind.values())
                 for(int variant=0;variant<3;variant++)event.accept(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.selection(kind,variant));

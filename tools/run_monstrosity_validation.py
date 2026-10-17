@@ -28,7 +28,7 @@ def main():
     manifests=[(p,json.loads(p.read_text())) for p in server.glob('manifest-*.json')]
     path,evidence=next((p,m) for p,m in sorted(manifests,reverse=True) if m.get('level_name')==world)
     console=server/evidence['console'];log=console.read_text(errors='replace')
-    marker='ALFHEIM_MONSTROSITIES_PASS species=12 appearances=36 attack_checks=36 sight_blocks=36 saved_variants=36 ai_attacks=12 habitat_entries=53 troll_player_height_ratio=2.0'
+    marker='ALFHEIM_MONSTROSITIES_PASS species=19 appearances=57 attack_checks=57 sight_blocks=57 saved_variants=57 ai_attacks=19 habitat_entries=74 troll_player_height_ratio=2.0'
     assert code==0 and evidence['exit_code']==0 and marker in log,(code,console)
     jar=ROOT/'mods/alfheim_companion-0.2.0.jar'
     assert jar.read_bytes()==(server/'mods/alfheim_companion-0.2.0.jar').read_bytes()

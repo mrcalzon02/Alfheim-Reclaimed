@@ -1,0 +1,1520 @@
+{
+  "monstrosity.hulking_troll.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hulking_troll.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.ambient",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.warden.ambient",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.hulking_troll.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hulking_troll.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hulking_troll.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hulking_troll.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.death",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hulking_troll.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hulking_troll.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.step",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hulking_troll.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hulking_troll.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hulking_troll.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hulking_troll.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.cyclops.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.cyclops.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.ambient",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.iron_golem.damage",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.cyclops.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.cyclops.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.cyclops.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.cyclops.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.death",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.cyclops.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.cyclops.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.step",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.cyclops.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.cyclops.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.celebrate",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.cyclops.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.cyclops.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.attack_impact",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.briar_beast.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.briar_beast.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.fox.aggro",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block.wood.break",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.briar_beast.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.briar_beast.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.hurt",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.briar_beast.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.briar_beast.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.azalea.break",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.briar_beast.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.briar_beast.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.rooted_dirt.step",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.briar_beast.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.briar_beast.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.fox.aggro",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.briar_beast.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.briar_beast.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.attack",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.thorn_infestor.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.thorn_infestor.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:block.roots.break",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block.sculk_catalyst.bloom",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.thorn_infestor.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.thorn_infestor.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.wood.break",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.thorn_infestor.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.thorn_infestor.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.roots.break",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.thorn_infestor.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.thorn_infestor.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.rooted_dirt.step",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.thorn_infestor.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.thorn_infestor.windup",
+    "sounds": [
+      {
+        "name": "minecraft:block.vine.break",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.thorn_infestor.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.thorn_infestor.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.stone_gargoyle.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.stone_gargoyle.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.ambient",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block.stone.break",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.stone_gargoyle.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.stone_gargoyle.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.hurt",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.stone_gargoyle.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.stone_gargoyle.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.death",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.stone_gargoyle.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.stone_gargoyle.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.stone.step",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.stone_gargoyle.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.stone_gargoyle.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.swoop",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.stone_gargoyle.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.stone_gargoyle.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.bite",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.fen_hag.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.fen_hag.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.ambient",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.ghast.ambient",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.fen_hag.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.fen_hag.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.hurt",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.fen_hag.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.fen_hag.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.death",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.fen_hag.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.fen_hag.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.mud.step",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.fen_hag.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.fen_hag.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.witch.celebrate",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.fen_hag.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.fen_hag.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "pitch": 0.78,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_stag_wendigo.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_stag_wendigo.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.goat.screaming.ambient",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.skeleton.ambient",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.hollow_stag_wendigo.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_stag_wendigo.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.hurt",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_stag_wendigo.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_stag_wendigo.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.goat.screaming.death",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_stag_wendigo.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_stag_wendigo.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.step",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_stag_wendigo.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_stag_wendigo.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.agitated",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_stag_wendigo.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_stag_wendigo.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.attack_impact",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.duskweaver.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.duskweaver.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.bee.loop_aggressive",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.spider.ambient",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.duskweaver.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.duskweaver.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.spider.hurt",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.duskweaver.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.duskweaver.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.spider.death",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.duskweaver.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.duskweaver.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.spider.step",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.duskweaver.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.duskweaver.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.swoop",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.duskweaver.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.duskweaver.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.spider.hurt",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_bride.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_bride.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ghast.ambient",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.allay.ambient_without_item",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.hollow_bride.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_bride.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ghast.hurt",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_bride.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_bride.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ghast.death",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_bride.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_bride.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.wool.step",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_bride.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_bride.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_attack",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.hollow_bride.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.hollow_bride.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.barrow_maw.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.barrow_maw.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.ambient",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.slime.squish",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.barrow_maw.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.barrow_maw.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.hurt",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.barrow_maw.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.barrow_maw.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.death",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.barrow_maw.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.barrow_maw.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.mud.step",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.barrow_maw.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.barrow_maw.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.angry",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.barrow_maw.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.barrow_maw.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.attack",
+        "type": "event",
+        "pitch": 0.65,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.nuckelavee.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.nuckelavee.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.angry",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.skeleton_horse.ambient",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.nuckelavee.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.nuckelavee.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton_horse.hurt",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.nuckelavee.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.nuckelavee.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton_horse.death",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.nuckelavee.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.nuckelavee.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.step",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.nuckelavee.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.nuckelavee.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.horse.angry",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.nuckelavee.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.nuckelavee.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.attack",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.redcap_reaver.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.redcap_reaver.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.pillager.ambient",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.witch.ambient",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.redcap_reaver.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.redcap_reaver.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.pillager.hurt",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.redcap_reaver.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.redcap_reaver.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.pillager.death",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.redcap_reaver.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.redcap_reaver.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.wood.step",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.redcap_reaver.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.redcap_reaver.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.pillager.celebrate",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.redcap_reaver.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.redcap_reaver.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 1.2,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.corrupted_crystal_colossus.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.corrupted_crystal_colossus.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.iron_golem.damage",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.corrupted_crystal_colossus.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.corrupted_crystal_colossus.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.hurt",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.corrupted_crystal_colossus.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.corrupted_crystal_colossus.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.break",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.corrupted_crystal_colossus.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.corrupted_crystal_colossus.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.step",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.corrupted_crystal_colossus.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.corrupted_crystal_colossus.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_charge",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.corrupted_crystal_colossus.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.corrupted_crystal_colossus.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.attack_impact",
+        "type": "event",
+        "pitch": 0.62,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.shard_reaver.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.shard_reaver.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.chime",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block.amethyst_block.hit",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.shard_reaver.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.shard_reaver.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.break",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.shard_reaver.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.shard_reaver.death",
+    "sounds": [
+      {
+        "name": "minecraft:block.glass.break",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.shard_reaver.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.shard_reaver.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.step",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.shard_reaver.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.shard_reaver.windup",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.shard_reaver.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.shard_reaver.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.85,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.prism_warden.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.prism_warden.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.warden.heartbeat",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.prism_warden.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.prism_warden.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.break",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.prism_warden.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.prism_warden.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.death",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.prism_warden.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.prism_warden.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.step",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.prism_warden.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.prism_warden.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_charge",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.prism_warden.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.prism_warden.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.cast_spell",
+        "type": "event",
+        "pitch": 0.75,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.marrow_tick.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.marrow_tick.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.ambient",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.slime.squish_small",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.marrow_tick.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.marrow_tick.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.hurt",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.marrow_tick.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.marrow_tick.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.death",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.marrow_tick.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.marrow_tick.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.step",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.marrow_tick.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.marrow_tick.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.ambient",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.marrow_tick.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.marrow_tick.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.attack",
+        "type": "event",
+        "pitch": 1.3,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.rib_burrower.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.rib_burrower.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.ambient",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.skeleton.ambient",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.rib_burrower.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.rib_burrower.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.hurt",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.rib_burrower.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.rib_burrower.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.death",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.rib_burrower.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.rib_burrower.step",
+    "sounds": [
+      {
+        "name": "minecraft:entity.skeleton.step",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.rib_burrower.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.rib_burrower.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.ambient",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.rib_burrower.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.rib_burrower.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.silverfish.hurt",
+        "type": "event",
+        "pitch": 0.82,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.sinew_leech.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.sinew_leech.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.squish",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block.slime_block.hit",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.sinew_leech.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.sinew_leech.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.hurt_small",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.sinew_leech.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.sinew_leech.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.death",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.sinew_leech.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.sinew_leech.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.slime_block.step",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.sinew_leech.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.sinew_leech.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.jump",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.sinew_leech.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.sinew_leech.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.attack",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.parasite_maw.ambient": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.parasite_maw.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.ambient",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.55,
+        "weight": 3
+      },
+      {
+        "name": "minecraft:entity.bee.loop_aggressive",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.55,
+        "weight": 1
+      }
+    ]
+  },
+  "monstrosity.parasite_maw.hurt": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.parasite_maw.hurt",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.hurt",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.parasite_maw.death": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.parasite_maw.death",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.death",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.parasite_maw.step": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.parasite_maw.step",
+    "sounds": [
+      {
+        "name": "minecraft:block.slime_block.step",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.parasite_maw.windup": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.parasite_maw.windup",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.angry",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "monstrosity.parasite_maw.attack": {
+    "subtitle": "subtitles.alfheim_companion.monstrosity.parasite_maw.attack",
+    "sounds": [
+      {
+        "name": "minecraft:entity.hoglin.attack",
+        "type": "event",
+        "pitch": 0.6,
+        "volume": 0.8,
+        "weight": 3
+      }
+    ]
+  },
+  "maggot_mound.ambient": {
+    "subtitle": "subtitles.alfheim_companion.maggot_mound.ambient",
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.squish_small",
+        "type": "event",
+        "pitch": 0.7,
+        "volume": 0.5
+      },
+      {
+        "name": "minecraft:entity.silverfish.step",
+        "type": "event",
+        "pitch": 0.8,
+        "volume": 0.4
+      }
+    ]
+  }
+}

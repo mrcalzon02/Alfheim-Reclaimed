@@ -1,6 +1,6 @@
 {
   "capability": "Continuity Works 0.3.2",
-  "snapshot_id": "20261016T004440Z-alfheim_void_war_remnants-generate-73021ed0",
+  "snapshot_id": "20261017T212439Z-alfheim_void_war_remnants-generate-0c6c4a0f",
   "generation": {
     "status": "GENERATED_NOT_VALIDATED",
     "provider_contract": {
@@ -50,7 +50,7 @@
       {
         "name": "bio_titan",
         "file": "kubejs/data/alfheim/structures/void_war/bio_titan.nbt",
-        "sha256": "240ee8452f6c4c52a19d991e6eca6024e488bbd3af8959fdd879b1257d68262a",
+        "sha256": "fb1a502655e6fcd1774cb2ad7f5dffbfe11e2a0152545521a2f83334cf928614",
         "size": [
           47,
           48,
@@ -60,7 +60,7 @@
       {
         "name": "bio_titan_desiccated",
         "file": "kubejs/data/alfheim/structures/void_war/bio_titan_desiccated.nbt",
-        "sha256": "11e61f7a7d45f6184357b42f524a54e092d875358355d880237613502cfde7ee",
+        "sha256": "42e22d9f3bf0324afe7467fa1cd32592a0f2be3a8e7684c8110ba4b846996f45",
         "size": [
           47,
           48,
@@ -70,7 +70,7 @@
       {
         "name": "bio_titan_ossified",
         "file": "kubejs/data/alfheim/structures/void_war/bio_titan_ossified.nbt",
-        "sha256": "f3d54707277ca99da279227872ff8ce644c355cde90e39469b7d617e76c11565",
+        "sha256": "7044266ec79c9595b68b18d5deda921733d5d2c67a31f2c65e0a34d167b828b4",
         "size": [
           47,
           48,
@@ -647,6 +647,33 @@
           "explicit_registry_id"
         ]
       },
+      "alfheim_companion:maggot_mound": {
+        "id": "alfheim_companion:maggot_mound",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:titan_flesh_putrescent": {
+        "id": "alfheim:titan_flesh_putrescent",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:spawner": {
+        "id": "minecraft:spawner",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
       "alfheim:bio_sludge_desiccated": {
         "id": "alfheim:bio_sludge_desiccated",
         "kind": "block",
@@ -685,15 +712,6 @@
       },
       "alfheim:bio_sludge_putrefied": {
         "id": "alfheim:bio_sludge_putrefied",
-        "kind": "block",
-        "level": "exact",
-        "namespace_known": true,
-        "evidence": [
-          "explicit_registry_id"
-        ]
-      },
-      "alfheim:titan_flesh_putrescent": {
-        "id": "alfheim:titan_flesh_putrescent",
         "kind": "block",
         "level": "exact",
         "namespace_known": true,
@@ -781,15 +799,6 @@
         "evidence": [
           "minecraft namespace"
         ]
-      },
-      "minecraft:spawner": {
-        "id": "minecraft:spawner",
-        "kind": "block",
-        "level": "vanilla",
-        "namespace_known": true,
-        "evidence": [
-          "minecraft namespace"
-        ]
       }
     },
     "minimum_y": 32,
@@ -855,5 +864,11 @@
     "world": "validation-void-war-20261015",
     "console": "server\\console-20261015-161942.log",
     "installed_jar_sha256": "1775646bfa0c573c1eba5ea5204f618c4c4bf56ef0b851cc539444f504bb0c53"
-  }
+  },
+  "source_declared_new_block_ids": [
+    "alfheim_companion:maggot_mound"
+  ],
+  "runtime_registry_pending": [
+    "alfheim_companion:maggot_mound"
+  ]
 }
