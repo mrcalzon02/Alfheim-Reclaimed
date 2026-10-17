@@ -1,0 +1,677 @@
+{
+  "restock_ticks": 24000,
+  "roles": {
+    "serf": [
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:earth_essence",
+        "count_b": 2,
+        "result": "botania:dreamwood",
+        "count": 32,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:earth_essence",
+        "count_b": 2,
+        "result": "botania:livingrock",
+        "count": 32,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:earth_essence",
+        "count_b": 2,
+        "result": "botania:mana_powder",
+        "count": 16,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:earth_essence",
+        "count_b": 2,
+        "result": "botania:elementium_ingot",
+        "count": 8,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:earth_essence",
+        "count_b": 2,
+        "result": "botania:dragonstone",
+        "count": 4,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:earth_essence",
+        "count_b": 2,
+        "result": "botania:pixie_dust",
+        "count": 4,
+        "max_uses": 8
+      }
+    ],
+    "servant": [
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "ars_nouveau:air_essence",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "ars_nouveau:earth_essence",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "ars_nouveau:fire_essence",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "ars_nouveau:water_essence",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "ars_nouveau:abjuration_essence",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "ars_nouveau:conjuration_essence",
+        "count": 2,
+        "max_uses": 4
+      }
+    ],
+    "steward": [
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "botania:rune_mana",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "botania:rune_winter",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "botania:rune_autumn",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "botania:rune_spring",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "botania:rune_summer",
+        "count": 2,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "botania:pixie_dust",
+        "count": 8,
+        "max_uses": 4
+      }
+    ],
+    "artisan": [
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:scorched_filament",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:quenched_thread",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:ember_lattice",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:bound_weave",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:tempered_weave",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:emberbound_weave",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:emberbound_quenched",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "nobleman": [
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:frost_shard",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:silvered_flake",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:archive_leaf",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rime_cord",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:lattice_blank",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:sealed_lattice",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "noblewoman": [
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rimebound_drawn",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rimebound_folded",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rimebound_stilled",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rimebound_rebound",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rimebound_quenched",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:rimebound_lattice",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:rimebound_layered",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "lord": [
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:ash_of_names",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:mourning_dust",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:gilded_ash",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:debt_cord",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:reckoned_thread",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:grave_braid",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "lady": [
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:settled_thread",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:gravegilt_drawn",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:gravegilt_stilled",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:gravegilt_rebound",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:gravegilt_layered",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:gravegilt_thread",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:gravegilt_proofed",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "prince": [
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:heartwood_strand",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:crowned_fibre",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:yggdrasil_floss",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:branch_cord",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:living_crown",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:woven_crown",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "princess": [
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:ninefold_thread",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:crown_blank",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:crown_drawn",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:crown_folded",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:crown_stilled",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "alfheim:crown_rebound",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "king": [
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:manipulation_essence",
+        "count_b": 2,
+        "result": "mythicbotany:alfsteel_ingot",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:manipulation_essence",
+        "count_b": 2,
+        "result": "botania:life_essence",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:manipulation_essence",
+        "count_b": 2,
+        "result": "botania:rune_pride",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:manipulation_essence",
+        "count_b": 2,
+        "result": "botania:rune_wrath",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:manipulation_essence",
+        "count_b": 2,
+        "result": "botania:rune_envy",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:manipulation_essence",
+        "count_b": 2,
+        "result": "botania:rune_greed",
+        "count": 1,
+        "max_uses": 2
+      }
+    ],
+    "queen": [
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "alfheim:crown_quenched",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "alfheim:crown_layered",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "alfheim:crown_proofed",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "alfheim:crown_settled",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "ars_nouveau:manipulation_essence",
+        "count": 4,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "alfheim:crown_filament",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:abjuration_essence",
+        "count_b": 2,
+        "result": "ars_nouveau:conjuration_essence",
+        "count": 4,
+        "max_uses": 4
+      }
+    ]
+  }
+}

@@ -19,8 +19,9 @@ Ear tones are sampled from that skin's face. The fourth noble/royal appearance
 reuses the first identity with different finery; it is not a fourth new face.
 
 Citizens wander, look around and flee danger. Their stored role and appearance
-survive saving. They have no combat targets, recruitment, trading, court quests
-or automatic world population in this change. Existing companion and court
+survive saving. They have no combat targets, recruitment, court quests or automatic world
+population. A subsequent trading pass adds six role-specific villager-menu
+offers per citizen; see `ELVEN_TRADES_20261016.md`. Existing companion and court
 entities remain separate.
 
 Validation: Java 17 build and 71 tests; generated-resource checks; all packaged

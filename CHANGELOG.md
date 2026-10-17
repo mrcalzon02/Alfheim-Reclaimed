@@ -1,6 +1,26 @@
 # Changelog
 
 
+## Elven late-game merchant offers — 2026-10-16
+
+Elven citizens now use the native villager merchant menu with six role-specific
+offers each (72 total). Workers supply ingredients; artisans and nobles supply
+Emberbound/Rimebound intermediates; lords and ladies supply Gravegilt products;
+royalty supply Crown components, Alfsteel and Gaia Spirits. Trades consume a
+finished magical material plus a Source reagent; intermediates require their
+own chain's finished material. Stock is bounded, refreshes after 24,000 game
+ticks and persists across saves. Spawn-egg role selection resets default-role
+offers before generating the selected catalogue; saved role stock is preserved.
+
+Java17 build/71 tests, catalogue/progression checks, packaged asset equality
+and feature-order checks pass. All 48 role catalogues and 288 native menu transactions pass the live server
+audit, including insufficient payments, exhausted stock, saved usage and
+daily restocking. Evidence: `tools/elven_trades_build.json`. Client screen
+interaction remains pending.
+Installed companion jar requires a restart. Full offers and prices:
+`ELVEN_TRADES_20261016.md`.
+
+
 ## Elven society and corrected reference-based finery — 2026-10-16
 
 Added 12 passive adult roles with 48 selectable appearances and matching head

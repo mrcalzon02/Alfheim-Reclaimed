@@ -1,0 +1,9 @@
+{
+  "jar_sha256": "4eb929db6601569acc3ce2ba947a73751b71002db8a9cc472a3d582408ee85b2",
+  "runtime_manifest": "server\\manifest-20261016-223154.json",
+  "console": "server\\console-20261016-223154.log",
+  "result": "ALFHEIM_ELVEN_TRADES_PASS citizens=48 catalogue=72 menu_transactions=288 persisted_stock=48 daily_restocks=48",
+  "client_visual_review": "pending; native merchant menu transactions tested on server, client screen interaction remains pending",
+  "role_catalogues_verified": 48,
+  "native_menu_transactions": 288
+}
