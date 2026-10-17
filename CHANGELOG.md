@@ -1,5 +1,19 @@
 # Changelog
 
+## Expanded fey sky villages and inhabited log homes — 2026-10-17
+
+Replaced tiny seasonal hamlet definitions with eight large natural island
+layouts: asymmetric shores, raised ground, tapered rock undersides, cottage
+neighborhoods and winding lanes. Each includes ten seasonal cottages, two
+apartment trees, two gardens and a distinct seasonal landmark. Added four
+modeled log-home blocks with matching pixie residents, saved occupancy,
+daytime release, night/rain shelter, flower/crop visits and bounded nurseries.
+
+CW emitted 32 related tiles. Compilation, packaging, emitted-layout and
+resource checks pass; built and installed. Fresh-world placement/density and
+live home behavior remain pending. Restart and new chunks required.
+Details: `FEY_SKY_VILLAGES_20261017.md`; `tools/fey_sky_villages_build.json`.
+
 ## Elven whispers — 2026-10-17
 
 Added six original synthesized, wordless breath/formant murmurs for both

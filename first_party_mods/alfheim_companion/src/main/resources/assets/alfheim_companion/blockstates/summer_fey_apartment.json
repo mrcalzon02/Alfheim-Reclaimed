@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "alfheim_companion:block/summer_fey_apartment",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "alfheim_companion:block/summer_fey_apartment",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "alfheim_companion:block/summer_fey_apartment",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alfheim_companion:block/summer_fey_apartment",
+      "y": 270
+    }
+  }
+}

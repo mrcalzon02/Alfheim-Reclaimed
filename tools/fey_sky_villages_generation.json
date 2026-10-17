@@ -1,0 +1,1894 @@
+{
+  "capability": "Continuity Works",
+  "snapshot_id": "20261017T220857Z-alfheim_seasonal_fey_sky_villages-generate-8400f2a4",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_fey_sky_villages_v2"
+  },
+  "layout": {
+    "templates": [
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_0_0_0.nbt",
+        "season": "spring",
+        "variant": 0,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "16df816259efd7d9f66e1f8c7dbeeaa0b50498041383803faccd00f723ec8afc"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_0_0_1.nbt",
+        "season": "spring",
+        "variant": 0,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "1ff99add0829063a4e44d02f270d2921e5ca0bf97bf9029af059c921d3fd5a4a"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_0_1_0.nbt",
+        "season": "spring",
+        "variant": 0,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "e20b198db24241bcd7aa3a2015a2d8c19cab6cc3b58a96ea2a9e4ab561ed5a3c"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_0_1_1.nbt",
+        "season": "spring",
+        "variant": 0,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "dcd856bc6dcb108f5a8b6dbd2ae4bc185edb65dabba0a00659b470d1bd1854a6"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_1_0_0.nbt",
+        "season": "spring",
+        "variant": 1,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "4a859650915e236dad5df8f6672c80213b4f0133c94beffb33a51ea5c2c1eeee"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_1_0_1.nbt",
+        "season": "spring",
+        "variant": 1,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "01aa0fb2977467ea300649fcbb34d23ad2a0fb6f1e468589626ec0866c910feb"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_1_1_0.nbt",
+        "season": "spring",
+        "variant": 1,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "9eabd0de099d382bcf2a14191e4461bb3bbdb64d1c1078041f461f8684164484"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/spring/village_1_1_1.nbt",
+        "season": "spring",
+        "variant": 1,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "4c1bcf955212027d9dd1f4d8365c92e9c088ebbf2d39b7df4f71c0be5564d0c2"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_0_0_0.nbt",
+        "season": "summer",
+        "variant": 0,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "8d839a49898e10ad23abf71e85c411fcf897240a4bc4c1a081a6df77313ca2c5"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_0_0_1.nbt",
+        "season": "summer",
+        "variant": 0,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "d0b76b9403e79479132694f0b501721b63b245c59b082fc1ba763a0c29502e6a"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_0_1_0.nbt",
+        "season": "summer",
+        "variant": 0,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "fbfc511538a5c451e4983e9205da333d289d528d9bec147ff774464b3aa5047c"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_0_1_1.nbt",
+        "season": "summer",
+        "variant": 0,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "fdd6ce44b9462de601798ac6e65c8039bba802324b8cd455037d6f5ae8a6944c"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_1_0_0.nbt",
+        "season": "summer",
+        "variant": 1,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "db7f817938454ed5c4033d88ab56e620fe03f63e529c9372b1dda893f528d0a0"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_1_0_1.nbt",
+        "season": "summer",
+        "variant": 1,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "95dcab66fada5298d45843d2076740c6329e9f3fba879c8e2889d371c2efc972"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_1_1_0.nbt",
+        "season": "summer",
+        "variant": 1,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "c09a444da8f6aa7fd54f95f4872d05cbcc2273fb74475ec2760000b3992d995f"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/summer/village_1_1_1.nbt",
+        "season": "summer",
+        "variant": 1,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "c696120c700537c327f7b99d1e9fba3a96eb3a56d59879d09ba5052d5ea589ad"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_0_0_0.nbt",
+        "season": "autumn",
+        "variant": 0,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "7e224b1f9281470fa234ebb7b97576e161f679d5a7a68dde5bc4d1376fcb163b"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_0_0_1.nbt",
+        "season": "autumn",
+        "variant": 0,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "60c8a157b040d303655472ac6e157e6fcd4cb7df0f5103448b2b5d66862e18a9"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_0_1_0.nbt",
+        "season": "autumn",
+        "variant": 0,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "a146fe611c085f406170a2735614fd2e5ef3a9ce5ce98bb04ee2efc3d65738ca"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_0_1_1.nbt",
+        "season": "autumn",
+        "variant": 0,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "85a1d5438d8b857086f7744538ae17967ad1daaa49bd6f2f1edbc401a97f6edf"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_1_0_0.nbt",
+        "season": "autumn",
+        "variant": 1,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "cae24e3d08f9428b3ccef3543775f57de1a720904e73581a523e9caada18254a"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_1_0_1.nbt",
+        "season": "autumn",
+        "variant": 1,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "ecaae65683282815d355b06cb7c42032ee077f1dbe2f8cb82a043c5d39de86b0"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_1_1_0.nbt",
+        "season": "autumn",
+        "variant": 1,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "afc7072ec5ac5da9823685adddb9969fa7a48d92fd31b336a0526742b51b3ff1"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/autumn/village_1_1_1.nbt",
+        "season": "autumn",
+        "variant": 1,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "0a72c59dfe6954b02de95d145fbb98b944c8d3ead2c21231fd23ad1041d7ce1a"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_0_0_0.nbt",
+        "season": "winter",
+        "variant": 0,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "e162e500c484b4474b8e15f2bc5fd7cb8b0f58fd9a97732699642dee2fc38247"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_0_0_1.nbt",
+        "season": "winter",
+        "variant": 0,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "6084f69c198cab4c3ea2da3ac28d866a46028435e27aa81a0fe06275bab89a25"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_0_1_0.nbt",
+        "season": "winter",
+        "variant": 0,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "24617d7588f7b690d47cd0af1e3475306125aae40816f8f56b164afc35ae6aba"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_0_1_1.nbt",
+        "season": "winter",
+        "variant": 0,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "c9548e68afe0a4acc740c77175a6cc921717ed0760e40106d0c971d5a8e2a9e9"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_1_0_0.nbt",
+        "season": "winter",
+        "variant": 1,
+        "tile": [
+          0,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "2caa428790fc578280d876ddd12008f97994d7d8dd0dbe685cf5070e8242e06b"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_1_0_1.nbt",
+        "season": "winter",
+        "variant": 1,
+        "tile": [
+          0,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "ba8fb88d71b75b37591d0af0e51357c430bc5c5973190bb6d03c7c6ecd66eda5"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_1_1_0.nbt",
+        "season": "winter",
+        "variant": 1,
+        "tile": [
+          1,
+          0
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "d1108c47ed229cfa9ebd16277da0fe20e00e818d727ff8925aff0c9242afcaa2"
+      },
+      {
+        "file": "kubejs/data/alfheim/structures/pixie/winter/village_1_1_1.nbt",
+        "season": "winter",
+        "variant": 1,
+        "tile": [
+          1,
+          1
+        ],
+        "size": [
+          48,
+          48,
+          48
+        ],
+        "sha256": "be9d3c1432fb842e39a9463e245c29b9a58cd2b1a671f985bdf1ae8bce1a0bf9"
+      }
+    ],
+    "json": [
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/spring_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/spring_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/spring_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/summer_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/summer_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/summer_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/autumn_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/autumn_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/autumn_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/winter_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/winter_fey_apartment.json",
+      "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/winter_fey_apartment.json",
+      "kubejs/data/alfheim/worldgen/structure/pixie_spring_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure_set/pixie_spring_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure/pixie_summer_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure_set/pixie_summer_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure/pixie_autumn_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure_set/pixie_autumn_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure/pixie_winter_hamlet.json",
+      "kubejs/data/alfheim/worldgen/structure_set/pixie_winter_hamlet.json"
+    ],
+    "layouts": [
+      {
+        "season": "spring",
+        "variant": 0,
+        "theme": "Blossom bough courts",
+        "width": 96,
+        "surface_cells": 4077,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 6,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            23,
+            43
+          ],
+          [
+            29,
+            33
+          ],
+          [
+            36,
+            45
+          ],
+          [
+            38,
+            62
+          ],
+          [
+            46,
+            70
+          ],
+          [
+            53,
+            59
+          ],
+          [
+            64,
+            40
+          ],
+          [
+            73,
+            48
+          ],
+          [
+            66,
+            60
+          ],
+          [
+            52,
+            28
+          ]
+        ],
+        "log_positions": [
+          [
+            40,
+            35
+          ],
+          [
+            59,
+            51
+          ]
+        ],
+        "garden_positions": [
+          [
+            28,
+            55
+          ],
+          [
+            60,
+            71
+          ]
+        ],
+        "seed": 2026101700
+      },
+      {
+        "season": "spring",
+        "variant": 1,
+        "theme": "Blossom bough courts",
+        "width": 96,
+        "surface_cells": 4077,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 6,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            51,
+            23
+          ],
+          [
+            63,
+            28
+          ],
+          [
+            50,
+            37
+          ],
+          [
+            34,
+            36
+          ],
+          [
+            27,
+            47
+          ],
+          [
+            37,
+            54
+          ],
+          [
+            58,
+            65
+          ],
+          [
+            47,
+            71
+          ],
+          [
+            36,
+            68
+          ],
+          [
+            66,
+            52
+          ]
+        ],
+        "log_positions": [
+          [
+            60,
+            39
+          ],
+          [
+            45,
+            60
+          ]
+        ],
+        "garden_positions": [
+          [
+            42,
+            27
+          ],
+          [
+            27,
+            61
+          ]
+        ],
+        "seed": 2026101701
+      },
+      {
+        "season": "summer",
+        "variant": 0,
+        "theme": "Suncomb terraces",
+        "width": 96,
+        "surface_cells": 4076,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 6,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            20,
+            43
+          ],
+          [
+            27,
+            33
+          ],
+          [
+            35,
+            42
+          ],
+          [
+            37,
+            61
+          ],
+          [
+            46,
+            69
+          ],
+          [
+            55,
+            59
+          ],
+          [
+            62,
+            39
+          ],
+          [
+            72,
+            45
+          ],
+          [
+            72,
+            59
+          ],
+          [
+            53,
+            27
+          ]
+        ],
+        "log_positions": [
+          [
+            42,
+            34
+          ],
+          [
+            59,
+            51
+          ]
+        ],
+        "garden_positions": [
+          [
+            25,
+            55
+          ],
+          [
+            61,
+            68
+          ]
+        ],
+        "seed": 2026101710
+      },
+      {
+        "season": "summer",
+        "variant": 1,
+        "theme": "Suncomb terraces",
+        "width": 96,
+        "surface_cells": 4076,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 6,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            51,
+            20
+          ],
+          [
+            63,
+            26
+          ],
+          [
+            53,
+            36
+          ],
+          [
+            35,
+            35
+          ],
+          [
+            28,
+            47
+          ],
+          [
+            37,
+            56
+          ],
+          [
+            59,
+            63
+          ],
+          [
+            50,
+            70
+          ],
+          [
+            37,
+            74
+          ],
+          [
+            67,
+            53
+          ]
+        ],
+        "log_positions": [
+          [
+            61,
+            41
+          ],
+          [
+            45,
+            60
+          ]
+        ],
+        "garden_positions": [
+          [
+            42,
+            24
+          ],
+          [
+            30,
+            62
+          ]
+        ],
+        "seed": 2026101711
+      },
+      {
+        "season": "autumn",
+        "variant": 0,
+        "theme": "Lanterncap log borough",
+        "width": 96,
+        "surface_cells": 4074,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 9,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            21,
+            41
+          ],
+          [
+            30,
+            31
+          ],
+          [
+            35,
+            43
+          ],
+          [
+            34,
+            62
+          ],
+          [
+            45,
+            68
+          ],
+          [
+            53,
+            60
+          ],
+          [
+            65,
+            36
+          ],
+          [
+            75,
+            46
+          ],
+          [
+            70,
+            60
+          ],
+          [
+            52,
+            26
+          ]
+        ],
+        "log_positions": [
+          [
+            43,
+            35
+          ],
+          [
+            60,
+            52
+          ]
+        ],
+        "garden_positions": [
+          [
+            25,
+            54
+          ],
+          [
+            59,
+            70
+          ]
+        ],
+        "seed": 2026101720
+      },
+      {
+        "season": "autumn",
+        "variant": 1,
+        "theme": "Lanterncap log borough",
+        "width": 96,
+        "surface_cells": 4072,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 10,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            53,
+            21
+          ],
+          [
+            65,
+            29
+          ],
+          [
+            52,
+            36
+          ],
+          [
+            34,
+            32
+          ],
+          [
+            29,
+            46
+          ],
+          [
+            36,
+            54
+          ],
+          [
+            62,
+            66
+          ],
+          [
+            49,
+            73
+          ],
+          [
+            36,
+            72
+          ],
+          [
+            68,
+            52
+          ]
+        ],
+        "log_positions": [
+          [
+            60,
+            42
+          ],
+          [
+            44,
+            61
+          ]
+        ],
+        "garden_positions": [
+          [
+            43,
+            24
+          ],
+          [
+            28,
+            60
+          ]
+        ],
+        "seed": 2026101721
+      },
+      {
+        "season": "winter",
+        "variant": 0,
+        "theme": "Frostbell glass gardens",
+        "width": 96,
+        "surface_cells": 4081,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 6,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            21,
+            43
+          ],
+          [
+            30,
+            32
+          ],
+          [
+            35,
+            45
+          ],
+          [
+            37,
+            63
+          ],
+          [
+            46,
+            71
+          ],
+          [
+            54,
+            61
+          ],
+          [
+            65,
+            38
+          ],
+          [
+            74,
+            47
+          ],
+          [
+            70,
+            61
+          ],
+          [
+            53,
+            27
+          ]
+        ],
+        "log_positions": [
+          [
+            42,
+            36
+          ],
+          [
+            59,
+            51
+          ]
+        ],
+        "garden_positions": [
+          [
+            26,
+            56
+          ],
+          [
+            61,
+            70
+          ]
+        ],
+        "seed": 2026101730
+      },
+      {
+        "season": "winter",
+        "variant": 1,
+        "theme": "Frostbell glass gardens",
+        "width": 96,
+        "surface_cells": 4080,
+        "cottages": 10,
+        "apartment_trees": 2,
+        "home_blocks": 6,
+        "gardens": 2,
+        "cottage_positions": [
+          [
+            51,
+            21
+          ],
+          [
+            64,
+            29
+          ],
+          [
+            50,
+            36
+          ],
+          [
+            33,
+            35
+          ],
+          [
+            26,
+            47
+          ],
+          [
+            35,
+            55
+          ],
+          [
+            60,
+            66
+          ],
+          [
+            48,
+            72
+          ],
+          [
+            35,
+            72
+          ],
+          [
+            67,
+            53
+          ]
+        ],
+        "log_positions": [
+          [
+            59,
+            41
+          ],
+          [
+            45,
+            60
+          ]
+        ],
+        "garden_positions": [
+          [
+            41,
+            25
+          ],
+          [
+            28,
+            62
+          ]
+        ],
+        "seed": 2026101731
+      }
+    ],
+    "registry_probes": {
+      "botania:livingrock": {
+        "id": "botania:livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:rooted_dirt": {
+        "id": "minecraft:rooted_dirt",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:grass_block": {
+        "id": "minecraft:grass_block",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:mossy_cobblestone": {
+        "id": "minecraft:mossy_cobblestone",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:spring_tree_log": {
+        "id": "feywild:spring_tree_log",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:air": {
+        "id": "minecraft:air",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:spring_tree_planks": {
+        "id": "feywild:spring_tree_planks",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:spring_tree_planks_slab": {
+        "id": "feywild:spring_tree_planks_slab",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:yellow_stained_glass": {
+        "id": "minecraft:yellow_stained_glass",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:lantern": {
+        "id": "minecraft:lantern",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:barrel": {
+        "id": "minecraft:barrel",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:yellow_carpet": {
+        "id": "minecraft:yellow_carpet",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:spring_tree_leaves_lime": {
+        "id": "feywild:spring_tree_leaves_lime",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:spring_tree_leaves_cyan": {
+        "id": "feywild:spring_tree_leaves_cyan",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:spring_tree_leaves_green": {
+        "id": "feywild:spring_tree_leaves_green",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:flowering_azalea": {
+        "id": "minecraft:flowering_azalea",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:pink_tulip": {
+        "id": "minecraft:pink_tulip",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:allium": {
+        "id": "minecraft:allium",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:pink_wool": {
+        "id": "minecraft:pink_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:azure_bluet": {
+        "id": "minecraft:azure_bluet",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "alfheim_companion:spring_fey_apartment": {
+        "id": "alfheim_companion:spring_fey_apartment",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:spring_tree_planks_fence": {
+        "id": "feywild:spring_tree_planks_fence",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:farmland": {
+        "id": "minecraft:farmland",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:carrots": {
+        "id": "minecraft:carrots",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:beetroots": {
+        "id": "minecraft:beetroots",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:water": {
+        "id": "minecraft:water",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:oak_fence": {
+        "id": "minecraft:oak_fence",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:dirt": {
+        "id": "minecraft:dirt",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:cut_sandstone": {
+        "id": "minecraft:cut_sandstone",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:summer_tree_log": {
+        "id": "feywild:summer_tree_log",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:summer_tree_planks": {
+        "id": "feywild:summer_tree_planks",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:summer_tree_planks_slab": {
+        "id": "feywild:summer_tree_planks_slab",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:honeycomb_block": {
+        "id": "minecraft:honeycomb_block",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:yellow_wool": {
+        "id": "minecraft:yellow_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:white_wool": {
+        "id": "minecraft:white_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:orange_wool": {
+        "id": "minecraft:orange_wool",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "alfheim_companion:summer_fey_apartment": {
+        "id": "alfheim_companion:summer_fey_apartment",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:summer_tree_planks_fence": {
+        "id": "feywild:summer_tree_planks_fence",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:summer_tree_leaves_orange": {
+        "id": "feywild:summer_tree_leaves_orange",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:summer_tree_leaves_yellow": {
+        "id": "feywild:summer_tree_leaves_yellow",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:wheat": {
+        "id": "minecraft:wheat",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:melon_stem": {
+        "id": "minecraft:melon_stem",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:gold_block": {
+        "id": "minecraft:gold_block",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:dandelion": {
+        "id": "minecraft:dandelion",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:orange_tulip": {
+        "id": "minecraft:orange_tulip",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:oxeye_daisy": {
+        "id": "minecraft:oxeye_daisy",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:coarse_dirt": {
+        "id": "minecraft:coarse_dirt",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:podzol": {
+        "id": "minecraft:podzol",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:mud_bricks": {
+        "id": "minecraft:mud_bricks",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:autumn_tree_log": {
+        "id": "feywild:autumn_tree_log",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:autumn_tree_planks": {
+        "id": "feywild:autumn_tree_planks",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:mushroom_stem": {
+        "id": "minecraft:mushroom_stem",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:autumn_tree_planks_slab": {
+        "id": "feywild:autumn_tree_planks_slab",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:red_carpet": {
+        "id": "minecraft:red_carpet",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:brown_mushroom_block": {
+        "id": "minecraft:brown_mushroom_block",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:bricks": {
+        "id": "minecraft:bricks",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:campfire": {
+        "id": "minecraft:campfire",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:red_mushroom_block": {
+        "id": "minecraft:red_mushroom_block",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "alfheim_companion:autumn_fey_apartment": {
+        "id": "alfheim_companion:autumn_fey_apartment",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:autumn_tree_planks_fence": {
+        "id": "feywild:autumn_tree_planks_fence",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:autumn_tree_leaves_light_gray": {
+        "id": "feywild:autumn_tree_leaves_light_gray",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:autumn_tree_leaves_red": {
+        "id": "feywild:autumn_tree_leaves_red",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:autumn_tree_leaves_brown": {
+        "id": "feywild:autumn_tree_leaves_brown",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:potatoes": {
+        "id": "minecraft:potatoes",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:pumpkin_stem": {
+        "id": "minecraft:pumpkin_stem",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:brown_mushroom": {
+        "id": "minecraft:brown_mushroom",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:red_tulip": {
+        "id": "minecraft:red_tulip",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:snow_block": {
+        "id": "minecraft:snow_block",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:packed_ice": {
+        "id": "minecraft:packed_ice",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "feywild:winter_tree_log": {
+        "id": "feywild:winter_tree_log",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:winter_tree_planks": {
+        "id": "feywild:winter_tree_planks",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:winter_tree_planks_slab": {
+        "id": "feywild:winter_tree_planks_slab",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:light_blue_stained_glass": {
+        "id": "minecraft:light_blue_stained_glass",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:soul_lantern": {
+        "id": "minecraft:soul_lantern",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:light_blue_carpet": {
+        "id": "minecraft:light_blue_carpet",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:blue_ice": {
+        "id": "minecraft:blue_ice",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:end_rod": {
+        "id": "minecraft:end_rod",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:chain": {
+        "id": "minecraft:chain",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "alfheim_companion:winter_fey_apartment": {
+        "id": "alfheim_companion:winter_fey_apartment",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:winter_tree_planks_fence": {
+        "id": "feywild:winter_tree_planks_fence",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:winter_tree_leaves_light_blue": {
+        "id": "feywild:winter_tree_leaves_light_blue",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "feywild:winter_tree_leaves_blue": {
+        "id": "feywild:winter_tree_leaves_blue",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:glass": {
+        "id": "minecraft:glass",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:snow": {
+        "id": "minecraft:snow",
+        "kind": "block",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      }
+    },
+    "minimum_independent_gap": 500,
+    "runtime_neighbor_reservation": 900,
+    "base_y": 192,
+    "maximum_y": 239,
+    "pieces_per_village": 4
+  },
+  "source_declared_new_ids": [
+    "alfheim_companion:spring_fey_apartment",
+    "alfheim_companion:summer_fey_apartment",
+    "alfheim_companion:autumn_fey_apartment",
+    "alfheim_companion:winter_fey_apartment"
+  ],
+  "runtime_registry_pending": [
+    "alfheim_companion:spring_fey_apartment",
+    "alfheim_companion:summer_fey_apartment",
+    "alfheim_companion:autumn_fey_apartment",
+    "alfheim_companion:winter_fey_apartment"
+  ],
+  "status": "GENERATED_NOT_VALIDATED"
+}

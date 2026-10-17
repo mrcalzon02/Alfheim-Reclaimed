@@ -445,7 +445,7 @@ def salt_for(kind):
     return int(hashlib.sha1(f'pixie-{kind}'.encode()).hexdigest()[:7], 16)
 
 
-def main():
+def legacy_main():
     total = 0
     for kind, c in CULTURES.items():
         base = os.path.join(STRUCT, kind)
@@ -492,4 +492,7 @@ def main():
 
 
 if __name__ == '__main__':
+    # Retain the original component builders for historical world audits only.
+    # The supported entry point now emits the expanded CW villages.
+    from gen_fey_sky_villages import main
     sys.exit(main())

@@ -178,5 +178,9 @@
   "subtitles.alfheim_companion.monstrosity.parasite_maw.attack": "Parasite Maw strikes",
   "subtitles.alfheim_companion.maggot_mound.ambient": "Maggots writhe",
   "block.alfheim_companion.maggot_mound": "Maggot Mound",
-  "subtitles.alfheim_companion.elf.murmur": "Elf whispers"
+  "subtitles.alfheim_companion.elf.murmur": "Elf whispers",
+  "block.alfheim_companion.spring_fey_apartment": "Spring Fey Log Apartments",
+  "block.alfheim_companion.summer_fey_apartment": "Summer Fey Log Apartments",
+  "block.alfheim_companion.autumn_fey_apartment": "Autumn Fey Log Apartments",
+  "block.alfheim_companion.winter_fey_apartment": "Winter Fey Log Apartments"
 }

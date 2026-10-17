@@ -43,6 +43,8 @@ public final class AlfheimCompanion {
         com.continuityworks.alfheimcompanion.monstrosity.ModMenagerieSounds.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.REGISTRY.register(modBus);
         ModEntities.REGISTRY.register(modBus);
+        com.continuityworks.alfheimcompanion.fey.ModFeyHomes.BLOCKS.register(modBus);
+        com.continuityworks.alfheimcompanion.fey.ModFeyHomes.ENTITIES.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModMenus.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.registry.ModElvenSounds.REGISTRY.register(modBus);
@@ -52,6 +54,7 @@ public final class AlfheimCompanion {
         modBus.addListener(this::commonSetup);
         modBus.addListener(this::addCreativeItems);
         MinecraftForge.EVENT_BUS.register(CompanionEvents.class);
+        MinecraftForge.EVENT_BUS.addListener(com.continuityworks.alfheimcompanion.fey.FeyGardenGoal::joined);
         MinecraftForge.EVENT_BUS.addListener(com.continuityworks.alfheimcompanion.worldgen.BedrockFloorGuard::onChunkLoad);
     }
 
@@ -72,6 +75,7 @@ public final class AlfheimCompanion {
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)event.accept(com.continuityworks.alfheimcompanion.monstrosity.MaggotMoundBlock.ITEM.get());
+        if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS)for(var home:com.continuityworks.alfheimcompanion.fey.ModFeyHomes.ITEMS)event.accept(home.get());
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
             for(var kind:com.continuityworks.alfheimcompanion.monstrosity.MonstrosityKind.values())
                 for(int variant=0;variant<3;variant++)event.accept(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.selection(kind,variant));

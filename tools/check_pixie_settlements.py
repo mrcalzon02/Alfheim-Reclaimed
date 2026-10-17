@@ -225,4 +225,6 @@ def main():
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    # The old checks describe the archived 33-block island and its optional children.
+    from check_fey_sky_villages import main as check_current
+    sys.exit(check_current())

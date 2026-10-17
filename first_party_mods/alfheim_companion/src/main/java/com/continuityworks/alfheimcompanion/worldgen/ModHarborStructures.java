@@ -8,6 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public final class ModHarborStructures {
     public static final DeferredRegister<StructureType<?>> REGISTRY=DeferredRegister.create(Registries.STRUCTURE_TYPE,AlfheimCompanion.MOD_ID);
+    public static final RegistryObject<StructureType<FeySkyVillageStructure>> FEY_SKY_VILLAGE=REGISTRY.register("fey_sky_village",()->()->FeySkyVillageStructure.CODEC);
     public static final RegistryObject<StructureType<HarborStructure>> HARBOR=REGISTRY.register("shoreline_harbor",()->()->HarborStructure.CODEC);
     public static final RegistryObject<StructureType<RemoteDistrictStructure>> REMOTE_DISTRICT=
         REGISTRY.register("remote_district",()->()->RemoteDistrictStructure.CODEC);

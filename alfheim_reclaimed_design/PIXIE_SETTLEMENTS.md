@@ -1,3 +1,5 @@
+> Superseded 2026-10-17 by `FEY_SKY_VILLAGES_20261017.md`. The text below records the original small jigsaw hamlets and their historical validation, not the current expanded villages.
+
 # Seasonal pixie sky-island settlements
 
 **Status:** direct runtime assembly proven, 2026-09-07. Natural-placement census, spawner activation

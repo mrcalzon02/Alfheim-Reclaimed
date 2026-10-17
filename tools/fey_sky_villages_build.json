@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-17",
+  "status": "BUILT_INSTALLED_RUNTIME_REQUIRED",
+  "jar_sha256": "e9a32b9f35325b2f3b8482c6b53ad9843e46412e26eb0b551b2f4ce72040cd42",
+  "packaged_asset_data_files": 1223,
+  "backup": "quarantine\\alfheim_companion-before-fey-sky-villages-20261017.jar",
+  "cw_snapshot": "20261017T220857Z-alfheim_seasonal_fey_sky_villages-generate-8400f2a4",
+  "layouts": 8,
+  "tiles": 32,
+  "cottages_per_layout": 10,
+  "apartment_trees_per_layout": 2,
+  "total_home_blocks_across_eight_layouts": 55,
+  "body": "asymmetric elongated shores, terraced surface, tapered rock underside, clustered neighborhoods and winding lanes",
+  "validation": [
+    "offline compile/build passed; tests excluded",
+    "emitted NBT/source equality, bounded tiles, open home exits and connected routes passed",
+    "all native home texture paths resolved",
+    "offline village and home model previews inspected",
+    "packaged resources match source",
+    "installed jar matches build"
+  ],
+  "runtime": "pending: new structure placement/density and live pixie home/garden behavior"
+}
