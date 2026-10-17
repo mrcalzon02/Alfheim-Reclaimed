@@ -37,6 +37,9 @@ public final class AlfheimCompanion {
         com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies.BIOME_MODIFIERS.register(modBus);
         modBus.addListener(com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies::attributes);
         modBus.addListener(com.continuityworks.alfheimcompanion.enemy.ModThemedEnemies::placements);
+        com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.initialize();
+        modBus.addListener(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities::attributes);
+        modBus.addListener(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities::placements);
         ModEntities.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModMenus.REGISTRY.register(modBus);
@@ -66,6 +69,9 @@ public final class AlfheimCompanion {
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
+            for(var kind:com.continuityworks.alfheimcompanion.monstrosity.MonstrosityKind.values())
+                for(int variant=0;variant<3;variant++)event.accept(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.selection(kind,variant));
+        if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
             for(int role=0;role<com.continuityworks.alfheimcompanion.society.ElvenSociety.IDS.length;role++)
                 for(int look=0;look<4;look++)event.accept(com.continuityworks.alfheimcompanion.society.ElvenSociety.selection(role,look));
         if(event.getTabKey()==CreativeModeTabs.SPAWN_EGGS)
@@ -85,10 +91,14 @@ public final class AlfheimCompanion {
             event.registerEntityRenderer(ModEntities.ELVEN_CITIZEN.get(),com.continuityworks.alfheimcompanion.client.ElvenCitizenRenderer::new);
             event.registerEntityRenderer(ModEntities.ELVEN_COMPANION.get(), ElvenCompanionRenderer::new);
             com.continuityworks.alfheimcompanion.client.ThemedEnemyRenderers.register(event);
+            for(var kind:com.continuityworks.alfheimcompanion.monstrosity.MonstrosityKind.values())
+                event.registerEntityRenderer(com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.TYPES.get(kind).get(),context->new com.continuityworks.alfheimcompanion.client.MonstrosityRenderer(context,kind));
         }
 
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerEnemyLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            for(var kind:com.continuityworks.alfheimcompanion.monstrosity.MonstrosityKind.values())
+                event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.MonstrosityModel.location(kind),()->com.continuityworks.alfheimcompanion.client.MonstrosityModel.layer(kind));
             for(int role=0;role<com.continuityworks.alfheimcompanion.society.ElvenSociety.IDS.length;role++){
                 final int selectedRole=role;
                 event.registerLayerDefinition(com.continuityworks.alfheimcompanion.client.ElvenSocietyModels.location(role),
@@ -112,6 +122,9 @@ public final class AlfheimCompanion {
                 MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(), CompanionInventoryScreen::new);
                 com.continuityworks.alfheimcompanion.client.EnemySpawnItemAppearance.registerProperties();
                 com.continuityworks.alfheimcompanion.client.ElvenCitizenRenderer.itemProperties();
+                for(var egg:com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.EGGS.values())
+                    net.minecraft.client.renderer.item.ItemProperties.register(egg.get(),new net.minecraft.resources.ResourceLocation("alfheim_companion","monstrosity_variant"),
+                        (stack,world,mob,seed)->com.continuityworks.alfheimcompanion.monstrosity.ModMonstrosities.variant(stack)+1);
             });
         }
         @net.minecraftforge.eventbus.api.SubscribeEvent(priority=net.minecraftforge.eventbus.api.EventPriority.LOWEST)

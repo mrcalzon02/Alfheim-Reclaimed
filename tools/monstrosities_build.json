@@ -1,0 +1,7 @@
+{
+  "jar_sha256": "43b82975f988d274fb400df6a357e05c1d499ed9c42b67900a91cedc5b4232d0",
+  "runtime_manifest": "server\\manifest-20261017-080651.json",
+  "console": "server\\console-20261017-080651.log",
+  "result": "ALFHEIM_MONSTROSITIES_PASS species=6 appearances=18 attack_checks=18 sight_blocks=18 saved_variants=18 ai_attacks=6 habitat_entries=29 troll_player_height_ratio=2.0",
+  "client_visual_review": "pending; native attacks and biome entries tested; client animation/lighting and long-run spawn density remain pending"
+}

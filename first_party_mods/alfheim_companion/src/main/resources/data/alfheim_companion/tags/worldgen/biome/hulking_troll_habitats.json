@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:rootfall",
+    "alfheim:hollow_marches",
+    "alfheim:sundered_highlands",
+    "alfheim:shatterfields",
+    "alfheim:starved_reach"
+  ]
+}

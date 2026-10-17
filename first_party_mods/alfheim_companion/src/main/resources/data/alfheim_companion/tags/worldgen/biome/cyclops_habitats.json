@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mythicbotany:alfheim_hills",
+    "alfheim:sundered_highlands",
+    "alfheim:ashen_grove",
+    "alfheim:scorchfell",
+    "alfheim:sepulchral_reach"
+  ]
+}

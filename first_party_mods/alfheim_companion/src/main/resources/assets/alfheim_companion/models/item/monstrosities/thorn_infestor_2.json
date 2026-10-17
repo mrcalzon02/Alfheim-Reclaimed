@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alfheim_companion:item/monstrosities/thorn_infestor_2"
+  }
+}

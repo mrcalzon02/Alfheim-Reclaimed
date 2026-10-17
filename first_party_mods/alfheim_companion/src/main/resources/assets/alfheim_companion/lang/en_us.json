@@ -23,5 +23,17 @@
   "entity.alfheim_companion.biome_endermite": "Alfheim Riftmite",
   "item.alfheim_companion.biome_endermite_spawn_egg": "Alfheim Riftmite Spawn Egg",
   "entity.alfheim_companion.elven_citizen": "Elven Citizen",
-  "item.alfheim_companion.elven_citizen_spawn_egg": "Elven Citizen Spawn Egg"
+  "item.alfheim_companion.elven_citizen_spawn_egg": "Elven Citizen Spawn Egg",
+  "entity.alfheim_companion.hulking_troll": "Hulking Troll",
+  "item.alfheim_companion.hulking_troll_spawn_egg": "Hulking Troll Spawn Egg",
+  "entity.alfheim_companion.cyclops": "Cyclops",
+  "item.alfheim_companion.cyclops_spawn_egg": "Cyclops Spawn Egg",
+  "entity.alfheim_companion.briar_beast": "Briar Beast",
+  "item.alfheim_companion.briar_beast_spawn_egg": "Briar Beast Spawn Egg",
+  "entity.alfheim_companion.thorn_infestor": "Thorn Infestor",
+  "item.alfheim_companion.thorn_infestor_spawn_egg": "Thorn Infestor Spawn Egg",
+  "entity.alfheim_companion.stone_gargoyle": "Stone Gargoyle",
+  "item.alfheim_companion.stone_gargoyle_spawn_egg": "Stone Gargoyle Spawn Egg",
+  "entity.alfheim_companion.fen_hag": "Hag",
+  "item.alfheim_companion.fen_hag_spawn_egg": "Hag Spawn Egg"
 }

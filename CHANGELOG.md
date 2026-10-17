@@ -1,6 +1,29 @@
 # Changelog
 
 
+## Six new fantastical enemy species — 2026-10-16
+
+Added Hulking Troll, Cyclops, Briar Beast, Thorn Infestor, Stone Gargoyle and
+Hag: six authored native anatomies, three regional skins each and 18 named
+skinned-head spawn selections. The 2026-10-17 art rebuild replaces the rejected
+plain forms with 86–120 sculpted pieces per creature, unique UV islands,
+separate shaded materials, anatomical details, layered equipment and garments.
+Head icons now render the exact angled native head surfaces. Troll collision/model height is 3.6 blocks,
+exactly twice a player's height. Distinct attacks include heavy knockback,
+slowing claws, segmented poisonous whips, gargoyle leaps and poison hexes.
+Hits recheck range and sight and respect the installed combat damage pipeline.
+Added 29 low-weight singleton habitat entries, normal hostile darkness and
+body-clearance requirements, plus bounded existing-material loot tables.
+
+Java17 build/72 tests, UV/head/source and packaging checks pass; feature order
+has no cycles. The server audit passes all 18 spawn/damage/effect/sight/save
+checks, six simulated native AI attack cycles and 29 habitat entries. Evidence:
+`tools/monstrosities_build.json`. Client animation/lighting and
+long-run natural density review remain pending. Details and offline previews:
+`MONSTROSITIES_20261016.md`, `tools/monstrosities_review.png` and
+`tools/monstrosities_variants.png`. Restart required for the installed jar.
+
+
 ## Elven late-game merchant offers — 2026-10-16
 
 Elven citizens now use the native villager merchant menu with six role-specific

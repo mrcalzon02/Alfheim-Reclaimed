@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:infested_warren",
+    "alfheim:rootfall",
+    "alfheim:decayed_mire",
+    "alfheim:mana_fen",
+    "alfheim:starved_reach"
+  ]
+}
