@@ -237,18 +237,43 @@ def village(kind,variant):
     for x,z in logs:apartment_tree(Raised(p,heights[(x,z)]-14),kind,c,x,z)
     for x,z in gardens:garden(Raised(p,heights[(x,z)]-14),kind,c,x,z)
     landmark(Raised(p,civic-14),kind,c)
-    # Seasonal orchards and flower meadows fill the spaces between inhabited streets.
+    # Seasonal groves fill the open land without swallowing streets or home fronts.
     occupied=houses+logs+[(48,48)]+gardens
-    for _ in range(600):
+    tree_positions=[]
+    road_cells={(x,z) for (x,y,z),(state,be) in p.blocks.items() if
+                ground.get((x,z))==y and p.palette[state]['Name']==c['wood']}
+    for _ in range(6000):
+        if len(tree_positions)>=10:break
+        x,z=rng.randrange(7,89),rng.randrange(7,89)
+        if (x,z) not in ground or any(math.hypot(x-a,z-b)<8 for a,b in occupied+tree_positions):continue
+        if any((x+dx,z+dz) in road_cells for dx in range(-4,5) for dz in range(-4,5)):continue
+        if any((x+dx,z+dz) not in ground for dx in (-3,0,3) for dz in (-3,0,3)):continue
+        height=ground[(x,z)];tall=rng.randrange(6,10)
+        if any(p.palette[state]['Name']!='minecraft:air' for (xx,yy,zz),(state,be) in p.blocks.items()
+               if abs(xx-x)<=3 and abs(zz-z)<=3 and height+2<=yy<=height+tall+3):continue
+        for y in range(height+1,height+tall+1):p.set(x,y,z,B(c['log'],axis='y'))
+        if kind=='winter':layers=[(tall-3,3),(tall-2,2.6),(tall-1,2),(tall,1.4),(tall+1,.7)]
+        elif kind=='summer':layers=[(tall-2,3.5),(tall-1,3.8),(tall,3),(tall+1,1.8)]
+        else:layers=[(tall-2,2.8),(tall-1,3.2),(tall,2.8),(tall+1,1.8),(tall+2,.7)]
+        for dy,radius in layers:
+            for dx in range(-4,5):
+                for dz in range(-4,5):
+                    if dx*dx+dz*dz<=radius*radius and (dx or dz or dy>tall):p.set(x+dx,height+dy,z+dz,leaves(c,len(tree_positions)+dy))
+        for dx in (-2,2):
+            for k in range(1,abs(dx)+1):p.set(x+(k if dx>0 else -k),height+tall-3+k//2,z,B(c['log'],axis='x'))
+        tree_positions.append((x,z))
+    flowers=0
+    for _ in range(4000):
         x,z=rng.randrange(8,88),rng.randrange(8,88)
-        if (x,z) not in ground or any(math.hypot(x-a,z-b)<7 for a,b in occupied):continue
+        if (x,z) not in ground or any(math.hypot(x-a,z-b)<5.5 for a,b in occupied):continue
         height=ground[(x,z)];current=p.blocks.get((x,height,z));above=p.blocks.get((x,height+1,z))
         if current is None or p.palette[current[0]]['Name']!=c['surface'] or above is not None:continue
-        if kind=='winter':p.set(x,height+1,z,B('minecraft:snow',layers=1))
-        else:p.set(x,height+1,z,B(c['flowers'][rng.randrange(len(c['flowers']))]))
+        # Snowy islands get exposed grass beds so actual flowers survive block updates.
+        if kind=='winter':p.set(x,height,z,B('minecraft:grass_block'))
+        p.set(x,height+1,z,B(c['flowers'][rng.randrange(len(c['flowers']))]));flowers+=1
     assert p.dropped==0,(kind,variant,p.dropped)
     homes=sum(1 for state,be in p.blocks.values() if p.palette[state]['Name'].endswith('_fey_apartment'))
-    return p,{'season':kind,'variant':variant,'theme':THEMES[kind],'width':96,'surface_cells':len(ground),'cottages':10,'apartment_trees':2,'home_blocks':homes,'gardens':2,'cottage_positions':houses,'log_positions':logs,'garden_positions':gardens,'seed':2026101700+list(CULTURES).index(kind)*10+variant}
+    return p,{'season':kind,'variant':variant,'theme':THEMES[kind],'width':96,'surface_cells':len(ground),'cottages':10,'apartment_trees':2,'home_blocks':homes,'gardens':2,'decorative_trees':len(tree_positions),'flowers':flowers,'cottage_positions':houses,'log_positions':logs,'garden_positions':gardens,'seed':2026101700+list(CULTURES).index(kind)*10+variant}
 
 def home_resources():
     out={};prefix='first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/'

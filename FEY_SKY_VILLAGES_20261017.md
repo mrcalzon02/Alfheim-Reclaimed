@@ -16,6 +16,17 @@ ice bell turrets and lit glass gardens. The two street arrangements and island
 orientations per season replace the old three-house lottery. Three cottage
 forms per season add variety within a settlement.
 
+## Added seasonal vegetation
+
+Each layout now includes ten additional branching seasonal trees, beyond the
+two apartment trees, and roughly 1,000 flowers across the open land. Trees
+use seasonal Feywild logs/leaves with broad summer crowns and tapered winter
+crowns. Snow islands expose grass flower beds for blue orchids and cornflowers
+to survive block updates. Streets, gardens, cottage approaches and home exits
+remain clear in the emitted-layout checks. The structure templates are updated
+in the active KubeJS data pack; the companion jar is unchanged for this foliage
+pass.
+
 ## Inhabitable homes
 
 Four native seasonal log-apartment blocks use the installed Feywild bark and

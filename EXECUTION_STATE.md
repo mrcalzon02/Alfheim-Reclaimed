@@ -1,5 +1,14 @@
 # Execution State
 
+## More vegetation on fey islands — 2026-10-17
+
+Added ten additional seasonal trees and roughly 1,000 flowers per island,
+including exposed blue-flower beds on winter islands. Regenerated all 32
+tiles through Continuity Works, refreshed previews and passed the existing
+route/home-exit checks. Active KubeJS templates updated; companion jar
+unchanged. Applies to newly generated villages after restart. In-game
+placement/behavior review remains pending.
+
 ## Expanded fey sky villages and inhabited log homes — 2026-10-17
 
 Replaced tiny seasonal hamlet definitions with eight large natural island

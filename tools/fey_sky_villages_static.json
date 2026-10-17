@@ -11,6 +11,8 @@
       "apartment_trees": 2,
       "home_blocks": 6,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1054,
       "cottage_positions": [
         [
           23,
@@ -74,8 +76,8 @@
         ]
       ],
       "seed": 2026101700,
-      "blocks": 51219,
-      "reachable_surface_cells": 3783,
+      "blocks": 53073,
+      "reachable_surface_cells": 3768,
       "home_exits_clear": true
     },
     {
@@ -88,6 +90,8 @@
       "apartment_trees": 2,
       "home_blocks": 6,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1094,
       "cottage_positions": [
         [
           51,
@@ -151,8 +155,8 @@
         ]
       ],
       "seed": 2026101701,
-      "blocks": 51693,
-      "reachable_surface_cells": 3798,
+      "blocks": 53561,
+      "reachable_surface_cells": 3784,
       "home_exits_clear": true
     },
     {
@@ -165,6 +169,8 @@
       "apartment_trees": 2,
       "home_blocks": 6,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1053,
       "cottage_positions": [
         [
           20,
@@ -228,8 +234,8 @@
         ]
       ],
       "seed": 2026101710,
-      "blocks": 50863,
-      "reachable_surface_cells": 3795,
+      "blocks": 53034,
+      "reachable_surface_cells": 3776,
       "home_exits_clear": true
     },
     {
@@ -242,6 +248,8 @@
       "apartment_trees": 2,
       "home_blocks": 6,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1076,
       "cottage_positions": [
         [
           51,
@@ -305,8 +313,8 @@
         ]
       ],
       "seed": 2026101711,
-      "blocks": 51029,
-      "reachable_surface_cells": 3797,
+      "blocks": 53210,
+      "reachable_surface_cells": 3782,
       "home_exits_clear": true
     },
     {
@@ -319,6 +327,8 @@
       "apartment_trees": 2,
       "home_blocks": 9,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1039,
       "cottage_positions": [
         [
           21,
@@ -382,8 +392,8 @@
         ]
       ],
       "seed": 2026101720,
-      "blocks": 51455,
-      "reachable_surface_cells": 3774,
+      "blocks": 53281,
+      "reachable_surface_cells": 3758,
       "home_exits_clear": true
     },
     {
@@ -396,6 +406,8 @@
       "apartment_trees": 2,
       "home_blocks": 10,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1075,
       "cottage_positions": [
         [
           53,
@@ -459,8 +471,8 @@
         ]
       ],
       "seed": 2026101721,
-      "blocks": 51680,
-      "reachable_surface_cells": 3763,
+      "blocks": 53546,
+      "reachable_surface_cells": 3750,
       "home_exits_clear": true
     },
     {
@@ -473,6 +485,8 @@
       "apartment_trees": 2,
       "home_blocks": 6,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1083,
       "cottage_positions": [
         [
           21,
@@ -536,8 +550,8 @@
         ]
       ],
       "seed": 2026101730,
-      "blocks": 52754,
-      "reachable_surface_cells": 3834,
+      "blocks": 54405,
+      "reachable_surface_cells": 3656,
       "home_exits_clear": true
     },
     {
@@ -550,6 +564,8 @@
       "apartment_trees": 2,
       "home_blocks": 6,
       "gardens": 2,
+      "decorative_trees": 10,
+      "flowers": 1065,
       "cottage_positions": [
         [
           51,
@@ -613,8 +629,8 @@
         ]
       ],
       "seed": 2026101731,
-      "blocks": 52882,
-      "reachable_surface_cells": 3833,
+      "blocks": 54510,
+      "reachable_surface_cells": 3639,
       "home_exits_clear": true
     }
   ],
