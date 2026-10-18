@@ -1,0 +1,379 @@
+{
+  "status": "VERIFIED_IN_GAME",
+  "world": "validation-castle-terrain-20261018",
+  "seed": "-5876049240305171930",
+  "site": [
+    1312,
+    -1840
+  ],
+  "console": "server\\console-20261018-143314.log",
+  "exit_code": 0,
+  "ground_sites": [
+    {
+      "family": "alfheim:golden_field_dais",
+      "x": 320,
+      "z": -912
+    }
+  ],
+  "tested_jar_sha256": "2de2db9e0eaa3e0a4171aeae3031d4e0cd55641445ccdd6f14423498afd89c58",
+  "proof": {
+    "start_chunk": [
+      82,
+      -115
+    ],
+    "centre": [
+      1312,
+      78,
+      -1840
+    ],
+    "footprint": [
+      235,
+      235
+    ],
+    "bounds": [
+      1195,
+      69,
+      -1957,
+      1429,
+      116,
+      -1723
+    ],
+    "tiles": [
+      {
+        "template": "alfheim:royal_castle/tower",
+        "bounds": [
+          1195,
+          69,
+          -1957,
+          1241,
+          116,
+          -1911
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1195,
+          69,
+          -1910,
+          1241,
+          116,
+          -1864
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/gate",
+        "bounds": [
+          1195,
+          69,
+          -1863,
+          1241,
+          116,
+          -1817
+        ],
+        "sampled": 202,
+        "matched": 202
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1195,
+          69,
+          -1816,
+          1241,
+          116,
+          -1770
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/tower",
+        "bounds": [
+          1195,
+          69,
+          -1769,
+          1241,
+          116,
+          -1723
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1242,
+          69,
+          -1957,
+          1288,
+          116,
+          -1911
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/garden",
+        "bounds": [
+          1242,
+          69,
+          -1910,
+          1288,
+          116,
+          -1864
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/hall",
+        "bounds": [
+          1242,
+          69,
+          -1863,
+          1288,
+          116,
+          -1817
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/garden",
+        "bounds": [
+          1242,
+          69,
+          -1816,
+          1288,
+          116,
+          -1770
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1242,
+          69,
+          -1769,
+          1288,
+          116,
+          -1723
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/gate",
+        "bounds": [
+          1289,
+          69,
+          -1957,
+          1335,
+          116,
+          -1911
+        ],
+        "sampled": 202,
+        "matched": 202
+      },
+      {
+        "template": "alfheim:royal_castle/hall",
+        "bounds": [
+          1289,
+          69,
+          -1910,
+          1335,
+          116,
+          -1864
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/keep",
+        "bounds": [
+          1289,
+          69,
+          -1863,
+          1335,
+          116,
+          -1817
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/hall",
+        "bounds": [
+          1289,
+          69,
+          -1816,
+          1335,
+          116,
+          -1770
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/gate",
+        "bounds": [
+          1289,
+          69,
+          -1769,
+          1335,
+          116,
+          -1723
+        ],
+        "sampled": 202,
+        "matched": 202
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1336,
+          69,
+          -1957,
+          1382,
+          116,
+          -1911
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/garden",
+        "bounds": [
+          1336,
+          69,
+          -1910,
+          1382,
+          116,
+          -1864
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/hall",
+        "bounds": [
+          1336,
+          69,
+          -1863,
+          1382,
+          116,
+          -1817
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/garden",
+        "bounds": [
+          1336,
+          69,
+          -1816,
+          1382,
+          116,
+          -1770
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1336,
+          69,
+          -1769,
+          1382,
+          116,
+          -1723
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/tower",
+        "bounds": [
+          1383,
+          69,
+          -1957,
+          1429,
+          116,
+          -1911
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1383,
+          69,
+          -1910,
+          1429,
+          116,
+          -1864
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/gate",
+        "bounds": [
+          1383,
+          69,
+          -1863,
+          1429,
+          116,
+          -1817
+        ],
+        "sampled": 202,
+        "matched": 202
+      },
+      {
+        "template": "alfheim:royal_castle/curtain",
+        "bounds": [
+          1383,
+          69,
+          -1816,
+          1429,
+          116,
+          -1770
+        ],
+        "sampled": 201,
+        "matched": 201
+      },
+      {
+        "template": "alfheim:royal_castle/tower",
+        "bounds": [
+          1383,
+          69,
+          -1769,
+          1429,
+          116,
+          -1723
+        ],
+        "sampled": 201,
+        "matched": 201
+      }
+    ],
+    "verified_samples": 5029,
+    "foundation_columns": 9,
+    "nearby_start_clearance": [],
+    "clearance_scope": "starts within loaded 16x16 chunks"
+  },
+  "minecraft": "1.20.1",
+  "forge": "47.4.10",
+  "method": "native world generation; locate then load chunks; no place command",
+  "installed_jar_sha256": "d5036a9530507dec3f404942b70f6577655acea066f81139f782aa7ce8c0709d",
+  "visual_review": "pending client inspection",
+  "player_saves_modified": false
+}

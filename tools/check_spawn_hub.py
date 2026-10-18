@@ -425,7 +425,8 @@ def main():
     amph = pieces.get('court/amphitheatre')
     if amph is not None and os.path.exists(links_p):
         seated = set()
-        for e in amph.get('entities', []):
+        for e in [e for key, piece in pieces.items() if key.startswith('court/')
+                  for e in piece.get('entities', [])]:
             try:
                 seated.add(json.loads(e['nbt']['CustomName'])['text'])
                 if 'alfheim_hub_court' not in e['nbt'].get('Tags', []):
@@ -436,7 +437,7 @@ def main():
         for lk in json.load(open(links_p, encoding='utf-8')):
             if lk.get('name') not in seated:
                 fail('S6', f'"{lk.get("name")}" is bound to quest line '
-                           f'"{lk.get("quest_line_id")}" but is not seated in the amphitheatre '
+                           f'"{lk.get("quest_line_id")}" but is not seated in the court '
                            '-- that quest giver does not exist where the hub is')
         if a.verbose:
             print(f'  --   {len(seated)} court members seated in the amphitheatre')

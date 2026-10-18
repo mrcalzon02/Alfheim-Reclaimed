@@ -11,6 +11,6 @@
     "spread": 3,
     "count": 3,
     "salt": 202610152,
-    "preferred_biomes": "#alfheim:has_royal_castle"
+    "preferred_biomes": "#alfheim:prefers_royal_castle"
   }
 }

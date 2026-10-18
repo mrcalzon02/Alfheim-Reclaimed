@@ -18,7 +18,7 @@ public final class RemoteDistrictStructure extends Structure {
     @Override protected Optional<GenerationStub> findGenerationPoint(GenerationContext c) {
         var id=c.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(this);
         if(id==null || !DistrictPolicy.allowed(c,id.getPath()))return Optional.empty();
-        return layout.findGenerationPoint(c);
+        return TerrainAffordances.fit(this,c,layout.findGenerationPoint(c));
     }
     @Override public StructureType<?> type() {return ModHarborStructures.REMOTE_DISTRICT.get();}
 }

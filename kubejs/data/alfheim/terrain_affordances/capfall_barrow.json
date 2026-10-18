@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "structure": "alfheim:capfall_barrow",
+  "mode": "grounded",
+  "reason": "One-block plate edge, two-block feather, bounded supported contact; preserve authored interior",
+  "edge_width": 1,
+  "feather_width": 2,
+  "ground_offset": 4,
+  "max_support_depth": 16,
+  "max_terrain_rise": 6,
+  "allow_water": false,
+  "foundation_material": "minecraft:stone_bricks",
+  "generation_only": true,
+  "replace_buried_solid_terrain": false,
+  "independent_structure_gap": 500,
+  "enforcement": "staged_native_plate_adapter",
+  "runtime_gate": "representative_fresh_world_check_required",
+  "activate_ground_adapter": false
+}

@@ -1,39 +1,17 @@
 {
-  "type": "alfheim_companion:fairy_reserved_jigsaw",
+  "type": "alfheim_companion:void_surface",
   "biomes": "#alfheim:has_kings_cliff_tomb",
   "step": "surface_structures",
   "terrain_adaptation": "none",
-  "start_pool": "alfheim:surface/kings_cliff_tomb",
-  "size": 1,
-  "max_distance_from_center": 116,
-  "start_height": {
-    "type": "minecraft:uniform",
-    "min_inclusive": {
-      "absolute": 68
-    },
-    "max_inclusive": {
-      "absolute": 82
-    }
-  },
-  "use_expansion_hack": false,
-  "spawn_overrides": {},
-  "layout": {
-    "biomes": "#alfheim:has_kings_cliff_tomb",
-    "step": "surface_structures",
-    "terrain_adaptation": "none",
-    "start_pool": "alfheim:surface/kings_cliff_tomb",
-    "size": 1,
-    "max_distance_from_center": 116,
-    "start_height": {
-      "type": "minecraft:uniform",
-      "min_inclusive": {
-        "absolute": 68
-      },
-      "max_inclusive": {
-        "absolute": 82
-      }
-    },
-    "use_expansion_hack": false,
-    "spawn_overrides": {}
-  }
+  "template": "alfheim:surface/kings_cliff_tomb",
+  "ground": 4,
+  "min_surface_y": 72,
+  "max_surface_y": 86,
+  "min_support": 7,
+  "sample_radius": 7,
+  "max_relief": 6,
+  "solid_depth": 5,
+  "support_offset_x": 0,
+  "support_offset_z": 0,
+  "spawn_overrides": {}
 }

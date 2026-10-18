@@ -16,7 +16,7 @@ public final class VoidWarNeighborStructure extends Structure {
     public VoidWarNeighborStructure(StructureSettings settings,JigsawStructure layout) {super(settings);this.layout=layout;}
     @Override protected Optional<GenerationStub> findGenerationPoint(GenerationContext c) {
         return VoidWarPolicy.reserved(c) || FairyIslandReservations.reserved(c) || WorldstoneCavernStructure.reserved(c)
-            ?Optional.empty():layout.findGenerationPoint(c);
+            ?Optional.empty():TerrainAffordances.fit(this,c,layout.findGenerationPoint(c));
     }
     @Override public StructureType<?> type() {return ModHarborStructures.VOID_WAR_NEIGHBOR.get();}
 }

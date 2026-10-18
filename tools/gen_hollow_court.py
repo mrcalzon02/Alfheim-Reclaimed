@@ -288,7 +288,7 @@ def main():
 
     write_json(os.path.join(DATA, 'quest_line_links.json'),
                [{'quest_line_id': n['line'], 'entity_id': ELF, 'name': n['name'],
-                 'scale': 1.0, 'interaction_item': SCROLL} for n in NAMED], dry)
+                 'scale': 1.0} for n in NAMED], dry)
 
     # ---------------------------------------------------------------- sealed gate texture
     if not dry:

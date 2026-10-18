@@ -1,7 +1,7 @@
 {
   "capability": "Continuity Works 0.3.2",
   "method": "StructureCapability.generate with registered CastleProvider",
-  "snapshot_id": "20261015T181102Z-alfheim_royal_castle-generate-05460bfa",
+  "snapshot_id": "20261018T223037Z-alfheim_royal_castle-generate-fb8ee569",
   "generation": {
     "status": "GENERATED_NOT_VALIDATED",
     "provider_contract": {
@@ -64,6 +64,7 @@
     "emitted_json": [
       "worldgen/structure/royal_castle.json",
       "worldgen/structure_set/royal_castle.json",
+      "tags/worldgen/biome/prefers_royal_castle.json",
       "tags/worldgen/biome/has_royal_castle.json"
     ]
   }

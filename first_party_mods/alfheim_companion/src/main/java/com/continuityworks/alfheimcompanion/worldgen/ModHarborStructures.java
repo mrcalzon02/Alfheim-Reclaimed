@@ -38,6 +38,8 @@ public final class ModHarborStructures {
         PIECES.register("worldstone_cavern",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)WorldstoneCavernPiece::new);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> ROYAL_FOUNDATION=
         PIECES.register("royal_foundation",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)RoyalFoundationPiece::new);
+    public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> GROUND_PLATE=
+        PIECES.register("ground_plate",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)GroundPlatePiece::new);
     public static final RegistryObject<StructureType<MonasteryLabyrinthStructure>> MONASTERY_LABYRINTH=
         REGISTRY.register("monastery_labyrinth",()->()->MonasteryLabyrinthStructure.CODEC);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> LABYRINTH_PIECE=

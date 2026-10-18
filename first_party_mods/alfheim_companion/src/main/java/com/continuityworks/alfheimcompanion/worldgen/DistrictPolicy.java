@@ -9,7 +9,8 @@ import java.util.List;
 
 /** Shared kilometre-ring reservations. No chunk loads or mutable reservations. */
 public final class DistrictPolicy {
-    public static final int ORIGIN_RADIUS=908, SPAWN_RADIUS=756, CASTLE_CLEARANCE=960;
+    // Include the new perimeter and soil-transition envelopes.
+    public static final int ORIGIN_RADIUS=914, SPAWN_RADIUS=762, CASTLE_CLEARANCE=964;
     public static final List<String> FAMILIES=List.of("common_residential_quarter","elder_lineage_precinct",
         "civic_center","relief_district","scholastic_quarter","production_district",
         "agricultural_estate","roads_trade","harbor_complex","sacred_precinct","military_warden","frontier_stewardship");

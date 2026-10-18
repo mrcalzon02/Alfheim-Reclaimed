@@ -56,7 +56,7 @@ public final class MonasteryLabyrinthStructure extends Structure {
             int[] doors=new int[layout.rooms().size()];
             for(var edge:layout.edges()){
                 if(edge.connection().equals("vertical_stair"))continue;
-                var a=layout.rooms().get(edge.from()),b=layout.rooms().get(edge.to());
+                var a=layout.rooms().get(edge.from());var b=layout.rooms().get(edge.to());
                 if(a.x()<b.x()){doors[a.id()]|=2;doors[b.id()]|=8;}
                 else if(a.x()>b.x()){doors[a.id()]|=8;doors[b.id()]|=2;}
                 else if(a.z()<b.z()){doors[a.id()]|=4;doors[b.id()]|=1;}
@@ -66,7 +66,7 @@ public final class MonasteryLabyrinthStructure extends Structure {
                 new MonasteryLabyrinthPiece("room",act,doors[room.id()],room.id(),
                     x+room.x()-14,room.y(),z+room.z()-14,29,15,29));
             for(var edge:layout.edges()){
-                var a=layout.rooms().get(edge.from()),b=layout.rooms().get(edge.to());
+                var a=layout.rooms().get(edge.from());var b=layout.rooms().get(edge.to());
                 if(edge.connection().equals("vertical_stair")){
                     int low=Math.min(a.y(),b.y()),high=Math.max(a.y(),b.y());
                     builder.addPiece(new MonasteryLabyrinthPiece("shaft",act,0,

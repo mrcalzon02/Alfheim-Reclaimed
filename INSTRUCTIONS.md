@@ -202,6 +202,28 @@ installed artifact is reproducible in one step and cannot drift from the recorde
 
 ## 7. Validation ladder
 
+### Structure terrain affordance standard — user decision, 2026-10-18
+
+Every pack-owned structure must have a machine-readable terrain contract in
+`kubejs/data/alfheim/terrain_affordances/`; no new family may silently inherit
+an unexamined placement default. Ground-based buildings normally require a
+supported foundation plate with **at least one block of edge border**, followed
+by an appropriate soil/terrain transition. Vanilla bearding is useful blending,
+but is not proof of a supported foundation or accessible entrance.
+
+Bound support depth, terrain relief, water tolerance, headroom and work per
+candidate. Include the entire apron/feather envelope in exclusion reservations.
+Do not fill excavations, bridge spans, harbors, caves or deliberate floating
+islands with generic rectangular foundations. Those forms require explicit
+host/abutment/waterline/cover/clearance rules. Void ruins require pre-existing
+terrain and may never generate a rescue island. Preserve authored entrances,
+stairs, waterways, underground rooms and existing player builds.
+
+Apply improvements during new generation; existing saves are not rewritten by
+loading a new JAR. Check complete policy coverage, representative saved-world
+foundations and natural placement, then review terrain appearance in the client.
+See `alfheim_reclaimed_design/STRUCTURE_TERRAIN_AFFORDANCES_20261018.md`.
+
 Applies per change, not once per project. A lower level never implies a higher one.
 
 | Level | Check | How |

@@ -1,0 +1,14 @@
+{
+  "status": "GROUND_ADAPTER_STAGED_RUNTIME_ACCEPTANCE_DEFERRED",
+  "reason": "User requested immediate usable-state commit with no further tests or checking",
+  "loaded_policy_coverage": {
+    "structures": 89,
+    "grounded_contracts": 36,
+    "runtime_audit": "passed before final staging"
+  },
+  "last_edge_test": "failed: air below bounded foundation at [281,78,-873]",
+  "repair": "Opt out of duplicate foundation bearding; staged pending runtime acceptance",
+  "ground_adapter_active": false,
+  "castle_natural_generation": "verified all 25 tiles and 5029 samples at [1312,78,-1840] before stop instruction",
+  "player_saves_modified": false
+}

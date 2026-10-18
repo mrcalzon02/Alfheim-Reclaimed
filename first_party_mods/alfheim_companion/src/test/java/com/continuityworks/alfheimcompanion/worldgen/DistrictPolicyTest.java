@@ -8,10 +8,10 @@ class DistrictPolicyTest {
         assertFalse(DistrictPolicy.outsideSpawn(907,0,0,0));
         assertTrue(DistrictPolicy.outsideSpawn(988,0,80,-112));
         assertFalse(DistrictPolicy.outsideSpawn(12000,0,12000,0));
-        assertFalse(DistrictPolicy.outsideSpawn(12755,0,12000,0));
-        assertTrue(DistrictPolicy.outsideSpawn(12756,0,12000,0));
-        assertTrue(DistrictPolicy.ORIGIN_RADIUS-256-152>=500);
-        assertTrue(DistrictPolicy.CASTLE_CLEARANCE-256-167>=500);
+        assertFalse(DistrictPolicy.outsideSpawn(12761,0,12000,0));
+        assertTrue(DistrictPolicy.outsideSpawn(12762,0,12000,0));
+        assertTrue(DistrictPolicy.ORIGIN_RADIUS-259-155>=500);
+        assertTrue(DistrictPolicy.CASTLE_CLEARANCE-259-168>=500);
     }
     @Test void everyRingAndLocatorCellRecoverTheSameUniqueActiveFamily() {
         boolean[] seen=new boolean[9];

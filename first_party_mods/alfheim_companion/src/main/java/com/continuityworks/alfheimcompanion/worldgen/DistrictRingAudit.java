@@ -2,6 +2,8 @@ package com.continuityworks.alfheimcompanion.worldgen;
 
 import com.continuityworks.alfheimcompanion.AlfheimCompanion;
 import net.minecraft.commands.Commands;
+import net.minecraft.commands.CommandSourceStack;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -17,11 +19,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(modid=AlfheimCompanion.MOD_ID)
 public final class DistrictRingAudit {
     @SubscribeEvent public static void register(RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("alfheim_district_rings_audit").requires(s->s.hasPermission(2)).executes(c->{
-            var source=c.getSource();var level=source.getLevel();
+        event.getDispatcher().register(Commands.literal("alfheim_district_rings_audit").requires(s->s.hasPermission(2))
+            .executes(c->audit(c.getSource(),3))
+            .then(Commands.argument("rings",IntegerArgumentType.integer(1,16))
+                .executes(c->audit(c.getSource(),IntegerArgumentType.getInteger(c,"rings")))));
+    }
+    private static int audit(CommandSourceStack source,int rings) {
+            var level=source.getLevel();
             if(!level.dimension().location().toString().equals("mythicbotany:alfheim"))return 0;
             var generator=level.getChunkSource().getGenerator();int accepted=0;
-            for(int ring=1;ring<=3;ring++)for(int slot=0;slot<4;slot++) {
+            for(int ring=1;ring<=rings;ring++)for(int slot=0;slot<4;slot++) {
                 var site=DistrictRings.site(level.getSeed(),ring,slot);
                 var id=new ResourceLocation("alfheim",DistrictPolicy.FAMILIES.get(site.family()));
                 var structure=level.registryAccess().registryOrThrow(Registries.STRUCTURE).get(id);
@@ -45,6 +52,5 @@ public final class DistrictRingAudit {
             final int found=accepted,checked=colors;
             source.sendSuccess(()->Component.literal("DISTRICT_RING_AUDIT_PASS accepted="+found+" grove_map_colors="+checked),false);
             return accepted;
-        }));
     }
 }

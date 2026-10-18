@@ -12,11 +12,12 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 public final class WorldSiteAllocation {
     public static final int COURT_RADIUS=1024;
     public static final int SPAWN_RADIUS=128;
-    public static final int CASTLE_HALF_WIDTH=118;
-    public static final int DISTRICT_HALF_WIDTH=256;
+    public static final int CASTLE_HALF_WIDTH=119;
+    public static final int DISTRICT_HALF_WIDTH=259;
     public static final int GAP=128;
-    private static final ResourceKey<Level> ALFHEIM=ResourceKey.create(Registries.DIMENSION,
-        new ResourceLocation("mythicbotany","alfheim"));
+    private static ResourceKey<Level> alfheim() {
+        return ResourceKey.create(Registries.DIMENSION,new ResourceLocation("mythicbotany","alfheim"));
+    }
 
     /** Compare circular central protection to a complete proposed footprint. */
     public static boolean outsideCourt(int x,int z,int footprintRadius,int gap) {
@@ -46,7 +47,7 @@ public final class WorldSiteAllocation {
     /** Castle uses a concentric-ring set, not the district random-spread grid. */
     public static boolean clearCastle(Structure.GenerationContext c,int x,int z,int half,int gap) {
         var server=ServerLifecycleHooks.getCurrentServer();
-        var home=server==null?null:server.getLevel(ALFHEIM);
+        var home=server==null?null:server.getLevel(alfheim());
         if(home==null)return false;
         var set=c.registryAccess().registryOrThrow(Registries.STRUCTURE_SET)
             .get(new ResourceLocation("alfheim","royal_castle"));
@@ -65,7 +66,7 @@ public final class WorldSiteAllocation {
     public static boolean clearProtected(Structure.GenerationContext c,int x,int z,int half,int gap) {
         if(!outsideCourt(x,z,half,gap))return false;
         var server=ServerLifecycleHooks.getCurrentServer();
-        var home=server==null?null:server.getLevel(ALFHEIM);
+        var home=server==null?null:server.getLevel(alfheim());
         if(home==null)return false;
         var spawn=home.getSharedSpawnPos();
         return outsideMovedSpawn(x,z,spawn.getX(),spawn.getZ(),half,gap)

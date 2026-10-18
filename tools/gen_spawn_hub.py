@@ -1295,11 +1295,8 @@ def detail_hub(name, p, seed):
     return counts
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--dry-run', action='store_true')
-    a = ap.parse_args()
-    dry = a.dry_run
+def make_pieces():
+    """Finish all decoration before reserving NPC standing and interaction space."""
     rng = random.Random(SEED)
 
     pieces = {
@@ -1318,6 +1315,17 @@ def main():
         # The detail passes place only against existing mass, but the collapse dressing that
         # ran before them did not; sweep anything left touching nothing on any face.
         p.prune_orphans()
+    from hub_court_layout import apply
+    return apply(pieces)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--dry-run', action='store_true')
+    a = ap.parse_args()
+    dry = a.dry_run
+    pieces = make_pieces()
+    for name, p in pieces.items():
         path = os.path.join(STRUCT_DIR, name + '.nbt')
         if not dry:
             os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -1327,7 +1335,7 @@ def main():
         print(f'  {name:22} {p.size[0]}x{p.size[1]}x{p.size[2]}  '
               f'{len(p.blocks):>6} blocks  {len(p.palette):>3} palette  {size / 1024:6.1f} KB'
               f'  detail {cen["share"] * 100:4.1f}% over {cen["names"]:>2} ids  '
-              + ' '.join(f'{k}={v}' for k, v in sorted(counts.items()) if v))
+              + f' {len(p.entities)} entities')
 
     # --- template pools
     write_json(os.path.join(DATA, 'worldgen', 'template_pool', 'greatbole', 'base.json'),

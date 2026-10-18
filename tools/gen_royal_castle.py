@@ -126,8 +126,9 @@ class CastleProvider:
             stats.append({'kind':kind,'file':relative,'sha256':hashlib.sha256(data).hexdigest(),'blocks':len(root['blocks'])})
         definitions={
           'worldgen/structure/royal_castle.json':{'type':'alfheim_companion:royal_castle','biomes':'#alfheim:has_royal_castle','step':'surface_structures','terrain_adaptation':'none','spawn_overrides':{}},
-          'worldgen/structure_set/royal_castle.json':{'structures':[{'structure':'alfheim:royal_castle','weight':1}], 'placement':{'type':'minecraft:concentric_rings','distance':32,'spread':3,'count':3,'salt':202610152,'preferred_biomes':'#alfheim:has_royal_castle'}},
-          'tags/worldgen/biome/has_royal_castle.json':{'replace':False,'values':['mythicbotany:golden_fields','mythicbotany:alfheim_plains','alfheim:bloomfall_vale','alfheim:silverbark_wood','mythicbotany:alfheim_hills']}}
+          'worldgen/structure_set/royal_castle.json':{'structures':[{'structure':'alfheim:royal_castle','weight':1}], 'placement':{'type':'minecraft:concentric_rings','distance':32,'spread':3,'count':3,'salt':202610152,'preferred_biomes':'#alfheim:prefers_royal_castle'}},
+          'tags/worldgen/biome/prefers_royal_castle.json':{'replace':False,'values':['mythicbotany:golden_fields','mythicbotany:alfheim_plains','alfheim:bloomfall_vale','alfheim:silverbark_wood','mythicbotany:alfheim_hills']},
+          'tags/worldgen/biome/has_royal_castle.json':{'replace':False,'values':['mythicbotany:golden_fields','mythicbotany:alfheim_plains','alfheim:bloomfall_vale','alfheim:silverbark_wood','mythicbotany:alfheim_hills','alfheim:tidewood_shore']}}
         for relative,body in definitions.items():
             path=self.stage/'kubejs/data/alfheim'/relative;path.parent.mkdir(parents=True,exist_ok=True)
             data=(json.dumps(body,indent=2)+'\n').encode();path.write_bytes(data);files[relative.replace('/','_')]=data

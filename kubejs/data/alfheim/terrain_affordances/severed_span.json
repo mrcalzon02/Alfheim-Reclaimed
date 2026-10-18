@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "structure": "alfheim:severed_span",
+  "mode": "span",
+  "reason": "Preserve open span and clearance; support abutments, never solid-fill the crossing",
+  "edge_width": 0,
+  "feather_width": 0,
+  "ground_offset": 0,
+  "max_support_depth": 0,
+  "max_terrain_rise": 6,
+  "allow_water": false,
+  "foundation_material": "botania:livingrock_bricks",
+  "generation_only": true,
+  "replace_buried_solid_terrain": false,
+  "independent_structure_gap": 500,
+  "enforcement": "existing_native_or_authored_geometry",
+  "runtime_gate": "existing_validation_not_superseded",
+  "activate_ground_adapter": false
+}

@@ -1,0 +1,21 @@
+{
+  "method": "read-only census of saved Alfheim chunks",
+  "worlds": [
+    {
+      "world": "New World raven",
+      "seed": "-5876049240305171930",
+      "chunks_scanned": 25559,
+      "valid_castle_starts": 0,
+      "rejected_castle_starts": 0
+    },
+    {
+      "world": "New World staven",
+      "seed": "-3282135118187884121",
+      "chunks_scanned": 24067,
+      "valid_castle_starts": 0,
+      "rejected_castle_starts": 0
+    }
+  ],
+  "player_saves_modified": false,
+  "scope": "generated chunks only; does not rule out ungenerated candidates"
+}

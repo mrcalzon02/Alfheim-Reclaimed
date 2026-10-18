@@ -14,7 +14,7 @@ public final class FairyReservedJigsawStructure extends Structure {
     private final JigsawStructure layout;
     public FairyReservedJigsawStructure(StructureSettings settings,JigsawStructure layout){super(settings);this.layout=layout;}
     @Override protected Optional<GenerationStub> findGenerationPoint(GenerationContext c){
-        return FairyIslandReservations.reserved(c) || WorldstoneCavernStructure.reserved(c)?Optional.empty():layout.findGenerationPoint(c);
+        return FairyIslandReservations.reserved(c) || WorldstoneCavernStructure.reserved(c)?Optional.empty():TerrainAffordances.fit(this,c,layout.findGenerationPoint(c));
     }
     @Override public StructureType<?> type(){return ModHarborStructures.FAIRY_RESERVED.get();}
 }
