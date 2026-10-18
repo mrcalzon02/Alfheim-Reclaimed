@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:ashen_grove",
+    "alfheim:bloomfall_vale",
+    "alfheim:hollow_marches",
+    "alfheim:infested_warren",
+    "alfheim:decayed_mire",
+    "alfheim:mana_fen",
+    "alfheim:scorchfell",
+    "alfheim:silverbark_wood",
+    "alfheim:starved_reach",
+    "alfheim:sundered_highlands",
+    "mythicbotany:alfheim_plains",
+    "mythicbotany:golden_fields",
+    "mythicbotany:alfheim_hills",
+    "mythicbotany:dreamwood_forest"
+  ]
+}

@@ -117,3 +117,42 @@ as live entities** by asserting `implementation: design_only`. A future
 runtime acceptance test must enumerate registry IDs, inspect actual actor
 behavior, and confirm spawner budget/performance in naturally generated
 complexes before switching any entry to `implemented`.
+
+## October 18 implementation slice — native monastery structure and bounded dungeon geometry
+
+The first-party companion source now contains a **registered native structure type**
+(`alfheim_companion:monastery_labyrinth`), a matching placement type
+(`alfheim_companion:labyrinth_rings`), and a serializable native structure
+piece. The structure, structure-set and biome-tag definitions are prepared under
+`alfheim_reclaimed_design/monastery_labyrinth/pending_worldgen/`, NOT active
+`kubejs/data`. The Java source is a real native implementation awaiting build,
+not an independently salted jigsaw.
+
+Each accepted kilometre intercardinal slot first passes the same court, moved
+spawn, castle and district exclusion policy; the surface has 18 bounded
+terrain/solid-fluid samples across the monastery and village. Rejected
+terrain simply means no dungeon at that candidate: no bottom-of-world
+heightmap fallback, no rescue island, and no replacement site search.
+
+A single native start now assembles a 65-wide monastery, six separate service
+stalls in an adjacent village, a joining route, six layers × nine individual
+29×15×29 rooms, horizontal corridors and full-depth connected ladder shafts.
+The lowest boss chamber follows the existing graph's natural bedrock-relative
+Y coordinate. Every Act chooses its masonry palette from world-space radius;
+none modifies Mine and Slash level calculation with depth.
+
+**Strict implementation claims:** this is first-pass procedural shell geometry,
+not a visually finished monastery, completed village economy or a finished
+encounter dungeon. The service stalls do not yet spawn NPCs or offer trades,
+the 130 catalogued creatures remain design-only, and the boss chamber has no
+boss entity. No generated world, Java build, installed companion JAR, natural
+placement, traversability or multiuser acceptance has yet been evidenced.
+These are required before describing this as shipped, fully playable content.
+Dungeon shafts presently use ladders; the graph retains vertical-stair semantics
+for subsequent proper switchback stairs.
+
+Because the definitions use new registry IDs, deploying them without a companion
+JAR rebuilt from this source would cause datapack codec load failure. They are
+therefore held under pending_worldgen and must only be moved to kubejs/data in
+the same verified deployment as a compatible, rebuilt companion JAR.
+No GitHub Actions or unrelated repository workflow changes are introduced.

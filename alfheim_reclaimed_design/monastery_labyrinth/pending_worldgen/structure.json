@@ -1,0 +1,7 @@
+{
+  "type": "alfheim_companion:monastery_labyrinth",
+  "biomes": "#alfheim:has_monastery_labyrinth",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}

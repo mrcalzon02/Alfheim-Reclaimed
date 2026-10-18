@@ -11,6 +11,8 @@ public final class ModHarborStructures {
         DeferredRegister.create(Registries.STRUCTURE_PLACEMENT,AlfheimCompanion.MOD_ID);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType<DistrictRingPlacement>> DISTRICT_RINGS=
         PLACEMENTS.register("district_rings",()->()->DistrictRingPlacement.CODEC);
+    public static final RegistryObject<net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType<LabyrinthRingPlacement>> LABYRINTH_RINGS=
+        PLACEMENTS.register("labyrinth_rings",()->()->LabyrinthRingPlacement.CODEC);
     public static final DeferredRegister<StructureType<?>> REGISTRY=DeferredRegister.create(Registries.STRUCTURE_TYPE,AlfheimCompanion.MOD_ID);
     public static final RegistryObject<StructureType<WorldstoneCavernStructure>> WORLDSTONE=
         REGISTRY.register("mountain_worldstone",()->()->WorldstoneCavernStructure.CODEC);
@@ -36,6 +38,11 @@ public final class ModHarborStructures {
         PIECES.register("worldstone_cavern",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)WorldstoneCavernPiece::new);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> ROYAL_FOUNDATION=
         PIECES.register("royal_foundation",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)RoyalFoundationPiece::new);
+    public static final RegistryObject<StructureType<MonasteryLabyrinthStructure>> MONASTERY_LABYRINTH=
+        REGISTRY.register("monastery_labyrinth",()->()->MonasteryLabyrinthStructure.CODEC);
+    public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> LABYRINTH_PIECE=
+        PIECES.register("monastery_labyrinth_piece",
+            ()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)MonasteryLabyrinthPiece::new);
     // Source-only until a rebuilt companion JAR is distributed. Never switch
     // worldgen JSON to this type before that JAR has been installed.
     public static final RegistryObject<StructureType<VoidSurfaceStructure>> VOID_SURFACE =
