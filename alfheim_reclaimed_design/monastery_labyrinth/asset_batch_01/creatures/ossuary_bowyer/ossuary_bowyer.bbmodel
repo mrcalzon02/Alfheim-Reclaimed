@@ -9412,28 +9412,6 @@
       "uuid": "bc13ed12-5f86-50f8-affe-2ab931767a5b",
       "children": [
         {
-          "name": "arrow",
-          "origin": [
-            -11,
-            24,
-            -8
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "uuid": "3d62d7c5-51ac-53a6-8dc3-6de2900641ee",
-          "children": [
-            "fec64617-7067-5ab7-82e8-1e6a23f17098",
-            "661e50e2-5c56-5de9-a426-776be2d9e055",
-            "d969c40c-72be-52bf-b57b-b16318933051",
-            "46e30e8c-51c4-50f5-a2d6-35ed569b1b11",
-            "4f49a614-a898-5c21-8cc3-622354bdd9d4",
-            "813db861-11cf-5b66-99be-fb91f1bcf3ee"
-          ]
-        },
-        {
           "name": "body",
           "origin": [
             0,
@@ -9484,24 +9462,6 @@
             "bf407c1f-4b78-5520-8b16-52cdbcea336f",
             "3a21ca00-94af-5d8a-a0c7-a9fef756388e",
             "1624d8d9-eb7a-56d2-951c-79faba222df5"
-          ]
-        },
-        {
-          "name": "bowstring",
-          "origin": [
-            -11,
-            24,
-            -8
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "uuid": "7ff84b01-dc9e-5448-8823-94fef022e57a",
-          "children": [
-            "62aaeadf-2fb6-58e9-8a9f-8104536c7ce9",
-            "08e3f7f9-7080-58dc-8f32-580572472770"
           ]
         },
         {
@@ -9572,7 +9532,47 @@
             "16e550eb-d443-52d0-9441-cd17c8cf97d4",
             "70767615-d6ca-5879-9016-84ad90ac0b36",
             "3774877e-623b-524b-8e1e-01e1b2178001",
-            "2ad2aafb-4f14-52b5-a327-64c28caabff3"
+            "2ad2aafb-4f14-52b5-a327-64c28caabff3",
+            {
+              "name": "bowstring",
+              "origin": [
+                -11,
+                24,
+                -8
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ],
+              "uuid": "7ff84b01-dc9e-5448-8823-94fef022e57a",
+              "children": [
+                "62aaeadf-2fb6-58e9-8a9f-8104536c7ce9",
+                "08e3f7f9-7080-58dc-8f32-580572472770"
+              ]
+            },
+            {
+              "name": "arrow",
+              "origin": [
+                -11,
+                24,
+                -8
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ],
+              "uuid": "3d62d7c5-51ac-53a6-8dc3-6de2900641ee",
+              "children": [
+                "fec64617-7067-5ab7-82e8-1e6a23f17098",
+                "661e50e2-5c56-5de9-a426-776be2d9e055",
+                "d969c40c-72be-52bf-b57b-b16318933051",
+                "46e30e8c-51c4-50f5-a2d6-35ed569b1b11",
+                "4f49a614-a898-5c21-8cc3-622354bdd9d4",
+                "813db861-11cf-5b66-99be-fb91f1bcf3ee"
+              ]
+            }
           ]
         },
         {

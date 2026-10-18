@@ -103,12 +103,12 @@
         "the_ossuary_prior"
       ],
       "next_creature_art": [
-        "hollow_veil",
-        "lantern_ghoul",
-        "corvid_undertaker",
-        "rotmilk_ratpack",
-        "grave_thorn",
-        "mourning_matron"
+        "censer_revenant",
+        "rift_acolyte",
+        "skullglass_shardling",
+        "coal_moth",
+        "chapel_butcher",
+        "dust_friar"
       ],
       "creatures": [
         {
@@ -126,9 +126,10 @@
           "role": "flanker",
           "telegraph_to_model": "Reappears behind the last healer to cast",
           "counterplay_to_preserve": "Keep an anchored light on the rear guard",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/hollow_veil/hollow_veil.bbmodel"
         },
         {
           "catalog_id": "ossuary_bowyer",
@@ -145,18 +146,20 @@
           "role": "controller",
           "telegraph_to_model": "Darkens nearby floor and hides its charge",
           "counterplay_to_preserve": "Break the lantern to collapse its darkness",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/lantern_ghoul/lantern_ghoul.bbmodel"
         },
         {
           "catalog_id": "corvid_undertaker",
           "role": "summoner",
           "telegraph_to_model": "Calls scavengers from marked corpses",
           "counterplay_to_preserve": "Burn the corpse markers",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/corvid_undertaker/corvid_undertaker.bbmodel"
         },
         {
           "catalog_id": "lurking_silkmaw",
@@ -193,27 +196,30 @@
           "role": "swarm",
           "telegraph_to_model": "Travels through tiny floor grates in successive waves",
           "counterplay_to_preserve": "Close grate shutters and fight on open stone",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/rotmilk_ratpack/rotmilk_ratpack.bbmodel"
         },
         {
           "catalog_id": "grave_thorn",
           "role": "trapper",
           "telegraph_to_model": "Catches stationary feet with rooted barbs",
           "counterplay_to_preserve": "Step away during the soil pulse",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/grave_thorn/grave_thorn.bbmodel"
         },
         {
           "catalog_id": "mourning_matron",
           "role": "healer",
           "telegraph_to_model": "Draws wounds from nearby skeletons into itself",
           "counterplay_to_preserve": "Separate wounded enemies from its radius",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/mourning_matron/mourning_matron.bbmodel"
         },
         {
           "catalog_id": "censer_revenant",
@@ -1725,7 +1731,7 @@
     }
   ],
   "runtime_species_implemented": 0,
-  "textured_species_prototypes": 6,
+  "textured_species_prototypes": 12,
   "production_order": [
     "Act I shell-to-template adapter and gap/height fitting",
     "Act I animated native models and twelve distinct AI implementations",

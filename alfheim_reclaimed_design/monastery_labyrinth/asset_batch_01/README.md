@@ -10,7 +10,11 @@ UV-island and material-painting workflow, using original geometry.
 ## Review the emitted assets
 
 - [Creature sculptures: front, three-quarter and rear](creature_sculptures.png)
-- [All eighteen creature appearances](creature_appearances.png)
+- [All thirty-six creature appearances](creature_appearances.png)
+- [Wave 02 sculptures](creature_wave_02_sculptures.png)
+- [Wave 02 action preview](creature_wave_02_signature_motion.gif)
+- [Wave 02 action still](creature_wave_02_signature_poses.png)
+- [Magnified rat details](creature_wave_02_small_details.png)
 - [Signature-action motion preview](creature_signature_motion.gif)
 - [Signature-action pose still](creature_signature_poses.png)
 - [Art motion and future combat contracts](art_motion_contracts.json)
@@ -33,7 +37,8 @@ ruined variants also lose small internal fixtures while retaining containment.
 The refuge rooms are **interior modules**, not fitted replacements for the native
 13×19 service stalls. No functional economy is implied by their furniture.
 
-Six original sculptures now have three material-painted skins each: the 95-part
+Twelve original sculptures now have three material-painted skins each. The first
+six are the 95-part
 Ashen Novice, 87-part Lurking Silkmaw, 105-part Bell Warden, 113-part Ossuary
 Bowyer, 103-part Reliquary Sentinel and 116-part Ossuary Prior. Each includes a
 detailed geometry export, an editable Blockbench model, and textured OBJ/MTL
@@ -41,18 +46,39 @@ files importable into Blender. The Bowyer carries a segmented bone bow and
 independently posed string/arrow. The Sentinel has a broad frontal bulwark and
 exposed rear reliquary. The Prior has a rib halo, ceremonial mitre and bell staff.
 
-All six now include a root hierarchy, named articulation groups, anatomical
-pivots, and editable idle, walk and signature-action clips: 18 clips total.
+The second wave adds six original anatomies:
+
+| Creature | Sculpted parts | Readable visual cue |
+|---|---:|---|
+| Hollow Veil | 89 | Empty veiled face and contracting cloak |
+| Lantern Ghoul | 91 | Exposed hanging lantern outside its shoulder silhouette |
+| Corvid Undertaker | 87 | Hooked avian beak, talons and feathered calling wings |
+| Rotmilk Ratpack | 89 | One 0.443-block-high rat member, whiskers and segmented tail |
+| Grave Thorn | 100 | Rooted grave marker and four spreading barb fans |
+| Mourning Matron | 96 | Empty rib cradle, open palms and wound-silk tassels |
+
+The rat model is one pack member, not a giant combined swarm entity. Pack
+composition and grate travel remain runtime work. The Grave Thorn stays rooted;
+its `walk` slot is a root-settling reference, not locomotion. It has a separate
+stationary trap design, not a recolor of the installed mobile Thorn Infestor.
+
+All twelve now include a root hierarchy, named articulation groups, anatomical
+pivots, and editable idle, walk and signature-action clips: 36 clips total.
+Jaws, bowstrings, arrows, clappers, lanterns and tails inherit their attachment's
+motion; offline pose evaluation follows the same exported group hierarchy.
 Signature clips show a bell-triggered stagger, silk ambush descent, rally toll,
 marked bow shot, bulwark slam and the Prior's convergence gesture. These are
 **art-motion prototypes**, not native game animation or functioning combat.
+The new six add phase-slip, lantern-charge, scavenger-call, grate-rush, rooted
+snare and wound-transfer gestures. Creature appearance and animation do not
+substitute for distinct server-authoritative behavior implementations.
 Markers identify visual timing only; no hit, sound, projectile, summon or damage
 event executes. Original sound production and native animation remain pending.
 The catalogue remains `design_only`; this adds zero implemented species.
 
 `five_act_asset_queue.json` maps all 130 species to their existing signature and
 counterplay, records 18 proposed room families per Act, gives distinct material
-directions for Acts II–V and identifies the six art prototypes. Later Acts'
+directions for Acts II–V and identifies the twelve art prototypes. Later Acts'
 room names and material directions are plans, not generated geometry.
 
 ## Contracts and integration gates
@@ -98,7 +124,7 @@ Actual editor import remains pending. A standing-cell route is evidence of
 geometry connectivity, not proof of Minecraft collision, animated movement,
 combat or server performance.
 
-Executed on 2026-10-18: all 75 template and six-model artifact checks passed;
+Executed on 2026-10-18: all 75 template and twelve-model artifact checks passed;
 all creature outputs reproduced byte-for-byte; the existing 130-species bestiary
 validator passed; the active pack feature-order check found zero cycles across
 313 loaded biomes, including Forge biome modifiers. No game was booted for this

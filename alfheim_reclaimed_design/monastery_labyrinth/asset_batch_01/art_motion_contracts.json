@@ -213,6 +213,204 @@
         }
       ],
       "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "hollow_veil",
+      "signature_clip": "phase_slip",
+      "visual_stages": [
+        "veil gathers",
+        "brief contraction",
+        "rearward reappearance gesture"
+      ],
+      "native_combat_contract": {
+        "id": "phase_slip",
+        "description": "Reappears behind the last healer to cast",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Keep an anchored light on the rear guard",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "phase_slip",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "lantern_ghoul",
+      "signature_clip": "gloom_charge",
+      "visual_stages": [
+        "exposed lantern swings",
+        "charge preparation",
+        "lantern recovery"
+      ],
+      "native_combat_contract": {
+        "id": "gloom_zone",
+        "description": "Darkens nearby floor and hides its charge",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the lantern to collapse its darkness",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "gloom_charge",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "corvid_undertaker",
+      "signature_clip": "carrion_call",
+      "visual_stages": [
+        "beak opens",
+        "wing call",
+        "corpse-marker response window"
+      ],
+      "native_combat_contract": {
+        "id": "carrion_call",
+        "description": "Calls scavengers from marked corpses",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Burn the corpse markers",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "carrion_call",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "rotmilk_ratpack",
+      "signature_clip": "grate_rush",
+      "visual_stages": [
+        "low crouch",
+        "short individual rush",
+        "pack regroup reference"
+      ],
+      "native_combat_contract": {
+        "id": "rat_tide",
+        "description": "Travels through tiny floor grates in successive waves",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Close grate shutters and fight on open stone",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "grate_rush",
+          "length_seconds": 1.3,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "grave_thorn",
+      "signature_clip": "thorn_snare",
+      "visual_stages": [
+        "soil pulse gesture",
+        "root fan spreads",
+        "barbs recover"
+      ],
+      "native_combat_contract": {
+        "id": "thorn_snare",
+        "description": "Catches stationary feet with rooted barbs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Step away during the soil pulse",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "thorn_snare",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "mourning_matron",
+      "signature_clip": "grief_transfer",
+      "visual_stages": [
+        "cradle and palms presented",
+        "wound-silk gesture",
+        "recovery"
+      ],
+      "native_combat_contract": {
+        "id": "grief_transfer",
+        "description": "Draws wounds from nearby skeletons into itself",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Separate wounded enemies from its radius",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "grief_transfer",
+          "length_seconds": 2.4,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
     }
   ]
 }

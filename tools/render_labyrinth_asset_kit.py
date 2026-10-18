@@ -1,5 +1,6 @@
 """Review the emitted NBT and the original textured creature surfaces, offline."""
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -105,7 +106,7 @@ def rooms(manifest):
     sheet.save(OUT / 'room_cutaways.png')
 
 
-def creatures(manifest):
+def creatures(manifest,stem='creature'):
     height = len(manifest['models'])*490+130
     sheet = Image.new('RGB', (1440, height), BG)
     d = ImageDraw.Draw(sheet)
@@ -124,7 +125,7 @@ def creatures(manifest):
             d.text((x+18,y+411), ['Front','Three-quarter','Rear'][j], font=SMALL, fill='#8fa5b3')
         d.text((24, i*490+529), row['catalog_id'].replace('_',' ').title() + f" / {row['part_count']} sculpted parts / 512px atlas / {row['role']}", font=FONT, fill='white')
     d.text((24,height-40),'Original model surfaces. Editable art motion is separate; native animation, creature behaviors and in-game acceptance remain pending.',font=SMALL,fill='#a9becb')
-    sheet.save(OUT / 'creature_sculptures.png')
+    sheet.save(OUT / (stem+'_sculptures.png'))
     looks = Image.new('RGB',(1440,len(manifest['models'])*485+75),BG)
     ld = ImageDraw.Draw(looks)
     ld.text((24,14),'THREE APPEARANCES / SHARED ANATOMIES',font=TITLE,fill='white')
@@ -137,10 +138,10 @@ def creatures(manifest):
             x,y=j*480+20,i*485+60
             looks.paste(tile,(x,y),tile)
             ld.text((x+18,y+414),look.replace('_',' ').title(),font=FONT,fill='#c4d3dc')
-    looks.save(OUT/'creature_appearances.png')
+    looks.save(OUT/(stem+'_appearances.png'))
 
 
-def motion(manifest):
+def motion(manifest,stem='creature'):
     sources=[]
     for row in manifest['models']:
         g=json.loads((OUT/row['geometry']).read_text())
@@ -149,8 +150,9 @@ def motion(manifest):
         vertices=np.array([v for q in g['quads'] for v in q['vertices']])
         sources.append((row,g,model,texture,float((vertices[:,1].min()+vertices[:,1].max())/2)))
     frames=[]
+    height=math.ceil(len(sources)/3)*365+70
     for frame in range(20):
-        canvas=Image.new('RGB',(960,800),BG)
+        canvas=Image.new('RGB',(960,height),BG)
         d=ImageDraw.Draw(canvas)
         d.text((18,9),'ASHEN CLOISTER / SIGNATURE MOTION PROTOTYPES',font=FONT,fill='white')
         for i,(row,g,model,texture,center) in enumerate(sources):
@@ -161,12 +163,27 @@ def motion(manifest):
             canvas.paste(tile,(x,y),tile)
             d.text((x+15,y+305),row['catalog_id'].replace('_',' ').title(),font=SMALL,fill='white')
             d.text((x+15,y+325),clip['name'].replace('_',' ')+' / art timing',font=SMALL,fill='#a6bdca')
-        d.text((18,774),'Each clip shown over its own cycle. No gameplay events, native animation or collision acceptance implied.',font=SMALL,fill='#a6bdca')
+        d.text((18,height-26),'Each clip shown over its own cycle. No gameplay events, native animation or collision acceptance implied.',font=SMALL,fill='#a6bdca')
         frames.append(canvas)
-    frames[0].save(OUT/'creature_signature_motion.gif',save_all=True,append_images=frames[1:],duration=110,loop=0,optimize=False)
+    frames[0].save(OUT/(stem+'_signature_motion.gif'),save_all=True,append_images=frames[1:],duration=110,loop=0,optimize=False)
     # A readable still lets reviewers inspect the actual windup and release poses.
-    frames[10].save(OUT/'creature_signature_poses.png')
-    print('Rendered six signature motion previews from eighteen editable art clips.')
+    frames[10].save(OUT/(stem+'_signature_poses.png'))
+    print(f'Rendered {len(sources)} signature motion previews from {len(sources)*3} editable art clips.')
+
+
+def small_details(manifest):
+    row=next(r for r in manifest['models'] if r['catalog_id']=='rotmilk_ratpack')
+    g=json.loads((OUT/row['geometry']).read_text())
+    texture=np.array(Image.open((OUT/row['geometry']).parent/(row['catalog_id']+'_cloister_ash.png')).convert('RGBA'))
+    vertices=np.array([v for q in g['quads'] for v in q['vertices']])
+    center=float((vertices[:,1].min()+vertices[:,1].max())/2)
+    canvas=Image.new('RGB',(1440,550),BG);d=ImageDraw.Draw(canvas)
+    d.text((24,16),'ROTMILK RAT / MAGNIFIED SCULPTURE DETAILS',font=TITLE,fill='white')
+    for i,yaw in enumerate((180,145,25)):
+        tile=render_creature(g['quads'],texture,size=440,yaw=yaw,scale=25,center_y=center)
+        canvas.paste(tile,(i*480+20,55),tile)
+    d.text((24,510),'One pack member, under half a block high. Magnified for inspection; this sheet does not use the shared creature scale.',font=FONT,fill='#a6bdca')
+    canvas.save(OUT/'creature_wave_02_small_details.png')
 
 
 def main():
@@ -176,7 +193,11 @@ def main():
     rooms(structures)
     creatures(art)
     motion(art)
-    print('Rendered emitted NBT floor plans/cutaways and all eighteen textured creature looks.')
+    wave_02={'models':art['models'][6:]}
+    creatures(wave_02,stem='creature_wave_02')
+    motion(wave_02,stem='creature_wave_02')
+    small_details(art)
+    print('Rendered emitted NBT floor plans/cutaways and all thirty-six textured creature looks.')
 
 
 if __name__ == '__main__':

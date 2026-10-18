@@ -7,6 +7,7 @@
       "catalog_id": "ashen_novice",
       "act": 1,
       "role": "swarm",
+      "representation": "single creature",
       "signature": {
         "id": "swarm_rush",
         "description": "Shatters formation when struck by a bell chime",
@@ -63,6 +64,7 @@
       "catalog_id": "lurking_silkmaw",
       "act": 1,
       "role": "ambusher",
+      "representation": "single creature",
       "signature": {
         "id": "web_drop",
         "description": "Descends from marked ceiling webs",
@@ -123,6 +125,7 @@
       "catalog_id": "bell_warden",
       "act": 1,
       "role": "support",
+      "representation": "single creature",
       "signature": {
         "id": "alarm_peal",
         "description": "Marks one ally to rally a room-wide pack",
@@ -180,6 +183,7 @@
       "catalog_id": "ossuary_bowyer",
       "act": 1,
       "role": "ranged",
+      "representation": "single creature",
       "signature": {
         "id": "arrow_fan",
         "description": "Pins its next shot to the player's former position",
@@ -238,6 +242,7 @@
       "catalog_id": "reliquary_sentinel",
       "act": 1,
       "role": "tank",
+      "representation": "single creature",
       "signature": {
         "id": "shield_lock",
         "description": "Faces the strongest frontal threat with a timed bulwark",
@@ -294,6 +299,7 @@
       "catalog_id": "the_ossuary_prior",
       "act": 1,
       "role": "boss",
+      "representation": "single creature",
       "signature": {
         "id": "bell_convergence",
         "description": "Rings the entire abbey and commands grave-choir phases",
@@ -343,6 +349,347 @@
         }
       ],
       "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "hollow_veil",
+      "act": 1,
+      "role": "flanker",
+      "representation": "single creature",
+      "signature": {
+        "id": "phase_slip",
+        "description": "Reappears behind the last healer to cast",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Keep an anchored light on the rear guard",
+      "part_count": 89,
+      "quad_count": 534,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.4514,
+        2.6227,
+        0.7286
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "right_arm"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/hollow_veil/hollow_veil.geometry.json",
+      "blockbench": "creatures/hollow_veil/hollow_veil.bbmodel",
+      "blender_import": "creatures/hollow_veil/hollow_veil.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "phase_slip",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "lantern_ghoul",
+      "act": 1,
+      "role": "controller",
+      "representation": "single creature",
+      "signature": {
+        "id": "gloom_zone",
+        "description": "Darkens nearby floor and hides its charge",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the lantern to collapse its darkness",
+      "part_count": 91,
+      "quad_count": 546,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        2.0656,
+        2.0887,
+        1.1226
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "lantern",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/lantern_ghoul/lantern_ghoul.geometry.json",
+      "blockbench": "creatures/lantern_ghoul/lantern_ghoul.bbmodel",
+      "blender_import": "creatures/lantern_ghoul/lantern_ghoul.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "gloom_charge",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "corvid_undertaker",
+      "act": 1,
+      "role": "summoner",
+      "representation": "single creature",
+      "signature": {
+        "id": "carrion_call",
+        "description": "Calls scavengers from marked corpses",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Burn the corpse markers",
+      "part_count": 87,
+      "quad_count": 522,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        2.1832,
+        2.2428,
+        1.1351
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "jaw",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/corvid_undertaker/corvid_undertaker.geometry.json",
+      "blockbench": "creatures/corvid_undertaker/corvid_undertaker.bbmodel",
+      "blender_import": "creatures/corvid_undertaker/corvid_undertaker.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "carrion_call",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "rotmilk_ratpack",
+      "act": 1,
+      "role": "swarm",
+      "representation": "single small rat member; pack composition pending",
+      "signature": {
+        "id": "rat_tide",
+        "description": "Travels through tiny floor grates in successive waves",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Close grate shutters and fight on open stone",
+      "part_count": 89,
+      "quad_count": 534,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        0.6913,
+        0.4434,
+        0.9646
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_front_leg",
+        "left_rear_leg",
+        "right_front_leg",
+        "right_rear_leg",
+        "tail"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/rotmilk_ratpack/rotmilk_ratpack.geometry.json",
+      "blockbench": "creatures/rotmilk_ratpack/rotmilk_ratpack.bbmodel",
+      "blender_import": "creatures/rotmilk_ratpack/rotmilk_ratpack.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "grate_rush",
+          "length_seconds": 1.3,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "grave_thorn",
+      "act": 1,
+      "role": "trapper",
+      "representation": "stationary rooted trap; walk clip is root settling",
+      "signature": {
+        "id": "thorn_snare",
+        "description": "Catches stationary feet with rooted barbs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Step away during the soil pulse",
+      "part_count": 100,
+      "quad_count": 600,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.4567,
+        1.7951,
+        1.4487
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "root_lash_0",
+        "root_lash_1",
+        "root_lash_2",
+        "root_lash_3"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/grave_thorn/grave_thorn.geometry.json",
+      "blockbench": "creatures/grave_thorn/grave_thorn.bbmodel",
+      "blender_import": "creatures/grave_thorn/grave_thorn.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "thorn_snare",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "mourning_matron",
+      "act": 1,
+      "role": "healer",
+      "representation": "single creature",
+      "signature": {
+        "id": "grief_transfer",
+        "description": "Draws wounds from nearby skeletons into itself",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Separate wounded enemies from its radius",
+      "part_count": 96,
+      "quad_count": 576,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.6062,
+        2.5938,
+        1.1114
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "right_arm"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/mourning_matron/mourning_matron.geometry.json",
+      "blockbench": "creatures/mourning_matron/mourning_matron.bbmodel",
+      "blender_import": "creatures/mourning_matron/mourning_matron.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "grief_transfer",
+          "length_seconds": 2.4,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
     }
   ],
   "sha256": {
@@ -361,14 +708,14 @@
     "creatures/lurking_silkmaw/lurking_silkmaw_burial_ochre.png": "9ade3b448d7320c4dcd98718e31c1f82ac1db5724faf29c9d776a416c787f50d",
     "creatures/lurking_silkmaw/lurking_silkmaw_moonlit_lichen.png": "68964500f25f3ad06b8cea8e1f3dcef69c06e1b75325012ebd12e1c7db3904cf",
     "creatures/bell_warden/bell_warden.geometry.json": "e439a005fa882e5a387e2214eb95e6525624c236c28fa435d32aaa865ab35928",
-    "creatures/bell_warden/bell_warden.bbmodel": "cb87e1414847a88532e7be6e2e4489dfb628cda5022e003c2d3357bb8f7126ee",
+    "creatures/bell_warden/bell_warden.bbmodel": "2aecd5e406fd2a32a242061511ba7a0bf5557473d3f8425216263b90e5283c6f",
     "creatures/bell_warden/bell_warden.obj": "620316354694d9e348cb338b83c241eec1f60bd0a1abc88fe17e357e6178d553",
     "creatures/bell_warden/bell_warden.mtl": "373584214b70c537c2a7ac9bfa22143b491553280d6ad42a893737cf6ab3a7c4",
     "creatures/bell_warden/bell_warden_cloister_ash.png": "9c5fae2861e6df9da21aa557b35bb910fc5bbb28a725a391cb52c2d0c65005fe",
     "creatures/bell_warden/bell_warden_burial_ochre.png": "9a9581e52cfac0526a439f16e7f798752ad6679701b9a01a836ba4dacfc9d0e9",
     "creatures/bell_warden/bell_warden_moonlit_lichen.png": "0a4df0850a40e4de46a7369e17a830ec2781900beb5b510e015558eef60d9e4c",
     "creatures/ossuary_bowyer/ossuary_bowyer.geometry.json": "727f07d934b38f262629289b67bb71de23f2762a1feb84384cbb8cdbc9960bd4",
-    "creatures/ossuary_bowyer/ossuary_bowyer.bbmodel": "673ba72326b31e75cbf8657cabeb39548ace8132e4cca36dccf4b0ea773070df",
+    "creatures/ossuary_bowyer/ossuary_bowyer.bbmodel": "18e5343a77de9f8b19c9d43a0bf72eeaf770bb6fa02c6339efe0ff07ac1be718",
     "creatures/ossuary_bowyer/ossuary_bowyer.obj": "874500e6e59b0250563136831af015ecfa2e4b3f63f9000b7fd6a30898e00bf3",
     "creatures/ossuary_bowyer/ossuary_bowyer.mtl": "d8cc4864e002f6e8ba07d79deb5fec8923b6d970a23e7760674c74839fcb75b4",
     "creatures/ossuary_bowyer/ossuary_bowyer_cloister_ash.png": "1fa630f9fc148943f4d8bb67daeed3e676de5be1b563cb551b266a228f496dc3",
@@ -388,6 +735,48 @@
     "creatures/the_ossuary_prior/the_ossuary_prior_cloister_ash.png": "e56ebd4a1399e3d5d2a20f53a3bf31a22db4ed31f71ab1e4f7800b4a2dd6f73a",
     "creatures/the_ossuary_prior/the_ossuary_prior_burial_ochre.png": "782675c3908b768b3beb459c314c4939260caf7c3f2a140b7834c6ba4ee0b202",
     "creatures/the_ossuary_prior/the_ossuary_prior_moonlit_lichen.png": "2ebff8fd1d4e6e53baf06c5219719c17e001840df3f9965ada13f98691b9e048",
-    "art_motion_contracts.json": "9dace23f773e76e649ba0a2488e6f3490b7228cffad500a61d5e8f82a169a475"
+    "creatures/hollow_veil/hollow_veil.geometry.json": "d23e7a4a336d9be7f1a1197b14c1b6d1af0a680c72c38f4592140243f35b8bcf",
+    "creatures/hollow_veil/hollow_veil.bbmodel": "e57cadae9b3011dc86b70c94b97f80b34f24ddfdd95037da2e3f1cd327b3851b",
+    "creatures/hollow_veil/hollow_veil.obj": "445f71d769a87fea156701d57ac7b55183b256e76dab2f4e27f8cabfb17b02c1",
+    "creatures/hollow_veil/hollow_veil.mtl": "8840e66c63acd736866de8dad68a398471c76f36b9ec3095819caace2bd48907",
+    "creatures/hollow_veil/hollow_veil_cloister_ash.png": "44edff5a0b9c04e33fe0cee69c356c70c57eaa0c2b5dc1777cc572a15c63d9e9",
+    "creatures/hollow_veil/hollow_veil_burial_ochre.png": "7c280977c25f55245258eccc660834f5d6ede3fbc6b20a7bb4570544077d64c0",
+    "creatures/hollow_veil/hollow_veil_moonlit_lichen.png": "f83a7b4efdaf0715b6d329742e77e3a5a0df569ca8e70ad29ca02cb070e9176b",
+    "creatures/lantern_ghoul/lantern_ghoul.geometry.json": "4cd58d473bb27be8d40100ec91aea90e80f46a8eea41dba30d173cd5ea6a2a7b",
+    "creatures/lantern_ghoul/lantern_ghoul.bbmodel": "c5d60328a4f496c7c3968c7c0488511025ae69a9ca6d8d3bf66f2f0a82fd5219",
+    "creatures/lantern_ghoul/lantern_ghoul.obj": "1df25015b07f0a0bc8a30445c7b7f305783c5898dc942af37f02188a86d5f398",
+    "creatures/lantern_ghoul/lantern_ghoul.mtl": "dc855f1fec697c62fcfe81df6938e804f153c6c323e92037e56356bab30410a4",
+    "creatures/lantern_ghoul/lantern_ghoul_cloister_ash.png": "211934467031f046f284ad89c9f7a7bad164ba92993d69226add3332a27dce4a",
+    "creatures/lantern_ghoul/lantern_ghoul_burial_ochre.png": "ac0efe71b1eaaf087b009e3868d43527eb098255431f03aa7ccb947ffbd1f9f8",
+    "creatures/lantern_ghoul/lantern_ghoul_moonlit_lichen.png": "55954e727b67f5c7f8e8b797ac1cf4d5cee213130caa7fcf25f8276c1d7d8cc0",
+    "creatures/corvid_undertaker/corvid_undertaker.geometry.json": "50ab66a5654976bc77bab2526d5c8e3ad91ebac6ca5d52c0255d93a312a8b414",
+    "creatures/corvid_undertaker/corvid_undertaker.bbmodel": "7c6df7896965621eda08f89496a32b9be910daf71c77f881377e6dcffd115203",
+    "creatures/corvid_undertaker/corvid_undertaker.obj": "35a1629122eea8c3a43197847a9c7c2397c2725bea18bdc5fa3cebc5c705e39c",
+    "creatures/corvid_undertaker/corvid_undertaker.mtl": "1f22480dbf51c72d925fbd4734e4d50f4eeb45af8550bdc1f8c57da173de3968",
+    "creatures/corvid_undertaker/corvid_undertaker_cloister_ash.png": "14e7f64ed4eed025d20eaff00bafb406ff87787abb3650308d6527474d486f6e",
+    "creatures/corvid_undertaker/corvid_undertaker_burial_ochre.png": "d0750f95c6f04fbbefb48c050409b8c9565bfabf61ed0f56cfe2b957f60ade19",
+    "creatures/corvid_undertaker/corvid_undertaker_moonlit_lichen.png": "9e0a22e101682b1fc3df8d7649cb6bee75ef5670387114c824aedc14ff290bc2",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack.geometry.json": "d8e01d02550da549fecb6b114b7030bf9eee265926fda70b33ba3947c263f2b3",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack.bbmodel": "ab19466d92b0cf59157ddfc8e0f47f93cf808e039edb78eb9b3ec610da3ca0ed",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack.obj": "dee8007a87e22326b51af35a6f94aebd8f1294e1f92c00b303a124a29e5e2e70",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack.mtl": "7373ffd19a45a1ce648ba2464c018faefde853c8f537fe1f8cef9f90d226befa",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack_cloister_ash.png": "f8f2593fbec31aaa921d7d145ae95377e6bf1b1856247d5b77c0383a94990f3f",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack_burial_ochre.png": "bea8f2a6f1c09b1b929dd801c5a269fbeac95710785144ecbf9871f05182856e",
+    "creatures/rotmilk_ratpack/rotmilk_ratpack_moonlit_lichen.png": "77da967b1c3f2a9ef262fd9a0b65762bd0b5b0ad0a49e47be9350590c04b0845",
+    "creatures/grave_thorn/grave_thorn.geometry.json": "b9167657ee88c957aa39eb58d6ba8de7e26ac200e44d6b14baef3965d2869fea",
+    "creatures/grave_thorn/grave_thorn.bbmodel": "22717cd9379b93be4a182b8097ce36916c5f0f85fd4e541d366b750032b18a83",
+    "creatures/grave_thorn/grave_thorn.obj": "34dc881058dd0df8cf288fcc4f2bb1e2b8ee101c1f1e2f75581b62d82c73d4ba",
+    "creatures/grave_thorn/grave_thorn.mtl": "ce909e6392faf7d98f1f21fc087f413d12618edf62e258a0a93451a90e1dcc6f",
+    "creatures/grave_thorn/grave_thorn_cloister_ash.png": "2c6ab2725e8cd92508881359be8a64bdba243310d453e2a1db570204d0a6e118",
+    "creatures/grave_thorn/grave_thorn_burial_ochre.png": "0f8f875f5248bd5df71a1228d135b0f364c21f8e799953fdc0ccfef5fab230df",
+    "creatures/grave_thorn/grave_thorn_moonlit_lichen.png": "6080392cc3c7cd86fba258adb7603c7c8254966a6c90095bddf4bde72e388b71",
+    "creatures/mourning_matron/mourning_matron.geometry.json": "a82141ae325d27533cb50992960a74828da73012d38d65726ee5a0442c1712da",
+    "creatures/mourning_matron/mourning_matron.bbmodel": "212ed338ef2e79624931d9de41760540ee86f90b242d62619ced8924fb15ac39",
+    "creatures/mourning_matron/mourning_matron.obj": "3e1fea63169632fcad43a326fd58b1ca8860e9ebd7d8c561b6a43246a338635e",
+    "creatures/mourning_matron/mourning_matron.mtl": "87d7ed67d63ac8f391bc5dfb0848c0d20a236bfb520c2f636458330e71db51f7",
+    "creatures/mourning_matron/mourning_matron_cloister_ash.png": "929a3a0ec70becb7499ae8ebcd23599dd4782df0a5d48d891822d2de0aa7bb90",
+    "creatures/mourning_matron/mourning_matron_burial_ochre.png": "e06d09668fbc03f60627b463ed5aa8f9384f3a79ae581bb01ca29f0e97fd8e7a",
+    "creatures/mourning_matron/mourning_matron_moonlit_lichen.png": "748c0f4305fcffa58caee8e786305b86727f33d811817bdcd1591e821b29c74d",
+    "art_motion_contracts.json": "a06b0baa84f330c4eaa3593cccdb87f6649535a0314543fae9ef586ac5d455b0"
   }
 }

@@ -8819,24 +8819,24 @@
             "4997fe97-f9df-5876-b802-988c1ce79bc0",
             "00277a0b-d8a3-59e7-9328-abda423523c2",
             "e444b7a0-b878-5674-b2e5-85baf827aeb4",
-            "c2b27468-249e-5806-8ad9-1ab8c1df8811"
-          ]
-        },
-        {
-          "name": "clapper",
-          "origin": [
-            0,
-            40,
-            4
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "uuid": "fa6db65e-f7af-529e-82e6-040852b2e100",
-          "children": [
-            "c6da8afa-0359-5855-b9f3-efc120e9cf4a"
+            "c2b27468-249e-5806-8ad9-1ab8c1df8811",
+            {
+              "name": "clapper",
+              "origin": [
+                0,
+                40,
+                4
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ],
+              "uuid": "fa6db65e-f7af-529e-82e6-040852b2e100",
+              "children": [
+                "c6da8afa-0359-5855-b9f3-efc120e9cf4a"
+              ]
+            }
           ]
         },
         {

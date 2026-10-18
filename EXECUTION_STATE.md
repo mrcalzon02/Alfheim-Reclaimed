@@ -3,12 +3,15 @@
 ## Five Descents asset production — 2026-10-18
 
 First staged batch: 75 NBT prototypes across 25 Act I room/service/connector
-families in three conditions; six detailed creature sculptures and eighteen skins.
+families in three conditions; twelve detailed creature sculptures and 36 skins.
 Continuity Works local planning/generation and artifact validation executed.
 Models include root hierarchies, anatomical pivots and editable Blockbench/OBJ
-exports. Eighteen editable idle/walk/signature art clips and a GIF preview now
+exports. Thirty-six editable idle/walk/signature art clips and GIF previews now
 exist; native animation and entity behavior remain pending. Five-Act production queue
 references all 130 monster designs. No active resources, worlds or JARs changed.
+Wave 02 adds Hollow Veil, Lantern Ghoul, Corvid Undertaker, Rotmilk Ratpack,
+Grave Thorn and Mourning Matron. The rat is one small pack member; the thorn
+is a stationary trap. Accessory transforms now follow their parent groups.
 See `alfheim_reclaimed_design/monastery_labyrinth/asset_batch_01/README.md` for
 previews, evidence and the outstanding placement/trader/model/runtime gates.
 

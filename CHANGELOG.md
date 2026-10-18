@@ -2,6 +2,13 @@
 
 ## Five Descents asset prototypes — 2026-10-18
 
+Wave 02 adds Hollow Veil, Lantern Ghoul, Corvid Undertaker, Rotmilk Ratpack,
+Grave Thorn and Mourning Matron: twelve art prototypes, 36 skins and 36 editable
+motion clips in total. Added dedicated wave previews and magnified rat views.
+The rat is a single small swarm member; the thorn remains rooted. Exported
+accessories inherit parent motion, with matching offline preview evaluation.
+Static validated; game behavior, native animation and editor import remain pending.
+
 Continuation: added the Ossuary Bowyer, Reliquary Sentinel and Ossuary Prior
 sculptures, bringing the library to six creatures and eighteen skins. All six
 now have editable idle/walk/signature art clips, anatomical pivots and a shared

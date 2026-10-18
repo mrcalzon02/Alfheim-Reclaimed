@@ -65,16 +65,26 @@ def main():
             a,b,c,_=vertices[face]
             assert np.dot(np.cross(b-a,c-a),q['normal']) > 0, (row['catalog_id'],'inside-out OBJ face')
         bb = json.loads((OUT / row['blockbench']).read_text())
-        refs=[]; groups={}
-        def walk_group(nodes):
+        refs=[]; groups={}; parents={}
+        def walk_group(nodes,parent=None):
             for node in nodes:
                 if isinstance(node,str):refs.append(node)
                 else:
                     groups[node['uuid']]=node
-                    walk_group(node['children'])
+                    parents[node['name']]=parent
+                    walk_group(node['children'],node['name'])
         walk_group(bb['outliner'])
+        for child,parent in {'jaw':'head','bowstring':'left_arm','arrow':'left_arm',
+                             'clapper':'body','lantern':'body','tail':'body'}.items():
+            if child in parents:assert parents[child]==parent,(row['catalog_id'],child,'detached accessory')
         assert set(refs) == {p['uuid'] for p in parts} and len(refs)==len(parts)
         assert row['runtime_entity']=='not implemented' and len(bb['animations'])==3
+        if row['catalog_id']=='grave_thorn':
+            for clip in bb['animations']:
+                for animator in clip['animators'].values():
+                    if animator['name']=='root':
+                        assert all(all(float(k['data_points'][0][axis])==0 for axis in ('x','y','z'))
+                                   for k in animator['keyframes'] if k['channel']=='position'), 'rooted trap lifts off its base'
         assert {a['name'] for a in bb['animations']} >= {'idle','walk'}
         for clip in bb['animations']:
             assert clip['length']>0 and clip['loop'] in ('loop','once')
@@ -97,7 +107,12 @@ def main():
         model_rows.append({'id':row['catalog_id'],'sculpted_parts':len(parts),'quad_count':len(quads),
                            'unique_face_islands':len(quads),'outward_obj_winding':True,'blockbench_group_coverage':True,
                            'art_clips':len(bb['animations']),'finite_motion_samples':27,'loop_endpoints_match':True})
-    assert len(art['models'])==6
+    assert len(art['models'])==12
+    assert len({row['catalog_id'] for row in art['models']})==12
+    rat=next(row for row in art['models'] if row['catalog_id']=='rotmilk_ratpack')
+    assert rat['model_bounds_blocks'][1]<.5 and 'single small rat' in rat['representation']
+    thorn=next(row for row in art['models'] if row['catalog_id']=='grave_thorn')
+    assert 'stationary rooted trap' in thorn['representation']
     report={'acceptance':'static validated; runtime pending','templates':template_rows,'creatures':model_rows,
             'checks':['NBT version/bounds/palette indices','deterministic source-to-artifact equality',
                       'socket reachability with two-block headroom','five-wide dry room/passsage routes',
@@ -108,7 +123,7 @@ def main():
                             'native game animation','Blockbench editor import','AI state machines','merchant trades','loot integration',
                             'worldgen reservations','fresh-world natural generation','multiplayer/performance']}
     (OUT/'static_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-    print('Static validation passed: 75 NBT modules, 6 creature sculptures, 18 skins. Runtime acceptance pending.')
+    print('Static validation passed: 75 NBT modules, 12 creature sculptures, 36 skins, 36 art clips. Runtime acceptance pending.')
 
 
 if __name__=='__main__':

@@ -668,6 +668,72 @@
       "art_clips": 3,
       "finite_motion_samples": 27,
       "loop_endpoints_match": true
+    },
+    {
+      "id": "hollow_veil",
+      "sculpted_parts": 89,
+      "quad_count": 534,
+      "unique_face_islands": 534,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "lantern_ghoul",
+      "sculpted_parts": 91,
+      "quad_count": 546,
+      "unique_face_islands": 546,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "corvid_undertaker",
+      "sculpted_parts": 87,
+      "quad_count": 522,
+      "unique_face_islands": 522,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "rotmilk_ratpack",
+      "sculpted_parts": 89,
+      "quad_count": 534,
+      "unique_face_islands": 534,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "grave_thorn",
+      "sculpted_parts": 100,
+      "quad_count": 600,
+      "unique_face_islands": 600,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "mourning_matron",
+      "sculpted_parts": 96,
+      "quad_count": 576,
+      "unique_face_islands": 576,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
     }
   ],
   "checks": [
