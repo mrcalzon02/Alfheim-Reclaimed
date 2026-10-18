@@ -1,0 +1,7 @@
+{
+  "type": "alfheim_companion:mountain_worldstone",
+  "biomes": "#alfheim:has_mountain_worldstone",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {}
+}

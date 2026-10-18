@@ -1,8 +1,13 @@
 # Alfheim Golems — implementation plan
 
-Status: **plan only; project scaffold, registrations and jar do not exist**  
-Planned mod ID: `alfheim_golems`  
-Planned artifact: `alfheim_golems-0.1.0.jar`  
+Status, updated 2026-10-17: **G0 foundation exists and its jar is installed; no playable golems yet.**
+The project, contracts, tests, diagnostics and empty SavedData schema are present. Registration,
+ownership UI, inventory execution, navigation, recipes and actual golem entities remain to build.
+Current delivery order and next exact slices: [Usable golems](USABLE_GOLEMS_20261017.md).
+MineColonies owns settlement development and reclamation; golems are workshop assistants.
+
+Mod ID: `alfheim_golems`  
+Installed artifact: `alfheim_golems-0.1.0.jar`  
 Target: Minecraft 1.20.1, Forge 47.4.10, Java 17  
 Gameplay contract: `../../../alfheim_reclaimed_design/ELVEN_GOLEMS.md`
 

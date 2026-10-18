@@ -1,0 +1,37 @@
+{
+  "exp": 300,
+  "id": "alfheim_regalia_curio_profession_gear_crafting_master",
+  "mats": [
+    {
+      "type": "ITEM",
+      "id": "alfheim:rimebound_lattice",
+      "num": 6
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:material/mining/4",
+      "num": 3
+    },
+    {
+      "type": "ITEM",
+      "id": "ars_nouveau:source_gem",
+      "num": 4
+    },
+    {
+      "type": "ITEM",
+      "id": "minecraft:iron_ingot",
+      "num": 3
+    },
+    {
+      "type": "ITEM",
+      "id": "minecraft:leather",
+      "num": 6
+    }
+  ],
+  "profession": "gear_crafting",
+  "requires_pinnacle_unlock": false,
+  "result": "alfheim:curio/profession/gear_crafting/master",
+  "result_num": 1,
+  "set_tier_nbt": false,
+  "tier": 4
+}

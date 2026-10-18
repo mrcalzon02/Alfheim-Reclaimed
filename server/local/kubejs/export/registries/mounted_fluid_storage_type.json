@@ -1,5 +1,5 @@
 {
-	"create:fluid_tank": "com.simibubi.create.content.fluids.tank.storage.FluidTankMountedStorageType",
+	"create:creative_fluid_tank": "com.simibubi.create.content.fluids.tank.storage.creative.CreativeFluidTankMountedStorageType",
 	"createdieselgenerators:oil_barrel": "com.jesz.createdieselgenerators.content.oil_barrel.OilBarrelMountedStorageType",
-	"create:creative_fluid_tank": "com.simibubi.create.content.fluids.tank.storage.creative.CreativeFluidTankMountedStorageType"
+	"create:fluid_tank": "com.simibubi.create.content.fluids.tank.storage.FluidTankMountedStorageType"
 }

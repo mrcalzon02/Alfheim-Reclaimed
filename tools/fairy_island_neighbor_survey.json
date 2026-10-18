@@ -1,0 +1,27 @@
+{
+  "world": "validation-fairy-islands-final-20261017",
+  "seed": "-5876049240305171930",
+  "console": "console-20261017-234946.log",
+  "exit_code": 0,
+  "sites": [],
+  "survey": [
+    "[23:51:35] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,-4 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=5, neighbor:alfheim:pyre_hall=2, neighbor:alfheim:rotwood_barrow=1, neighbor:alfheim:starveling_pit=3, outside_seasonal_biomes=44, terrain=9}",
+    "[23:51:38] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,4 tested=64 accepted=0 reasons={neighbor:alfheim:capfall_barrow=1, neighbor:alfheim:lake_arcade=2, neighbor:alfheim:pyre_hall=1, neighbor:alfheim:starveling_pit=5, neighbor:alfheim:void_edge_courts=2, outside_seasonal_biomes=44, terrain=9}",
+    "[23:51:41] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,-12 tested=64 accepted=0 reasons={neighbor:alfheim:capfall_barrow=1, neighbor:alfheim:lake_arcade=1, neighbor:alfheim:pyre_hall=4, neighbor:alfheim:starveling_pit=4, neighbor:alfheim:void_edge_courts=1, outside_seasonal_biomes=46, terrain=7}",
+    "[23:51:44] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,12 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=3, neighbor:alfheim:starveling_pit=3, neighbor:alfheim:tidal_arcade=1, neighbor:alfheim:void_edge_courts=2, outside_seasonal_biomes=49, terrain=6}",
+    "[23:51:46] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-12 tested=64 accepted=0 reasons={neighbor:alfheim:pyre_hall=2, neighbor:alfheim:starveling_pit=3, neighbor:alfheim:tidal_arcade=1, neighbor:alfheim:void_edge_courts=2, outside_seasonal_biomes=49, terrain=7}",
+    "[23:51:49] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-4 tested=64 accepted=0 reasons={neighbor:alfheim:capfall_barrow=2, neighbor:alfheim:lake_arcade=3, neighbor:alfheim:pyre_hall=2, neighbor:alfheim:starveling_pit=3, neighbor:alfheim:void_edge_courts=1, outside_seasonal_biomes=44, terrain=9}",
+    "[23:51:52] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,4 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=3, neighbor:alfheim:pyre_hall=7, outside_seasonal_biomes=45, terrain=9}",
+    "[23:51:55] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,12 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=4, neighbor:alfheim:pyre_hall=1, neighbor:alfheim:starveling_pit=3, neighbor:alfheim:tidal_arcade=1, neighbor:alfheim:void_edge_courts=2, outside_seasonal_biomes=44, terrain=9}",
+    "[23:51:58] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-12 tested=64 accepted=0 reasons={neighbor:alfheim:capfall_barrow=3, neighbor:alfheim:lake_arcade=3, neighbor:alfheim:pyre_hall=1, neighbor:alfheim:starveling_pit=2, outside_seasonal_biomes=51, terrain=4}",
+    "[23:52:01] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-4 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=4, neighbor:alfheim:mistfall_shrine=1, neighbor:alfheim:pyre_hall=5, neighbor:alfheim:starveling_pit=6, neighbor:alfheim:tidal_arcade=1, outside_seasonal_biomes=39, terrain=8}",
+    "[23:52:04] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,4 tested=64 accepted=0 reasons={neighbor:alfheim:capfall_barrow=1, neighbor:alfheim:lake_arcade=3, neighbor:alfheim:pyre_hall=3, neighbor:alfheim:starveling_pit=4, outside_seasonal_biomes=46, terrain=7}",
+    "[23:52:07] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,12 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=1, neighbor:alfheim:mistfall_shrine=1, neighbor:alfheim:pyre_hall=3, neighbor:alfheim:starveling_pit=5, neighbor:alfheim:void_edge_courts=1, outside_seasonal_biomes=44, terrain=9}",
+    "[23:52:10] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,-12 tested=64 accepted=0 reasons={neighbor:alfheim:capfall_barrow=2, neighbor:alfheim:lake_arcade=1, neighbor:alfheim:pyre_hall=2, neighbor:alfheim:starveling_pit=5, outside_seasonal_biomes=40, terrain=14}",
+    "[23:52:12] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,-4 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=1, neighbor:alfheim:mistfall_shrine=1, neighbor:alfheim:pyre_hall=4, neighbor:alfheim:starveling_pit=2, outside_seasonal_biomes=45, terrain=11}",
+    "[23:52:15] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,4 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=1, neighbor:alfheim:pyre_hall=4, neighbor:alfheim:starveling_pit=4, neighbor:alfheim:tidal_arcade=1, outside_seasonal_biomes=45, terrain=9}",
+    "[23:52:17] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,12 tested=64 accepted=0 reasons={neighbor:alfheim:lake_arcade=1, neighbor:alfheim:pyre_hall=3, neighbor:alfheim:tidal_arcade=1, neighbor:alfheim:void_edge_courts=1, outside_seasonal_biomes=51, terrain=7}"
+  ],
+  "jar_sha256": "08082be6666296fcfa5f0056b11755eee25e27c5e37f8e5cb1ab1434dc69707d",
+  "status": "SURVEY_OR_POPULATION_PENDING_VERIFICATION"
+}

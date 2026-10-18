@@ -1,4 +1,13 @@
 [
+	"alfheim:curio/class/hunter/emblem_apprentice",
+	"alfheim:curio/class/hunter/emblem_guild",
+	"alfheim:curio/class/hunter/emblem_master",
+	"alfheim:curio/class/sorcerer/emblem_apprentice",
+	"alfheim:curio/class/sorcerer/emblem_guild",
+	"alfheim:curio/class/sorcerer/emblem_master",
+	"alfheim:curio/class/warlock/emblem_apprentice",
+	"alfheim:curio/class/warlock/emblem_guild",
+	"alfheim:curio/class/warlock/emblem_master",
 	"botania:diva_charm",
 	"botania:goddess_charm",
 	"botania:monocle",

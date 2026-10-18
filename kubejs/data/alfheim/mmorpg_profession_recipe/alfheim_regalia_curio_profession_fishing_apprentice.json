@@ -1,0 +1,37 @@
+{
+  "exp": 100,
+  "id": "alfheim_regalia_curio_profession_fishing_apprentice",
+  "mats": [
+    {
+      "type": "ITEM",
+      "id": "alfheim:quickened_palebloom",
+      "num": 2
+    },
+    {
+      "type": "ITEM",
+      "id": "mmorpg:material/mining/0",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "ars_nouveau:source_gem",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "minecraft:cod",
+      "num": 1
+    },
+    {
+      "type": "ITEM",
+      "id": "minecraft:leather",
+      "num": 2
+    }
+  ],
+  "profession": "gear_crafting",
+  "requires_pinnacle_unlock": false,
+  "result": "alfheim:curio/profession/fishing/apprentice",
+  "result_num": 1,
+  "set_tier_nbt": false,
+  "tier": 0
+}

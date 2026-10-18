@@ -454,5 +454,15 @@
   "item.alfheim_companion.eternity_inlay_26": "Eternity Inlay 26",
   "item.alfheim_companion.eternity_inlay_27": "Eternity Inlay 27",
   "item.alfheim_companion.eternity_inlay_28": "Eternity Inlay 28",
-  "item.alfheim_companion.eternity_inlay_29": "Eternity Inlay 29"
+  "item.alfheim_companion.eternity_inlay_29": "Eternity Inlay 29",
+  "block.alfheim_companion.worldstone_crystal": "Budding Crimson Worldstone",
+  "block.alfheim_companion.worldstone_heart": "Radiant Worldstone Heart",
+  "block.alfheim_companion.worldstone_fragment_ore": "Worldstone Fragment Ore",
+  "block.alfheim_companion.worldstone_small_bud": "Small Worldstone Bud",
+  "block.alfheim_companion.worldstone_medium_bud": "Medium Worldstone Bud",
+  "block.alfheim_companion.worldstone_large_bud": "Large Worldstone Bud",
+  "block.alfheim_companion.worldstone_cluster": "Worldstone Crystal Cluster",
+  "item.alfheim_companion.worldstone_fragment": "Worldstone Fragment",
+  "item.alfheim_companion.attuned_worldstone": "Attuned Worldstone",
+  "item.alfheim_companion.worldstone_compass": "Worldstone Compass"
 }

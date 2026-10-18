@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-17",
+  "status": "BUILT_INSTALLED_MULTIPLE_NATURAL_ISLANDS_AND_SAVED_RANDOM_LOOT_VERIFIED",
+  "jar_sha256": "3e2abc9483fa5282313a5878e038f7450061e4edcf43a6d24b25f6393aa0dca0",
+  "backup": "quarantine/alfheim_companion-before-fairy-island-runtime-fix-20261017.jar",
+  "backup_sha256": "0ef66472b5179673567ad5fb3fde97babe49e7381810c17e2a41aca0c07bbc9e",
+  "packaged_resources_verified": 1834,
+  "java_tests": 72,
+  "matching_built_installed_server_jars": true,
+  "matching_server_mirror": true,
+  "cw_snapshot": "20261018T073037Z-alfheim_seasonal_fey_sky_villages-generate-be66f46b",
+  "geometry_audit": "tools/fairy_island_template_audit.json",
+  "runtime_report": "tools/fairy_island_runtime_report.json",
+  "sites": [
+    {
+      "season": "spring",
+      "x": -10576,
+      "z": -4288
+    },
+    {
+      "season": "autumn",
+      "x": -13360,
+      "z": 12912
+    }
+  ],
+  "proofs": [
+    {
+      "season": "spring",
+      "x": -10576,
+      "z": -4288,
+      "pieces": [
+        {
+          "template": "alfheim:pixie/spring/village_1_0_0",
+          "sampled": 201,
+          "matched": 201
+        },
+        {
+          "template": "alfheim:pixie/spring/village_1_1_0",
+          "sampled": 202,
+          "matched": 202
+        },
+        {
+          "template": "alfheim:pixie/spring/village_1_0_1",
+          "sampled": 202,
+          "matched": 202
+        },
+        {
+          "template": "alfheim:pixie/spring/village_1_1_1",
+          "sampled": 202,
+          "matched": 202
+        }
+      ],
+      "containers": 10,
+      "registered_homes": 6,
+      "saved_loot_verified": true
+    },
+    {
+      "season": "autumn",
+      "x": -13360,
+      "z": 12912,
+      "pieces": [
+        {
+          "template": "alfheim:pixie/autumn/village_1_0_0",
+          "sampled": 203,
+          "matched": 203
+        },
+        {
+          "template": "alfheim:pixie/autumn/village_1_1_0",
+          "sampled": 201,
+          "matched": 201
+        },
+        {
+          "template": "alfheim:pixie/autumn/village_1_0_1",
+          "sampled": 202,
+          "matched": 202
+        },
+        {
+          "template": "alfheim:pixie/autumn/village_1_1_1",
+          "sampled": 202,
+          "matched": 202
+        }
+      ],
+      "containers": 14,
+      "registered_homes": 10,
+      "saved_loot_verified": true
+    }
+  ],
+  "loot_tables": 4,
+  "opened_barrels": 24,
+  "unique_inventories": 24,
+  "surface_layouts_preserved": 49,
+  "feature_order_cycles": 0,
+  "display_atlas_entries": 439,
+  "grove_map_colors": 9,
+  "remaining": [
+    "Client lighting/rendering review",
+    "Live pixie home entry/release, gardening and dust-harvest gameplay",
+    "Natural placement sampling of Summer and Winter islands; their layouts and loot tables passed static checks"
+  ],
+  "known_log_limits": [
+    "Existing Forge remote mod-version JSON errors do not prevent startup; KubeJS startup/server scripts load with zero errors",
+    "World-generation workload reports server lag during test chunk population"
+  ]
+}

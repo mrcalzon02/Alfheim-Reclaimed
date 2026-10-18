@@ -1,0 +1,29 @@
+{
+  "status": "DIAGNOSTIC_SURVEY_TIME_BUDGET_EXCEEDED_BEFORE_POPULATION",
+  "console": "console-20261017-234344.log",
+  "seed": "-5876049240305171930",
+  "jar_sha256": "00c3437462d9d665901484c266d6f75af38ab4c78d009690460d348018c26ea1",
+  "evidence": [
+    "[23:45:38] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,-12 tested=49 accepted=0 reasons={neighbor:alfheim:civic_center=1, neighbor:alfheim:frostwatch_spire=1, neighbor:alfheim:hillcrown_keep=2, neighbor:alfheim:scholastic_quarter=1, neighbor:alfheim:starveling_pit=1, neighbor:alfheim:waystone_ring=1, neighbor:mythicbotany:elven_house=3, outside_seasonal_biomes=33, terrain=6}",
+    "[23:45:47] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=summer x=-18432 z=-2704",
+    "[23:45:47] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,-4 tested=17 accepted=1 reasons={neighbor:alfheim:boneyard_wreck=1, neighbor:alfheim:grange_hall=1, neighbor:alfheim:plains_moot=1, neighbor:alfheim:waystone_ring=1, none=1, outside_seasonal_biomes=10, terrain=2}",
+    "[23:45:50] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=summer x=-14768 z=8256",
+    "[23:46:00] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=summer x=-17696 z=9392",
+    "[23:46:00] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,4 tested=17 accepted=2 reasons={neighbor:alfheim:waystone_ring=1, neighbor:mythicbotany:elven_house=1, none=2, outside_seasonal_biomes=11, terrain=2}",
+    "[23:46:03] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,12 tested=64 accepted=0 reasons={neighbor:alfheim:ashwatch_keep=2, neighbor:alfheim:frostwatch_spire=1, neighbor:alfheim:grange_hall=1, neighbor:alfheim:hillcrown_keep=1, neighbor:alfheim:plains_moot=1, neighbor:alfheim:waystone_ring=1, neighbor:mythicbotany:elven_house=2, outside_seasonal_biomes=49, terrain=6}",
+    "[23:46:12] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=summer x=-944 z=-6992",
+    "[23:46:12] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-12 tested=60 accepted=1 reasons={neighbor:alfheim:ashwatch_keep=1, neighbor:alfheim:plains_moot=4, neighbor:alfheim:waystone_ring=1, neighbor:mythicbotany:elven_house=1, none=1, outside_seasonal_biomes=45, terrain=7}",
+    "[23:46:17] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-4 tested=25 accepted=0 reasons={neighbor:alfheim:frostwatch_spire=2, neighbor:alfheim:harvest_crater=1, neighbor:alfheim:scholastic_quarter=1, neighbor:alfheim:waystone_ring=1, outside_seasonal_biomes=17, terrain=3}",
+    "[23:46:24] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=summer x=-5856 z=15456",
+    "[23:46:24] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,4 tested=49 accepted=1 reasons={neighbor:alfheim:frostwatch_spire=1, neighbor:alfheim:grange_hall=1, neighbor:alfheim:plains_moot=2, neighbor:alfheim:roads_trade=1, neighbor:alfheim:waystone_ring=1, neighbor:mythicbotany:elven_house=2, none=1, outside_seasonal_biomes=35, terrain=5}",
+    "[23:46:31] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=summer x=-5520 z=26240",
+    "[23:46:31] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,12 tested=41 accepted=1 reasons={neighbor:alfheim:ashwatch_keep=2, neighbor:alfheim:harvest_crater=1, neighbor:alfheim:plains_moot=2, neighbor:mythicbotany:elven_house=2, none=1, outside_seasonal_biomes=29, terrain=4}",
+    "[23:46:36] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-12 tested=64 accepted=0 reasons={neighbor:alfheim:ashwatch_keep=1, neighbor:alfheim:frostwatch_spire=2, neighbor:alfheim:harvest_crater=1, neighbor:alfheim:hillcrown_keep=1, neighbor:alfheim:plains_moot=2, neighbor:alfheim:waystone_ring=1, neighbor:mythicbotany:elven_house=1, outside_seasonal_biomes=51, terrain=4}",
+    "[23:46:41] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-4 tested=15 accepted=0 reasons={neighbor:alfheim:garland_menhirs=1, neighbor:alfheim:grange_hall=1, neighbor:alfheim:plains_moot=1, neighbor:mythicbotany:elven_house=3, outside_seasonal_biomes=7, terrain=2}",
+    "[23:46:46] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=winter x=12592 z=8000",
+    "[23:46:47] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,4 tested=16 accepted=1 reasons={neighbor:alfheim:frostwatch_spire=1, neighbor:alfheim:grange_hall=1, neighbor:mythicbotany:elven_house=1, none=1, outside_seasonal_biomes=11, terrain=1}",
+    "[23:46:55] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,12 tested=37 accepted=0 reasons={neighbor:alfheim:ashwatch_keep=1, neighbor:alfheim:frostwatch_spire=1, neighbor:alfheim:waystone_ring=2, neighbor:mythicbotany:andwari_cave=1, neighbor:mythicbotany:elven_house=2, outside_seasonal_biomes=25, terrain=5}",
+    "[23:47:02] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SITE season=winter x=25184 z=-9184",
+    "[23:47:02] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,-12 tested=53 accepted=1 reasons={neighbor:alfheim:ashwatch_keep=1, neighbor:alfheim:frostwatch_spire=2, neighbor:alfheim:hillcrown_keep=1, neighbor:alfheim:waystone_ring=2, neighbor:mythicbotany:elven_house=2, none=1, outside_seasonal_biomes=32, terrain=12}"
+  ]
+}

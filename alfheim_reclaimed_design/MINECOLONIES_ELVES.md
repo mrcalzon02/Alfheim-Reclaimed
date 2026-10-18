@@ -1,5 +1,11 @@
 # Elven MineColonies — a plan
 
+**Ownership decision, 2026-10-17:** MineColonies is the system for living settlements, settlement
+growth and reclamation of land. Elven models, build styles and magical supply chains should extend
+its citizen/building/research workflows. A separate custom settlement or land-reclamation simulator
+is outside the intended direction. This decision does not claim that the theming or new integration
+work below has been implemented. Golems remain bounded workshop assistants.
+
 **Role:** plan record. **Nothing here is implemented.**
 **Status:** `draft` — researched against the installed jars, costed, not built.
 **User instruction, 2026-09-03:** *"a plan… to add some custom villager theming for MineColonies in

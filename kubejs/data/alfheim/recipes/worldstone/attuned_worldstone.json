@@ -1,0 +1,37 @@
+{
+  "type": "mythicbotany:infuser",
+  "group": "alfheim_worldstone",
+  "ingredients": [
+    {
+      "item": "alfheim_companion:worldstone_fragment"
+    },
+    {
+      "item": "alfheim_companion:worldstone_fragment"
+    },
+    {
+      "item": "alfheim_companion:worldstone_fragment"
+    },
+    {
+      "item": "alfheim_companion:worldstone_fragment"
+    },
+    {
+      "item": "mythicbotany:alfsteel_ingot"
+    },
+    {
+      "item": "mythicbotany:alfsteel_ingot"
+    },
+    {
+      "item": "alfheim:rimebound_lattice"
+    },
+    {
+      "item": "alfheim:rimebound_lattice"
+    }
+  ],
+  "mana": 600000,
+  "fromColor": 7864336,
+  "toColor": 16716064,
+  "output": {
+    "item": "alfheim_companion:attuned_worldstone",
+    "count": 1
+  }
+}

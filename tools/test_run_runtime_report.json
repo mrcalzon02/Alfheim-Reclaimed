@@ -1,0 +1,27 @@
+{
+  "world": "validation-test-run-raven-20261017",
+  "seed": "-5876049240305171930",
+  "console": "console-20261017-203450.log",
+  "exit_code": 0,
+  "evidence": [
+    "[20:35:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/MouseHandler (java.lang.RuntimeException: Attempted to load class net/minecraft/client/MouseHandler for invalid dist DEDICATED_SERVER)",
+    "[20:35:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/gui/screens/Screen (java.lang.RuntimeException: Attempted to load class net/minecraft/client/gui/screens/Screen for invalid dist DEDICATED_SERVER)",
+    "[20:35:03] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/renderer/entity/layers/ItemInHandLayer (java.lang.ClassNotFoundException: net.minecraft.client.renderer.entity.layers.ItemInHandLayer)",
+    "com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER at line 1 column 4 path $",
+    "Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was NUMBER at line 1 column 4 path $",
+    "[20:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: ALFHEIM_ENEMY_ITEMS_PASS selections=390 saved_stacks=390 actual_egg_spawns=390 persisted_appearances=390 automatic_eggs=5",
+    "[20:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: ALFHEIM_SOCIETY_PASS roles=12 appearances=48 actual_egg_spawns=48 saved_npc_roundtrips=48",
+    "java.lang.IllegalStateException: Monstrosity audit: natural spawn rule hulking_troll",
+    "[20:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: An unexpected error occurred trying to execute that command",
+    "[20:38:23] [Server thread/INFO] [minecraft/MinecraftServer]: The nearest alfheim:common_residential_quarter is at [-2080, ~, 15584] (12614 blocks away)",
+    "[20:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: The nearest alfheim:production_district is at [144, ~, 12960] (9290 blocks away)",
+    "[20:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: The nearest alfheim:relief_district is at [6384, ~, 19024] (11141 blocks away)"
+  ],
+  "client_visual_review": "pending",
+  "status": "PARTIAL_RUNTIME_PASS_DAYLIGHT_PROBE_REQUIRES_DARK_CHAMBER",
+  "checks": {
+    "ALFHEIM_ENEMY_ITEMS_PASS": true,
+    "ALFHEIM_SOCIETY_PASS": true,
+    "ALFHEIM_MONSTROSITIES_PASS": false
+  }
+}

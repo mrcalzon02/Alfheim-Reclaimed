@@ -10,20 +10,20 @@
 # two markers arbitrarily. The baked one is authoritative, so the other goes.
 execute in mythicbotany:alfheim run kill @e[type=minecraft:marker,tag=alfheim_hub,tag=!alfheim_hub_baked]
 
-execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run setworldspawn ~ ~1 ~
+execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run setworldspawn ~ ~1 ~
 
 # Release the generation force-load and keep only the hub itself loaded. Without this the
 # server pays for the placement search area permanently.
 execute in mythicbotany:alfheim run forceload remove all
-execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run forceload add ~-80 ~-128 ~80 ~32
+execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run forceload add ~-80 ~-128 ~80 ~32
 
 
 # COLLECT THE PLAYERS WHO ARRIVED FIRST. Anyone placed provisionally while the Greatbole
 # was still generating carries the await tag; now that the anchor exists, bring them in.
 # This is what makes a fast join self-healing instead of permanent -- the player joined at
 # 31 seconds and the hub resolved minutes later, and nothing moved them.
-execute in mythicbotany:alfheim as @a[tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run tp @s ~ ~1 ~
-execute in mythicbotany:alfheim as @a[tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run spawnpoint @s ~ ~1 ~
+execute in mythicbotany:alfheim as @a[tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run tp @s ~ ~1 ~
+execute in mythicbotany:alfheim as @a[tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run spawnpoint @s ~ ~1 ~
 execute as @a[tag=alfheim_awaiting_hub] run tellraw @s {"text":"[Alfheim] The Greatbole has finished generating. Welcome to the Hollow Court.","color":"green"}
 tag @a[tag=alfheim_awaiting_hub] remove alfheim_awaiting_hub
 

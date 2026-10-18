@@ -1,0 +1,22 @@
+{
+  "world": "validation-worldstone-20261018-003123",
+  "seed": "-5876049240305171930",
+  "console": "console-20261018-003133.log",
+  "exit_code": 0,
+  "site": {
+    "x": -9016,
+    "z": 6168,
+    "summit": 261,
+    "minimum_sampled_cover": 82
+  },
+  "survey": [
+    "WORLDSTONE_SITE x=-9016 z=6168 summit=261 cover=82",
+    "WORLDSTONE_AUDIT region=-16,0 tested=64 accepted=1 reasons={biome=30, low_mountain=31, neighbor:mythicbotany:andwari_cave=1, neighbor:mythicbotany:elven_house=1, none=1}"
+  ],
+  "status": "PENDING_SAVED_WORLD_VERIFICATION",
+  "gameplay": null,
+  "fairy_regression": [
+    "FAIRY_SURVEY region=-12,-4 tested=64 accepted=1 reasons={neighbor:mythicbotany:andwari_cave=2, neighbor:mythicbotany:elven_house=8, none=1, outside_seasonal_biomes=44, terrain=9}"
+  ],
+  "jar_sha256": "265ea630c71517f7f816485ce13b7ec106ec209c5cfc2cda73e2fe2e871e9bd0"
+}

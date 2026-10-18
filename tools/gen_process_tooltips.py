@@ -31,6 +31,14 @@ def registered_names():
 
 def all_recipes():
     recipes = []
+    # Native MMO profession recipes live outside vanilla recipes/. Their station and inputs
+    # still belong in the same source/use index as magical and ordinary crafting recipes.
+    for path in sorted(Path('kubejs/data').glob('*/mmorpg_profession_recipe/*.json')):
+        data=json.loads(path.read_text(encoding='utf-8'))
+        recipes.append(dict(type='alfheim:native_profession_crafting',
+                            method='Gear Crafting station' if data.get('profession')=='gear_crafting' else data.get('profession','profession crafting'),
+                            inputs=[m['id'] for m in data.get('mats',[]) if m.get('type')=='ITEM'],
+                            outputs=[data['result']],body=json.dumps(data),id=str(path)))
     for path in sorted(Path('kubejs/server_scripts').glob('*.js')):
         recipes.extend(r for r in parse_recipes(path) if r['outputs'])
     # Data recipes include furnishings, wildlife supplies and other custom objects.

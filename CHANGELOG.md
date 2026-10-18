@@ -1,5 +1,37 @@
 # Changelog
 
+## Repeated Fairy Islands and randomized loot — 2026-10-17
+
+Repaired sky-village site rejection and reserved valid island locations against
+pack-owned standalone and underground works. Ordinary biome boundaries no longer
+reject otherwise safe islands. Other mods retain their placement logic; islands
+check their viable starts and keep the independent-structure clearance. Existing
+island geometry, homes and seasonal IDs remain intact.
+
+Added four seasonal loot tables: ten randomized cottage barrels per island,
+fourteen including the autumn market. Fresh-world generation verifies separate
+Spring and Autumn islands with eight complete pieces, 16 registered homes and
+24 different barrel inventories saved correctly. No manual structure placement.
+Built and installed; 72 Java tests and zero feature-order cycles. Restart and new
+chunks required. Client visuals, live pixie behavior and Summer/Winter natural
+sampling remain pending. Evidence: `tools/fairy_island_runtime_report.json` and
+`FEY_SKY_VILLAGES_20261017.md`.
+
+## District rings and test-run display repairs — 2026-10-17
+
+Replaced the district 6,000-block exclusion/grid with staggered candidate rings at
+1,000, 2,000, 3,000 blocks and onward around the starting hub, with district,
+hub and castle clearance checks. Added a shared district locate tag. Nine natural
+families remain enabled; existing chunks are not rebuilt. Added 439 missing atlas
+texture registrations for creature/citizen heads and the Crown, and explicit map
+colors for the nine Archive Grove blocks.
+
+Built and installed; 72 Java tests pass. A fresh world on the newest test save's
+seed verifies 28 natural pieces across the first three rings, 495 actual creature
+selections and nine registered map colors. Client visual review remains pending;
+restart required and old map tiles may need remapping. Details and limits:
+`TEST_RUN_REPAIRS_20261017.md`, `tools/district_ring_runtime_report.json`.
+
 ## Crown of Eternity — 2026-10-17
 
 Added a reusable Jeweller's Eternity Setter and a wearable gold-and-platinum

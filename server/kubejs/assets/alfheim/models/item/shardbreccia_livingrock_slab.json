@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/shardbreccia_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/shardbreccia_livingrock_bricks",
+    "top": "alfheim:block/shardbreccia_livingrock_bricks",
+    "side": "alfheim:block/shardbreccia_livingrock_bricks"
+  }
 }

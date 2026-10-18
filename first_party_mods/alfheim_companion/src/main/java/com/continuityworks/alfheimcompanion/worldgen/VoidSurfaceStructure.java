@@ -65,6 +65,8 @@ public final class VoidSurfaceStructure extends Structure {
 
     @Override
     protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
+        if (FairyIslandReservations.reserved(context)) return Optional.empty();
+        if (WorldstoneCavernStructure.reserved(context)) return Optional.empty();
         final int centreX = context.chunkPos().getMiddleBlockX();
         final int centreZ = context.chunkPos().getMiddleBlockZ();
         final Rotation rotation = Rotation.values()[context.random().nextInt(4)];

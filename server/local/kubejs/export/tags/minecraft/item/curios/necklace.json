@@ -1,4 +1,13 @@
 [
+	"alfheim:curio/class/minstrel/emblem_apprentice",
+	"alfheim:curio/class/minstrel/emblem_guild",
+	"alfheim:curio/class/minstrel/emblem_master",
+	"alfheim:curio/class/shaman/emblem_apprentice",
+	"alfheim:curio/class/shaman/emblem_guild",
+	"alfheim:curio/class/shaman/emblem_master",
+	"alfheim:curio/class/warrior/emblem_apprentice",
+	"alfheim:curio/class/warrior/emblem_guild",
+	"alfheim:curio/class/warrior/emblem_master",
 	"ars_nouveau:amulet_of_mana_boost",
 	"ars_nouveau:amulet_of_mana_regen",
 	"botania:blood_pendant",

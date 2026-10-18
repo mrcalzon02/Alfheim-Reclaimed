@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:jigsaw",
+  "type": "alfheim_companion:fairy_reserved_jigsaw",
   "biomes": "#alfheim:has_split_gallery",
   "step": "surface_structures",
   "terrain_adaptation": "none",
@@ -16,5 +16,24 @@
     }
   },
   "use_expansion_hack": false,
-  "spawn_overrides": {}
+  "spawn_overrides": {},
+  "layout": {
+    "biomes": "#alfheim:has_split_gallery",
+    "step": "surface_structures",
+    "terrain_adaptation": "none",
+    "start_pool": "alfheim:surface/split_gallery",
+    "size": 1,
+    "max_distance_from_center": 116,
+    "start_height": {
+      "type": "minecraft:uniform",
+      "min_inclusive": {
+        "absolute": 71
+      },
+      "max_inclusive": {
+        "absolute": 84
+      }
+    },
+    "use_expansion_hack": false,
+    "spawn_overrides": {}
+  }
 }

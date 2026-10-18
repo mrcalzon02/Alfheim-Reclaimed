@@ -19,8 +19,9 @@ forbids redistributing third-party art, and a recoloured mod texture in our tree
 that. The 46 installed Curios the plan references are *anchors* — items the suite reacts to. Their
 art is never copied.
 
-**These items have no behaviour yet.** This pass registers them and puts them in the right slots.
-Effects, recipes and the profession-proof capability are the next slices; see B-74.
+**These items have no attunement behaviour yet.** Native crafting recipes are owned by
+`gen_curio_recipes.py`. This generator retains art, registrations and slot eligibility.
+Effects and the profession-proof capability remain future slices; see B-74.
 
     python tools/gen_curios.py
     python tools/gen_curios.py --list
@@ -31,6 +32,7 @@ import json
 import os
 import sys
 import zipfile
+from curio_crafting_catalog import acquisition_text
 
 from item_textures import CLIENT_JAR, load_base, mask_to, overlay, tint
 
@@ -118,7 +120,7 @@ def plan(catalog):
             'kind': kind, 'owner': owner, 'family': family, 'rank': rank,
             'slot': item['slot'], 'era': item['era'],
             'name': f"{style['title']} {noun}",
-            'tooltip': f"{style['title']} regalia of the {lore}. Equip in the {item['slot']} slot.",
+            'tooltip': f"{style['title']} regalia of the {lore}. Equip in the {item['slot']} slot. " + acquisition_text(item),
             'frame': ranks[rank]['frame'],
             'hue': HUE[owner],
             'style': style,
@@ -234,7 +236,11 @@ def main():
         write_json(os.path.join(TAG_OUT, f'{slot}.json'), {'replace': False, 'values': sorted(ids)})
 
     write_json(MANIFEST_OUT, {
-        'status': 'registered and slotted; no effect, no recipe',
+        'status': 'registered and slotted; native Gear Crafting recipes authored; no attunement effects',
+        'crafting': {'station':'mmorpg:gear_crafting_station','native_recipe_count':len(rows),
+                     'ranks':{'apprentice':0,'guild':2,'master':4},
+                     'generator':'tools/gen_curio_recipes.py',
+                     'runtime':'Native loading and menu transactions pending in game'},
         'source_catalog': CATALOG.replace('\\', '/'),
         'counts': {
             'items': len(rows),

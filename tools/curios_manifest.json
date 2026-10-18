@@ -1,5 +1,5 @@
 {
-  "status": "registered and slotted; no effect, no recipe",
+  "status": "registered and slotted; native Gear Crafting recipes authored; no attunement effects",
   "source_catalog": "alfheim_reclaimed_design/curios/curio_suite_catalog.json",
   "counts": {
     "items": 63,
@@ -668,5 +668,16 @@
       "era": 8,
       "name": "Master Dewglass Cuff"
     }
-  ]
+  ],
+  "crafting": {
+    "station": "mmorpg:gear_crafting_station",
+    "native_recipe_count": 63,
+    "ranks": {
+      "apprentice": 0,
+      "guild": 2,
+      "master": 4
+    },
+    "generator": "tools/gen_curio_recipes.py",
+    "runtime": "Native loading and menu transactions pending in game"
+  }
 }

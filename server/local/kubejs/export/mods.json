@@ -27,6 +27,14 @@
 		"license": "All rights reserved"
 	},
 	{
+		"id": "alfheim_golems",
+		"name": "Alfheim Golems",
+		"version": "0.1.0",
+		"description": "Deterministic elven workshop golems, explicit work orders, Deep salvage, and temporary elemental combat sentinels for Alfheim Reclaimed.",
+		"authors": "Continuity Works",
+		"license": "All Rights Reserved"
+	},
+	{
 		"id": "the_harvest",
 		"name": "The Harvest",
 		"version": "1.1.6",
@@ -212,6 +220,16 @@
 		"license": "Apache-2.0"
 	},
 	{
+		"id": "jeresources",
+		"name": "Just Enough Resources",
+		"version": "1.4.0.247",
+		"description": "Adds Resources and Mob Drops to JEI",
+		"authors": "way2muchnoise",
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer",
+		"issue_tracker": "https://github.com/way2muchnoise/JustEnoughResources/issues",
+		"license": "'Don't Be a Jerk' non-commercial care-free license"
+	},
+	{
 		"id": "ftbteams",
 		"name": "FTB Teams",
 		"version": "2001.3.2",
@@ -246,15 +264,6 @@
 		"license": "Supplementaries Team License v.1.4"
 	},
 	{
-		"id": "mcwbridges",
-		"name": "Macaw's Bridges",
-		"version": "3.1.2",
-		"description": "Connect the world with bridges!",
-		"authors": "Sketch Macaw & Peachy Macaw",
-		"homepage": "https://www.curseforge.com/minecraft/mc-mods/macaws-bridges",
-		"license": "All Rights Reserved"
-	},
-	{
 		"id": "farmersdelight",
 		"name": "Farmer's Delight",
 		"version": "1.20.1-1.3.3",
@@ -263,6 +272,15 @@
 		"homepage": "https://github.com/vectorwing/FarmersDelight",
 		"issue_tracker": "https://github.com/vectorwing/FarmersDelight/issues",
 		"license": "MIT License"
+	},
+	{
+		"id": "mcwbridges",
+		"name": "Macaw's Bridges",
+		"version": "3.1.2",
+		"description": "Connect the world with bridges!",
+		"authors": "Sketch Macaw & Peachy Macaw",
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/macaws-bridges",
+		"license": "All Rights Reserved"
 	},
 	{
 		"id": "infectious",
@@ -296,6 +314,14 @@
 		"description": "A universal way to expose and query APIs",
 		"authors": "FabricMC",
 		"license": "Apache-2.0"
+	},
+	{
+		"id": "alfheim_leyworks",
+		"name": "Alfheim Leyworks",
+		"version": "0.1.0",
+		"description": "The Ley Conduit Node. Worldgen seeds Alfheim's corridors with dormant nodes; an elementium core converts one to a live node, which reads a pyramid of elven masonry beneath it and projects that reach along all six axes.",
+		"authors": "Continuity Works",
+		"license": "All Rights Reserved"
 	},
 	{
 		"id": "botania",
@@ -684,6 +710,16 @@
 		"license": "GNU LGPLv3"
 	},
 	{
+		"id": "distanthorizons",
+		"name": "Distant Horizons",
+		"version": "3.2.0-b",
+		"description": "This mod generates and renders simplified terrain beyond the normal view distance at a low performance cost. Allowing you to see much farther without turning your game into a slideshow.",
+		"authors": "[James Seibel, Leonardo Amato, Cola, coolGi, Ran, Leetom, pshsh]",
+		"homepage": "https://modrinth.com/mod/distanthorizons",
+		"issue_tracker": "https://gitlab.com/distant-horizons-team/distant-horizons/-/issues",
+		"license": "LGPL"
+	},
+	{
 		"id": "zombie_variants",
 		"name": "Zombie Variants",
 		"version": "1.0.3",
@@ -910,6 +946,15 @@
 		"license": "MIT"
 	},
 	{
+		"id": "entityjs",
+		"name": "EntityJS",
+		"version": "0.7.3",
+		"description": "Entity Registry Addon Mod For KubeJS",
+		"authors": "Liopyu,Too Much Mail",
+		"issue_tracker": "https://github.com/liopyu/EntityJS/issues",
+		"license": "GNU General Public License Version 3"
+	},
+	{
 		"id": "flywheel",
 		"name": "Flywheel",
 		"version": "1.0.5",
@@ -1011,6 +1056,13 @@
 		"license": "GPL 3.0"
 	},
 	{
+		"id": "dh_dimension_toggle",
+		"name": "DH Dimension Toggle",
+		"version": "0.0NONE",
+		"description": "Automatically toggles Distant Horizons rendering when you change dimensions.\nDefault: enabled in the Overworld + The End, disabled elsewhere (e.g. Nether).",
+		"license": "All Rights Reserved"
+	},
+	{
 		"id": "fabric_recipe_api_v1",
 		"name": "Fabric Recipe API (v1)",
 		"version": "1.0.24+514a076577",
@@ -1045,6 +1097,14 @@
 		"homepage": "https://www.curseforge.com/minecraft/mc-mods/occultism",
 		"issue_tracker": "https://github.com/klikli-dev/occultism/issues",
 		"license": "MIT"
+	},
+	{
+		"id": "alfheim_companion",
+		"name": "Alfheim Companion",
+		"version": "0.2.0",
+		"description": "A singleton, summonable elven companion with persistent memory, bounded local planning, and optional Continuity Works blueprint integration.",
+		"authors": "Continuity Works",
+		"license": "All Rights Reserved"
 	},
 	{
 		"id": "fabric_sound_api_v1",

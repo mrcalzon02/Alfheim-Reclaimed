@@ -50,6 +50,8 @@
 	"createdieselgenerators:flowing_black_cement": "net.minecraftforge.fluids.ForgeFlowingFluid$Flowing",
 	"jaffabricate:orange_juice": "net.minecraftforge.fluids.ForgeFlowingFluid$Source",
 	"jaffabricate:flowing_orange_juice": "net.minecraftforge.fluids.ForgeFlowingFluid$Flowing",
+	"alfheim:liquid_bifrost": "dev.architectury.core.fluid.ArchitecturyFlowingFluid$Source",
+	"alfheim:flowing_liquid_bifrost": "dev.architectury.core.fluid.ArchitecturyFlowingFluid$Flowing",
 	"create_wizardry:mana": "net.minecraftforge.fluids.ForgeFlowingFluid$Source",
 	"create_wizardry:mana_flowing": "net.minecraftforge.fluids.ForgeFlowingFluid$Flowing",
 	"create_wizardry:lightning": "net.minecraftforge.fluids.ForgeFlowingFluid$Source",

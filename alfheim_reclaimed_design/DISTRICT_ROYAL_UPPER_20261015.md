@@ -1,5 +1,10 @@
 # District spacing, royal citadel and upper-rock discoveries
 
+Placement superseded 2026-10-17: the user replaced the 6,000-block district exclusion
+and shared 192/96 grid with staggered rings at 1,000, 2,000, 3,000 blocks and onward.
+See `../TEST_RUN_REPAIRS_20261017.md`. The older district grid evidence below is
+historical; castle geometry and upper-rock content remain in place.
+
 ## Follow-up: natural upper-rock starts now validated
 
 The historical starvation diagnosis below is superseded by the coordinated adapter

@@ -13,6 +13,24 @@ HOUSES=[[(29,25),(45,20),(61,25),(74,36),(76,52),(66,73),(49,77),(30,72),(20,57)
 LOGS=[[(34,43),(64,58)],[(33,56),(63,40)]]
 AIR=B('minecraft:air')
 
+
+def loot_barrel(p,kind,x,y,z):
+    p.set(x,y,z,B('minecraft:barrel',facing='up',open=False),
+          {'id':'minecraft:barrel','LootTable':f'alfheim:chests/fairy_island_{kind}'})
+
+
+def island_loot(kind,c):
+    def item(name,weight,lo,hi):
+        return {'type':'minecraft:item','name':name,'weight':weight,
+                'functions':[{'function':'minecraft:set_count','count':{'type':'minecraft:uniform','min':lo,'max':hi}}]}
+    return {'type':'minecraft:chest','pools':[
+        {'rolls':{'type':'minecraft:uniform','min':2,'max':4},'entries':[
+            item('minecraft:bread',5,1,3),item('minecraft:apple',4,1,3),
+            item('minecraft:sugar',3,1,5),item('minecraft:wheat_seeds',4,2,7),
+            item('minecraft:stick',3,2,6),item('minecraft:honey_bottle',1,1,2)]},
+        {'rolls':{'type':'minecraft:uniform','min':1,'max':3},'entries':[
+            *(item(f,3,1,4) for f in c['flowers']),item(c['sapling'],1,1,1)]}]}
+
 def plan(kind,variant):
     if kind=='summer':
         houses=[(20,43),(27,33),(35,42),(37,61),(46,69),(55,59),(62,39),(72,45),(72,59),(53,27)]
@@ -111,7 +129,7 @@ def cottage(p,kind,c,x,z,index):
         p.set(x+dx,y+2,z,B('minecraft:yellow_stained_glass' if kind!='winter' else 'minecraft:light_blue_stained_glass'))
         p.set(x+dx,y+1,z,wood)
     box(p,x-1,y,z-4,x+1,y,z-3,wood);lantern(p,c,x-1,y+1,z-3)
-    p.set(x-1,y+1,z+1,B('minecraft:barrel',facing='up',open=False))
+    loot_barrel(p,kind,x-1,y+1,z+1)
     p.set(x+1,y+1,z+1,B('minecraft:red_carpet' if kind=='autumn' else 'minecraft:light_blue_carpet' if kind=='winter' else 'minecraft:yellow_carpet'))
     if kind=='spring':
         for h,r in ((4,3.5),(5,2.6),(6,1.6)):disk(p,x,y+h,z,r,leaves(c,index+h))
@@ -211,7 +229,7 @@ def landmark(p,kind,c):
     elif kind=='autumn':
         box(p,47,15,47,49,24,49,B('minecraft:mushroom_stem'))
         for h,r in ((24,7),(25,6),(26,4)):disk(p,x,h,z,r,B('minecraft:red_mushroom_block'))
-        for dx,dz in ((-4,0),(4,0),(0,-4),(0,4)):p.set(x+dx,15,z+dz,B('minecraft:barrel',facing='up',open=False));lantern(p,c,x+dx,16,z+dz)
+        for dx,dz in ((-4,0),(4,0),(0,-4),(0,4)):loot_barrel(p,kind,x+dx,15,z+dz);lantern(p,c,x+dx,16,z+dz)
     else:
         for h in range(16):disk(p,x,15+h,z,max(.6,3-h*.16),B('minecraft:packed_ice') if h%3 else B(c['wood']))
         for dx,dz in ((-4,0),(4,0),(0,-4),(0,4)):
@@ -323,6 +341,7 @@ class Provider:
                         name=f'village_{variant}_{gx}_{gz}';rel=f'kubejs/data/alfheim/structures/pixie/{kind}/{name}.nbt';path=self.stage/rel;path.parent.mkdir(parents=True,exist_ok=True);nbt.save(path,'',tile.to_nbt());data=gzip.compress(gzip.decompress(path.read_bytes()),mtime=0);path.write_bytes(data)
                         files[f'{kind}_{name}.nbt']=data;records.append({'file':rel,'season':kind,'variant':variant,'tile':[gx,gz],'size':[48,48,48],'sha256':hashlib.sha256(data).hexdigest()})
             sid=f'pixie_{kind}_hamlet'
+            definitions[f'kubejs/data/alfheim/loot_tables/chests/fairy_island_{kind}.json']=island_loot(kind,c)
             definitions[f'kubejs/data/alfheim/worldgen/structure/{sid}.json']={'type':'alfheim_companion:fey_sky_village','season':season,'biomes':f'#alfheim:has_{sid}','step':'surface_structures','terrain_adaptation':'none','spawn_overrides':{}}
             # All four seasons share a grid. Their disjoint biome hosts choose the culture.
             definitions[f'kubejs/data/alfheim/worldgen/structure_set/{sid}.json']={'structures':[{'structure':'alfheim:'+sid,'weight':1}],'placement':{'type':'minecraft:random_spread','spacing':96,'separation':48,'spread_type':'linear','salt':202610174}}

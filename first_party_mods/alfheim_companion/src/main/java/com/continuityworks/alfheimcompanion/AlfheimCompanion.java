@@ -48,11 +48,13 @@ public final class AlfheimCompanion {
         com.continuityworks.alfheimcompanion.gem.ModGemDisplays.ENTITIES.register(modBus);
         com.continuityworks.alfheimcompanion.fey.ModFeyHomes.BLOCKS.register(modBus);
         com.continuityworks.alfheimcompanion.fey.ModFeyHomes.ENTITIES.register(modBus);
+        com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.BLOCKS.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModMenus.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.registry.ModElvenSounds.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.worldgen.ModHarborStructures.REGISTRY.register(modBus);
         com.continuityworks.alfheimcompanion.worldgen.ModHarborStructures.PIECES.register(modBus);
+        com.continuityworks.alfheimcompanion.worldgen.ModHarborStructures.PLACEMENTS.register(modBus);
         modBus.addListener(this::registerAttributes);
         modBus.addListener(this::commonSetup);
         modBus.addListener(this::addCreativeItems);
@@ -77,6 +79,17 @@ public final class AlfheimCompanion {
     }
 
     private void addCreativeItems(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey()==CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.CRYSTAL_ITEM.get());
+            event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.HEART_ITEM.get());
+            event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.ORE_ITEM.get());
+            event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.CLUSTER_ITEM.get());
+        }
+        if(event.getTabKey()==CreativeModeTabs.INGREDIENTS) {
+            event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.FRAGMENT.get());
+            event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.ATTUNED.get());
+        }
+        if(event.getTabKey()==CreativeModeTabs.TOOLS_AND_UTILITIES)event.accept(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.COMPASS.get());
         if(event.getTabKey()==CreativeModeTabs.INGREDIENTS){
             event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.PLATINUM.get());
             event.accept(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.PLATINUM_BLOCK.get());
@@ -162,6 +175,15 @@ public final class AlfheimCompanion {
         @net.minecraftforge.eventbus.api.SubscribeEvent
         public static void registerScreens(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
+                var compassAngle=new net.minecraft.resources.ResourceLocation("minecraft","angle");
+                var vanillaCompass=net.minecraft.client.renderer.item.ItemProperties.getProperty(net.minecraft.world.item.Items.COMPASS,compassAngle);
+                net.minecraft.client.renderer.item.ItemProperties.register(com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.COMPASS.get(),compassAngle,vanillaCompass);
+                for(var bud:java.util.List.of(
+                    com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.SMALL,
+                    com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.MEDIUM,
+                    com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.LARGE,
+                    com.continuityworks.alfheimcompanion.worldstone.ModWorldstoneBlocks.CLUSTER))
+                    net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(bud.get(),net.minecraft.client.renderer.RenderType.cutout());
                 net.minecraft.client.renderer.item.ItemProperties.register(com.continuityworks.alfheimcompanion.gem.ModEternityCrown.BASE.get(),new net.minecraft.resources.ResourceLocation(MOD_ID,"inlays"),(stack,world,mob,seed)->com.continuityworks.alfheimcompanion.gem.ModEternityCrown.progress(stack));
                 net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(com.continuityworks.alfheimcompanion.gem.ModGemDisplays.PEDESTAL.get(),net.minecraft.client.renderer.RenderType.cutout());
                 MenuScreens.register(ModMenus.COMPANION_INVENTORY.get(), CompanionInventoryScreen::new);

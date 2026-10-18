@@ -155,6 +155,12 @@ function verifyLater(server, player, why) {
 
 PlayerEvents.loggedIn(event => {
     const player = event.player
+    // A legacy personal spawn can still point into the buried tree. Redirect
+    // only players beside that rejected anchor, not players elsewhere in Alfheim.
+    event.server.runCommandSilent(
+        `execute in ${HOME_DIMENSION} as ${player.username} ` +
+        'at @e[type=minecraft:marker,tag=alfheim_hub_buried,limit=1] ' +
+        'if entity @s[distance=..16] run function alfheim:hub/send')
 
     // COLLECT A PLAYER WHO IS STILL OWED THE HUB, before anything else and regardless of the
     // spawn flag. hub/send tags anyone it had to place provisionally because the Greatbole had
@@ -193,6 +199,10 @@ PlayerEvents.respawned(event => {
     // Give the respawn a moment to land, then correct it only if they are genuinely not home.
     // A bed in Alfheim, or the anchored spawnpoint, should mean this never fires.
     const guard = () => {
+        event.server.runCommandSilent(
+            `execute in ${HOME_DIMENSION} as ${name} ` +
+            'at @e[type=minecraft:marker,tag=alfheim_hub_buried,limit=1] ' +
+            'if entity @s[distance=..16] run function alfheim:hub/send')
         if (isHome(event.server, name)) return
         console.info(`[Alfheim Reclaimed] ${name} respawned outside ${HOME_DIMENSION}; ` +
                      'returning them before the gate is open.')

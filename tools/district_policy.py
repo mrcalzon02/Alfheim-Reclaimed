@@ -1,12 +1,12 @@
 """Shared source policy for all twelve district authoring generators.
 
-Identical candidate grid + native single-family winner = no cross-family starts.
+Kilometre rings + native single-family winner = no cross-family starts.
 Three prototype families retain definitions but receive no new natural sets.
 """
 FAMILIES=('common_residential_quarter','elder_lineage_precinct','civic_center','relief_district',
           'scholastic_quarter','production_district','agricultural_estate','roads_trade',
           'harbor_complex','sacred_precinct','military_warden','frontier_stewardship')
-PLACEMENT={'type':'minecraft:random_spread','spacing':192,'separation':96,'salt':202610150}
+PLACEMENT={'type':'alfheim_companion:district_rings'}
 
 
 def apply(path,value):

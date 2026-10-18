@@ -7,7 +7,15 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class ModHarborStructures {
+    public static final DeferredRegister<net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType<?>> PLACEMENTS=
+        DeferredRegister.create(Registries.STRUCTURE_PLACEMENT,AlfheimCompanion.MOD_ID);
+    public static final RegistryObject<net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType<DistrictRingPlacement>> DISTRICT_RINGS=
+        PLACEMENTS.register("district_rings",()->()->DistrictRingPlacement.CODEC);
     public static final DeferredRegister<StructureType<?>> REGISTRY=DeferredRegister.create(Registries.STRUCTURE_TYPE,AlfheimCompanion.MOD_ID);
+    public static final RegistryObject<StructureType<WorldstoneCavernStructure>> WORLDSTONE=
+        REGISTRY.register("mountain_worldstone",()->()->WorldstoneCavernStructure.CODEC);
+    public static final RegistryObject<StructureType<FairyReservedJigsawStructure>> FAIRY_RESERVED=
+        REGISTRY.register("fairy_reserved_jigsaw",()->()->FairyReservedJigsawStructure.CODEC);
     public static final RegistryObject<StructureType<FeySkyVillageStructure>> FEY_SKY_VILLAGE=REGISTRY.register("fey_sky_village",()->()->FeySkyVillageStructure.CODEC);
     public static final RegistryObject<StructureType<HarborStructure>> HARBOR=REGISTRY.register("shoreline_harbor",()->()->HarborStructure.CODEC);
     public static final RegistryObject<StructureType<RemoteDistrictStructure>> REMOTE_DISTRICT=
@@ -24,6 +32,8 @@ public final class ModHarborStructures {
         REGISTRY.register("void_war_neighbor",()->()->VoidWarNeighborStructure.CODEC);
     public static final DeferredRegister<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> PIECES=
         DeferredRegister.create(Registries.STRUCTURE_PIECE,AlfheimCompanion.MOD_ID);
+    public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> WORLDSTONE_PIECE=
+        PIECES.register("worldstone_cavern",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)WorldstoneCavernPiece::new);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType> ROYAL_FOUNDATION=
         PIECES.register("royal_foundation",()->(net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.ContextlessType)RoyalFoundationPiece::new);
     // Source-only until a rebuilt companion JAR is distributed. Never switch

@@ -1,0 +1,82 @@
+{
+  "status": "STATIC_AND_BOUNDED_RUNTIME_VALIDATED",
+  "minecraft": "1.20.1",
+  "forge": "47.4.10",
+  "jar": "mods/alfheim_companion-0.2.0.jar",
+  "jar_sha256": "0ef66472b5179673567ad5fb3fde97babe49e7381810c17e2a41aca0c07bbc9e",
+  "java_tests": 72,
+  "ring_interval_blocks": 1000,
+  "sites_per_ring": 4,
+  "ring_radial_alignment_tolerance_blocks": 12,
+  "ring_geometry_test_seeds": 51,
+  "ring_geometry_rings_per_seed": 100,
+  "natural_ring_proof": [
+    {
+      "ring": 1,
+      "family": "alfheim:production_district",
+      "x": 128,
+      "z": -992,
+      "radius": 1000.22,
+      "pieces": 10
+    },
+    {
+      "ring": 2,
+      "family": "alfheim:civic_center",
+      "x": -1584,
+      "z": 1232,
+      "radius": 2006.71,
+      "pieces": 9
+    },
+    {
+      "ring": 3,
+      "family": "alfheim:scholastic_quarter",
+      "x": 368,
+      "z": -2976,
+      "radius": 2998.67,
+      "pieces": 9
+    }
+  ],
+  "sampled_blocks": 4239,
+  "matched_blocks": 4233,
+  "creature_selections": 495,
+  "grove_map_colors": 9,
+  "explicit_atlas_sources": 439,
+  "feature_order_cycles": 0,
+  "source_built_installed_server_jar_equality": true,
+  "runtime_report": "tools/district_ring_runtime_report.json",
+  "client_visual_acceptance": "pending full restart and fresh map tile review",
+  "backup": "quarantine/alfheim_companion-before-test-run-fixes-20261017.jar",
+  "backup_sha256": "5a915d5e0da4f95ce484bc9698b4c0751278e4ee0438eae795e8dcc6a77d68b6",
+  "pre_ring_texture_build": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.10",
+    "jar": "mods\\alfheim_companion-0.2.0.jar",
+    "jar_sha256": "1cfd94027bbee1e1ce64d8667bcfc3ae064ecd69428d20bcdab573b28dcf518f",
+    "backup": "quarantine\\alfheim_companion-before-test-run-fixes-20261017.jar",
+    "backup_sha256": "5a915d5e0da4f95ce484bc9698b4c0751278e4ee0438eae795e8dcc6a77d68b6",
+    "java_tests": 72,
+    "added_jar_files": [
+      "assets/minecraft/atlases/blocks.json"
+    ],
+    "changed_existing_entries": [
+      "META-INF/MANIFEST.MF"
+    ],
+    "removed_entries": [],
+    "reported_missing_textures": 439,
+    "explicit_atlas_sources": 439,
+    "uncovered_textures": 0,
+    "grove_map_colors": 9,
+    "feature_order_cycles": 0,
+    "field_world": "New World raven",
+    "field_seed": "-5876049240305171930",
+    "allocated_alfheim_chunks": 76759,
+    "farthest_allocated_chunk_origin": 4852,
+    "district_origin_exclusion": 6000,
+    "client_visual_acceptance": "pending full restart and fresh map tile review"
+  },
+  "validation_limits": [
+    "One seed, three naturally populated ring sites; no global terrain-fit claim",
+    "Legacy manifest audit has existing incomplete metadata; production/relief export-based audits lack newer furnishing block IDs",
+    "District/hub/castle clearances validated; unrelated third-party surface spacing is not globally admitted"
+  ]
+}

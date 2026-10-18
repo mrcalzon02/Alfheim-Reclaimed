@@ -30,7 +30,7 @@ public final class AllocatedUndergroundStructure extends Structure {
         return false;
     }
     @Override protected Optional<GenerationStub> findGenerationPoint(GenerationContext c) {
-        if(VoidWarPolicy.reserved(c) || reserved(c))return Optional.empty();
+        if(VoidWarPolicy.reserved(c) || reserved(c) || FairyIslandReservations.reserved(c) || WorldstoneCavernStructure.reserved(c))return Optional.empty();
         return layout.findGenerationPoint(c);
     }
     @Override public StructureType<?> type() {return ModHarborStructures.ALLOCATED_UNDERGROUND.get();}

@@ -644,5 +644,5 @@
   "native_behavior": "compiled; storage, entry/exit, ownership, bounded population and crop visits require in-game validation",
   "minimum_independent_gap": 500,
   "neighbor_reservation": 900,
-  "runtime_placement": "pending; conservative neighbor guard can reduce eligible sites"
+  "runtime_placement": "checked separately in tools/fairy_island_runtime_report.json; this checker makes no runtime claim"
 }

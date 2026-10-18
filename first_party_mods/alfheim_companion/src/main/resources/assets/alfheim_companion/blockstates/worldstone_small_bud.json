@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "alfheim_companion:block/worldstone_small_bud"
+    },
+    "facing=down": {
+      "model": "alfheim_companion:block/worldstone_small_bud",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "alfheim_companion:block/worldstone_small_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "alfheim_companion:block/worldstone_small_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alfheim_companion:block/worldstone_small_bud",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "alfheim_companion:block/worldstone_small_bud",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

@@ -83,35 +83,79 @@ Four fixed-offset related 48 × 48 × 48 tiles assemble each island at base
 Y 192. There are no optional children to omit buildings. Existing biome tags
 remain unchanged. All seasonal sets share a 96-chunk/48-separation grid:
 the minimum inter-island footprint gap exceeds 500 blocks. The native adapter
-also reserves 900 blocks from potential biome-eligible independent structure
-centers, rejects unsupported neighbor placements, terrain intrusion and
-sampled biome-edge clipping. This deliberately conservative guard may reduce
-eligible sites; natural-world placement density still needs a runtime check.
+reserves a conservative 900-block center gap from independent structures,
+checks actual viable neighbor starts, supports concentric castle reservations,
+and filters phantom district-grid cells. A seasonal anchor may cross ordinary
+biome boundaries; its sampled footprint must avoid the Void and high terrain.
+Pack-owned standalone works, allocated underground structures and upper-rock
+structures yield to valid island-grid reservations. This one-way policy uses
+terrain/biome probes without recursively invoking neighbor guards or loading chunks.
+Other mods retain their existing placement logic and take precedence in island checks.
 The related tiles are one structure family, rather than independent placements.
 
 Existing non-vanilla materials were probed against the exported registry.
-The four new home blocks have compiled native declarations; runtime admission
-for those IDs remains pending. Existing structures, other mods' registries and
-unrelated placement policies were not modified.
+The four home blocks have native declarations. Island template geometry and all
+home metadata are preserved in the loot follow-up; the 49 standalone jigsaw
+definitions keep their original layouts, terrain projection and biome settings.
+Their two generators retain the reservation wrapper on regeneration. Commanded
+Greatbole and disabled ley fracture definitions keep their existing behavior.
+
+## Randomized island loot follow-up
+
+The former cottage barrels had no loot data. Each now references a seasonal
+`alfheim:chests/fairy_island_<season>` table, with no fixed seed or prefilled items.
+There are ten loot barrels per island, or fourteen for autumn with its market.
+Two weighted pools roll food, seeds, simple supplies, seasonal flowers and the
+matching Feywild sapling, with randomized counts. No progression power is added.
+Vanilla container opening generates the inventory once and saves it.
+
+Continuity Works was actually rerun through the same v2 provider; snapshot
+`20261018T073037Z-alfheim_seasonal_fey_sky_villages-generate-be66f46b` records
+the emitted templates and tables. `tools/fairy_island_template_audit.json`
+proves all 32 templates match their previous block/state/home geometry, with
+only the new barrel loot metadata differing.
 
 ## Evidence and remaining review
 
-Offline compilation/package build passed with tests excluded. Actual emitted
-NBT readback checks 32 tiles, eight different landforms, source equality,
-seasonal homes, clear entrances and connected terraced surface approaches.
-All model texture paths resolved against installed assets. Offline previews
-were inspected; village previews show voxel geometry and texture-derived
-colors, while the home sheet renders the actual native block models/textures.
-These are not Minecraft screenshots.
+The follow-up build passes all 72 Java tests. Built, installed and isolated-server
+jars match SHA-256 `3e2abc9483fa5282313a5878e038f7450061e4edcf43a6d24b25f6393aa0dca0`.
+The pre-repair artifact is preserved in
+`quarantine/alfheim_companion-before-fairy-island-runtime-fix-20261017.jar`.
+All 1,834 packaged resources match source or Gradle-expanded metadata. Feature
+ordering has zero cycles; prior atlas and grove map-color checks still pass.
 
-Reports: `tools/fey_sky_villages_static.json` and
-`tools/fey_sky_villages_build.json`. The former 33-block jigsaw pieces and their
-historical saved-world checks are retained as history; their earlier runtime
-success does not validate the new structure type or home behavior. The current
-generation/check entry points forward to the new provider/checker.
+Fresh disposable world `validation-fairy-islands-allocated-20261017`, seed
+`-5876049240305171930`, naturally generated these two islands in Alfheim:
 
-Fresh-world placement, actual neighbor-guard density, client lighting, home
-entry/release across reloads, ownership protection and garden behavior still
-require in-game validation. This addition is locally validated, not certified
-production-ready. Restart to load the companion jar; explore new chunks for
-the enlarged villages. Already placed hamlets are not rewritten.
+| Season | Start chunk minimum block X/Z | Layout | Pieces | Homes | Loot barrels |
+|---|---|---|---|---|---|
+| Spring | -10576, -4288 | 1 | 4 | 6 | 10 |
+| Autumn | -13360, 12912 | 1 | 4 | 10 | 14 |
+
+No `/place`, template placement or biome editing was used. The bounded native
+survey accepted one site in each of two 64-candidate samples, with other sites
+rejected by terrain, seasonal biome restrictions or MythicBotany's elven houses.
+Forced chunk loading then exercised ordinary natural structure generation.
+Saved natural starts have all four children per island; all 1,615 sampled solid
+blocks match the emitted templates. Every expected home has its registered native
+block entity. Spring and Autumn are verified; Summer/Winter layout and loot
+checks pass statically, with natural sampling still pending.
+
+The native container-opening probe found all 24 expected loot barrels, each with
+a different nonzero placement seed and different inventory. Repeated item access
+kept the inventory stable. Saved chunk NBT contains the exact opened slot/item/count
+contents and no remaining loot-table reference. Their 24 inventories include actual
+seasonal supplies rather than empty barrels. This verifies one-time randomized
+loot that persists; it is not a claim of renewable or rerolling treasure.
+
+Reports: `tools/fairy_island_runtime_report.json`, `tools/fairy_island_build.json`,
+`tools/fairy_island_template_audit.json`, and `tools/fey_sky_villages_static.json`.
+`tools/fey_sky_villages_build.json` retains the earlier unvalidated artifact's
+history; this follow-up supersedes its placement-pending state. The initial,
+boundary, coordinated and cross-biome diagnostic survey reports are retained under
+`tools/fairy_island_*_survey.json` with their actual failures/limits.
+
+Client lighting/rendering, live home entry/release across reloads, ownership
+protection, gardens and dust-harvest gameplay still require in-game review. Offline
+previews are not Minecraft screenshots. Restart to load the installed companion
+jar and explore new chunks; already placed hamlets and player saves are not rewritten.

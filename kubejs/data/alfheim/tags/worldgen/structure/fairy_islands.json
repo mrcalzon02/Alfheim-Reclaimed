@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:pixie_spring_hamlet",
+    "alfheim:pixie_summer_hamlet",
+    "alfheim:pixie_autumn_hamlet",
+    "alfheim:pixie_winter_hamlet"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "cross": "alfheim_companion:item/worldstone_fragment",
+    "particle": "alfheim_companion:block/worldstone_crimson"
+  },
+  "elements": [
+    {
+      "from": [
+        0.7999999999999998,
+        0,
+        8
+      ],
+      "to": [
+        15.2,
+        16,
+        8
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 45,
+        "rescale": true
+      },
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#cross",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": -1
+        },
+        "south": {
+          "texture": "#cross",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": -1
+        }
+      }
+    },
+    {
+      "from": [
+        0.7999999999999998,
+        0,
+        8
+      ],
+      "to": [
+        15.2,
+        16,
+        8
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -45,
+        "rescale": true
+      },
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#cross",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": -1
+        },
+        "south": {
+          "texture": "#cross",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": -1
+        }
+      }
+    }
+  ]
+}

@@ -26,12 +26,19 @@ public final class UpperUnderworldStructure extends Structure {
         int x=c.chunkPos().getMinBlockX(),z=c.chunkPos().getMinBlockZ();
         if((long)x*x+(long)z*z<4000L*4000)return "origin"; // castle + hub reservation
         if(!UndergroundAllocation.selected(c.seed(),c.chunkPos().x,c.chunkPos().z))return "allocation";
+        if(FairyIslandReservations.reserved(c))return "fairy_island";
+        if(WorldstoneCavernStructure.reserved(c))return "mountain_worldstone";
         for(var entry:c.registryAccess().registryOrThrow(Registries.STRUCTURE_SET).entrySet()) {
             var key=entry.getKey().location();String id=key.getPath();var set=entry.getValue();
             if(key.toString().equals("alfheim:upper_underworld"))continue;
+            if(key.equals(WorldstoneCavernStructure.ID))continue;
             // These pack-owned layouts enforce the inverse reservation themselves.
             if(set.structures().stream().allMatch(s->s.structure().value() instanceof AllocatedUndergroundStructure))continue;
             boolean district=key.getNamespace().equals("alfheim") && DistrictPolicy.FAMILIES.contains(id);
+            if(district) {
+                if(DistrictRings.near(c.seed(),x,z,800))return key.toString();
+                continue;
+            }
             boolean protect=district || set.structures().stream().anyMatch(
                 s->s.structure().value().step()==GenerationStep.Decoration.UNDERGROUND_STRUCTURES
                 && s.structure().value().biomes().stream().anyMatch(c.biomeSource().possibleBiomes()::contains));

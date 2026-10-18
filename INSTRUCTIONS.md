@@ -103,6 +103,14 @@ The magic spines are the spine of the **entire pack**. Nothing meaningful is obt
 
 The rule in §6.1 still binds: nothing is removed before its replacement exists and has been played.
 
+### 2.4 Settlement and reclamation ownership
+
+**User decision, 2026-10-17:** MineColonies owns living settlements, settlement growth and land
+reclamation. Elven themes and magical supply chains extend that system; do not introduce a parallel
+custom settlement/reclamation simulation. First-party golems are bounded workshop assistants,
+with temporary Sentinels as a separate combat capability. They do not replace colony builders,
+citizens, researchers or territorial development.
+
 ## 3. Authority hierarchy
 
 1. User instruction and granted scope.

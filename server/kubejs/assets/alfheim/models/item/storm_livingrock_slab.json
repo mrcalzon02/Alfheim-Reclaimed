@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/storm_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/storm_livingrock_bricks",
+    "top": "alfheim:block/storm_livingrock_bricks",
+    "side": "alfheim:block/storm_livingrock_bricks"
+  }
 }

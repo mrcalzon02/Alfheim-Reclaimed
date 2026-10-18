@@ -591,10 +591,60 @@ ItemEvents.tooltip(event => {
             "mixing in a Basin: Crown Settled, Mana Powder -> Crown Filament"
         ],
         "uses": [
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Blade Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Boots Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Bow Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Charm Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Chest Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Crossbow Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Helmet Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Pants Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Blade Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Boots Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Chest Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Focus Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Folio Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Pants Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Axe Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Boots Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Chest Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Focus Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Helmet Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Pants Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Spear Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Ward Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Blade Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Boots Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Chest Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Focus Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Folio Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Pants Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Spear Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Blade Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Boots Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Bow Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Chest Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Focus Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Folio Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Helmet Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Pants Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Axe Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Blade Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Boots Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Chest Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Helmet Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Pants Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Spear Era 10",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Ward Era 10",
             "application with a Deployer: Crown Filament, Quickened Sparkroot -> Glistering Melon Slice",
             "pressing with a Mechanical Press: Crown Filament -> Galeglass Shard",
             "mixing in a Basin: Crown Filament, Tidewake Shard -> Redstone",
-            "aura transmutation at the Natural Altar: Quickened Rimebloom, Crown Filament -> Diamond (12,000 aura)"
+            "aura transmutation at the Natural Altar: Quickened Rimebloom, Crown Filament -> Diamond (12,000 aura)",
+            "Source enchantment at the Enchanting Apparatus: Attuned Worldstone, Crown Filament, Divine Ore, Source Gem, Gaia Spirit Ingot -> Godly Ore (20,000 Source)",
+            "Source enchantment at the Enchanting Apparatus: Attuned Worldstone, Crown Filament, Legendary Stone, Source Gem, Gaia Spirit Ingot -> Mythic Stone (20,000 Source)"
         ]
     },
     "alfheim:crown_folded": {
@@ -703,6 +753,384 @@ ItemEvents.tooltip(event => {
             "mana infusion in a Mana Pool: Crystallized Bifrost -> Condensed Bifrost (4,000 mana)"
         ]
     },
+    "alfheim:curio/class/hunter/emblem_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Galeglass Shard, String -> Apprentice Wolfleaf Token"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/hunter/emblem_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Galeglass Shard, String -> Guild Wolfleaf Token"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/hunter/emblem_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Galeglass Shard, String -> Master Wolfleaf Token"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/hunter/signet_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Galeglass Shard, Gold Nugget -> Apprentice Waywatcher Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/hunter/signet_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Galeglass Shard, Gold Nugget -> Guild Waywatcher Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/hunter/signet_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Galeglass Shard, Gold Nugget -> Master Waywatcher Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/minstrel/emblem_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Dawnglass Shard, String -> Apprentice Dawncourt Brooch"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/minstrel/emblem_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Dawnglass Shard, String -> Guild Dawncourt Brooch"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/minstrel/emblem_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Dawnglass Shard, String -> Master Dawncourt Brooch"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/minstrel/signet_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Apprentice Dawnsinger Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/minstrel/signet_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Guild Dawnsinger Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/minstrel/signet_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Master Dawnsinger Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/shaman/emblem_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, String -> Apprentice Rainseed Torque"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/shaman/emblem_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, String -> Guild Rainseed Torque"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/shaman/emblem_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, String -> Master Rainseed Torque"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/shaman/signet_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, Gold Nugget -> Apprentice Rootspeaker Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/shaman/signet_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, Gold Nugget -> Guild Rootspeaker Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/shaman/signet_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, Gold Nugget -> Master Rootspeaker Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/sorcerer/emblem_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Emberglass Shard, String -> Apprentice Leyglass Prism"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/sorcerer/emblem_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Emberglass Shard, String -> Guild Leyglass Prism"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/sorcerer/emblem_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Emberglass Shard, String -> Master Leyglass Prism"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/sorcerer/signet_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Emberglass Shard, Gold Nugget -> Apprentice Leyweaver Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/sorcerer/signet_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Emberglass Shard, Gold Nugget -> Guild Leyweaver Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/sorcerer/signet_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Emberglass Shard, Gold Nugget -> Master Leyweaver Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warlock/emblem_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Duskglass Shard, String -> Apprentice Mourning Nameleaf"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warlock/emblem_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Duskglass Shard, String -> Guild Mourning Nameleaf"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warlock/emblem_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Duskglass Shard, String -> Master Mourning Nameleaf"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warlock/signet_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Duskglass Shard, Gold Nugget -> Apprentice Duskkeeper Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warlock/signet_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Duskglass Shard, Gold Nugget -> Guild Duskkeeper Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warlock/signet_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Duskglass Shard, Gold Nugget -> Master Duskkeeper Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warrior/emblem_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, String -> Apprentice Greatbole Torque"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warrior/emblem_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, String -> Guild Greatbole Torque"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warrior/emblem_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, String -> Master Greatbole Torque"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warrior/signet_apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, Gold Nugget -> Apprentice Thornwarden Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warrior/signet_guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, Gold Nugget -> Guild Thornwarden Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/class/warrior/signet_master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, Gold Nugget -> Master Thornwarden Signet"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/alchemy/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Glass Bottle, Leather -> Apprentice Dewglass Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/alchemy/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Glass Bottle, Leather -> Guild Dewglass Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/alchemy/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Glass Bottle, Leather -> Master Dewglass Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/cooking/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Bread, Leather -> Apprentice Hearthcord Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/cooking/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Bread, Leather -> Guild Hearthcord Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/cooking/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Bread, Leather -> Master Hearthcord Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/enchanting/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Lapis Lazuli, Leather -> Apprentice Infuser Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/enchanting/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Lapis Lazuli, Leather -> Guild Infuser Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/enchanting/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Lapis Lazuli, Leather -> Master Infuser Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/farming/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Wheat, Leather -> Apprentice Seedkeeper Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/farming/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Wheat, Leather -> Guild Seedkeeper Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/farming/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Wheat, Leather -> Master Seedkeeper Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/fishing/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Cod, Leather -> Apprentice Tideledger Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/fishing/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Cod, Leather -> Guild Tideledger Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/fishing/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Cod, Leather -> Master Tideledger Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/gear_crafting/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Iron Ingot, Leather -> Apprentice Forge-Measure Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/gear_crafting/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Iron Ingot, Leather -> Guild Forge-Measure Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/gear_crafting/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Iron Ingot, Leather -> Master Forge-Measure Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/husbandry/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Leather -> Apprentice Herdsong Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/husbandry/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Leather -> Guild Herdsong Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/husbandry/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Leather -> Master Herdsong Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/mining/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Flint, Leather -> Apprentice Strata Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/mining/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Flint, Leather -> Guild Strata Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/mining/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Flint, Leather -> Master Strata Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/salvaging/apprentice": {
+        "from": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Bone, Leather -> Apprentice Reclaimer Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/salvaging/guild": {
+        "from": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Bone, Leather -> Guild Reclaimer Cuff"
+        ],
+        "uses": []
+    },
+    "alfheim:curio/profession/salvaging/master": {
+        "from": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Bone, Leather -> Master Reclaimer Cuff"
+        ],
+        "uses": []
+    },
     "alfheim:dawn_livingrock": {
         "from": [
             "Stonecutting: Livingrock -> Dawn Livingrock"
@@ -765,8 +1193,79 @@ ItemEvents.tooltip(event => {
             "milling in a Millstone: Crown Settled -> Dawnglass Shard"
         ],
         "uses": [
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Blade Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Blade Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Blade Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Blade Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Blade Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Blade Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Blade Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Blade Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Boots Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Boots Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Boots Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Boots Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Boots Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Boots Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Boots Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Boots Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Chest Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Chest Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Chest Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Chest Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Chest Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Chest Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Chest Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Chest Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Focus Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Focus Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Focus Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Focus Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Focus Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Focus Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Focus Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Focus Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Folio Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Folio Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Folio Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Folio Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Folio Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Folio Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Folio Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Folio Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Pants Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Pants Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Pants Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Pants Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Pants Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Pants Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Pants Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Dawnglass Shard -> Armory Minstrel Pants Era 10",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Dawnglass Shard, String -> Apprentice Dawncourt Brooch",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Dawnglass Shard, String -> Guild Dawncourt Brooch",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Dawnglass Shard, String -> Master Dawncourt Brooch",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Apprentice Dawnsinger Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Guild Dawnsinger Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Master Dawnsinger Signet",
             "runic binding at the Runic Altar: Diamond, Livingrock, Dreamwood, Dawnglass Shard, Petals Yellow (ingredient group) -> Map Device (15,000 mana)",
-            "deep mana infusion in the Mana Infuser: Dawnglass Shard -> Orb of Infinity (96,000 mana)"
+            "deep mana infusion in the Mana Infuser: Dawnglass Shard -> Orb of Infinity (96,000 mana)",
+            "Source enchantment at the Enchanting Apparatus: Compass, Elementium Ingot, Source Gem, Dawnglass Shard, Manipulation Essence, Rune of Mana -> Worldstone Compass (6,000 Source)"
         ]
     },
     "alfheim:debt_cord": {
@@ -799,6 +1298,76 @@ ItemEvents.tooltip(event => {
     "alfheim:duskglass_shard": {
         "from": [],
         "uses": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Duskglass Shard, String -> Apprentice Mourning Nameleaf",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Duskglass Shard, String -> Guild Mourning Nameleaf",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Duskglass Shard, String -> Master Mourning Nameleaf",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Duskglass Shard, Gold Nugget -> Apprentice Duskkeeper Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Duskglass Shard, Gold Nugget -> Guild Duskkeeper Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Duskglass Shard, Gold Nugget -> Master Duskkeeper Signet",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Blade Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Blade Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Blade Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Blade Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Blade Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Blade Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Blade Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Blade Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Boots Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Boots Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Boots Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Boots Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Boots Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Boots Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Boots Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Boots Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Bow Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Bow Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Bow Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Bow Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Bow Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Bow Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Bow Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Bow Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Chest Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Chest Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Chest Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Chest Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Chest Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Chest Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Chest Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Chest Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Focus Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Focus Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Focus Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Focus Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Focus Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Focus Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Focus Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Focus Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Folio Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Folio Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Folio Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Folio Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Folio Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Folio Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Folio Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Folio Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Helmet Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Helmet Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Helmet Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Helmet Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Helmet Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Helmet Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Helmet Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Helmet Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Pants Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Pants Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Pants Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Pants Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Pants Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Pants Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Pants Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Duskglass Shard -> Armory Warlock Pants Era 10",
             "runic binding at the Runic Altar: Duskglass Shard -> Orb of Relief (12,000 mana)",
             "application with a Deployer: Gatewrought Folded, Duskglass Shard -> Gunpowder",
             "aura transmutation at the Natural Altar: Wildmarch Folded, Duskglass Shard -> Gunpowder (12,000 aura)",
@@ -813,6 +1382,75 @@ ItemEvents.tooltip(event => {
             "shaped: Elementium Stilled, Livingrock -> Elementium Core"
         ],
         "uses": [
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Blade Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Boots Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Bow Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Charm Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Chest Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Crossbow Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Helmet Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Pants Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Blade Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Boots Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Chest Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Focus Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Folio Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Pants Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Galeglass Shard, String -> Guild Wolfleaf Token",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Galeglass Shard, Gold Nugget -> Guild Waywatcher Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Dawnglass Shard, String -> Guild Dawncourt Brooch",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Guild Dawnsinger Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, String -> Guild Rainseed Torque",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, Gold Nugget -> Guild Rootspeaker Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Emberglass Shard, String -> Guild Leyglass Prism",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Emberglass Shard, Gold Nugget -> Guild Leyweaver Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Duskglass Shard, String -> Guild Mourning Nameleaf",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Duskglass Shard, Gold Nugget -> Guild Duskkeeper Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, String -> Guild Greatbole Torque",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, Gold Nugget -> Guild Thornwarden Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Glass Bottle, Leather -> Guild Dewglass Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Bread, Leather -> Guild Hearthcord Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Lapis Lazuli, Leather -> Guild Infuser Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Wheat, Leather -> Guild Seedkeeper Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Cod, Leather -> Guild Tideledger Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Iron Ingot, Leather -> Guild Forge-Measure Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Leather -> Guild Herdsong Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Flint, Leather -> Guild Strata Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Bone, Leather -> Guild Reclaimer Cuff",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Axe Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Boots Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Chest Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Focus Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Helmet Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Pants Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Spear Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Ward Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Blade Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Boots Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Chest Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Focus Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Folio Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Pants Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Spear Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Blade Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Boots Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Bow Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Chest Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Focus Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Folio Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Helmet Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Pants Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Axe Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Blade Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Boots Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Chest Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Helmet Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Pants Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Spear Era 05",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Ward Era 05",
             "fey binding at the Fey Altar: Elementium Core, Dreamwood, Gold Ingot, Livingrock -> March Hide",
             "aura transmutation at the Natural Altar: Elementium Core, Quickened Grievebloom -> Golden Apple (12,000 aura)",
             "Cutting: Elementium Core -> Galeglass Shard",
@@ -933,6 +1571,54 @@ ItemEvents.tooltip(event => {
             "shaped: Emberbound Quenched, Livingrock -> Emberbound Weave"
         ],
         "uses": [
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Blade Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Boots Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Bow Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Charm Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Chest Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Crossbow Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Helmet Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Pants Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Blade Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Boots Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Chest Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Focus Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Folio Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Dawnglass Shard -> Armory Minstrel Pants Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Axe Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Boots Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Chest Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Focus Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Helmet Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Pants Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Spear Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Ward Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Blade Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Boots Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Chest Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Focus Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Folio Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Pants Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Spear Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Blade Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Boots Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Bow Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Chest Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Focus Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Folio Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Helmet Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Duskglass Shard -> Armory Warlock Pants Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Axe Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Blade Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Boots Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Chest Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Helmet Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Pants Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Spear Era 07",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Ward Era 07",
             "pressing with a Mechanical Press: Emberbound Weave -> Frost Shard",
             "shapeless: Quickened Rimebloom, Emberbound Weave -> Diamond",
             "application with a Deployer: Emberbound Weave, Apple -> Golden Apple",
@@ -945,6 +1631,76 @@ ItemEvents.tooltip(event => {
             "Source enchantment at the Enchanting Apparatus: Orb of Chaos, Mana Powder -> Emberglass Shard (3,000 Source)"
         ],
         "uses": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Emberglass Shard, String -> Apprentice Leyglass Prism",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Emberglass Shard, String -> Guild Leyglass Prism",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Emberglass Shard, String -> Master Leyglass Prism",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Emberglass Shard, Gold Nugget -> Apprentice Leyweaver Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Emberglass Shard, Gold Nugget -> Guild Leyweaver Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Emberglass Shard, Gold Nugget -> Master Leyweaver Signet",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Blade Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Blade Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Blade Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Blade Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Blade Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Blade Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Blade Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Blade Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Boots Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Boots Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Boots Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Boots Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Boots Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Boots Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Boots Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Boots Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Chest Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Chest Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Chest Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Chest Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Chest Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Chest Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Chest Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Chest Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Focus Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Focus Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Focus Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Focus Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Focus Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Focus Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Focus Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Focus Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Folio Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Folio Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Folio Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Folio Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Folio Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Folio Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Folio Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Folio Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Pants Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Pants Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Pants Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Pants Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Pants Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Pants Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Pants Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Pants Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Spear Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Spear Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Spear Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Spear Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Emberglass Shard -> Armory Sorcerer Spear Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Spear Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Spear Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Emberglass Shard -> Armory Sorcerer Spear Era 10",
             "runic binding at the Runic Altar: Emberglass Shard -> Orb of Chaos (12,000 mana)",
             "aura transmutation at the Natural Altar: Sunbleached Floss, Emberglass Shard -> Blaze Powder (12,000 aura)",
             "application with a Deployer: Wildmarch Drawn, Emberglass Shard -> Blaze Powder",
@@ -1242,6 +1998,76 @@ ItemEvents.tooltip(event => {
             "pressing with a Mechanical Press: Crown Filament -> Galeglass Shard"
         ],
         "uses": [
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Blade Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Blade Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Blade Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Blade Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Blade Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Blade Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Blade Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Blade Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Boots Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Boots Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Boots Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Boots Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Boots Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Boots Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Boots Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Boots Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Bow Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Bow Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Bow Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Bow Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Bow Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Bow Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Bow Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Bow Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Charm Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Charm Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Charm Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Charm Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Charm Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Charm Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Charm Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Charm Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Chest Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Chest Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Chest Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Chest Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Chest Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Chest Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Chest Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Chest Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Crossbow Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Crossbow Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Crossbow Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Crossbow Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Crossbow Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Crossbow Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Crossbow Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Crossbow Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Helmet Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Helmet Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Helmet Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Helmet Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Helmet Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Helmet Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Helmet Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Helmet Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Pants Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Pants Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Pants Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Pants Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Galeglass Shard -> Armory Hunter Pants Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Pants Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Pants Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Galeglass Shard -> Armory Hunter Pants Era 10",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Galeglass Shard, String -> Apprentice Wolfleaf Token",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Galeglass Shard, String -> Guild Wolfleaf Token",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Galeglass Shard, String -> Master Wolfleaf Token",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Galeglass Shard, Gold Nugget -> Apprentice Waywatcher Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Galeglass Shard, Gold Nugget -> Guild Waywatcher Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Galeglass Shard, Gold Nugget -> Master Waywatcher Signet",
             "mana infusion in a Mana Pool: Galeglass Shard -> Orb of Ascension (96,000 mana)"
         ]
     },
@@ -1251,6 +2077,54 @@ ItemEvents.tooltip(event => {
             "mixing in a Basin: Gatewrought Folded, Mana Powder -> Gatewrought Cord"
         ],
         "uses": [
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Blade Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Boots Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Bow Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Charm Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Chest Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Crossbow Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Helmet Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Pants Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Blade Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Boots Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Chest Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Focus Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Folio Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Pants Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Axe Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Boots Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Chest Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Focus Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Helmet Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Pants Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Spear Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Ward Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Blade Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Boots Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Chest Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Focus Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Folio Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Pants Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Spear Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Blade Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Boots Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Bow Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Chest Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Focus Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Folio Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Helmet Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Pants Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Axe Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Blade Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Boots Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Chest Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Helmet Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Pants Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Spear Era 04",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Ward Era 04",
             "shaped: Dreamwood, Gatewrought Cord -> Elven Gateway Core",
             "smelting: Gatewrought Cord -> Raw Alloy Grit",
             "mixing in a Basin: Raw Elementium, Gatewrought Cord -> Elementium Ingot",
@@ -1549,10 +2423,60 @@ ItemEvents.tooltip(event => {
             "mixing in a Basin: Gravegilt Proofed, Mana Powder -> Grave-Gilt Thread"
         ],
         "uses": [
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Blade Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Boots Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Bow Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Charm Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Chest Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Crossbow Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Helmet Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Pants Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Blade Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Boots Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Chest Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Focus Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Folio Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Pants Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Axe Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Boots Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Chest Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Focus Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Helmet Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Pants Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Spear Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Ward Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Blade Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Boots Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Chest Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Focus Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Folio Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Pants Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Spear Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Blade Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Boots Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Bow Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Chest Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Focus Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Folio Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Helmet Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Pants Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Axe Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Blade Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Boots Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Chest Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Helmet Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Pants Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Spear Era 09",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Ward Era 09",
             "petal binding in the Petal Apothecary: Grave-Gilt Thread, Dreamwood, Seed Apothecary Reagent (ingredient group) -> Heartwood Strand",
             "shapeless: Grave-Gilt Thread, Emberglass Shard -> Blaze Powder",
             "application with a Deployer: Raw Elementium, Grave-Gilt Thread -> Elementium Ingot",
-            "mixing in a Basin: Grave-Gilt Thread, Melon Slice -> Glistering Melon Slice"
+            "mixing in a Basin: Grave-Gilt Thread, Melon Slice -> Glistering Melon Slice",
+            "Source enchantment at the Enchanting Apparatus: Attuned Worldstone, Grave-Gilt Thread, Angelic Ore, Source Gem -> Divine Ore (10,000 Source)",
+            "Source enchantment at the Enchanting Apparatus: Attuned Worldstone, Grave-Gilt Thread, Epic Stone, Source Gem -> Legendary Stone (10,000 Source)"
         ]
     },
     "alfheim:hart_antler": {
@@ -2481,6 +3405,75 @@ ItemEvents.tooltip(event => {
             "Source enchantment at the Enchanting Apparatus: Harvested Celestial Essence, Mana Powder -> Quickened Palebloom (1,500 Source)"
         ],
         "uses": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Blade Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Boots Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Bow Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Charm Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Chest Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Crossbow Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Helmet Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Hunter Pants Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Blade Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Boots Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Chest Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Crossbow Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Focus Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Folio Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Helmet Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Minstrel Pants Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Galeglass Shard, String -> Apprentice Wolfleaf Token",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Galeglass Shard, Gold Nugget -> Apprentice Waywatcher Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Dawnglass Shard, String -> Apprentice Dawncourt Brooch",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Apprentice Dawnsinger Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, String -> Apprentice Rainseed Torque",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, Gold Nugget -> Apprentice Rootspeaker Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Emberglass Shard, String -> Apprentice Leyglass Prism",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Emberglass Shard, Gold Nugget -> Apprentice Leyweaver Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Duskglass Shard, String -> Apprentice Mourning Nameleaf",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Duskglass Shard, Gold Nugget -> Apprentice Duskkeeper Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, String -> Apprentice Greatbole Torque",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, Gold Nugget -> Apprentice Thornwarden Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Glass Bottle, Leather -> Apprentice Dewglass Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Bread, Leather -> Apprentice Hearthcord Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Lapis Lazuli, Leather -> Apprentice Infuser Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Wheat, Leather -> Apprentice Seedkeeper Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Cod, Leather -> Apprentice Tideledger Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Iron Ingot, Leather -> Apprentice Forge-Measure Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Leather -> Apprentice Herdsong Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Flint, Leather -> Apprentice Strata Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Bone, Leather -> Apprentice Reclaimer Cuff",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Axe Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Boots Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Chest Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Focus Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Helmet Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Pants Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Spear Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Shaman Ward Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Blade Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Boots Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Chest Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Focus Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Folio Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Helmet Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Pants Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Sorcerer Spear Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Blade Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Boots Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Bow Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Chest Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Focus Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Folio Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Helmet Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warlock Pants Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Axe Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Blade Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Boots Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Chest Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Helmet Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Pants Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Spear Era 02",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Common Stone -> Armory Warrior Ward Era 02",
             "smelting: Quickened Palebloom -> Iron Ingot",
             "blasting: Quickened Palebloom -> Iron Ingot",
             "shapeless: Quickened Palebloom, Living Fibre -> Iron Ingot",
@@ -2961,11 +3954,81 @@ ItemEvents.tooltip(event => {
             "shaped: Rimebound Layered, Livingrock -> Rimebound Lattice"
         ],
         "uses": [
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Blade Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Boots Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Bow Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Charm Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Chest Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Crossbow Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Helmet Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Galeglass Shard -> Armory Hunter Pants Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Blade Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Boots Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Chest Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Focus Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Folio Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Dawnglass Shard -> Armory Minstrel Pants Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Galeglass Shard, String -> Master Wolfleaf Token",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Galeglass Shard, Gold Nugget -> Master Waywatcher Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Dawnglass Shard, String -> Master Dawncourt Brooch",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Dawnglass Shard, Gold Nugget -> Master Dawnsinger Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, String -> Master Rainseed Torque",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, Gold Nugget -> Master Rootspeaker Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Emberglass Shard, String -> Master Leyglass Prism",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Emberglass Shard, Gold Nugget -> Master Leyweaver Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Duskglass Shard, String -> Master Mourning Nameleaf",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Duskglass Shard, Gold Nugget -> Master Duskkeeper Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, String -> Master Greatbole Torque",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, Gold Nugget -> Master Thornwarden Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Glass Bottle, Leather -> Master Dewglass Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Bread, Leather -> Master Hearthcord Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Lapis Lazuli, Leather -> Master Infuser Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Wheat, Leather -> Master Seedkeeper Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Cod, Leather -> Master Tideledger Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Iron Ingot, Leather -> Master Forge-Measure Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Leather -> Master Herdsong Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Flint, Leather -> Master Strata Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Bone, Leather -> Master Reclaimer Cuff",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Axe Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Boots Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Chest Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Focus Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Helmet Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Pants Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Spear Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Ward Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Blade Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Boots Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Chest Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Focus Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Folio Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Pants Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Emberglass Shard -> Armory Sorcerer Spear Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Blade Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Boots Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Bow Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Chest Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Focus Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Folio Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Helmet Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Duskglass Shard -> Armory Warlock Pants Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Axe Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Blade Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Boots Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Chest Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Helmet Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Pants Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Spear Era 08",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Ward Era 08",
             "transmutation in Spirit Fire: Rimebound Lattice -> Ash Of Names",
             "application with a Deployer: Rimebound Lattice, Duskglass Shard -> Gunpowder",
             "mixing in a Basin: Raw Elementium, Rimebound Lattice -> Elementium Ingot",
             "aura transmutation at the Natural Altar: Rimebound Lattice, Apple -> Golden Apple (12,000 aura)",
-            "Source enchantment at the Enchanting Apparatus: Tempered War Lattice, Rimebound Lattice -> Orb of Quality (10,000 Source)"
+            "Source enchantment at the Enchanting Apparatus: Tempered War Lattice, Rimebound Lattice -> Orb of Quality (10,000 Source)",
+            "deep mana infusion in the Mana Infuser: Worldstone Fragment, Alfsteel Ingot, Rimebound Lattice -> Attuned Worldstone (600,000 mana)"
         ]
     },
     "alfheim:rimebound_layered": {
@@ -3119,6 +4182,146 @@ ItemEvents.tooltip(event => {
     "alfheim:rootglass_shard": {
         "from": [],
         "uses": [
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, String -> Apprentice Rainseed Torque",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, String -> Guild Rainseed Torque",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, String -> Master Rainseed Torque",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, Gold Nugget -> Apprentice Rootspeaker Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, Gold Nugget -> Guild Rootspeaker Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, Gold Nugget -> Master Rootspeaker Signet",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, String -> Apprentice Greatbole Torque",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, String -> Guild Greatbole Torque",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, String -> Master Greatbole Torque",
+            "Gear Crafting station: Quickened Palebloom, Spiritual Ore, Source Gem, Rootglass Shard, Gold Nugget -> Apprentice Thornwarden Signet",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Source Gem, Rootglass Shard, Gold Nugget -> Guild Thornwarden Signet",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Source Gem, Rootglass Shard, Gold Nugget -> Master Thornwarden Signet",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Axe Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Axe Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Axe Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Axe Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Axe Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Axe Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Axe Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Axe Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Boots Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Boots Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Boots Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Boots Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Boots Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Boots Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Boots Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Boots Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Chest Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Chest Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Chest Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Chest Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Chest Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Chest Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Chest Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Chest Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Focus Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Focus Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Focus Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Focus Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Focus Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Focus Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Focus Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Focus Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Helmet Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Helmet Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Helmet Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Helmet Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Helmet Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Helmet Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Helmet Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Helmet Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Pants Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Pants Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Pants Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Pants Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Pants Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Pants Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Pants Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Pants Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Spear Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Spear Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Spear Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Spear Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Spear Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Spear Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Spear Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Spear Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Ward Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Ward Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Ward Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Ward Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Shaman Ward Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Ward Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Shaman Ward Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Shaman Ward Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Axe Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Axe Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Axe Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Axe Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Axe Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Axe Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Axe Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Axe Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Blade Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Blade Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Blade Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Blade Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Blade Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Blade Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Blade Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Blade Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Boots Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Boots Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Boots Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Boots Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Boots Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Boots Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Boots Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Boots Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Chest Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Chest Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Chest Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Chest Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Chest Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Chest Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Chest Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Chest Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Helmet Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Helmet Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Helmet Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Helmet Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Helmet Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Helmet Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Helmet Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Helmet Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Pants Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Pants Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Pants Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Pants Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Pants Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Pants Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Pants Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Pants Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Spear Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Spear Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Spear Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Spear Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Spear Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Spear Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Spear Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Spear Era 10",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Ward Era 03",
+            "Gear Crafting station: Gatewrought Cord, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Ward Era 04",
+            "Gear Crafting station: Elementium Core, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Ward Era 05",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Ward Era 06",
+            "Gear Crafting station: Emberbound Weave, Angelic Ore, Epic Stone, Rootglass Shard -> Armory Warrior Ward Era 07",
+            "Gear Crafting station: Rimebound Lattice, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Ward Era 08",
+            "Gear Crafting station: Grave-Gilt Thread, Divine Ore, Legendary Stone, Rootglass Shard -> Armory Warrior Ward Era 09",
+            "Gear Crafting station: Crown Filament, Godly Ore, Mythic Stone, Rootglass Shard -> Armory Warrior Ward Era 10",
             "mana infusion in a Mana Pool: Rootglass Shard -> Perfected Soul Seed (160,000 mana)",
             "aura transmutation at the Natural Altar: Elementium Drawn, Rootglass Shard -> Glowstone Dust (12,000 aura)",
             "shapeless: Wildmarch Sinew, Rootglass Shard -> Glowstone Dust",
@@ -3829,6 +5032,54 @@ ItemEvents.tooltip(event => {
             "runic binding at the Runic Altar: Charged Fibre, Rune of Earth, Rune of Water, Mana Dusts (ingredient group) -> Verdant Filament (5,200 mana)"
         ],
         "uses": [
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Blade Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Boots Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Bow Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Charm Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Chest Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Crossbow Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Helmet Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Galeglass Shard -> Armory Hunter Pants Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Blade Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Boots Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Chest Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Focus Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Folio Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Dawnglass Shard -> Armory Minstrel Pants Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Axe Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Boots Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Chest Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Focus Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Helmet Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Pants Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Spear Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Shaman Ward Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Blade Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Boots Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Chest Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Focus Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Folio Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Pants Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Emberglass Shard -> Armory Sorcerer Spear Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Blade Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Boots Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Bow Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Chest Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Focus Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Folio Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Helmet Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Duskglass Shard -> Armory Warlock Pants Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Axe Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Blade Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Boots Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Chest Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Helmet Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Pants Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Spear Era 03",
+            "Gear Crafting station: Verdant Filament, Celestial Ore, Uncommon Stone, Rootglass Shard -> Armory Warrior Ward Era 03",
             "petal binding in the Petal Apothecary: Verdant Filament, Dreamwood, Seed Apothecary Reagent (ingredient group) -> Sunbleached Floss",
             "application with a Deployer: Quickened Sunbloom, Verdant Filament -> Gold Ingot",
             "mixing in a Basin: Verdant Filament, Melon Slice -> Glistering Melon Slice"
@@ -3961,6 +5212,54 @@ ItemEvents.tooltip(event => {
             "shaped: Wildmarch Rebound, Livingrock -> Wildmarch Sinew"
         ],
         "uses": [
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Blade Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Boots Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Bow Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Charm Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Chest Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Crossbow Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Helmet Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Galeglass Shard -> Armory Hunter Pants Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Blade Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Boots Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Chest Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Crossbow Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Focus Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Folio Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Helmet Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Dawnglass Shard -> Armory Minstrel Pants Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Axe Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Boots Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Chest Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Focus Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Helmet Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Pants Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Spear Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Shaman Ward Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Blade Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Boots Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Chest Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Focus Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Folio Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Helmet Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Pants Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Emberglass Shard -> Armory Sorcerer Spear Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Blade Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Boots Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Bow Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Chest Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Focus Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Folio Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Helmet Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Duskglass Shard -> Armory Warlock Pants Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Axe Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Blade Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Boots Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Chest Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Helmet Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Pants Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Spear Era 06",
+            "Gear Crafting station: Wildmarch Sinew, Empyrean Ore, Rare Stone, Rootglass Shard -> Armory Warrior Ward Era 06",
             "transmutation in Spirit Fire: Wildmarch Sinew -> Scorched Filament",
             "shapeless: Wildmarch Sinew, Rootglass Shard -> Glowstone Dust",
             "application with a Deployer: Quickened Sunbloom, Wildmarch Sinew -> Gold Ingot",

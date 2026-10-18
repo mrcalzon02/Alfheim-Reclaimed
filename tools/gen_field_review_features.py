@@ -18,6 +18,8 @@ def B(name, **props):
 
 
 def emit(path, obj):
+    from fairy_island_policy import apply as fairy_policy
+    obj=fairy_policy(path,obj)
     from void_war_policy import apply as void_war_policy
     obj=void_war_policy(path,obj)
     target = DATA / path

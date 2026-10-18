@@ -1,7 +1,11 @@
 # Elven Golems — workers, artisans, sentinels and Deep salvage
 
-**Status:** approved direction; implementation planned, no mod scaffold or runtime content yet.  
-**Owning mod:** future first-party `alfheim_golems`, independent of Alfheim Companion and Alfheim
+**Status, updated 2026-10-17:** G0 foundation and installed jar exist; no playable golem entities,
+items, recipes or job executor yet. Current delivery order:
+`../first_party_mods/alfheim_golems/docs/USABLE_GOLEMS_20261017.md`.
+MineColonies owns living settlements and reclamation; golems are bounded workshop assistants.
+
+**Owning mod:** first-party `alfheim_golems`, independent of Alfheim Companion and Alfheim
 Leyworks.  
 **Target:** Minecraft 1.20.1, Forge 47.4.10, Java 17.  
 **Implementation authority:** `../first_party_mods/alfheim_golems/docs/ALFHEIM_GOLEMS_PLAN.md`.

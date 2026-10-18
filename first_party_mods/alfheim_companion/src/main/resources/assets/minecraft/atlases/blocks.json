@@ -1,0 +1,1760 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/artisan_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/artisan_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/artisan_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/artisan_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/king_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/king_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/king_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/king_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lady_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lady_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lady_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lady_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lord_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lord_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lord_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/lord_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/nobleman_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/nobleman_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/nobleman_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/nobleman_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/noblewoman_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/noblewoman_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/noblewoman_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/noblewoman_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/prince_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/prince_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/prince_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/prince_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/princess_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/princess_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/princess_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/princess_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/queen_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/queen_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/queen_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/queen_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/serf_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/serf_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/serf_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/serf_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/servant_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/servant_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/servant_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/servant_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/steward_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/steward_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/steward_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/society/wardrobe/steward_3"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_0_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_0_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_0_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_10_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_10_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_10_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_11_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_11_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_11_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_12_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_12_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_12_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_13_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_13_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_13_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_14_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_14_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_14_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_15_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_15_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_15_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_16_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_16_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_16_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_17_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_17_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_17_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_18_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_18_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_18_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_19_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_19_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_19_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_1_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_1_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_1_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_20_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_20_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_20_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_21_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_21_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_21_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_22_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_22_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_22_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_23_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_23_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_23_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_24_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_24_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_24_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_25_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_25_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_25_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_2_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_2_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_2_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_3_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_3_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_3_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_4_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_4_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_4_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_5_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_5_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_5_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_6_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_6_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_6_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_7_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_7_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_7_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_8_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_8_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_8_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_9_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_9_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/enderman_9_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_0_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_0_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_0_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_10_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_10_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_10_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_11_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_11_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_11_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_12_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_12_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_12_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_13_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_13_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_13_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_14_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_14_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_14_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_15_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_15_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_15_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_16_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_16_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_16_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_17_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_17_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_17_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_18_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_18_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_18_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_19_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_19_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_19_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_1_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_1_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_1_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_20_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_20_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_20_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_21_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_21_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_21_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_22_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_22_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_22_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_23_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_23_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_23_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_24_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_24_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_24_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_25_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_25_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_25_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_2_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_2_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_2_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_3_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_3_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_3_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_4_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_4_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_4_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_5_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_5_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_5_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_6_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_6_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_6_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_7_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_7_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_7_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_8_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_8_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_8_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_9_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_9_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/endermite_9_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_0_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_0_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_0_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_10_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_10_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_10_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_11_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_11_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_11_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_12_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_12_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_12_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_13_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_13_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_13_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_14_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_14_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_14_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_15_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_15_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_15_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_16_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_16_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_16_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_17_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_17_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_17_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_18_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_18_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_18_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_19_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_19_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_19_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_1_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_1_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_1_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_20_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_20_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_20_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_21_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_21_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_21_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_22_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_22_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_22_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_23_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_23_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_23_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_24_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_24_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_24_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_25_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_25_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_25_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_2_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_2_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_2_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_3_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_3_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_3_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_4_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_4_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_4_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_5_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_5_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_5_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_6_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_6_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_6_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_7_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_7_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_7_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_8_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_8_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_8_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_9_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_9_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/pillager_9_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_0_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_0_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_0_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_10_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_10_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_10_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_11_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_11_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_11_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_12_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_12_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_12_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_13_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_13_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_13_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_14_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_14_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_14_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_15_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_15_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_15_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_16_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_16_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_16_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_17_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_17_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_17_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_18_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_18_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_18_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_19_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_19_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_19_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_1_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_1_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_1_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_20_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_20_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_20_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_21_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_21_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_21_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_22_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_22_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_22_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_23_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_23_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_23_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_24_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_24_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_24_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_25_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_25_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_25_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_2_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_2_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_2_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_3_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_3_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_3_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_4_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_4_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_4_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_5_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_5_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_5_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_6_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_6_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_6_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_7_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_7_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_7_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_8_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_8_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_8_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_9_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_9_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/skeleton_9_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_0_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_0_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_0_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_10_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_10_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_10_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_11_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_11_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_11_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_12_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_12_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_12_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_13_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_13_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_13_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_14_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_14_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_14_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_15_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_15_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_15_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_16_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_16_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_16_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_17_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_17_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_17_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_18_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_18_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_18_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_19_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_19_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_19_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_1_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_1_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_1_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_20_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_20_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_20_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_21_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_21_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_21_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_22_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_22_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_22_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_23_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_23_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_23_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_24_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_24_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_24_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_25_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_25_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_25_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_2_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_2_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_2_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_3_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_3_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_3_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_4_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_4_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_4_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_5_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_5_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_5_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_6_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_6_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_6_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_7_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_7_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_7_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_8_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_8_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_8_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_9_0"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_9_1"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:entity/themed/zombie_9_2"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "alfheim_companion:models/armor/eternity_crown"
+    }
+  ]
+}

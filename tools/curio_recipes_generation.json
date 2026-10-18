@@ -1,0 +1,3380 @@
+{
+  "capability": "Continuity Works",
+  "snapshot_id": "20261018T001305Z-alfheim_regalia_acquisition-generate-983e6ca4",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_regalia_acquisition_v1"
+  },
+  "layout": {
+    "files": [
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warrior_signet_apprentice.json",
+        "sha256": "01cb9b5c3864c463a21162bbe516b5fb1a735f50e806d435f9778afcef6dda65"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warrior_signet_guild.json",
+        "sha256": "d2a9055d568df1b3d498a292f73b84a6ec32220c988a2dc31f34f9c186546df1"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warrior_signet_master.json",
+        "sha256": "41797f37341a74994988511da655bd668c0b02c5c9b56b649a65c2066e3909fc"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warrior_emblem_apprentice.json",
+        "sha256": "54c212191f13a0d81f00d7ed2b2e5d6365adebd05d702428ba8896f9889a6d4f"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warrior_emblem_guild.json",
+        "sha256": "9278cee7afedf5b102bcfc871e425209e43c4e983301f5ce6c7cfe651b465018"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warrior_emblem_master.json",
+        "sha256": "c282493e245562a0d3e7189e9beeb75acd2b3e86d5f18f6d78c609919dbbb407"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_hunter_signet_apprentice.json",
+        "sha256": "ba1854d588b0081862254e942c7faad415cca33bf07b974e6efc0059a55fd4d1"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_hunter_signet_guild.json",
+        "sha256": "b002537f30ac28b715b7bfa39f1a47c66eb8627232d62c31be9012e82254f530"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_hunter_signet_master.json",
+        "sha256": "b8438821e22edfd738599b8e89b76ff9d6d2e585f36ce89af80774998213bc5f"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_hunter_emblem_apprentice.json",
+        "sha256": "571a87dac8ecd595acfb55fc9902bbeede94e6d3529c8aec9aaa5c903d138923"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_hunter_emblem_guild.json",
+        "sha256": "7f538001934b2094bd0d7aacb5b6ac0806d7a8fad4eaedc227cf6eeb67a29ce3"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_hunter_emblem_master.json",
+        "sha256": "17633a151fa688e9e06113a2c8db19c61d9985c4b702a4d1b45e183883aaf6cf"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_sorcerer_signet_apprentice.json",
+        "sha256": "b8e8b06fa9de6bbc6db7d38abc9463fa7f874cbdf9921f4a961ff3ff6931f3b8"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_sorcerer_signet_guild.json",
+        "sha256": "f897044971971922a93209889711326b304dfd3a19edbcb7cd67f34a4e601a8c"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_sorcerer_signet_master.json",
+        "sha256": "ce1290e4578f5ce44dac4ea4a76480ab4053532e2c36ed8cf37803a23da5efa9"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_sorcerer_emblem_apprentice.json",
+        "sha256": "71279bbdbdd6be09125781a0225dbf8f5a1255ae885df2eef75dcd5af2a9de2a"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_sorcerer_emblem_guild.json",
+        "sha256": "b7f363ed6da080890bbc8ea1d8ce5bab084a87bb69f99fcde2776e9654082da4"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_sorcerer_emblem_master.json",
+        "sha256": "d9db372048bb5329695a2b851f0df38ad070b7ddc2c5a09888d66984d40ceb57"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_shaman_signet_apprentice.json",
+        "sha256": "59717d3034c9826b009859ddb446865f3c2d5e6a18df7859f15c2168bbe56fb6"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_shaman_signet_guild.json",
+        "sha256": "24f87d5da7438911fffe6614f9a6a693aef904fd5ebcbc4274cf27b85cca88c7"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_shaman_signet_master.json",
+        "sha256": "67292e699c94a3926a1c9023321c417af03ec225323db91fe591c4502d1867f3"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_shaman_emblem_apprentice.json",
+        "sha256": "11326a4a78fe9b1a3f2b199a8769e5a5c0bbc8858b44e54c82f8c48e350882ed"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_shaman_emblem_guild.json",
+        "sha256": "3507faefaa7ffdf9c82aa328add4a1569dc79ad1a758294e038c59d4d656ac1b"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_shaman_emblem_master.json",
+        "sha256": "fdeff8adb85a394d81ef20c9ed67398697f9775a78a857bacb662ae609eac114"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warlock_signet_apprentice.json",
+        "sha256": "59afe4af1ee56d903730b6e10efd50b68d06804396c11af0c5cd1670eebe7cdb"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warlock_signet_guild.json",
+        "sha256": "9d0093f674a9ded5c10f98fbc07eeb7cef76d88d60eb598e63fc374c9a9dbc90"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warlock_signet_master.json",
+        "sha256": "3c71b11cb160699da866f0506e8db35a1f3585c46f226cfb995ecd8a8c842fe5"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warlock_emblem_apprentice.json",
+        "sha256": "bd74f72405b0997768763278f383e8c498ad1baadb4d4624bd1cef4cb2f4318f"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warlock_emblem_guild.json",
+        "sha256": "c715cdaebacbb8eccd29afa2943cbb77cc7ff3966bac35cd9f20df01c0058f66"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_warlock_emblem_master.json",
+        "sha256": "04188016a42413c9c9064fb13334f593131df98e953d0073576f93a10e701c78"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_minstrel_signet_apprentice.json",
+        "sha256": "ae411b00d9cc0a4a2c476a2bee97ce805980a663702c1660ed73bb20dc651da8"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_minstrel_signet_guild.json",
+        "sha256": "03f7acf2a46c9b4822257cffd258413a3eace878591bbc19add58028fda9728d"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_minstrel_signet_master.json",
+        "sha256": "b49ac389d79a781ed57ea00d62861c703c958bb5ce614fa9dc9489b6d9935352"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_minstrel_emblem_apprentice.json",
+        "sha256": "1eaacd85ef00d48451b1c38ba0da5d6bf41efa4dfa2cb7a47fb4b91dab2d1c09"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_minstrel_emblem_guild.json",
+        "sha256": "13836effbe8051541d96997590b7729bbaf91c9c12294b2c67051816db3835f7"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_class_minstrel_emblem_master.json",
+        "sha256": "a7dd7c00175dd42b3cb89777df4fd424b61fd8a607ead8fc8e094e20645d9dc4"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_mining_apprentice.json",
+        "sha256": "f84dc37d319591c01119159d86eb1381578859edb05006701dcd71c9c6084caf"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_mining_guild.json",
+        "sha256": "880011b4906e84190223d37bb4f1ed45b48f38dfa7afb25beb8edef1e7098c25"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_mining_master.json",
+        "sha256": "18498711f95a52c95c83b652fa572249f0f36333a2ae6c7ac91f793c757b4857"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_farming_apprentice.json",
+        "sha256": "f7294cad607d33a44fdf000c532338703590182002b2dd0f7e655a3efd1f36ca"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_farming_guild.json",
+        "sha256": "a3f56925787294d8cb42e3afa36aa8ee799bd49e082b30d39b045592cc8a6fe0"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_farming_master.json",
+        "sha256": "f0470ea8619ec0894d4aa8f77ecd30710baf75e79698934fb151fabf0428bb31"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_fishing_apprentice.json",
+        "sha256": "8fb304e41b49c27a4089b5eede9af71a57086be4f9cc7a387ee2f9ebe910b5b6"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_fishing_guild.json",
+        "sha256": "e6ce604dd9b440bbb98dbabcefeafeac14adf0ac1f01b684ea5c273460410239"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_fishing_master.json",
+        "sha256": "db3d76a09f67772f005d6ff6011d3d0d1680e8519d7e6f2bfe1ee982af76ae6c"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_husbandry_apprentice.json",
+        "sha256": "240ebc40e15359d1ee44b7e8aab362954e1da2110647ecc14b59fe4a1a41cd8d"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_husbandry_guild.json",
+        "sha256": "c7a91becf95473fc0c3c121ae6633be1cb204a22007e9f5c1b9b08c4bd41574f"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_husbandry_master.json",
+        "sha256": "0e4078792a11bd0cd41b07dfa05bbf31101b97b44ed02a12b7c6eebabfe86799"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_salvaging_apprentice.json",
+        "sha256": "217e7a212aba6431b095367b98ecc49f0c4fec1fa05d7683a4b775afd1eb268c"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_salvaging_guild.json",
+        "sha256": "1ce756dcc085606bafe4c63508c025035e032634fb3de0a5fc6a6ff664bfd578"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_salvaging_master.json",
+        "sha256": "470f033f99c837166fbfd423ee97edbc85c79b4ce85245dba4a740d714d3c151"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_gear_crafting_apprentice.json",
+        "sha256": "60774776740c6fbeaf39af241b06d9dea216972cf00f16bbad5fdac044886bfa"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_gear_crafting_guild.json",
+        "sha256": "9d73c73fe48d0c137e01394b709532afa1a5942b878151335ec606efb0804a54"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_gear_crafting_master.json",
+        "sha256": "967ef834e6b56d9316244d9c747ebb789c9002a22a696ae8e9fe8e33b1957882"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_enchanting_apprentice.json",
+        "sha256": "be5c50a19bd6a5732627e7005651947a1b8d3015c5eb0f6867b71dd91d079f82"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_enchanting_guild.json",
+        "sha256": "463fb3d7d1bcd4a3a74fcfc73f90df0691d5776ec5e0717250b57624b499d1bf"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_enchanting_master.json",
+        "sha256": "b19843bf4fd3098253b0db1d1697cb7454369dfdf7845839d16fe264fac2ba2b"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_cooking_apprentice.json",
+        "sha256": "d192a594fabe133283ff11f58eaac7b895bbbaeec8e48eb938d9992b1c900de4"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_cooking_guild.json",
+        "sha256": "c3be5bceae1fc351ed45d740261cccc173edce909799f4ab20ff27303b75d989"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_cooking_master.json",
+        "sha256": "576cc46281999e75b8b0e0dfa9c22ddb2361eb5757ef0ab13179f724225915d1"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_alchemy_apprentice.json",
+        "sha256": "dd333a2f76d093dcbeea33460a17e22797cc01ad214fd13f466309681fed9286"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_alchemy_guild.json",
+        "sha256": "20ecd34641ed2b0400798b46b667c92d811b29cf5a8015b684dbcbfd51536492"
+      },
+      {
+        "file": "kubejs/data/alfheim/mmorpg_profession_recipe/alfheim_regalia_curio_profession_alchemy_master.json",
+        "sha256": "a2c305e29b1466e251e9d2b7c7fcba30f17dd7ff0eb85cfb08c2297ff2e158a4"
+      }
+    ],
+    "registry_probes": {
+      "alfheim:curio/class/hunter/emblem_apprentice": {
+        "id": "alfheim:curio/class/hunter/emblem_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/hunter/emblem_guild": {
+        "id": "alfheim:curio/class/hunter/emblem_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/hunter/emblem_master": {
+        "id": "alfheim:curio/class/hunter/emblem_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/hunter/signet_apprentice": {
+        "id": "alfheim:curio/class/hunter/signet_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/hunter/signet_guild": {
+        "id": "alfheim:curio/class/hunter/signet_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/hunter/signet_master": {
+        "id": "alfheim:curio/class/hunter/signet_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/minstrel/emblem_apprentice": {
+        "id": "alfheim:curio/class/minstrel/emblem_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/minstrel/emblem_guild": {
+        "id": "alfheim:curio/class/minstrel/emblem_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/minstrel/emblem_master": {
+        "id": "alfheim:curio/class/minstrel/emblem_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/minstrel/signet_apprentice": {
+        "id": "alfheim:curio/class/minstrel/signet_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/minstrel/signet_guild": {
+        "id": "alfheim:curio/class/minstrel/signet_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/minstrel/signet_master": {
+        "id": "alfheim:curio/class/minstrel/signet_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/shaman/emblem_apprentice": {
+        "id": "alfheim:curio/class/shaman/emblem_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/shaman/emblem_guild": {
+        "id": "alfheim:curio/class/shaman/emblem_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/shaman/emblem_master": {
+        "id": "alfheim:curio/class/shaman/emblem_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/shaman/signet_apprentice": {
+        "id": "alfheim:curio/class/shaman/signet_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/shaman/signet_guild": {
+        "id": "alfheim:curio/class/shaman/signet_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/shaman/signet_master": {
+        "id": "alfheim:curio/class/shaman/signet_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/sorcerer/emblem_apprentice": {
+        "id": "alfheim:curio/class/sorcerer/emblem_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/sorcerer/emblem_guild": {
+        "id": "alfheim:curio/class/sorcerer/emblem_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/sorcerer/emblem_master": {
+        "id": "alfheim:curio/class/sorcerer/emblem_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/sorcerer/signet_apprentice": {
+        "id": "alfheim:curio/class/sorcerer/signet_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/sorcerer/signet_guild": {
+        "id": "alfheim:curio/class/sorcerer/signet_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/sorcerer/signet_master": {
+        "id": "alfheim:curio/class/sorcerer/signet_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warlock/emblem_apprentice": {
+        "id": "alfheim:curio/class/warlock/emblem_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warlock/emblem_guild": {
+        "id": "alfheim:curio/class/warlock/emblem_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warlock/emblem_master": {
+        "id": "alfheim:curio/class/warlock/emblem_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warlock/signet_apprentice": {
+        "id": "alfheim:curio/class/warlock/signet_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warlock/signet_guild": {
+        "id": "alfheim:curio/class/warlock/signet_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warlock/signet_master": {
+        "id": "alfheim:curio/class/warlock/signet_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warrior/emblem_apprentice": {
+        "id": "alfheim:curio/class/warrior/emblem_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warrior/emblem_guild": {
+        "id": "alfheim:curio/class/warrior/emblem_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warrior/emblem_master": {
+        "id": "alfheim:curio/class/warrior/emblem_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warrior/signet_apprentice": {
+        "id": "alfheim:curio/class/warrior/signet_apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warrior/signet_guild": {
+        "id": "alfheim:curio/class/warrior/signet_guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/class/warrior/signet_master": {
+        "id": "alfheim:curio/class/warrior/signet_master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/alchemy/apprentice": {
+        "id": "alfheim:curio/profession/alchemy/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/alchemy/guild": {
+        "id": "alfheim:curio/profession/alchemy/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/alchemy/master": {
+        "id": "alfheim:curio/profession/alchemy/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/cooking/apprentice": {
+        "id": "alfheim:curio/profession/cooking/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/cooking/guild": {
+        "id": "alfheim:curio/profession/cooking/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/cooking/master": {
+        "id": "alfheim:curio/profession/cooking/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/enchanting/apprentice": {
+        "id": "alfheim:curio/profession/enchanting/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/enchanting/guild": {
+        "id": "alfheim:curio/profession/enchanting/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/enchanting/master": {
+        "id": "alfheim:curio/profession/enchanting/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/farming/apprentice": {
+        "id": "alfheim:curio/profession/farming/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/farming/guild": {
+        "id": "alfheim:curio/profession/farming/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/farming/master": {
+        "id": "alfheim:curio/profession/farming/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/fishing/apprentice": {
+        "id": "alfheim:curio/profession/fishing/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/fishing/guild": {
+        "id": "alfheim:curio/profession/fishing/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/fishing/master": {
+        "id": "alfheim:curio/profession/fishing/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/gear_crafting/apprentice": {
+        "id": "alfheim:curio/profession/gear_crafting/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/gear_crafting/guild": {
+        "id": "alfheim:curio/profession/gear_crafting/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/gear_crafting/master": {
+        "id": "alfheim:curio/profession/gear_crafting/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/husbandry/apprentice": {
+        "id": "alfheim:curio/profession/husbandry/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/husbandry/guild": {
+        "id": "alfheim:curio/profession/husbandry/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/husbandry/master": {
+        "id": "alfheim:curio/profession/husbandry/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/mining/apprentice": {
+        "id": "alfheim:curio/profession/mining/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/mining/guild": {
+        "id": "alfheim:curio/profession/mining/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/mining/master": {
+        "id": "alfheim:curio/profession/mining/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/salvaging/apprentice": {
+        "id": "alfheim:curio/profession/salvaging/apprentice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/salvaging/guild": {
+        "id": "alfheim:curio/profession/salvaging/guild",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:curio/profession/salvaging/master": {
+        "id": "alfheim:curio/profession/salvaging/master",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:dawnglass_shard": {
+        "id": "alfheim:dawnglass_shard",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:duskglass_shard": {
+        "id": "alfheim:duskglass_shard",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:elementium_core": {
+        "id": "alfheim:elementium_core",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:emberglass_shard": {
+        "id": "alfheim:emberglass_shard",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:galeglass_shard": {
+        "id": "alfheim:galeglass_shard",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:quickened_palebloom": {
+        "id": "alfheim:quickened_palebloom",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:rimebound_lattice": {
+        "id": "alfheim:rimebound_lattice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:rootglass_shard": {
+        "id": "alfheim:rootglass_shard",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "ars_nouveau:source_gem": {
+        "id": "ars_nouveau:source_gem",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:bone": {
+        "id": "minecraft:bone",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:bread": {
+        "id": "minecraft:bread",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:cod": {
+        "id": "minecraft:cod",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:flint": {
+        "id": "minecraft:flint",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:glass_bottle": {
+        "id": "minecraft:glass_bottle",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:gold_nugget": {
+        "id": "minecraft:gold_nugget",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:iron_ingot": {
+        "id": "minecraft:iron_ingot",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:lapis_lazuli": {
+        "id": "minecraft:lapis_lazuli",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:leather": {
+        "id": "minecraft:leather",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:string": {
+        "id": "minecraft:string",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "minecraft:wheat": {
+        "id": "minecraft:wheat",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "mmorpg:gear_crafting_station": {
+        "id": "mmorpg:gear_crafting_station",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:material/mining/0": {
+        "id": "mmorpg:material/mining/0",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:material/mining/2": {
+        "id": "mmorpg:material/mining/2",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:material/mining/4": {
+        "id": "mmorpg:material/mining/4",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      }
+    },
+    "native_recipe_count": 63,
+    "schema_reference": "Installed Mine and Slash 6.4.7 ProfessionRecipe data and existing 480 pack armory recipes"
+  },
+  "recipes": [
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_warrior_signet_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warrior/signet_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_warrior_signet_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 8
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warrior/signet_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_warrior_signet_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 12
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warrior/signet_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_warrior_emblem_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warrior/emblem_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_warrior_emblem_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warrior/emblem_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_warrior_emblem_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warrior/emblem_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_hunter_signet_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:galeglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/hunter/signet_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_hunter_signet_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:galeglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 8
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/hunter/signet_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_hunter_signet_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:galeglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 12
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/hunter/signet_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_hunter_emblem_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:galeglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/hunter/emblem_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_hunter_emblem_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:galeglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/hunter/emblem_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_hunter_emblem_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:galeglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/hunter/emblem_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_sorcerer_signet_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:emberglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/sorcerer/signet_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_sorcerer_signet_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:emberglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 8
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/sorcerer/signet_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_sorcerer_signet_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:emberglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 12
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/sorcerer/signet_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_sorcerer_emblem_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:emberglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/sorcerer/emblem_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_sorcerer_emblem_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:emberglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/sorcerer/emblem_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_sorcerer_emblem_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:emberglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/sorcerer/emblem_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_shaman_signet_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/shaman/signet_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_shaman_signet_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 8
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/shaman/signet_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_shaman_signet_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 12
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/shaman/signet_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_shaman_emblem_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/shaman/emblem_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_shaman_emblem_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/shaman/emblem_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_shaman_emblem_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:rootglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/shaman/emblem_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_warlock_signet_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:duskglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warlock/signet_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_warlock_signet_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:duskglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 8
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warlock/signet_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_warlock_signet_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:duskglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 12
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warlock/signet_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_warlock_emblem_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:duskglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warlock/emblem_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_warlock_emblem_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:duskglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warlock/emblem_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_warlock_emblem_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:duskglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/warlock/emblem_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_minstrel_signet_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:dawnglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/minstrel/signet_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_minstrel_signet_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:dawnglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 8
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/minstrel/signet_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_minstrel_signet_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:dawnglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:gold_nugget",
+          "num": 12
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/minstrel/signet_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_class_minstrel_emblem_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:dawnglass_shard",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/minstrel/emblem_apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_class_minstrel_emblem_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:dawnglass_shard",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/minstrel/emblem_guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_class_minstrel_emblem_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "alfheim:dawnglass_shard",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:string",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/class/minstrel/emblem_master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_mining_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:flint",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/mining/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_mining_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:flint",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/mining/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_mining_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:flint",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/mining/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_farming_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:wheat",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/farming/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_farming_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:wheat",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/farming/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_farming_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:wheat",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/farming/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_fishing_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:cod",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/fishing/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_fishing_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:cod",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/fishing/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_fishing_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:cod",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/fishing/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_husbandry_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 3
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/husbandry/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_husbandry_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/husbandry/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_husbandry_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 9
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/husbandry/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_salvaging_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:bone",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/salvaging/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_salvaging_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:bone",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/salvaging/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_salvaging_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:bone",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/salvaging/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_gear_crafting_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:iron_ingot",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/gear_crafting/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_gear_crafting_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:iron_ingot",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/gear_crafting/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_gear_crafting_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:iron_ingot",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/gear_crafting/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_enchanting_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:lapis_lazuli",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/enchanting/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_enchanting_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:lapis_lazuli",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/enchanting/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_enchanting_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:lapis_lazuli",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/enchanting/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_cooking_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:bread",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/cooking/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_cooking_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:bread",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/cooking/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_cooking_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:bread",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/cooking/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    },
+    {
+      "exp": 100,
+      "id": "alfheim_regalia_curio_profession_alchemy_apprentice",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:quickened_palebloom",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/0",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:glass_bottle",
+          "num": 1
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 2
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/alchemy/apprentice",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 0
+    },
+    {
+      "exp": 200,
+      "id": "alfheim_regalia_curio_profession_alchemy_guild",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:elementium_core",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/2",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:glass_bottle",
+          "num": 2
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 4
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/alchemy/guild",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 2
+    },
+    {
+      "exp": 300,
+      "id": "alfheim_regalia_curio_profession_alchemy_master",
+      "mats": [
+        {
+          "type": "ITEM",
+          "id": "alfheim:rimebound_lattice",
+          "num": 6
+        },
+        {
+          "type": "ITEM",
+          "id": "mmorpg:material/mining/4",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "ars_nouveau:source_gem",
+          "num": 4
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:glass_bottle",
+          "num": 3
+        },
+        {
+          "type": "ITEM",
+          "id": "minecraft:leather",
+          "num": 6
+        }
+      ],
+      "profession": "gear_crafting",
+      "requires_pinnacle_unlock": false,
+      "result": "alfheim:curio/profession/alchemy/master",
+      "result_num": 1,
+      "set_tier_nbt": false,
+      "tier": 4
+    }
+  ],
+  "scope": "Acquisition only; fixed decorative items, no class/profession effects or native soul lifecycle claimed"
+}

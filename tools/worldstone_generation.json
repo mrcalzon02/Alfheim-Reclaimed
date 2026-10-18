@@ -1,0 +1,551 @@
+{
+  "capability": "Continuity Works",
+  "snapshot_id": "20261018T082928Z-alfheim_mountain_worldstone-generate-90e5181f",
+  "generation": {
+    "status": "GENERATED_NOT_VALIDATED",
+    "provider_contract": {
+      "must_obey_preserve": [],
+      "must_use_verified_registry_ids": true,
+      "vanilla_first_fallback": true,
+      "must_snapshot_each_verified_batch": true,
+      "server_visual_review_required": false,
+      "server_side_rendering": false,
+      "client_rendering_responsibility": true,
+      "visual_review_advisory_only": true
+    },
+    "provider_id": "alfheim_mountain_worldstone_v1"
+  },
+  "layout": {
+    "files": [
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/worldgen/WorldstoneLayout.java",
+        "sha256": "0793f486941915007c078d73b3496ee13aafc22e3abe334dace87fc0884dc012"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_crystal.json",
+        "sha256": "4b330ae27f35a931960dad2b2834665a8e9c84e9ed10500653eb626af8e25c74"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_crystal.json",
+        "sha256": "7b372752d8025080a43af87eeea02ab954a732f01bf7109d929ce1ae145eeadd"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_crystal.json",
+        "sha256": "280ebabf3f78db2901488e5e366c15acb69c13e4e233997ab0daea5f3708ac8e"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_crystal.json",
+        "sha256": "f2ef2d7bc8fa2d343b0a7dd834f0eb550f84937bc0ce41f37b2cbae81c945496"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_heart.json",
+        "sha256": "2fd367266819c2806178edcc4f747102e1a49a2213c6125eed6f9ea9681c9864"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_heart.json",
+        "sha256": "7b372752d8025080a43af87eeea02ab954a732f01bf7109d929ce1ae145eeadd"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_heart.json",
+        "sha256": "4b36ffd5c91d55b6ccfe6f7b821ae25b10a6e97d5c15d61aa6422f03828fe1de"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_heart.json",
+        "sha256": "0a34d7fc541b5df136284a899a87676ab75175face1cfa533f84955eed8d5bb5"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_fragment_ore.json",
+        "sha256": "c07c4aa342693ee57d864636f148f6158e04c7ba207b7bc8df92f55489ef80e7"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_fragment_ore.json",
+        "sha256": "ac2133b3164b2d824f8d9604fc9dea507a081c9afaaebf2ad558a1f9be30eb3a"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_fragment_ore.json",
+        "sha256": "8835a442d141d701f0a45c6ce7fc27bd3070706e2ed9a30c69bd3be7f2ba25a5"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_fragment_ore.json",
+        "sha256": "81475c31e225e41a1e91fe8fca6ce87dd39d6275db690a7de59234786428a69f"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_small_bud.json",
+        "sha256": "1ab9177358d06fe9bb873d00e5522d1c602661c6d5f404e4bc28a6306ea5596d"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_small_bud.json",
+        "sha256": "a073632b07ab0b61fd9e6e5291aaa7adadaf97a36aced35beb30e5d29764266a"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_small_bud.json",
+        "sha256": "90880d3c41bfcdce2a06dd3b39a07bad9e337715a8434496b515bd9c5cb7c9e6"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_small_bud.json",
+        "sha256": "f2ef2d7bc8fa2d343b0a7dd834f0eb550f84937bc0ce41f37b2cbae81c945496"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_medium_bud.json",
+        "sha256": "990af544a0c4e1ead7b47ede5d0edbaad5bd811ca2788111f1c578213e82650e"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_medium_bud.json",
+        "sha256": "9bbef1eb3aad20eeb3c0c26cb92ff59dbe40a970662e0e96576acddad12ded08"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_medium_bud.json",
+        "sha256": "51d4d4d83be9befcc6b082ec65e98ea39116bc80390299ca17f5c6bb57cdee6d"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_medium_bud.json",
+        "sha256": "f2ef2d7bc8fa2d343b0a7dd834f0eb550f84937bc0ce41f37b2cbae81c945496"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_large_bud.json",
+        "sha256": "850f98ebf41e3ede202e5c5d9713bd900353acac8897cfc6554088ba91ebe86c"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_large_bud.json",
+        "sha256": "33ca801540cd8fdcfeca442761297d29447afa13e07634605418f388fc3f3ac1"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_large_bud.json",
+        "sha256": "26c537e8c2763ef154d382ddfa9c771c35546a941af83ac08b353a5d76f6e73a"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_large_bud.json",
+        "sha256": "f2ef2d7bc8fa2d343b0a7dd834f0eb550f84937bc0ce41f37b2cbae81c945496"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/blockstates/worldstone_cluster.json",
+        "sha256": "4723729f226e5cf67c96cf7ccbdaa073e67383cd0da72b909ddf25ebe4dbfac8"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/block/worldstone_cluster.json",
+        "sha256": "b87645488deaf3ad63c3abdcee44e9bdde15f340dc14673c26208b664b57f115"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_cluster.json",
+        "sha256": "3cdd2669bc154b5b5a612722686db5c7acc0536f274c0cfd4ac5f61027b63e5a"
+      },
+      {
+        "file": "kubejs/data/alfheim_companion/loot_tables/blocks/worldstone_cluster.json",
+        "sha256": "1117a81e2ba4ac0a560e69cec5f558f1eedc43ac53aaed7a4e6eaed8f4a7fd1d"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_fragment.json",
+        "sha256": "12c5c487b89e03202764b12c99b8300daa4fcc19af0b03c08aba798154b7b637"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/attuned_worldstone.json",
+        "sha256": "12c5c487b89e03202764b12c99b8300daa4fcc19af0b03c08aba798154b7b637"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/models/item/worldstone_compass.json",
+        "sha256": "713dc87355dc656add21f8e7740d79bb3c25b03ce63c65822f92db133c4bc1eb"
+      },
+      {
+        "file": "kubejs/data/alfheim/recipes/worldstone/worldstone_compass.json",
+        "sha256": "4561d56441fabecaffe9827e91137a5145b7d5742f543224857c66c0f65de671"
+      },
+      {
+        "file": "kubejs/data/alfheim/recipes/worldstone/attuned_worldstone.json",
+        "sha256": "b7dba078331ef87a2d58eed33cb0d88589e61582d775ae48eb859be19c425903"
+      },
+      {
+        "file": "kubejs/data/alfheim/recipes/worldstone/divine_ore.json",
+        "sha256": "c418249e7944d951ba87859877796246d160c55ed0574fc5cf9ceb104ba276b5"
+      },
+      {
+        "file": "kubejs/data/alfheim/recipes/worldstone/godly_ore.json",
+        "sha256": "9a89e85ab0fe3ca01534e9b2021acb988aaaceb6f555412973ec79d0a2eb7460"
+      },
+      {
+        "file": "kubejs/data/alfheim/recipes/worldstone/legendary_stone.json",
+        "sha256": "af8a5b9be8dec5459a56dbe175c5873a689677d8eca82048fd5b6ba631ad5768"
+      },
+      {
+        "file": "kubejs/data/alfheim/recipes/worldstone/mythic_stone.json",
+        "sha256": "773074e9f8ff948c143b52a7ad4b6013a025f5e16806fa2da8644599a1b6163b"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/textures/item/worldstone_fragment.png",
+        "sha256": "d942b9517fe5608989eef5562667742b70886d9194e1b177def5daa5ffba0644"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/textures/block/worldstone_fragment_ore.png",
+        "sha256": "e8cc334081ae078f34b29755a35198cc2257c11b9dfb3a66183cc9bf1dc82ccb"
+      },
+      {
+        "file": "kubejs/data/alfheim/tags/blocks/worldstone.json",
+        "sha256": "b66d926f8bf8deb31e4839d832598b3c3f1e8a9b5ce3565c2b431d301e0d48e8"
+      },
+      {
+        "file": "kubejs/data/alfheim/worldgen/structure/mountain_worldstone.json",
+        "sha256": "24d5d2a758fbbffed1bda111e175f33109c70be98f2bd17cd8c65cc2cbf73944"
+      },
+      {
+        "file": "kubejs/data/alfheim/worldgen/structure_set/mountain_worldstone.json",
+        "sha256": "7f24bd06c4d93a3a020f0c7df846bad09d59f49e3cae5c64804048960186e86a"
+      },
+      {
+        "file": "kubejs/data/alfheim/tags/worldgen/biome/has_mountain_worldstone.json",
+        "sha256": "07111b0a2264b737a4873c62fd63fc8c1fe45d55aa1c5043cc943a2b3183125c"
+      },
+      {
+        "file": "kubejs/data/alfheim/tags/worldgen/structure/worldstones.json",
+        "sha256": "006354c30ee4ed1e04cf8f8ba305d5b62f11960394e79f4ec96c675a3a26e173"
+      },
+      {
+        "file": "first_party_mods/alfheim_companion/src/main/resources/assets/alfheim_companion/textures/block/worldstone_crimson.png",
+        "sha256": "498c960426a2c9972d5fcdb6def511a02b49f0d543f76b3c2435ac910d70b797"
+      }
+    ],
+    "registry_probes": {
+      "alfheim:obsidian_livingrock": {
+        "id": "alfheim:obsidian_livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:cracked_livingrock": {
+        "id": "alfheim:cracked_livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:starfleck_livingrock": {
+        "id": "alfheim:starfleck_livingrock",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_crystal": {
+        "id": "alfheim_companion:worldstone_crystal",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_heart": {
+        "id": "alfheim_companion:worldstone_heart",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_fragment_ore": {
+        "id": "alfheim_companion:worldstone_fragment_ore",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_small_bud": {
+        "id": "alfheim_companion:worldstone_small_bud",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_medium_bud": {
+        "id": "alfheim_companion:worldstone_medium_bud",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_large_bud": {
+        "id": "alfheim_companion:worldstone_large_bud",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim_companion:worldstone_cluster": {
+        "id": "alfheim_companion:worldstone_cluster",
+        "kind": "block",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:worldstone_crystal": {
+        "id": "alfheim_companion:worldstone_crystal",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:worldstone_heart": {
+        "id": "alfheim_companion:worldstone_heart",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:worldstone_fragment_ore": {
+        "id": "alfheim_companion:worldstone_fragment_ore",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:worldstone_cluster": {
+        "id": "alfheim_companion:worldstone_cluster",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:worldstone_fragment": {
+        "id": "alfheim_companion:worldstone_fragment",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:attuned_worldstone": {
+        "id": "alfheim_companion:attuned_worldstone",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "item:alfheim_companion:worldstone_compass": {
+        "id": "alfheim_companion:worldstone_compass",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "minecraft:compass": {
+        "id": "minecraft:compass",
+        "kind": "item",
+        "level": "vanilla",
+        "namespace_known": true,
+        "evidence": [
+          "minecraft namespace"
+        ]
+      },
+      "botania:elementium_ingot": {
+        "id": "botania:elementium_ingot",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "ars_nouveau:source_gem": {
+        "id": "ars_nouveau:source_gem",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:dawnglass_shard": {
+        "id": "alfheim:dawnglass_shard",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "ars_nouveau:manipulation_essence": {
+        "id": "ars_nouveau:manipulation_essence",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "botania:rune_mana": {
+        "id": "botania:rune_mana",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mythicbotany:alfsteel_ingot": {
+        "id": "mythicbotany:alfsteel_ingot",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:rimebound_lattice": {
+        "id": "alfheim:rimebound_lattice",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:gravegilt_thread": {
+        "id": "alfheim:gravegilt_thread",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "alfheim:crown_filament": {
+        "id": "alfheim:crown_filament",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "botania:gaia_ingot": {
+        "id": "botania:gaia_ingot",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:material/mining/3": {
+        "id": "mmorpg:material/mining/3",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:material/mining/4": {
+        "id": "mmorpg:material/mining/4",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:material/mining/5": {
+        "id": "mmorpg:material/mining/5",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:stone/3": {
+        "id": "mmorpg:stone/3",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:stone/4": {
+        "id": "mmorpg:stone/4",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      },
+      "mmorpg:stone/5": {
+        "id": "mmorpg:stone/5",
+        "kind": "item",
+        "level": "exact",
+        "namespace_known": true,
+        "evidence": [
+          "explicit_registry_id"
+        ]
+      }
+    },
+    "local_envelope": [
+      -119,
+      -48,
+      -119,
+      119,
+      168,
+      119
+    ],
+    "cavern_nominal_axes": [
+      228,
+      200,
+      220
+    ],
+    "crystal_height": 136,
+    "minimum_summit": 260,
+    "minimum_roof": 32,
+    "zones": [
+      "irregular sealed cavern",
+      "floating faceted crimson crystal",
+      "four suspended splinters",
+      "connected perimeter shelf",
+      "viewing spur",
+      "central chasm"
+    ],
+    "minimum_independent_gap": 500,
+    "clearance": 1024,
+    "global_density_unchanged": true
+  },
+  "texture": {
+    "tool": "built-in image_gen",
+    "master": "tools/worldstone_art/crimson_master.png",
+    "runtime_size": [
+      32,
+      32
+    ],
+    "prompt": "Seamless opaque pixel-art deep blood-red crystal facets, dark garnet planes and luminous scarlet fracture veins; no background, text or border. Nearest-neighbor runtime downsample."
+  },
+  "runtime": "not yet validated"
+}

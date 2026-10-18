@@ -1,0 +1,15 @@
+{
+  "world": "validation-fairy-islands-20261017",
+  "seed": "-5876049240305171930",
+  "console": "console-20261017-233346.log",
+  "exit_code": 0,
+  "sites": [],
+  "survey": [
+    "[23:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-4 tested=64 accepted=0 reasons={biome_edge=12, outside_seasonal_biomes=44, terrain=8}",
+    "[23:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-4 tested=64 accepted=0 reasons={biome_edge=17, outside_seasonal_biomes=39, terrain=8}",
+    "[23:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,4 tested=64 accepted=0 reasons={biome_edge=12, neighbor:alfheim:golden_field_dais=1, outside_seasonal_biomes=45, terrain=6}",
+    "[23:35:39] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,4 tested=64 accepted=0 reasons={biome_edge=9, neighbor:alfheim:hillcut_quarry=1, neighbor:alfheim:silver_moot=1, outside_seasonal_biomes=46, terrain=7}"
+  ],
+  "jar_sha256": "e3180950c12e5d4a023da726bd4d411dcd0e42ca6d9530c94df2ed7a3b07f636",
+  "status": "SURVEY_OR_POPULATION_PENDING_VERIFICATION"
+}

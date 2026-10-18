@@ -53,6 +53,7 @@
 	"mmorpg:backpack_skill_gem": "net.minecraft.world.inventory.MenuType",
 	"mmorpg:backpack_profession": "net.minecraft.world.inventory.MenuType",
 	"kubejs:menu": "net.minecraft.world.inventory.MenuType",
+	"alfheim_leyworks:manna_stone_storage": "net.minecraft.world.inventory.MenuType",
 	"irons_lib:transmog_menu": "net.minecraft.world.inventory.MenuType",
 	"feywild:fey_altar_menu": "net.minecraft.world.inventory.MenuType",
 	"feywild:bellsnickel_menu": "net.minecraft.world.inventory.MenuType",
@@ -113,6 +114,7 @@
 	"occultism:satchel": "net.minecraft.world.inventory.MenuType",
 	"occultengineering:pentacle_altar": "net.minecraft.world.inventory.MenuType",
 	"occultengineering:pucalith": "net.minecraft.world.inventory.MenuType",
+	"alfheim_companion:companion_inventory": "net.minecraft.world.inventory.MenuType",
 	"cozyhome:storage_counter": "net.minecraft.world.inventory.MenuType",
 	"cozyhome:drawer": "net.minecraft.world.inventory.MenuType"
 }

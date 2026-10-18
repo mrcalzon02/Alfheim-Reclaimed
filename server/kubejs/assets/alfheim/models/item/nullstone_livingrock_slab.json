@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/nullstone_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/nullstone_livingrock_bricks",
+    "top": "alfheim:block/nullstone_livingrock_bricks",
+    "side": "alfheim:block/nullstone_livingrock_bricks"
+  }
 }

@@ -1,0 +1,27 @@
+{
+  "world": "validation-fairy-islands-fixed-20261017",
+  "seed": "-5876049240305171930",
+  "console": "console-20261017-233805.log",
+  "exit_code": 0,
+  "sites": [],
+  "survey": [
+    "[23:39:49] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,-12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=46, terrain=7}",
+    "[23:39:51] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,-4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=44, terrain=9}",
+    "[23:39:52] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=44, terrain=9}",
+    "[23:39:53] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-12,12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=9, outside_seasonal_biomes=49, terrain=6}",
+    "[23:39:54] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=8, outside_seasonal_biomes=49, terrain=7}",
+    "[23:39:56] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,-4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=44, terrain=9}",
+    "[23:39:58] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=10, outside_seasonal_biomes=45, terrain=9}",
+    "[23:39:59] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=-4,12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=44, terrain=9}",
+    "[23:40:00] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=9, outside_seasonal_biomes=51, terrain=4}",
+    "[23:40:02] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,-4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=17, outside_seasonal_biomes=39, terrain=8}",
+    "[23:40:04] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=46, terrain=7}",
+    "[23:40:05] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=4,12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=11, outside_seasonal_biomes=44, terrain=9}",
+    "[23:40:06] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,-12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=10, outside_seasonal_biomes=40, terrain=14}",
+    "[23:40:07] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,-4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=8, outside_seasonal_biomes=45, terrain=11}",
+    "[23:40:09] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,4 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=10, outside_seasonal_biomes=45, terrain=9}",
+    "[23:40:10] [Server thread/INFO] [minecraft/MinecraftServer]: FAIRY_SURVEY region=12,12 tested=64 accepted=0 reasons={neighbor:alfheim:deepworks_headworks=6, outside_seasonal_biomes=51, terrain=7}"
+  ],
+  "jar_sha256": "aa86eefe8b8fdfcb48dbd76a27414df271ed2073bdea103404bba2fd09088e5b",
+  "status": "SURVEY_OR_POPULATION_PENDING_VERIFICATION"
+}

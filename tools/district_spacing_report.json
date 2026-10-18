@@ -40,5 +40,7 @@
   "new_content_static": {
     "royal_castle": 6,
     "upper_underworld": 12
-  }
+  },
+  "superseded_by": "tools/district_ring_runtime_report.json",
+  "historical_policy": "192/96 grid replaced by kilometre rings at user request on 2026-10-17"
 }

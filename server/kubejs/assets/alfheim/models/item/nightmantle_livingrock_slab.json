@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/nightmantle_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/nightmantle_livingrock_bricks",
+    "top": "alfheim:block/nightmantle_livingrock_bricks",
+    "side": "alfheim:block/nightmantle_livingrock_bricks"
+  }
 }

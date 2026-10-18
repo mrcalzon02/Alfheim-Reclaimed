@@ -1,0 +1,447 @@
+{
+  "world": "validation-test-run-rings-20261017",
+  "seed": "-5876049240305171930",
+  "console": "console-20261017-205113.log",
+  "sites": [
+    {
+      "ring": 1,
+      "slot": 0,
+      "family": "alfheim:production_district",
+      "x": 128,
+      "z": -992
+    },
+    {
+      "ring": 2,
+      "slot": 2,
+      "family": "alfheim:civic_center",
+      "x": -1584,
+      "z": 1232
+    },
+    {
+      "ring": 3,
+      "slot": 0,
+      "family": "alfheim:scholastic_quarter",
+      "x": 368,
+      "z": -2976
+    }
+  ],
+  "exit_code": 0,
+  "status": "NATURAL_RINGS_AND_CREATURE_ITEMS_VERIFIED",
+  "proofs": [
+    {
+      "ring": 1,
+      "slot": 0,
+      "family": "alfheim:production_district",
+      "x": 128,
+      "z": -992,
+      "radius": 1000.22,
+      "pieces": [
+        {
+          "template": "alfheim:ancient/production_district/freight_yard",
+          "bounds": [
+            128,
+            69,
+            -992,
+            174,
+            100,
+            -946
+          ],
+          "sampled": 151,
+          "matched": 150
+        },
+        {
+          "template": "alfheim:ancient/production_district/distribution_depot",
+          "bounds": [
+            175,
+            69,
+            -988,
+            221,
+            102,
+            -950
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/production_district/resonance_foundry",
+          "bounds": [
+            81,
+            69,
+            -988,
+            127,
+            106,
+            -950
+          ],
+          "sampled": 152,
+          "matched": 152
+        },
+        {
+          "template": "alfheim:ancient/production_district/dreamwood_shaping_court",
+          "bounds": [
+            128,
+            69,
+            -945,
+            174,
+            98,
+            -915
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/production_district/mana_mill",
+          "bounds": [
+            128,
+            69,
+            -1031,
+            174,
+            106,
+            -993
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/production_district/glass_bloom_house",
+          "bounds": [
+            50,
+            69,
+            -988,
+            80,
+            102,
+            -950
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/production_district/worker_housing",
+          "bounds": [
+            175,
+            69,
+            -949,
+            205,
+            100,
+            -911
+          ],
+          "sampled": 152,
+          "matched": 152
+        },
+        {
+          "template": "alfheim:ancient/production_district/guard_post",
+          "bounds": [
+            97,
+            69,
+            -945,
+            127,
+            98,
+            -915
+          ],
+          "sampled": 152,
+          "matched": 152
+        },
+        {
+          "template": "alfheim:ancient/production_district/freight_approach",
+          "bounds": [
+            140,
+            69,
+            -914,
+            162,
+            90,
+            -883
+          ],
+          "sampled": 152,
+          "matched": 152
+        },
+        {
+          "template": "alfheim:ancient/production_district/waterworks",
+          "bounds": [
+            128,
+            69,
+            -1062,
+            174,
+            94,
+            -1032
+          ],
+          "sampled": 152,
+          "matched": 152
+        }
+      ]
+    },
+    {
+      "ring": 2,
+      "slot": 2,
+      "family": "alfheim:civic_center",
+      "x": -1584,
+      "z": 1232,
+      "radius": 2006.71,
+      "pieces": [
+        {
+          "template": "alfheim:ancient/civic_center/assembly_hall",
+          "bounds": [
+            -1630,
+            60,
+            1232,
+            -1584,
+            99,
+            1278
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/public_forum",
+          "bounds": [
+            -1583,
+            60,
+            1232,
+            -1544,
+            85,
+            1278
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/service_court",
+          "bounds": [
+            -1662,
+            60,
+            1232,
+            -1631,
+            85,
+            1278
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/council_house",
+          "bounds": [
+            -1626,
+            60,
+            1185,
+            -1588,
+            92,
+            1231
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/record_house",
+          "bounds": [
+            -1626,
+            60,
+            1279,
+            -1588,
+            92,
+            1325
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/market_court",
+          "bounds": [
+            -1543,
+            60,
+            1232,
+            -1512,
+            85,
+            1278
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/public_kitchen",
+          "bounds": [
+            -1665,
+            60,
+            1201,
+            -1627,
+            89,
+            1231
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/census_hall",
+          "bounds": [
+            -1665,
+            60,
+            1279,
+            -1627,
+            89,
+            1309
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/civic_center/processional_avenue",
+          "bounds": [
+            -1694,
+            60,
+            1244,
+            -1663,
+            81,
+            1266
+          ],
+          "sampled": 154,
+          "matched": 154
+        }
+      ]
+    },
+    {
+      "ring": 3,
+      "slot": 0,
+      "family": "alfheim:scholastic_quarter",
+      "x": 368,
+      "z": -2976,
+      "radius": 2998.67,
+      "pieces": [
+        {
+          "template": "alfheim:ancient/scholastic_quarter/lore_college",
+          "bounds": [
+            368,
+            133,
+            -2976,
+            414,
+            172,
+            -2930
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/runic_engineering_hall",
+          "bounds": [
+            321,
+            133,
+            -2972,
+            367,
+            168,
+            -2934
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/archive_cloister",
+          "bounds": [
+            415,
+            133,
+            -2972,
+            461,
+            166,
+            -2934
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/entry_court",
+          "bounds": [
+            368,
+            133,
+            -2929,
+            414,
+            158,
+            -2899
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/philosopher_court",
+          "bounds": [
+            368,
+            133,
+            -3008,
+            414,
+            158,
+            -2977
+          ],
+          "sampled": 151,
+          "matched": 151
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/student_residence",
+          "bounds": [
+            415,
+            133,
+            -2933,
+            445,
+            164,
+            -2895
+          ],
+          "sampled": 152,
+          "matched": 152
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/scholars_avenue",
+          "bounds": [
+            380,
+            133,
+            -2898,
+            402,
+            154,
+            -2867
+          ],
+          "sampled": 153,
+          "matched": 153
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/botanical_research_garden",
+          "bounds": [
+            337,
+            133,
+            -2933,
+            367,
+            164,
+            -2895
+          ],
+          "sampled": 151,
+          "matched": 146
+        },
+        {
+          "template": "alfheim:ancient/scholastic_quarter/astral_conservatory",
+          "bounds": [
+            368,
+            133,
+            -3047,
+            414,
+            172,
+            -3009
+          ],
+          "sampled": 151,
+          "matched": 151
+        }
+      ]
+    }
+  ],
+  "jar_sha256": "0ef66472b5179673567ad5fb3fde97babe49e7381810c17e2a41aca0c07bbc9e",
+  "evidence": [
+    "[20:53:11] [Server thread/INFO] [minecraft/MinecraftServer]: ALFHEIM_ENEMY_ITEMS_PASS selections=390 saved_stacks=390 actual_egg_spawns=390 persisted_appearances=390 automatic_eggs=5",
+    "[20:53:11] [Server thread/INFO] [minecraft/MinecraftServer]: ALFHEIM_SOCIETY_PASS roles=12 appearances=48 actual_egg_spawns=48 saved_npc_roundtrips=48",
+    "[20:53:11] [Server thread/INFO] [minecraft/MinecraftServer]: ALFHEIM_MONSTROSITIES_PASS species=19 appearances=57 attack_checks=57 sight_blocks=57 saved_variants=57 ai_attacks=19 habitat_entries=74 troll_player_height_ratio=2.0",
+    "[20:53:11] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=1 slot=0 family=alfheim:production_district x=128 z=-992 viable=true",
+    "[20:53:11] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=1 slot=1 family=alfheim:agricultural_estate x=992 z=128 viable=true",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=1 slot=2 family=alfheim:roads_trade x=-128 z=992 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=1 slot=3 family=alfheim:harbor_complex x=-992 z=-128 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=2 slot=0 family=alfheim:common_residential_quarter x=1584 z=-1232 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=2 slot=1 family=alfheim:elder_lineage_precinct x=1232 z=1584 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=2 slot=2 family=alfheim:civic_center x=-1584 z=1232 viable=true",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=2 slot=3 family=alfheim:relief_district x=-1232 z=-1584 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=3 slot=0 family=alfheim:scholastic_quarter x=368 z=-2976 viable=true",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=3 slot=1 family=alfheim:production_district x=2976 z=368 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=3 slot=2 family=alfheim:agricultural_estate x=-368 z=2976 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_SITE ring=3 slot=3 family=alfheim:roads_trade x=-2976 z=-368 viable=false",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: DISTRICT_RING_AUDIT_PASS accepted=4 grove_map_colors=9",
+    "[20:53:12] [Server thread/INFO] [minecraft/MinecraftServer]: The nearest #alfheim:districts (alfheim:agricultural_estate) is at [992, ~, 128] (1000 blocks away)"
+  ],
+  "client_visual_review": "pending full restart; existing map cache may require remapping"
+}

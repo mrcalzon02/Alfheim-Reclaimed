@@ -1,8 +1,9 @@
 # Structure family review queue
 
-Current placement revision: all district families now share a rare, mutually exclusive
-reservation grid and native spawn-distance guard. Nine natural families remain enabled;
-the three prototype admissions remain closed. Royal castle and upper-rock content:
+Current placement revision, 2026-10-17: districts use staggered 1,000-block rings
+around the starting hub. Nine natural families remain enabled; the three prototype
+admissions remain closed. See `../TEST_RUN_REPAIRS_20261017.md` for the placement,
+native validation and existing-world boundary. Royal castle and upper-rock content:
 `DISTRICT_ROYAL_UPPER_20261015.md`. Existing generated districts are not moved.
 
 ## Current refit corpus — 2026-10-15

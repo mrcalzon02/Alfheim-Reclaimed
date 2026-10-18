@@ -1,0 +1,197 @@
+{
+  "status": "ALL_32_TEMPLATES_MATCH_PREVIOUS_GEOMETRY_EXCEPT_ADDED_BARREL_LOOT_METADATA",
+  "templates": [
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_0_0_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "abaa8100a560dd6876b540dabc29f908b354a0708ca43ecff57eb3e773c9183f"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_0_0_1.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "4f0c62e49641582f7ad7dddddd6c43d49cca449235e24bac892cec6ca8266123"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_0_1_0.nbt",
+      "barrels": 4,
+      "geometry_unchanged": true,
+      "sha256": "d1fa39a4daa516d797cf6a9967338920a47a841b3b5e5781af9aaefc245107ba"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_0_1_1.nbt",
+      "barrels": 4,
+      "geometry_unchanged": true,
+      "sha256": "b349ffda14d820d674298b7e62e5f4e253ecd17cf019d6882294297071456966"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_1_0_0.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "1f44af5705edc0783927b5d3b616690c9b1d0edfa4aebe539dd73c6b4c14ba31"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_1_0_1.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "b2925427298e00eab21059a80841857dee62410bc1dac0e3c87c7dfbdce33345"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_1_1_0.nbt",
+      "barrels": 4,
+      "geometry_unchanged": true,
+      "sha256": "2bf3436801fed0bd38ea0db884aa23fb71e4a3958304082a5e72f08f8b7d4425"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/autumn/village_1_1_1.nbt",
+      "barrels": 5,
+      "geometry_unchanged": true,
+      "sha256": "a2f776ebffa286b53481f935e3bd0a4e4fbf9a907906b7a7846dcaf662cf5e74"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_0_0_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "773edf8ed83e32d7a81f3a13d7e808c8a4d25bf886e2737ab28e8714432de129"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_0_0_1.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "07627949d7c21e86c3b7ba8eae1e0e7743c7d2ecce3070fe4fbc765b198912c0"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_0_1_0.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "6314aefbb675a41b7453ba279513cc63229379bb35f98cf0aae2f1451c3722eb"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_0_1_1.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "708fea2498aa3315a3a552e48163cfd7802772bd3a34a20c70e6210366b14548"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_1_0_0.nbt",
+      "barrels": 1,
+      "geometry_unchanged": true,
+      "sha256": "f995a26eb18bb8451408d8c014e0a48090ec4e301c7c988c25a00ce4783d950b"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_1_0_1.nbt",
+      "barrels": 4,
+      "geometry_unchanged": true,
+      "sha256": "be56d0a94e68a89f855c585e86a96ae759d8d599b6d228cda508340b670e05de"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_1_1_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "b46e600f49dbbeb71f9cb7aede31f24eacb987a22ee7042b1ca469b8fd097491"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/spring/village_1_1_1.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "f05ca417511a90339b082da08c6d652b43f35c1783548f3d05e5e0e577a81bff"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_0_0_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "99b7bae09fd3912f44d8cb2118e0e4079b3c254262d94343f3a237728982d9c2"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_0_0_1.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "1c466fedea9859d2dc4192c8e2282c59a0ce59b9cfe865ef39200b131bc5eb19"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_0_1_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "b4dc834ae32c4105ad47abf91ead3c916f7363169b8ea3e7ff44674bb6bea6fc"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_0_1_1.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "900698b8cfd8efbdf2a9839af4b63115eacc6e7e6555d9fda43de0312d736af0"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_1_0_0.nbt",
+      "barrels": 1,
+      "geometry_unchanged": true,
+      "sha256": "a953b137abe4616d1347c52a62341d6aa0e124242cfac7eb379af89713744572"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_1_0_1.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "5aabd0f6ec6aeac4586ab9463ddb3ae7ce4f6a4a74ef2f419428b8ebb5e12209"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_1_1_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "22402048cb78afa0f8b36d46396959c54ac0a9fc2da25e4cd6c7baefaba2c07c"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/summer/village_1_1_1.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "0ecebddcab4bff0aef912746bc0a76e40e9ca54434af50eb833c43912861e74c"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_0_0_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "1f6e322ffd2fb6c2e9ee9086211dc13477488ae23f280c1b94fcb1f050b4f0ae"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_0_0_1.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "e7e8aedeb7f900e3e88d80944cb0b759aa0671796fba9b6fbdc9469c71661c44"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_0_1_0.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "e9648dc6bdd45cd589bc18e9c90a1355450f51edeb8aa71df021fff98b4edfee"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_0_1_1.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "87d5531e87f5b6173a3a439da481fd3b8d5c9364f06438b15fe41aa378249066"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_1_0_0.nbt",
+      "barrels": 1,
+      "geometry_unchanged": true,
+      "sha256": "a8ce94c4dda848960d9abc10b1b86c400328dee416a268e806cec2403f7c3e8f"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_1_0_1.nbt",
+      "barrels": 4,
+      "geometry_unchanged": true,
+      "sha256": "139f75454eeba0617ca51c62c2dba33fd772b6f86b576f3b2e41edb61e6ba9b8"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_1_1_0.nbt",
+      "barrels": 3,
+      "geometry_unchanged": true,
+      "sha256": "07457ef4523908762227efdb232c547be3c141d744fa9c134403aa06bc98dff2"
+    },
+    {
+      "path": "kubejs/data/alfheim/structures/pixie/winter/village_1_1_1.nbt",
+      "barrels": 2,
+      "geometry_unchanged": true,
+      "sha256": "29a96539dcf72ae31c625838cdfbbfcce05eb7cbf960af1bb88281bffd8c3dde"
+    }
+  ]
+}

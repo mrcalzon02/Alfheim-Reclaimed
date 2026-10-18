@@ -7,7 +7,7 @@
 # All seven templates must succeed before #place_result becomes 1; no entity is used to carry coordinates across unloaded chunks.
 
 scoreboard players set #already alfheim.hub 0
-execute in mythicbotany:alfheim if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run scoreboard players set #already alfheim.hub 1
+execute in mythicbotany:alfheim if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run scoreboard players set #already alfheim.hub 1
 scoreboard players set #place_result alfheim.hub 0
 execute if score #already alfheim.hub matches 1 run scoreboard players set #place_result alfheim.hub 1
 execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 run kill @e[type=minecraft:marker,tag=alfheim_crown_probe]
@@ -16,7 +16,6 @@ execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 run 
 # candidate 0 0
 execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 run forceload add -80 -128 80 32
 execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 positioned 0 0 0 positioned over motion_blocking_no_leaves if predicate alfheim:hub/ground_height run function alfheim:hub/assemble
-execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 positioned 0 80 0 run function alfheim:hub/assemble
 execute in mythicbotany:alfheim unless score #already alfheim.hub matches 1 if score #place_result alfheim.hub matches 0 run forceload remove all
 
 execute if score #place_result alfheim.hub matches 1 run say [Alfheim] deterministic Greatbole and royal complex assembly succeeded at X=0 Z=0; verifying its baked anchor.

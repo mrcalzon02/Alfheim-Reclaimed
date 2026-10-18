@@ -6,9 +6,6 @@
     }
   ],
   "placement": {
-    "type": "minecraft:random_spread",
-    "spacing": 192,
-    "separation": 96,
-    "salt": 202610150
+    "type": "alfheim_companion:district_rings"
   }
 }

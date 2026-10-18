@@ -15,7 +15,7 @@ execute unless score #final alfheim.hub matches 1 if score #attempts alfheim.hub
 # Success, and the only thing that ends the loop: the structure generated and brought its
 # anchor with it. Runs even after a provisional fallback, which is the point -- the hub
 # upgrades itself to the real tree the moment the chunk finishes.
-execute in mythicbotany:alfheim unless score #final alfheim.hub matches 1 if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,limit=1] run function alfheim:hub/anchor
+execute in mythicbotany:alfheim unless score #final alfheim.hub matches 1 if entity @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run function alfheim:hub/anchor
 
 # Provisional spawn at ~2 minutes so the world is never left without one. Does NOT stop
 # the loop.

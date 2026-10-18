@@ -1,5 +1,40 @@
 # Execution State
 
+## Repeated Fairy Islands and randomized loot — 2026-10-17
+
+Repaired the sky-village neighbor guard and coordinated reservations with owned
+standalone ruins and underground works. Seasonal anchors may cross ordinary biome
+edges while still avoiding high terrain and the Void; castle/district and other
+mods' structure checks remain. Existing island geometry is preserved. Added four
+seasonal randomized loot tables to cottage and autumn-market barrels.
+
+Fresh-world native generation on seed -5876049240305171930 verifies Spring at
+(-10576, -4288) and Autumn at (-13360, 12912), each with all four pieces. Saved
+chunks match all 1,615 sampled blocks and contain 16 registered home block entities.
+Opened 24 barrels: 24 distinct seeds/inventories, exact saved inventory agreement,
+and no reroll on repeated access. Built/installed/server jars match; 72 Java tests
+and feature-order validation pass. Restart and new chunks required. Client visuals,
+live home/garden/dust behavior and Summer/Winter natural sampling remain separate
+gates. See `FEY_SKY_VILLAGES_20261017.md`, `tools/fairy_island_build.json` and
+`tools/fairy_island_runtime_report.json`.
+
+## District rings and test-run display repairs — 2026-10-17
+
+User revised district placement to 1,000-block rings around the starting hub.
+Installed staggered native ring placement for the nine enabled families, retaining
+district/hub/castle clearances and updating upper-rock reservations. The old
+6,000-block exclusion and 192/96 grid are superseded. Existing chunks are preserved.
+Also installed explicit atlas entries for all 439 missing companion display
+textures and nine Archive Grove map colors.
+
+Final build: 72 Java tests pass. Fresh-world native tests on seed
+-5876049240305171930 verify 28 placed pieces on the first three rings, 495 actual
+creature selections and nine non-NONE grove map colors. Source, built, installed
+and server companion jars match. Full client restart/inventory/worn Crown/map
+visual review remains pending; cached map pixels may require remapping. Legacy
+manifest/export-based audit failures and unrelated surface-spacing limits remain
+separate gates. See `TEST_RUN_REPAIRS_20261017.md` and the final build/runtime reports.
+
 ## Crown of Eternity — 2026-10-17
 
 Added a reusable Jeweller's Eternity Setter and a wearable gold-and-platinum

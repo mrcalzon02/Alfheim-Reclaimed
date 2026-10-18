@@ -43,6 +43,14 @@ TEX_BLOCK = os.path.join('kubejs', 'assets', NS, 'textures', 'block')
 MODEL_ITEM = os.path.join('kubejs', 'assets', NS, 'models', 'item')
 STARTUP = os.path.join('kubejs', 'startup_scripts', '12_groves.js')
 
+
+def texture_map_color(image):
+    """Ignore transparent leaf holes when choosing JourneyMap's fallback color."""
+    pixels = list(image.convert('RGBA').getdata())
+    weight = sum(p[3] for p in pixels)
+    assert weight
+    return '#' + ''.join(f'{round(sum(p[c]*p[3] for p in pixels)/weight):02x}' for c in range(3))
+
 # Fortune ladders lifted from vanilla's own leaf tables so our pools behave like the ones
 # players already know. Index 0 is Fortune 0.
 FORTUNE_PETAL = [1.0, 1.15, 1.3, 1.6, 2.4]
@@ -183,6 +191,7 @@ def build_trees(trees, jar, dry):
             f".hardness(2.0).resistance(2.0)"
             f".tagBlock('minecraft:mineable/axe').tagBlock('minecraft:logs')"
             f".tagBlock('minecraft:logs_that_burn').tagBlock('{NS}:grove_logs')"
+            f".mapColor('{texture_map_color(imgs[tid + '_log'])}')"
             f".textureAll('{NS}:block/{tid}_log')"
             f".texture('up', '{NS}:block/{tid}_log_top')"
             f".texture('down', '{NS}:block/{tid}_log_top')"+log_axis_builder(tid))
@@ -194,6 +203,7 @@ def build_trees(trees, jar, dry):
             f".hardness(0.2).resistance(0.2).defaultCutout().notSolid()"
             f".tagBlock('minecraft:mineable/hoe').tagBlock('minecraft:leaves')"
             f".tagBlock('{NS}:grove_leaves')"
+            f".mapColor('{texture_map_color(imgs[tid + '_leaves'])}')"
             f".textureAll('{NS}:block/{tid}_leaves')")
         # Sapling. KubeJS 2001.6.5 has no SaplingBlock builder and no TreeGrower binding, so
         # growth is done in the randomTick callback by placing the trunk and canopy directly
@@ -205,6 +215,7 @@ def build_trees(trees, jar, dry):
             f".hardness(0.0).resistance(0.0).defaultCutout().notSolid().fullBlock(false)"
             f".box(4, 0, 4, 12, 12, 12)"
             f".tagBlock('minecraft:mineable/axe').tagBlock('{NS}:grove_saplings')"
+            f".mapColor('{texture_map_color(imgs[tid + '_sapling'])}')"
             f".textureAll('{NS}:block/{tid}_sapling')"
             f".randomTick(ctx => growGrove(ctx, '{NS}:{tid}_log', '{NS}:{tid}_leaves', "
             f"{t['trunk'][0]}, {t['trunk'][1]}, {t['foliage'][0]}))")

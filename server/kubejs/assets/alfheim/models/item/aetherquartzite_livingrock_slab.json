@@ -1,3 +1,8 @@
 {
-  "parent": "alfheim:block/aetherquartzite_livingrock_slab"
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "alfheim:block/aetherquartzite_livingrock_bricks",
+    "top": "alfheim:block/aetherquartzite_livingrock_bricks",
+    "side": "alfheim:block/aetherquartzite_livingrock_bricks"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim:common_residential_quarter",
+    "alfheim:elder_lineage_precinct",
+    "alfheim:civic_center",
+    "alfheim:relief_district",
+    "alfheim:scholastic_quarter",
+    "alfheim:production_district",
+    "alfheim:agricultural_estate",
+    "alfheim:roads_trade",
+    "alfheim:harbor_complex"
+  ]
+}

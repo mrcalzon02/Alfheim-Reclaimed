@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "alfheim_companion:worldstone_crystal",
+    "alfheim_companion:worldstone_heart",
+    "alfheim_companion:worldstone_fragment_ore",
+    "alfheim_companion:worldstone_small_bud",
+    "alfheim_companion:worldstone_medium_bud",
+    "alfheim_companion:worldstone_large_bud",
+    "alfheim_companion:worldstone_cluster"
+  ]
+}

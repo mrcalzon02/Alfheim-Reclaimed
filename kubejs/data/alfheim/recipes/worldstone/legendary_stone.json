@@ -1,0 +1,31 @@
+{
+  "type": "ars_nouveau:enchanting_apparatus",
+  "reagent": [
+    {
+      "item": "alfheim_companion:attuned_worldstone"
+    }
+  ],
+  "pedestalItems": [
+    {
+      "item": "alfheim:gravegilt_thread"
+    },
+    {
+      "item": "mmorpg:stone/3"
+    },
+    {
+      "item": "mmorpg:stone/3"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    },
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "output": {
+    "item": "mmorpg:stone/4",
+    "count": 2
+  },
+  "sourceCost": 10000,
+  "keepNbtOfReagent": false
+}

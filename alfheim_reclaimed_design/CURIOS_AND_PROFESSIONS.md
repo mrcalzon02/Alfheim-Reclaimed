@@ -2,10 +2,17 @@
 
 **Curios, class and profession integration specification — 2026-09-04.**
 
-**Build status:** the 63-item presentation and registration pass is `static validated`.
+**Build status, updated 2026-10-17:** all 63 existing items now have authored native Gear Crafting
+recipes, using the rank's planned frame, native profession tier, Source Gems, a class/trade reagent
+and a form-specific binding. Each is crafted independently; no charged, named or soul-bearing
+accessory is consumed as an upgrade. Native recipe loading and menu transactions remain pending.
+The items are still decorative: class/profession effects, proof ledgers and native signet soul
+behavior below remain planned. Acquisition text explicitly states that limitation.
+
+The 63-item presentation and registration pass is `static validated`.
 `tools/gen_curios.py` now emits the textures, models and slot tags; the user requested existing
 texture/PIL work first, bringing phase 6 presentation forward. The integration contract below
-remains planned: no recipes, effects, profession proof or native signet gear lifecycle is claimed.
+remains planned for effects, profession proof and the native signet gear lifecycle.
 See `tools/curios_manifest.json` and `tools/curios_review.png` for the built roster and visual review.
 
 This system adds **63 elven Curios**: 36 class pieces for the six native Mine and Slash classes and
@@ -338,6 +345,13 @@ quality band, expiration and escrowed reward. The cuff helps author and inspect 
 based on delivered items or verified native transactions, never a chat claim or client-only state.
 
 ## 7. Crafting and item identity
+
+**Acquisition slice, 2026-10-17:** `tools/gen_curio_recipes.py` now emits one native Gear Crafting
+recipe per existing item at profession tiers 0, 2 and 4. Apprentice/Guild/Master consume respectively
+2/4/6 of their embedded frame, 1/2/3 native mining materials, 1/2/4 Source Gems and the listed symbolic
+and binding ingredients. No generic crafting-table shortcut or existing-item removal is added.
+These outputs are the existing fixed decorative items; the native soul-based signet contract below
+is a later functional migration, not an effect that these recipes implement.
 
 - All 63 pieces use the pack's embedded frame ladder: Quickened Palebloom, Elementium Core and
   Rimebound Lattice at the three mechanical ranks.
