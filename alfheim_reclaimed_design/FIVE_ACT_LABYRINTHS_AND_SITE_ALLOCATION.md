@@ -63,3 +63,35 @@ Acceptance for allocation requires tests using positive and negative coordinates
 4. Wire an initial functional merchant roster and at least 12 mechanically distinct Act I monsters; loot and encounter control.
 5. Expand 120+ monster species and the Act II–V visual/gameplay families with original assets and affix systems.
 6. Repeatable raid, checkpoint, boss, multiplayer and performance acceptance on saved new worlds. No GitHub Actions added.
+
+## Implementation follow-up — reserved interleaved monastery candidates
+
+The October 18 allocator baseline still had no monastery generator. We now define
+a **pure deterministic candidate series** sharing `DistrictRings`' seed and
+orientation without changing any existing district winner, family ID, ring spacing,
+or castle candidate. Each ring offers four *additional* intercardinal monastery
+candidates at radius `ring × 1000 + 340` blocks. The exact band is taken from
+the final world-space coordinates. These are potential sites, not guaranteed
+structures: castle, hub, moved spawn, district, terrain, water, and biome checks
+must still accept them. There is no 4,000-block exclusion.
+
+The earlier proposal with a 500-block radial midpoint was tested and rejected:
+with a 160-block monastery half-footprint, 256-block district half-footprint,
+and 128-block spacing, adjacent rings' district sites starved **all** monastery
+candidates. The shifted intercardinal approach creates eligible candidates
+without reallocating the already selected district winners.
+
+`DistrictRings.nearEnvelope` repairs a previous real collision error:
+circular proximity could admit intersecting diagonal square footprints.
+`WorldSiteAllocation.clearDistricts` now uses full axis-aligned envelope
+checks with the same 128-block gap convention. The ring itself and its
+cardinal family selection remain unchanged.
+
+`LabyrinthGraphPlan` introduces a reproducible six-stratum, 54-room graph with
+positive-path connectivity, side loops, five anchored vertical transitions and
+a lowest boss hub eight blocks above the minimum build height. This is a
+**topological plan**, not authored placed geometry. Room, connector, elevation,
+vendor, mob and tile construction are still necessary before registering the
+full monastery site. Do not start reserving these candidate sites against other
+live structures until the dungeon structure exists: otherwise unused phantom
+sites could starve real settlements. No new JAR has been built by this commit.

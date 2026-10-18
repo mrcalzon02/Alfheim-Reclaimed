@@ -73,7 +73,7 @@ public final class WorldSiteAllocation {
     }
     /** Reserve the coherent district family site, not 12 independent rolls. */
     public static boolean clearDistricts(long seed,int x,int z,int half,int gap) {
-        return !DistrictRings.near(seed,x,z,half+DISTRICT_HALF_WIDTH+gap);
+        return !DistrictRings.nearEnvelope(seed,x,z,half+DISTRICT_HALF_WIDTH+gap);
     }
     private WorldSiteAllocation() {}
 }

@@ -32,6 +32,23 @@ public final class DistrictRings {
     public static Optional<Site> at(long seed,int chunkX,int chunkZ) {
         return inCell(seed,chunkX,chunkZ).filter(s->s.chunkX==chunkX && s.chunkZ==chunkZ);
     }
+    /**
+     * Square-envelope collision used by every large build family. A circular
+     * centre-distance check is insufficient: two axis-aligned 320-block sites
+     * can intersect diagonally while their centres remain more than R apart.
+     * This calculation is deterministic and never asks for generated chunks.
+     */
+    public static boolean nearEnvelope(long seed,int x,int z,int clearance) {
+        int nearest=(int)Math.round(Math.hypot(x,z)/INTERVAL);
+        int reach=(int)Math.ceil(Math.sqrt(2.0)*clearance/INTERVAL)+2;
+        for(int ring=Math.max(1,nearest-reach);ring<=nearest+reach;ring++)
+            for(int slot=0;slot<SITES;slot++) {
+                var s=site(seed,ring,slot);
+                long dx=(long)s.chunkX()*16-x,dz=(long)s.chunkZ()*16-z;
+                if(Math.abs(dx)<clearance && Math.abs(dz)<clearance)return true;
+            }
+        return false;
+    }
     public static boolean near(long seed,int x,int z,int clearance) {
         int nearest=(int)Math.round(Math.hypot(x,z)/INTERVAL);
         int reach=(int)Math.ceil(clearance/(double)INTERVAL)+1;
