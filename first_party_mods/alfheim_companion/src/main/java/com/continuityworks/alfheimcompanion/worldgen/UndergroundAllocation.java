@@ -8,8 +8,9 @@ public final class UndergroundAllocation {
             ^ ((long)Math.floorDiv(chunkZ,SPACING)*0xD1B54A32D192ED03L);
         value=(value^(value>>>30))*0xBF58476D1CE4E5B9L;
         value=(value^(value>>>27))*0x94D049BB133111EBL;
-        long x=(long)chunkX*16,z=(long)chunkZ*16;
-        return ((value^(value>>>31))&3)==0 && x*x+z*z>=4000L*4000;
+        int x=chunkX*16,z=chunkZ*16;
+        return ((value^(value>>>31))&3)==0
+            && WorldSiteAllocation.outsideCourt(x,z,15,WorldSiteAllocation.GAP);
     }
     public static boolean overlaps(int chunkX,int chunkZ,int upperX,int upperZ) {
         return Math.abs(((long)chunkX-upperX)*16)<CLEARANCE

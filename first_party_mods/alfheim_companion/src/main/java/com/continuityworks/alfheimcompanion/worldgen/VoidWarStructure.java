@@ -27,6 +27,12 @@ public final class VoidWarStructure extends Structure {
         int x=c.chunkPos().getMiddleBlockX()-half,z=c.chunkPos().getMiddleBlockZ()-half,columns=0,queries=1;
         if(!VoidWarPolicy.eligible(c,c.chunkPos()))return new Probe("biome_or_origin",x,0,z,0,queries);
         if(kind!=VoidWarPolicy.winner(c))return new Probe("family_selection",x,0,z,0,queries);
+        if(!WorldSiteAllocation.clearProtected(c,c.chunkPos().getMiddleBlockX(),
+                c.chunkPos().getMiddleBlockZ(),half,WorldSiteAllocation.GAP))
+            return new Probe("protected_site",x,0,z,0,queries);
+        if(!WorldSiteAllocation.clearDistricts(c.seed(),c.chunkPos().getMiddleBlockX(),
+                c.chunkPos().getMiddleBlockZ(),half,WorldSiteAllocation.GAP))
+            return new Probe("district_ring",x,0,z,0,queries);
         // Cooperating legacy Void families and dungeons yield to this grid. Other
         // Void-eligible independent sets keep a conservative reservation.
         var target=c.registryAccess().registryOrThrow(Registries.BIOME).getTagOrEmpty(VoidWarPolicy.BIOMES);

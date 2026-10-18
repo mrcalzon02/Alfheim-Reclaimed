@@ -26,7 +26,8 @@ public final class VoidWarPolicy {
     }
     static boolean eligible(Structure.GenerationContext c,net.minecraft.world.level.ChunkPos p) {
         long x=p.getMiddleBlockX(),z=p.getMiddleBlockZ();
-        return x*x+z*z>=5000L*5000 && c.biomeSource().getNoiseBiome((int)x>>2,16,(int)z>>2,c.randomState().sampler()).is(BIOMES);
+        return WorldSiteAllocation.outsideCourt((int)x,(int)z,72,WorldSiteAllocation.GAP)
+            && c.biomeSource().getNoiseBiome((int)x>>2,16,(int)z>>2,c.randomState().sampler()).is(BIOMES);
     }
     static boolean reserved(Structure.GenerationContext c) {
         int rx=Math.floorDiv(c.chunkPos().x,SPACING),rz=Math.floorDiv(c.chunkPos().z,SPACING);

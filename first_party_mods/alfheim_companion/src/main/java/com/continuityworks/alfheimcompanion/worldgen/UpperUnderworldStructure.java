@@ -24,8 +24,11 @@ public final class UpperUnderworldStructure extends Structure {
     public UpperUnderworldStructure(StructureSettings settings) {super(settings);}
     static String reservation(GenerationContext c) {
         int x=c.chunkPos().getMinBlockX(),z=c.chunkPos().getMinBlockZ();
-        if((long)x*x+(long)z*z<4000L*4000)return "origin"; // castle + hub reservation
+        if(!WorldSiteAllocation.clearProtected(c,x,z,15,WorldSiteAllocation.GAP))
+            return "protected_site";
         if(!UndergroundAllocation.selected(c.seed(),c.chunkPos().x,c.chunkPos().z))return "allocation";
+        if(!WorldSiteAllocation.clearDistricts(c.seed(),x,z,15,WorldSiteAllocation.GAP))
+            return "district_ring";
         if(FairyIslandReservations.reserved(c))return "fairy_island";
         if(WorldstoneCavernStructure.reserved(c))return "mountain_worldstone";
         for(var entry:c.registryAccess().registryOrThrow(Registries.STRUCTURE_SET).entrySet()) {

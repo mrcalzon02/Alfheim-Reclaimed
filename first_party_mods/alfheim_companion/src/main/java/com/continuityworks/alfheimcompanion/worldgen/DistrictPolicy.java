@@ -31,6 +31,8 @@ public final class DistrictPolicy {
         var spawn=home.getSharedSpawnPos();
         int x=c.chunkPos().getMinBlockX(),z=c.chunkPos().getMinBlockZ();
         if(!outsideSpawn(x,z,spawn.getX(),spawn.getZ()))return false;
+        // The kilometre-ring winner still owns district placement. Do not revert
+        // to the old 192/96 random-spread selection or a 6000-block exclusion.
         var castle=c.registryAccess().registryOrThrow(Registries.STRUCTURE_SET).get(new ResourceLocation("alfheim","royal_castle"));
         if(castle!=null && castle.placement() instanceof net.minecraft.world.level.levelgen.structure.placement.ConcentricRingsStructurePlacement placement) {
             var positions=home.getChunkSource().getGeneratorState().getRingPositionsFor(placement);

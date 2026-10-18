@@ -28,7 +28,10 @@ public final class WorldstoneCavernStructure extends Structure {
     }
     private Probe terrain(GenerationContext c) {
         int x=c.chunkPos().getMiddleBlockX(),z=c.chunkPos().getMiddleBlockZ();
-        if((long)x*x+(long)z*z<6000L*6000)return new Probe("hub_castle",0,0);
+        if(!WorldSiteAllocation.clearProtected(c,x,z,114,WorldSiteAllocation.GAP))
+            return new Probe("protected_site",0,0);
+        if(!WorldSiteAllocation.clearDistricts(c.seed(),x,z,114,WorldSiteAllocation.GAP))
+            return new Probe("district_ring",0,0);
         if(!biomes().contains(c.biomeSource().getNoiseBiome(x>>2,16,z>>2,c.randomState().sampler())))return new Probe("biome",0,0);
         int summit=c.chunkGenerator().getBaseHeight(x,z,Heightmap.Types.OCEAN_FLOOR_WG,c.heightAccessor(),c.randomState());
         if(summit<WorldstoneLayout.MIN_SUMMIT)return new Probe("low_mountain",summit,0);
