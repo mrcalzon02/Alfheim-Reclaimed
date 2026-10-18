@@ -1,7 +1,7 @@
 # Monastery of the Five Descents — full-depth act dungeons and shared placement
 
 **Project:** Alfheim Reclaimed — Minecraft 1.20.1 Forge, MythicBotany Alfheim dimension, Mine and Slash scaling.
-**Status 2026-10-18:** Shared site policy and regression tests authored in Java source; dungeon structures, vendors, monster roster and runtime remain planned. Requires rebuilding and installing first-party companion JAR and saved-world validation. Never represent the planning text as shipped content.
+**Status 2026-10-18:** Shared site policy, tests and a first-party native monastery/village/54-room labyrinth geometry implementation committed as SOURCE ONLY. Registration JSON remains staged outside the active pack until a compatible companion JAR is built. Vendor trading, real monster entities, original assets, multiplayer validation and fresh-world deployment remain pending. Never report source-only content as shipped.
 
 ## Corrected authority: one allocator, no arbitrary 4,000-block no-build circle
 

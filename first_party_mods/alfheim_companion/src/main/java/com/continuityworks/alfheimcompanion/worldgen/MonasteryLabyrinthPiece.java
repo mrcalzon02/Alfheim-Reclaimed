@@ -141,6 +141,10 @@ public final class MonasteryLabyrinthPiece extends StructurePiece {
     private BlockState village(int x,int y,int z,int w,int d){
         boolean road=z>=34&&z<=38;
         int[] xs={6,27,48},zs={5,49};
+        boolean lane=false;
+        // Each vendor door has a guaranteed three-wide route to the central
+        // paved road, instead of opening onto 10 blocks of unbuilt terrain.
+        for(int sx:xs)if(x>=sx+5&&x<=sx+7&&z>=23&&z<=49)lane=true;
         boolean shop=false,edge=false,door=false,roof=false,light=false;
         for(int sx:xs)for(int sz:zs)if(x>=sx&&x<sx+13&&z>=sz&&z<sz+19){
             shop=true;
@@ -151,9 +155,9 @@ public final class MonasteryLabyrinthPiece extends StructurePiece {
             door=dx>=5&&dx<=7 && (sz==5?dz==18:dz==0) && y>=5&&y<=8;
             light=dx==6&&dz==9&&y==12;
         }
-        if(!shop && !road)return null;
+        if(!shop && !road && !lane)return null;
         if(y<=3)return shop?stone():null;
-        if(y==4)return shop?paving():road?trim():null;
+        if(y==4)return shop?paving():road?trim():lane?paving():null;
         if(!shop)return Blocks.AIR.defaultBlockState();
         if(roof)return trim();
         if(y>=5&&y<=12){
