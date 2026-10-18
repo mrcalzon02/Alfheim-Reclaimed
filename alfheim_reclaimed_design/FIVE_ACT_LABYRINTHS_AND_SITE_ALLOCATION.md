@@ -95,3 +95,25 @@ vendor, mob and tile construction are still necessary before registering the
 full monastery site. Do not start reserving these candidate sites against other
 live structures until the dungeon structure exists: otherwise unused phantom
 sites could starve real settlements. No new JAR has been built by this commit.
+
+## Monster source of truth — 130 authored species
+
+The machine-readable catalogue lives at
+`alfheim_reclaimed_design/monastery_labyrinth/monster_catalog.json`.
+It enumerates **25 ordinary/elite original species plus one boss per Act**,
+130 genuinely named and individually telegraphed monster designs; 36
+independently keyed elite affixes and five bounded encounter pool profiles per
+Act. Every creature identifies a distinct signature attack, a response behavior,
+combat role, counterplay, elemental envelope, and content implementation state.
+This is a design/implementation contract, not a declaration of spawned mobs.
+All 130 models and sound sets still require original production or an
+approved suitably licensed asset. Existing mod mobs can only be mapped to
+entries with a matching mechanical profile, not blindly renamed.
+
+`python tools/check_labyrinth_bestiary.py` checks registry ID uniqueness, Act
+coverage, boss distribution, signature keys, affix identifiers, and
+non-depth scaling. It intentionally **rejects counting proposed entries
+as live entities** by asserting `implementation: design_only`. A future
+runtime acceptance test must enumerate registry IDs, inspect actual actor
+behavior, and confirm spawner budget/performance in naturally generated
+complexes before switching any entry to `implemented`.

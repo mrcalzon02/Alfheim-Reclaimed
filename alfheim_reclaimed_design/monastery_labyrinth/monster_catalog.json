@@ -1,0 +1,4696 @@
+{
+  "schema_version": 1,
+  "project": "Alfheim Reclaimed",
+  "status": "design_catalog_not_runtime_entities",
+  "license_scope": "original_design_no_third_party_models_or_audio",
+  "target_species": 130,
+  "required_original_models": 130,
+  "variant_goal": 250,
+  "acts": [
+    {
+      "act": 1,
+      "id": "ashen_cloister",
+      "theme": "crypt_forest",
+      "monster_damage": "physical",
+      "resists": [
+        "poison"
+      ],
+      "weak": [
+        "radiance"
+      ]
+    },
+    {
+      "act": 2,
+      "id": "buried_covenant",
+      "theme": "sand_cistern",
+      "monster_damage": "physical",
+      "resists": [
+        "fire"
+      ],
+      "weak": [
+        "frost"
+      ]
+    },
+    {
+      "act": 3,
+      "id": "verdant_blight",
+      "theme": "marsh_temple",
+      "monster_damage": "poison",
+      "resists": [
+        "poison"
+      ],
+      "weak": [
+        "fire"
+      ]
+    },
+    {
+      "act": 4,
+      "id": "cinder_testament",
+      "theme": "forge_inferno",
+      "monster_damage": "fire",
+      "resists": [
+        "fire"
+      ],
+      "weak": [
+        "frost"
+      ]
+    },
+    {
+      "act": 5,
+      "id": "winter_crown",
+      "theme": "snow_siege",
+      "monster_damage": "cold",
+      "resists": [
+        "cold"
+      ],
+      "weak": [
+        "fire"
+      ]
+    }
+  ],
+  "creatures": [
+    {
+      "id": "ashen_novice",
+      "act": 1,
+      "name": "Ashen Novice",
+      "role": "swarm",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "swarm_rush",
+        "description": "Shatters formation when struck by a bell chime",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Split the pack before it surrounds the party",
+      "secondary": {
+        "id": "ashen_novice_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to swarm_rush"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "hollow_veil",
+      "act": 1,
+      "name": "Hollow Veil",
+      "role": "flanker",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "phase_slip",
+        "description": "Reappears behind the last healer to cast",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Keep an anchored light on the rear guard",
+      "secondary": {
+        "id": "hollow_veil_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to phase_slip"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "ossuary_bowyer",
+      "act": 1,
+      "name": "Ossuary Bowyer",
+      "role": "ranged",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "arrow_fan",
+        "description": "Pins its next shot to the player's former position",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move after the bowstring glows",
+      "secondary": {
+        "id": "ossuary_bowyer_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to arrow_fan"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "lantern_ghoul",
+      "act": 1,
+      "name": "Lantern Ghoul",
+      "role": "controller",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "gloom_zone",
+        "description": "Darkens nearby floor and hides its charge",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the lantern to collapse its darkness",
+      "secondary": {
+        "id": "lantern_ghoul_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to gloom_zone"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "corvid_undertaker",
+      "act": 1,
+      "name": "Corvid Undertaker",
+      "role": "summoner",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "carrion_call",
+        "description": "Calls scavengers from marked corpses",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Burn the corpse markers",
+      "secondary": {
+        "id": "corvid_undertaker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to carrion_call"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "lurking_silkmaw",
+      "act": 1,
+      "name": "Lurking Silkmaw",
+      "role": "ambusher",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "web_drop",
+        "description": "Descends from marked ceiling webs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut the silk anchor before entry",
+      "secondary": {
+        "id": "lurking_silkmaw_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to web_drop"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "bell_warden",
+      "act": 1,
+      "name": "Bell Warden",
+      "role": "support",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "alarm_peal",
+        "description": "Marks one ally to rally a room-wide pack",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Silence the bell between strikes",
+      "secondary": {
+        "id": "bell_warden_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to alarm_peal"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "reliquary_sentinel",
+      "act": 1,
+      "name": "Reliquary Sentinel",
+      "role": "tank",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "shield_lock",
+        "description": "Faces the strongest frontal threat with a timed bulwark",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Attack its exposed flank after a slam",
+      "secondary": {
+        "id": "reliquary_sentinel_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to shield_lock"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "rotmilk_ratpack",
+      "act": 1,
+      "name": "Rotmilk Ratpack",
+      "role": "swarm",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "stone"
+      ],
+      "primary": {
+        "id": "rat_tide",
+        "description": "Travels through tiny floor grates in successive waves",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Close grate shutters and fight on open stone",
+      "secondary": {
+        "id": "rotmilk_ratpack_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to rat_tide"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "grave_thorn",
+      "act": 1,
+      "name": "Grave Thorn",
+      "role": "trapper",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "thorn_snare",
+        "description": "Catches stationary feet with rooted barbs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Step away during the soil pulse",
+      "secondary": {
+        "id": "grave_thorn_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to thorn_snare"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "mourning_matron",
+      "act": 1,
+      "name": "Mourning Matron",
+      "role": "healer",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "grief_transfer",
+        "description": "Draws wounds from nearby skeletons into itself",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Separate wounded enemies from its radius",
+      "secondary": {
+        "id": "mourning_matron_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to grief_transfer"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "censer_revenant",
+      "act": 1,
+      "name": "Censer Revenant",
+      "role": "caster",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "smoke_burst",
+        "description": "Sends drifting smoke that detonates near open flame",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Extinguish braziers or lure the smoke away",
+      "secondary": {
+        "id": "censer_revenant_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to smoke_burst"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "rift_acolyte",
+      "act": 1,
+      "name": "Rift Acolyte",
+      "role": "caster",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "rift_needles",
+        "description": "Fires rune darts down prelit floor channels",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Leave the glowing channel before the salvo",
+      "secondary": {
+        "id": "rift_acolyte_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to rift_needles"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "skullglass_shardling",
+      "act": 1,
+      "name": "Skullglass Shardling",
+      "role": "swarm",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "shard_scatter",
+        "description": "Splits into damaging splinters on death",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Finish it outside crowded lanes",
+      "secondary": {
+        "id": "skullglass_shardling_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to shard_scatter"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "coal_moth",
+      "act": 1,
+      "name": "Coal Moth",
+      "role": "flanker",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "water"
+      ],
+      "primary": {
+        "id": "ember_dust",
+        "description": "Dust marks armor before its brief burn",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use water and move off the glowing dust",
+      "secondary": {
+        "id": "coal_moth_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ember_dust"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "chapel_butcher",
+      "act": 1,
+      "name": "Chapel Butcher",
+      "role": "brute",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "cleaver_cleave",
+        "description": "Sweeps a long frontal execution arc",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Dodge through its recovery side",
+      "secondary": {
+        "id": "chapel_butcher_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to cleaver_cleave"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "dust_friar",
+      "act": 1,
+      "name": "Dust Friar",
+      "role": "support",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "dust_benediction",
+        "description": "Grants short evasion to nearby dead monks",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Interrupt the raised censer",
+      "secondary": {
+        "id": "dust_friar_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to dust_benediction"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "sepulcher_hound",
+      "act": 1,
+      "name": "Sepulcher Hound",
+      "role": "hunter",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "water"
+      ],
+      "primary": {
+        "id": "scent_track",
+        "description": "Tracks recent sprinting through blind bends",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break pursuit across running water",
+      "secondary": {
+        "id": "sepulcher_hound_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to scent_track"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "briar_witness",
+      "act": 1,
+      "name": "Briar Witness",
+      "role": "controller",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "root_gaze",
+        "description": "Fixes a cone of petrifying roots on one doorway",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break line of sight behind columns",
+      "secondary": {
+        "id": "briar_witness_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to root_gaze"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "wicker_pilgrim",
+      "act": 1,
+      "name": "Wicker Pilgrim",
+      "role": "ambusher",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "empty_shell",
+        "description": "Leaves a decoy body and rushes from behind",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Listen for the moving footfalls",
+      "secondary": {
+        "id": "wicker_pilgrim_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to empty_shell"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "pale_deacon",
+      "act": 1,
+      "name": "Pale Deacon",
+      "role": "commander",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "choir_command",
+        "description": "Changes the attack pattern of chapel minions",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Target the deacon's raised hand",
+      "secondary": {
+        "id": "pale_deacon_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to choir_command"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "carrion_lurker",
+      "act": 1,
+      "name": "Carrion Lurker",
+      "role": "ambusher",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "burial_pounce",
+        "description": "Bursts from disturbed graves after a warning tremor",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Avoid freshly moving earth",
+      "secondary": {
+        "id": "carrion_lurker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to burial_pounce"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "coffin_strider",
+      "act": 1,
+      "name": "Coffin Strider",
+      "role": "tank",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "slab_drop",
+        "description": "Drags a coffin shield that becomes an obstacle",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Bait the drop then circle the obstacle",
+      "secondary": {
+        "id": "coffin_strider_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to slab_drop"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "choir_wight",
+      "act": 1,
+      "name": "Choir Wight",
+      "role": "caster",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "discord_note",
+        "description": "Alternates sweeping silence and shattering resonance",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Hide during the resonance windup",
+      "secondary": {
+        "id": "choir_wight_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to discord_note"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "hollow_sexton",
+      "act": 1,
+      "name": "Hollow Sexton",
+      "role": "elite",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "grave"
+      ],
+      "primary": {
+        "id": "grave_reckoning",
+        "description": "Counts down three tolls before a graveyard shockwave",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Retreat beyond grave markers at the third toll",
+      "secondary": {
+        "id": "hollow_sexton_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to grave_reckoning"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "the_ossuary_prior",
+      "act": 1,
+      "name": "The Ossuary Prior",
+      "role": "boss",
+      "ecology": "crypt_forest",
+      "room_tags": [
+        "boss_sanctuary"
+      ],
+      "primary": {
+        "id": "bell_convergence",
+        "description": "Rings the entire abbey and commands grave-choir phases",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Silence three echo altars before the final ring",
+      "secondary": {
+        "id": "the_ossuary_prior_phase_shift",
+        "trigger": "health_threshold",
+        "description": "Change room geometry and summons without world-editing outside the reserved room"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "radiance"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "dune_reliquary",
+      "act": 2,
+      "name": "Dune Reliquary",
+      "role": "tank",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "sand_bulwark",
+        "description": "Raises an earthen shield facing nearest enemy",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Flank while its core is exposed",
+      "secondary": {
+        "id": "dune_reliquary_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to sand_bulwark"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "scarlet_scarab_host",
+      "act": 2,
+      "name": "Scarlet Scarab Host",
+      "role": "swarm",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "shell_burst",
+        "description": "Releases multiple beetles on heavy impacts",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Strike precisely or use a wide sweep",
+      "secondary": {
+        "id": "scarlet_scarab_host_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to shell_burst"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "cistern_whisper",
+      "act": 2,
+      "name": "Cistern Whisper",
+      "role": "flanker",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "pool"
+      ],
+      "primary": {
+        "id": "water_reflection",
+        "description": "Travels between linked shallow pools",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Drain or freeze its destination pool",
+      "secondary": {
+        "id": "cistern_whisper_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to water_reflection"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "saffron_mummy",
+      "act": 2,
+      "name": "Saffron Mummy",
+      "role": "brute",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "linen_grapple",
+        "description": "Throws long wraps from a stationary stance",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Sever the glowing wrap anchor",
+      "secondary": {
+        "id": "saffron_mummy_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to linen_grapple"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "sunken_surveyor",
+      "act": 2,
+      "name": "Sunken Surveyor",
+      "role": "ranged",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "dart_corridor",
+        "description": "Fires along etched ancient survey lines",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Step off the line when amber runes light",
+      "secondary": {
+        "id": "sunken_surveyor_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to dart_corridor"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "urn_watcher",
+      "act": 2,
+      "name": "Urn Watcher",
+      "role": "trapper",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "chamber"
+      ],
+      "primary": {
+        "id": "urn_sentinel",
+        "description": "Awakens clay jars near repeated footsteps",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Vary the route through the chamber",
+      "secondary": {
+        "id": "urn_watcher_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to urn_sentinel"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "basilica_asp",
+      "act": 2,
+      "name": "Basilica Asp",
+      "role": "hunter",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "venom_lunge",
+        "description": "Moves beneath low masonry then lunges",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Jump clear of its rippling dust",
+      "secondary": {
+        "id": "basilica_asp_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to venom_lunge"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "bone_tax_collector",
+      "act": 2,
+      "name": "Bone Tax Collector",
+      "role": "support",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "floor"
+      ],
+      "primary": {
+        "id": "toll_mark",
+        "description": "Steals potion effectiveness while a tax glyph remains",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Destroy the tax glyph on the floor",
+      "secondary": {
+        "id": "bone_tax_collector_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to toll_mark"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "amber_sepulcher",
+      "act": 2,
+      "name": "Amber Sepulcher",
+      "role": "tank",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "amber_armor",
+        "description": "Hardens its shell each time it holds position",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Force movement to weaken the shell",
+      "secondary": {
+        "id": "amber_sepulcher_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to amber_armor"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "kilnshade",
+      "act": 2,
+      "name": "Kilnshade",
+      "role": "caster",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "heated_mirage",
+        "description": "Creates heat-copy projections with no collision",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Find the copy casting the shadow",
+      "secondary": {
+        "id": "kilnshade_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to heated_mirage"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "tomb_astrologer",
+      "act": 2,
+      "name": "Tomb Astrologer",
+      "role": "caster",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "wall"
+      ],
+      "primary": {
+        "id": "orbit_stars",
+        "description": "Sweeps three rotating projectiles around a pillar",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use walls to split the orbits",
+      "secondary": {
+        "id": "tomb_astrologer_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to orbit_stars"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "grain_vulture",
+      "act": 2,
+      "name": "Grain Vulture",
+      "role": "flanker",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "desert_dive",
+        "description": "Dives at players recovering health",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Delay healing until it lands",
+      "secondary": {
+        "id": "grain_vulture_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to desert_dive"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "funeral_spearman",
+      "act": 2,
+      "name": "Funeral Spearman",
+      "role": "frontliner",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "spear_rank",
+        "description": "Takes formation with other spearmen at room doors",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Lure one guard out of formation",
+      "secondary": {
+        "id": "funeral_spearman_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to spear_rank"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "glyph_leech",
+      "act": 2,
+      "name": "Glyph Leech",
+      "role": "trapper",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "sigil_drink",
+        "description": "Consumes active runes to charge an explosion",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Disable nearby glyphs first",
+      "secondary": {
+        "id": "glyph_leech_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to sigil_drink"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "well_maw",
+      "act": 2,
+      "name": "Well Maw",
+      "role": "ambusher",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "well_pull",
+        "description": "Pulls targets toward an unsafe cistern opening",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Grab the rim chain to resist the pull",
+      "secondary": {
+        "id": "well_maw_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to well_pull"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "copper_ushabti",
+      "act": 2,
+      "name": "Copper Ushabti",
+      "role": "brute",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "axe_windup",
+        "description": "Marks two lanes with its double-bladed swing",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move into the clear third lane",
+      "secondary": {
+        "id": "copper_ushabti_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to axe_windup"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "limestone_banshee",
+      "act": 2,
+      "name": "Limestone Banshee",
+      "role": "controller",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "wall"
+      ],
+      "primary": {
+        "id": "echo_debuff",
+        "description": "Amplifies old spell impacts in narrow vaults",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Fight away from echoing walls",
+      "secondary": {
+        "id": "limestone_banshee_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to echo_debuff"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "silt_devourer",
+      "act": 2,
+      "name": "Silt Devourer",
+      "role": "swarm",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "silt_erupt",
+        "description": "Spawns from loose sediment disturbed by movement",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use stable paved walkways",
+      "secondary": {
+        "id": "silt_devourer_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to silt_erupt"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "blind_pharaoh_hound",
+      "act": 2,
+      "name": "Blind Pharaoh Hound",
+      "role": "hunter",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "heartbeat_hunt",
+        "description": "Locks onto noisy combat actions",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Pause attacks to lose its lock",
+      "secondary": {
+        "id": "blind_pharaoh_hound_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to heartbeat_hunt"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "gilded_dustcaller",
+      "act": 2,
+      "name": "Gilded Dustcaller",
+      "role": "summoner",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "clay_servants",
+        "description": "Forms minions from marked urn piles",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Shatter dry urn piles between summons",
+      "secondary": {
+        "id": "gilded_dustcaller_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to clay_servants"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "pyramid_vesper",
+      "act": 2,
+      "name": "Pyramid Vesper",
+      "role": "ranged",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "sun_darts",
+        "description": "Reflects darts off polished metal plates",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Rotate the plates away from the path",
+      "secondary": {
+        "id": "pyramid_vesper_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to sun_darts"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "riven_canopic",
+      "act": 2,
+      "name": "Riven Canopic",
+      "role": "caster",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "organ_hex",
+        "description": "Assigns one of four debuffs from its open jars",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Seal the corresponding jar",
+      "secondary": {
+        "id": "riven_canopic_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to organ_hex"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "crownless_regent",
+      "act": 2,
+      "name": "Crownless Regent",
+      "role": "commander",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "royal_order",
+        "description": "Orders shielded guards to rush in staggered waves",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break its command scepter",
+      "secondary": {
+        "id": "crownless_regent_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to royal_order"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "salt_sentinel",
+      "act": 2,
+      "name": "Salt Sentinel",
+      "role": "tank",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "salt_crust",
+        "description": "Turns briefly rigid and reflects weak projectiles",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Switch to heavy blows when it crusts",
+      "secondary": {
+        "id": "salt_sentinel_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to salt_crust"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "midnight_embalmer",
+      "act": 2,
+      "name": "Midnight Embalmer",
+      "role": "elite",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "preservation_rite",
+        "description": "Revives the oldest intact corpse after a ritual",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the funeral table during the rite",
+      "secondary": {
+        "id": "midnight_embalmer_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to preservation_rite"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "the_drowned_vizier",
+      "act": 2,
+      "name": "The Drowned Vizier",
+      "role": "boss",
+      "ecology": "sand_cistern",
+      "room_tags": [
+        "boss_sanctuary"
+      ],
+      "primary": {
+        "id": "cistern_reckoning",
+        "description": "Raises cistern levels and directs burial phantoms",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Open drainage sluices to expose its vulnerable heart",
+      "secondary": {
+        "id": "the_drowned_vizier_phase_shift",
+        "trigger": "health_threshold",
+        "description": "Change room geometry and summons without world-editing outside the reserved room"
+      },
+      "damage_profile": "physical",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "bog_lanternling",
+      "act": 3,
+      "name": "Bog Lanternling",
+      "role": "swarm",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "bog_flicker",
+        "description": "Lures players to unstable marsh footing",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Follow the grounded lantern glow",
+      "secondary": {
+        "id": "bog_lanternling_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to bog_flicker"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "verdigris_ravager",
+      "act": 3,
+      "name": "Verdigris Ravager",
+      "role": "brute",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "rust_charge",
+        "description": "Charges toward metal sounds through vine walls",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Sidestep its rust trail",
+      "secondary": {
+        "id": "verdigris_ravager_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to rust_charge"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "spore_matriarch",
+      "act": 3,
+      "name": "Spore Matriarch",
+      "role": "summoner",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "spore_cradle",
+        "description": "Grows juvenile stalkers from marked pods",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Destroy pods before they burst",
+      "secondary": {
+        "id": "spore_matriarch_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to spore_cradle"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "fever_quill",
+      "act": 3,
+      "name": "Fever Quill",
+      "role": "ranged",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "toxic_quills",
+        "description": "Shoots staggered quills that linger in walls",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use cover until all three impacts land",
+      "secondary": {
+        "id": "fever_quill_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to toxic_quills"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "canal_drowner",
+      "act": 3,
+      "name": "Canal Drowner",
+      "role": "flanker",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "water"
+      ],
+      "primary": {
+        "id": "water_grab",
+        "description": "Grabs ankles from submerged culverts",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Avoid rippling water until it surfaces",
+      "secondary": {
+        "id": "canal_drowner_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to water_grab"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "root_lash",
+      "act": 3,
+      "name": "Root Lash",
+      "role": "controller",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "root"
+      ],
+      "primary": {
+        "id": "vine_sweep",
+        "description": "Sweeps two plant tendrils across fixed corridors",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut exposed roots between sweeps",
+      "secondary": {
+        "id": "root_lash_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to vine_sweep"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "leech_choir",
+      "act": 3,
+      "name": "Leech Choir",
+      "role": "swarm",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "blood_hymn",
+        "description": "Amplifies damage as the group stays close",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Split the choir with obstacles",
+      "secondary": {
+        "id": "leech_choir_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to blood_hymn"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "pox_apothecary",
+      "act": 3,
+      "name": "Pox Apothecary",
+      "role": "caster",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "plague_vials",
+        "description": "Throws mixed disease vials with colored tell",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move to ground safe from the indicated vial",
+      "secondary": {
+        "id": "pox_apothecary_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to plague_vials"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "temple_skulker",
+      "act": 3,
+      "name": "Temple Skulker",
+      "role": "ambusher",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "altar"
+      ],
+      "primary": {
+        "id": "moss_disguise",
+        "description": "Unfolds from mossy altars after a floor tremor",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Watch which altar shadow shifts",
+      "secondary": {
+        "id": "temple_skulker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to moss_disguise"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "mud_centurion",
+      "act": 3,
+      "name": "Mud Centurion",
+      "role": "tank",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "stone"
+      ],
+      "primary": {
+        "id": "mud_armor",
+        "description": "Gains protection standing in wet earth",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Pull it onto dry carved stone",
+      "secondary": {
+        "id": "mud_centurion_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to mud_armor"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "rotvine_hound",
+      "act": 3,
+      "name": "Rotvine Hound",
+      "role": "hunter",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "spore_scent",
+        "description": "Pursues recently poisoned targets across roots",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cure or transfer the scent debuff",
+      "secondary": {
+        "id": "rotvine_hound_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to spore_scent"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "grove_heretic",
+      "act": 3,
+      "name": "Grove Heretic",
+      "role": "support",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "root"
+      ],
+      "primary": {
+        "id": "profane_growth",
+        "description": "Heals nearby blighted vegetation and monsters",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break its glowing root channel",
+      "secondary": {
+        "id": "grove_heretic_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to profane_growth"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "mildew_cantor",
+      "act": 3,
+      "name": "Mildew Cantor",
+      "role": "caster",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "choking_refrain",
+        "description": "Alternates poison clouds with a silence pulse",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Interrupt when its throat flowers open",
+      "secondary": {
+        "id": "mildew_cantor_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to choking_refrain"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "fungal_stag",
+      "act": 3,
+      "name": "Fungal Stag",
+      "role": "brute",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "antler_plow",
+        "description": "Plows a straight lane and leaves uprooted cover",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Stand behind undisturbed columns",
+      "secondary": {
+        "id": "fungal_stag_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to antler_plow"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "floodglass_archer",
+      "act": 3,
+      "name": "Floodglass Archer",
+      "role": "ranged",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "ricochet_bolt",
+        "description": "Bounces projectiles through standing water",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Step out of linked wet patches",
+      "secondary": {
+        "id": "floodglass_archer_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ricochet_bolt"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "swamp_wisp_harrier",
+      "act": 3,
+      "name": "Swamp Wisp Harrier",
+      "role": "flanker",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "light_switch",
+        "description": "Swaps places with a nearby decoy wisp",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Track the one casting a real shadow",
+      "secondary": {
+        "id": "swamp_wisp_harrier_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to light_switch"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "buried_lamia",
+      "act": 3,
+      "name": "Buried Lamia",
+      "role": "ambusher",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "floor"
+      ],
+      "primary": {
+        "id": "mud_tunnel",
+        "description": "Tunnels under soft ground then strikes upward",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move to reinforced floor",
+      "secondary": {
+        "id": "buried_lamia_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to mud_tunnel"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "nettle_sacristan",
+      "act": 3,
+      "name": "Nettle Sacristan",
+      "role": "trapper",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "nettle_circle",
+        "description": "Seeds a temporary ring of barbed growth",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break one ring segment for escape",
+      "secondary": {
+        "id": "nettle_sacristan_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to nettle_circle"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "carrion_apotheosis",
+      "act": 3,
+      "name": "Carrion Apotheosis",
+      "role": "elite",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "rot_feast",
+        "description": "Consumes fallen lesser mobs to grow extra limbs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Remove corpses before its feed",
+      "secondary": {
+        "id": "carrion_apotheosis_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to rot_feast"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "marshstone_idol",
+      "act": 3,
+      "name": "Marshstone Idol",
+      "role": "tank",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "idol_turn",
+        "description": "Turns slowly while sweeping a petrifying gaze",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Stay behind its rotation",
+      "secondary": {
+        "id": "marshstone_idol_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to idol_turn"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "fen_votary",
+      "act": 3,
+      "name": "Fen Votary",
+      "role": "frontliner",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "sickle_combo",
+        "description": "Presses two staggered scythe strikes",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Parry the second delayed swing",
+      "secondary": {
+        "id": "fen_votary_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to sickle_combo"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "feverling_swarm",
+      "act": 3,
+      "name": "Feverling Swarm",
+      "role": "swarm",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "incubation_cloud",
+        "description": "Hatches near unattended poison clouds",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Disperse clouds before hatch time",
+      "secondary": {
+        "id": "feverling_swarm_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to incubation_cloud"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "canopy_strangler",
+      "act": 3,
+      "name": "Canopy Strangler",
+      "role": "trapper",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "hanging_snare",
+        "description": "Drops strangling vines from beam sockets",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut the highlighted hanging knot",
+      "secondary": {
+        "id": "canopy_strangler_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to hanging_snare"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "sump_oracle",
+      "act": 3,
+      "name": "Sump Oracle",
+      "role": "commander",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "tidal_forecast",
+        "description": "Predicts a sequence of rising water lanes",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Watch its staff and stay on the safe tile",
+      "secondary": {
+        "id": "sump_oracle_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to tidal_forecast"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "canker_abbot",
+      "act": 3,
+      "name": "Canker Abbot",
+      "role": "elite",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "blight_benediction",
+        "description": "Blesses one zone then corrupts an adjacent one",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Rotate around the safe zone as it decays",
+      "secondary": {
+        "id": "canker_abbot_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to blight_benediction"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "the_blighted_hierophant",
+      "act": 3,
+      "name": "The Blighted Hierophant",
+      "role": "boss",
+      "ecology": "marsh_temple",
+      "room_tags": [
+        "boss_sanctuary"
+      ],
+      "primary": {
+        "id": "fever_garden",
+        "description": "Grows escalating spore labyrinths across the arena",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Burn only the marked growth nodes to open safe lanes",
+      "secondary": {
+        "id": "the_blighted_hierophant_phase_shift",
+        "trigger": "health_threshold",
+        "description": "Change room geometry and summons without world-editing outside the reserved room"
+      },
+      "damage_profile": "poison",
+      "base_resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "cinder_initiate",
+      "act": 4,
+      "name": "Cinder Initiate",
+      "role": "swarm",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "ash"
+      ],
+      "primary": {
+        "id": "spark_pincer",
+        "description": "Converges from both sides of a marked furnace lane",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Hold a clear escape route through ash",
+      "secondary": {
+        "id": "cinder_initiate_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to spark_pincer"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "chain_bailiff",
+      "act": 4,
+      "name": "Chain Bailiff",
+      "role": "controller",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "chain_drag",
+        "description": "Throws a hooked chain across a corridor",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Dodge across the chain's anchor line",
+      "secondary": {
+        "id": "chain_bailiff_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to chain_drag"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "soot_imperator",
+      "act": 4,
+      "name": "Soot Imperator",
+      "role": "commander",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "war_bellow",
+        "description": "Orders heavy brutes to synchronize charges",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Stagger the imperator before the roar",
+      "secondary": {
+        "id": "soot_imperator_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to war_bellow"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "furnace_gnasher",
+      "act": 4,
+      "name": "Furnace Gnasher",
+      "role": "brute",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "grate_bite",
+        "description": "Rushes out of glowing forge openings",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Close the grate between lunges",
+      "secondary": {
+        "id": "furnace_gnasher_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to grate_bite"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "ember_basilisk",
+      "act": 4,
+      "name": "Ember Basilisk",
+      "role": "hunter",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "stone"
+      ],
+      "primary": {
+        "id": "flame_trail",
+        "description": "Tracks heat and leaves a burning trail",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cross cool stone to drop the heat trace",
+      "secondary": {
+        "id": "ember_basilisk_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to flame_trail"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "ash_choir",
+      "act": 4,
+      "name": "Ash Choir",
+      "role": "caster",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "cinder_hymn",
+        "description": "Channels expanding rings of embers",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Jump the outer ring after its chime",
+      "secondary": {
+        "id": "ash_choir_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to cinder_hymn"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "iron_confessor",
+      "act": 4,
+      "name": "Iron Confessor",
+      "role": "tank",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "penitent_guard",
+        "description": "Blocks three consecutive hits then retaliates",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Feint to spend guard charges",
+      "secondary": {
+        "id": "iron_confessor_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to penitent_guard"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "sable_inquisitor",
+      "act": 4,
+      "name": "Sable Inquisitor",
+      "role": "elite",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "judgment_brand",
+        "description": "Marks one player for a delayed angled strike",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Trade aggro while the brand grows",
+      "secondary": {
+        "id": "sable_inquisitor_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to judgment_brand"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "molten_eye",
+      "act": 4,
+      "name": "Molten Eye",
+      "role": "ranged",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "laser_sweep",
+        "description": "Sweeps a thin sightline before firing an intense beam",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break line of sight at the pulse",
+      "secondary": {
+        "id": "molten_eye_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to laser_sweep"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "fettersmith",
+      "act": 4,
+      "name": "Fettersmith",
+      "role": "trapper",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "chain_web",
+        "description": "Spins crossing heated chains over floors",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut cooler chain anchors",
+      "secondary": {
+        "id": "fettersmith_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to chain_web"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "pyre_widower",
+      "act": 4,
+      "name": "Pyre Widower",
+      "role": "summoner",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "coal_widows",
+        "description": "Summons ember spiders from active braziers",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Douse the braziers",
+      "secondary": {
+        "id": "pyre_widower_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to coal_widows"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "crucible_walker",
+      "act": 4,
+      "name": "Crucible Walker",
+      "role": "brute",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "slag_eruption",
+        "description": "Slams and sprays molten slag behind the target",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move across rather than back",
+      "secondary": {
+        "id": "crucible_walker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to slag_eruption"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "tithe_wraith",
+      "act": 4,
+      "name": "Tithe Wraith",
+      "role": "flanker",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "soul_tithe",
+        "description": "Steals shield charge then teleports away",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Stay in ward-light to block the tithe",
+      "secondary": {
+        "id": "tithe_wraith_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to soul_tithe"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "ashwing_marauder",
+      "act": 4,
+      "name": "Ashwing Marauder",
+      "role": "flanker",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "swoop_bomb",
+        "description": "Air-dives with a timed ground shadow",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Run outside the growing wing shadow",
+      "secondary": {
+        "id": "ashwing_marauder_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to swoop_bomb"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "bloodglass_adept",
+      "act": 4,
+      "name": "Bloodglass Adept",
+      "role": "caster",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "glass_shards",
+        "description": "Grows brittle spikes from scorched glass",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the spike at its base",
+      "secondary": {
+        "id": "bloodglass_adept_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to glass_shards"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "cauterized_sentinel",
+      "act": 4,
+      "name": "Cauterized Sentinel",
+      "role": "tank",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "iron_plate",
+        "description": "Rotates red-hot armor plates around its core",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Hit an unlit plate from the side",
+      "secondary": {
+        "id": "cauterized_sentinel_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to iron_plate"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "smoke_stalker",
+      "act": 4,
+      "name": "Smoke Stalker",
+      "role": "ambusher",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "chimney_drop",
+        "description": "Falls from vents after issuing dark smoke",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Stand clear of blackening chimneys",
+      "secondary": {
+        "id": "smoke_stalker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to chimney_drop"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "obsidian_headsman",
+      "act": 4,
+      "name": "Obsidian Headsman",
+      "role": "brute",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "guillotine_drop",
+        "description": "Performs a vertical long-range blade slam",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Roll away from the marked blade line",
+      "secondary": {
+        "id": "obsidian_headsman_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to guillotine_drop"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "penance_hound",
+      "act": 4,
+      "name": "Penance Hound",
+      "role": "hunter",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "pain_howl",
+        "description": "Amplifies threat from injured targets",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use cover while its howl fades",
+      "secondary": {
+        "id": "penance_hound_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to pain_howl"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "soul_stoker",
+      "act": 4,
+      "name": "Soul Stoker",
+      "role": "support",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "furnace_heart",
+        "description": "Feeds heat to nearby forge monsters",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Crack the coal vessel it carries",
+      "secondary": {
+        "id": "soul_stoker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to furnace_heart"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "gore_lantern",
+      "act": 4,
+      "name": "Gore Lantern",
+      "role": "controller",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "blood_beacon",
+        "description": "Projects a triangular damage zone from its lamp",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Rotate around the lamp base",
+      "secondary": {
+        "id": "gore_lantern_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to blood_beacon"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "charred_vestry",
+      "act": 4,
+      "name": "Charred Vestry",
+      "role": "summoner",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "ash"
+      ],
+      "primary": {
+        "id": "ash_remains",
+        "description": "Reconstitutes lesser troops from cooled ashes",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Scatter the ash circles first",
+      "secondary": {
+        "id": "charred_vestry_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ash_remains"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "wailing_bellows",
+      "act": 4,
+      "name": "Wailing Bellows",
+      "role": "ranged",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "pressure_burst",
+        "description": "Builds pressure then fires a narrow flame burst",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Watch the gauge and sidestep",
+      "secondary": {
+        "id": "wailing_bellows_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to pressure_burst"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "gloom_prosecutor",
+      "act": 4,
+      "name": "Gloom Prosecutor",
+      "role": "caster",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "sentence_rune",
+        "description": "Places three curses with different delays",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Leave the oldest curse tile first",
+      "secondary": {
+        "id": "gloom_prosecutor_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to sentence_rune"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "cinder_throne_herald",
+      "act": 4,
+      "name": "Cinder Throne Herald",
+      "role": "elite",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "crown_inferno",
+        "description": "Raises an expanding flame throne around allies",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break its throne supports before ignition",
+      "secondary": {
+        "id": "cinder_throne_herald_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to crown_inferno"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "the_ember_inquisitor",
+      "act": 4,
+      "name": "The Ember Inquisitor",
+      "role": "boss",
+      "ecology": "forge_inferno",
+      "room_tags": [
+        "boss_sanctuary"
+      ],
+      "primary": {
+        "id": "ashen_tribunal",
+        "description": "Forces timed verdicts while furnace guards change formations",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Destroy the active judgment seals without waking idle furnaces",
+      "secondary": {
+        "id": "the_ember_inquisitor_phase_shift",
+        "trigger": "health_threshold",
+        "description": "Change room geometry and summons without world-editing outside the reserved room"
+      },
+      "damage_profile": "fire",
+      "base_resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "frost"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "rime_penitent",
+      "act": 5,
+      "name": "Rime Penitent",
+      "role": "frontliner",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "frost_lance",
+        "description": "Jabs through two tiles in a marked straight line",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move sideways during the frost draw",
+      "secondary": {
+        "id": "rime_penitent_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to frost_lance"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "snowblind_stalker",
+      "act": 5,
+      "name": "Snowblind Stalker",
+      "role": "hunter",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "snow"
+      ],
+      "primary": {
+        "id": "whiteout_hunt",
+        "description": "Hides inside blizzard swirls before pouncing",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Follow tracks through the snow",
+      "secondary": {
+        "id": "snowblind_stalker_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to whiteout_hunt"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "glacial_reaver",
+      "act": 5,
+      "name": "Glacial Reaver",
+      "role": "brute",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "ice_shatter",
+        "description": "Cracks floor ice into three delayed damage lanes",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Reach rock before the final break",
+      "secondary": {
+        "id": "glacial_reaver_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ice_shatter"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "hailcarved_watcher",
+      "act": 5,
+      "name": "Hailcarved Watcher",
+      "role": "tank",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "ice_shield",
+        "description": "Faces incoming attacks behind a growing glacier plate",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Melt the thin side of the plate",
+      "secondary": {
+        "id": "hailcarved_watcher_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ice_shield"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "frost_choir",
+      "act": 5,
+      "name": "Frost Choir",
+      "role": "caster",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "shiver_song",
+        "description": "Sings a layered slow that ends in a cold pulse",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the vocal channel with impact",
+      "secondary": {
+        "id": "frost_choir_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to shiver_song"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "horned_avalanche",
+      "act": 5,
+      "name": "Horned Avalanche",
+      "role": "brute",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "snow_charge",
+        "description": "Drags an advancing wall of debris behind a charge",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Take the high sidetrack",
+      "secondary": {
+        "id": "horned_avalanche_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to snow_charge"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "icebound_sapper",
+      "act": 5,
+      "name": "Icebound Sapper",
+      "role": "trapper",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "powder_charge",
+        "description": "Plants icy mines disguised as snow mounds",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Expose powder with a heat source",
+      "secondary": {
+        "id": "icebound_sapper_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to powder_charge"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "whitefang_matriarch",
+      "act": 5,
+      "name": "Whitefang Matriarch",
+      "role": "commander",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "pack_flank",
+        "description": "Orders wolves to encircle the furthest player",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Regroup near a narrow entry",
+      "secondary": {
+        "id": "whitefang_matriarch_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to pack_flank"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "winter_revenant",
+      "act": 5,
+      "name": "Winter Revenant",
+      "role": "flanker",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "ice"
+      ],
+      "primary": {
+        "id": "frozen_echo",
+        "description": "Leaves a delayed duplicate of its last attack",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Dodge twice with staggered timing",
+      "secondary": {
+        "id": "winter_revenant_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to frozen_echo"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "permafrost_herald",
+      "act": 5,
+      "name": "Permafrost Herald",
+      "role": "support",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "ice_blessing",
+        "description": "Repairs frost armor on nearby sentinels",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Interrupt its staff slam",
+      "secondary": {
+        "id": "permafrost_herald_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ice_blessing"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "burial_hart",
+      "act": 5,
+      "name": "Burial Hart",
+      "role": "hunter",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "stag_pursuit",
+        "description": "Accelerates on long open snowy corridors",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Lure it into tight rock arches",
+      "secondary": {
+        "id": "burial_hart_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to stag_pursuit"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "tundra_boneweaver",
+      "act": 5,
+      "name": "Tundra Boneweaver",
+      "role": "summoner",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "skeletal_sled",
+        "description": "Assembles mobile bone packs from buried markers",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Destroy the sled-frame bones",
+      "secondary": {
+        "id": "tundra_boneweaver_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to skeletal_sled"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "icicle_lancer",
+      "act": 5,
+      "name": "Icicle Lancer",
+      "role": "ranged",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "stalactite_throw",
+        "description": "Throws spears that later fall from ceilings",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break the ceiling anchor before it drops",
+      "secondary": {
+        "id": "icicle_lancer_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to stalactite_throw"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "hoarfrost_oracle",
+      "act": 5,
+      "name": "Hoarfrost Oracle",
+      "role": "caster",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "frozen_future",
+        "description": "Marks where targets will be after a short delay",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Reverse direction before the strike",
+      "secondary": {
+        "id": "hoarfrost_oracle_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to frozen_future"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "fallen_rampart",
+      "act": 5,
+      "name": "Fallen Rampart",
+      "role": "tank",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "wall_advance",
+        "description": "Walks forward carrying a shield wall",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use ceiling vents to flank it",
+      "secondary": {
+        "id": "fallen_rampart_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to wall_advance"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "chill_warden",
+      "act": 5,
+      "name": "Chill Warden",
+      "role": "controller",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "cold_lock",
+        "description": "Locks one gate with spreading frost",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Light both braziers to thaw passage",
+      "secondary": {
+        "id": "chill_warden_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to cold_lock"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "aurora_banshee",
+      "act": 5,
+      "name": "Aurora Banshee",
+      "role": "caster",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "light_split",
+        "description": "Fires rays reflected through prism crystals",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Rotate crystal fixtures",
+      "secondary": {
+        "id": "aurora_banshee_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to light_split"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "stonehide_yeti",
+      "act": 5,
+      "name": "Stonehide Yeti",
+      "role": "brute",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "boulder_roll",
+        "description": "Rolls a boulder then leaps after it",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Step behind the boulder after the roll",
+      "secondary": {
+        "id": "stonehide_yeti_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to boulder_roll"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "pale_howler",
+      "act": 5,
+      "name": "Pale Howler",
+      "role": "support",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "terror_call",
+        "description": "Forces weaker allies into berserk charges",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Interrupt its inhale",
+      "secondary": {
+        "id": "pale_howler_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to terror_call"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "blizzard_wyrmling",
+      "act": 5,
+      "name": "Blizzard Wyrmling",
+      "role": "flanker",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "stone"
+      ],
+      "primary": {
+        "id": "ice_diving",
+        "description": "Burrows through snowdrifts in a circling path",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Stand on stone to break its route",
+      "secondary": {
+        "id": "blizzard_wyrmling_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to ice_diving"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "crypt_hearthguard",
+      "act": 5,
+      "name": "Crypt Hearthguard",
+      "role": "frontliner",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "hearth_guard",
+        "description": "Turns a dormant fireplace into a protective zone",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Douse the firebox safely",
+      "secondary": {
+        "id": "crypt_hearthguard_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to hearth_guard"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "ice_widow",
+      "act": 5,
+      "name": "Ice Widow",
+      "role": "trapper",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "frozen_silk",
+        "description": "Spreads thin glass-like threads that freeze movement",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut threads in crosswind",
+      "secondary": {
+        "id": "ice_widow_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to frozen_silk"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "siege_palehand",
+      "act": 5,
+      "name": "Siege Palehand",
+      "role": "commander",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "war_engine",
+        "description": "Deploys short-lived icy artillery markers",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Destroy the marked ammunition stacks",
+      "secondary": {
+        "id": "siege_palehand_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to war_engine"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "frostbite_eater",
+      "act": 5,
+      "name": "Frostbite Eater",
+      "role": "swarm",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "cold_feast",
+        "description": "Grows stronger when players stack slow debuffs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cleanse slows before it swarms",
+      "secondary": {
+        "id": "frostbite_eater_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to cold_feast"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "crownless_jarl",
+      "act": 5,
+      "name": "Crownless Jarl",
+      "role": "elite",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "mixed"
+      ],
+      "primary": {
+        "id": "winter_standard",
+        "description": "Plants a standard that reorganizes nearby troops",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Topple its standard to end the formation",
+      "secondary": {
+        "id": "crownless_jarl_response",
+        "trigger": "on_interrupt_or_position_change",
+        "description": "Adaptive recovery or repositioning keyed to winter_standard"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    },
+    {
+      "id": "the_last_snow_crowned_king",
+      "act": 5,
+      "name": "The Last Snow-Crowned King",
+      "role": "boss",
+      "ecology": "snow_siege",
+      "room_tags": [
+        "boss_sanctuary"
+      ],
+      "primary": {
+        "id": "crown_of_white_silence",
+        "description": "Summons blizzard walls and an advancing siege choir",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Keep three beacon braziers lit through the final assault",
+      "secondary": {
+        "id": "the_last_snow_crowned_king_phase_shift",
+        "trigger": "health_threshold",
+        "description": "Change room geometry and summons without world-editing outside the reserved room"
+      },
+      "damage_profile": "cold",
+      "base_resistances": [
+        "cold"
+      ],
+      "weaknesses": [
+        "fire"
+      ],
+      "implementation": "design_only",
+      "model": "unassigned",
+      "sound": "unassigned"
+    }
+  ],
+  "affixes": [
+    {
+      "id": "sunderer",
+      "name": "Sunderer",
+      "effect": "Breaks armor after a warned third consecutive hit",
+      "counterplay": "Block only two blows before disengaging",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "voidglass",
+      "name": "Voidglass",
+      "effect": "Splinters on defeat into timed shards",
+      "counterplay": "Move clear of the death silhouette",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "relentless",
+      "name": "Relentless",
+      "effect": "Accelerates after losing a target",
+      "counterplay": "Break pursuit with hard corners",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "dread_chorus",
+      "name": "Dread Chorus",
+      "effect": "Strengthens allied fear effects within audible range",
+      "counterplay": "Interrupt its chanting",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "veilbound",
+      "name": "Veilbound",
+      "effect": "Vanishes briefly after a heavy strike",
+      "counterplay": "Watch its shadow trail",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "ironwake",
+      "name": "Ironwake",
+      "effect": "Reflects ranged attacks while stationary",
+      "counterplay": "Bait a movement step",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "gravekeeper",
+      "name": "Gravekeeper",
+      "effect": "Marks corpses for delayed reanimation",
+      "counterplay": "Destroy marked remains",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "blight_aura",
+      "name": "Blight Aura",
+      "effect": "Projects a visible poison ring while idle",
+      "counterplay": "Fight from outside the ring",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "torrent_warden",
+      "name": "Torrent Warden",
+      "effect": "Lays shifting water hazards around nearby doors",
+      "counterplay": "Close the flooded sluice",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "firebrand",
+      "name": "Firebrand",
+      "effect": "Ignites ground after a leaping attack",
+      "counterplay": "Avoid its landing circle",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "rimebound",
+      "name": "Rimebound",
+      "effect": "Builds slow stacks only on repeated hits",
+      "counterplay": "Disengage between hits",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "stormcall",
+      "name": "Stormcall",
+      "effect": "Marks two lightning lanes before striking",
+      "counterplay": "Cross the unlit third lane",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "siphoner",
+      "name": "Siphoner",
+      "effect": "Absorbs a portion of healing into a shield",
+      "counterplay": "Heal out of line of sight",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "wardbreaker",
+      "name": "Wardbreaker",
+      "effect": "Disables one placed ward temporarily",
+      "counterplay": "Move and restore the ward",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "bone_marrow",
+      "name": "Bone Marrow",
+      "effect": "Bursts bone spikes from the ground after a slam",
+      "counterplay": "Sidestep the ripple",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "mirrorstep",
+      "name": "Mirrorstep",
+      "effect": "Swaps with one nearby ally during stagger",
+      "counterplay": "Identify the new target silhouette",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "moonblind",
+      "name": "Moonblind",
+      "effect": "Darkens illuminated blocks in a cone",
+      "counterplay": "Relight from an offset angle",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "cinderglass",
+      "name": "Cinderglass",
+      "effect": "Turns fallen projectiles into brittle shards",
+      "counterplay": "Break the shard while safe",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "echo_binder",
+      "name": "Echo Binder",
+      "effect": "Repeats its prior attack after a delay",
+      "counterplay": "Count two attack tells",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "bulwark",
+      "name": "Bulwark",
+      "effect": "Holds a frontal shield until flank-staggered",
+      "counterplay": "Attack from rear quadrants",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "corruptor",
+      "name": "Corruptor",
+      "effect": "Enhances one nearby caster spell",
+      "counterplay": "Separate the two enemies",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "reckoner",
+      "name": "Reckoner",
+      "effect": "Marks the highest-damage opponent for reprisal",
+      "counterplay": "Pass aggro before countdown",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "wasp_herald",
+      "name": "Wasp Herald",
+      "effect": "Calls a capped two-unit insect escort",
+      "counterplay": "Eliminate the leader after escort spawn",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "briarcoil",
+      "name": "Briarcoil",
+      "effect": "Creates a short-lived root circle while rooted",
+      "counterplay": "Cut one root to open passage",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "petrifier",
+      "name": "Petrifier",
+      "effect": "Builds a gaze slow before petrification",
+      "counterplay": "Break sightlines",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "gravemark",
+      "name": "Gravemark",
+      "effect": "Pulls nearby loose projectiles toward its aura",
+      "counterplay": "Fight with melee at the right timing",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "bloodline",
+      "name": "Bloodline",
+      "effect": "Heals slightly if an ally dies within range",
+      "counterplay": "Focus isolated targets",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "ashen_pact",
+      "name": "Ashen Pact",
+      "effect": "Explodes with delayed embers below half health",
+      "counterplay": "Leave marked embers",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "dusk_charger",
+      "name": "Dusk Charger",
+      "effect": "Punishes running straight in a line",
+      "counterplay": "Zigzag across cover",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "spectral_hook",
+      "name": "Spectral Hook",
+      "effect": "Reels the farthest target after a long tell",
+      "counterplay": "Stand behind pillars",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "runebreak",
+      "name": "Runebreak",
+      "effect": "Cracks placed ritual sigils with a wave",
+      "counterplay": "Keep rituals beyond the radius",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "life_pulse",
+      "name": "Life Pulse",
+      "effect": "Heals one wounded ally on a long cooldown",
+      "counterplay": "Interrupt the shared pulse",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "mistshroud",
+      "name": "Mistshroud",
+      "effect": "Leaves an illusory stationary decoy",
+      "counterplay": "Follow the moving footfalls",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "frostcrust",
+      "name": "Frostcrust",
+      "effect": "Releases icy fragments when its shield breaks",
+      "counterplay": "Stand outside the fragment cone",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "unquiet_earth",
+      "name": "Unquiet Earth",
+      "effect": "Creates localized tremors after charges",
+      "counterplay": "Reach unshaken terrain",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    },
+    {
+      "id": "hexcrafter",
+      "name": "Hexcrafter",
+      "effect": "Places a visible hex totem with debuff",
+      "counterplay": "Destroy the totem before engaging",
+      "max_stacks": 1,
+      "implementation": "design_only"
+    }
+  ],
+  "encounters": [
+    {
+      "act": 1,
+      "pools": {
+        "entry": {
+          "roles": [
+            "swarm",
+            "frontliner",
+            "ranged"
+          ],
+          "budget_units": 7
+        },
+        "service": {
+          "roles": [
+            "ambusher",
+            "hunter",
+            "trapper"
+          ],
+          "budget_units": 6
+        },
+        "ritual": {
+          "roles": [
+            "caster",
+            "support",
+            "summoner",
+            "controller"
+          ],
+          "budget_units": 8
+        },
+        "elite": {
+          "roles": [
+            "elite",
+            "tank",
+            "brute",
+            "healer",
+            "commander"
+          ],
+          "budget_units": 10
+        },
+        "boss": {
+          "roles": [
+            "boss"
+          ],
+          "budget_units": 14
+        }
+      },
+      "spawning": {
+        "no_players_no_spawn": true,
+        "max_active_units_per_dungeon_section": 24,
+        "max_active_summons_per_controller": 4,
+        "mob_level_source": "mine_and_slash_distance_from_spawn_only",
+        "no_depth_multiplier": true,
+        "spawn_throttle_ticks": 40
+      },
+      "safe_zone": {
+        "merchant_village": true,
+        "monastery_courtyard": true,
+        "hostile_spawn_denied": true
+      }
+    },
+    {
+      "act": 2,
+      "pools": {
+        "entry": {
+          "roles": [
+            "swarm",
+            "frontliner",
+            "ranged"
+          ],
+          "budget_units": 7
+        },
+        "service": {
+          "roles": [
+            "ambusher",
+            "hunter",
+            "trapper"
+          ],
+          "budget_units": 6
+        },
+        "ritual": {
+          "roles": [
+            "caster",
+            "support",
+            "summoner",
+            "controller"
+          ],
+          "budget_units": 8
+        },
+        "elite": {
+          "roles": [
+            "elite",
+            "tank",
+            "brute",
+            "healer",
+            "commander"
+          ],
+          "budget_units": 10
+        },
+        "boss": {
+          "roles": [
+            "boss"
+          ],
+          "budget_units": 14
+        }
+      },
+      "spawning": {
+        "no_players_no_spawn": true,
+        "max_active_units_per_dungeon_section": 24,
+        "max_active_summons_per_controller": 4,
+        "mob_level_source": "mine_and_slash_distance_from_spawn_only",
+        "no_depth_multiplier": true,
+        "spawn_throttle_ticks": 40
+      },
+      "safe_zone": {
+        "merchant_village": true,
+        "monastery_courtyard": true,
+        "hostile_spawn_denied": true
+      }
+    },
+    {
+      "act": 3,
+      "pools": {
+        "entry": {
+          "roles": [
+            "swarm",
+            "frontliner",
+            "ranged"
+          ],
+          "budget_units": 7
+        },
+        "service": {
+          "roles": [
+            "ambusher",
+            "hunter",
+            "trapper"
+          ],
+          "budget_units": 6
+        },
+        "ritual": {
+          "roles": [
+            "caster",
+            "support",
+            "summoner",
+            "controller"
+          ],
+          "budget_units": 8
+        },
+        "elite": {
+          "roles": [
+            "elite",
+            "tank",
+            "brute",
+            "healer",
+            "commander"
+          ],
+          "budget_units": 10
+        },
+        "boss": {
+          "roles": [
+            "boss"
+          ],
+          "budget_units": 14
+        }
+      },
+      "spawning": {
+        "no_players_no_spawn": true,
+        "max_active_units_per_dungeon_section": 24,
+        "max_active_summons_per_controller": 4,
+        "mob_level_source": "mine_and_slash_distance_from_spawn_only",
+        "no_depth_multiplier": true,
+        "spawn_throttle_ticks": 40
+      },
+      "safe_zone": {
+        "merchant_village": true,
+        "monastery_courtyard": true,
+        "hostile_spawn_denied": true
+      }
+    },
+    {
+      "act": 4,
+      "pools": {
+        "entry": {
+          "roles": [
+            "swarm",
+            "frontliner",
+            "ranged"
+          ],
+          "budget_units": 7
+        },
+        "service": {
+          "roles": [
+            "ambusher",
+            "hunter",
+            "trapper"
+          ],
+          "budget_units": 6
+        },
+        "ritual": {
+          "roles": [
+            "caster",
+            "support",
+            "summoner",
+            "controller"
+          ],
+          "budget_units": 8
+        },
+        "elite": {
+          "roles": [
+            "elite",
+            "tank",
+            "brute",
+            "healer",
+            "commander"
+          ],
+          "budget_units": 10
+        },
+        "boss": {
+          "roles": [
+            "boss"
+          ],
+          "budget_units": 14
+        }
+      },
+      "spawning": {
+        "no_players_no_spawn": true,
+        "max_active_units_per_dungeon_section": 24,
+        "max_active_summons_per_controller": 4,
+        "mob_level_source": "mine_and_slash_distance_from_spawn_only",
+        "no_depth_multiplier": true,
+        "spawn_throttle_ticks": 40
+      },
+      "safe_zone": {
+        "merchant_village": true,
+        "monastery_courtyard": true,
+        "hostile_spawn_denied": true
+      }
+    },
+    {
+      "act": 5,
+      "pools": {
+        "entry": {
+          "roles": [
+            "swarm",
+            "frontliner",
+            "ranged"
+          ],
+          "budget_units": 7
+        },
+        "service": {
+          "roles": [
+            "ambusher",
+            "hunter",
+            "trapper"
+          ],
+          "budget_units": 6
+        },
+        "ritual": {
+          "roles": [
+            "caster",
+            "support",
+            "summoner",
+            "controller"
+          ],
+          "budget_units": 8
+        },
+        "elite": {
+          "roles": [
+            "elite",
+            "tank",
+            "brute",
+            "healer",
+            "commander"
+          ],
+          "budget_units": 10
+        },
+        "boss": {
+          "roles": [
+            "boss"
+          ],
+          "budget_units": 14
+        }
+      },
+      "spawning": {
+        "no_players_no_spawn": true,
+        "max_active_units_per_dungeon_section": 24,
+        "max_active_summons_per_controller": 4,
+        "mob_level_source": "mine_and_slash_distance_from_spawn_only",
+        "no_depth_multiplier": true,
+        "spawn_throttle_ticks": 40
+      },
+      "safe_zone": {
+        "merchant_village": true,
+        "monastery_courtyard": true,
+        "hostile_spawn_denied": true
+      }
+    }
+  ],
+  "notes": [
+    "Every creature is a design entry pending Forge registry, behaviors, model, loot, spawn controller, multiplayer tests and in-world verification.",
+    "Mine and Slash radial distance governs level and drops; labyrinth descent does not increase level.",
+    "Monster counts are unique base species plus five act bosses. Affixes and cosmetic variants never inflate species totals.",
+    "RPG vendor squares are protected from hostile room spawning and may not bypass era gates."
+  ]
+}
