@@ -1,5 +1,17 @@
 # Monastery of the Five Descents — full-depth act dungeons and shared placement
 
+## Asset production started — 2026-10-18
+
+[Asset batch 01](monastery_labyrinth/asset_batch_01/README.md) contains 75 staged
+NBT prototypes (18 Act I room families, six service interiors and one connector,
+three conditions each), three original creature sculptures and nine skins.
+Continuity Works' local planner/provider pipeline executed, and emitted artifact
+checks and offline previews are included. A five-Act queue maps all 130 catalogue
+species and 90 proposed room families to production states. These assets remain
+outside active resources: native geometry selection, variable-height stair fitting,
+animated model integration, actual creature behaviors, traders and runtime
+acceptance are pending. The three sculptures add zero implemented species.
+
 **Project:** Alfheim Reclaimed — Minecraft 1.20.1 Forge, MythicBotany Alfheim dimension, Mine and Slash scaling.
 **Status 2026-10-18:** Shared site policy, tests and a first-party native monastery/village/54-room labyrinth geometry implementation committed as SOURCE ONLY. Registration JSON remains staged outside the active pack until a compatible companion JAR is built. Vendor trading, real monster entities, original assets, multiplayer validation and fresh-world deployment remain pending. Never report source-only content as shipped.
 

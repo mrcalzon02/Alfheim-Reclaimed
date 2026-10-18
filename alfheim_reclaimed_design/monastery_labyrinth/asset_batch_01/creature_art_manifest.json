@@ -1,0 +1,151 @@
+{
+  "status": "art prototypes; no implemented entities",
+  "source_catalog_sha256": "1b64e93f3320df5690751f60422362249f82cad3d2ae5ca382d68d2c1c93d82c",
+  "workflow": "Original cuboid sculpture, per-face 512px UV islands, existing gen_monstrosities.skin material painter",
+  "models": [
+    {
+      "catalog_id": "ashen_novice",
+      "act": 1,
+      "role": "swarm",
+      "signature": {
+        "id": "swarm_rush",
+        "description": "Shatters formation when struck by a bell chime",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Split the pack before it surrounds the party",
+      "part_count": 95,
+      "quad_count": 570,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.2395,
+        1.9375,
+        0.788
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/ashen_novice/ashen_novice.geometry.json",
+      "blockbench": "creatures/ashen_novice/ashen_novice.bbmodel",
+      "blender_import": "creatures/ashen_novice/ashen_novice.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "named groups only; keyframes pending",
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "lurking_silkmaw",
+      "act": 1,
+      "role": "ambusher",
+      "signature": {
+        "id": "web_drop",
+        "description": "Descends from marked ceiling webs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut the silk anchor before entry",
+      "part_count": 87,
+      "quad_count": 522,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        3.6684,
+        1.2307,
+        2.8142
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_leg_0",
+        "left_leg_1",
+        "left_leg_2",
+        "left_leg_3",
+        "right_leg_0",
+        "right_leg_1",
+        "right_leg_2",
+        "right_leg_3"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/lurking_silkmaw/lurking_silkmaw.geometry.json",
+      "blockbench": "creatures/lurking_silkmaw/lurking_silkmaw.bbmodel",
+      "blender_import": "creatures/lurking_silkmaw/lurking_silkmaw.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "named groups only; keyframes pending",
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "bell_warden",
+      "act": 1,
+      "role": "support",
+      "signature": {
+        "id": "alarm_peal",
+        "description": "Marks one ally to rally a room-wide pack",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Silence the bell between strikes",
+      "part_count": 105,
+      "quad_count": 630,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.4895,
+        3.0,
+        1.0442
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/bell_warden/bell_warden.geometry.json",
+      "blockbench": "creatures/bell_warden/bell_warden.bbmodel",
+      "blender_import": "creatures/bell_warden/bell_warden.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "named groups only; keyframes pending",
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    }
+  ],
+  "sha256": {
+    "creatures/ashen_novice/ashen_novice.geometry.json": "7a8fe015b3a49fa06d63a900712b13d5f6f57033b2a1cd015a19f27550dcfbe6",
+    "creatures/ashen_novice/ashen_novice.bbmodel": "39ddea79c3130655bc322165d34d3f0c9f908f2e7bf16fb7e17926c1c4e324a6",
+    "creatures/ashen_novice/ashen_novice.obj": "0d8c497edd0fddca9afb2e0c0187be69703c907b6540912e83801284eecb52f7",
+    "creatures/ashen_novice/ashen_novice.mtl": "5ea6a917f6ce624b459b58a5fccb6b346a5e71ce87eaacc3ef6ea8d8b411337c",
+    "creatures/ashen_novice/ashen_novice_cloister_ash.png": "b7c945073a4ae9b626900f7d23b921db1c953f8badabe026ed697c1e90f5a7c0",
+    "creatures/ashen_novice/ashen_novice_burial_ochre.png": "f5d632771ac2c72c408f92f03e296a6f4d9690c71e0021baca16a199c5416b43",
+    "creatures/ashen_novice/ashen_novice_moonlit_lichen.png": "54407f092f6175d580cbce823edc2e1131d85aef49c09bff33012ec8bcaec164",
+    "creatures/lurking_silkmaw/lurking_silkmaw.geometry.json": "dee8c0f39d0293c1db25f014e06a0d09f28a4d4bc1b1a4745444d57cfa26ecd8",
+    "creatures/lurking_silkmaw/lurking_silkmaw.bbmodel": "323312680d644c94d6ff729bdebb99dcc0a87f452f2e3c28f7dbca83cad475f8",
+    "creatures/lurking_silkmaw/lurking_silkmaw.obj": "489987bbc69a76e8d73897af8e8f473be57b193156424447f32379e105597546",
+    "creatures/lurking_silkmaw/lurking_silkmaw.mtl": "8d7d8c378ca0734e212604d401d20cd51425a973ec846cb82566a2246d3ea94f",
+    "creatures/lurking_silkmaw/lurking_silkmaw_cloister_ash.png": "2e5c52a3fdfc9b749aed3fb272b605463005eebee4d4f5457b39359d5a6379ce",
+    "creatures/lurking_silkmaw/lurking_silkmaw_burial_ochre.png": "9ade3b448d7320c4dcd98718e31c1f82ac1db5724faf29c9d776a416c787f50d",
+    "creatures/lurking_silkmaw/lurking_silkmaw_moonlit_lichen.png": "68964500f25f3ad06b8cea8e1f3dcef69c06e1b75325012ebd12e1c7db3904cf",
+    "creatures/bell_warden/bell_warden.geometry.json": "bd9da3cc69dd4507095b7bf7cbeef8c88fae3d3cfe2c248dd986d297e37cbc0d",
+    "creatures/bell_warden/bell_warden.bbmodel": "3766e40a38f2172724e90e1bdfae75fc7dc6bc02bf126708691416ecf88a53ed",
+    "creatures/bell_warden/bell_warden.obj": "8c5236bf1ccce232aadf6c78e8ef78cb62d7051448e4b2e029e793a4c09af0a7",
+    "creatures/bell_warden/bell_warden.mtl": "373584214b70c537c2a7ac9bfa22143b491553280d6ad42a893737cf6ab3a7c4",
+    "creatures/bell_warden/bell_warden_cloister_ash.png": "9c5fae2861e6df9da21aa557b35bb910fc5bbb28a725a391cb52c2d0c65005fe",
+    "creatures/bell_warden/bell_warden_burial_ochre.png": "9a9581e52cfac0526a439f16e7f798752ad6679701b9a01a836ba4dacfc9d0e9",
+    "creatures/bell_warden/bell_warden_moonlit_lichen.png": "0a4df0850a40e4de46a7369e17a830ec2781900beb5b510e015558eef60d9e4c"
+  }
+}

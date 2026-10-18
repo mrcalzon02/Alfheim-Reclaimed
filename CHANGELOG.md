@@ -1,5 +1,14 @@
 # Changelog
 
+## Five Descents asset prototypes — 2026-10-18
+
+Started Act I production with 75 staged NBT room/service/connector templates,
+three original creature sculptures, nine material-painted skins and editable
+Blockbench/OBJ exports. Added artifact validators, faithful offline model previews,
+room cutaways and a five-Act production queue. Static validated; no new runtime
+registrations or installed content. See the asset batch 01 README under
+`alfheim_reclaimed_design/monastery_labyrinth/` for integration gates.
+
 ## Repeated Fairy Islands and randomized loot — 2026-10-17
 
 Repaired sky-village site rejection and reserved valid island locations against

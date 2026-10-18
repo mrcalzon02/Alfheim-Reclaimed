@@ -1,0 +1,124 @@
+{
+  "structure_id": "alfheim:ashen_cloister_asset_kit",
+  "requested_grade": 4,
+  "effective_grade": 4,
+  "grade_name": "FUNCTIONAL_REBUILD",
+  "mutation_contract": {
+    "geometry": "substantial_internal",
+    "purpose_reprogramming": true,
+    "massing_change": "limited"
+  },
+  "preserve": [
+    "29-block room envelope",
+    "existing worldgen",
+    "native room floor datum"
+  ],
+  "frozen_by_default": [
+    "registry_id",
+    "quest_or_external_references",
+    "loot/evidence contracts unless explicitly mutable",
+    "geospatial selector ownership unless explicitly mutable"
+  ],
+  "passes": [
+    {
+      "sequence": 0,
+      "pass": "baseline_inventory",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 1,
+      "pass": "purpose_program",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 2,
+      "pass": "precedent_and_context",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 3,
+      "pass": "massing",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 4,
+      "pass": "circulation_and_clearance",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 5,
+      "pass": "functional_zones",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 6,
+      "pass": "structural_system",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 7,
+      "pass": "facade_and_silhouette",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 8,
+      "pass": "utilities_and_operational_systems",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 9,
+      "pass": "interior_fitout",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 10,
+      "pass": "site_infrastructure",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 11,
+      "pass": "cultural_theme",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 12,
+      "pass": "narrative_history",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 13,
+      "pass": "damage_condition",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 14,
+      "pass": "encounters_loot_or_evidence",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 15,
+      "pass": "detail_and_cleanup",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 16,
+      "pass": "mechanical_validation",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 17,
+      "pass": "fixed_camera_visual_review",
+      "eligibility": "required"
+    },
+    {
+      "sequence": 18,
+      "pass": "promotion",
+      "eligibility": "required"
+    }
+  ],
+  "review_policy": {
+    "author_may_self_approve_visual_gate": false,
+    "mechanical_and_visual_status_are_separate": true,
+    "fixed_camera_comparison_preferred": true
+  }
+}

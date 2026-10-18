@@ -1,0 +1,5 @@
+newmtl skin
+Kd 1 1 1
+d 1
+illum 1
+map_Kd ashen_novice_cloister_ash.png

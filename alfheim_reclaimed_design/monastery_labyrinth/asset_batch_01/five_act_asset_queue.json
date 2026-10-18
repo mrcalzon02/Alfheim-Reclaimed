@@ -1,0 +1,1708 @@
+{
+  "batch": "01",
+  "acts": [
+    {
+      "act": 1,
+      "title": "Ashen Cloister",
+      "art_direction": "Forest abbey; worn ash, ivory ossuaries, violet mourning cloth, oxidized bronze.",
+      "masonry_materials": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:spruce_planks",
+        "minecraft:bone_block"
+      ],
+      "room_families": [
+        {
+          "id": "monastery_vestibule",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "ruined_nave",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "bone_cloister",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "novices_cells",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "ossuary",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "spider_gallery",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "bell_chamber",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "scriptorium",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "reliquary",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "cistern",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "refectory",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "grave_gallery",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "ritual_chapel",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "descent_hub",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "elite_arena",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "boss_sanctuary",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "return_shrine",
+          "state": "static_validated_prototype"
+        },
+        {
+          "id": "switchback_stair",
+          "state": "static_validated_prototype"
+        }
+      ],
+      "refuge_services": [
+        "arms_refuge",
+        "provisions_refuge",
+        "apothecary_refuge",
+        "repair_refuge",
+        "salvage_refuge",
+        "waykeeper_refuge"
+      ],
+      "priority_creature_art": [
+        "ashen_novice",
+        "lurking_silkmaw",
+        "bell_warden",
+        "ossuary_bowyer",
+        "reliquary_sentinel",
+        "the_ossuary_prior"
+      ],
+      "creatures": [
+        {
+          "catalog_id": "ashen_novice",
+          "role": "swarm",
+          "telegraph_to_model": "Shatters formation when struck by a bell chime",
+          "counterplay_to_preserve": "Split the pack before it surrounds the party",
+          "art_state": "textured_prototype",
+          "mechanical_state": "design_only",
+          "sound": "unassigned",
+          "asset": "creatures/ashen_novice/ashen_novice.bbmodel"
+        },
+        {
+          "catalog_id": "hollow_veil",
+          "role": "flanker",
+          "telegraph_to_model": "Reappears behind the last healer to cast",
+          "counterplay_to_preserve": "Keep an anchored light on the rear guard",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "ossuary_bowyer",
+          "role": "ranged",
+          "telegraph_to_model": "Pins its next shot to the player's former position",
+          "counterplay_to_preserve": "Move after the bowstring glows",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "lantern_ghoul",
+          "role": "controller",
+          "telegraph_to_model": "Darkens nearby floor and hides its charge",
+          "counterplay_to_preserve": "Break the lantern to collapse its darkness",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "corvid_undertaker",
+          "role": "summoner",
+          "telegraph_to_model": "Calls scavengers from marked corpses",
+          "counterplay_to_preserve": "Burn the corpse markers",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "lurking_silkmaw",
+          "role": "ambusher",
+          "telegraph_to_model": "Descends from marked ceiling webs",
+          "counterplay_to_preserve": "Cut the silk anchor before entry",
+          "art_state": "textured_prototype",
+          "mechanical_state": "design_only",
+          "sound": "unassigned",
+          "asset": "creatures/lurking_silkmaw/lurking_silkmaw.bbmodel"
+        },
+        {
+          "catalog_id": "bell_warden",
+          "role": "support",
+          "telegraph_to_model": "Marks one ally to rally a room-wide pack",
+          "counterplay_to_preserve": "Silence the bell between strikes",
+          "art_state": "textured_prototype",
+          "mechanical_state": "design_only",
+          "sound": "unassigned",
+          "asset": "creatures/bell_warden/bell_warden.bbmodel"
+        },
+        {
+          "catalog_id": "reliquary_sentinel",
+          "role": "tank",
+          "telegraph_to_model": "Faces the strongest frontal threat with a timed bulwark",
+          "counterplay_to_preserve": "Attack its exposed flank after a slam",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "rotmilk_ratpack",
+          "role": "swarm",
+          "telegraph_to_model": "Travels through tiny floor grates in successive waves",
+          "counterplay_to_preserve": "Close grate shutters and fight on open stone",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "grave_thorn",
+          "role": "trapper",
+          "telegraph_to_model": "Catches stationary feet with rooted barbs",
+          "counterplay_to_preserve": "Step away during the soil pulse",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "mourning_matron",
+          "role": "healer",
+          "telegraph_to_model": "Draws wounds from nearby skeletons into itself",
+          "counterplay_to_preserve": "Separate wounded enemies from its radius",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "censer_revenant",
+          "role": "caster",
+          "telegraph_to_model": "Sends drifting smoke that detonates near open flame",
+          "counterplay_to_preserve": "Extinguish braziers or lure the smoke away",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "rift_acolyte",
+          "role": "caster",
+          "telegraph_to_model": "Fires rune darts down prelit floor channels",
+          "counterplay_to_preserve": "Leave the glowing channel before the salvo",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "skullglass_shardling",
+          "role": "swarm",
+          "telegraph_to_model": "Splits into damaging splinters on death",
+          "counterplay_to_preserve": "Finish it outside crowded lanes",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "coal_moth",
+          "role": "flanker",
+          "telegraph_to_model": "Dust marks armor before its brief burn",
+          "counterplay_to_preserve": "Use water and move off the glowing dust",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "chapel_butcher",
+          "role": "brute",
+          "telegraph_to_model": "Sweeps a long frontal execution arc",
+          "counterplay_to_preserve": "Dodge through its recovery side",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "dust_friar",
+          "role": "support",
+          "telegraph_to_model": "Grants short evasion to nearby dead monks",
+          "counterplay_to_preserve": "Interrupt the raised censer",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "sepulcher_hound",
+          "role": "hunter",
+          "telegraph_to_model": "Tracks recent sprinting through blind bends",
+          "counterplay_to_preserve": "Break pursuit across running water",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "briar_witness",
+          "role": "controller",
+          "telegraph_to_model": "Fixes a cone of petrifying roots on one doorway",
+          "counterplay_to_preserve": "Break line of sight behind columns",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "wicker_pilgrim",
+          "role": "ambusher",
+          "telegraph_to_model": "Leaves a decoy body and rushes from behind",
+          "counterplay_to_preserve": "Listen for the moving footfalls",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "pale_deacon",
+          "role": "commander",
+          "telegraph_to_model": "Changes the attack pattern of chapel minions",
+          "counterplay_to_preserve": "Target the deacon's raised hand",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "carrion_lurker",
+          "role": "ambusher",
+          "telegraph_to_model": "Bursts from disturbed graves after a warning tremor",
+          "counterplay_to_preserve": "Avoid freshly moving earth",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "coffin_strider",
+          "role": "tank",
+          "telegraph_to_model": "Drags a coffin shield that becomes an obstacle",
+          "counterplay_to_preserve": "Bait the drop then circle the obstacle",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "choir_wight",
+          "role": "caster",
+          "telegraph_to_model": "Alternates sweeping silence and shattering resonance",
+          "counterplay_to_preserve": "Hide during the resonance windup",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "hollow_sexton",
+          "role": "elite",
+          "telegraph_to_model": "Counts down three tolls before a graveyard shockwave",
+          "counterplay_to_preserve": "Retreat beyond grave markers at the third toll",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "the_ossuary_prior",
+          "role": "boss",
+          "telegraph_to_model": "Rings the entire abbey and commands grave-choir phases",
+          "counterplay_to_preserve": "Silence three echo altars before the final ring",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        }
+      ],
+      "boss_id": "the_ossuary_prior",
+      "encounter_level_policy": "existing Mine and Slash distance from spawn; no descent multiplier"
+    },
+    {
+      "act": 2,
+      "title": "Buried Covenant",
+      "art_direction": "Sun-bleached caravan abbey; recessed sandstone bands, funerary gold, cobalt cistern channels.",
+      "masonry_materials": [
+        "minecraft:cut_sandstone",
+        "minecraft:chiseled_sandstone",
+        "minecraft:smooth_sandstone",
+        "minecraft:terracotta",
+        "minecraft:blue_terracotta"
+      ],
+      "room_families": [
+        {
+          "id": "sandstone_vestibule",
+          "state": "planned"
+        },
+        {
+          "id": "caravan_nave",
+          "state": "planned"
+        },
+        {
+          "id": "sunken_cloister",
+          "state": "planned"
+        },
+        {
+          "id": "embalmer_cells",
+          "state": "planned"
+        },
+        {
+          "id": "scarab_ossuary",
+          "state": "planned"
+        },
+        {
+          "id": "dart_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "cistern_belfry",
+          "state": "planned"
+        },
+        {
+          "id": "sand_scriptorium",
+          "state": "planned"
+        },
+        {
+          "id": "seal_vault",
+          "state": "planned"
+        },
+        {
+          "id": "water_cistern",
+          "state": "planned"
+        },
+        {
+          "id": "caravan_refectory",
+          "state": "planned"
+        },
+        {
+          "id": "pharaoh_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "funerary_chapel",
+          "state": "planned"
+        },
+        {
+          "id": "well_descent_hub",
+          "state": "planned"
+        },
+        {
+          "id": "trap_arena",
+          "state": "planned"
+        },
+        {
+          "id": "dune_sanctuary",
+          "state": "planned"
+        },
+        {
+          "id": "caravan_return_shrine",
+          "state": "planned"
+        },
+        {
+          "id": "cistern_switchback",
+          "state": "planned"
+        }
+      ],
+      "refuge_services": [
+        "arms_refuge",
+        "provisions_refuge",
+        "apothecary_refuge",
+        "repair_refuge",
+        "salvage_refuge",
+        "waykeeper_refuge"
+      ],
+      "priority_creature_art": [
+        "dune_reliquary",
+        "scarlet_scarab_host",
+        "cistern_whisper"
+      ],
+      "creatures": [
+        {
+          "catalog_id": "dune_reliquary",
+          "role": "tank",
+          "telegraph_to_model": "Raises an earthen shield facing nearest enemy",
+          "counterplay_to_preserve": "Flank while its core is exposed",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "scarlet_scarab_host",
+          "role": "swarm",
+          "telegraph_to_model": "Releases multiple beetles on heavy impacts",
+          "counterplay_to_preserve": "Strike precisely or use a wide sweep",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "cistern_whisper",
+          "role": "flanker",
+          "telegraph_to_model": "Travels between linked shallow pools",
+          "counterplay_to_preserve": "Drain or freeze its destination pool",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "saffron_mummy",
+          "role": "brute",
+          "telegraph_to_model": "Throws long wraps from a stationary stance",
+          "counterplay_to_preserve": "Sever the glowing wrap anchor",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "sunken_surveyor",
+          "role": "ranged",
+          "telegraph_to_model": "Fires along etched ancient survey lines",
+          "counterplay_to_preserve": "Step off the line when amber runes light",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "urn_watcher",
+          "role": "trapper",
+          "telegraph_to_model": "Awakens clay jars near repeated footsteps",
+          "counterplay_to_preserve": "Vary the route through the chamber",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "basilica_asp",
+          "role": "hunter",
+          "telegraph_to_model": "Moves beneath low masonry then lunges",
+          "counterplay_to_preserve": "Jump clear of its rippling dust",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "bone_tax_collector",
+          "role": "support",
+          "telegraph_to_model": "Steals potion effectiveness while a tax glyph remains",
+          "counterplay_to_preserve": "Destroy the tax glyph on the floor",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "amber_sepulcher",
+          "role": "tank",
+          "telegraph_to_model": "Hardens its shell each time it holds position",
+          "counterplay_to_preserve": "Force movement to weaken the shell",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "kilnshade",
+          "role": "caster",
+          "telegraph_to_model": "Creates heat-copy projections with no collision",
+          "counterplay_to_preserve": "Find the copy casting the shadow",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "tomb_astrologer",
+          "role": "caster",
+          "telegraph_to_model": "Sweeps three rotating projectiles around a pillar",
+          "counterplay_to_preserve": "Use walls to split the orbits",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "grain_vulture",
+          "role": "flanker",
+          "telegraph_to_model": "Dives at players recovering health",
+          "counterplay_to_preserve": "Delay healing until it lands",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "funeral_spearman",
+          "role": "frontliner",
+          "telegraph_to_model": "Takes formation with other spearmen at room doors",
+          "counterplay_to_preserve": "Lure one guard out of formation",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "glyph_leech",
+          "role": "trapper",
+          "telegraph_to_model": "Consumes active runes to charge an explosion",
+          "counterplay_to_preserve": "Disable nearby glyphs first",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "well_maw",
+          "role": "ambusher",
+          "telegraph_to_model": "Pulls targets toward an unsafe cistern opening",
+          "counterplay_to_preserve": "Grab the rim chain to resist the pull",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "copper_ushabti",
+          "role": "brute",
+          "telegraph_to_model": "Marks two lanes with its double-bladed swing",
+          "counterplay_to_preserve": "Move into the clear third lane",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "limestone_banshee",
+          "role": "controller",
+          "telegraph_to_model": "Amplifies old spell impacts in narrow vaults",
+          "counterplay_to_preserve": "Fight away from echoing walls",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "silt_devourer",
+          "role": "swarm",
+          "telegraph_to_model": "Spawns from loose sediment disturbed by movement",
+          "counterplay_to_preserve": "Use stable paved walkways",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "blind_pharaoh_hound",
+          "role": "hunter",
+          "telegraph_to_model": "Locks onto noisy combat actions",
+          "counterplay_to_preserve": "Pause attacks to lose its lock",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "gilded_dustcaller",
+          "role": "summoner",
+          "telegraph_to_model": "Forms minions from marked urn piles",
+          "counterplay_to_preserve": "Shatter dry urn piles between summons",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "pyramid_vesper",
+          "role": "ranged",
+          "telegraph_to_model": "Reflects darts off polished metal plates",
+          "counterplay_to_preserve": "Rotate the plates away from the path",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "riven_canopic",
+          "role": "caster",
+          "telegraph_to_model": "Assigns one of four debuffs from its open jars",
+          "counterplay_to_preserve": "Seal the corresponding jar",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "crownless_regent",
+          "role": "commander",
+          "telegraph_to_model": "Orders shielded guards to rush in staggered waves",
+          "counterplay_to_preserve": "Break its command scepter",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "salt_sentinel",
+          "role": "tank",
+          "telegraph_to_model": "Turns briefly rigid and reflects weak projectiles",
+          "counterplay_to_preserve": "Switch to heavy blows when it crusts",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "midnight_embalmer",
+          "role": "elite",
+          "telegraph_to_model": "Revives the oldest intact corpse after a ritual",
+          "counterplay_to_preserve": "Break the funeral table during the rite",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "the_drowned_vizier",
+          "role": "boss",
+          "telegraph_to_model": "Raises cistern levels and directs burial phantoms",
+          "counterplay_to_preserve": "Open drainage sluices to expose its vulnerable heart",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        }
+      ],
+      "boss_id": "the_drowned_vizier",
+      "encounter_level_policy": "existing Mine and Slash distance from spawn; no descent multiplier"
+    },
+    {
+      "act": 3,
+      "title": "Verdant Blight",
+      "art_direction": "Flooded root cloister; sheltered dry refuges, fungal shelves, green-black roots and visible poison sacs.",
+      "masonry_materials": [
+        "minecraft:mud_bricks",
+        "minecraft:mossy_cobblestone",
+        "minecraft:mangrove_planks",
+        "minecraft:rooted_dirt",
+        "minecraft:green_terracotta"
+      ],
+      "room_families": [
+        {
+          "id": "root_vestibule",
+          "state": "planned"
+        },
+        {
+          "id": "flooded_nave",
+          "state": "planned"
+        },
+        {
+          "id": "strangled_cloister",
+          "state": "planned"
+        },
+        {
+          "id": "fever_cells",
+          "state": "planned"
+        },
+        {
+          "id": "spore_ossuary",
+          "state": "planned"
+        },
+        {
+          "id": "root_lash_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "drowned_belfry",
+          "state": "planned"
+        },
+        {
+          "id": "mold_scriptorium",
+          "state": "planned"
+        },
+        {
+          "id": "bog_reliquary",
+          "state": "planned"
+        },
+        {
+          "id": "sewer_cistern",
+          "state": "planned"
+        },
+        {
+          "id": "fungal_refectory",
+          "state": "planned"
+        },
+        {
+          "id": "root_grave_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "blighted_chapel",
+          "state": "planned"
+        },
+        {
+          "id": "sump_descent_hub",
+          "state": "planned"
+        },
+        {
+          "id": "fever_arena",
+          "state": "planned"
+        },
+        {
+          "id": "heartroot_sanctuary",
+          "state": "planned"
+        },
+        {
+          "id": "marsh_return_shrine",
+          "state": "planned"
+        },
+        {
+          "id": "sluice_switchback",
+          "state": "planned"
+        }
+      ],
+      "refuge_services": [
+        "arms_refuge",
+        "provisions_refuge",
+        "apothecary_refuge",
+        "repair_refuge",
+        "salvage_refuge",
+        "waykeeper_refuge"
+      ],
+      "priority_creature_art": [
+        "bog_lanternling",
+        "verdigris_ravager",
+        "spore_matriarch"
+      ],
+      "creatures": [
+        {
+          "catalog_id": "bog_lanternling",
+          "role": "swarm",
+          "telegraph_to_model": "Lures players to unstable marsh footing",
+          "counterplay_to_preserve": "Follow the grounded lantern glow",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "verdigris_ravager",
+          "role": "brute",
+          "telegraph_to_model": "Charges toward metal sounds through vine walls",
+          "counterplay_to_preserve": "Sidestep its rust trail",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "spore_matriarch",
+          "role": "summoner",
+          "telegraph_to_model": "Grows juvenile stalkers from marked pods",
+          "counterplay_to_preserve": "Destroy pods before they burst",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "fever_quill",
+          "role": "ranged",
+          "telegraph_to_model": "Shoots staggered quills that linger in walls",
+          "counterplay_to_preserve": "Use cover until all three impacts land",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "canal_drowner",
+          "role": "flanker",
+          "telegraph_to_model": "Grabs ankles from submerged culverts",
+          "counterplay_to_preserve": "Avoid rippling water until it surfaces",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "root_lash",
+          "role": "controller",
+          "telegraph_to_model": "Sweeps two plant tendrils across fixed corridors",
+          "counterplay_to_preserve": "Cut exposed roots between sweeps",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "leech_choir",
+          "role": "swarm",
+          "telegraph_to_model": "Amplifies damage as the group stays close",
+          "counterplay_to_preserve": "Split the choir with obstacles",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "pox_apothecary",
+          "role": "caster",
+          "telegraph_to_model": "Throws mixed disease vials with colored tell",
+          "counterplay_to_preserve": "Move to ground safe from the indicated vial",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "temple_skulker",
+          "role": "ambusher",
+          "telegraph_to_model": "Unfolds from mossy altars after a floor tremor",
+          "counterplay_to_preserve": "Watch which altar shadow shifts",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "mud_centurion",
+          "role": "tank",
+          "telegraph_to_model": "Gains protection standing in wet earth",
+          "counterplay_to_preserve": "Pull it onto dry carved stone",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "rotvine_hound",
+          "role": "hunter",
+          "telegraph_to_model": "Pursues recently poisoned targets across roots",
+          "counterplay_to_preserve": "Cure or transfer the scent debuff",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "grove_heretic",
+          "role": "support",
+          "telegraph_to_model": "Heals nearby blighted vegetation and monsters",
+          "counterplay_to_preserve": "Break its glowing root channel",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "mildew_cantor",
+          "role": "caster",
+          "telegraph_to_model": "Alternates poison clouds with a silence pulse",
+          "counterplay_to_preserve": "Interrupt when its throat flowers open",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "fungal_stag",
+          "role": "brute",
+          "telegraph_to_model": "Plows a straight lane and leaves uprooted cover",
+          "counterplay_to_preserve": "Stand behind undisturbed columns",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "floodglass_archer",
+          "role": "ranged",
+          "telegraph_to_model": "Bounces projectiles through standing water",
+          "counterplay_to_preserve": "Step out of linked wet patches",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "swamp_wisp_harrier",
+          "role": "flanker",
+          "telegraph_to_model": "Swaps places with a nearby decoy wisp",
+          "counterplay_to_preserve": "Track the one casting a real shadow",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "buried_lamia",
+          "role": "ambusher",
+          "telegraph_to_model": "Tunnels under soft ground then strikes upward",
+          "counterplay_to_preserve": "Move to reinforced floor",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "nettle_sacristan",
+          "role": "trapper",
+          "telegraph_to_model": "Seeds a temporary ring of barbed growth",
+          "counterplay_to_preserve": "Break one ring segment for escape",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "carrion_apotheosis",
+          "role": "elite",
+          "telegraph_to_model": "Consumes fallen lesser mobs to grow extra limbs",
+          "counterplay_to_preserve": "Remove corpses before its feed",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "marshstone_idol",
+          "role": "tank",
+          "telegraph_to_model": "Turns slowly while sweeping a petrifying gaze",
+          "counterplay_to_preserve": "Stay behind its rotation",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "fen_votary",
+          "role": "frontliner",
+          "telegraph_to_model": "Presses two staggered scythe strikes",
+          "counterplay_to_preserve": "Parry the second delayed swing",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "feverling_swarm",
+          "role": "swarm",
+          "telegraph_to_model": "Hatches near unattended poison clouds",
+          "counterplay_to_preserve": "Disperse clouds before hatch time",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "canopy_strangler",
+          "role": "trapper",
+          "telegraph_to_model": "Drops strangling vines from beam sockets",
+          "counterplay_to_preserve": "Cut the highlighted hanging knot",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "sump_oracle",
+          "role": "commander",
+          "telegraph_to_model": "Predicts a sequence of rising water lanes",
+          "counterplay_to_preserve": "Watch its staff and stay on the safe tile",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "canker_abbot",
+          "role": "elite",
+          "telegraph_to_model": "Blesses one zone then corrupts an adjacent one",
+          "counterplay_to_preserve": "Rotate around the safe zone as it decays",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "the_blighted_hierophant",
+          "role": "boss",
+          "telegraph_to_model": "Grows escalating spore labyrinths across the arena",
+          "counterplay_to_preserve": "Burn only the marked growth nodes to open safe lanes",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        }
+      ],
+      "boss_id": "the_blighted_hierophant",
+      "encounter_level_policy": "existing Mine and Slash distance from spawn; no descent multiplier"
+    },
+    {
+      "act": 4,
+      "title": "Cinder Testament",
+      "art_direction": "Burned fortress-monastery; load-bearing black masonry, riveted ash armor, chain arcs, banked coals.",
+      "masonry_materials": [
+        "minecraft:nether_bricks",
+        "minecraft:chiseled_nether_bricks",
+        "minecraft:polished_blackstone_bricks",
+        "minecraft:basalt",
+        "minecraft:red_terracotta"
+      ],
+      "room_families": [
+        {
+          "id": "cinder_vestibule",
+          "state": "planned"
+        },
+        {
+          "id": "furnace_nave",
+          "state": "planned"
+        },
+        {
+          "id": "chain_cloister",
+          "state": "planned"
+        },
+        {
+          "id": "ash_cells",
+          "state": "planned"
+        },
+        {
+          "id": "charnel_ossuary",
+          "state": "planned"
+        },
+        {
+          "id": "chain_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "furnace_belfry",
+          "state": "planned"
+        },
+        {
+          "id": "soot_scriptorium",
+          "state": "planned"
+        },
+        {
+          "id": "ember_reliquary",
+          "state": "planned"
+        },
+        {
+          "id": "quench_cistern",
+          "state": "planned"
+        },
+        {
+          "id": "ash_refectory",
+          "state": "planned"
+        },
+        {
+          "id": "pyre_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "blood_chapel",
+          "state": "planned"
+        },
+        {
+          "id": "furnace_descent_hub",
+          "state": "planned"
+        },
+        {
+          "id": "chain_arena",
+          "state": "planned"
+        },
+        {
+          "id": "cinder_sanctuary",
+          "state": "planned"
+        },
+        {
+          "id": "forge_return_shrine",
+          "state": "planned"
+        },
+        {
+          "id": "ash_switchback",
+          "state": "planned"
+        }
+      ],
+      "refuge_services": [
+        "arms_refuge",
+        "provisions_refuge",
+        "apothecary_refuge",
+        "repair_refuge",
+        "salvage_refuge",
+        "waykeeper_refuge"
+      ],
+      "priority_creature_art": [
+        "cinder_initiate",
+        "chain_bailiff",
+        "furnace_gnasher"
+      ],
+      "creatures": [
+        {
+          "catalog_id": "cinder_initiate",
+          "role": "swarm",
+          "telegraph_to_model": "Converges from both sides of a marked furnace lane",
+          "counterplay_to_preserve": "Hold a clear escape route through ash",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "chain_bailiff",
+          "role": "controller",
+          "telegraph_to_model": "Throws a hooked chain across a corridor",
+          "counterplay_to_preserve": "Dodge across the chain's anchor line",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "soot_imperator",
+          "role": "commander",
+          "telegraph_to_model": "Orders heavy brutes to synchronize charges",
+          "counterplay_to_preserve": "Stagger the imperator before the roar",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "furnace_gnasher",
+          "role": "brute",
+          "telegraph_to_model": "Rushes out of glowing forge openings",
+          "counterplay_to_preserve": "Close the grate between lunges",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "ember_basilisk",
+          "role": "hunter",
+          "telegraph_to_model": "Tracks heat and leaves a burning trail",
+          "counterplay_to_preserve": "Cross cool stone to drop the heat trace",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "ash_choir",
+          "role": "caster",
+          "telegraph_to_model": "Channels expanding rings of embers",
+          "counterplay_to_preserve": "Jump the outer ring after its chime",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "iron_confessor",
+          "role": "tank",
+          "telegraph_to_model": "Blocks three consecutive hits then retaliates",
+          "counterplay_to_preserve": "Feint to spend guard charges",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "sable_inquisitor",
+          "role": "elite",
+          "telegraph_to_model": "Marks one player for a delayed angled strike",
+          "counterplay_to_preserve": "Trade aggro while the brand grows",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "molten_eye",
+          "role": "ranged",
+          "telegraph_to_model": "Sweeps a thin sightline before firing an intense beam",
+          "counterplay_to_preserve": "Break line of sight at the pulse",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "fettersmith",
+          "role": "trapper",
+          "telegraph_to_model": "Spins crossing heated chains over floors",
+          "counterplay_to_preserve": "Cut cooler chain anchors",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "pyre_widower",
+          "role": "summoner",
+          "telegraph_to_model": "Summons ember spiders from active braziers",
+          "counterplay_to_preserve": "Douse the braziers",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "crucible_walker",
+          "role": "brute",
+          "telegraph_to_model": "Slams and sprays molten slag behind the target",
+          "counterplay_to_preserve": "Move across rather than back",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "tithe_wraith",
+          "role": "flanker",
+          "telegraph_to_model": "Steals shield charge then teleports away",
+          "counterplay_to_preserve": "Stay in ward-light to block the tithe",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "ashwing_marauder",
+          "role": "flanker",
+          "telegraph_to_model": "Air-dives with a timed ground shadow",
+          "counterplay_to_preserve": "Run outside the growing wing shadow",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "bloodglass_adept",
+          "role": "caster",
+          "telegraph_to_model": "Grows brittle spikes from scorched glass",
+          "counterplay_to_preserve": "Break the spike at its base",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "cauterized_sentinel",
+          "role": "tank",
+          "telegraph_to_model": "Rotates red-hot armor plates around its core",
+          "counterplay_to_preserve": "Hit an unlit plate from the side",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "smoke_stalker",
+          "role": "ambusher",
+          "telegraph_to_model": "Falls from vents after issuing dark smoke",
+          "counterplay_to_preserve": "Stand clear of blackening chimneys",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "obsidian_headsman",
+          "role": "brute",
+          "telegraph_to_model": "Performs a vertical long-range blade slam",
+          "counterplay_to_preserve": "Roll away from the marked blade line",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "penance_hound",
+          "role": "hunter",
+          "telegraph_to_model": "Amplifies threat from injured targets",
+          "counterplay_to_preserve": "Use cover while its howl fades",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "soul_stoker",
+          "role": "support",
+          "telegraph_to_model": "Feeds heat to nearby forge monsters",
+          "counterplay_to_preserve": "Crack the coal vessel it carries",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "gore_lantern",
+          "role": "controller",
+          "telegraph_to_model": "Projects a triangular damage zone from its lamp",
+          "counterplay_to_preserve": "Rotate around the lamp base",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "charred_vestry",
+          "role": "summoner",
+          "telegraph_to_model": "Reconstitutes lesser troops from cooled ashes",
+          "counterplay_to_preserve": "Scatter the ash circles first",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "wailing_bellows",
+          "role": "ranged",
+          "telegraph_to_model": "Builds pressure then fires a narrow flame burst",
+          "counterplay_to_preserve": "Watch the gauge and sidestep",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "gloom_prosecutor",
+          "role": "caster",
+          "telegraph_to_model": "Places three curses with different delays",
+          "counterplay_to_preserve": "Leave the oldest curse tile first",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "cinder_throne_herald",
+          "role": "elite",
+          "telegraph_to_model": "Raises an expanding flame throne around allies",
+          "counterplay_to_preserve": "Break its throne supports before ignition",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "the_ember_inquisitor",
+          "role": "boss",
+          "telegraph_to_model": "Forces timed verdicts while furnace guards change formations",
+          "counterplay_to_preserve": "Destroy the active judgment seals without waking idle furnaces",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        }
+      ],
+      "boss_id": "the_ember_inquisitor",
+      "encounter_level_policy": "existing Mine and Slash distance from spawn; no descent multiplier"
+    },
+    {
+      "act": 5,
+      "title": "Winter Crown",
+      "art_direction": "Besieged snow monastery; massive slate buttresses, ivory frost burial markers, fur and glacial fissures.",
+      "masonry_materials": [
+        "minecraft:deepslate_bricks",
+        "minecraft:polished_deepslate",
+        "minecraft:packed_ice",
+        "minecraft:snow_block",
+        "minecraft:blue_ice"
+      ],
+      "room_families": [
+        {
+          "id": "rime_vestibule",
+          "state": "planned"
+        },
+        {
+          "id": "besieged_nave",
+          "state": "planned"
+        },
+        {
+          "id": "snow_cloister",
+          "state": "planned"
+        },
+        {
+          "id": "penitent_cells",
+          "state": "planned"
+        },
+        {
+          "id": "ice_ossuary",
+          "state": "planned"
+        },
+        {
+          "id": "prison_gallery",
+          "state": "planned"
+        },
+        {
+          "id": "frost_belfry",
+          "state": "planned"
+        },
+        {
+          "id": "frozen_scriptorium",
+          "state": "planned"
+        },
+        {
+          "id": "crown_reliquary",
+          "state": "planned"
+        },
+        {
+          "id": "thaw_cistern",
+          "state": "planned"
+        },
+        {
+          "id": "survivor_refectory",
+          "state": "planned"
+        },
+        {
+          "id": "burial_hold",
+          "state": "planned"
+        },
+        {
+          "id": "glacial_chapel",
+          "state": "planned"
+        },
+        {
+          "id": "abyss_descent_hub",
+          "state": "planned"
+        },
+        {
+          "id": "siege_arena",
+          "state": "planned"
+        },
+        {
+          "id": "winter_sanctuary",
+          "state": "planned"
+        },
+        {
+          "id": "survivor_return_shrine",
+          "state": "planned"
+        },
+        {
+          "id": "glacier_switchback",
+          "state": "planned"
+        }
+      ],
+      "refuge_services": [
+        "arms_refuge",
+        "provisions_refuge",
+        "apothecary_refuge",
+        "repair_refuge",
+        "salvage_refuge",
+        "waykeeper_refuge"
+      ],
+      "priority_creature_art": [
+        "rime_penitent",
+        "snowblind_stalker",
+        "hailcarved_watcher"
+      ],
+      "creatures": [
+        {
+          "catalog_id": "rime_penitent",
+          "role": "frontliner",
+          "telegraph_to_model": "Jabs through two tiles in a marked straight line",
+          "counterplay_to_preserve": "Move sideways during the frost draw",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "snowblind_stalker",
+          "role": "hunter",
+          "telegraph_to_model": "Hides inside blizzard swirls before pouncing",
+          "counterplay_to_preserve": "Follow tracks through the snow",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "glacial_reaver",
+          "role": "brute",
+          "telegraph_to_model": "Cracks floor ice into three delayed damage lanes",
+          "counterplay_to_preserve": "Reach rock before the final break",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "hailcarved_watcher",
+          "role": "tank",
+          "telegraph_to_model": "Faces incoming attacks behind a growing glacier plate",
+          "counterplay_to_preserve": "Melt the thin side of the plate",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "frost_choir",
+          "role": "caster",
+          "telegraph_to_model": "Sings a layered slow that ends in a cold pulse",
+          "counterplay_to_preserve": "Break the vocal channel with impact",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "horned_avalanche",
+          "role": "brute",
+          "telegraph_to_model": "Drags an advancing wall of debris behind a charge",
+          "counterplay_to_preserve": "Take the high sidetrack",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "icebound_sapper",
+          "role": "trapper",
+          "telegraph_to_model": "Plants icy mines disguised as snow mounds",
+          "counterplay_to_preserve": "Expose powder with a heat source",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "whitefang_matriarch",
+          "role": "commander",
+          "telegraph_to_model": "Orders wolves to encircle the furthest player",
+          "counterplay_to_preserve": "Regroup near a narrow entry",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "winter_revenant",
+          "role": "flanker",
+          "telegraph_to_model": "Leaves a delayed duplicate of its last attack",
+          "counterplay_to_preserve": "Dodge twice with staggered timing",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "permafrost_herald",
+          "role": "support",
+          "telegraph_to_model": "Repairs frost armor on nearby sentinels",
+          "counterplay_to_preserve": "Interrupt its staff slam",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "burial_hart",
+          "role": "hunter",
+          "telegraph_to_model": "Accelerates on long open snowy corridors",
+          "counterplay_to_preserve": "Lure it into tight rock arches",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "tundra_boneweaver",
+          "role": "summoner",
+          "telegraph_to_model": "Assembles mobile bone packs from buried markers",
+          "counterplay_to_preserve": "Destroy the sled-frame bones",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "icicle_lancer",
+          "role": "ranged",
+          "telegraph_to_model": "Throws spears that later fall from ceilings",
+          "counterplay_to_preserve": "Break the ceiling anchor before it drops",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "hoarfrost_oracle",
+          "role": "caster",
+          "telegraph_to_model": "Marks where targets will be after a short delay",
+          "counterplay_to_preserve": "Reverse direction before the strike",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "fallen_rampart",
+          "role": "tank",
+          "telegraph_to_model": "Walks forward carrying a shield wall",
+          "counterplay_to_preserve": "Use ceiling vents to flank it",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "chill_warden",
+          "role": "controller",
+          "telegraph_to_model": "Locks one gate with spreading frost",
+          "counterplay_to_preserve": "Light both braziers to thaw passage",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "aurora_banshee",
+          "role": "caster",
+          "telegraph_to_model": "Fires rays reflected through prism crystals",
+          "counterplay_to_preserve": "Rotate crystal fixtures",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "stonehide_yeti",
+          "role": "brute",
+          "telegraph_to_model": "Rolls a boulder then leaps after it",
+          "counterplay_to_preserve": "Step behind the boulder after the roll",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "pale_howler",
+          "role": "support",
+          "telegraph_to_model": "Forces weaker allies into berserk charges",
+          "counterplay_to_preserve": "Interrupt its inhale",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "blizzard_wyrmling",
+          "role": "flanker",
+          "telegraph_to_model": "Burrows through snowdrifts in a circling path",
+          "counterplay_to_preserve": "Stand on stone to break its route",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "crypt_hearthguard",
+          "role": "frontliner",
+          "telegraph_to_model": "Turns a dormant fireplace into a protective zone",
+          "counterplay_to_preserve": "Douse the firebox safely",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "ice_widow",
+          "role": "trapper",
+          "telegraph_to_model": "Spreads thin glass-like threads that freeze movement",
+          "counterplay_to_preserve": "Cut threads in crosswind",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "siege_palehand",
+          "role": "commander",
+          "telegraph_to_model": "Deploys short-lived icy artillery markers",
+          "counterplay_to_preserve": "Destroy the marked ammunition stacks",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "frostbite_eater",
+          "role": "swarm",
+          "telegraph_to_model": "Grows stronger when players stack slow debuffs",
+          "counterplay_to_preserve": "Cleanse slows before it swarms",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "crownless_jarl",
+          "role": "elite",
+          "telegraph_to_model": "Plants a standard that reorganizes nearby troops",
+          "counterplay_to_preserve": "Topple its standard to end the formation",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        },
+        {
+          "catalog_id": "the_last_snow_crowned_king",
+          "role": "boss",
+          "telegraph_to_model": "Summons blizzard walls and an advancing siege choir",
+          "counterplay_to_preserve": "Keep three beacon braziers lit through the final assault",
+          "art_state": "planned",
+          "mechanical_state": "design_only",
+          "sound": "unassigned"
+        }
+      ],
+      "boss_id": "the_last_snow_crowned_king",
+      "encounter_level_policy": "existing Mine and Slash distance from spawn; no descent multiplier"
+    }
+  ],
+  "runtime_species_implemented": 0,
+  "textured_species_prototypes": 3,
+  "production_order": [
+    "Act I shell-to-template adapter and gap/height fitting",
+    "Act I animated native models and twelve distinct AI implementations",
+    "Functional refuge trades, encounter controllers and boss",
+    "Act II-V authored silhouettes/rooms; expand to full catalogue",
+    "Fresh-world, multiplayer, performance and client acceptance"
+  ],
+  "species_rule": "Skins and affixes do not count as new mechanical species.",
+  "stair_adapter_gate": "Prototype rise is 12 blocks. Native strata vary; fit exact floor delta and headroom before replacing shafts.",
+  "placement_gate": "One reservation for monastery/village/labyrinth; existing court/castle/district priority and independent-structure gap remain runtime gates."
+}

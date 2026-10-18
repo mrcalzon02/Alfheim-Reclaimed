@@ -1,0 +1,656 @@
+{
+  "acceptance": "static validated; runtime pending",
+  "templates": [
+    {
+      "path": "templates/act_1/monastery_vestibule/kept.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/monastery_vestibule/weathered.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/monastery_vestibule/ruined.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ruined_nave/kept.nbt",
+      "reachable_standing_cells": 645,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ruined_nave/weathered.nbt",
+      "reachable_standing_cells": 645,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ruined_nave/ruined.nbt",
+      "reachable_standing_cells": 645,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/bone_cloister/kept.nbt",
+      "reachable_standing_cells": 629,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/bone_cloister/weathered.nbt",
+      "reachable_standing_cells": 629,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/bone_cloister/ruined.nbt",
+      "reachable_standing_cells": 629,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/novices_cells/kept.nbt",
+      "reachable_standing_cells": 545,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/novices_cells/weathered.nbt",
+      "reachable_standing_cells": 545,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/novices_cells/ruined.nbt",
+      "reachable_standing_cells": 545,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ossuary/kept.nbt",
+      "reachable_standing_cells": 605,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ossuary/weathered.nbt",
+      "reachable_standing_cells": 605,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ossuary/ruined.nbt",
+      "reachable_standing_cells": 606,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/spider_gallery/kept.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/spider_gallery/weathered.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/spider_gallery/ruined.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/bell_chamber/kept.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/bell_chamber/weathered.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/bell_chamber/ruined.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/scriptorium/kept.nbt",
+      "reachable_standing_cells": 563,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/scriptorium/weathered.nbt",
+      "reachable_standing_cells": 563,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/scriptorium/ruined.nbt",
+      "reachable_standing_cells": 564,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/reliquary/kept.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/reliquary/weathered.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/reliquary/ruined.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/cistern/kept.nbt",
+      "reachable_standing_cells": 545,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/cistern/weathered.nbt",
+      "reachable_standing_cells": 545,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/cistern/ruined.nbt",
+      "reachable_standing_cells": 545,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/refectory/kept.nbt",
+      "reachable_standing_cells": 561,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/refectory/weathered.nbt",
+      "reachable_standing_cells": 561,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/refectory/ruined.nbt",
+      "reachable_standing_cells": 562,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/grave_gallery/kept.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/grave_gallery/weathered.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/grave_gallery/ruined.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ritual_chapel/kept.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ritual_chapel/weathered.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/ritual_chapel/ruined.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/descent_hub/kept.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/descent_hub/weathered.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/descent_hub/ruined.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/elite_arena/kept.nbt",
+      "reachable_standing_cells": 597,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/elite_arena/weathered.nbt",
+      "reachable_standing_cells": 597,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/elite_arena/ruined.nbt",
+      "reachable_standing_cells": 598,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/boss_sanctuary/kept.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/boss_sanctuary/weathered.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/boss_sanctuary/ruined.nbt",
+      "reachable_standing_cells": 581,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/return_shrine/kept.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/return_shrine/weathered.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/return_shrine/ruined.nbt",
+      "reachable_standing_cells": 637,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/switchback_stair/kept.nbt",
+      "reachable_standing_cells": 891,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/switchback_stair/weathered.nbt",
+      "reachable_standing_cells": 891,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/switchback_stair/ruined.nbt",
+      "reachable_standing_cells": 891,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/arms_refuge/kept.nbt",
+      "reachable_standing_cells": 577,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/arms_refuge/weathered.nbt",
+      "reachable_standing_cells": 577,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/arms_refuge/ruined.nbt",
+      "reachable_standing_cells": 578,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/provisions_refuge/kept.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/provisions_refuge/weathered.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/provisions_refuge/ruined.nbt",
+      "reachable_standing_cells": 566,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/apothecary_refuge/kept.nbt",
+      "reachable_standing_cells": 573,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/apothecary_refuge/weathered.nbt",
+      "reachable_standing_cells": 573,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/apothecary_refuge/ruined.nbt",
+      "reachable_standing_cells": 574,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/repair_refuge/kept.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/repair_refuge/weathered.nbt",
+      "reachable_standing_cells": 565,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/repair_refuge/ruined.nbt",
+      "reachable_standing_cells": 566,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/salvage_refuge/kept.nbt",
+      "reachable_standing_cells": 587,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/salvage_refuge/weathered.nbt",
+      "reachable_standing_cells": 587,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/salvage_refuge/ruined.nbt",
+      "reachable_standing_cells": 587,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/waykeeper_refuge/kept.nbt",
+      "reachable_standing_cells": 578,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/waykeeper_refuge/weathered.nbt",
+      "reachable_standing_cells": 578,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/waykeeper_refuge/ruined.nbt",
+      "reachable_standing_cells": 579,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/connector_straight/kept.nbt",
+      "reachable_standing_cells": 145,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/connector_straight/weathered.nbt",
+      "reachable_standing_cells": 145,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    },
+    {
+      "path": "templates/act_1/connector_straight/ruined.nbt",
+      "reachable_standing_cells": 145,
+      "all_sockets_reachable": true,
+      "two_block_headroom": true,
+      "graph_only_test": true,
+      "client_movement_test": "pending"
+    }
+  ],
+  "creatures": [
+    {
+      "id": "ashen_novice",
+      "sculpted_parts": 95,
+      "quad_count": 570,
+      "unique_face_islands": 570,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true
+    },
+    {
+      "id": "lurking_silkmaw",
+      "sculpted_parts": 87,
+      "quad_count": 522,
+      "unique_face_islands": 522,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true
+    },
+    {
+      "id": "bell_warden",
+      "sculpted_parts": 105,
+      "quad_count": 630,
+      "unique_face_islands": 630,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true
+    }
+  ],
+  "checks": [
+    "NBT version/bounds/palette indices",
+    "deterministic source-to-artifact equality",
+    "socket reachability with two-block headroom",
+    "five-wide dry room/passsage routes",
+    "twelve-block switchback route",
+    "file hashes",
+    "finite nondegenerate model faces",
+    "unique UV face islands",
+    "opaque used texels",
+    "OBJ outward winding",
+    "Blockbench group references"
+  ],
+  "not_executed": [
+    "in-game template placement",
+    "actual stair collision movement",
+    "native model baking",
+    "model keyframe animation",
+    "AI state machines",
+    "merchant trades",
+    "loot integration",
+    "worldgen reservations",
+    "fresh-world natural generation",
+    "multiplayer/performance"
+  ]
+}
