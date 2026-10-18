@@ -5,6 +5,8 @@
       "act": 1,
       "title": "Ashen Cloister",
       "art_direction": "Forest abbey; worn ash, ivory ossuaries, violet mourning cloth, oxidized bronze.",
+      "catalogue_species": 26,
+      "textured_species_prototypes": 26,
       "masonry_materials": [
         "minecraft:stone_bricks",
         "minecraft:mossy_stone_bricks",
@@ -102,14 +104,7 @@
         "reliquary_sentinel",
         "the_ossuary_prior"
       ],
-      "next_creature_art": [
-        "sepulcher_hound",
-        "briar_witness",
-        "wicker_pilgrim",
-        "pale_deacon",
-        "carrion_lurker",
-        "coffin_strider"
-      ],
+      "next_creature_art": [],
       "creatures": [
         {
           "catalog_id": "ashen_novice",
@@ -286,72 +281,80 @@
           "role": "hunter",
           "telegraph_to_model": "Tracks recent sprinting through blind bends",
           "counterplay_to_preserve": "Break pursuit across running water",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/sepulcher_hound/sepulcher_hound.bbmodel"
         },
         {
           "catalog_id": "briar_witness",
           "role": "controller",
           "telegraph_to_model": "Fixes a cone of petrifying roots on one doorway",
           "counterplay_to_preserve": "Break line of sight behind columns",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/briar_witness/briar_witness.bbmodel"
         },
         {
           "catalog_id": "wicker_pilgrim",
           "role": "ambusher",
           "telegraph_to_model": "Leaves a decoy body and rushes from behind",
           "counterplay_to_preserve": "Listen for the moving footfalls",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/wicker_pilgrim/wicker_pilgrim.bbmodel"
         },
         {
           "catalog_id": "pale_deacon",
           "role": "commander",
           "telegraph_to_model": "Changes the attack pattern of chapel minions",
           "counterplay_to_preserve": "Target the deacon's raised hand",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/pale_deacon/pale_deacon.bbmodel"
         },
         {
           "catalog_id": "carrion_lurker",
           "role": "ambusher",
           "telegraph_to_model": "Bursts from disturbed graves after a warning tremor",
           "counterplay_to_preserve": "Avoid freshly moving earth",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/carrion_lurker/carrion_lurker.bbmodel"
         },
         {
           "catalog_id": "coffin_strider",
           "role": "tank",
           "telegraph_to_model": "Drags a coffin shield that becomes an obstacle",
           "counterplay_to_preserve": "Bait the drop then circle the obstacle",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/coffin_strider/coffin_strider.bbmodel"
         },
         {
           "catalog_id": "choir_wight",
           "role": "caster",
           "telegraph_to_model": "Alternates sweeping silence and shattering resonance",
           "counterplay_to_preserve": "Hide during the resonance windup",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/choir_wight/choir_wight.bbmodel"
         },
         {
           "catalog_id": "hollow_sexton",
           "role": "elite",
           "telegraph_to_model": "Counts down three tolls before a graveyard shockwave",
           "counterplay_to_preserve": "Retreat beyond grave markers at the third toll",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/hollow_sexton/hollow_sexton.bbmodel"
         },
         {
           "catalog_id": "the_ossuary_prior",
@@ -371,6 +374,8 @@
       "act": 2,
       "title": "Buried Covenant",
       "art_direction": "Sun-bleached caravan abbey; recessed sandstone bands, funerary gold, cobalt cistern channels.",
+      "catalogue_species": 26,
+      "textured_species_prototypes": 0,
       "masonry_materials": [
         "minecraft:cut_sandstone",
         "minecraft:chiseled_sandstone",
@@ -713,6 +718,8 @@
       "act": 3,
       "title": "Verdant Blight",
       "art_direction": "Flooded root cloister; sheltered dry refuges, fungal shelves, green-black roots and visible poison sacs.",
+      "catalogue_species": 26,
+      "textured_species_prototypes": 0,
       "masonry_materials": [
         "minecraft:mud_bricks",
         "minecraft:mossy_cobblestone",
@@ -1055,6 +1062,8 @@
       "act": 4,
       "title": "Cinder Testament",
       "art_direction": "Burned fortress-monastery; load-bearing black masonry, riveted ash armor, chain arcs, banked coals.",
+      "catalogue_species": 26,
+      "textured_species_prototypes": 0,
       "masonry_materials": [
         "minecraft:nether_bricks",
         "minecraft:chiseled_nether_bricks",
@@ -1397,6 +1406,8 @@
       "act": 5,
       "title": "Winter Crown",
       "art_direction": "Besieged snow monastery; massive slate buttresses, ivory frost burial markers, fur and glacial fissures.",
+      "catalogue_species": 26,
+      "textured_species_prototypes": 0,
       "masonry_materials": [
         "minecraft:deepslate_bricks",
         "minecraft:polished_deepslate",
@@ -1737,7 +1748,8 @@
     }
   ],
   "runtime_species_implemented": 0,
-  "textured_species_prototypes": 18,
+  "textured_species_prototypes": 26,
+  "next_art_act": 2,
   "production_order": [
     "Act I shell-to-template adapter and gap/height fitting",
     "Act I animated native models and twelve distinct AI implementations",

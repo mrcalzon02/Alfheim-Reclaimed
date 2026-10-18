@@ -77,7 +77,8 @@ def main():
         for child,parent in {'jaw':'head','bowstring':'left_arm','arrow':'left_arm',
                              'clapper':'body','lantern':'body','tail':'body','cleaver':'right_arm',
                              'censer':'right_arm' if row['catalog_id']=='dust_friar' else 'body',
-                             'censer_lid':'censer'}.items():
+                             'censer_lid':'censer','command_hand':'right_arm','coffin':'left_arm',
+                             'resonator':'body','bell_0':'right_arm','bell_1':'right_arm','bell_2':'right_arm'}.items():
             if child in parents:assert parents[child]==parent,(row['catalog_id'],child,'detached accessory')
         assert set(refs) == {p['uuid'] for p in parts} and len(refs)==len(parts)
         assert row['runtime_entity']=='not implemented' and len(bb['animations'])==3
@@ -88,6 +89,14 @@ def main():
                         assert all(all(float(k['data_points'][0][axis])==0 for axis in ('x','y','z'))
                                    for k in animator['keyframes'] if k['channel']=='position'), 'rooted trap lifts off its base'
         assert {a['name'] for a in bb['animations']} >= {'idle','walk'}
+        if row['catalog_id']=='wicker_pilgrim':
+            for time in np.linspace(0,bb['animations'][2]['length'],17):
+                sample=pose(quads,bb,bb['animations'][2],float(time),rotation_matrix)
+                for original,moved in zip(quads,sample):
+                    if original['group']=='decoy_shell':
+                        assert np.allclose(original['vertices'],moved['vertices']), 'abandoned shell follows pilgrim'
+        if row['catalog_id']=='hollow_sexton':
+            assert np.allclose([m['time'] for m in bb['animations'][2]['markers']],[.35,1.05,1.75])
         for clip in bb['animations']:
             assert clip['length']>0 and clip['loop'] in ('loop','once')
             for key,animator in clip['animators'].items():
@@ -109,8 +118,9 @@ def main():
         model_rows.append({'id':row['catalog_id'],'sculpted_parts':len(parts),'quad_count':len(quads),
                            'unique_face_islands':len(quads),'outward_obj_winding':True,'blockbench_group_coverage':True,
                            'art_clips':len(bb['animations']),'finite_motion_samples':27,'loop_endpoints_match':True})
-    assert len(art['models'])==18
-    assert len({row['catalog_id'] for row in art['models']})==18
+    assert len(art['models'])==26
+    catalog=json.loads((OUT.parent/'monster_catalog.json').read_text())
+    assert {row['catalog_id'] for row in art['models']}=={c['id'] for c in catalog['creatures'] if c['act']==1}
     rat=next(row for row in art['models'] if row['catalog_id']=='rotmilk_ratpack')
     assert rat['model_bounds_blocks'][1]<.5 and 'single small rat' in rat['representation']
     thorn=next(row for row in art['models'] if row['catalog_id']=='grave_thorn')
@@ -120,12 +130,14 @@ def main():
                       'socket reachability with two-block headroom','five-wide dry room/passsage routes',
                       'twelve-block switchback route','file hashes','finite nondegenerate model faces',
                       'unique UV face islands','opaque used texels','OBJ outward winding','Blockbench group references',
-                      'art clip references/timelines','loop endpoint continuity','finite sampled art motion'],
+                      'art clip references/timelines','loop endpoint continuity','finite sampled art motion',
+                      'complete Act I catalogue art coverage','Wicker Pilgrim stationary shell during separation',
+                      'Hollow Sexton three ordered visual toll markers'],
             'not_executed':['in-game template placement','actual stair collision movement','native model baking',
                             'native game animation','Blockbench editor import','AI state machines','merchant trades','loot integration',
                             'worldgen reservations','fresh-world natural generation','multiplayer/performance']}
     (OUT/'static_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-    print('Static validation passed: 75 NBT modules, 18 creature sculptures, 54 skins, 54 art clips. Runtime acceptance pending.')
+    print('Static validation passed: 75 NBT modules, 26 creature sculptures, 78 skins, 78 art clips. Runtime acceptance pending.')
 
 
 if __name__=='__main__':

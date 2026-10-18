@@ -2,6 +2,13 @@
 
 ## Five Descents asset prototypes — 2026-10-18
 
+Added the final eight Act I sculptures: Sepulcher Hound, Briar Witness, Wicker
+Pilgrim, Pale Deacon, Carrion Lurker, Coffin Strider, Choir Wight and Hollow Sexton.
+All 26 Act I catalogue IDs now have art prototypes, with 78 skins and 78 editable
+motion clips. Added a complete roster sheet and final-eight motion previews.
+Static validation checks catalogue coverage, abandoned-shell posing and three
+Sexton toll markers. Native entities, behavior, audio and runtime acceptance remain pending.
+
 Wave 03 adds Censer Revenant, Rift Acolyte, Skullglass Shardling, Coal Moth,
 Chapel Butcher and Dust Friar: eighteen art prototypes, 54 skins and 54 editable
 motion clips. Added dedicated wave previews and magnified moth-wing inspection.

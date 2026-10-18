@@ -51,6 +51,8 @@ def main():
                 creature['asset']=existing[monster['id']]['blockbench']
             creatures.append(creature)
         rows.append({'act':act,'title':title,'art_direction':brief,
+                     'catalogue_species':len(creatures),
+                     'textured_species_prototypes':sum(c['art_state']=='textured_prototype' for c in creatures),
                      'masonry_materials':['minecraft:'+b for b in palette],
                      'room_families':[{'id':family,'state':'static_validated_prototype' if act==1 else 'planned'} for family in families],
                      'refuge_services':list(SERVICES),'priority_creature_art':priority,
@@ -60,6 +62,7 @@ def main():
                      'boss_id':next(c['id'] for c in catalog['creatures'] if c['act']==act and c['role']=='boss'),
                      'encounter_level_policy':'existing Mine and Slash distance from spawn; no descent multiplier'})
     queue={'batch':'01','acts':rows,'runtime_species_implemented':0,'textured_species_prototypes':len(existing),
+           'next_art_act':next((r['act'] for r in rows if r['next_creature_art']),None),
            'production_order':['Act I shell-to-template adapter and gap/height fitting',
                                'Act I animated native models and twelve distinct AI implementations',
                                'Functional refuge trades, encounter controllers and boss',

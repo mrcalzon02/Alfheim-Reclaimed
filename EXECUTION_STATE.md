@@ -3,10 +3,10 @@
 ## Five Descents asset production — 2026-10-18
 
 First staged batch: 75 NBT prototypes across 25 Act I room/service/connector
-families in three conditions; eighteen detailed creature sculptures and 54 skins.
+families in three conditions; all 26 Act I creature sculpture prototypes and 78 skins.
 Continuity Works local planning/generation and artifact validation executed.
 Models include root hierarchies, anatomical pivots and editable Blockbench/OBJ
-exports. Fifty-four editable idle/walk/signature art clips and GIF previews now
+exports. Seventy-eight editable idle/walk/signature art clips and GIF previews now
 exist; native animation and entity behavior remain pending. Five-Act production queue
 references all 130 monster designs. No active resources, worlds or JARs changed.
 Wave 02 adds Hollow Veil, Lantern Ghoul, Corvid Undertaker, Rotmilk Ratpack,
@@ -16,6 +16,10 @@ Wave 03 adds Censer Revenant, Rift Acolyte, Skullglass Shardling, Coal Moth,
 Chapel Butcher and Dust Friar, including articulated censers/lid, wing/facet
 controls and a cleaver. Moth flight, death shards, smoke/dust and damage remain
 unimplemented; the clip slots are editable art references.
+The final eight add Sepulcher Hound, Briar Witness, Wicker Pilgrim, Pale Deacon,
+Carrion Lurker, Coffin Strider, Choir Wight and Hollow Sexton. All 26 Act I catalogue
+IDs have art prototypes; zero native species are implemented. Static checks include
+stationary abandoned-shell posing and three ordered Sexton toll markers.
 See `alfheim_reclaimed_design/monastery_labyrinth/asset_batch_01/README.md` for
 previews, evidence and the outstanding placement/trader/model/runtime gates.
 

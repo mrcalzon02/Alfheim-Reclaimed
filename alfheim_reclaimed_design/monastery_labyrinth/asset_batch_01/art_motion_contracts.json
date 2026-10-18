@@ -609,6 +609,270 @@
         }
       ],
       "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "sepulcher_hound",
+      "signature_clip": "scent_track",
+      "visual_stages": [
+        "nose follows a trail",
+        "tracking crouch",
+        "pursuit bound reference"
+      ],
+      "native_combat_contract": {
+        "id": "scent_track",
+        "description": "Tracks recent sprinting through blind bends",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break pursuit across running water",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "scent_track",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "briar_witness",
+      "signature_clip": "root_gaze",
+      "visual_stages": [
+        "single eye aligns",
+        "focused doorway gaze gesture",
+        "release"
+      ],
+      "native_combat_contract": {
+        "id": "root_gaze",
+        "description": "Fixes a cone of petrifying roots on one doorway",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break line of sight behind columns",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "root_gaze",
+          "length_seconds": 2.1,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "wicker_pilgrim",
+      "signature_clip": "empty_shell",
+      "visual_stages": [
+        "still wicker shell",
+        "inner figure slips forward",
+        "art cycle reset"
+      ],
+      "native_combat_contract": {
+        "id": "empty_shell",
+        "description": "Leaves a decoy body and rushes from behind",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Listen for the moving footfalls",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "empty_shell",
+          "length_seconds": 2.3,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "pale_deacon",
+      "signature_clip": "choir_command",
+      "visual_stages": [
+        "command hand rises",
+        "palm seal faces the party",
+        "lower hand"
+      ],
+      "native_combat_contract": {
+        "id": "choir_command",
+        "description": "Changes the attack pattern of chapel minions",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Target the deacon's raised hand",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "choir_command",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "carrion_lurker",
+      "signature_clip": "burial_pounce",
+      "visual_stages": [
+        "foreclaws brace",
+        "short pounce reference",
+        "recovery"
+      ],
+      "native_combat_contract": {
+        "id": "burial_pounce",
+        "description": "Bursts from disturbed graves after a warning tremor",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Avoid freshly moving earth",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "burial_pounce",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "coffin_strider",
+      "signature_clip": "slab_drop",
+      "visual_stages": [
+        "coffin braces",
+        "prop lowers and leans",
+        "art cycle reset"
+      ],
+      "native_combat_contract": {
+        "id": "slab_drop",
+        "description": "Drags a coffin shield that becomes an obstacle",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Bait the drop then circle the obstacle",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "slab_drop",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "choir_wight",
+      "signature_clip": "discord_note",
+      "visual_stages": [
+        "hushed silence gesture",
+        "jaw opens for resonance",
+        "recovery"
+      ],
+      "native_combat_contract": {
+        "id": "discord_note",
+        "description": "Alternates sweeping silence and shattering resonance",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Hide during the resonance windup",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "discord_note",
+          "length_seconds": 3.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "hollow_sexton",
+      "signature_clip": "three_tolls",
+      "visual_stages": [
+        "first toll gesture",
+        "second toll gesture",
+        "third toll and reckoning gesture"
+      ],
+      "native_combat_contract": {
+        "id": "grave_reckoning",
+        "description": "Counts down three tolls before a graveyard shockwave",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Retreat beyond grave markers at the third toll",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "three_tolls",
+          "length_seconds": 3.2,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
     }
   ]
 }

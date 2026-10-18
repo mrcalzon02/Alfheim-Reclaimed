@@ -206,6 +206,24 @@ def moth_details(manifest):
     canvas.save(OUT/'creature_wave_03_small_details.png')
 
 
+def roster(manifest):
+    """Compact overview at one shared scale, rendered from exported textured quads."""
+    cols=5; width=1350; height=math.ceil(len(manifest['models'])/cols)*280+100
+    canvas=Image.new('RGB',(width,height),BG);d=ImageDraw.Draw(canvas)
+    d.text((24,12),'ASHEN CLOISTER / ALL 26 ACT I CREATURE ART PROTOTYPES',font=TITLE,fill='white')
+    d.text((24,51),'Shared scale. Original exported surfaces; game behavior and native animation pending.',font=FONT,fill='#a6bdca')
+    for i,row in enumerate(manifest['models']):
+        g=json.loads((OUT/row['geometry']).read_text())
+        texture=np.array(Image.open((OUT/row['geometry']).parent/(row['catalog_id']+'_cloister_ash.png')).convert('RGBA'))
+        vertices=np.array([v for q in g['quads'] for v in q['vertices']])
+        center=float((vertices[:,1].min()+vertices[:,1].max())/2)
+        tile=render_creature(g['quads'],texture,size=260,yaw=145,scale=3.4,center_y=center)
+        x,y=(i%cols)*270+5,(i//cols)*280+84
+        canvas.paste(tile,(x,y),tile)
+        d.text((x+8,y+247),row['catalog_id'].replace('_',' ').title(),font=SMALL,fill='white')
+    canvas.save(OUT/'act_1_creature_roster.png')
+
+
 def main():
     structures = json.loads((OUT / 'structure_manifest.json').read_text())
     art = json.loads((OUT / 'creature_art_manifest.json').read_text())
@@ -213,6 +231,11 @@ def main():
     rooms(structures)
     creatures(art)
     motion(art)
+    roster(art)
+    final={'models':art['models'][18:]}
+    if final['models']:
+        creatures(final,stem='creature_act_1_final')
+        motion(final,stem='creature_act_1_final')
     for start in range(6,len(art['models']),6):
         wave={'models':art['models'][start:start+6]}
         stem=f'creature_wave_{start//6+1:02}'

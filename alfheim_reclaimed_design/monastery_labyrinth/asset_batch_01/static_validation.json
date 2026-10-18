@@ -800,6 +800,94 @@
       "art_clips": 3,
       "finite_motion_samples": 27,
       "loop_endpoints_match": true
+    },
+    {
+      "id": "sepulcher_hound",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "briar_witness",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "wicker_pilgrim",
+      "sculpted_parts": 87,
+      "quad_count": 522,
+      "unique_face_islands": 522,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "pale_deacon",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "carrion_lurker",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "coffin_strider",
+      "sculpted_parts": 92,
+      "quad_count": 552,
+      "unique_face_islands": 552,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "choir_wight",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "hollow_sexton",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
     }
   ],
   "checks": [
@@ -816,7 +904,10 @@
     "Blockbench group references",
     "art clip references/timelines",
     "loop endpoint continuity",
-    "finite sampled art motion"
+    "finite sampled art motion",
+    "complete Act I catalogue art coverage",
+    "Wicker Pilgrim stationary shell during separation",
+    "Hollow Sexton three ordered visual toll markers"
   ],
   "not_executed": [
     "in-game template placement",

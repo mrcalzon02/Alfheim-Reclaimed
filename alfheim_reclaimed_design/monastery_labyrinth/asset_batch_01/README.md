@@ -10,7 +10,11 @@ UV-island and material-painting workflow, using original geometry.
 ## Review the emitted assets
 
 - [Creature sculptures: front, three-quarter and rear](creature_sculptures.png)
-- [All fifty-four creature appearances](creature_appearances.png)
+- [All 26 Act I creature art prototypes](act_1_creature_roster.png)
+- [All seventy-eight creature appearances](creature_appearances.png)
+- [Final eight sculptures](creature_act_1_final_sculptures.png)
+- [Final eight action preview](creature_act_1_final_signature_motion.gif)
+- [Final eight action still](creature_act_1_final_signature_poses.png)
 - [Wave 03 sculptures](creature_wave_03_sculptures.png)
 - [Wave 03 action preview](creature_wave_03_signature_motion.gif)
 - [Wave 03 action still](creature_wave_03_signature_poses.png)
@@ -41,7 +45,7 @@ ruined variants also lose small internal fixtures while retaining containment.
 The refuge rooms are **interior modules**, not fitted replacements for the native
 13×19 service stalls. No functional economy is implied by their furniture.
 
-Eighteen original sculptures now have three material-painted skins each. The first
+All 26 catalogued Act I species now have original sculpture prototypes and three material-painted skins each. The first
 six are the 95-part
 Ashen Novice, 87-part Lurking Silkmaw, 105-part Bell Warden, 113-part Ossuary
 Bowyer, 103-part Reliquary Sentinel and 116-part Ossuary Prior. Each includes a
@@ -84,8 +88,27 @@ Revenant vents from its chest rig, while the Friar raises its hand-held bowl.
 Their smoke/dust particles, environmental flame interactions and support effects
 remain future runtime work.
 
-All eighteen now include a root hierarchy, named articulation groups, anatomical
-pivots, and editable idle, walk and signature-action clips: 54 clips total.
+The final eight fill the remaining Act I art slots:
+
+| Creature | Sculpted parts | Readable visual cue |
+|---|---:|---|
+| Sepulcher Hound | 86 | Gaunt canine ribs, long scenting muzzle and segmented tail |
+| Briar Witness | 86 | Single bark-ringed eye, thorn crown and four root feet |
+| Wicker Pilgrim | 87 | Woven outer basket shell and separate thin inner figure |
+| Pale Deacon | 86 | Ivory stole, prayer tablet and articulated raised command hand |
+| Carrion Lurker | 86 | Low burial carapace, shovel foreclaws and paired mandibles |
+| Coffin Strider | 92 | Lean bandaged frame carrying a large wooden coffin cover |
+| Choir Wight | 86 | Open throat rings, hinged jaw and tuning-fork resonator |
+| Hollow Sexton | 86 | Gravedigger coat, spade and independently swinging three-bell staff |
+
+The Pilgrim's signature moves the inner figure while holding the abandoned shell
+in place; this is a pose reference, not a spawned decoy actor. The Strider lowers
+its coffin prop without creating collision. The Lurker's pounce does not disturb
+terrain. Deacon commands, scent trails, root gaze, silence and the Sexton's shockwave
+remain unimplemented. Three ordered visual markers establish the Sexton's toll timing.
+
+All 26 now include a root hierarchy, named articulation groups, anatomical
+pivots, and editable idle, walk and signature-action clips: 78 clips total.
 Jaws, bowstrings, arrows, clappers, lanterns, tails, censers and the cleaver inherit their attachment's
 motion; offline pose evaluation follows the same exported group hierarchy.
 Signature clips show a bell-triggered stagger, silk ambush descent, rally toll,
@@ -102,7 +125,9 @@ The catalogue remains `design_only`; this adds zero implemented species.
 
 `five_act_asset_queue.json` maps all 130 species to their existing signature and
 counterplay, records 18 proposed room families per Act, gives distinct material
-directions for Acts II–V and identifies the eighteen art prototypes. Later Acts'
+directions for Acts II–V and identifies all 26 Act I art prototypes. Art coverage
+is 26/26 for Act I and 0/26 for each later Act; the next art queue starts in Act II.
+Later Acts'
 room names and material directions are plans, not generated geometry.
 
 ## Contracts and integration gates
@@ -148,7 +173,7 @@ Actual editor import remains pending. A standing-cell route is evidence of
 geometry connectivity, not proof of Minecraft collision, animated movement,
 combat or server performance.
 
-Executed on 2026-10-18: all 75 template and eighteen-model artifact checks passed;
+Executed on 2026-10-18: all 75 template and 26-model artifact checks passed;
 all creature outputs reproduced byte-for-byte; the existing 130-species bestiary
 validator passed; the active pack feature-order check found zero cycles across
 313 loaded biomes, including Forge biome modifiers. No game was booted for this

@@ -1048,6 +1048,474 @@
         }
       ],
       "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "sepulcher_hound",
+      "act": 1,
+      "role": "hunter",
+      "representation": "single creature",
+      "signature": {
+        "id": "scent_track",
+        "description": "Tracks recent sprinting through blind bends",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break pursuit across running water",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        0.6938,
+        1.4979,
+        2.3406
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "jaw",
+        "left_front_leg",
+        "left_rear_leg",
+        "right_front_leg",
+        "right_rear_leg",
+        "tail"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/sepulcher_hound/sepulcher_hound.geometry.json",
+      "blockbench": "creatures/sepulcher_hound/sepulcher_hound.bbmodel",
+      "blender_import": "creatures/sepulcher_hound/sepulcher_hound.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "scent_track",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "briar_witness",
+      "act": 1,
+      "role": "controller",
+      "representation": "single creature",
+      "signature": {
+        "id": "root_gaze",
+        "description": "Fixes a cone of petrifying roots on one doorway",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Break line of sight behind columns",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.5277,
+        2.8091,
+        1.1046
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "left_front_leg",
+        "left_rear_leg",
+        "right_arm",
+        "right_front_leg",
+        "right_rear_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/briar_witness/briar_witness.geometry.json",
+      "blockbench": "creatures/briar_witness/briar_witness.bbmodel",
+      "blender_import": "creatures/briar_witness/briar_witness.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "root_gaze",
+          "length_seconds": 2.1,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "wicker_pilgrim",
+      "act": 1,
+      "role": "ambusher",
+      "representation": "separable shell art reference; no decoy actor spawned",
+      "signature": {
+        "id": "empty_shell",
+        "description": "Leaves a decoy body and rushes from behind",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Listen for the moving footfalls",
+      "part_count": 87,
+      "quad_count": 522,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.2956,
+        2.4085,
+        0.6874
+      ],
+      "animation_groups": [
+        "body",
+        "decoy_shell",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/wicker_pilgrim/wicker_pilgrim.geometry.json",
+      "blockbench": "creatures/wicker_pilgrim/wicker_pilgrim.bbmodel",
+      "blender_import": "creatures/wicker_pilgrim/wicker_pilgrim.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "empty_shell",
+          "length_seconds": 2.3,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "pale_deacon",
+      "act": 1,
+      "role": "commander",
+      "representation": "single creature",
+      "signature": {
+        "id": "choir_command",
+        "description": "Changes the attack pattern of chapel minions",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Target the deacon's raised hand",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.3011,
+        2.425,
+        0.7341
+      ],
+      "animation_groups": [
+        "body",
+        "command_hand",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/pale_deacon/pale_deacon.geometry.json",
+      "blockbench": "creatures/pale_deacon/pale_deacon.bbmodel",
+      "blender_import": "creatures/pale_deacon/pale_deacon.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "choir_command",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "carrion_lurker",
+      "act": 1,
+      "role": "ambusher",
+      "representation": "burial pounce gesture only; no terrain editing or grave spawning",
+      "signature": {
+        "id": "burial_pounce",
+        "description": "Bursts from disturbed graves after a warning tremor",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Avoid freshly moving earth",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.775,
+        1.1192,
+        2.0365
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "jaw",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg",
+        "tail"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/carrion_lurker/carrion_lurker.geometry.json",
+      "blockbench": "creatures/carrion_lurker/carrion_lurker.bbmodel",
+      "blender_import": "creatures/carrion_lurker/carrion_lurker.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "burial_pounce",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "coffin_strider",
+      "act": 1,
+      "role": "tank",
+      "representation": "coffin prop drop reference; no obstacle or collision deployed",
+      "signature": {
+        "id": "slab_drop",
+        "description": "Drags a coffin shield that becomes an obstacle",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Bait the drop then circle the obstacle",
+      "part_count": 92,
+      "quad_count": 552,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.9,
+        2.575,
+        0.5812
+      ],
+      "animation_groups": [
+        "body",
+        "coffin",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/coffin_strider/coffin_strider.geometry.json",
+      "blockbench": "creatures/coffin_strider/coffin_strider.bbmodel",
+      "blender_import": "creatures/coffin_strider/coffin_strider.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "slab_drop",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "choir_wight",
+      "act": 1,
+      "role": "caster",
+      "representation": "single creature",
+      "signature": {
+        "id": "discord_note",
+        "description": "Alternates sweeping silence and shattering resonance",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Hide during the resonance windup",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.4125,
+        2.8773,
+        0.6946
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "jaw",
+        "left_arm",
+        "resonator",
+        "right_arm"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/choir_wight/choir_wight.geometry.json",
+      "blockbench": "creatures/choir_wight/choir_wight.bbmodel",
+      "blender_import": "creatures/choir_wight/choir_wight.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "discord_note",
+          "length_seconds": 3.0,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "hollow_sexton",
+      "act": 1,
+      "role": "elite",
+      "representation": "single creature",
+      "signature": {
+        "id": "grave_reckoning",
+        "description": "Counts down three tolls before a graveyard shockwave",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Retreat beyond grave markers at the third toll",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        2.2344,
+        2.6875,
+        0.8031
+      ],
+      "animation_groups": [
+        "bell_0",
+        "bell_1",
+        "bell_2",
+        "body",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/hollow_sexton/hollow_sexton.geometry.json",
+      "blockbench": "creatures/hollow_sexton/hollow_sexton.bbmodel",
+      "blender_import": "creatures/hollow_sexton/hollow_sexton.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "three_tolls",
+          "length_seconds": 3.2,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
     }
   ],
   "sha256": {
@@ -1177,6 +1645,62 @@
     "creatures/dust_friar/dust_friar_cloister_ash.png": "6d297ec50007d0076e217e0bc4a5a2594d1116ed3c281f4a347d77c4c8ef1a30",
     "creatures/dust_friar/dust_friar_burial_ochre.png": "8b34b70176a124dbfc869abf69583e0870b3a8b0b7b318d8dfdbb713075f3d77",
     "creatures/dust_friar/dust_friar_moonlit_lichen.png": "e974addd133dd0790fce2ad22bb5492a098cb9de4d5622bcd8ca075fe6f127ad",
-    "art_motion_contracts.json": "457708f1a875d6e6f200182b722d148f8cb932005ebfccf3fe7fb66ad9b038d1"
+    "creatures/sepulcher_hound/sepulcher_hound.geometry.json": "2d95c8f695c6051620c805507b639602e73b992b152bac7dc5acb454217b1cf9",
+    "creatures/sepulcher_hound/sepulcher_hound.bbmodel": "4edcbe6223a795332bd4b683588719736858580ceb21a28df10a025c7a59de31",
+    "creatures/sepulcher_hound/sepulcher_hound.obj": "28072be3b307eb97485da6db00a1c3c3b05c7c6183da01e03c45ba45a1ab5eaf",
+    "creatures/sepulcher_hound/sepulcher_hound.mtl": "417880103c2d3a35d5a3e655c0bc28f777dc422e44965ef08ed3d11b455dab9e",
+    "creatures/sepulcher_hound/sepulcher_hound_cloister_ash.png": "2cfa6543af200008afc4d59e5fee1f51862d445c5239ecc31c7598ad0091928b",
+    "creatures/sepulcher_hound/sepulcher_hound_burial_ochre.png": "34fd760af6ed06f8b6b11e8b6774c81d5e2257ef41734dd014e2fd5afcba3f03",
+    "creatures/sepulcher_hound/sepulcher_hound_moonlit_lichen.png": "951dd2d8953c689bcb4f8376f678f636b44e2e5eb5ccf3604b972484d0f70473",
+    "creatures/briar_witness/briar_witness.geometry.json": "fbf67de6ad965cfb74da38fe636af16f930f732779f9cc3189206b855537cc6e",
+    "creatures/briar_witness/briar_witness.bbmodel": "7b41f1172cbb63d397bc3b47c5827d9ce3784be5aa926a9cb1e651c9001f09fd",
+    "creatures/briar_witness/briar_witness.obj": "c49423e44c6a79a1f42d6226f560f882bfef45b9dad3928f85792a4c136863a8",
+    "creatures/briar_witness/briar_witness.mtl": "d1dfbded9cf1036e93143b726dbce3aaf64c16d839058be27868fa0b5f119473",
+    "creatures/briar_witness/briar_witness_cloister_ash.png": "c54c1602da2b2fbd283ac462f307ab42b434d376045b571a3b2d718d33e043c3",
+    "creatures/briar_witness/briar_witness_burial_ochre.png": "7e6d7120a3de5e6146e259dc10f61aaceac71a1b594385f1c4c28221fb8b0e2f",
+    "creatures/briar_witness/briar_witness_moonlit_lichen.png": "475db157e8e0c4dcce8526820f8e2944f1db7c0789ca845450d91804381a2299",
+    "creatures/wicker_pilgrim/wicker_pilgrim.geometry.json": "ab488c2d76c92370342e7b4768e945adfc460352f7b0079574a3e74e6123fb15",
+    "creatures/wicker_pilgrim/wicker_pilgrim.bbmodel": "4c34dd3cc6a409ded09bb19e47fb5e02cc490ca917794454e9b92a39a0e96c9c",
+    "creatures/wicker_pilgrim/wicker_pilgrim.obj": "83c2a36d397f10cafa2e06a12508780cc4ced91886c7837493aef4f5ba35685f",
+    "creatures/wicker_pilgrim/wicker_pilgrim.mtl": "fa3236cac073ef4e874697dd963c7e83786058d262ea1064f600be2bc8e3ac54",
+    "creatures/wicker_pilgrim/wicker_pilgrim_cloister_ash.png": "9bb0d1002a2bde8ef0d5c6687e3fc11673617ad2c21695cb3dc8f02ec4b127da",
+    "creatures/wicker_pilgrim/wicker_pilgrim_burial_ochre.png": "805beaf4f4895931e2a5cd04a99e4eb001f086b00d4737bc3998c41cddef70e2",
+    "creatures/wicker_pilgrim/wicker_pilgrim_moonlit_lichen.png": "46b80d709c165e9bb7029b639dc89da2e3551c942eaf4b7363d0e9ad5b4fd8db",
+    "creatures/pale_deacon/pale_deacon.geometry.json": "75501cb283ffeda596f6c04cf164ea04e8766b345e073d027264d571bf8264ce",
+    "creatures/pale_deacon/pale_deacon.bbmodel": "36b4e3ec97ca6eecba49861f29b4c078ecff3e715dda76a9232d36c67ab71a27",
+    "creatures/pale_deacon/pale_deacon.obj": "720aa8531826f1f079e7b4fd0cc42f512e5314304a130989659ec18c91f6e2bf",
+    "creatures/pale_deacon/pale_deacon.mtl": "05fb07135480c51ffb3bb1f50085cae66e57ae5affd64c9ec9c75213e4b9d64e",
+    "creatures/pale_deacon/pale_deacon_cloister_ash.png": "011a5fce84e7705be9a1e6f1e2dccbf57102065d50cf8e827855961d7204060a",
+    "creatures/pale_deacon/pale_deacon_burial_ochre.png": "15b756fefe77498271bcc8dabf7387d56a5d2e16d197b9c324e0eb93e3ee1602",
+    "creatures/pale_deacon/pale_deacon_moonlit_lichen.png": "41a5ab6fbf34afc559aa2a8a01432dd4858c1d149057346a8951da9848fcaf3e",
+    "creatures/carrion_lurker/carrion_lurker.geometry.json": "2e0c21230d89e5061fc3c2558f407c1baa1e2a277ffb6f4b568154a82cf6a8dc",
+    "creatures/carrion_lurker/carrion_lurker.bbmodel": "857e06b86ff4fe7218ffd506742b08e6d52b44792f683e72e06de83d23332615",
+    "creatures/carrion_lurker/carrion_lurker.obj": "e2b6efd57024d03eca3db877153b4d876eaa989f69bb0c61bd05dd2b25e90d39",
+    "creatures/carrion_lurker/carrion_lurker.mtl": "080b57e2076e470b9ac1e7d8955842480963017a4d16311ae9def05fef8e3bde",
+    "creatures/carrion_lurker/carrion_lurker_cloister_ash.png": "2f8df7e2d1b9e5410c643b6cb2b1feedbd0062e615c3496fe4a200f7b4283dd2",
+    "creatures/carrion_lurker/carrion_lurker_burial_ochre.png": "209d9dc8d64a9aff3220a100d9082ecc9d95d9456cf7321d554f241df9974e33",
+    "creatures/carrion_lurker/carrion_lurker_moonlit_lichen.png": "fed12a39e986239adfc2feb5a8a09a150169283755d42d68d3a36329200eabdb",
+    "creatures/coffin_strider/coffin_strider.geometry.json": "c08006824922fbd7aec7cbad950aa1c199a8a9c16cdd9008cc2ab32f3c821388",
+    "creatures/coffin_strider/coffin_strider.bbmodel": "742ebb584251186b94ff44f16e5f9a6cf791ebbee66d333a59cb7f618b2f5ce2",
+    "creatures/coffin_strider/coffin_strider.obj": "50e2673b991ebd047616cb5dda66668d32c85fb7298635e76413d3e370be24fd",
+    "creatures/coffin_strider/coffin_strider.mtl": "e92989314026336a451ca6bba01f1eac5c595271e7dde5f30c1ac95db78fb67e",
+    "creatures/coffin_strider/coffin_strider_cloister_ash.png": "55ca19dd56fc2fb239b73f4832655b106546a26858438d9174a0b4d417232fbf",
+    "creatures/coffin_strider/coffin_strider_burial_ochre.png": "41e94d7c2c2ab78b51f9b788cf00c68ab834b78701497e7ff3d89912967a8a9b",
+    "creatures/coffin_strider/coffin_strider_moonlit_lichen.png": "617940e7a426c87aaa5e9aa9460a04385c1862c041eed18ca46709fb6813e053",
+    "creatures/choir_wight/choir_wight.geometry.json": "8b354bb8eb793ea10062efe0ea1c819e841d755d57be914575ee97ef8e664b5f",
+    "creatures/choir_wight/choir_wight.bbmodel": "bf00935d8b61855bc73d71affca04e5d3bf84bcc35c4c05a572ea5629b070577",
+    "creatures/choir_wight/choir_wight.obj": "f43f4f059d16619090288845db5d07ef8709abb399d0279cdb96ae6e4b5fb118",
+    "creatures/choir_wight/choir_wight.mtl": "d0719f522241a3554a986ca79ad9f3a6ed21fb9c50f62d9dcd1c382e39de9831",
+    "creatures/choir_wight/choir_wight_cloister_ash.png": "67e8e29834023924b178b77293ff7abf1122f0243ff9cf9986a2ab928573636c",
+    "creatures/choir_wight/choir_wight_burial_ochre.png": "b40cf1d58960418dedbac80b7931cebd9509f8561a7b4d29d62ddcf9f2eebaa7",
+    "creatures/choir_wight/choir_wight_moonlit_lichen.png": "7623b7a0df366d339fb26810b2bf8c4822fed283c3fc0cb7791ae6e1441f34a6",
+    "creatures/hollow_sexton/hollow_sexton.geometry.json": "5166595cefee0f81075b8e2cf1ebacc94ec511e08109c3e603763b44e1af2d94",
+    "creatures/hollow_sexton/hollow_sexton.bbmodel": "2e80926acf55d573696678eb06d74b0b9826c802383ec8d6402826e4df44e856",
+    "creatures/hollow_sexton/hollow_sexton.obj": "e4580c8df1839ddf68c0c731c365314b0ba340382e6d6e4d8afe75aac7000379",
+    "creatures/hollow_sexton/hollow_sexton.mtl": "a277606dd3ee57e8d568c6291eaa77b50e6a2caa0ee793a7700cdbd6ccf1fdab",
+    "creatures/hollow_sexton/hollow_sexton_cloister_ash.png": "980c13b3734b1ab660261d653151b6137ebe0f8970b9330e3a176567b8f8ba7e",
+    "creatures/hollow_sexton/hollow_sexton_burial_ochre.png": "16599607f212b32d475bc8d049e832234621b7c6ad621b612798ac4b174e1b94",
+    "creatures/hollow_sexton/hollow_sexton_moonlit_lichen.png": "42253320999aa1e3b40b9a8b9d45145bd72e32f95e4072c6bd89e44513d6a9fe",
+    "art_motion_contracts.json": "aa8f2244e908f3071929512d091eebf5bee0c73de6d64fa79007be9126086b13"
   }
 }

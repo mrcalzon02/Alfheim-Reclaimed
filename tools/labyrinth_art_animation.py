@@ -28,6 +28,14 @@ SIGNATURES = {
     'coal_moth': ('ember_dust', 1.7, ['wings spread', 'dust-shedding flutter gesture', 'flight recovery reference']),
     'chapel_butcher': ('cleaver_cleave', 2.0, ['cleaver windup', 'broad sweep', 'exposed recovery side']),
     'dust_friar': ('dust_benediction', 2.2, ['hand-held censer rises', 'benediction gesture', 'lower censer']),
+    'sepulcher_hound': ('scent_track', 1.8, ['nose follows a trail', 'tracking crouch', 'pursuit bound reference']),
+    'briar_witness': ('root_gaze', 2.1, ['single eye aligns', 'focused doorway gaze gesture', 'release']),
+    'wicker_pilgrim': ('empty_shell', 2.3, ['still wicker shell', 'inner figure slips forward', 'art cycle reset']),
+    'pale_deacon': ('choir_command', 2.0, ['command hand rises', 'palm seal faces the party', 'lower hand']),
+    'carrion_lurker': ('burial_pounce', 1.8, ['foreclaws brace', 'short pounce reference', 'recovery']),
+    'coffin_strider': ('slab_drop', 2.2, ['coffin braces', 'prop lowers and leans', 'art cycle reset']),
+    'choir_wight': ('discord_note', 3.0, ['hushed silence gesture', 'jaw opens for resonance', 'recovery']),
+    'hollow_sexton': ('three_tolls', 3.2, ['first toll gesture', 'second toll gesture', 'third toll and reckoning gesture']),
 }
 
 
@@ -48,6 +56,12 @@ def pivots(species, parts):
         'rift_acolyte': (5,27,2.6,17,30),
         'chapel_butcher': (10,33,5,17,37),
         'dust_friar': (8,25,3.4,9,29),
+        'wicker_pilgrim': (5,27,2,14,31),
+        'pale_deacon': (5.5,27,2.7,14,30),
+        'carrion_lurker': (5.5,13,3.5,11,12),
+        'coffin_strider': (5.3,30,2.5,17,34),
+        'choir_wight': (5,28,0,0,29),
+        'hollow_sexton': (8,28,3.5,17,32),
     }
     if species in axes:
         shoulder, shoulder_y, hip, hip_y, neck_y = axes[species]
@@ -90,6 +104,19 @@ def pivots(species, parts):
             result[name+'_hindwing']=[side*2,12,3]
             for i in range(3):
                 result[name+f'_leg_{i}']=[side*2,11,-1+i*2]
+    elif species=='sepulcher_hound':
+        result['head']=[0,17,-8]
+        for side in (-1,1):
+            for front in (True,False):
+                name=('left' if side==-1 else 'right')+('_front_leg' if front else '_rear_leg')
+                result[name]=[side*3,14,-5 if front else 7]
+    elif species=='briar_witness':
+        result['head']=[0,30,1]
+        for side in (-1,1):
+            name='left' if side==-1 else 'right'
+            result[name+'_arm']=[side*4.8,29,1]
+            for front in (True,False):
+                result[name+('_front_leg' if front else '_rear_leg')]=[side*2.7,12,-2.5 if front else 4]
     else:
         raise ValueError('Missing anatomical pivots for '+species)
     if 'clapper' in result:
@@ -101,13 +128,27 @@ def pivots(species, parts):
     if 'lantern' in result:
         result['lantern']=[16,30,-1]
     if 'jaw' in result:
-        result['jaw']=[0,29.3,-3.7]
+        result['jaw']={'sepulcher_hound':[0,16,-10],'carrion_lurker':[0,10.2,-9.5],
+                       'choir_wight':[0,35.8,-1.5]}.get(species,[0,29.3,-3.7])
     if 'cleaver' in result:
         result['cleaver']=[14,19,-4]
     if 'censer' in result:
         result['censer']=[10,15,-5] if species=='dust_friar' else [0,19,-5]
     if 'censer_lid' in result:
         result['censer_lid']=[0,19.5,-1.5]
+    if species=='sepulcher_hound':result['tail']=[0,14,10]
+    if species=='carrion_lurker':
+        result['head']=[0,12,-7];result['tail']=[0,9,10]
+        for side in (-1,1):
+            name='left' if side==-1 else 'right'
+            result[name+'_arm']=[side*5.5,13,-2]
+            result[name+'_leg']=[side*3.5,11,8]
+    if 'command_hand' in result:result['command_hand']=[8,17,-4]
+    if 'coffin' in result:result['coffin']=[-9,19,1.5]
+    if 'resonator' in result:result['resonator']=[0,28.5,3]
+    if 'decoy_shell' in result:result['decoy_shell']=[0,22,1]
+    for i in range(3):
+        if f'bell_{i}' in result:result[f'bell_{i}']=[8+i*5,41.5,-3]
     result['root']=[0,0,0]
     return result
 
@@ -147,7 +188,7 @@ def clips(species, parts, uid):
                 channel='rotation'; axis=1; angle=9*phase
             else:
                 channel='rotation'; axis=0; angle=14 if group.startswith('left') else -14
-                if species=='rotmilk_ratpack' and '_rear_' in group:angle=-angle
+                if species in ('rotmilk_ratpack','sepulcher_hound','briar_witness') and '_rear_' in group:angle=-angle
             a=[0,0,0]; a[axis]=angle
             b=[0,0,0]; b[axis]=-angle
             walk_tracks.append((group,channel,[(0,a),(.5,b),(1,a)]))
@@ -157,6 +198,8 @@ def clips(species, parts, uid):
                 walk_tracks.append((group,'rotation',[(0,[5*sign,0,0]),(.5,[-5*sign,0,0]),(1,[5*sign,0,0])]))
     if species=='rotmilk_ratpack':
         walk_tracks.append(('tail','rotation',[(0,[0,-8,0]),(.5,[0,8,0]),(1,[0,-8,0])]))
+    if species in ('sepulcher_hound','carrion_lurker'):
+        walk_tracks.append(('tail','rotation',[(0,[0,-6,0]),(.5,[0,6,0]),(1,[0,-6,0])]))
     if species=='grave_thorn':
         walk_tracks.append(('head','rotation',[(0,[0,0,-1]),(.5,[0,0,1]),(1,[0,0,-1])]))
     if species=='coal_moth':
@@ -267,7 +310,54 @@ def clips(species, parts, uid):
         arc('right_arm','rotation',[65,0,-12],peak=.4)
         arc('left_arm','rotation',[25,0,10],peak=.4)
         arc('head','rotation',[-12,0,0],peak=.4)
-    return [idle,walk,clip(signature,length,'once',tracks,stages)]
+    elif species=='sepulcher_hound':
+        arc('head','rotation',[19,-10,0],peak=.3,release=[-8,9,0])
+        arc('jaw','rotation',[16,0,0],peak=.6)
+        arc('root','position',[0,1.5,-4],peak=.65)
+        arc('tail','rotation',[0,14,0],peak=.4)
+    elif species=='briar_witness':
+        arc('head','rotation',[0,-18,0],peak=.3,release=[0,11,0])
+        arc('left_arm','rotation',[8,0,-12],peak=.45)
+        arc('right_arm','rotation',[8,0,12],peak=.45)
+    elif species=='wicker_pilgrim':
+        root=[(0,[0,0,0]),(.7,[0,0,0]),(1.3,[0,0,-7]),(2.0,[0,0,-7]),(length,[0,0,0])]
+        shell=[(time,[-value for value in xyz]) for time,xyz in root]
+        tracks.extend([('root','position',root),('decoy_shell','position',shell)])
+        arc('head','rotation',[0,-20,0],peak=.55)
+        arc('left_arm','rotation',[-15,0,0],peak=.55)
+        arc('right_arm','rotation',[15,0,0],peak=.55)
+    elif species=='pale_deacon':
+        arc('right_arm','rotation',[68,0,-14],peak=.4)
+        arc('command_hand','rotation',[-18,0,8],peak=.4)
+        arc('head','rotation',[-5,12,0],peak=.45)
+    elif species=='carrion_lurker':
+        arc('left_arm','rotation',[20,0,-9],peak=.28,release=[-16,0,0])
+        arc('right_arm','rotation',[20,0,9],peak=.28,release=[-16,0,0])
+        arc('jaw','rotation',[19,0,0],peak=.55)
+        arc('root','position',[0,3.2,-5],peak=.6)
+        arc('head','rotation',[9,0,0],peak=.25,release=[-8,0,0])
+    elif species=='coffin_strider':
+        arc('coffin','rotation',[-16,0,0],peak=.6)
+        arc('coffin','position',[0,-1.1,-4],peak=.6)
+        arc('right_arm','rotation',[15,0,-14],peak=.45)
+        arc('head','rotation',[0,-12,0],peak=.4)
+    elif species=='choir_wight':
+        tracks.append(('jaw','rotation',[(0,[0,0,0]),(.9,[0,0,0]),(1.7,[24,0,0]),(2.2,[24,0,0]),(length,[0,0,0])]))
+        arc('left_arm','rotation',[54,0,-12],peak=.22)
+        arc('right_arm','rotation',[-15,0,28],peak=.57)
+        arc('head','rotation',[-10,0,0],peak=.57)
+        arc('resonator','rotation',[0,0,3],peak=.57,release=[0,0,-2])
+    elif species=='hollow_sexton':
+        for i in range(3):
+            peak=.35+i*.7
+            tracks.append((f'bell_{i}','rotation',[(0,[0,0,0]),(peak-.15,[0,0,0]),
+                (peak,[0,0,22]),(peak+.18,[0,0,-12]),(peak+.4,[0,0,0]),(length,[0,0,0])]))
+        arc('left_arm','rotation',[25,0,8],peak=.75)
+        arc('head','rotation',[13,0,0],peak=.75)
+    action=clip(signature,length,'once',tracks,stages)
+    if species=='hollow_sexton':
+        action['markers']=[{'time':.35+i*.7,'color':i} for i in range(3)]
+    return [idle,walk,action]
 
 
 def evaluate(model,clip,time,rotation_matrix):
