@@ -1,6 +1,7 @@
 """Review the emitted NBT and the original textured creature surfaces, offline."""
 import json
 import math
+import copy
 from pathlib import Path
 
 import numpy as np
@@ -186,6 +187,25 @@ def small_details(manifest):
     canvas.save(OUT/'creature_wave_02_small_details.png')
 
 
+def moth_details(manifest):
+    row=next(r for r in manifest['models'] if r['catalog_id']=='coal_moth')
+    g=json.loads((OUT/row['geometry']).read_text())
+    texture=np.array(Image.open((OUT/row['geometry']).parent/(row['catalog_id']+'_cloister_ash.png')).convert('RGBA'))
+    vertices=np.array([v for q in g['quads'] for v in q['vertices']])
+    center=float((vertices[:,1].min()+vertices[:,1].max())/2)
+    quads=copy.deepcopy(g['quads']);camera=rotation_matrix([-45,0,0]);pivot=np.array([0,center,0])
+    for q in quads:
+        q['vertices']=((np.array(q['vertices'])-pivot)@camera.T+pivot).tolist()
+        q['normal']=(camera@np.array(q['normal'])).tolist()
+    canvas=Image.new('RGB',(1440,550),BG);d=ImageDraw.Draw(canvas)
+    d.text((24,16),'COAL MOTH / MAGNIFIED UPPER-SURFACE DETAILS',font=TITLE,fill='white')
+    for i,yaw in enumerate((180,145,25)):
+        tile=render_creature(quads,texture,size=440,yaw=yaw,scale=12,center_y=center)
+        canvas.paste(tile,(i*480+20,55),tile)
+    d.text((24,510),'Original authored surfaces with an upper viewing angle. Magnified for wing-vein and ember-mark inspection.',font=FONT,fill='#a6bdca')
+    canvas.save(OUT/'creature_wave_03_small_details.png')
+
+
 def main():
     structures = json.loads((OUT / 'structure_manifest.json').read_text())
     art = json.loads((OUT / 'creature_art_manifest.json').read_text())
@@ -193,11 +213,14 @@ def main():
     rooms(structures)
     creatures(art)
     motion(art)
-    wave_02={'models':art['models'][6:]}
-    creatures(wave_02,stem='creature_wave_02')
-    motion(wave_02,stem='creature_wave_02')
+    for start in range(6,len(art['models']),6):
+        wave={'models':art['models'][start:start+6]}
+        stem=f'creature_wave_{start//6+1:02}'
+        creatures(wave,stem=stem)
+        motion(wave,stem=stem)
     small_details(art)
-    print('Rendered emitted NBT floor plans/cutaways and all thirty-six textured creature looks.')
+    moth_details(art)
+    print(f"Rendered emitted NBT floor plans/cutaways and all {len(art['models'])*3} textured creature looks.")
 
 
 if __name__ == '__main__':

@@ -431,7 +431,8 @@ def bbmodel(species, parts, texture):
                          'children': [p['uuid'] for p in subset]})
     # Accessories inherit their attachment's motion before the common root pose.
     attachments={'jaw':'head','bowstring':'left_arm','arrow':'left_arm',
-                 'clapper':'body','lantern':'body','tail':'body'}
+                 'clapper':'body','lantern':'body','tail':'body','cleaver':'right_arm',
+                 'censer':'right_arm' if species=='dust_friar' else 'body','censer_lid':'censer'}
     nodes={node['name']:node for node in outliner}
     for group,parent in attachments.items():
         if group in nodes and parent in nodes:
@@ -468,14 +469,16 @@ def obj_text(species, quads):
 
 def outputs():
     from labyrinth_creature_wave_02 import PALETTES as WAVE_PALETTES, sculpts
+    from labyrinth_creature_wave_03 import PALETTES as WAVE_03_PALETTES, sculpts as sculpts_03
     PALETTES.update(WAVE_PALETTES)
+    PALETTES.update(WAVE_03_PALETTES)
     catalog = json.loads((ROOT / 'alfheim_reclaimed_design/monastery_labyrinth/monster_catalog.json').read_text())
     by_id = {e['id']: e for e in catalog['creatures']}
     files, rows = {}, []
     roster = [('ashen_novice', humanoid('ashen_novice')),
                            ('lurking_silkmaw', silkmaw()), ('bell_warden', humanoid('bell_warden')),
                            ('ossuary_bowyer', bowyer()), ('reliquary_sentinel', sentinel()),
-                           ('the_ossuary_prior', prior())] + sculpts(cube, segment)
+                           ('the_ossuary_prior', prior())] + sculpts(cube, segment) + sculpts_03(cube, segment)
     for species, parts in roster:
         if species == 'bell_warden':
             next(p for p in parts if p['name']=='bell_clapper')['group']='clapper'
@@ -499,7 +502,9 @@ def outputs():
         vertices = np.array([v for q in quads for v in q['vertices']])
         rows.append({'catalog_id': species, 'act': 1, 'role': by_id[species]['role'],
                      'representation': 'single small rat member; pack composition pending' if species=='rotmilk_ratpack' else
-                                       'stationary rooted trap; walk clip is root settling' if species=='grave_thorn' else 'single creature',
+                                       'stationary rooted trap; walk clip is root settling' if species=='grave_thorn' else
+                                       'winged creature; walk clip is flutter reference; flight AI pending' if species=='coal_moth' else
+                                       'single crystalline swarm member; scatter clip is art-only; no death projectiles' if species=='skullglass_shardling' else 'single creature',
                      'signature': by_id[species]['primary'], 'counterplay': by_id[species]['counterplay'],
                      'part_count': len(parts), 'quad_count': len(quads), 'atlas_size': ATLAS,
                      'model_bounds_blocks': ((vertices.max(axis=0) - vertices.min(axis=0)) / 16).round(4).tolist(),
@@ -544,7 +549,7 @@ def main():
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
-    print(f"Twelve original creature sculptures / thirty-six skins / {len(files)} files " + ('byte-identical' if args.check else 'staged'))
+    print(f"Eighteen original creature sculptures / fifty-four skins / {len(files)} files " + ('byte-identical' if args.check else 'staged'))
 
 
 if __name__ == '__main__':

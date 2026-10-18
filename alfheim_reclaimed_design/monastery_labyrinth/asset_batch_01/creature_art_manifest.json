@@ -690,6 +690,364 @@
         }
       ],
       "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "censer_revenant",
+      "act": 1,
+      "role": "caster",
+      "representation": "single creature",
+      "signature": {
+        "id": "smoke_burst",
+        "description": "Sends drifting smoke that detonates near open flame",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Extinguish braziers or lure the smoke away",
+      "part_count": 87,
+      "quad_count": 522,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.4562,
+        2.5014,
+        0.8375
+      ],
+      "animation_groups": [
+        "body",
+        "censer",
+        "censer_lid",
+        "head",
+        "left_arm",
+        "right_arm"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/censer_revenant/censer_revenant.geometry.json",
+      "blockbench": "creatures/censer_revenant/censer_revenant.bbmodel",
+      "blender_import": "creatures/censer_revenant/censer_revenant.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "smoke_vent",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "rift_acolyte",
+      "act": 1,
+      "role": "caster",
+      "representation": "single creature",
+      "signature": {
+        "id": "rift_needles",
+        "description": "Fires rune darts down prelit floor channels",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Leave the glowing channel before the salvo",
+      "part_count": 88,
+      "quad_count": 528,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.1793,
+        2.62,
+        0.7607
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/rift_acolyte/rift_acolyte.geometry.json",
+      "blockbench": "creatures/rift_acolyte/rift_acolyte.bbmodel",
+      "blender_import": "creatures/rift_acolyte/rift_acolyte.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "rift_needles",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "skullglass_shardling",
+      "act": 1,
+      "role": "swarm",
+      "representation": "single crystalline swarm member; scatter clip is art-only; no death projectiles",
+      "signature": {
+        "id": "shard_scatter",
+        "description": "Splits into damaging splinters on death",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Finish it outside crowded lanes",
+      "part_count": 90,
+      "quad_count": 540,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.35,
+        1.0309,
+        0.8688
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_leg_0",
+        "left_leg_1",
+        "left_leg_2",
+        "right_leg_0",
+        "right_leg_1",
+        "right_leg_2",
+        "shard_0",
+        "shard_1",
+        "shard_2",
+        "shard_3",
+        "shard_4",
+        "shard_5"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/skullglass_shardling/skullglass_shardling.geometry.json",
+      "blockbench": "creatures/skullglass_shardling/skullglass_shardling.bbmodel",
+      "blender_import": "creatures/skullglass_shardling/skullglass_shardling.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "fracture_scatter",
+          "length_seconds": 1.6,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "coal_moth",
+      "act": 1,
+      "role": "flanker",
+      "representation": "winged creature; walk clip is flutter reference; flight AI pending",
+      "signature": {
+        "id": "ember_dust",
+        "description": "Dust marks armor before its brief burn",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use water and move off the glowing dust",
+      "part_count": 100,
+      "quad_count": 600,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.6433,
+        0.8935,
+        1.3366
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_hindwing",
+        "left_leg_0",
+        "left_leg_1",
+        "left_leg_2",
+        "left_wing",
+        "right_hindwing",
+        "right_leg_0",
+        "right_leg_1",
+        "right_leg_2",
+        "right_wing"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/coal_moth/coal_moth.geometry.json",
+      "blockbench": "creatures/coal_moth/coal_moth.bbmodel",
+      "blender_import": "creatures/coal_moth/coal_moth.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "ember_dust",
+          "length_seconds": 1.7,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "chapel_butcher",
+      "act": 1,
+      "role": "brute",
+      "representation": "single creature",
+      "signature": {
+        "id": "cleaver_cleave",
+        "description": "Sweeps a long frontal execution arc",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Dodge through its recovery side",
+      "part_count": 94,
+      "quad_count": 564,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        2.5897,
+        2.8094,
+        1.2287
+      ],
+      "animation_groups": [
+        "body",
+        "cleaver",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/chapel_butcher/chapel_butcher.geometry.json",
+      "blockbench": "creatures/chapel_butcher/chapel_butcher.bbmodel",
+      "blender_import": "creatures/chapel_butcher/chapel_butcher.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "cleaver_cleave",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "dust_friar",
+      "act": 1,
+      "role": "support",
+      "representation": "single creature",
+      "signature": {
+        "id": "dust_benediction",
+        "description": "Grants short evasion to nearby dead monks",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Interrupt the raised censer",
+      "part_count": 86,
+      "quad_count": 516,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.6654,
+        2.3594,
+        1.0125
+      ],
+      "animation_groups": [
+        "body",
+        "censer",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/dust_friar/dust_friar.geometry.json",
+      "blockbench": "creatures/dust_friar/dust_friar.bbmodel",
+      "blender_import": "creatures/dust_friar/dust_friar.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "dust_benediction",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
     }
   ],
   "sha256": {
@@ -777,6 +1135,48 @@
     "creatures/mourning_matron/mourning_matron_cloister_ash.png": "929a3a0ec70becb7499ae8ebcd23599dd4782df0a5d48d891822d2de0aa7bb90",
     "creatures/mourning_matron/mourning_matron_burial_ochre.png": "e06d09668fbc03f60627b463ed5aa8f9384f3a79ae581bb01ca29f0e97fd8e7a",
     "creatures/mourning_matron/mourning_matron_moonlit_lichen.png": "748c0f4305fcffa58caee8e786305b86727f33d811817bdcd1591e821b29c74d",
-    "art_motion_contracts.json": "a06b0baa84f330c4eaa3593cccdb87f6649535a0314543fae9ef586ac5d455b0"
+    "creatures/censer_revenant/censer_revenant.geometry.json": "49d9c0c8cf1bf59842e7bc058c02c54921a948af9dd4cb406ec6f6d20a8e134d",
+    "creatures/censer_revenant/censer_revenant.bbmodel": "10b7de1323ef75fed4314c0793c2d25478762b8bdbf44b417861ef99c7833ded",
+    "creatures/censer_revenant/censer_revenant.obj": "1d34b2831efa4667637545519998f69851d6667b12dfdbfed912b72a8f897f1c",
+    "creatures/censer_revenant/censer_revenant.mtl": "bcdd51a9d75ab0134cecbc850197950d9850fe2fbc7423a52d2b141ecb62c7cc",
+    "creatures/censer_revenant/censer_revenant_cloister_ash.png": "eda2618d7b557f8763704041091be9459f27f8a088beceee1386415e0ba328f7",
+    "creatures/censer_revenant/censer_revenant_burial_ochre.png": "be4a61001c18786dfb01d40456f2e833abb17661d2b28c5adb583209e5137f6f",
+    "creatures/censer_revenant/censer_revenant_moonlit_lichen.png": "607af512daf66a6421a405f1c641ab08fbf35c55770f6f4f9dd4f9b789d91e25",
+    "creatures/rift_acolyte/rift_acolyte.geometry.json": "198c5f529de922c4284b3051f4e456478f88e9d5eed3f435383b769339fc28ae",
+    "creatures/rift_acolyte/rift_acolyte.bbmodel": "c3edddd015f1dea69f5a81e903461d747854a6f755972cf305188be63089a0b5",
+    "creatures/rift_acolyte/rift_acolyte.obj": "423ab0124dfce5f71cff69601f717f65e3a042c72535e71ea7cd574386d44241",
+    "creatures/rift_acolyte/rift_acolyte.mtl": "76c4afa37a70d2e6b5f51cf6ca2bc54d6936908bb44b06be3f220d0c2ee87448",
+    "creatures/rift_acolyte/rift_acolyte_cloister_ash.png": "28045364d456baa7099094d0d9e46d949182e303b072a8ad47e1fb81dd78f5ce",
+    "creatures/rift_acolyte/rift_acolyte_burial_ochre.png": "5e16af04a5e32ebcbb13695ecd81cb6fdefb709ed42cc8c0531f1b24d2e25605",
+    "creatures/rift_acolyte/rift_acolyte_moonlit_lichen.png": "3612594095278d70b33c5de0705d6c4565c736c91e0a285819318d03a2e96fea",
+    "creatures/skullglass_shardling/skullglass_shardling.geometry.json": "7ef8885421e454de181215dd04e75e0a240ac3aa623771c94cd0334af6e45d68",
+    "creatures/skullglass_shardling/skullglass_shardling.bbmodel": "6203668335daba66be010eed6ec29a2c89ba6feacb2b31cdbdae76b6426205ae",
+    "creatures/skullglass_shardling/skullglass_shardling.obj": "deb586027de3da94aedb2201d9572da4b530e7d363cf80ea5c5e9529672ac83d",
+    "creatures/skullglass_shardling/skullglass_shardling.mtl": "00ed5d6cb007bcd67bf34c2bf2ec7c672eb42163f2021dbb73c038ca65d738e2",
+    "creatures/skullglass_shardling/skullglass_shardling_cloister_ash.png": "d5a944cb6b1a52104ca22bc5ba0ac4be390039084a3f19f00d5c6d75632111be",
+    "creatures/skullglass_shardling/skullglass_shardling_burial_ochre.png": "e74b26d36940390005a456b453ca93cdda21998224e607a20017097ed0b05100",
+    "creatures/skullglass_shardling/skullglass_shardling_moonlit_lichen.png": "74ba516ddb9dec94cc8924acc63045cc352616a341f5dcc713ad2c9c71480332",
+    "creatures/coal_moth/coal_moth.geometry.json": "cb10dbc885ca997b0b4509e215d82462803e6d9c04be96ea2656fda7eb41d57e",
+    "creatures/coal_moth/coal_moth.bbmodel": "3f313cfb0bcc1da7edefce86b545355ff879989d88398c5458af08f5efce58df",
+    "creatures/coal_moth/coal_moth.obj": "44a2e2f931bcc387cf9be3d202c1c38ecef1477dae07b15f86bc893090bd5b5c",
+    "creatures/coal_moth/coal_moth.mtl": "3ba395c84a83909d1d4f9dd718c16f24825fb789d400596bc9c950c663608bee",
+    "creatures/coal_moth/coal_moth_cloister_ash.png": "eb2cfe0df19184272b101e2c0e9e1b1782abdf67df00a6a3769c05710d6d678a",
+    "creatures/coal_moth/coal_moth_burial_ochre.png": "385d1d9bcff026c01f258f2c3495c37dffd23b60e0a19475328722317d9eef99",
+    "creatures/coal_moth/coal_moth_moonlit_lichen.png": "716d708b0c06a656947d1fe1bd9aaf1422bed8b7db2312e550308d33079c125a",
+    "creatures/chapel_butcher/chapel_butcher.geometry.json": "bd05f1c5648ef87158ba9412a48fbdf3840f87a2d56b1473feb9ad79568850c0",
+    "creatures/chapel_butcher/chapel_butcher.bbmodel": "1393f309be49dc808e55309bafed10866f41bba7784d70313d9e44108406a3d8",
+    "creatures/chapel_butcher/chapel_butcher.obj": "03d20acc3ab54bd440f9563dc7202afe0d7761dbe709e037b47b4e290198e912",
+    "creatures/chapel_butcher/chapel_butcher.mtl": "0db39bff1ef09b1272a3c6541ded0f4c5392d3458897b5773a060f7e1e1e6591",
+    "creatures/chapel_butcher/chapel_butcher_cloister_ash.png": "5f99362df82a1a45b100a309bb6d59877b0dc5de38c18e35fce6ea6364f164d4",
+    "creatures/chapel_butcher/chapel_butcher_burial_ochre.png": "8b9924107ebbe0e1a999cabe86b93099d3f0627682fdf037c707177089e500ee",
+    "creatures/chapel_butcher/chapel_butcher_moonlit_lichen.png": "dd853a7f749f093d3fa6c05674b5d8adf5cb2b89f78f396e648ae41bc9af29ca",
+    "creatures/dust_friar/dust_friar.geometry.json": "61ceb0ff1c3d06dfefda8c40c9b6c52548474217bc7358ccd4597dfb58d0ffdc",
+    "creatures/dust_friar/dust_friar.bbmodel": "74668e81be3fafcedcfc06c6bc12df5a87a8839599a1609d4246af209e0a096f",
+    "creatures/dust_friar/dust_friar.obj": "0c839fab87d69c88992bc9f91fb42298975ee33921c0238750b7c9be9baed774",
+    "creatures/dust_friar/dust_friar.mtl": "32c924cbaaab35ecc30e9593af2baa88bcfe30c097b2a1cefa8094c757899d1c",
+    "creatures/dust_friar/dust_friar_cloister_ash.png": "6d297ec50007d0076e217e0bc4a5a2594d1116ed3c281f4a347d77c4c8ef1a30",
+    "creatures/dust_friar/dust_friar_burial_ochre.png": "8b34b70176a124dbfc869abf69583e0870b3a8b0b7b318d8dfdbb713075f3d77",
+    "creatures/dust_friar/dust_friar_moonlit_lichen.png": "e974addd133dd0790fce2ad22bb5492a098cb9de4d5622bcd8ca075fe6f127ad",
+    "art_motion_contracts.json": "457708f1a875d6e6f200182b722d148f8cb932005ebfccf3fe7fb66ad9b038d1"
   }
 }

@@ -734,6 +734,72 @@
       "art_clips": 3,
       "finite_motion_samples": 27,
       "loop_endpoints_match": true
+    },
+    {
+      "id": "censer_revenant",
+      "sculpted_parts": 87,
+      "quad_count": 522,
+      "unique_face_islands": 522,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "rift_acolyte",
+      "sculpted_parts": 88,
+      "quad_count": 528,
+      "unique_face_islands": 528,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "skullglass_shardling",
+      "sculpted_parts": 90,
+      "quad_count": 540,
+      "unique_face_islands": 540,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "coal_moth",
+      "sculpted_parts": 100,
+      "quad_count": 600,
+      "unique_face_islands": 600,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "chapel_butcher",
+      "sculpted_parts": 94,
+      "quad_count": 564,
+      "unique_face_islands": 564,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "dust_friar",
+      "sculpted_parts": 86,
+      "quad_count": 516,
+      "unique_face_islands": 516,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
     }
   ],
   "checks": [

@@ -2,6 +2,12 @@
 
 ## Five Descents asset prototypes — 2026-10-18
 
+Wave 03 adds Censer Revenant, Rift Acolyte, Skullglass Shardling, Coal Moth,
+Chapel Butcher and Dust Friar: eighteen art prototypes, 54 skins and 54 editable
+motion clips. Added dedicated wave previews and magnified moth-wing inspection.
+Censers, a vent lid, individual crystal facets, four wings and the cleaver are
+articulated. Static validated; game behaviors, effects and native animation remain pending.
+
 Wave 02 adds Hollow Veil, Lantern Ghoul, Corvid Undertaker, Rotmilk Ratpack,
 Grave Thorn and Mourning Matron: twelve art prototypes, 36 skins and 36 editable
 motion clips in total. Added dedicated wave previews and magnified rat views.

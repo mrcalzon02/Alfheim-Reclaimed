@@ -10,7 +10,11 @@ UV-island and material-painting workflow, using original geometry.
 ## Review the emitted assets
 
 - [Creature sculptures: front, three-quarter and rear](creature_sculptures.png)
-- [All thirty-six creature appearances](creature_appearances.png)
+- [All fifty-four creature appearances](creature_appearances.png)
+- [Wave 03 sculptures](creature_wave_03_sculptures.png)
+- [Wave 03 action preview](creature_wave_03_signature_motion.gif)
+- [Wave 03 action still](creature_wave_03_signature_poses.png)
+- [Magnified Coal Moth wing details](creature_wave_03_small_details.png)
 - [Wave 02 sculptures](creature_wave_02_sculptures.png)
 - [Wave 02 action preview](creature_wave_02_signature_motion.gif)
 - [Wave 02 action still](creature_wave_02_signature_poses.png)
@@ -37,7 +41,7 @@ ruined variants also lose small internal fixtures while retaining containment.
 The refuge rooms are **interior modules**, not fitted replacements for the native
 13×19 service stalls. No functional economy is implied by their furniture.
 
-Twelve original sculptures now have three material-painted skins each. The first
+Eighteen original sculptures now have three material-painted skins each. The first
 six are the 95-part
 Ashen Novice, 87-part Lurking Silkmaw, 105-part Bell Warden, 113-part Ossuary
 Bowyer, 103-part Reliquary Sentinel and 116-part Ossuary Prior. Each includes a
@@ -62,23 +66,43 @@ composition and grate travel remain runtime work. The Grave Thorn stays rooted;
 its `walk` slot is a root-settling reference, not locomotion. It has a separate
 stationary trap design, not a recolor of the installed mobile Thorn Infestor.
 
-All twelve now include a root hierarchy, named articulation groups, anatomical
-pivots, and editable idle, walk and signature-action clips: 36 clips total.
-Jaws, bowstrings, arrows, clappers, lanterns and tails inherit their attachment's
+The third wave adds six more anatomies:
+
+| Creature | Sculpted parts | Readable visual cue |
+|---|---:|---|
+| Censer Revenant | 87 | Bronze rib armature, suspended chest censer and hinged vent lid |
+| Rift Acolyte | 88 | Forked rune mask, paired gauntlet projectors and waist tablets |
+| Skullglass Shardling | 90 | Six legs, six separate outer facet groups and a skull face |
+| Coal Moth | 100 | Four articulated wings, veins, ember marks and eye spots |
+| Chapel Butcher | 94 | Layered leather apron, heavy mask and broad cleaver |
+| Dust Friar | 86 | Wrapped habit, prayer book and hand-held censer |
+
+The moth's `walk` slot is a flutter reference; no flight AI is installed.
+The Shardling's scatter gesture moves authored facets only: no death fragments
+or damage are spawned. Both incense users have original censer geometry: the
+Revenant vents from its chest rig, while the Friar raises its hand-held bowl.
+Their smoke/dust particles, environmental flame interactions and support effects
+remain future runtime work.
+
+All eighteen now include a root hierarchy, named articulation groups, anatomical
+pivots, and editable idle, walk and signature-action clips: 54 clips total.
+Jaws, bowstrings, arrows, clappers, lanterns, tails, censers and the cleaver inherit their attachment's
 motion; offline pose evaluation follows the same exported group hierarchy.
 Signature clips show a bell-triggered stagger, silk ambush descent, rally toll,
 marked bow shot, bulwark slam and the Prior's convergence gesture. These are
 **art-motion prototypes**, not native game animation or functioning combat.
-The new six add phase-slip, lantern-charge, scavenger-call, grate-rush, rooted
+Wave 02 adds phase-slip, lantern-charge, scavenger-call, grate-rush, rooted
 snare and wound-transfer gestures. Creature appearance and animation do not
 substitute for distinct server-authoritative behavior implementations.
+Wave 03 adds censer venting, rune-salvo alignment, crystal scatter, ember-dust
+flutter, a broad cleaver sweep and a raised-censer benediction gesture.
 Markers identify visual timing only; no hit, sound, projectile, summon or damage
 event executes. Original sound production and native animation remain pending.
 The catalogue remains `design_only`; this adds zero implemented species.
 
 `five_act_asset_queue.json` maps all 130 species to their existing signature and
 counterplay, records 18 proposed room families per Act, gives distinct material
-directions for Acts II–V and identifies the twelve art prototypes. Later Acts'
+directions for Acts II–V and identifies the eighteen art prototypes. Later Acts'
 room names and material directions are plans, not generated geometry.
 
 ## Contracts and integration gates
@@ -124,7 +148,7 @@ Actual editor import remains pending. A standing-cell route is evidence of
 geometry connectivity, not proof of Minecraft collision, animated movement,
 combat or server performance.
 
-Executed on 2026-10-18: all 75 template and twelve-model artifact checks passed;
+Executed on 2026-10-18: all 75 template and eighteen-model artifact checks passed;
 all creature outputs reproduced byte-for-byte; the existing 130-species bestiary
 validator passed; the active pack feature-order check found zero cycles across
 313 loaded biomes, including Forge biome modifiers. No game was booted for this

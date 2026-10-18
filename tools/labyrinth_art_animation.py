@@ -22,6 +22,12 @@ SIGNATURES = {
     'rotmilk_ratpack': ('grate_rush', 1.3, ['low crouch', 'short individual rush', 'pack regroup reference']),
     'grave_thorn': ('thorn_snare', 2.0, ['soil pulse gesture', 'root fan spreads', 'barbs recover']),
     'mourning_matron': ('grief_transfer', 2.4, ['cradle and palms presented', 'wound-silk gesture', 'recovery']),
+    'censer_revenant': ('smoke_vent', 2.2, ['censer lid opens', 'venting gesture', 'lid closes']),
+    'rift_acolyte': ('rift_needles', 1.8, ['channel alignment gesture', 'gauntlet salvo gesture', 'recovery']),
+    'skullglass_shardling': ('fracture_scatter', 1.6, ['core braces', 'outer facets separate', 'art cycle reset']),
+    'coal_moth': ('ember_dust', 1.7, ['wings spread', 'dust-shedding flutter gesture', 'flight recovery reference']),
+    'chapel_butcher': ('cleaver_cleave', 2.0, ['cleaver windup', 'broad sweep', 'exposed recovery side']),
+    'dust_friar': ('dust_benediction', 2.2, ['hand-held censer rises', 'benediction gesture', 'lower censer']),
 }
 
 
@@ -38,6 +44,10 @@ def pivots(species, parts):
         'lantern_ghoul': (7,24,3.2,12,27),
         'corvid_undertaker': (5,24,3,16,27),
         'mourning_matron': (6,30,0,0,34),
+        'censer_revenant': (6,29,0,0,32),
+        'rift_acolyte': (5,27,2.6,17,30),
+        'chapel_butcher': (10,33,5,17,37),
+        'dust_friar': (8,25,3.4,9,29),
     }
     if species in axes:
         shoulder, shoulder_y, hip, hip_y, neck_y = axes[species]
@@ -64,6 +74,22 @@ def pivots(species, parts):
         for i in range(4):
             angle=math.pi/4+i*math.pi/2
             result[f'root_lash_{i}']=[math.cos(angle)*3,5,math.sin(angle)*3]
+    elif species=='skullglass_shardling':
+        result['head']=[0,10,-3.5]
+        for side in (-1,1):
+            for i in range(3):
+                result[('left' if side==-1 else 'right')+f'_leg_{i}']=[side*3.5,7,-3+i*3]
+        for i in range(6):
+            angle=math.tau*i/6
+            result[f'shard_{i}']=[math.cos(angle)*3.4,11,math.sin(angle)*3.4]
+    elif species=='coal_moth':
+        result['head']=[0,12,-3]
+        for side in (-1,1):
+            name='left' if side==-1 else 'right'
+            result[name+'_wing']=[side*2,12,-1]
+            result[name+'_hindwing']=[side*2,12,3]
+            for i in range(3):
+                result[name+f'_leg_{i}']=[side*2,11,-1+i*2]
     else:
         raise ValueError('Missing anatomical pivots for '+species)
     if 'clapper' in result:
@@ -76,6 +102,12 @@ def pivots(species, parts):
         result['lantern']=[16,30,-1]
     if 'jaw' in result:
         result['jaw']=[0,29.3,-3.7]
+    if 'cleaver' in result:
+        result['cleaver']=[14,19,-4]
+    if 'censer' in result:
+        result['censer']=[10,15,-5] if species=='dust_friar' else [0,19,-5]
+    if 'censer_lid' in result:
+        result['censer_lid']=[0,19.5,-1.5]
     result['root']=[0,0,0]
     return result
 
@@ -96,9 +128,16 @@ def clips(species, parts, uid):
                 'markers':[{'time':round(length*t,3),'color':i%8} for i,t in enumerate((.2,.55,.8))] if stages else []}
     idle_bob=0 if species=='grave_thorn' else .1 if species=='rotmilk_ratpack' else .35
     walk_bob=0 if species=='grave_thorn' else .18 if species=='rotmilk_ratpack' else .6
-    idle=clip('idle',2,'loop',[
+    idle_tracks=[
         ('root','position',[(0,[0,0,0]),(1,[0,idle_bob,0]),(2,[0,0,0])]),
-        ('head','rotation',[(0,[0,-2,0]),(1,[0,2,0]),(2,[0,-2,0])])])
+        ('head','rotation',[(0,[0,-2,0]),(1,[0,2,0]),(2,[0,-2,0])])]
+    if species=='coal_moth':
+        for side in (-1,1):
+            for hind in (False,True):
+                name=('left' if side==-1 else 'right')+('_hindwing' if hind else '_wing')
+                a=side*(10 if hind else 15)
+                idle_tracks.append((name,'rotation',[(0,[0,0,a]),(1,[0,0,-a]),(2,[0,0,a])]))
+    idle=clip('idle',2,'loop',idle_tracks)
     walk_tracks=[('root','position',[(0,[0,0,0]),(.25,[0,walk_bob,0]),(.5,[0,0,0]),(.75,[0,walk_bob,0]),(1,[0,0,0])])]
     for group in groups:
         if 'leg' in group:
@@ -120,6 +159,12 @@ def clips(species, parts, uid):
         walk_tracks.append(('tail','rotation',[(0,[0,-8,0]),(.5,[0,8,0]),(1,[0,-8,0])]))
     if species=='grave_thorn':
         walk_tracks.append(('head','rotation',[(0,[0,0,-1]),(.5,[0,0,1]),(1,[0,0,-1])]))
+    if species=='coal_moth':
+        for side in (-1,1):
+            for hind in (False,True):
+                name=('left' if side==-1 else 'right')+('_hindwing' if hind else '_wing')
+                a=side*(20 if hind else 28)
+                walk_tracks.append((name,'rotation',[(0,[0,0,a]),(.25,[0,0,-a]),(.5,[0,0,a]),(.75,[0,0,-a]),(1,[0,0,a])]))
     walk=clip('walk',1,'loop',walk_tracks)
     signature,length,stages=SIGNATURES[species]
     tracks=[]
@@ -192,6 +237,36 @@ def clips(species, parts, uid):
         arc('right_arm','rotation',[-14,0,12],peak=.4)
         arc('head','rotation',[10,0,0],peak=.5)
         arc('root','position',[0,.7,0],peak=.4)
+    elif species=='censer_revenant':
+        arc('censer_lid','rotation',[68,0,0],peak=.35)
+        arc('left_arm','rotation',[12,0,-14],peak=.4)
+        arc('right_arm','rotation',[12,0,14],peak=.4)
+        arc('head','rotation',[-10,0,0],peak=.4)
+    elif species=='rift_acolyte':
+        arc('left_arm','rotation',[28,-12,0],peak=.35,release=[-8,-5,0])
+        arc('right_arm','rotation',[28,12,0],peak=.35,release=[-8,5,0])
+        arc('head','rotation',[12,0,0],peak=.25)
+    elif species=='skullglass_shardling':
+        for i in range(6):
+            angle=math.tau*i/6
+            arc(f'shard_{i}','position',[math.cos(angle)*7,2,math.sin(angle)*7],peak=.65)
+            arc(f'shard_{i}','rotation',[0,0,(i-2.5)*12],peak=.65)
+        arc('head','rotation',[8,0,0],peak=.25)
+    elif species=='coal_moth':
+        for side in (-1,1):
+            for hind in (False,True):
+                name=('left' if side==-1 else 'right')+('_hindwing' if hind else '_wing')
+                a=side*(25 if hind else 38)
+                tracks.append((name,'rotation',[(0,[0,0,0]),(.4,[0,0,a]),(.7,[0,0,-a]),(1,[0,0,a]),(1.3,[0,0,-a]),(length,[0,0,0])]))
+        arc('root','position',[0,2,0],peak=.45)
+    elif species=='chapel_butcher':
+        arc('right_arm','rotation',[35,-55,-18],peak=.43,release=[10,60,12])
+        arc('left_arm','rotation',[8,0,-12],peak=.4)
+        arc('head','rotation',[0,-12,0],peak=.35,release=[0,13,0])
+    elif species=='dust_friar':
+        arc('right_arm','rotation',[65,0,-12],peak=.4)
+        arc('left_arm','rotation',[25,0,10],peak=.4)
+        arc('head','rotation',[-12,0,0],peak=.4)
     return [idle,walk,clip(signature,length,'once',tracks,stages)]
 
 

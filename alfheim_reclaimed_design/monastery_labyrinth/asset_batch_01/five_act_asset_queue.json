@@ -103,12 +103,12 @@
         "the_ossuary_prior"
       ],
       "next_creature_art": [
-        "censer_revenant",
-        "rift_acolyte",
-        "skullglass_shardling",
-        "coal_moth",
-        "chapel_butcher",
-        "dust_friar"
+        "sepulcher_hound",
+        "briar_witness",
+        "wicker_pilgrim",
+        "pale_deacon",
+        "carrion_lurker",
+        "coffin_strider"
       ],
       "creatures": [
         {
@@ -226,54 +226,60 @@
           "role": "caster",
           "telegraph_to_model": "Sends drifting smoke that detonates near open flame",
           "counterplay_to_preserve": "Extinguish braziers or lure the smoke away",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/censer_revenant/censer_revenant.bbmodel"
         },
         {
           "catalog_id": "rift_acolyte",
           "role": "caster",
           "telegraph_to_model": "Fires rune darts down prelit floor channels",
           "counterplay_to_preserve": "Leave the glowing channel before the salvo",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/rift_acolyte/rift_acolyte.bbmodel"
         },
         {
           "catalog_id": "skullglass_shardling",
           "role": "swarm",
           "telegraph_to_model": "Splits into damaging splinters on death",
           "counterplay_to_preserve": "Finish it outside crowded lanes",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/skullglass_shardling/skullglass_shardling.bbmodel"
         },
         {
           "catalog_id": "coal_moth",
           "role": "flanker",
           "telegraph_to_model": "Dust marks armor before its brief burn",
           "counterplay_to_preserve": "Use water and move off the glowing dust",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/coal_moth/coal_moth.bbmodel"
         },
         {
           "catalog_id": "chapel_butcher",
           "role": "brute",
           "telegraph_to_model": "Sweeps a long frontal execution arc",
           "counterplay_to_preserve": "Dodge through its recovery side",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/chapel_butcher/chapel_butcher.bbmodel"
         },
         {
           "catalog_id": "dust_friar",
           "role": "support",
           "telegraph_to_model": "Grants short evasion to nearby dead monks",
           "counterplay_to_preserve": "Interrupt the raised censer",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/dust_friar/dust_friar.bbmodel"
         },
         {
           "catalog_id": "sepulcher_hound",
@@ -1731,7 +1737,7 @@
     }
   ],
   "runtime_species_implemented": 0,
-  "textured_species_prototypes": 12,
+  "textured_species_prototypes": 18,
   "production_order": [
     "Act I shell-to-template adapter and gap/height fitting",
     "Act I animated native models and twelve distinct AI implementations",

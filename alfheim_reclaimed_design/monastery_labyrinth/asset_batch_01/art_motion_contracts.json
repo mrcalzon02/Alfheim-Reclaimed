@@ -411,6 +411,204 @@
         }
       ],
       "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "censer_revenant",
+      "signature_clip": "smoke_vent",
+      "visual_stages": [
+        "censer lid opens",
+        "venting gesture",
+        "lid closes"
+      ],
+      "native_combat_contract": {
+        "id": "smoke_burst",
+        "description": "Sends drifting smoke that detonates near open flame",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Extinguish braziers or lure the smoke away",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "smoke_vent",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "rift_acolyte",
+      "signature_clip": "rift_needles",
+      "visual_stages": [
+        "channel alignment gesture",
+        "gauntlet salvo gesture",
+        "recovery"
+      ],
+      "native_combat_contract": {
+        "id": "rift_needles",
+        "description": "Fires rune darts down prelit floor channels",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Leave the glowing channel before the salvo",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "rift_needles",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "skullglass_shardling",
+      "signature_clip": "fracture_scatter",
+      "visual_stages": [
+        "core braces",
+        "outer facets separate",
+        "art cycle reset"
+      ],
+      "native_combat_contract": {
+        "id": "shard_scatter",
+        "description": "Splits into damaging splinters on death",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Finish it outside crowded lanes",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "fracture_scatter",
+          "length_seconds": 1.6,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "coal_moth",
+      "signature_clip": "ember_dust",
+      "visual_stages": [
+        "wings spread",
+        "dust-shedding flutter gesture",
+        "flight recovery reference"
+      ],
+      "native_combat_contract": {
+        "id": "ember_dust",
+        "description": "Dust marks armor before its brief burn",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Use water and move off the glowing dust",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "ember_dust",
+          "length_seconds": 1.7,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "chapel_butcher",
+      "signature_clip": "cleaver_cleave",
+      "visual_stages": [
+        "cleaver windup",
+        "broad sweep",
+        "exposed recovery side"
+      ],
+      "native_combat_contract": {
+        "id": "cleaver_cleave",
+        "description": "Sweeps a long frontal execution arc",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Dodge through its recovery side",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "cleaver_cleave",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "dust_friar",
+      "signature_clip": "dust_benediction",
+      "visual_stages": [
+        "hand-held censer rises",
+        "benediction gesture",
+        "lower censer"
+      ],
+      "native_combat_contract": {
+        "id": "dust_benediction",
+        "description": "Grants short evasion to nearby dead monks",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Interrupt the raised censer",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "dust_benediction",
+          "length_seconds": 2.2,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
     }
   ]
 }
