@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "alfheim:hub/autoload"
+    "alfheim:hub/autoload",
+    "alfheim:hub/court_refit/load"
   ]
 }

@@ -1,0 +1,457 @@
+{
+  "execution": "Continuity Works StructureCapability.plan / generate",
+  "seed": 20260903,
+  "minecraft": "1.20.1",
+  "cw_source_sha256": "01a17ab1dd5044faecf395cd862ccd14300d52ef2e189f8dbb693b94c9152846",
+  "snapshot": {
+    "snapshot_id": "20261018T224557Z-alfheim_spawn_court_refit-generate-65076f34",
+    "created_utc": "20261018T224557Z",
+    "structure_id": "alfheim:spawn_court_refit",
+    "stage": "generate",
+    "parent": "20261018T224555Z-alfheim_spawn_court_refit-plan-56f651ac",
+    "payload": {
+      "request": {
+        "structure_id": "alfheim:spawn_court_refit",
+        "structure_type": "building",
+        "target_version": "1.20.1",
+        "scale": 1.0,
+        "operation": "generate",
+        "grade": 2,
+        "source": null,
+        "purpose": {
+          "kind": "protected_elven_court",
+          "original_function": null,
+          "current_function": null,
+          "required_zones": [
+            "guard reception",
+            "magister audience",
+            "archive",
+            "kitchen",
+            "stores",
+            "steward",
+            "watch",
+            "survey records"
+          ],
+          "required_routes": [
+            "three-wide NPC approaches",
+            "existing four processional aisles"
+          ],
+          "required_utilities": [],
+          "required_exterior": [],
+          "forbidden_features": []
+        },
+        "theme": {
+          "name": "neutral",
+          "culture": null,
+          "institution": null,
+          "palette_roles": {},
+          "silhouette_rules": [],
+          "facade_rules": [],
+          "interior_rules": [],
+          "technology_language": [],
+          "damage_language": [],
+          "signage_language": [],
+          "forbidden_assets": []
+        },
+        "context": {
+          "dimension": "mythicbotany:alfheim",
+          "biomes": [],
+          "biome_tags": [],
+          "terrain": "existing authored Greatbole family footprint",
+          "fluid": null,
+          "sea_level": null,
+          "y_min": null,
+          "y_max": null,
+          "slope_class": null,
+          "climate": {},
+          "orientation": null,
+          "approach_vectors": [],
+          "required_connectors": [],
+          "nearby_features": [],
+          "exclusion_zones": [],
+          "protected_regions": [],
+          "placement": {}
+        },
+        "physical_clearance": "person",
+        "access_clearance": "public",
+        "preserve": [
+          "NPC names and UUIDs",
+          "quest IDs and player progression",
+          "Greatbole",
+          "foundation and independent structure reservations"
+        ],
+        "mutable": [],
+        "integration_contracts": {
+          "independent_structure_gap": 500,
+          "same_family": "existing Greatbole and Hollow Court; no independent structure placement"
+        },
+        "generation": {
+          "kind": "spawn_court_refit",
+          "seed": 20260903,
+          "materialize_nbt": true
+        },
+        "metadata": {}
+      },
+      "generation": {
+        "status": "LOCALLY_VALIDATED",
+        "provider_contract": {
+          "must_obey_preserve": [
+            "Greatbole",
+            "NPC names and UUIDs",
+            "foundation and independent structure reservations",
+            "quest IDs and player progression"
+          ],
+          "must_use_verified_registry_ids": true,
+          "vanilla_first_fallback": true,
+          "must_snapshot_each_verified_batch": true,
+          "server_visual_review_required": false,
+          "server_side_rendering": false,
+          "client_rendering_responsibility": true,
+          "visual_review_advisory_only": true
+        },
+        "provider_id": "alfheim_spawn_court_refit_v2"
+      },
+      "generated_layout": {
+        "pieces": [
+          {
+            "path": "kubejs\\data\\alfheim\\structures\\court\\amphitheatre.nbt",
+            "sha256": "a68bd114d5597ac0fae244c980d4dc61fc2870a48163d039ec21158c3f20510d",
+            "entities": 2
+          },
+          {
+            "path": "kubejs\\data\\alfheim\\structures\\court\\west_residence.nbt",
+            "sha256": "9a183f275dcd56f8360808ea9193b490971752e695b754ffc679f292d78ef8a8",
+            "entities": 2
+          },
+          {
+            "path": "kubejs\\data\\alfheim\\structures\\court\\east_service.nbt",
+            "sha256": "65d349cd805290500f39912b112f85cd2795d9339d7b6805c33be7750d5644d8",
+            "entities": 2
+          },
+          {
+            "path": "kubejs\\data\\alfheim\\structures\\court\\north_council.nbt",
+            "sha256": "ad54fd322eae8ea7178e53b4383a2b6e5723b177411a6a35251056010fb2a05d",
+            "entities": 2
+          }
+        ],
+        "stations": [
+          {
+            "name": "Magister Velrous",
+            "piece": "amphitheatre",
+            "pos": [
+              29,
+              4,
+              30
+            ],
+            "yaw": 0,
+            "role": "Magister",
+            "route": [
+              29,
+              32
+            ]
+          },
+          {
+            "name": "Captain Orenvel",
+            "piece": "amphitheatre",
+            "pos": [
+              19,
+              4,
+              30
+            ],
+            "yaw": 0,
+            "role": "Guard Captain",
+            "route": [
+              19,
+              32
+            ]
+          },
+          {
+            "name": "Sethyr the Quiet",
+            "piece": "west_residence",
+            "pos": [
+              34,
+              6,
+              35
+            ],
+            "yaw": 180,
+            "role": "Court Steward",
+            "route": [
+              34,
+              29
+            ]
+          },
+          {
+            "name": "Loremistress Anwe",
+            "piece": "north_council",
+            "pos": [
+              12,
+              6,
+              35
+            ],
+            "yaw": -90,
+            "role": "Archive",
+            "route": [
+              19,
+              35
+            ]
+          },
+          {
+            "name": "Faelan Ashbound",
+            "piece": "east_service",
+            "pos": [
+              34,
+              6,
+              12
+            ],
+            "yaw": 0,
+            "role": "Provisioner",
+            "route": [
+              34,
+              18
+            ]
+          },
+          {
+            "name": "Nyre of the Boughs",
+            "piece": "north_council",
+            "pos": [
+              36,
+              6,
+              35
+            ],
+            "yaw": 90,
+            "role": "Survey Records",
+            "route": [
+              29,
+              35
+            ]
+          },
+          {
+            "name": "Warden Ilesh",
+            "piece": "west_residence",
+            "pos": [
+              41,
+              6,
+              26
+            ],
+            "yaw": -90,
+            "role": "Court Watch",
+            "route": [
+              43,
+              24
+            ]
+          },
+          {
+            "name": "Cinder-Sister Vaal",
+            "piece": "east_service",
+            "pos": [
+              12,
+              6,
+              12
+            ],
+            "yaw": 0,
+            "role": "Kitchen",
+            "route": [
+              12,
+              18
+            ]
+          }
+        ],
+        "guarded_block_edits": 202
+      },
+      "structure_artifact": {
+        "format": "minecraft_structure_nbt",
+        "piece_count": 4
+      }
+    },
+    "artifacts": [
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_amphitheatre.nbt",
+        "sha256": "a68bd114d5597ac0fae244c980d4dc61fc2870a48163d039ec21158c3f20510d",
+        "bytes": 24308
+      },
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_west_residence.nbt",
+        "sha256": "9a183f275dcd56f8360808ea9193b490971752e695b754ffc679f292d78ef8a8",
+        "bytes": 48625
+      },
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_east_service.nbt",
+        "sha256": "65d349cd805290500f39912b112f85cd2795d9339d7b6805c33be7750d5644d8",
+        "bytes": 48876
+      },
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_north_council.nbt",
+        "sha256": "ad54fd322eae8ea7178e53b4383a2b6e5723b177411a6a35251056010fb2a05d",
+        "bytes": 51527
+      },
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_apply.mcfunction",
+        "sha256": "4b3175036e32880f4b7c2d3224f679cd2244330c6608f13290a787c0ef6d74ca",
+        "bytes": 41044
+      },
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_load.mcfunction",
+        "sha256": "8dada8789b85c41989f3074229afbf2d181e0a352452548febe7b7a2288edaeb",
+        "bytes": 158
+      },
+      {
+        "source": "generated",
+        "snapshot_path": "artifacts\\spawn_court_refit_poll.mcfunction",
+        "sha256": "45de4b089151ffb7f5c0e5e9f6482e9de4bea4b454c8a1b1d8394e6f01b226ec",
+        "bytes": 484
+      }
+    ]
+  },
+  "pieces": [
+    {
+      "path": "kubejs\\data\\alfheim\\structures\\court\\amphitheatre.nbt",
+      "sha256": "a68bd114d5597ac0fae244c980d4dc61fc2870a48163d039ec21158c3f20510d",
+      "entities": 2
+    },
+    {
+      "path": "kubejs\\data\\alfheim\\structures\\court\\west_residence.nbt",
+      "sha256": "9a183f275dcd56f8360808ea9193b490971752e695b754ffc679f292d78ef8a8",
+      "entities": 2
+    },
+    {
+      "path": "kubejs\\data\\alfheim\\structures\\court\\east_service.nbt",
+      "sha256": "65d349cd805290500f39912b112f85cd2795d9339d7b6805c33be7750d5644d8",
+      "entities": 2
+    },
+    {
+      "path": "kubejs\\data\\alfheim\\structures\\court\\north_council.nbt",
+      "sha256": "ad54fd322eae8ea7178e53b4383a2b6e5723b177411a6a35251056010fb2a05d",
+      "entities": 2
+    }
+  ],
+  "stations": [
+    {
+      "name": "Magister Velrous",
+      "piece": "amphitheatre",
+      "pos": [
+        29,
+        4,
+        30
+      ],
+      "yaw": 0,
+      "role": "Magister",
+      "route": [
+        29,
+        32
+      ]
+    },
+    {
+      "name": "Captain Orenvel",
+      "piece": "amphitheatre",
+      "pos": [
+        19,
+        4,
+        30
+      ],
+      "yaw": 0,
+      "role": "Guard Captain",
+      "route": [
+        19,
+        32
+      ]
+    },
+    {
+      "name": "Sethyr the Quiet",
+      "piece": "west_residence",
+      "pos": [
+        34,
+        6,
+        35
+      ],
+      "yaw": 180,
+      "role": "Court Steward",
+      "route": [
+        34,
+        29
+      ]
+    },
+    {
+      "name": "Loremistress Anwe",
+      "piece": "north_council",
+      "pos": [
+        12,
+        6,
+        35
+      ],
+      "yaw": -90,
+      "role": "Archive",
+      "route": [
+        19,
+        35
+      ]
+    },
+    {
+      "name": "Faelan Ashbound",
+      "piece": "east_service",
+      "pos": [
+        34,
+        6,
+        12
+      ],
+      "yaw": 0,
+      "role": "Provisioner",
+      "route": [
+        34,
+        18
+      ]
+    },
+    {
+      "name": "Nyre of the Boughs",
+      "piece": "north_council",
+      "pos": [
+        36,
+        6,
+        35
+      ],
+      "yaw": 90,
+      "role": "Survey Records",
+      "route": [
+        29,
+        35
+      ]
+    },
+    {
+      "name": "Warden Ilesh",
+      "piece": "west_residence",
+      "pos": [
+        41,
+        6,
+        26
+      ],
+      "yaw": -90,
+      "role": "Court Watch",
+      "route": [
+        43,
+        24
+      ]
+    },
+    {
+      "name": "Cinder-Sister Vaal",
+      "piece": "east_service",
+      "pos": [
+        12,
+        6,
+        12
+      ],
+      "yaw": 0,
+      "role": "Kitchen",
+      "route": [
+        12,
+        18
+      ]
+    }
+  ],
+  "guarded_block_edits": 202,
+  "existing_world_application": "guarded automatic migration on next load; no save edited offline"
+}

@@ -129,7 +129,8 @@ ServerEvents.loaded(event => {
         team.setProperty($TeamProperties.COLOR, $Color4I.fromString('#63A95A'))
         team.setProperty($FTBChunksProperties.BLOCK_EDIT_MODE, $PrivacyMode.PRIVATE)
         team.setProperty($FTBChunksProperties.BLOCK_INTERACT_MODE, $PrivacyMode.PRIVATE)
-        team.setProperty($FTBChunksProperties.ENTITY_INTERACT_MODE, $PrivacyMode.PRIVATE)
+        // Public court audiences and quest gifts must remain usable inside the claim.
+        team.setProperty($FTBChunksProperties.ENTITY_INTERACT_MODE, $PrivacyMode.PUBLIC)
         team.setProperty($FTBChunksProperties.NONLIVING_ENTITY_ATTACK_MODE, $PrivacyMode.PRIVATE)
         team.setProperty($FTBChunksProperties.ALLOW_EXPLOSIONS, false)
         team.setProperty($FTBChunksProperties.ALLOW_MOB_GRIEFING, false)

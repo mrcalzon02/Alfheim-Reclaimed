@@ -523,7 +523,7 @@ function auditCourt(server, player) {{
     if (missing.length === 0) {{
         server.persistentData.putBoolean(COURT_FLAG, true)
         console.info(`[Alfheim Reclaimed] Hollow Court present — ${{roster.length}} elves. ` +
-                     'Velrous and Orenvel give quests to a player holding a Quest Scroll.')
+                     'Velrous and Orenvel offer conversations and quest turn-ins by right-click.')
         return
     }}
 

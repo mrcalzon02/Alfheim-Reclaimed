@@ -481,7 +481,7 @@ def main():
         print(f'  {name + ".mcfunction":22} {len([l for l in lines if l and not l.startswith("#")])} commands')
 
     # #minecraft:load is the vanilla hook that runs on world load with no player present.
-    tag = {'replace': False, 'values': [f'{NS}:hub/autoload']}
+    tag = {'replace': False, 'values': [f'{NS}:hub/autoload', f'{NS}:hub/court_refit/load']}
     if not a.dry_run:
         with open(os.path.join(TAGS, 'load.json'), 'w', encoding='utf-8', newline='\n') as f:
             json.dump(tag, f, indent=2)
