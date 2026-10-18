@@ -8461,7 +8461,7 @@
         5.0
       ],
       "material": "iron",
-      "group": "body",
+      "group": "clapper",
       "rotation": [
         0,
         0,
@@ -40181,7 +40181,7 @@
       "part": "bell_clapper",
       "material": "iron",
       "face": 0,
-      "group": "body"
+      "group": "clapper"
     },
     {
       "vertices": [
@@ -40232,7 +40232,7 @@
       "part": "bell_clapper",
       "material": "iron",
       "face": 1,
-      "group": "body"
+      "group": "clapper"
     },
     {
       "vertices": [
@@ -40283,7 +40283,7 @@
       "part": "bell_clapper",
       "material": "iron",
       "face": 2,
-      "group": "body"
+      "group": "clapper"
     },
     {
       "vertices": [
@@ -40334,7 +40334,7 @@
       "part": "bell_clapper",
       "material": "iron",
       "face": 3,
-      "group": "body"
+      "group": "clapper"
     },
     {
       "vertices": [
@@ -40385,7 +40385,7 @@
       "part": "bell_clapper",
       "material": "iron",
       "face": 4,
-      "group": "body"
+      "group": "clapper"
     },
     {
       "vertices": [
@@ -40436,7 +40436,7 @@
       "part": "bell_clapper",
       "material": "iron",
       "face": 5,
-      "group": "body"
+      "group": "clapper"
     },
     {
       "vertices": [

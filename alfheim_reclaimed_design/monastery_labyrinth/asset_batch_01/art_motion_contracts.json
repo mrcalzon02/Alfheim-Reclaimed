@@ -1,0 +1,218 @@
+{
+  "status": "Editable art motion only; zero native hit, audio or AI events",
+  "schema_reference": {
+    "source": "Installed Blockbench app.asar",
+    "app_version": "4.12.4",
+    "entries": [
+      "js/io/formats/bbmodel.js",
+      "js/animations/animation.js",
+      "js/animations/keyframe.js"
+    ],
+    "entry_sha256": [
+      "70fe2b63612cc98cb1ffd9bba3a0f4117d7a5bab5dbcae823b9b70b4043a2d06",
+      "3827f0b5bf16b2d7d676d83a8973b2b0f546602cca657a7deaff39a588d7fc95",
+      "cba625d5f5b5683e8387ac16d80a980a6adbac31b1c07d70237a1f9ffa49900c"
+    ],
+    "inspection": "Animation.getUndoCopy and Keyframe data_points save representation inspected locally"
+  },
+  "models": [
+    {
+      "id": "ashen_novice",
+      "signature_clip": "bell_stagger",
+      "visual_stages": [
+        "bell response",
+        "formation rupture",
+        "recovery"
+      ],
+      "native_combat_contract": {
+        "id": "swarm_rush",
+        "description": "Shatters formation when struck by a bell chime",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Split the pack before it surrounds the party",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "bell_stagger",
+          "length_seconds": 1.4,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "lurking_silkmaw",
+      "signature_clip": "ceiling_ambush",
+      "visual_stages": [
+        "suspended warning",
+        "descent",
+        "landing"
+      ],
+      "native_combat_contract": {
+        "id": "web_drop",
+        "description": "Descends from marked ceiling webs",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Cut the silk anchor before entry",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "ceiling_ambush",
+          "length_seconds": 1.6,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "bell_warden",
+      "signature_clip": "rally_toll",
+      "visual_stages": [
+        "raise arms",
+        "visible clapper swing",
+        "rally recovery"
+      ],
+      "native_combat_contract": {
+        "id": "alarm_peal",
+        "description": "Marks one ally to rally a room-wide pack",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Silence the bell between strikes",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "rally_toll",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "ossuary_bowyer",
+      "signature_clip": "marked_shot",
+      "visual_stages": [
+        "glowing drawn string",
+        "release reference arrow",
+        "reload"
+      ],
+      "native_combat_contract": {
+        "id": "arrow_fan",
+        "description": "Pins its next shot to the player's former position",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move after the bowstring glows",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "marked_shot",
+          "length_seconds": 1.6,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "reliquary_sentinel",
+      "signature_clip": "bulwark_slam",
+      "visual_stages": [
+        "frontal shield lock",
+        "mace slam",
+        "exposed recovery"
+      ],
+      "native_combat_contract": {
+        "id": "shield_lock",
+        "description": "Faces the strongest frontal threat with a timed bulwark",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Attack its exposed flank after a slam",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "bulwark_slam",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    },
+    {
+      "id": "the_ossuary_prior",
+      "signature_clip": "bell_convergence",
+      "visual_stages": [
+        "choir preparation",
+        "converging toll",
+        "altar-response window"
+      ],
+      "native_combat_contract": {
+        "id": "bell_convergence",
+        "description": "Rings the entire abbey and commands grave-choir phases",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Silence three echo altars before the final ring",
+      "clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "bell_convergence",
+          "length_seconds": 3.0,
+          "loop": "once"
+        }
+      ],
+      "acceptance": "offline motion preview; editor/client import pending"
+    }
+  ]
+}

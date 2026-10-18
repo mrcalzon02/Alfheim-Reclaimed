@@ -39,7 +39,24 @@
       "blender_import": "creatures/ashen_novice/ashen_novice.obj",
       "asset_state": "sculpted_textured_art_prototype",
       "runtime_entity": "not implemented",
-      "animation": "named groups only; keyframes pending",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "bell_stagger",
+          "length_seconds": 1.4,
+          "loop": "once"
+        }
+      ],
       "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
     },
     {
@@ -82,7 +99,24 @@
       "blender_import": "creatures/lurking_silkmaw/lurking_silkmaw.obj",
       "asset_state": "sculpted_textured_art_prototype",
       "runtime_entity": "not implemented",
-      "animation": "named groups only; keyframes pending",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "ceiling_ambush",
+          "length_seconds": 1.6,
+          "loop": "once"
+        }
+      ],
       "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
     },
     {
@@ -105,6 +139,7 @@
       ],
       "animation_groups": [
         "body",
+        "clapper",
         "head",
         "left_arm",
         "left_leg",
@@ -121,31 +156,238 @@
       "blender_import": "creatures/bell_warden/bell_warden.obj",
       "asset_state": "sculpted_textured_art_prototype",
       "runtime_entity": "not implemented",
-      "animation": "named groups only; keyframes pending",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "rally_toll",
+          "length_seconds": 1.8,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "ossuary_bowyer",
+      "act": 1,
+      "role": "ranged",
+      "signature": {
+        "id": "arrow_fan",
+        "description": "Pins its next shot to the player's former position",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Move after the bowstring glows",
+      "part_count": 113,
+      "quad_count": 678,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        1.77,
+        2.635,
+        0.9202
+      ],
+      "animation_groups": [
+        "arrow",
+        "body",
+        "bowstring",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/ossuary_bowyer/ossuary_bowyer.geometry.json",
+      "blockbench": "creatures/ossuary_bowyer/ossuary_bowyer.bbmodel",
+      "blender_import": "creatures/ossuary_bowyer/ossuary_bowyer.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "marked_shot",
+          "length_seconds": 1.6,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "reliquary_sentinel",
+      "act": 1,
+      "role": "tank",
+      "signature": {
+        "id": "shield_lock",
+        "description": "Faces the strongest frontal threat with a timed bulwark",
+        "telegraph": "required_visible_audio_and_motion_cues"
+      },
+      "counterplay": "Attack its exposed flank after a slam",
+      "part_count": 103,
+      "quad_count": 618,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        2.1844,
+        2.8065,
+        1.3312
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "left_leg",
+        "right_arm",
+        "right_leg"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/reliquary_sentinel/reliquary_sentinel.geometry.json",
+      "blockbench": "creatures/reliquary_sentinel/reliquary_sentinel.bbmodel",
+      "blender_import": "creatures/reliquary_sentinel/reliquary_sentinel.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "bulwark_slam",
+          "length_seconds": 2.0,
+          "loop": "once"
+        }
+      ],
+      "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
+    },
+    {
+      "catalog_id": "the_ossuary_prior",
+      "act": 1,
+      "role": "boss",
+      "signature": {
+        "id": "bell_convergence",
+        "description": "Rings the entire abbey and commands grave-choir phases",
+        "telegraph": "multi_stage_arena_cues"
+      },
+      "counterplay": "Silence three echo altars before the final ring",
+      "part_count": 116,
+      "quad_count": 696,
+      "atlas_size": 512,
+      "model_bounds_blocks": [
+        2.5406,
+        3.5562,
+        0.9625
+      ],
+      "animation_groups": [
+        "body",
+        "head",
+        "left_arm",
+        "right_arm"
+      ],
+      "looks": [
+        "cloister_ash",
+        "burial_ochre",
+        "moonlit_lichen"
+      ],
+      "geometry": "creatures/the_ossuary_prior/the_ossuary_prior.geometry.json",
+      "blockbench": "creatures/the_ossuary_prior/the_ossuary_prior.bbmodel",
+      "blender_import": "creatures/the_ossuary_prior/the_ossuary_prior.obj",
+      "asset_state": "sculpted_textured_art_prototype",
+      "runtime_entity": "not implemented",
+      "animation": "three editable art clips; native animation pending",
+      "animation_clips": [
+        {
+          "name": "idle",
+          "length_seconds": 2,
+          "loop": "loop"
+        },
+        {
+          "name": "walk",
+          "length_seconds": 1,
+          "loop": "loop"
+        },
+        {
+          "name": "bell_convergence",
+          "length_seconds": 3.0,
+          "loop": "once"
+        }
+      ],
       "duplicate_review": "Original anatomy; no existing entity ID is replaced. Mechanical species count remains zero."
     }
   ],
   "sha256": {
     "creatures/ashen_novice/ashen_novice.geometry.json": "7a8fe015b3a49fa06d63a900712b13d5f6f57033b2a1cd015a19f27550dcfbe6",
-    "creatures/ashen_novice/ashen_novice.bbmodel": "39ddea79c3130655bc322165d34d3f0c9f908f2e7bf16fb7e17926c1c4e324a6",
+    "creatures/ashen_novice/ashen_novice.bbmodel": "b635fac83b9769efd13432bf57dd36f7f0ca18f349243519983a300886376d12",
     "creatures/ashen_novice/ashen_novice.obj": "0d8c497edd0fddca9afb2e0c0187be69703c907b6540912e83801284eecb52f7",
     "creatures/ashen_novice/ashen_novice.mtl": "5ea6a917f6ce624b459b58a5fccb6b346a5e71ce87eaacc3ef6ea8d8b411337c",
     "creatures/ashen_novice/ashen_novice_cloister_ash.png": "b7c945073a4ae9b626900f7d23b921db1c953f8badabe026ed697c1e90f5a7c0",
     "creatures/ashen_novice/ashen_novice_burial_ochre.png": "f5d632771ac2c72c408f92f03e296a6f4d9690c71e0021baca16a199c5416b43",
     "creatures/ashen_novice/ashen_novice_moonlit_lichen.png": "54407f092f6175d580cbce823edc2e1131d85aef49c09bff33012ec8bcaec164",
     "creatures/lurking_silkmaw/lurking_silkmaw.geometry.json": "dee8c0f39d0293c1db25f014e06a0d09f28a4d4bc1b1a4745444d57cfa26ecd8",
-    "creatures/lurking_silkmaw/lurking_silkmaw.bbmodel": "323312680d644c94d6ff729bdebb99dcc0a87f452f2e3c28f7dbca83cad475f8",
+    "creatures/lurking_silkmaw/lurking_silkmaw.bbmodel": "406ee30f55325aaace67370361938d3e7f6f111df48ef25f70bad5b0a64a7a9e",
     "creatures/lurking_silkmaw/lurking_silkmaw.obj": "489987bbc69a76e8d73897af8e8f473be57b193156424447f32379e105597546",
     "creatures/lurking_silkmaw/lurking_silkmaw.mtl": "8d7d8c378ca0734e212604d401d20cd51425a973ec846cb82566a2246d3ea94f",
     "creatures/lurking_silkmaw/lurking_silkmaw_cloister_ash.png": "2e5c52a3fdfc9b749aed3fb272b605463005eebee4d4f5457b39359d5a6379ce",
     "creatures/lurking_silkmaw/lurking_silkmaw_burial_ochre.png": "9ade3b448d7320c4dcd98718e31c1f82ac1db5724faf29c9d776a416c787f50d",
     "creatures/lurking_silkmaw/lurking_silkmaw_moonlit_lichen.png": "68964500f25f3ad06b8cea8e1f3dcef69c06e1b75325012ebd12e1c7db3904cf",
-    "creatures/bell_warden/bell_warden.geometry.json": "bd9da3cc69dd4507095b7bf7cbeef8c88fae3d3cfe2c248dd986d297e37cbc0d",
-    "creatures/bell_warden/bell_warden.bbmodel": "3766e40a38f2172724e90e1bdfae75fc7dc6bc02bf126708691416ecf88a53ed",
-    "creatures/bell_warden/bell_warden.obj": "8c5236bf1ccce232aadf6c78e8ef78cb62d7051448e4b2e029e793a4c09af0a7",
+    "creatures/bell_warden/bell_warden.geometry.json": "e439a005fa882e5a387e2214eb95e6525624c236c28fa435d32aaa865ab35928",
+    "creatures/bell_warden/bell_warden.bbmodel": "cb87e1414847a88532e7be6e2e4489dfb628cda5022e003c2d3357bb8f7126ee",
+    "creatures/bell_warden/bell_warden.obj": "620316354694d9e348cb338b83c241eec1f60bd0a1abc88fe17e357e6178d553",
     "creatures/bell_warden/bell_warden.mtl": "373584214b70c537c2a7ac9bfa22143b491553280d6ad42a893737cf6ab3a7c4",
     "creatures/bell_warden/bell_warden_cloister_ash.png": "9c5fae2861e6df9da21aa557b35bb910fc5bbb28a725a391cb52c2d0c65005fe",
     "creatures/bell_warden/bell_warden_burial_ochre.png": "9a9581e52cfac0526a439f16e7f798752ad6679701b9a01a836ba4dacfc9d0e9",
-    "creatures/bell_warden/bell_warden_moonlit_lichen.png": "0a4df0850a40e4de46a7369e17a830ec2781900beb5b510e015558eef60d9e4c"
+    "creatures/bell_warden/bell_warden_moonlit_lichen.png": "0a4df0850a40e4de46a7369e17a830ec2781900beb5b510e015558eef60d9e4c",
+    "creatures/ossuary_bowyer/ossuary_bowyer.geometry.json": "727f07d934b38f262629289b67bb71de23f2762a1feb84384cbb8cdbc9960bd4",
+    "creatures/ossuary_bowyer/ossuary_bowyer.bbmodel": "673ba72326b31e75cbf8657cabeb39548ace8132e4cca36dccf4b0ea773070df",
+    "creatures/ossuary_bowyer/ossuary_bowyer.obj": "874500e6e59b0250563136831af015ecfa2e4b3f63f9000b7fd6a30898e00bf3",
+    "creatures/ossuary_bowyer/ossuary_bowyer.mtl": "d8cc4864e002f6e8ba07d79deb5fec8923b6d970a23e7760674c74839fcb75b4",
+    "creatures/ossuary_bowyer/ossuary_bowyer_cloister_ash.png": "1fa630f9fc148943f4d8bb67daeed3e676de5be1b563cb551b266a228f496dc3",
+    "creatures/ossuary_bowyer/ossuary_bowyer_burial_ochre.png": "3f4a18b96ed7feab2d179e0470fa5b133124e9ed9aeaa060bab7c4de2bba3c96",
+    "creatures/ossuary_bowyer/ossuary_bowyer_moonlit_lichen.png": "6dd1768cac115587760d3318a17869267410c036c4bd3b2328381b9810550613",
+    "creatures/reliquary_sentinel/reliquary_sentinel.geometry.json": "490de74293f5bb03577c2fe133e2b60f27d88a83a9ba3148319e108221eb7718",
+    "creatures/reliquary_sentinel/reliquary_sentinel.bbmodel": "a5ccf7cdd4628fa9808ea2743e3b2355a848e2bdb57b78f482f1207b8683a6f7",
+    "creatures/reliquary_sentinel/reliquary_sentinel.obj": "79053ac01554c4eebaad183d841bfbc010d57d0144d71c651e5c82bbc4203c15",
+    "creatures/reliquary_sentinel/reliquary_sentinel.mtl": "932a295d0e419c6bb13692477c3ebe7fb40c980daaf7d245c2c0104d2552ea6d",
+    "creatures/reliquary_sentinel/reliquary_sentinel_cloister_ash.png": "1646b84e355e53dd6b3c68c39aebffe13d96c60f2732f8f1b3e30fa9f18090d6",
+    "creatures/reliquary_sentinel/reliquary_sentinel_burial_ochre.png": "c93e554ac6464ec7e4273beadb3fdadea71ef64619bcb223368fd4d0a80145f7",
+    "creatures/reliquary_sentinel/reliquary_sentinel_moonlit_lichen.png": "db499a34222b8d7955b07fc753c4b97d870ba003e4b1411eeb568c0892c03cc6",
+    "creatures/the_ossuary_prior/the_ossuary_prior.geometry.json": "de2f2c537244624bc66deef2a1c20c94f95435a3e60b53307228fd6e9c457977",
+    "creatures/the_ossuary_prior/the_ossuary_prior.bbmodel": "777fb1a0b6d24fa6ff87c1b5fb6cd07942eb5502f7e9ace45c2fb79599eb2277",
+    "creatures/the_ossuary_prior/the_ossuary_prior.obj": "b4f9a6016bb7bcc9fa15d6f55456f7f8754366d87931147902eb4e5ddc1179ef",
+    "creatures/the_ossuary_prior/the_ossuary_prior.mtl": "dd0c193d3ee220de2b8d1c1edc4d2015a9492ee81fa5f219d429e4ce96b03e4f",
+    "creatures/the_ossuary_prior/the_ossuary_prior_cloister_ash.png": "e56ebd4a1399e3d5d2a20f53a3bf31a22db4ed31f71ab1e4f7800b4a2dd6f73a",
+    "creatures/the_ossuary_prior/the_ossuary_prior_burial_ochre.png": "782675c3908b768b3beb459c314c4939260caf7c3f2a140b7834c6ba4ee0b202",
+    "creatures/the_ossuary_prior/the_ossuary_prior_moonlit_lichen.png": "2ebff8fd1d4e6e53baf06c5219719c17e001840df3f9965ada13f98691b9e048",
+    "art_motion_contracts.json": "9dace23f773e76e649ba0a2488e6f3490b7228cffad500a61d5e8f82a169a475"
   }
 }

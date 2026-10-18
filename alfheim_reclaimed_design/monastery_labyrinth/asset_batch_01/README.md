@@ -10,7 +10,10 @@ UV-island and material-painting workflow, using original geometry.
 ## Review the emitted assets
 
 - [Creature sculptures: front, three-quarter and rear](creature_sculptures.png)
-- [All nine creature appearances](creature_appearances.png)
+- [All eighteen creature appearances](creature_appearances.png)
+- [Signature-action motion preview](creature_signature_motion.gif)
+- [Signature-action pose still](creature_signature_poses.png)
+- [Art motion and future combat contracts](art_motion_contracts.json)
 - [Room geometry cutaways](room_cutaways.png)
 - [All 25 family floor plans](room_floorplans.png)
 - [Five-Act production queue](five_act_asset_queue.json)
@@ -30,15 +33,26 @@ ruined variants also lose small internal fixtures while retaining containment.
 The refuge rooms are **interior modules**, not fitted replacements for the native
 13×19 service stalls. No functional economy is implied by their furniture.
 
-The 95-part Ashen Novice, 87-part Lurking Silkmaw and 105-part Bell Warden each
-have three material-painted skins, a detailed geometry export, an editable
-Blockbench model with named articulation groups, and textured OBJ/MTL files
-importable into Blender. There are no animation keyframes or native baked models
-yet. The catalogue remains `design_only`; this adds zero implemented species.
+Six original sculptures now have three material-painted skins each: the 95-part
+Ashen Novice, 87-part Lurking Silkmaw, 105-part Bell Warden, 113-part Ossuary
+Bowyer, 103-part Reliquary Sentinel and 116-part Ossuary Prior. Each includes a
+detailed geometry export, an editable Blockbench model, and textured OBJ/MTL
+files importable into Blender. The Bowyer carries a segmented bone bow and
+independently posed string/arrow. The Sentinel has a broad frontal bulwark and
+exposed rear reliquary. The Prior has a rib halo, ceremonial mitre and bell staff.
+
+All six now include a root hierarchy, named articulation groups, anatomical
+pivots, and editable idle, walk and signature-action clips: 18 clips total.
+Signature clips show a bell-triggered stagger, silk ambush descent, rally toll,
+marked bow shot, bulwark slam and the Prior's convergence gesture. These are
+**art-motion prototypes**, not native game animation or functioning combat.
+Markers identify visual timing only; no hit, sound, projectile, summon or damage
+event executes. Original sound production and native animation remain pending.
+The catalogue remains `design_only`; this adds zero implemented species.
 
 `five_act_asset_queue.json` maps all 130 species to their existing signature and
 counterplay, records 18 proposed room families per Act, gives distinct material
-directions for Acts II–V and identifies the three art prototypes. Later Acts'
+directions for Acts II–V and identifies the six art prototypes. Later Acts'
 room names and material directions are plans, not generated geometry.
 
 ## Contracts and integration gates
@@ -77,10 +91,14 @@ NBT, and records Continuity Works snapshot/source and registry hashes in
 `structure_manifest.json`. Its snapshots are under `build/labyrinth-asset-kit/`.
 The independent checker reloads NBT, compares source geometry, walks all sockets,
 checks UV ownership, used texel opacity, export winding, group references and file
-hashes. A standing-cell route is evidence of geometry connectivity, not proof of
-Minecraft collision, animated movement, combat or server performance.
+hashes. It also checks all clip group references, finite sampled poses and exact
+loop endpoints. The animation save representation was inspected in the installed
+Blockbench 4.12.4 source; `art_motion_contracts.json` records source entry hashes.
+Actual editor import remains pending. A standing-cell route is evidence of
+geometry connectivity, not proof of Minecraft collision, animated movement,
+combat or server performance.
 
-Executed on 2026-10-18: all 75 template and three-model artifact checks passed;
+Executed on 2026-10-18: all 75 template and six-model artifact checks passed;
 all creature outputs reproduced byte-for-byte; the existing 130-species bestiary
 validator passed; the active pack feature-order check found zero cycles across
 313 loaded biomes, including Forge biome modifiers. No game was booted for this

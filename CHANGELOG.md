@@ -2,6 +2,12 @@
 
 ## Five Descents asset prototypes — 2026-10-18
 
+Continuation: added the Ossuary Bowyer, Reliquary Sentinel and Ossuary Prior
+sculptures, bringing the library to six creatures and eighteen skins. All six
+now have editable idle/walk/signature art clips, anatomical pivots and a shared
+root hierarchy. Added motion previews, clip validation and reproducible exports.
+These remain art prototypes; no game behaviors or native animation are installed.
+
 Started Act I production with 75 staged NBT room/service/connector templates,
 three original creature sculptures, nine material-painted skins and editable
 Blockbench/OBJ exports. Added artifact validators, faithful offline model previews,

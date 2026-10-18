@@ -53,7 +53,10 @@ def main():
         rows.append({'act':act,'title':title,'art_direction':brief,
                      'masonry_materials':['minecraft:'+b for b in palette],
                      'room_families':[{'id':family,'state':'static_validated_prototype' if act==1 else 'planned'} for family in families],
-                     'refuge_services':list(SERVICES),'priority_creature_art':priority,'creatures':creatures,
+                     'refuge_services':list(SERVICES),'priority_creature_art':priority,
+                     'next_creature_art':([name for name in priority if name not in existing] or
+                                          [c['catalog_id'] for c in creatures if c['art_state']=='planned'][:6]),
+                     'creatures':creatures,
                      'boss_id':next(c['id'] for c in catalog['creatures'] if c['act']==act and c['role']=='boss'),
                      'encounter_level_policy':'existing Mine and Slash distance from spawn; no descent multiplier'})
     queue={'batch':'01','acts':rows,'runtime_species_implemented':0,'textured_species_prototypes':len(existing),
@@ -66,7 +69,7 @@ def main():
            'stair_adapter_gate':'Prototype rise is 12 blocks. Native strata vary; fit exact floor delta and headroom before replacing shafts.',
            'placement_gate':'One reservation for monastery/village/labyrinth; existing court/castle/district priority and independent-structure gap remain runtime gates.'}
     (OUT/'five_act_asset_queue.json').write_text(json.dumps(queue,indent=2)+'\n',encoding='utf-8')
-    print('Five-Act queue: 90 room designs, 130 catalogue links, 3 textured prototypes; 0 implemented species.')
+    print(f'Five-Act queue: 90 room designs, 130 catalogue links, {len(existing)} textured prototypes; 0 implemented species.')
 
 
 if __name__=='__main__':main()

@@ -102,6 +102,14 @@
         "reliquary_sentinel",
         "the_ossuary_prior"
       ],
+      "next_creature_art": [
+        "hollow_veil",
+        "lantern_ghoul",
+        "corvid_undertaker",
+        "rotmilk_ratpack",
+        "grave_thorn",
+        "mourning_matron"
+      ],
       "creatures": [
         {
           "catalog_id": "ashen_novice",
@@ -127,9 +135,10 @@
           "role": "ranged",
           "telegraph_to_model": "Pins its next shot to the player's former position",
           "counterplay_to_preserve": "Move after the bowstring glows",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/ossuary_bowyer/ossuary_bowyer.bbmodel"
         },
         {
           "catalog_id": "lantern_ghoul",
@@ -174,9 +183,10 @@
           "role": "tank",
           "telegraph_to_model": "Faces the strongest frontal threat with a timed bulwark",
           "counterplay_to_preserve": "Attack its exposed flank after a slam",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/reliquary_sentinel/reliquary_sentinel.bbmodel"
         },
         {
           "catalog_id": "rotmilk_ratpack",
@@ -336,9 +346,10 @@
           "role": "boss",
           "telegraph_to_model": "Rings the entire abbey and commands grave-choir phases",
           "counterplay_to_preserve": "Silence three echo altars before the final ring",
-          "art_state": "planned",
+          "art_state": "textured_prototype",
           "mechanical_state": "design_only",
-          "sound": "unassigned"
+          "sound": "unassigned",
+          "asset": "creatures/the_ossuary_prior/the_ossuary_prior.bbmodel"
         }
       ],
       "boss_id": "the_ossuary_prior",
@@ -438,6 +449,11 @@
         "waykeeper_refuge"
       ],
       "priority_creature_art": [
+        "dune_reliquary",
+        "scarlet_scarab_host",
+        "cistern_whisper"
+      ],
+      "next_creature_art": [
         "dune_reliquary",
         "scarlet_scarab_host",
         "cistern_whisper"
@@ -779,6 +795,11 @@
         "verdigris_ravager",
         "spore_matriarch"
       ],
+      "next_creature_art": [
+        "bog_lanternling",
+        "verdigris_ravager",
+        "spore_matriarch"
+      ],
       "creatures": [
         {
           "catalog_id": "bog_lanternling",
@@ -1112,6 +1133,11 @@
         "waykeeper_refuge"
       ],
       "priority_creature_art": [
+        "cinder_initiate",
+        "chain_bailiff",
+        "furnace_gnasher"
+      ],
+      "next_creature_art": [
         "cinder_initiate",
         "chain_bailiff",
         "furnace_gnasher"
@@ -1453,6 +1479,11 @@
         "snowblind_stalker",
         "hailcarved_watcher"
       ],
+      "next_creature_art": [
+        "rime_penitent",
+        "snowblind_stalker",
+        "hailcarved_watcher"
+      ],
       "creatures": [
         {
           "catalog_id": "rime_penitent",
@@ -1694,7 +1725,7 @@
     }
   ],
   "runtime_species_implemented": 0,
-  "textured_species_prototypes": 3,
+  "textured_species_prototypes": 6,
   "production_order": [
     "Act I shell-to-template adapter and gap/height fitting",
     "Act I animated native models and twelve distinct AI implementations",

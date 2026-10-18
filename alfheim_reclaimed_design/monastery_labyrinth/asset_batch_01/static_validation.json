@@ -609,7 +609,10 @@
       "quad_count": 570,
       "unique_face_islands": 570,
       "outward_obj_winding": true,
-      "blockbench_group_coverage": true
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
     },
     {
       "id": "lurking_silkmaw",
@@ -617,7 +620,10 @@
       "quad_count": 522,
       "unique_face_islands": 522,
       "outward_obj_winding": true,
-      "blockbench_group_coverage": true
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
     },
     {
       "id": "bell_warden",
@@ -625,7 +631,43 @@
       "quad_count": 630,
       "unique_face_islands": 630,
       "outward_obj_winding": true,
-      "blockbench_group_coverage": true
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "ossuary_bowyer",
+      "sculpted_parts": 113,
+      "quad_count": 678,
+      "unique_face_islands": 678,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "reliquary_sentinel",
+      "sculpted_parts": 103,
+      "quad_count": 618,
+      "unique_face_islands": 618,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
+    },
+    {
+      "id": "the_ossuary_prior",
+      "sculpted_parts": 116,
+      "quad_count": 696,
+      "unique_face_islands": 696,
+      "outward_obj_winding": true,
+      "blockbench_group_coverage": true,
+      "art_clips": 3,
+      "finite_motion_samples": 27,
+      "loop_endpoints_match": true
     }
   ],
   "checks": [
@@ -639,13 +681,17 @@
     "unique UV face islands",
     "opaque used texels",
     "OBJ outward winding",
-    "Blockbench group references"
+    "Blockbench group references",
+    "art clip references/timelines",
+    "loop endpoint continuity",
+    "finite sampled art motion"
   ],
   "not_executed": [
     "in-game template placement",
     "actual stair collision movement",
     "native model baking",
-    "model keyframe animation",
+    "native game animation",
+    "Blockbench editor import",
     "AI state machines",
     "merchant trades",
     "loot integration",
