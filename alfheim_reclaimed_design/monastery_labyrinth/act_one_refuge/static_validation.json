@@ -1,0 +1,59 @@
+{
+  "acceptance": "static validated",
+  "templates": 23,
+  "shops": [
+    {
+      "service": "arms",
+      "reachable_standing_cells": 176,
+      "counter_access": true,
+      "merchant_clearance": true,
+      "three_wide_door": true
+    },
+    {
+      "service": "provisions",
+      "reachable_standing_cells": 176,
+      "counter_access": true,
+      "merchant_clearance": true,
+      "three_wide_door": true
+    },
+    {
+      "service": "apothecary",
+      "reachable_standing_cells": 176,
+      "counter_access": true,
+      "merchant_clearance": true,
+      "three_wide_door": true
+    },
+    {
+      "service": "repair",
+      "reachable_standing_cells": 176,
+      "counter_access": true,
+      "merchant_clearance": true,
+      "three_wide_door": true
+    },
+    {
+      "service": "supplies",
+      "reachable_standing_cells": 176,
+      "counter_access": true,
+      "merchant_clearance": true,
+      "three_wide_door": true
+    },
+    {
+      "service": "salvage",
+      "reachable_standing_cells": 176,
+      "counter_access": true,
+      "merchant_clearance": true,
+      "three_wide_door": true
+    }
+  ],
+  "offers": 43,
+  "checks": [
+    "source-to-NBT equality",
+    "file hashes",
+    "registry references",
+    "MMO gear types",
+    "explicit profession tier",
+    "counter and merchant reachability",
+    "three-wide doors"
+  ],
+  "runtime_evidence": "tools/act_one_refuge_runtime_report.json; inspect its status separately"
+}

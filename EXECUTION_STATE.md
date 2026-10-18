@@ -1,5 +1,29 @@
 # Execution State
 
+## Castle spawn repair and staged terrain affordances — 2026-10-18
+
+Natural castle verified at (1312, Y78, -1840) on New World raven seed;
+25 tiles and 5,029 samples match. Coastal whitelist repaired without moving
+reserved candidates. Added the castle apron, all 89 terrain contracts and
+native host placement for twelve Void ruins. The general ground adapter is
+staged inactive: an edge support test failed and strict checks removed near-ring
+district candidates. Duplicate bearding fix implemented but runtime retest
+deferred at user request. Packaged without further tests/checking and committed.
+See `alfheim_reclaimed_design/CASTLE_TERRAIN_HANDOFF_20261018.md`.
+
+
+## Act I town and dungeon services — 2026-10-18
+
+Focus is the Act I refuge and dungeon. Continuity Works emitted six fitted shop
+templates, 17 dungeon interiors and 43 authored offers. Native merchant profiles
+provide MMO equipment, varied health/resource and utility potions, combat supplies,
+food, salvage barter and paid NBT-preserving repairs. Act I piece adapters retain
+the existing door masks and central descent routes. Build/test suite, shop/stock
+checks and feature-order validation passed. Runtime validation stopped at the
+user's explicit request; do not claim game acceptance. Installed pack JAR remains
+unchanged; source candidate and generated resources committed for continuation.
+See `alfheim_reclaimed_design/monastery_labyrinth/act_one_refuge/README.md`.
+
 ## Five Descents asset production — 2026-10-18
 
 First staged batch: 75 NBT prototypes across 25 Act I room/service/connector

@@ -21,7 +21,8 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
  *
  * Initial playable topology uses permanent vertical ladders; the graph keeps
  * vertical_stair edges so authored switchback stairs can replace them later.
- * Vendor stalls and bosses have RESERVED positions, not fake NPC/mob spawns.
+ * Act I vendor plots use fitted authored interiors and native service merchants.
+ * Bosses and encounter controllers remain unimplemented.
  */
 public final class MonasteryLabyrinthPiece extends StructurePiece {
     private final String kind;
@@ -194,5 +195,6 @@ public final class MonasteryLabyrinthPiece extends StructurePiece {
                     };
                     if(state!=null){at.set(x,y,z);world.setBlock(at,state,2);}
                 }
+        if(act==1)ActOneAuthoredInteriors.place(world,kind,variant,boundingBox,chunk,random);
     }
 }

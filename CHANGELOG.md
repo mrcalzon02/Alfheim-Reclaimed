@@ -1,5 +1,27 @@
 # Changelog
 
+## Castle spawn repair and staged terrain affordances — 2026-10-18
+
+Natural castle verified at (1312, Y78, -1840) on New World raven seed;
+25 tiles and 5,029 samples match. Coastal whitelist repaired without moving
+reserved candidates. Added the castle apron, all 89 terrain contracts and
+native host placement for twelve Void ruins. The general ground adapter is
+staged inactive: an edge support test failed and strict checks removed near-ring
+district candidates. Duplicate bearding fix implemented but runtime retest
+deferred at user request. Packaged without further tests/checking and committed.
+See `alfheim_reclaimed_design/CASTLE_TERRAIN_HANDOFF_20261018.md`.
+
+
+## Act I town services and dungeon interiors — 2026-10-18
+
+Continuity Works generated six fitted town shops, 17 dungeon interiors and 43
+offers for native MMO equipment, potions, combat additives, provisions and salvage
+barter. Added persistent service merchant profiles, bounded daily stock and paid
+repairs that preserve equipment data. Native Act I pieces select these interiors
+while retaining graph door masks and central descent routes. Build/test suite and
+static checks passed; runtime validation stopped at user request. Candidate only;
+installed pack JAR preserved, natural registration and runtime acceptance pending.
+
 ## Five Descents asset prototypes — 2026-10-18
 
 Added the final eight Act I sculptures: Sepulcher Hound, Briar Witness, Wicker

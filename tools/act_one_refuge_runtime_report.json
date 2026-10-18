@@ -1,0 +1,7 @@
+{
+  "status": "interrupted at user request; runtime acceptance pending",
+  "test": "Disposable native merchant and repair validation; no success claimed",
+  "console": "server/console-20261018-143909.log",
+  "reason": "User requested immediate commit with no further tests or checking",
+  "installed_pack": "candidate was not installed; harness cleanup restored its server JAR and properties"
+}

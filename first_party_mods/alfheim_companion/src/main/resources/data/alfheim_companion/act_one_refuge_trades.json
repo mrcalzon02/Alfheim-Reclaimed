@@ -1,0 +1,458 @@
+{
+  "version": 1,
+  "restock_ticks": 24000,
+  "act": 1,
+  "services": {
+    "arms": [
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "sword",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "bow",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "staff",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "plate_chest",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "leather_chest",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "cloth_chest",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "minecraft:iron_sword",
+        "count": 1,
+        "max_uses": 2,
+        "gear_type": "shield",
+        "gear_level": 1,
+        "gear_rarity": "common"
+      }
+    ],
+    "provisions": [
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:cooked_beef",
+        "count": 8,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:bread",
+        "count": 16,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:arrow",
+        "count": 32,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:torch",
+        "count": 32,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:milk_bucket",
+        "count": 1,
+        "max_uses": 8
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:food/common_life",
+        "count": 2,
+        "max_uses": 8,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:food/common_mana",
+        "count": 2,
+        "max_uses": 8,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:food/common_energy",
+        "count": 2,
+        "max_uses": 8,
+        "tier": 0
+      }
+    ],
+    "apothecary": [
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "mmorpg:potion/health/0",
+        "count": 4,
+        "max_uses": 8,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 3,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 3,
+        "result": "mmorpg:potion/health/1",
+        "count": 4,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 6,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 6,
+        "result": "mmorpg:potion/health/2",
+        "count": 4,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "mmorpg:potion/resource/0",
+        "count": 4,
+        "max_uses": 8,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 3,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 3,
+        "result": "mmorpg:potion/resource/1",
+        "count": 4,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 6,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 6,
+        "result": "mmorpg:potion/resource/2",
+        "count": 4,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "minecraft:potion",
+        "count": 1,
+        "max_uses": 4,
+        "potion": "minecraft:regeneration"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:potion",
+        "count": 1,
+        "max_uses": 4,
+        "potion": "minecraft:swiftness"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 3,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 3,
+        "result": "minecraft:potion",
+        "count": 1,
+        "max_uses": 4,
+        "potion": "minecraft:fire_resistance"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "minecraft:potion",
+        "count": 1,
+        "max_uses": 4,
+        "potion": "minecraft:night_vision"
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "minecraft:potion",
+        "count": 1,
+        "max_uses": 4,
+        "potion": "minecraft:water_breathing"
+      }
+    ],
+    "repair": [
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 8,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 8,
+        "result": "minecraft:anvil",
+        "count": 1,
+        "max_uses": 1
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "minecraft:grindstone",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 1,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "minecraft:experience_bottle",
+        "count": 4,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:currency/sharpening_stone_0",
+        "count": 1,
+        "max_uses": 4
+      }
+    ],
+    "supplies": [
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:buff_potion/common_str",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:buff_potion/common_dex",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:buff_potion/common_int",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:buff_potion/common_might",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:buff_potion/common_arcane",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:buff_potion/common_crit",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 2,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 2,
+        "result": "mmorpg:currency/sharpening_stone_0",
+        "count": 1,
+        "max_uses": 4
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "mmorpg:enchantment/family/weapon/common",
+        "count": 1,
+        "max_uses": 2
+      },
+      {
+        "cost_a": "botania:manasteel_ingot",
+        "count_a": 4,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 4,
+        "result": "mmorpg:enchantment/family/armor/common",
+        "count": 1,
+        "max_uses": 2
+      }
+    ],
+    "salvage": [
+      {
+        "cost_a": "mmorpg:material/mining/0",
+        "count_a": 16,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "mmorpg:potion/health/0",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "mmorpg:material/farming/0",
+        "count_a": 16,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "mmorpg:potion/health/0",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "mmorpg:material/meat/0",
+        "count_a": 16,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "mmorpg:potion/health/0",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      },
+      {
+        "cost_a": "mmorpg:material/fishing/0",
+        "count_a": 16,
+        "cost_b": "ars_nouveau:source_gem",
+        "count_b": 1,
+        "result": "mmorpg:potion/health/0",
+        "count": 2,
+        "max_uses": 4,
+        "tier": 0
+      }
+    ]
+  },
+  "repair": {
+    "durability_per_payment": 100,
+    "cost_a": "botania:manasteel_ingot",
+    "cost_b": "ars_nouveau:source_gem"
+  },
+  "equipment_policy": "Common level-one native MMO gear, rolled once and saved. No late material unlocks or unique items.",
+  "potion_policy": "Three native potion rarities, all explicit profession tier zero; native level/use checks remain in force."
+}
