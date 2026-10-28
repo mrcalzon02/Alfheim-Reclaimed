@@ -67,6 +67,22 @@ class MonasteryVillageGeometryTest {
         assertEquals(MonasteryVillageGeometry.Cell.AIR,MonasteryVillageGeometry.approach(5));
         assertEquals(MonasteryVillageGeometry.Cell.AIR,MonasteryVillageGeometry.approach(6));
     }
+    @Test void chunkClippedPlacementCoversEachPathCellExactlyOnce() {
+        for(int offset=0;offset<16;offset++) {
+            int[] placements=new int[65*73];
+            int minChunkX=Math.floorDiv(offset,16),maxChunkX=Math.floorDiv(offset+64,16);
+            int minChunkZ=Math.floorDiv(offset,16),maxChunkZ=Math.floorDiv(offset+72,16);
+            for(int cx=minChunkX;cx<=maxChunkX;cx++)
+                for(int cz=minChunkZ;cz<=maxChunkZ;cz++)
+                    for(int x=Math.max(0,cx*16-offset);x<=Math.min(64,cx*16+15-offset);x++)
+                        for(int z=Math.max(0,cz*16-offset);z<=Math.min(72,cz*16+15-offset);z++)
+                            if(MonasteryVillageGeometry.road(x,z)
+                                || MonasteryVillageGeometry.lane(x,z))placements[z*65+x]++;
+            for(int x=0;x<65;x++)for(int z=0;z<73;z++)
+                if(MonasteryVillageGeometry.road(x,z) || MonasteryVillageGeometry.lane(x,z))
+                    assertEquals(1,placements[z*65+x],"Chunk seam missing/duplicate "+x+","+z+" offset "+offset);
+        }
+    }
     @Test void blockedCellsAndWetVoidOrCliffTerrainAreRejected() {
         assertFalse(walkable(6,5)); // solid corner wall
         assertFalse(walkable(12,14)); // existing decorative barrel
