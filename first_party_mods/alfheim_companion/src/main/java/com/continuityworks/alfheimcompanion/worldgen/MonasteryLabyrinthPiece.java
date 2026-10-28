@@ -139,40 +139,24 @@ public final class MonasteryLabyrinthPiece extends StructurePiece {
         return null;
     }
     private BlockState village(int x,int y,int z,int w,int d){
-        boolean road=z>=34&&z<=38;
-        int[] xs={6,27,48},zs={5,49};
-        boolean lane=false;
-        // Each vendor door has a guaranteed three-wide route to the central
-        // paved road, instead of opening onto 10 blocks of unbuilt terrain.
-        for(int sx:xs)if(x>=sx+5&&x<=sx+7&&z>=23&&z<=49)lane=true;
-        boolean shop=false,edge=false,door=false,roof=false,light=false;
-        for(int sx:xs)for(int sz:zs)if(x>=sx&&x<sx+13&&z>=sz&&z<sz+19){
-            shop=true;
-            int dx=x-sx,dz=z-sz;
-            edge=dx==0||dx==12||dz==0||dz==18;
-            roof=y==13;
-            // All six stalls open directly toward the central service road.
-            door=dx>=5&&dx<=7 && (sz==5?dz==18:dz==0) && y>=5&&y<=8;
-            light=dx==6&&dz==9&&y==12;
-        }
-        if(!shop && !road && !lane)return null;
-        if(y<=3)return shop?stone():null;
-        if(y==4)return shop?paving():road?trim():lane?paving():null;
-        if(!shop)return Blocks.AIR.defaultBlockState();
-        if(roof)return trim();
-        if(y>=5&&y<=12){
-            if(door)return Blocks.AIR.defaultBlockState();
-            if(edge)return y<11?stone():Blocks.OAK_FENCE.defaultBlockState();
-            if(light)return Blocks.SEA_LANTERN.defaultBlockState();
-            if(y==5&&z%44==14&&x%21==12)return Blocks.BARREL.defaultBlockState();
-            return Blocks.AIR.defaultBlockState();
-        }
-        return null;
+        return switch(MonasteryVillageGeometry.village(x,y,z)){
+            case NONE -> null;
+            case FOUNDATION,WALL -> stone();
+            case PAVING -> paving();
+            case ROAD_TRIM,ROOF -> trim();
+            case AIR -> Blocks.AIR.defaultBlockState();
+            case FENCE -> Blocks.OAK_FENCE.defaultBlockState();
+            case LIGHT -> Blocks.SEA_LANTERN.defaultBlockState();
+            case BARREL -> Blocks.BARREL.defaultBlockState();
+        };
     }
     private BlockState approach(int x,int y,int z,int w,int d){
-        if(y<=1)return paving();
-        if(y<=6)return Blocks.AIR.defaultBlockState();
-        return null;
+        return switch(MonasteryVillageGeometry.approach(y)){
+            case FOUNDATION -> stone();
+            case PAVING -> paving();
+            case AIR -> Blocks.AIR.defaultBlockState();
+            default -> null;
+        };
     }
     @Override public void postProcess(WorldGenLevel world,StructureManager manager,
             ChunkGenerator generator,RandomSource random,BoundingBox chunk,ChunkPos chunkPos,BlockPos pivot){
