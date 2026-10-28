@@ -33,13 +33,20 @@ public final class MonasteryLabyrinthStructure extends Structure {
             int px=x+dx,pz=z+dz;
             int y=c.chunkGenerator().getBaseHeight(px,pz,
                 Heightmap.Types.OCEAN_FLOOR_WG,c.heightAccessor(),c.randomState());
-            if(Math.abs(y-surface)>4||y<=sea)return Optional.empty();
+            if(!MonasteryVillageGeometry.terrainHeightOK(surface,sea,y))
+                return Optional.empty();
             var column=c.chunkGenerator().getBaseColumn(px,pz,c.heightAccessor(),c.randomState());
+            boolean solidDryFooting=true;
             for(int depth=0;depth<=4;depth++){
                 var block=column.getBlock(y-depth-1);
-                if(block.isAir()||!block.getFluidState().isEmpty())return Optional.empty();
+                if(block.isAir()||!block.getFluidState().isEmpty()){
+                    solidDryFooting=false;
+                    break;
+                }
             }
-            if(!column.getBlock(y).getFluidState().isEmpty())return Optional.empty();
+            if(!MonasteryVillageGeometry.terrainFootingOK(
+                    column.getBlock(y).getFluidState().isEmpty(),solidDryFooting))
+                return Optional.empty();
         }
         int act=site.act(),base=surface;
         long layoutSeed=c.seed()^((long)site.chunkX()<<32)
@@ -52,7 +59,7 @@ public final class MonasteryLabyrinthStructure extends Structure {
             builder.addPiece(new MonasteryLabyrinthPiece("village",act,0,0,
                 x+36,base-4,z-36,65,22,73));
             builder.addPiece(new MonasteryLabyrinthPiece("approach",act,0,0,
-                x+31,base-1,z-3,6,7,7));
+                x+31,base-4,z-3,6,10,7));
             int[] doors=new int[layout.rooms().size()];
             for(var edge:layout.edges()){
                 if(edge.connection().equals("vertical_stair"))continue;
