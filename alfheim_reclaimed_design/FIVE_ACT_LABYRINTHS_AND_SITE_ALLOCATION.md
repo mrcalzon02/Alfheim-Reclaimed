@@ -156,3 +156,41 @@ JAR rebuilt from this source would cause datapack codec load failure. They are
 therefore held under pending_worldgen and must only be moved to kubejs/data in
 the same verified deployment as a compatible, rebuilt companion JAR.
 No GitHub Actions or unrelated repository workflow changes are introduced.
+
+
+## October 28 source-only circulation repair — six stalls, service road, apron
+
+The previously authored village placed paving at local Y=4 but returned `null`
+for Y=0–3 under **road and lane** cells. A candidate surface could pass the
+existing ±4-height terrain probes while leaving paved routes unsupported.
+The short monastery-to-village apron similarly had only a one-block lower
+surface. This was a real block-state gap, not a missing decorative path.
+
+`MonasteryVillageGeometry` is now the Minecraft-free authoritative cell plan
+called by `MonasteryLabyrinthPiece` when placing village and apron blocks.
+It retains the six 13×19 stall footprints, three-wide inward-facing doors,
+three-wide lanes, central road, lights, barrels and Act-specific palette. It
+places four bounded layers of existing Act masonry below paved village paths,
+and the apron now starts at `base-4` with its walkable surface still at
+`base`. No district ring, reservation, terrain-probe threshold, spawn
+registration, merchant or progression rule changed.
+
+`MonasteryVillageGeometryTest` is the first-party JUnit 5 regression:
+a two-block-headroom flood-fill from all six stall interiors must reach the
+central road and monastery-facing west edge; every route cell must have
+foundation blocks; door apertures must remain three wide; path behavior must
+remain coordinate-independent across 16 chunk alignments. Negative cases
+cover solid stall walls, the existing barrel, untouched terrain, submerged,
+void/unsupported and cliff sample rejection. The production structure's
+18 terrain probes call the same pure height/footing predicates as the tests.
+
+**Evidence boundary:** the pure geometry and JUnit-shaped assertions passed
+a local Java 17 source-level smoke using minimal JUnit API stand-ins, not a
+ForgeGradle build. The committed JUnit tests still need a real `./gradlew test`
+run in the first-party companion project; there is no repository GitHub
+Actions workflow. No companion JAR was rebuilt or installed, and no fresh-world
+chunk-seam, natural terrain or player pathing acceptance has been performed.
+The existing 18 sparse terrain probes do not guarantee every intervening
+road column has natural support; the new bounded foundations close the known
+paving-underlay gap but are not proof of full terrain incorporation. Pending
+worldgen definitions remain staged and should not be enabled on this evidence.
