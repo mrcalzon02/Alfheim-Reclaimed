@@ -62,6 +62,14 @@ def check_rotations(pieces, links, anchor, depth=8):
     """Reconstruct the *actual* named jigsaw connections at every global rotation."""
     expected = set(links) | {child for children in links.values() for child in children.values()}
     assert set(pieces) == expected and anchor in pieces, ('family members', set(pieces), expected)
+    for name, piece in pieces.items():
+        sockets = ports(piece)
+        outgoing = [(face, be.get('pool', '').rsplit('/', 1)[-1])
+                    for _, face, be in sockets if be.get('pool') != 'minecraft:empty']
+        declared = [(face, child) for face, child in links.get(name, {}).items()]
+        assert sorted(outgoing) == sorted(declared), ('untracked outgoing socket', name, outgoing, declared)
+        incoming = [be for _, _, be in sockets if be.get('pool') == 'minecraft:empty']
+        assert len(incoming) == (0 if name == anchor else 1), ('incoming socket count', name, len(incoming))
     footings = sum(check_footing(p, depth) for p in pieces.values())
     for root_rotation in range(4):
         pending = deque([(anchor, (0, 0, 0), root_rotation)])
@@ -138,7 +146,28 @@ def self_test():
         raise AssertionError('accepted blocked doorway')
     except AssertionError as exc:
         assert exc.args[0][0] == 'blocked headroom'
-    print('MILITARY/WARDEN INTEGRITY SELF-TEST PASS: 4 rotations; two negative controls')
+    broken = fixture(True)
+    broken['palette'].append({'Name': 'minecraft:jigsaw', 'Properties': {'orientation': 'east_up'}})
+    stray = next(b for b in broken['blocks'] if b['pos'] == [4,3,2])
+    stray.update({'state': 3, 'nbt': {'id': 'minecraft:jigsaw', 'name': 'alfheim:ghost',
+                                    'target': 'alfheim:ghost_in',
+                                    'pool': 'alfheim:ancient/military_warden/ghost'}})
+    try:
+        check_rotations({'root': broken, 'child': child}, links, 'root', 2)
+        raise AssertionError('accepted untracked outgoing socket')
+    except AssertionError as exc:
+        assert exc.args[0][0] == 'untracked outgoing socket'
+    broken = fixture(False)
+    broken['palette'].append({'Name': 'minecraft:jigsaw', 'Properties': {'orientation': 'west_up'}})
+    stray = next(b for b in broken['blocks'] if b['pos'] == [0,3,2])
+    stray.update({'state': 3, 'nbt': {'id': 'minecraft:jigsaw', 'name': 'alfheim:duplicate_in',
+                                    'target': 'alfheim:duplicate_in', 'pool': 'minecraft:empty'}})
+    try:
+        check_rotations({'root': root, 'child': broken}, links, 'root', 2)
+        raise AssertionError('accepted duplicate incoming socket')
+    except AssertionError as exc:
+        assert exc.args[0][0] == 'incoming socket count'
+    print('MILITARY/WARDEN INTEGRITY SELF-TEST PASS: 4 rotations; four negative controls')
 
 
 if __name__ == '__main__':
