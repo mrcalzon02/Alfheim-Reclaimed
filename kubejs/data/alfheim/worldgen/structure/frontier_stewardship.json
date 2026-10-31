@@ -1,7 +1,7 @@
 {
   "type": "alfheim_companion:remote_district",
   "biomes": "#alfheim:has_frontier_stewardship",
-  "step": "surface_structures",
+  "step": "top_layer_modification",
   "terrain_adaptation": "beard_thin",
   "spawn_overrides": {},
   "start_pool": "alfheim:ancient/frontier_stewardship/green_noble_lodge",
@@ -14,7 +14,7 @@
   "use_expansion_hack": false,
   "layout": {
     "biomes": "#alfheim:has_frontier_stewardship",
-    "step": "surface_structures",
+    "step": "top_layer_modification",
     "terrain_adaptation": "beard_thin",
     "spawn_overrides": {},
     "start_pool": "alfheim:ancient/frontier_stewardship/green_noble_lodge",

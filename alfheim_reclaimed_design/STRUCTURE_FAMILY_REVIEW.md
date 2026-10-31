@@ -38,7 +38,21 @@ rejected dreamwood leaves inside the wild ward shrine. Two earlier trials expose
 floor-overwriting wheat and apothecary intrusions; source guards are now present.
 See `AUDIT_CLOSEOUT_20261014.md`. Frontier is not naturally accepted or enabled.
 
-Next work: repair the shrine intrusion, repeat a bounded trial, review the three new families in the client and on representative land, then choose sparse natural frequencies. Review existing enabled families for terrain fit and destructive overlaps. Harbor may remain approximate under the user's explicit direction; do not reinstate exhaustive site searches.
+Frontier ordering candidate, 2026-10-31 (**source/static only; runtime NOT verified**):
+the 2026-10-14 bounded natural trial showed `mythicbotany:dreamwood_leaves`
+in the wild ward shrine's authored upper air at `[-1340,94,621]`.
+The first-party Frontier generator and its shipping `remote_district`
+definition now select `top_layer_modification` for both outer structure
+settings and nested jigsaw layout, after native `vegetal_decoration`.
+This is intended to let the template's existing explicit air and floors
+clear earlier vegetation, rather than weakening the room census or removing
+native trees from the biome. Source-equality and stale-step regression
+checks guard the two settings. The 10/14 rejected runtime report is
+historical evidence and remains rejected. No natural Frontier set was enabled,
+and none of the nine enabled families was changed. Cross-chunk foliage,
+complete room/foundation census, terrain fit and client review remain unproved.
+
+Next work: repeat the bounded fresh-world Frontier natural trial with a new disposable world; require the full room/foundation census, inspect cross-chunk leaves and verify terrain/circulation before any production admission. Review the other prototype families and existing natural families separately. Review existing enabled families for terrain fit and destructive overlaps. Harbor may remain approximate under the user's explicit direction; do not reinstate exhaustive site searches.
 
 The first bounded inland terrain review is recorded in `INLAND_TERRAIN_REVIEW.md`.
 It compares the three saved forced assemblies with one current same-seed Golden
