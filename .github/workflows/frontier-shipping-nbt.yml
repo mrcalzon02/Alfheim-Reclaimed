@@ -1,0 +1,43 @@
+name: Frontier shipping NBT source regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/frontier-shipping-nbt.yml'
+      - 'tools/check_frontier_shipping_nbt.py'
+      - 'tools/check_frontier_canopy_regression.py'
+      - 'tools/nbt.py'
+      - 'kubejs/data/alfheim/structures/ancient/frontier_stewardship/**'
+      - 'kubejs/data/alfheim/worldgen/structure/frontier_stewardship.json'
+      - 'kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship/**'
+      - 'kubejs/data/alfheim/worldgen/structure_set/frontier_stewardship.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-negative-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout only first-party Frontier source and NBT parser
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            tools/check_frontier_shipping_nbt.py
+            tools/check_frontier_canopy_regression.py
+            tools/nbt.py
+            kubejs/data/alfheim/structures/ancient/frontier_stewardship
+            kubejs/data/alfheim/worldgen/structure/frontier_stewardship.json
+            kubejs/data/alfheim/worldgen/template_pool/ancient/frontier_stewardship
+            kubejs/data/alfheim/worldgen/structure_set/frontier_stewardship.json
+      - name: Existing synthetic ordering negative controls
+        run: python3 -B tools/check_frontier_canopy_regression.py --self-test
+      - name: Six shipped NBT templates and shipping-derived corruptions
+        run: python3 -B tools/check_frontier_shipping_nbt.py
