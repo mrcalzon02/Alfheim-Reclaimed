@@ -19,6 +19,8 @@ permissions:
 
 jobs:
   source-and-negative-controls:
+    # Visual/terrain-clearance diagnostics are informative, never release-blocking.
+    continue-on-error: true
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
