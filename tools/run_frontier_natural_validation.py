@@ -138,7 +138,7 @@ def main():
     ap.add_argument('--review-only',action='store_true');args=ap.parse_args()
     world=ROOT/'server'/args.world
     assert args.world.startswith('validation-frontier-natural-') and world.resolve().parent==(ROOT/'server').resolve()
-    for script in ('check_field_review.py','check_frontier_stewardship.py','check_feature_order.py','check_biome_feature_coverage.py'):
+    for script in ('check_field_review.py','check_frontier_stewardship.py','check_frontier_canopy_regression.py','check_feature_order.py','check_biome_feature_coverage.py'):
         subprocess.run([sys.executable,'-X','utf8','-B',str(ROOT/'tools'/script)],check=True)
     reference=ROOT/'server/validation-inland-terrain-baseline-20261014'
     assert seed(reference)==SEED
