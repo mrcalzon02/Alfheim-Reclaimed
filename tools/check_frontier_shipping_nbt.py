@@ -84,10 +84,15 @@ def validate(spec, pools, templates, natural_set):
     return results
 
 
-def expect_rejected(label, spec, pools, templates, natural_set):
+def expect_rejected(label, spec, pools, templates, natural_set, expected_reason=None):
     try:
         validate(spec, pools, templates, natural_set)
-    except AssertionError:
+    except AssertionError as error:
+        # Require the intended diagnostic for focused NBT mutations, not an
+        # unrelated validation failure elsewhere in the shipping fixture.
+        if expected_reason is not None:
+            require(expected_reason in str(error),
+                    ("wrong rejection reason for shipping mutation", label, str(error)))
         return label
     raise AssertionError(("corrupted shipping-derived fixture was accepted", label))
 
@@ -140,6 +145,23 @@ def mutation_test(spec, pools, templates, natural_set):
     }]
     rejected.append(expect_rejected("out-of-bounds-nbt", spec, pools,
                                     dict(templates, wild_ward_shrine=bad_shrine), natural_set))
+
+    # A copy of an actual shipping block has a valid position and state, but
+    # its second occurrence must be rejected as a duplicate physical cell.
+    bad_shrine = dict(shrine)
+    bad_shrine["blocks"] = list(shrine["blocks"]) + [dict(shrine["blocks"][0])]
+    rejected.append(expect_rejected("duplicate-position-nbt", spec, pools,
+                                    dict(templates, wild_ward_shrine=bad_shrine), natural_set,
+                                    expected_reason="duplicate shipping cell"))
+
+    # Keep the original shipping coordinate, but point it one entry beyond
+    # the existing palette. No NBT source files or palette entries are changed.
+    bad_shrine = dict(shrine)
+    bad_shrine["blocks"] = list(shrine["blocks"])
+    bad_shrine["blocks"][0] = dict(shrine["blocks"][0], state=len(shrine["palette"]))
+    rejected.append(expect_rejected("out-of-range-palette-nbt", spec, pools,
+                                    dict(templates, wild_ward_shrine=bad_shrine), natural_set,
+                                    expected_reason="invalid palette state"))
     return rejected
 
 
