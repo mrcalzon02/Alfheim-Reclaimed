@@ -36,6 +36,10 @@ function rejectHubEdit(event) {
     }
 }
 
+// In-memory FTB claim readiness only; never confuse a built hub with a verified claim.
+// Reset on every reload and publish true only after every required chunk belongs to the server team.
+global.alfheimHubClaimReady = false
+
 const armed = []
 
 try {
@@ -75,6 +79,7 @@ try {
 
 ServerEvents.loaded(event => {
     const server = event.server
+    global.alfheimHubClaimReady = false
     const $FTBTeamsAPI = Java.loadClass('dev.ftb.mods.ftbteams.api.FTBTeamsAPI')
     const $ClaimedChunkManager = Java.loadClass('dev.ftb.mods.ftbchunks.data.ClaimedChunkManagerImpl')
     const $ChunkDimPos = Java.loadClass('dev.ftb.mods.ftblibrary.math.ChunkDimPos')
@@ -102,6 +107,11 @@ ServerEvents.loaded(event => {
         const manager = $FTBTeamsAPI.api().getManager()
         const source = server.createCommandSourceStack()
         let team = manager.getTeamByName(HUB_FTB_TEAM).orElse(null)
+        // A player team with the reserved name is not an administrative/server claim.
+        if (team !== null && !team.isServerTeam()) {
+            console.error('[Alfheim Reclaimed] reserved hub team name belongs to a non-server team')
+            team = null
+        }
         if (team === null) team = findHubTeam(manager)
 
         if (team === null) {
@@ -121,6 +131,7 @@ ServerEvents.loaded(event => {
         if (team === null) {
             console.error('[Alfheim Reclaimed] could not create or find the alfheim_hub server team')
             if (attempt < 5) server.scheduleInTicks(40, callback => configureHubClaims(attempt + 1))
+            else console.error('[Alfheim Reclaimed] HUB CLAIM NOT READY: no administrative team after 5 attempts; operator intervention required')
             return
         }
 
@@ -158,7 +169,11 @@ ServerEvents.loaded(event => {
 
                 if (existingClaim !== null) {
                     existingTeamId = existingClaim.getTeamData().getTeam().getId()
-                    if (!existingTeamId.equals(teamId)) existingClaim.unclaim(source, true)
+                    if (!existingTeamId.equals(teamId)) {
+                        // Never seize another team's existing claim, even during recovery.
+                        console.error(`[Alfheim Reclaimed] hub claim conflict at ${chunkX},${chunkZ}: foreign owner retained`)
+                        continue
+                    }
                 }
 
                 // ChunkTeamData#claim(source, pos, checkOnly): false performs the claim.
@@ -177,15 +192,16 @@ ServerEvents.loaded(event => {
         chunkData.saveNow()
         chunkData.syncChunksToAll(server)
         if (verifiedClaims === expectedClaims) {
-            console.info(`[Alfheim Reclaimed] spawn hub protection armed: ${armed.join(', ')}; ` +
+            global.alfheimHubClaimReady = true
+            console.info(`[Alfheim Reclaimed] spawn hub FTB claim READY (other protections require runtime checks): ${armed.join(', ')}; ` +
                          `FTB ownership verified ${verifiedClaims}/${expectedClaims} chunks for ${HUB_FTB_TEAM}.`)
         } else if (attempt < 5) {
             console.warn(`[Alfheim Reclaimed] ${HUB_FTB_TEAM} owns ${verifiedClaims}/${expectedClaims} required chunks; ` +
                          `retry ${attempt + 1}/5 scheduled`)
             server.scheduleInTicks(40, callback => configureHubClaims(attempt + 1))
         } else {
-            console.error(`[Alfheim Reclaimed] spawn claim repair stopped after 5 attempts with ` +
-                          `${verifiedClaims}/${expectedClaims} chunks verified`)
+            console.error(`[Alfheim Reclaimed] HUB CLAIM NOT READY: exhausted 5 attempts with ` +
+                          `${verifiedClaims}/${expectedClaims} chunks verified; operator must resolve missing/foreign claims`)
         }
     }
 
