@@ -63,7 +63,9 @@ def validate_text(text, dimension, team, chunks):
     problems = []
     for cx, cz in chunks:
         location = location_line(dimension, cx, cz)
-        start = text.find(location)
+        # Use the final exact-position read-back: retries and restarts can invalidate an
+        # earlier successful claim, and a stale first match must never pass acceptance.
+        start = text.rfind(location)
         if start < 0:
             problems.append(f'{location}: no `ftbchunks info` read-back in console')
             continue
@@ -97,6 +99,16 @@ def self_test():
             out.append('[Server thread/INFO] Force-loaded: false')
         return '\n'.join(out)
 
+    def reread(pos, owner=team):
+        cx, cz = pos
+        out = [f'[Server thread/INFO] {location_line(dimension, cx, cz)}']
+        if owner is None:
+            out.append('[Server thread/INFO] Chunk not claimed')
+        else:
+            out.append(f'[Server thread/INFO] Owner: {owner} / 0123456789abcdef')
+        out.append('[Server thread/INFO] Force-loaded: false')
+        return '\n'.join(out)
+
     cases = [
         ('complete', claimed(), 0),
         ('wrong owner', claimed('somebody_else'), 5),
@@ -105,6 +117,14 @@ def self_test():
             f'{location_line(dimension, 0, 0)}\n[Server thread/INFO] Owner: {team} '
             f'/ 0123456789abcdef',
             'Chunk not claimed', 1), 1),
+        # A claim may change across restart/retry. The newest exact-position read-back
+        # must win, even when the earlier probe was healthy.
+        ('later wrong owner', claimed() + '\n' + reread((0, 0), 'somebody_else'), 1),
+        ('later unclaimed corner', claimed() + '\n' + reread((-12, -12), None), 1),
+        ('later missing owner', claimed() + '\n' +
+            f'[Server thread/INFO] {location_line(dimension, 12, 12)}\n'
+            '[Server thread/INFO] Force-loaded: false', 1),
+        ('later corrected owner', claimed('somebody_else') + '\n' + claimed(), 0),
     ]
     bad = 0
     for name, text, expected in cases:
