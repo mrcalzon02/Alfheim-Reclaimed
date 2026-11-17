@@ -1,8 +1,8 @@
 """Validate the FTB Chunks ownership read-back for the Alfheim spawn hub.
 
 This consumes the per-run console written by tools/run_server.py.  It does not infer success from
-`claim_as` return values: it requires `ftbchunks info` to report the expected owner at the centre
-and all four corners of the generated hub protection envelope.
+`claim_as` return values: it requires `ftbchunks info` to report the expected owner at every
+chunk of the generated hub protection envelope, not merely its centre and corners.
 
     python tools/check_spawn_hub_claim.py
     python tools/check_spawn_hub_claim.py server/console-YYYYMMDD-HHMMSS.log
@@ -16,6 +16,21 @@ import sys
 
 SCRIPT = os.path.join('kubejs', 'server_scripts', '04_spawn_hub.js')
 CONSOLE_GLOB = os.path.join('server', 'console-*.log')
+
+
+def required_chunks(bounds):
+    """Every chunk intersecting the inclusive rectangular protection envelope."""
+    min_x, max_x, min_z, max_z = bounds
+    if min_x > max_x or min_z > max_z:
+        raise ValueError(f'invalid hub claim bounds: {bounds}')
+    return [(cx, cz) for cx in range(min_x >> 4, (max_x >> 4) + 1)
+                     for cz in range(min_z >> 4, (max_z >> 4) + 1)]
+
+
+def probe_commands(bounds, dimension):
+    """Issue one FTB ownership read-back for every required chunk, including the interior."""
+    return [(2, f'ftbchunks info {cx << 4} {cz << 4} {dimension}')
+            for cx, cz in required_chunks(bounds)]
 
 
 def protection_contract(path=SCRIPT):
@@ -34,11 +49,7 @@ def protection_contract(path=SCRIPT):
     # the tree, so a radius both over-claimed to the south and under-claimed to the north.
     bounds = tuple(int(one(rf'const\s+{name}\s*=\s*(-?\d+)', name)) for name in
                    ('HUB_MIN_X', 'HUB_MAX_X', 'HUB_MIN_Z', 'HUB_MAX_Z'))
-    min_x, max_x, min_z, max_z = bounds
-    blocks = [((min_x + max_x) // 2, (min_z + max_z) // 2),
-              (min_x, min_z), (max_x, min_z), (min_x, max_z), (max_x, max_z)]
-    chunks = [(x >> 4, z >> 4) for x, z in blocks]
-    return dimension, team, bounds, chunks
+    return dimension, team, bounds, required_chunks(bounds)
 
 
 def latest_console():
@@ -129,6 +140,42 @@ def self_test():
     bad = 0
     for name, text, expected in cases:
         got = len(validate_text(text, dimension, team, chunks))
+        if got != expected:
+            print(f'  FAIL  {name}: expected {expected} problem(s), got {got}')
+            bad += 1
+        else:
+            print(f'  OK    {name}: {got} problem(s)')
+    # Real relocated rectangle is ten by ten chunks; a five-point sampler misses
+    # an isolated interior hole and incorrectly reports protection-ready.
+    bounds = (-80, 79, -128, 31)
+    full_chunks = required_chunks(bounds)
+    commands = probe_commands(bounds, dimension)
+    expected_commands = [(2, f'ftbchunks info {cx << 4} {cz << 4} {dimension}')
+                         for cx in range(-5, 5) for cz in range(-8, 2)]
+    if full_chunks != [(cx, cz) for cx in range(-5, 5) for cz in range(-8, 2)] or commands != expected_commands:
+        print('  FAIL  full envelope command plan: expected 100 unique chunk probes')
+        bad += 1
+    else:
+        print('  OK    full envelope command plan: 100 chunk probes')
+
+    interior = (-2, -4)  # deliberately neither centre nor any of the four corners
+
+    def full_claimed(omit=None, changed=None):
+        lines = []
+        for cx, cz in full_chunks:
+            if (cx, cz) == omit:
+                continue
+            lines.append(f'[Server thread/INFO] {location_line(dimension, cx, cz)}')
+            owner = 'another_team' if (cx, cz) == changed else team
+            lines.append(f'[Server thread/INFO] Owner: {owner} / 0123456789abcdef')
+        return '\\n'.join(lines)
+
+    for name, console, expected in (
+        ('whole envelope claimed', full_claimed(), 0),
+        ('missing interior chunk', full_claimed(omit=interior), 1),
+        ('foreign-owned interior chunk', full_claimed(changed=interior), 1),
+    ):
+        got = len(validate_text(console, dimension, team, full_chunks))
         if got != expected:
             print(f'  FAIL  {name}: expected {expected} problem(s), got {got}')
             bad += 1

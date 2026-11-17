@@ -352,21 +352,17 @@ def _forceload_commands(cx, cz, radius):
 
 
 def _claim_probes():
-    """`ftbchunks info` at the centre and four corners of the CURRENT claim envelope.
+    """Probe every chunk in the generator's current claim envelope.
 
-    These used to be five literal +/-128 coordinates. When the envelope became an explicit
-    rectangle on 2026-09-07 the literals kept probing the old square, so the run reported
-    "Chunk not claimed!" at corners that are now correctly outside the claim -- a validator
-    failing because it had drifted from the thing it validates. Read the envelope from the
-    generator instead, so it cannot drift again.
+    The old centre-and-corners sampler missed an isolated missing interior claim.
+    Share the chunk iteration with the console validator so generation and read-back
+    cover the same exact rectangle, including its interior and negative coordinates.
     """
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import gen_spawn_hub as hub
-    lo_x, hi_x = hub.HUB_MIN_X, hub.HUB_MAX_X
-    lo_z, hi_z = hub.HUB_MIN_Z, hub.HUB_MAX_Z
-    corners = [((lo_x + hi_x) // 2, (lo_z + hi_z) // 2),
-               (lo_x, lo_z), (hi_x, lo_z), (lo_x, hi_z), (hi_x, hi_z)]
-    return [(2, f'ftbchunks info {x} {z} {hub.HOME}') for x, z in corners]
+    from check_spawn_hub_claim import probe_commands
+    bounds = (hub.HUB_MIN_X, hub.HUB_MAX_X, hub.HUB_MIN_Z, hub.HUB_MAX_Z)
+    return probe_commands(bounds, hub.HOME)
 
 
 CLAIM_PROBES = _claim_probes()
@@ -525,9 +521,8 @@ DEFAULT_COMMANDS = [
 
     # FTB Chunks claim acceptance needs ownership read-back, not the return value from
     # `claim`. FTB Chunks `info` reports the owning team for the addressed chunk to an
-    # operator/console source. CLAIM_PROBES addresses the centre and all four corners of
-    # whatever envelope 04_spawn_hub.js currently reconciles, so this run records whether the
-    # whole placement envelope belongs to the `alfheim_hub` server team.
+    # operator/console source. CLAIM_PROBES covers every chunk of the generator's
+    # rectangular envelope, so isolated missing/foreign interior claims also fail acceptance.
 ] + CLAIM_PROBES + [
 
     (60, 'save-all flush'),
