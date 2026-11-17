@@ -103,6 +103,7 @@ function scenario(mode) {
         'net.minecraft.core.registries.Registries': { DIMENSION: 'dimension' }
     }
     const state = {}
+    const guards = {}
     const context = {
         global: state,
         console: logs,
@@ -110,9 +111,12 @@ function scenario(mode) {
             assert.ok(Object.hasOwn(classes, name), 'unexpected Java class ' + name)
             return classes[name]
         } },
-        EntityEvents: { checkSpawn() {} },
-        LevelEvents: { beforeExplosion() {} },
-        BlockEvents: { broken() {}, placed() {} },
+        EntityEvents: { checkSpawn(fn) { guards.spawn = fn } },
+        LevelEvents: { beforeExplosion(fn) { guards.explosion = fn } },
+        BlockEvents: {
+            broken(fn) { guards.break = fn },
+            placed(fn) { guards.place = fn }
+        },
         ServerEvents: { loaded(fn) { callback = fn } }
     }
     vm.runInNewContext(shipping, context, { filename: '04_spawn_hub.js', timeout: 3000 })
@@ -128,7 +132,7 @@ function scenario(mode) {
         assert.ok(retries++ < 6, 'bounded retries exceeded')
         queue.shift()({})
     }
-    return { state, messages, attempts, unclaims, playerDataCalls, claims }
+    return { state, messages, attempts, unclaims, playerDataCalls, claims, guards }
 }
 
 const happy = scenario('healthy')
@@ -136,6 +140,69 @@ assert.equal(happy.state.alfheimHubClaimReady, true, 'only complete admin claims
 assert.equal(happy.attempts, 1)
 assert.match(happy.messages.info.join('\n'), /FTB ownership verified/)
 assert.equal(happy.unclaims, 0)
+
+// Exercise the actual registered KubeJS protection handlers, not a reimplemented predicate.
+// Inclusive rectangle boundaries, other dimensions and operator exemptions matter as much
+// as FTB ownership: a READY claim is not proof that edits/spawns/explosions are guarded.
+for (const name of ['spawn', 'explosion', 'break', 'place']) {
+    assert.equal(typeof happy.guards[name], 'function', name + ' handler not registered')
+}
+function probe(kind, x, z, options = {}) {
+    const dimension = options.dimension ?? dimensionMatch[1]
+    const messages = []
+    let cancels = 0
+    const event = {
+        level: { dimension }, x, z, block: { x, z },
+        player: options.noPlayer ? null : {
+            op: !!options.op,
+            tell(message) { messages.push(String(message)) }
+        },
+        entity: {
+            level: { dimension }, x, z, living: options.living !== false,
+            monster: options.monster !== false,
+            type: options.woodElf ? 'richs_races_wood_elves:wood_elf' : 'minecraft:zombie'
+        },
+        cancel() { cancels++ }
+    }
+    happy.guards[kind](event)
+    return { cancels, messages }
+}
+const minX = value('HUB_MIN_X')
+const maxX = value('HUB_MAX_X')
+const minZ = value('HUB_MIN_Z')
+const maxZ = value('HUB_MAX_Z')
+for (const kind of ['break', 'place']) {
+    for (const [x, z] of [[minX, minZ], [maxX, maxZ], [0, 0]]) {
+        const denied = probe(kind, x, z)
+        assert.equal(denied.cancels, 1, kind + ' must reject non-op edit at ' + x + ',' + z)
+        assert.match(denied.messages.join(' '), /Royal Elven Guard/)
+        assert.equal(probe(kind, x, z, { op: true }).cancels, 0,
+            'an operator may repair the protected hub')
+        assert.equal(probe(kind, x, z, { noPlayer: true }).cancels, 1,
+            'unattributed hub edits must not bypass the guard')
+    }
+    for (const [x, z] of [[minX - 1, 0], [maxX + 1, 0],
+                          [0, minZ - 1], [0, maxZ + 1]]) {
+        assert.equal(probe(kind, x, z).cancels, 0, kind + ' must not lock outside the hub')
+    }
+    assert.equal(probe(kind, 0, 0, { dimension: 'minecraft:overworld' }).cancels, 0,
+        'hub protection must not lock Midgard')
+}
+for (const [x, z] of [[minX, minZ], [maxX, maxZ]]) {
+    assert.equal(probe('explosion', x, z).cancels, 1, 'in-hub explosion must be blocked')
+    assert.equal(probe('spawn', x, z).cancels, 1, 'in-hub hostile spawn must be blocked')
+}
+assert.equal(probe('explosion', maxX + 1, 0).cancels, 0)
+assert.equal(probe('spawn', minX - 1, 0).cancels, 0)
+assert.equal(probe('explosion', 0, 0, { dimension: 'minecraft:overworld' }).cancels, 0)
+assert.equal(probe('spawn', 0, 0, { dimension: 'minecraft:overworld' }).cancels, 0)
+assert.equal(probe('spawn', 0, 0, { woodElf: true }).cancels, 0,
+    'native wood elves are explicitly permitted at the hub')
+assert.equal(probe('spawn', 0, 0, { monster: false }).cancels, 0,
+    'non-hostile living entities are permitted')
+assert.equal(probe('spawn', 0, 0, { living: false }).cancels, 0,
+    'nonliving entities are not hostile mobs')
+console.log('SPAWN_HUB_GUARD_BOUNDARIES_PASS: registered edit, spawn and explosion handlers')
 
 for (const mode of ['missing', 'nonserver', 'foreign', 'deny']) {
     const result = scenario(mode)
