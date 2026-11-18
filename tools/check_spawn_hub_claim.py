@@ -75,11 +75,11 @@ def validate_text(text, dimension, team, chunks):
     # A chat message or quoted line may contain the exact Location text. Only
     # standalone FTB info payloads count; preserve the bare, prefixed and
     # timestamped server-INFO formats from the headless console.
-    log_prefix = re.compile(r'^(?:\\[\\d\\d:\\d\\d:\\d\\d\\]\\s+)?\\[Server thread/INFO\\]:?\\s+')
+    log_prefix = re.compile(r'^(?:\[\d\d:\d\d:\d\d\]\s+)?\[Server thread/INFO\]:?\s+')
     lines = [log_prefix.sub('', line, count=1) for line in text.splitlines()]
     latest = {}
     for i, line in enumerate(lines):
-        if re.fullmatch(r'Location: \\[[^\\]\\r\\n]+\\]', line):
+        if re.fullmatch(r'Location: \[[^\]\r\n]+\]', line):
             latest[line] = lines[i + 1] if i + 1 < len(lines) else ''
     for cx, cz in chunks:
         location = location_line(dimension, cx, cz)
@@ -88,7 +88,7 @@ def validate_text(text, dimension, team, chunks):
             continue
         # The last genuine probe wins. Its owner must be the immediate next
         # server payload, not a later unrelated line or a player chat message.
-        owner = re.match(r'^Owner:\\s*([^\\r\\n/]+)', latest[location])
+        owner = re.match(r'^Owner:\s*([^\r\n/]+)', latest[location])
         if not owner:
             problems.append(f'{location}: claim owner was not reported')
             continue
@@ -148,20 +148,20 @@ def self_test():
             f'[Server thread/INFO] Owner: {team} / unrelated', 1),
         # A player chat or an ordinary quote is not an FTB location reply.
         # An unrelated Owner line immediately afterward must not authenticate it.
-        ('chat Location with unrelated Owner', claimed(omit=(0, 0)) + '\\n' +
-            f'[Server thread/INFO] [Not Secure] <Visitor> {location_line(dimension, 0, 0)}\\n'
+        ('chat Location with unrelated Owner', claimed(omit=(0, 0)) + '\n' +
+            f'[Server thread/INFO] [Not Secure] <Visitor> {location_line(dimension, 0, 0)}\n'
             f'[Server thread/INFO] Owner: {team} / unrelated', 1),
-        ('quoted Location with unrelated Owner', claimed(omit=(0, 0)) + '\\n' +
-            f'[Server thread/INFO] [Server] quoted: {location_line(dimension, 0, 0)}\\n'
+        ('quoted Location with unrelated Owner', claimed(omit=(0, 0)) + '\n' +
+            f'[Server thread/INFO] [Server] quoted: {location_line(dimension, 0, 0)}\n'
             f'[Server thread/INFO] Owner: {team} / unrelated', 1),
-        ('later chat is not a new probe', claimed() + '\\n' +
-            f'[Server thread/INFO] [Not Secure] <Visitor> {location_line(dimension, 0, 0)}\\n'
+        ('later chat is not a new probe', claimed() + '\n' +
+            f'[Server thread/INFO] [Not Secure] <Visitor> {location_line(dimension, 0, 0)}\n'
             '[Server thread/INFO] Chunk not claimed', 0),
-        ('bare FTB reply', '\\n'.join(
-            f'{location_line(dimension, cx, cz)}\\nOwner: {team} / 0123456789abcdef'
+        ('bare FTB reply', '\n'.join(
+            f'{location_line(dimension, cx, cz)}\nOwner: {team} / 0123456789abcdef'
             for cx, cz in chunks), 0),
-        ('timestamped FTB reply', '\\n'.join(
-            f'[20:06:35] [Server thread/INFO]: {location_line(dimension, cx, cz)}\\n'
+        ('timestamped FTB reply', '\n'.join(
+            f'[20:06:35] [Server thread/INFO]: {location_line(dimension, cx, cz)}\n'
             f'[20:06:35] [Server thread/INFO]: Owner: {team} / 0123456789abcdef'
             for cx, cz in chunks), 0),
         ('later corrected owner', claimed('somebody_else') + '\n' + claimed(), 0),
