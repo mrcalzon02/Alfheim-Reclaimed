@@ -1,0 +1,45 @@
+name: Greatbole claim fail-closed source controls
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/spawn-hub-claim-readiness.yml'
+      - 'tools/test_spawn_hub_claim_readiness.cjs'
+      - 'tools/templates/spawn_hub_protection.js'
+      - 'kubejs/server_scripts/04_spawn_hub.js'
+      - 'tools/check_spawn_hub_claim.py'
+      - 'tools/run_server.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-negative-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout first-party Greatbole claim sources only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            tools/test_spawn_hub_claim_readiness.cjs
+            tools/templates/spawn_hub_protection.js
+            kubejs/server_scripts/04_spawn_hub.js
+            tools/check_spawn_hub_claim.py
+            tools/run_server.py
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JS syntax and real generated-script negative controls
+        run: |
+          node --check kubejs/server_scripts/04_spawn_hub.js
+          node --check tools/test_spawn_hub_claim_readiness.cjs
+          node tools/test_spawn_hub_claim_readiness.cjs
+      - name: Python full-envelope command and read-back negative controls
+        run: python3 tools/check_spawn_hub_claim.py --self-test

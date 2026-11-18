@@ -76,6 +76,21 @@ def main():
     assert counts['minecraft:oak_fence']==76
     assert counts['minecraft:lantern']+counts['minecraft:soul_lantern']==0
     assert not (ROOT/'kubejs/data/alfheim/worldgen/structure_set/frontier_stewardship.json').exists()
+
+    # Native trees run in vegetal_decoration. Both codec settings must stamp
+    # Frontier's explicit air/floors in the later top_layer_modification step.
+    # This is a source contract, NOT a replacement for a fresh-world census.
+    spec=json.loads((ROOT/'kubejs/data/alfheim/worldgen/structure/frontier_stewardship.json').read_text(encoding='utf-8'))
+    def clears_after_canopy(doc):
+        return (doc.get('step')=='top_layer_modification'
+                and doc.get('layout',{}).get('step')=='top_layer_modification'
+                and doc.get('terrain_adaptation')==doc.get('layout',{}).get('terrain_adaptation')=='beard_thin')
+    assert clears_after_canopy(spec),('Frontier vegetation ordering drift',spec.get('step'),spec.get('layout',{}).get('step'))
+    for key in ('outer','layout'):
+        stale=json.loads(json.dumps(spec))
+        if key=='outer':stale['step']='surface_structures'
+        else:stale['layout']['step']='surface_structures'
+        assert not clears_after_canopy(stale),('stale Frontier step undetected',key)
     source=fingerprint.hexdigest();runtime_path=ROOT/'tools/frontier_stewardship_runtime.json'
     runtime=json.loads(runtime_path.read_text(encoding='utf-8')) if runtime_path.exists() else {}
     verified=runtime.get('source_fingerprint')==source and runtime.get('validation_exit_code')==0

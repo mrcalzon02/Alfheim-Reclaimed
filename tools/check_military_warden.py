@@ -4,6 +4,7 @@ import hashlib,json,re
 from pathlib import Path
 import nbt
 import gen_military_warden as gen
+from military_warden_integrity import check_rotations
 from check_civic_center import topology
 from check_ancient_assembly import STEP
 
@@ -16,12 +17,13 @@ def main():
     for script in (ROOT/'kubejs/startup_scripts').glob('*.js'):
         text=script.read_text(encoding='utf-8')
         if "registry('block'" in text:registry.update(re.findall(r"event\.create\(['\"]([^'\"]+)['\"]",text))
-    counts=Counter();fingerprint=hashlib.sha256()
+    counts=Counter();fingerprint=hashlib.sha256();pieces={}
     for twin in files:
         path=ROOT/twin.relative_to(compare);fingerprint.update(path.relative_to(ROOT).as_posix().encode())
         if path.suffix!='.nbt':
             assert path.read_bytes()==twin.read_bytes();fingerprint.update(path.read_bytes());continue
         p=nbt.load(str(path))[1];assert p==nbt.load(str(twin))[1]
+        pieces[path.stem]=p
         fingerprint.update(json.dumps(p,sort_keys=True,separators=(',',':')).encode())
         assert p['entities']==[] and max(map(int,p['size']))<=48
         assert {s['Name'] for s in p['palette']}<=registry,(path,{s['Name'] for s in p['palette']}-registry)
@@ -59,6 +61,8 @@ def main():
             assert target in reachable,('upper platform cannot be reached',path)
         if path.stem=='last_muster_ground':
             assert sum(name((x,8,z))=='minecraft:air' for x in range(6,11) for z in range(29,34))>=20
+    rotated=check_rotations(pieces,gen.LINKS,'border_keep',gen.DEPTH)
+    assert rotated['members']==6 and rotated['joins_per_rotation']==5 and rotated['rotations']==4
     layout,joins=topology(PATH,'border_keep');assert len(layout)==6 and len(joins)==5
     for i,a in enumerate(layout):
         for b in layout[i+1:]:assert not all(max(a['bounds'][j],b['bounds'][j])<=min(a['bounds'][j+3],b['bounds'][j+3]) for j in range(3)),(a,b)
@@ -70,8 +74,10 @@ def main():
     runtime=json.loads(runtime_path.read_text(encoding='utf-8')) if runtime_path.exists() else {}
     verified=runtime.get('source_fingerprint')==source and runtime.get('validation_exit_code')==0
     report={'status':'runtime_validated_visual_pending' if verified else 'static_validated_runtime_pending',
-            'source_fingerprint':source,'files':16,'members':6,'joins':5,'layout':layout,'block_counts':dict(counts)}
+            'source_fingerprint':source,'files':16,'members':6,'joins':5,'layout':layout,
+            'rotated_footing_integrity':rotated,'block_counts':dict(counts)}
     (ROOT/'tools/military_warden_manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-    print('MILITARY/WARDEN STATIC PASS: 6 members, 5 supported joins; stairs, foundations, beds, graves and ordinary supplies')
+    print('MILITARY/WARDEN STATIC PASS: 6 members, 5 supported joins; 4 rotations,',
+          rotated['foundation_cells'],'complete foundation cells; stairs, beds, graves and ordinary supplies')
 
 if __name__=='__main__':main()

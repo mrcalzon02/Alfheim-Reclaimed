@@ -233,6 +233,16 @@ def write_properties(seed, level_name):
 
 
 def run(seed, level_name, heap, commands, timeout):
+    # A failed preflight must invalidate a successful previous server run.
+    # --check is read-only and never calls this function.
+    os.makedirs(SERVER, exist_ok=True)
+    stamp = time.strftime('%Y%m%d-%H%M%S')
+    console = os.path.join(SERVER, f'console-{stamp}.log')
+    manifest_path = os.path.join(SERVER, f'manifest-{stamp}.json')
+    with open(manifest_path, 'w', encoding='utf-8', newline='\n') as out:
+        json.dump({'status': 'started', 'console': os.path.basename(console),
+                   'exit_code': None, 'harness_exit_code': None}, out)
+
     argfile = os.path.join('libraries', 'net', 'minecraftforge', 'forge',
                            f'{MC}-{FORGE}', 'win_args.txt')
     if not os.path.exists(os.path.join(SERVER, argfile)):
@@ -265,8 +275,6 @@ def run(seed, level_name, heap, commands, timeout):
 
     cmd = [JAVA17, f'-Xmx{heap}G', f'-Xms{min(heap, 4)}G', f'@{argfile}', 'nogui']
     print(f'launching: {" ".join(cmd)}')
-    stamp = time.strftime('%Y%m%d-%H%M%S')
-    console = os.path.join(SERVER, f'console-{stamp}.log')
     started = time.time()
     harness_exit = 0
     with open(console, 'w', encoding='utf-8', errors='replace', newline='\n') as log:
@@ -312,6 +320,7 @@ def run(seed, level_name, heap, commands, timeout):
 
     elapsed = round(time.time() - started, 1)
     manifest = {
+        'status': 'completed',
         'minecraft': MC, 'forge': FORGE, 'seed': seed, 'level_name': level_name,
         'heap_gib': heap, 'elapsed_s': elapsed, 'exit_code': p.returncode,
         'harness_exit_code': harness_exit,
@@ -321,7 +330,7 @@ def run(seed, level_name, heap, commands, timeout):
         'command_startup_gate': 'dedicated-server-ready; maximum 300 seconds',
         'console': os.path.basename(console),
     }
-    with open(os.path.join(SERVER, f'manifest-{stamp}.json'), 'w', encoding='utf-8', newline='\n') as f:
+    with open(manifest_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(manifest, f, indent=2)
     print(f'\nexit {p.returncode} after {elapsed}s; harness exit {harness_exit}; console -> {console}')
     return harness_exit
@@ -352,21 +361,17 @@ def _forceload_commands(cx, cz, radius):
 
 
 def _claim_probes():
-    """`ftbchunks info` at the centre and four corners of the CURRENT claim envelope.
+    """Probe every chunk in the generator's current claim envelope.
 
-    These used to be five literal +/-128 coordinates. When the envelope became an explicit
-    rectangle on 2026-09-07 the literals kept probing the old square, so the run reported
-    "Chunk not claimed!" at corners that are now correctly outside the claim -- a validator
-    failing because it had drifted from the thing it validates. Read the envelope from the
-    generator instead, so it cannot drift again.
+    The old centre-and-corners sampler missed an isolated missing interior claim.
+    Share the chunk iteration with the console validator so generation and read-back
+    cover the same exact rectangle, including its interior and negative coordinates.
     """
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import gen_spawn_hub as hub
-    lo_x, hi_x = hub.HUB_MIN_X, hub.HUB_MAX_X
-    lo_z, hi_z = hub.HUB_MIN_Z, hub.HUB_MAX_Z
-    corners = [((lo_x + hi_x) // 2, (lo_z + hi_z) // 2),
-               (lo_x, lo_z), (hi_x, lo_z), (lo_x, hi_z), (hi_x, hi_z)]
-    return [(2, f'ftbchunks info {x} {z} {hub.HOME}') for x, z in corners]
+    from check_spawn_hub_claim import probe_commands
+    bounds = (hub.HUB_MIN_X, hub.HUB_MAX_X, hub.HUB_MIN_Z, hub.HUB_MAX_Z)
+    return probe_commands(bounds, hub.HOME)
 
 
 CLAIM_PROBES = _claim_probes()
@@ -525,9 +530,8 @@ DEFAULT_COMMANDS = [
 
     # FTB Chunks claim acceptance needs ownership read-back, not the return value from
     # `claim`. FTB Chunks `info` reports the owning team for the addressed chunk to an
-    # operator/console source. CLAIM_PROBES addresses the centre and all four corners of
-    # whatever envelope 04_spawn_hub.js currently reconciles, so this run records whether the
-    # whole placement envelope belongs to the `alfheim_hub` server team.
+    # operator/console source. CLAIM_PROBES covers every chunk of the generator's
+    # rectangular envelope, so isolated missing/foreign interior claims also fail acceptance.
 ] + CLAIM_PROBES + [
 
     (60, 'save-all flush'),
