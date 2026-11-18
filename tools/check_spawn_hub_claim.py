@@ -82,9 +82,11 @@ def validate_text(text, dimension, team, chunks):
             continue
 
         tail = text[start + len(location):]
-        next_location = tail.find('Location:')
-        block = tail if next_location < 0 else tail[:next_location]
-        owner = re.search(r'Owner:\s*([^\r\n/]+)', block)
+        # FTB info reports its owner immediately after Location. Do not borrow a later
+        # unrelated console Owner line, including after an explicit unclaimed response.
+        reply = re.match(r'\r?\n([^\r\n]*)', tail)
+        owner = (re.match(r'\s*(?:\[[^\]\r\n]+\]\s*)*Owner:\s*([^\r\n/]+)',
+                          reply.group(1)) if reply else None)
         if not owner:
             problems.append(f'{location}: claim owner was not reported')
             continue
@@ -135,6 +137,13 @@ def self_test():
         ('later missing owner', claimed() + '\n' +
             f'[Server thread/INFO] {location_line(dimension, 12, 12)}\n'
             '[Server thread/INFO] Force-loaded: false', 1),
+        ('later unclaimed with unrelated Owner', claimed() + '\n' +
+            reread((0, 0), None) + '\n'
+            f'[Server thread/INFO] Owner: {team} / unrelated', 1),
+        ('later missing with unrelated Owner', claimed() + '\n' +
+            f'[Server thread/INFO] {location_line(dimension, 0, 0)}\n'
+            '[Server thread/INFO] Force-loaded: false\n'
+            f'[Server thread/INFO] Owner: {team} / unrelated', 1),
         ('later corrected owner', claimed('somebody_else') + '\n' + claimed(), 0),
     ]
     bad = 0
@@ -168,7 +177,7 @@ def self_test():
             lines.append(f'[Server thread/INFO] {location_line(dimension, cx, cz)}')
             owner = 'another_team' if (cx, cz) == changed else team
             lines.append(f'[Server thread/INFO] Owner: {owner} / 0123456789abcdef')
-        return '\\n'.join(lines)
+        return '\n'.join(lines)
 
     for name, console, expected in (
         ('whole envelope claimed', full_claimed(), 0),
