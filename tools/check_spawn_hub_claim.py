@@ -6,13 +6,19 @@ chunk of the generated hub protection envelope, not merely its centre and corner
 
     python tools/check_spawn_hub_claim.py
     python tools/check_spawn_hub_claim.py server/console-YYYYMMDD-HHMMSS.log
+
+Only a matching successful completed-run manifest with every required probe
+can establish ownership acceptance; a newer failed/incomplete attempt invalidates
+stale evidence even when the older console is explicitly requested.
     python tools/check_spawn_hub_claim.py --self-test
 """
 import argparse
 import glob
+import json
 import os
 import re
 import sys
+import tempfile
 
 SCRIPT = os.path.join('kubejs', 'server_scripts', '04_spawn_hub.js')
 CONSOLE_GLOB = os.path.join('server', 'console-*.log')
@@ -52,9 +58,46 @@ def protection_contract(path=SCRIPT):
     return dimension, team, bounds, required_chunks(bounds)
 
 
-def latest_console():
-    paths = glob.glob(CONSOLE_GLOB)
-    return max(paths, key=os.path.getmtime) if paths else None
+def verified_console(requested, expected_commands, directory=None):
+    """Require the newest observed attempt's own successful run manifest.
+
+    Neither filesystem mtimes nor an explicitly requested older console can
+    override evidence that a newer server launch failed or was interrupted.
+    """
+    directory = directory or os.path.dirname(CONSOLE_GLOB)
+    stamps = set()
+    for prefix, suffix in (('console-', '.log'), ('manifest-', '.json')):
+        for path in glob.glob(os.path.join(directory, prefix + '*' + suffix)):
+            name = os.path.basename(path)
+            stamp = name[len(prefix):-len(suffix)]
+            if re.fullmatch(r'\d{8}-\d{6}', stamp):
+                stamps.add(stamp)
+    if not stamps:
+        raise ValueError('no server run evidence found; run tools/run_server.py --run first')
+
+    stamp = max(stamps)
+    selected = os.path.join(directory, f'console-{stamp}.log')
+    if requested and os.path.normcase(os.path.abspath(requested)) != os.path.normcase(os.path.abspath(selected)):
+        raise ValueError(f'requested console is not newest observed run: {selected}')
+    if not os.path.isfile(selected):
+        raise ValueError(f'newest run is missing its console: {selected}')
+
+    manifest_path = os.path.join(directory, f'manifest-{stamp}.json')
+    try:
+        with open(manifest_path, encoding='utf-8') as source:
+            manifest = json.load(source)
+    except (OSError, ValueError) as exc:
+        raise ValueError(f'newest run has no valid manifest: {manifest_path} ({exc})') from exc
+    if not isinstance(manifest, dict) or manifest.get('console') != os.path.basename(selected):
+        raise ValueError(f'newest manifest does not identify its console: {manifest_path}')
+    if manifest.get('status') not in (None, 'completed'):
+        raise ValueError(f'newest run did not complete: {manifest_path}')
+    if manifest.get('harness_exit_code') != 0 or manifest.get('exit_code') != 0:
+        raise ValueError(f'newest run failed: {manifest_path}')
+    commands = manifest.get('commands')
+    if not isinstance(commands, list) or set(expected_commands) - set(commands):
+        raise ValueError(f'newest run did not schedule every ownership probe: {manifest_path}')
+    return selected
 
 
 def location_line(dimension, cx, cz):
@@ -210,6 +253,88 @@ def self_test():
             bad += 1
         else:
             print(f'  OK    {name}: {got} problem(s)')
+    # Use actual temporary per-run files, not static strings alone. A newer failed
+    # run must invalidate a former claimed console even if old mtime is fresher.
+    with tempfile.TemporaryDirectory() as directory:
+        prior, newest = '20261118-120000', '20261118-120100'
+        required = [f'ftbchunks info {cx << 4} {cz << 4} {dimension}'
+                    for cx, cz in chunks]
+
+        def write_console(stamp, contents):
+            path = os.path.join(directory, f'console-{stamp}.log')
+            with open(path, 'w', encoding='utf-8') as out:
+                out.write(contents)
+            return path
+
+        def write_manifest(stamp, *, status='completed', exit_code=0,
+                           harness_exit=0, commands=None, filename=None):
+            path = os.path.join(directory, f'manifest-{stamp}.json')
+            record = {'console': filename or f'console-{stamp}.log',
+                      'status': status, 'exit_code': exit_code,
+                      'harness_exit_code': harness_exit,
+                      'commands': required if commands is None else commands}
+            with open(path, 'w', encoding='utf-8') as out:
+                json.dump(record, out)
+            return path
+
+        def verify_fixture(name, wanted, requested=None):
+            nonlocal bad
+            try:
+                selected = verified_console(requested, required, directory)
+                with open(selected, encoding='utf-8') as source:
+                    failures = validate_text(source.read(), dimension, team, chunks)
+                actual = 'CLAIM_PROBLEMS' if failures else 'OK'
+            except (OSError, ValueError):
+                actual = 'REJECT'
+            if actual == wanted:
+                print(f'  OK    {name}: {actual}')
+            else:
+                print(f'  FAIL  {name}: expected {wanted}, got {actual}')
+                bad += 1
+
+        prior_log = write_console(prior, claimed())
+        write_manifest(prior)
+        verify_fixture('completed prior run', 'OK')
+        write_manifest(newest, status='started')
+        verify_fixture('new attempt without console', 'REJECT')
+        os.remove(os.path.join(directory, f'manifest-{newest}.json'))
+        new_log = write_console(newest, claimed(omit=(0, 0)))
+        verify_fixture('new console without final manifest', 'REJECT')
+        write_manifest(newest, status='started')
+        verify_fixture('unfinished new run', 'REJECT')
+        write_manifest(newest, exit_code=1, harness_exit=3)
+        verify_fixture('failed new run cannot borrow prior ownership', 'REJECT')
+        write_manifest(newest)
+        verify_fixture('incomplete current probes', 'CLAIM_PROBLEMS')
+        write_console(newest, claimed())
+        verify_fixture('completed current run', 'OK')
+        verify_fixture('explicit old log cannot bypass new run', 'REJECT', prior_log)
+        verify_fixture('explicit latest log', 'OK', new_log)
+        os.utime(prior_log, (2000000000, 2000000000))
+        verify_fixture('stale log with newer mtime does not win', 'OK')
+        write_manifest(newest, commands=required[:-1])
+        verify_fixture('missing planned ownership command', 'REJECT')
+        write_manifest(newest, filename='console-other.log')
+        verify_fixture('manifest/console mismatch', 'REJECT')
+
+    # Actual run_server.py must leave a fail-closed new-attempt marker when
+    # Forge prerequisites are absent. No world/Java process is needed here.
+    import run_server
+    with tempfile.TemporaryDirectory() as directory:
+        previous_server = run_server.SERVER
+        try:
+            run_server.SERVER = directory
+            code = run_server.run(1, 'test-world', 4, [], 1)
+        finally:
+            run_server.SERVER = previous_server
+        markers = glob.glob(os.path.join(directory, 'manifest-*.json'))
+        with open(markers[0], encoding='utf-8') as source:
+            state = json.load(source) if len(markers) == 1 else {}
+        if code == 2 and state.get('status') == 'started' and state.get('console'):
+            print('  OK    harness failed-preflight marker stays incomplete')
+        else:
+            print('  FAIL  harness failed-preflight marker not recorded')
+            bad += 1
     print(f'RESULT: {bad} self-test failure(s)')
     return 1 if bad else 0
 
@@ -228,9 +353,10 @@ def main():
         print(f'!! {exc}')
         return 2
 
-    console = a.console or latest_console()
-    if not console or not os.path.isfile(console):
-        print('!! no server console log found; run tools/run_server.py --run first')
+    try:
+        console = verified_console(a.console, [c for _, c in probe_commands(bounds, dimension)])
+    except ValueError as exc:
+        print(f'!! {exc}')
         return 2
 
     text = open(console, encoding='utf-8', errors='replace').read()

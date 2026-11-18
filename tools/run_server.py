@@ -233,6 +233,16 @@ def write_properties(seed, level_name):
 
 
 def run(seed, level_name, heap, commands, timeout):
+    # A failed preflight must invalidate a successful previous server run.
+    # --check is read-only and never calls this function.
+    os.makedirs(SERVER, exist_ok=True)
+    stamp = time.strftime('%Y%m%d-%H%M%S')
+    console = os.path.join(SERVER, f'console-{stamp}.log')
+    manifest_path = os.path.join(SERVER, f'manifest-{stamp}.json')
+    with open(manifest_path, 'w', encoding='utf-8', newline='\n') as out:
+        json.dump({'status': 'started', 'console': os.path.basename(console),
+                   'exit_code': None, 'harness_exit_code': None}, out)
+
     argfile = os.path.join('libraries', 'net', 'minecraftforge', 'forge',
                            f'{MC}-{FORGE}', 'win_args.txt')
     if not os.path.exists(os.path.join(SERVER, argfile)):
@@ -265,8 +275,6 @@ def run(seed, level_name, heap, commands, timeout):
 
     cmd = [JAVA17, f'-Xmx{heap}G', f'-Xms{min(heap, 4)}G', f'@{argfile}', 'nogui']
     print(f'launching: {" ".join(cmd)}')
-    stamp = time.strftime('%Y%m%d-%H%M%S')
-    console = os.path.join(SERVER, f'console-{stamp}.log')
     started = time.time()
     harness_exit = 0
     with open(console, 'w', encoding='utf-8', errors='replace', newline='\n') as log:
@@ -312,6 +320,7 @@ def run(seed, level_name, heap, commands, timeout):
 
     elapsed = round(time.time() - started, 1)
     manifest = {
+        'status': 'completed',
         'minecraft': MC, 'forge': FORGE, 'seed': seed, 'level_name': level_name,
         'heap_gib': heap, 'elapsed_s': elapsed, 'exit_code': p.returncode,
         'harness_exit_code': harness_exit,
@@ -321,7 +330,7 @@ def run(seed, level_name, heap, commands, timeout):
         'command_startup_gate': 'dedicated-server-ready; maximum 300 seconds',
         'console': os.path.basename(console),
     }
-    with open(os.path.join(SERVER, f'manifest-{stamp}.json'), 'w', encoding='utf-8', newline='\n') as f:
+    with open(manifest_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(manifest, f, indent=2)
     print(f'\nexit {p.returncode} after {elapsed}s; harness exit {harness_exit}; console -> {console}')
     return harness_exit
