@@ -329,6 +329,14 @@ def self_test():
                      if isinstance(node, ast.FunctionDef) and node.name == 'run')
     with tempfile.TemporaryDirectory() as directory:
         namespace = {'os': os, 'json': json, 'time': time, 'SERVER': directory}
+        # Preserve actual module-level Forge identity while isolating this
+        # preflight path from imports unavailable in the sparse source job.
+        for name in ('MC', 'FORGE'):
+            value = next(node.value for node in runner_tree.body
+                         if isinstance(node, ast.Assign) and
+                         any(isinstance(target, ast.Name) and target.id == name
+                             for target in node.targets))
+            namespace[name] = ast.literal_eval(value)
         exec(compile(ast.Module(body=[runner_fn], type_ignores=[]), runner_path, 'exec'),
              namespace)
         code = namespace['run'](1, 'test-world', 4, [], 1)
