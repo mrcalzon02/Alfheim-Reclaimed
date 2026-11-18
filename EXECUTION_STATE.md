@@ -1,5 +1,22 @@
 # Execution State
 
+## Recipe pyramid proposal — 2026-11-14
+
+Draft reduction design generated from the static local recipe inventory: 11,273 included
+definitions to 3,523 selected existing slots plus a 200-route replacement reserve (3,723
+planned slots; 3,750 ceiling). The generated material ladder proposes 80 transformations
+to 17, retaining finished tier materials and all nine realm runes. Gatewrought Cord is
+proposed before portal trade to remove the authored cord/portal dependency cycle.
+
+The candidate classification and readable image are in `build/recipe-pyramid/`; the
+durable design summary is `alfheim_reclaimed_design/RECIPE_PYRAMID_PROPOSAL.json`.
+Every recipe is classified keep/consolidate/replace/retire. 4,083 outputs lose a selected
+explicit producer; output consumers and exact quest item references have migration lists.
+Static plan checks pass, including the explicit supplier and protected-output checks.
+No live recipes, quests, registrations, mods or saves changed. Runtime condition/serializer
+coverage, MineColonies and schematic demand, tags, station access, source access, resource
+costs and the final palette still require review before any removal batch is applied.
+
 ## Castle spawn repair and staged terrain affordances — 2026-10-18
 
 Natural castle verified at (1312, Y78, -1840) on New World raven seed;

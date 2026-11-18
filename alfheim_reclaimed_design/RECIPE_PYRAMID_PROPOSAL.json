@@ -1,0 +1,583 @@
+{
+  "status": "draft proposal; no live implementation",
+  "generated_by": "tools/plan_recipe_pyramid.py",
+  "summary": {
+    "status": "draft design; no live recipe edits",
+    "baseline": 11273,
+    "target_ceiling": 3750,
+    "existing_recipe_slots": 3523,
+    "new_route_reserve": 200,
+    "planned_ceiling": 3723,
+    "unallocated_slots": 27,
+    "baseline_rows_displaced": 7750,
+    "reduction_at_ceiling": 0.669741861084006,
+    "actions": {
+      "keep": 3499,
+      "consolidate": 3784,
+      "retire": 3966,
+      "replace": 24
+    },
+    "categories": [
+      {
+        "category": "Foundation",
+        "retained_target": 600,
+        "selected_existing_slots": 625,
+        "supplier_spill": 25
+      },
+      {
+        "category": "Leaf",
+        "retained_target": 600,
+        "selected_existing_slots": 601,
+        "supplier_spill": 1
+      },
+      {
+        "category": "Song",
+        "retained_target": 400,
+        "selected_existing_slots": 400,
+        "supplier_spill": 0
+      },
+      {
+        "category": "Campaign",
+        "retained_target": 200,
+        "selected_existing_slots": 147,
+        "supplier_spill": 0
+      },
+      {
+        "category": "Wound",
+        "retained_target": 450,
+        "selected_existing_slots": 450,
+        "supplier_spill": 0
+      },
+      {
+        "category": "Settlement",
+        "retained_target": 1000,
+        "selected_existing_slots": 1000,
+        "supplier_spill": 0
+      },
+      {
+        "category": "Support",
+        "retained_target": 300,
+        "selected_existing_slots": 300,
+        "supplier_spill": 0
+      },
+      {
+        "category": "Replacement reserve",
+        "retained_target": 200,
+        "selected_existing_slots": 0,
+        "supplier_spill": 0
+      }
+    ],
+    "mandatory_selection": 763,
+    "old_chain_transformations": 80,
+    "new_chain_transformations": 17,
+    "retired_chain_items": 63,
+    "distinct_outputs_losing_selected_producer": 4083,
+    "quest_items_to_migrate": 63,
+    "quest_item_occurrences_to_migrate": 126,
+    "explicit_supplier_gaps": 0,
+    "selected_dynamic_or_partial": 301,
+    "selected_unresolved_conditions": 3,
+    "external_source_assumptions": 435,
+    "source_sha256": "9767efea60ce83466d29441f627af7b7ba370105403fdb8584bc5b02c8ac43ea"
+  },
+  "selection_policy": "Heuristic candidate selection: protect quest outputs and known station outputs with explicit suppliers; prefer pack-authored and magical routes; retain one palette/equipment family representative within category budgets; preserve core dynamic serializers for manual review.",
+  "shortened_chain": [
+    {
+      "id": "alfheim:era3/living_fibre",
+      "working": "Verdant Grafting",
+      "output": "alfheim:living_fibre",
+      "output_count": 1,
+      "inputs": [
+        {
+          "options": [
+            [
+              "#botania:petals/green",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "#botania:petals/green",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "#botania:petals/lime",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "botania:dreamwood",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "#botania:seed_apothecary_reagent",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        }
+      ],
+      "recipe_type": "botania:petal_apothecary",
+      "role": "bootstrap",
+      "status": "retain current recipe",
+      "old_recipe_type": "botania:petal_apothecary"
+    },
+    {
+      "id": "alfheim:era3/charged_fibre",
+      "working": "Verdant Grafting",
+      "output": "alfheim:charged_fibre",
+      "output_count": 1,
+      "inputs": [
+        {
+          "options": [
+            [
+              "alfheim:living_fibre",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        }
+      ],
+      "recipe_type": "botania:mana_infusion",
+      "role": "bootstrap",
+      "status": "retain current recipe",
+      "old_recipe_type": "botania:mana_infusion"
+    },
+    {
+      "id": "alfheim:era3/verdant_filament",
+      "working": "Verdant Grafting",
+      "output": "alfheim:verdant_filament",
+      "output_count": 1,
+      "inputs": [
+        {
+          "options": [
+            [
+              "alfheim:charged_fibre",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "alfheim:charged_fibre",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "botania:rune_earth",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "botania:rune_water",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        },
+        {
+          "options": [
+            [
+              "#botania:mana_dusts",
+              1
+            ]
+          ],
+          "role": "ingredient"
+        }
+      ],
+      "recipe_type": "botania:runic_altar",
+      "role": "bootstrap",
+      "status": "retain current recipe",
+      "old_recipe_type": "botania:runic_altar"
+    },
+    {
+      "id": "alfheim:era4/sunbleached_floss",
+      "working": "Gateweaving",
+      "output": "alfheim:sunbleached_floss",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:verdant_filament",
+          "count": 2
+        },
+        {
+          "item": "botania:dreamwood",
+          "count": 1
+        }
+      ],
+      "recipe_type": "ars_nouveau:enchanting_apparatus",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "botania:petal_apothecary"
+    },
+    {
+      "id": "alfheim:era4/gatewrought_cord",
+      "working": "Gateweaving",
+      "output": "alfheim:gatewrought_cord",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:sunbleached_floss",
+          "count": 1
+        },
+        {
+          "item": "botania:livingrock",
+          "count": 1
+        }
+      ],
+      "recipe_type": "botania:runic_altar",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "botania:runic_altar"
+    },
+    {
+      "id": "alfheim:era5/raw_alloy_grit",
+      "working": "Elementium Alloy Binding",
+      "output": "alfheim:raw_alloy_grit",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:gatewrought_cord",
+          "count": 2
+        },
+        {
+          "item": "mythicbotany:elementium_ore",
+          "count": 1
+        }
+      ],
+      "recipe_type": "botania:runic_altar",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:smelting"
+    },
+    {
+      "id": "alfheim:era5/elementium_core",
+      "working": "Elementium Alloy Binding",
+      "output": "alfheim:elementium_core",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:raw_alloy_grit",
+          "count": 1
+        },
+        {
+          "item": "ars_nouveau:source_gem",
+          "count": 1
+        }
+      ],
+      "recipe_type": "ars_nouveau:enchanting_apparatus",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:crafting_shaped"
+    },
+    {
+      "id": "alfheim:era6/march_hide",
+      "working": "Fey Sinew Binding",
+      "output": "alfheim:march_hide",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:elementium_core",
+          "count": 2
+        },
+        {
+          "item": "minecraft:leather",
+          "count": 1
+        }
+      ],
+      "recipe_type": "feywild:fey_altar",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "feywild:fey_altar"
+    },
+    {
+      "id": "alfheim:era6/wildmarch_sinew",
+      "working": "Fey Sinew Binding",
+      "output": "alfheim:wildmarch_sinew",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:march_hide",
+          "count": 1
+        },
+        {
+          "item": "botania:livingrock",
+          "count": 1
+        }
+      ],
+      "recipe_type": "botania:runic_altar",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:crafting_shaped"
+    },
+    {
+      "id": "alfheim:era7/scorched_filament",
+      "working": "Ember Tempering",
+      "output": "alfheim:scorched_filament",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:wildmarch_sinew",
+          "count": 1
+        }
+      ],
+      "recipe_type": "occultism:spirit_fire",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "occultism:spirit_fire"
+    },
+    {
+      "id": "alfheim:era7/emberbound_weave",
+      "working": "Ember Tempering",
+      "output": "alfheim:emberbound_weave",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:scorched_filament",
+          "count": 2
+        },
+        {
+          "item": "minecraft:blaze_powder",
+          "count": 1
+        },
+        {
+          "item": "ars_nouveau:source_gem",
+          "count": 1
+        }
+      ],
+      "recipe_type": "ars_nouveau:enchanting_apparatus",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:crafting_shaped"
+    },
+    {
+      "id": "alfheim:era8/frost_shard",
+      "working": "Frost-Memory Inscription",
+      "output": "alfheim:frost_shard",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:emberbound_weave",
+          "count": 1
+        }
+      ],
+      "recipe_type": "ars_nouveau:imbuement",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "create:pressing"
+    },
+    {
+      "id": "alfheim:era8/rimebound_lattice",
+      "working": "Frost-Memory Inscription",
+      "output": "alfheim:rimebound_lattice",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:frost_shard",
+          "count": 2
+        },
+        {
+          "item": "minecraft:prismarine_shard",
+          "count": 1
+        },
+        {
+          "item": "botania:livingrock",
+          "count": 1
+        }
+      ],
+      "recipe_type": "botania:runic_altar",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:crafting_shaped"
+    },
+    {
+      "id": "alfheim:era9/ash_of_names",
+      "working": "Ancestral Threadbinding",
+      "output": "alfheim:ash_of_names",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:rimebound_lattice",
+          "count": 1
+        }
+      ],
+      "recipe_type": "occultism:spirit_fire",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "occultism:spirit_fire"
+    },
+    {
+      "id": "alfheim:era9/gravegilt_thread",
+      "working": "Ancestral Threadbinding",
+      "output": "alfheim:gravegilt_thread",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:ash_of_names",
+          "count": 2
+        },
+        {
+          "item": "minecraft:bone",
+          "count": 1
+        },
+        {
+          "item": "ars_nouveau:source_gem",
+          "count": 1
+        }
+      ],
+      "recipe_type": "ars_nouveau:enchanting_apparatus",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:crafting_shaped"
+    },
+    {
+      "id": "alfheim:era10/heartwood_strand",
+      "working": "World-Tree Crownweaving",
+      "output": "alfheim:heartwood_strand",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:gravegilt_thread",
+          "count": 2
+        },
+        {
+          "item": "botania:dreamwood",
+          "count": 1
+        }
+      ],
+      "recipe_type": "mythicbotany:infuser",
+      "role": "prepare",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "botania:petal_apothecary"
+    },
+    {
+      "id": "alfheim:era10/crown_filament",
+      "working": "World-Tree Crownweaving",
+      "output": "alfheim:crown_filament",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item": "alfheim:heartwood_strand",
+          "count": 1
+        },
+        {
+          "item": "ars_nouveau:source_gem",
+          "count": 1
+        }
+      ],
+      "recipe_type": "botania:terra_plate",
+      "role": "bind",
+      "status": "proposed; schema/resource costs and station access require validation",
+      "old_recipe_type": "minecraft:crafting_shaped"
+    }
+  ],
+  "component_aliases": {
+    "alfheim:traded_skein": "alfheim:gatewrought_cord",
+    "alfheim:gatewrought_drawn": "alfheim:gatewrought_cord",
+    "alfheim:gatewrought_folded": "alfheim:gatewrought_cord",
+    "alfheim:annealed_plate": "alfheim:elementium_core",
+    "alfheim:core_blank": "alfheim:elementium_core",
+    "alfheim:elementium_drawn": "alfheim:elementium_core",
+    "alfheim:elementium_folded": "alfheim:elementium_core",
+    "alfheim:elementium_stilled": "alfheim:elementium_core",
+    "alfheim:fey_bound_cord": "alfheim:wildmarch_sinew",
+    "alfheim:sinew_braid": "alfheim:wildmarch_sinew",
+    "alfheim:warded_sinew": "alfheim:wildmarch_sinew",
+    "alfheim:wildmarch_drawn": "alfheim:wildmarch_sinew",
+    "alfheim:wildmarch_folded": "alfheim:wildmarch_sinew",
+    "alfheim:wildmarch_stilled": "alfheim:wildmarch_sinew",
+    "alfheim:wildmarch_rebound": "alfheim:wildmarch_sinew",
+    "alfheim:quenched_thread": "alfheim:emberbound_weave",
+    "alfheim:ember_lattice": "alfheim:emberbound_weave",
+    "alfheim:bound_weave": "alfheim:emberbound_weave",
+    "alfheim:tempered_weave": "alfheim:emberbound_weave",
+    "alfheim:emberbound_drawn": "alfheim:emberbound_weave",
+    "alfheim:emberbound_folded": "alfheim:emberbound_weave",
+    "alfheim:emberbound_stilled": "alfheim:emberbound_weave",
+    "alfheim:emberbound_rebound": "alfheim:emberbound_weave",
+    "alfheim:emberbound_quenched": "alfheim:emberbound_weave",
+    "alfheim:silvered_flake": "alfheim:rimebound_lattice",
+    "alfheim:archive_leaf": "alfheim:rimebound_lattice",
+    "alfheim:rime_cord": "alfheim:rimebound_lattice",
+    "alfheim:lattice_blank": "alfheim:rimebound_lattice",
+    "alfheim:sealed_lattice": "alfheim:rimebound_lattice",
+    "alfheim:rimebound_drawn": "alfheim:rimebound_lattice",
+    "alfheim:rimebound_folded": "alfheim:rimebound_lattice",
+    "alfheim:rimebound_stilled": "alfheim:rimebound_lattice",
+    "alfheim:rimebound_rebound": "alfheim:rimebound_lattice",
+    "alfheim:rimebound_quenched": "alfheim:rimebound_lattice",
+    "alfheim:rimebound_layered": "alfheim:rimebound_lattice",
+    "alfheim:mourning_dust": "alfheim:gravegilt_thread",
+    "alfheim:gilded_ash": "alfheim:gravegilt_thread",
+    "alfheim:debt_cord": "alfheim:gravegilt_thread",
+    "alfheim:reckoned_thread": "alfheim:gravegilt_thread",
+    "alfheim:grave_braid": "alfheim:gravegilt_thread",
+    "alfheim:settled_thread": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_drawn": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_folded": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_stilled": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_rebound": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_quenched": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_layered": "alfheim:gravegilt_thread",
+    "alfheim:gravegilt_proofed": "alfheim:gravegilt_thread",
+    "alfheim:crowned_fibre": "alfheim:crown_filament",
+    "alfheim:yggdrasil_floss": "alfheim:crown_filament",
+    "alfheim:branch_cord": "alfheim:crown_filament",
+    "alfheim:living_crown": "alfheim:crown_filament",
+    "alfheim:woven_crown": "alfheim:crown_filament",
+    "alfheim:ninefold_thread": "alfheim:crown_filament",
+    "alfheim:crown_blank": "alfheim:crown_filament",
+    "alfheim:crown_drawn": "alfheim:crown_filament",
+    "alfheim:crown_folded": "alfheim:crown_filament",
+    "alfheim:crown_stilled": "alfheim:crown_filament",
+    "alfheim:crown_rebound": "alfheim:crown_filament",
+    "alfheim:crown_quenched": "alfheim:crown_filament",
+    "alfheim:crown_layered": "alfheim:crown_filament",
+    "alfheim:crown_proofed": "alfheim:crown_filament",
+    "alfheim:crown_settled": "alfheim:crown_filament"
+  },
+  "required_migration_checks": [
+    "Candidate plan only. No row is approved for live deletion by this classification.",
+    "Existing static recipe reconstruction is not a final runtime export; verify condition and serializer coverage before applying IDs.",
+    "Preserve startup item/block registrations and existing structures/saves. Retiring a crafting route is not deleting a registered block.",
+    "Palette/equipment consolidation retires craftable outputs. Generic workshop menus are not counted as implemented or assumed to exist.",
+    "MineColonies requests, schematics/blueprints, tags, loot, shops and Java-generated recipes are not exhaustively modeled. Their required palette can force recipe reinstatement or consume reserve slots.",
+    "Tag alternatives, catalysts, probabilities and NBT need semantic checks. Explicit endpoint closure does not prove material or station reachability.",
+    "Each retained progression capability must consume a Leaf/Song component or require an enforced spine unlock; retained support recipes are not automatically compliant.",
+    "World/loot-source assumptions require dimension and accessibility checks. Natural does not mean available at the start.",
+    "Shortened recipes are draft data. Resource quantities, mana/Source prices and serializers need balancing and runtime playthroughs.",
+    "The 200-slot reserve counts all genuinely new replacement routes; multiple output choices require actual output recipes unless a verified dynamic serializer supports them.",
+    "No saved quest IDs are deleted. Remap removed intermediate tasks/rewards and rewrite obsolete step descriptions before rollout.",
+    "Keep all nine realm-rune milestones. The five pyramid bands group material families, not campaign chapters or the full recipe count."
+  ],
+  "review_report": "build/recipe-pyramid/recipe-pyramid-proposal.html",
+  "full_classification": "build/recipe-pyramid/recipe_dispositions.csv",
+  "output_migration": "build/recipe-pyramid/output_migration.csv"
+}
