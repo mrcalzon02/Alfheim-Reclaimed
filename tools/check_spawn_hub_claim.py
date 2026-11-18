@@ -317,19 +317,26 @@ def self_test():
         write_manifest(newest, filename='console-other.log')
         verify_fixture('manifest/console mismatch', 'REJECT')
 
-    # Actual run_server.py must leave a fail-closed new-attempt marker when
-    # Forge prerequisites are absent. No world/Java process is needed here.
-    import run_server
+    # Execute the real harness run() function's AST, isolated from global
+    # Forge/structure imports that are absent from CI's intentional sparse checkout.
+    # This tests the actual failed-preflight path, not a mocked reimplementation.
+    import ast
+    import time
+    runner_path = os.path.join(os.path.dirname(__file__), 'run_server.py')
+    with open(runner_path, encoding='utf-8') as source:
+        runner_tree = ast.parse(source.read(), filename=runner_path)
+    runner_fn = next(node for node in runner_tree.body
+                     if isinstance(node, ast.FunctionDef) and node.name == 'run')
     with tempfile.TemporaryDirectory() as directory:
-        previous_server = run_server.SERVER
-        try:
-            run_server.SERVER = directory
-            code = run_server.run(1, 'test-world', 4, [], 1)
-        finally:
-            run_server.SERVER = previous_server
+        namespace = {'os': os, 'json': json, 'time': time, 'SERVER': directory}
+        exec(compile(ast.Module(body=[runner_fn], type_ignores=[]), runner_path, 'exec'),
+             namespace)
+        code = namespace['run'](1, 'test-world', 4, [], 1)
         markers = glob.glob(os.path.join(directory, 'manifest-*.json'))
-        with open(markers[0], encoding='utf-8') as source:
-            state = json.load(source) if len(markers) == 1 else {}
+        state = {}
+        if len(markers) == 1:
+            with open(markers[0], encoding='utf-8') as source:
+                state = json.load(source)
         if code == 2 and state.get('status') == 'started' and state.get('console'):
             print('  OK    harness failed-preflight marker stays incomplete')
         else:
