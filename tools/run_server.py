@@ -50,6 +50,12 @@ INSTALLER_URL = (f'https://maven.minecraftforge.net/net/minecraftforge/forge/'
 
 # Mirrored into the server runtime. Everything the pack's behaviour actually lives in.
 MIRROR = ['mods', 'config', 'defaultconfigs', 'kubejs', 'datapacks']
+MIRROR_MIN_MOD_JARS = 70
+MIRROR_REQUIRED_PREFIXES = (
+    'Botania-', 'MythicBotany-', 'ars_nouveau-', 'Mine_and_Slash-',
+    'kubejs-forge-', 'ftb-quests-forge-', 'minecolonies-',
+    'alfheim_companion-', 'alfheim_leyworks-', 'alfheim_golems-',
+)
 
 # Mods omitted from a dedicated server run.
 #
@@ -111,6 +117,8 @@ def check(verbose=True):
     line(os.path.exists(JAVA17), 'Java 17', JAVA17 if os.path.exists(JAVA17) else 'not found')
     line(os.path.isdir('mods'), 'instance mods/',
          f'{len(glob.glob(os.path.join("mods", "*.jar")))} jars')
+    inventory_ok, inventory_reason = mirror_source_check()
+    line(inventory_ok, 'safe complete mod mirror', inventory_reason)
     line(os.path.isdir('kubejs'), 'instance kubejs/')
 
     print('\nserver install')
@@ -183,6 +191,29 @@ def running_servers():
         return []
 
 
+def mirror_source_check(instance_root='.', server_root=SERVER):
+    """Reject incomplete source instances BEFORE deleting a populated server mirror."""
+    missing_dirs = [folder for folder in ('mods', 'config', 'defaultconfigs', 'kubejs')
+                    if not os.path.isdir(os.path.join(instance_root, folder))]
+    if missing_dirs:
+        return False, 'source instance is missing required folders: ' + ', '.join(missing_dirs)
+
+    src = sorted(os.path.basename(path) for path in glob.glob(
+        os.path.join(instance_root, 'mods', '*.jar')))
+    dst = sorted(os.path.basename(path) for path in glob.glob(
+        os.path.join(server_root, 'mods', '*.jar')))
+    if len(src) < MIRROR_MIN_MOD_JARS:
+        return False, (f'only {len(src)} source mod JARs; need at least '
+                       f'{MIRROR_MIN_MOD_JARS} for the complete Alfheim pack')
+    if dst and len(src) < len(dst):
+        return False, (f'{len(src)} source JARs would replace an existing '
+                       f'{len(dst)}-JAR server mirror')
+    for prefix in MIRROR_REQUIRED_PREFIXES:
+        if not any(name.startswith(prefix) for name in src):
+            return False, 'required source gameplay mod missing: ' + prefix
+    return True, f'{len(src)} complete source JARs; existing server mirror: {len(dst)}'
+
+
 def mirror_instance():
     """Copy the pack into the server runtime.
 
@@ -190,6 +221,9 @@ def mirror_instance():
     alphabetises its SNBT, mods normalise their TOML), and letting it write through to the
     instance would mean a validation run silently editing the thing being validated.
     """
+    accepted, reason = mirror_source_check()
+    if not accepted:
+        raise RuntimeError('refusing destructive mirror: ' + reason)
     total = 0
     for d in MIRROR:
         if not os.path.isdir(d):
@@ -233,6 +267,14 @@ def write_properties(seed, level_name):
 
 
 def run(seed, level_name, heap, commands, timeout):
+    # A failed preflight must not delete a complete existing server/mods folder:
+    # the tracked repository root can contain just two first-party JARs, while
+    # server/mods contains 84. Refuse BEFORE creating manifests or altering locks.
+    accepted, reason = mirror_source_check()
+    if not accepted:
+        print('!! server run blocked: incomplete mirror source: ' + reason)
+        print('   server/mods and existing worlds were not modified.')
+        return 2
     # A failed preflight must invalidate a successful previous server run.
     # --check is read-only and never calls this function.
     os.makedirs(SERVER, exist_ok=True)

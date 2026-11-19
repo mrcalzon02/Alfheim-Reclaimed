@@ -1,5 +1,38 @@
 # Execution State
 
+## Full-modpack world and Greatbole runtime proof — 2026-11-19
+
+The full 84-JAR Forge server smoke on GitHub Actions `44634440976` PASSED.
+At deterministic seed `alfheim` the origin height was Y159, all seven
+Greatbole/royal-court template placement stages returned 1, `#created=1`,
+`#final=1`, and the baked hub marker was found and anchored. Companion
+commands and the Alfheim dimension were verified, all 100/100 spawn
+chunks were claimed, all dimensions saved, and the JVM exited 0.
+
+Timing: Forge ready in 36.855 seconds, command response latency 43.3
+seconds, and shutdown after the stop command in 47.7 seconds. The
+runtime separately reported a 40.376-second, 807-tick startup lag,
+which needs performance profiling. KubeJS also logged a failed third-
+party MythicBotany/Feywild recipe using missing
+`feywild:lesser_fey_gem`. These diagnostics remain open.
+
+**No false attribution:** Y159 satisfies the old Y64 predicate. The
+new Y32 lower bound is source-validated and plausible for other
+coastal seeds, but was NOT independently proved by this run.
+The runtime result is seed-scoped. Full client gameplay, save/reload,
+multiplayer and inventory transfer remain unverified.
+Full report: `benchmarks/2026-11-19-fullpack-greatbole-seed-alfheim.md`.
+Evidence artifact `14581604446`, expiring 2026-11-26.
+
+Additional harness safety: the legacy Windows `run_server.py` previously
+blindly deleted `server/mods/` before mirroring root `mods/`.
+The repository root currently tracks only two first-party JARs
+versus 84 tracked dedicated-server JARs, so this would silently
+destroy the complete server mirror. A new fail-closed preflight
+rejects incomplete root sources before changing manifests,
+world locks, configs or mod directories; Python regression fixtures
+verify preservation and real source inventory requirements.
+
 ## Greatbole origin elevation gate widened and instrumented — 2026-11-19
 
 The first two complete 84-JAR runtime trials both loaded Forge, Alfheim,

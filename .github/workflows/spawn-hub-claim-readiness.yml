@@ -39,6 +39,7 @@ on:
       - 'kubejs/server_scripts/04_spawn_hub.js'
       - 'tools/check_spawn_hub_claim.py'
       - 'tools/run_server.py'
+      - 'tools/test_run_server_mirror_safety.py'
   workflow_dispatch:
     inputs:
       build_companion:
@@ -107,6 +108,7 @@ jobs:
             kubejs/server_scripts/04_spawn_hub.js
             tools/check_spawn_hub_claim.py
             tools/run_server.py
+            tools/test_run_server_mirror_safety.py
       - name: Node 22
         uses: actions/setup-node@v4
         with:
@@ -133,6 +135,7 @@ jobs:
           python3 tools/check_spawn_hub_claim.py --self-test
           python3 tools/smoke_companion_server.py --self-test
           python3 tools/test_world_hub_height_contract.py
+          python3 tools/test_run_server_mirror_safety.py
       - name: Java 17 for dependency-free wheel selection tests
         uses: actions/setup-java@v4
         with:

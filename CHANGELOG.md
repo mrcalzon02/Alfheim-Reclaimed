@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-11-19 — Verify Greatbole on live full pack and protect server mirror
+
+- Full Forge runtime on seed `alfheim`: all seven Greatbole and court
+  template stages passed, baked hub anchored, final scoreboard set, 100/100
+  claims ready, and JVM shutdown cleanly after saving all dimensions.
+- Recorded stage-by-stage evidence, response/shutdown timings, 40-second
+  first-world tick spike, unknown Feywild ingredient and remaining release
+  gates in `benchmarks/2026-11-19-fullpack-greatbole-seed-alfheim.md`.
+- Prevent the older Windows server test harness from deleting a complete
+  84-JAR `server/mods/` mirror when root `mods/` contains only two
+  first-party JARs; add a complete-inventory preflight and fixture tests.
+- Verified Greatbole construction is limited to seed `alfheim`. Its Y159
+  surface does NOT prove the earlier lower-height predicate was causal.
+- No binary deployment, world changes outside CI, or tag/release.
+
 ## 2026-11-19 — Relax Greatbole terrain-height gate after full-pack runtime audit
 
 - The real 84-mod Forge server booted and shut down successfully in CI,
