@@ -1,5 +1,25 @@
 # Execution State
 
+## First dedicated-server runtime evidence — 2026-11-19
+
+The exact `f1a43100` first-party companion candidate (SHA-256
+`f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246`)
+**booted on a minimal Forge 47.4.10 Java 17 dedicated server and exited cleanly**
+on GitHub Actions run 44628400029. A stricter second run, 44628910896,
+also proved live companion command registration: the dedicated server returned
+the actual `Companion profiles:` and `Companion outfits:` responses to
+`alfheimcompanion profile list` and `alfheimcompanion outfit list`.
+Both runs passed, including existing Node, Python and Java source regressions;
+their result artifacts are 14579768072 and 14580507607 respectively.
+
+Evidence, immutable source/binary identities, reproducible smoke profile,
+limitations and remaining runtime gates are recorded in
+`benchmarks/2026-11-19-companion-minimal-runtime-smoke.md`.
+
+**Minimal Forge startup/command runtime validated; full 85-jar modpack, client,
+save/reload and multiplayer unvalidated.** The tracked root/server JARs
+remain untouched and not verified equal.
+
 ## Minimal dedicated-server smoke passed; command-level validation staged — 2026-11-19
 
 The exact pinned source candidate `alfheim_companion-0.2.0.jar` (SHA-256

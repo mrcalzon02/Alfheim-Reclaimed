@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Minimal Forge companion startup and command registration verified
+
+- Exact Java 17 Forge candidate `f1a43100` passed minimal dedicated-server
+  startup and clean shutdown (GitHub Actions 44628400029).
+- A second isolated run passed actual companion profile/outfit server commands
+  in addition to Forge startup (GitHub Actions 44628910896).
+- Retained JSON/log evidence and documented source/JAR SHA-256 identities and
+  remaining full-pack, graphical-client and multiplayer release gates in
+  `benchmarks/2026-11-19-companion-minimal-runtime-smoke.md`.
+- No installed JARs, player worlds, third-party mods or releases changed.
+
 ## 2026-11-19 — Minimal Forge candidate boots; verify companion command registration
 
 - First isolated Forge dedicated-server run passed with the exact previously
