@@ -8,6 +8,11 @@ on:
       - 'tools/test_spawn_hub_claim_readiness.cjs'
       - 'tools/test_starting_kit_recovery.cjs'
       - 'tools/test_spawn_dimension_recovery.cjs'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionChunkTickets.java'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDelta.java'
+      - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDeltaSelfTest.java'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionSummonService.java'
+      - 'tools/test_companion_lifecycle_guards.cjs'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java'
       - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java'
@@ -18,6 +23,12 @@ on:
       - 'tools/check_spawn_hub_claim.py'
       - 'tools/run_server.py'
   workflow_dispatch:
+    inputs:
+      build_companion:
+        description: 'Also run full Java 17 ForgeGradle test/build (manual opt-in)'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -25,7 +36,7 @@ permissions:
 jobs:
   source-and-negative-controls:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 60
     steps:
       - name: Checkout first-party Greatbole claim sources only
         uses: actions/checkout@v4
@@ -37,6 +48,11 @@ jobs:
             tools/test_spawn_hub_claim_readiness.cjs
             tools/test_starting_kit_recovery.cjs
             tools/test_spawn_dimension_recovery.cjs
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionChunkTickets.java
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDelta.java
+            first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDeltaSelfTest.java
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionSummonService.java
+            tools/test_companion_lifecycle_guards.cjs
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java
             first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java
@@ -61,6 +77,8 @@ jobs:
           node tools/test_spawn_hub_claim_readiness.cjs
           node tools/test_starting_kit_recovery.cjs
           node tools/test_spawn_dimension_recovery.cjs
+          node --check tools/test_companion_lifecycle_guards.cjs
+          node tools/test_companion_lifecycle_guards.cjs
       - name: Python full-envelope command and read-back negative controls
         run: python3 tools/check_spawn_hub_claim.py --self-test
       - name: Java 17 for dependency-free wheel selection tests
@@ -68,11 +86,47 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - name: Compile and verify wheel geometry (not the Forge mod)
+      - name: Compile and verify dependency-free Java 17 geometry and tickets
         run: |
-          mkdir -p "$RUNNER_TEMP/wheel-selection"
-          javac --release 17 -d "$RUNNER_TEMP/wheel-selection" \
+          mkdir -p "$RUNNER_TEMP/alfheim-source-tests"
+          javac --release 17 -d "$RUNNER_TEMP/alfheim-source-tests" \
             'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java' \
-            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java'
-          java -cp "$RUNNER_TEMP/wheel-selection" \
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java' \
+            'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDelta.java' \
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDeltaSelfTest.java'
+          java -cp "$RUNNER_TEMP/alfheim-source-tests" \
             com.continuityworks.alfheimcompanion.client.WheelSelectionSelfTest
+          java -cp "$RUNNER_TEMP/alfheim-source-tests" \
+            com.continuityworks.alfheimcompanion.service.ChunkTicketDeltaSelfTest
+      - name: Checkout companion Gradle sources and compile-only integrations (manual opt-in)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_companion }}
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          path: forge-candidate
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            first_party_mods/alfheim_companion/
+            server/mods/ftb-chunks-forge-2001.3.8.jar
+            server/mods/ftb-quests-forge-2001.4.22.jar
+            server/mods/ftb-library-forge-2001.2.13.jar
+            server/mods/ftb-teams-forge-2001.3.2.jar
+            server/mods/architectury-9.2.14-forge.jar
+            server/mods/Mine_and_Slash-1.20.1-6.4.7.jar
+            server/mods/Library_of_Exile-1.20.1-2.1.11.jar
+      - name: Build and test first-party companion with ForgeGradle (manual opt-in)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_companion }}
+        working-directory: forge-candidate/first_party_mods/alfheim_companion
+        run: |
+          chmod +x ./gradlew
+          ./gradlew --no-daemon --stacktrace clean test build -Pinstance_mods_dir=../../server/mods
+          sha256sum build/libs/alfheim_companion-*.jar
+      - name: Retain only first-party candidate JAR (manual opt-in)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_companion && success() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: alfheim-companion-candidate-${{ github.sha }}
+          path: forge-candidate/first_party_mods/alfheim_companion/build/libs/alfheim_companion-*.jar
+          if-no-files-found: error
+          retention-days: 7

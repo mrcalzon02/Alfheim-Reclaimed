@@ -55,7 +55,7 @@ public final class CompanionSummonService {
                 return;
             }
             companion.bindOwner(owner.getUUID());
-            data.restoreFallenInventory(owner.getUUID(), companion);
+            // Persisted equipment must not be consumed until Forge accepts the entity.
             Vec3 destination = findSafeSummonPosition(owner, companion);
             companion.moveTo(destination.x, destination.y, destination.z, owner.getYRot(), 0.0F);
             data.bind(companion.getUUID(), owner.getUUID(),
@@ -68,6 +68,7 @@ public final class CompanionSummonService {
                 owner.sendSystemMessage(Component.translatable("message.alfheim_companion.summon_failed"));
                 return;
             }
+            data.restoreFallenInventory(owner.getUUID(), companion);
             TeleportEffects.play(companion);
             data.remember(new MemoryEntry(owner.level().getGameTime(), "summon", owner.getName().getString(),
                     "First summoned or restored to the world", 8));
@@ -76,7 +77,13 @@ public final class CompanionSummonService {
             TeleportEffects.play(companion);
             if (companion.level() != owner.level()) {
                 Entity moved = companion.changeDimension(owner.serverLevel());
-                if (moved instanceof ElvenCompanionEntity movedCompanion) companion = movedCompanion;
+                if (!(moved instanceof ElvenCompanionEntity movedCompanion)
+                        || !movedCompanion.isAlive() || movedCompanion.level() != owner.level()) {
+                    owner.sendSystemMessage(Component.literal(
+                            "Cross-dimensional companion recall failed; no new position was saved. Please retry."));
+                    return;
+                }
+                companion = movedCompanion;
             }
             Vec3 destination = findSafeSummonPosition(owner, companion);
             companion.teleportTo(destination.x, destination.y, destination.z);

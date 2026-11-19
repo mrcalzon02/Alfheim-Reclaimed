@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Companion ticking continuity and safe summon recovery
+
+- Preserve overlapping 3x3 ticking chunk tickets during companion movement.
+  Add the incoming edge before removing the outgoing edge instead of touching
+  all nine chunks on each boundary crossing.
+- Do not consume stored equipment until Forge accepts a newly summoned companion;
+  do not report a successful cross-dimensional recall after a failed transfer.
+- Add executable Java 17 ticket-delta regression and source-order controls to
+  the existing single CI job, with a manual-only ForgeGradle build option.
+- No deployed/client/server JARs replaced; Forge runtime admission still pending.
+
 ## 2026-11-19 — Companion command-wheel accidental-order prevention
 
 - Recompute the selected companion order from the exact mouse-release position,

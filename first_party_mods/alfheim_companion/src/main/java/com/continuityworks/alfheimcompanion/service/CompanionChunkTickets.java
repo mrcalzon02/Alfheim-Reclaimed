@@ -37,9 +37,22 @@ public final class CompanionChunkTickets {
         TicketState existing = ACTIVE.get(companion.getUUID());
         if (existing != null && existing.level() == level && existing.center().equals(center)) return;
 
-        force(level, companion.getUUID(), center, true);
-        if (existing != null) force(existing.level(), companion.getUUID(), existing.center(), false);
-        ACTIVE.put(companion.getUUID(), new TicketState(level, center));
+        UUID owner = companion.getUUID();
+        if (existing == null) {
+            force(level, owner, center, true);
+        } else if (existing.level() != level) {
+            // Different worlds have independent ticket maps; establish destination first.
+            force(level, owner, center, true);
+            force(existing.level(), owner, existing.center(), false);
+        } else {
+            // Keep overlap untouched; only acquire entering edges and release outgoing ones.
+            for (ChunkTicketDelta.Change change : ChunkTicketDelta.moving(
+                    existing.center().x, existing.center().z, center.x, center.z, RADIUS)) {
+                ForgeChunkManager.forceChunk(level, AlfheimCompanion.MOD_ID, owner,
+                        change.x(), change.z(), change.add(), true);
+            }
+        }
+        ACTIVE.put(owner, new TicketState(level, center));
     }
 
     public static void release(UUID companionUuid) {

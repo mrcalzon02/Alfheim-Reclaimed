@@ -1,5 +1,23 @@
 # Execution State
 
+## Companion chunk-ticket and summon inventory safety — 2026-11-19
+
+Source candidate: same-dimension 3x3 ticking windows now keep shared Forge tickets,
+adding only new edges and removing only old edges. Separate dimensions retain their
+independent ticket handling. Java 17 ChunkTicketDeltaSelfTest verifies exact nine-chunk
+sets for stationary, adjacent, diagonal, distant, negative and overflow cases.
+
+Saved death-recovery inventory is now applied only after addFreshEntity accepts the
+new companion. Failed cross-dimensional changeDimension operations abort without
+recording an invalid success. Source-order negative controls enforce both invariants.
+
+The existing single-job GitHub Actions source CI includes both checks. A manually
+opted-in Java 17 ForgeGradle test/build path now exists in that same job, with only
+first-party JAR output eligible for a temporary candidate artifact. It has not
+been dispatched or used to replace either tracked 0.2.0 JAR. The root/server JAR
+size mismatch remains a release blocker until current binaries are rebuilt and
+both sides pass client/server and multiplayer checks.
+
 ## Companion command-wheel input safety — 2026-11-19
 
 Source candidate: command selection is now determined from the mouse RELEASE position,
