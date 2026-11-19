@@ -118,6 +118,13 @@ public final class CompanionSummonService {
         }
         ElvenCompanionEntity companion = findLoaded(owner.server, data.companionUuid().orElse(null));
         if (companion != null) {
+            // Discard does not fire LivingDeathEvent. Preserve cargo and equipped items
+            // first, otherwise every ordinary dismissal silently destroys player gear.
+            if (!CompanionDeathInventoryService.retainForDismiss(companion, data, owner.getUUID())) {
+                owner.sendSystemMessage(Component.literal(
+                        "Companion ownership mismatch; dismissal cancelled to protect carried items."));
+                return;
+            }
             owner.sendSystemMessage(Component.literal("§d[" + data.companionName() + "] §f"
                     + DialogueBank.line(DialogueBank.Moment.DISMISS, owner.level().getGameTime(), data.companionName())));
             TeleportEffects.play(companion);

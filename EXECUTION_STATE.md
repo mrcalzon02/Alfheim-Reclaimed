@@ -1,5 +1,23 @@
 # Execution State
 
+## Companion dismiss inventory loss prevention — 2026-11-19
+
+Source candidate: ordinary dismissal now captures copies of all companion cargo (up to
+36 inventory stacks) and six equipment slots under the verified owner's UUID BEFORE
+discarding the entity. Retained inventory enters the existing per-player saved
+inventory path and is restored only after a subsequent companion entity is accepted.
+A failed owner check or failed persistence leaves the live companion's items
+untouched and aborts the discard. The existing keepInventory/grave handling for
+actual deaths is unchanged.
+
+The CI harness compiles the exact production `CompanionDeathInventoryService`
+under `javac --release 17` against deliberately minimal Forge/Minecraft test
+doubles. It exercises owner mismatch, cargo and equipment copy semantics,
+failed persistence, keepInventory death and ordinary death. Source guards also
+assert retention precedes discard. This proves method behavior in a JVM mock
+environment, not a full Forge build, world save/reload, multiplayer acceptance
+or client/server artifact. Installed JARs are unchanged.
+
 ## Companion chunk-ticket and summon inventory safety — 2026-11-19
 
 Source candidate: same-dimension 3x3 ticking windows now keep shared Forge tickets,

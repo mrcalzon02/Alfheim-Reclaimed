@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Preserve companion inventory on ordinary dismissal
+
+- Stash all carried and equipped items for the verified owner before discarding
+  a dismissed companion; next successful summon restores the retained inventory.
+- Reject mismatched owner dismissals without clearing items or releasing the
+  companion's lease. Persistence exceptions retain the live inventory.
+- Add a production-method Java 17 regression using minimal test doubles and
+  source-order checks; preserve existing death, keepInventory, and grave paths.
+- No Forge binary build or deployment performed; client/server and multiplayer
+  validation remain required before release.
+
 ## 2026-11-19 — Companion ticking continuity and safe summon recovery
 
 - Preserve overlapping 3x3 ticking chunk tickets during companion movement.
