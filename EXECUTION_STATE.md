@@ -1,5 +1,22 @@
 # Execution State
 
+## Multiplayer companion lease handoff inventory isolation — 2026-11-19
+
+Source candidate: leasing the singleton companion to another player now preserves
+the previous owner's carried inventory and gear BEFORE changing ownership or
+clearing the previous owner's task context. The active companion must be loaded
+and have an owner UUID matching the saved lease; otherwise the handoff is blocked
+with an actionable message. A dismissed companion may transfer without a loaded
+entity. The new lessee receives only inventory previously stored under their own
+UUID after a successful loaded-entity transfer. Dead requester bindings are
+rejected before modifying another player's live companion.
+
+A dependency-free Java 17 `CompanionHandoffRulesSelfTest` checks all five decisions,
+and the source-level regression enforces live service ordering, including inventory
+saving and restoration. The previous Java 17 inventory method test and all prior
+source tests remain in the same CI job. This is NOT full Forge/multiplayer acceptance;
+no installed JARs were changed.
+
 ## Companion dismiss inventory loss prevention — 2026-11-19
 
 Source candidate: ordinary dismissal now captures copies of all companion cargo (up to

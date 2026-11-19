@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-19 — Prevent companion lease handoffs from exposing another player's gear
+
+- Preserve the outgoing player's companion cargo and equipment before transferring
+  a loaded companion to a new lessee; restore only the incoming player's saved items.
+- Block transfers involving unloaded active entities or inconsistent owner identity,
+  avoiding accidental item loss or appropriation.
+- Reject dead bindings before altering the previous player's companion context.
+- Add Java 17 handoff policy regression and source-order checks; Forge runtime and
+  multiplayer tests remain required before admitting this source change.
+
 ## 2026-11-19 — Preserve companion inventory on ordinary dismissal
 
 - Stash all carried and equipped items for the verified owner before discarding

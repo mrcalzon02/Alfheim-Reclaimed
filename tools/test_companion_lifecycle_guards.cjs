@@ -43,4 +43,20 @@ assert.ok(saved >= 0 && cleared > saved,
     'all carried items must be persisted before clearing live inventory')
 assert.match(retain.slice(saved), /companion\.setItemSlot\(slot, ItemStack\.EMPTY\)/,
     'equipped items must be cleared only after saving')
-console.log('COMPANION_LIFECYCLE_GUARDS_PASS: chunk delta wired, summon admission protected, cross-world transfer guarded, dismiss inventory persisted before discard')
+const aliveCheck = summon.indexOf('if (!data.getOrCreatePlayerBinding(owner.getUUID(), now).alive())')
+const handoff = summon.indexOf('boolean changingLessee =')
+const previousStash = summon.indexOf('CompanionDeathInventoryService.retainForDismiss(previous, data, previousOwner)')
+const activeName = summon.indexOf('data.activatePlayerBinding(owner.getUUID(), now)')
+assert.ok(aliveCheck >= 0 && handoff > aliveCheck && previousStash > handoff && activeName > previousStash,
+    'dead players must be rejected and previous cargo retained before switching owner context')
+const handoffBranch = summon.slice(handoff, activeName)
+assert.match(handoffBranch, /Decision\.BLOCK_UNLOADED_ACTIVE/,
+    'unloaded active companions must be protected from unverified transfer')
+assert.match(handoffBranch, /Decision\.BLOCK_OWNER_MISMATCH/,
+    'cross-owner cargo must not leak on an identity mismatch')
+assert.match(handoffBranch, /Decision\.SAVE_LOADED_COMPANION[\s\S]*?retainForDismiss\(/,
+    'verified old cargo must be saved under its original owner')
+const elseBranch = summon.slice(summon.indexOf('        } else {', first), summon.indexOf('\n        try {\n            CombatProfileBridge.synchronize', first))
+assert.match(elseBranch, /if \(changingLessee\) data\.restoreFallenInventory\(owner\.getUUID\(\), companion\)/,
+    'new lessee must receive only their own stored cargo after the transfer')
+console.log('COMPANION_LIFECYCLE_GUARDS_PASS: inventory retention, owner-isolated handoff, summon admission and chunk safety')

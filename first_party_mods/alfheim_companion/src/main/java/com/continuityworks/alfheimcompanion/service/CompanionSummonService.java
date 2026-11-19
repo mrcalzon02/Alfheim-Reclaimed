@@ -30,20 +30,47 @@ public final class CompanionSummonService {
                     + "] §fSorry, I’m currently busy!"));
             return;
         }
+        // A dead requester may not clear another player's task, name, or carried inventory.
+        if (!data.getOrCreatePlayerBinding(owner.getUUID(), now).alive()) {
+            owner.sendSystemMessage(Component.literal("§d[Hollow Court] §fYour companion has fallen. "
+                    + "Use /alfheimcompanion reset to create a new binding."));
+            return;
+        }
         boolean changingLessee = data.ownerUuid().isPresent()
                 && !data.ownerUuid().get().equals(owner.getUUID());
         if (changingLessee) {
+            ElvenCompanionEntity previous = findLoaded(server, data.companionUuid().orElse(null));
+            UUID previousOwner = data.ownerUuid().orElse(null);
+            boolean ownerMatches = previous != null && previousOwner != null
+                    && previousOwner.equals(previous.ownerUuid());
+            CompanionHandoffRules.Decision decision = CompanionHandoffRules.evaluate(
+                    true, previous != null,
+                    data.mode() == com.continuityworks.alfheimcompanion.memory.CompanionMode.DISMISSED,
+                    ownerMatches);
+            if (decision == CompanionHandoffRules.Decision.BLOCK_UNLOADED_ACTIVE) {
+                owner.sendSystemMessage(Component.literal(
+                        "Companion handoff blocked: the active companion is in unloaded chunks. "
+                        + "Load its last location or have the previous player dismiss it first."));
+                return;
+            }
+            if (decision == CompanionHandoffRules.Decision.BLOCK_OWNER_MISMATCH) {
+                owner.sendSystemMessage(Component.literal(
+                        "Companion handoff blocked: the entity's owner does not match its saved lease."));
+                return;
+            }
+            if (decision == CompanionHandoffRules.Decision.SAVE_LOADED_COMPANION
+                    && !CompanionDeathInventoryService.retainForDismiss(previous, data, previousOwner)) {
+                owner.sendSystemMessage(Component.literal(
+                        "Companion handoff blocked: unable to preserve previous owner's inventory."));
+                return;
+            }
+            // Previous owner's equipment is safely persisted before the new lease is granted.
             BlueprintLifecycleService.cancel(server);
             CompanionBrainCoordinator.deactivate();
             data.setTask(com.continuityworks.alfheimcompanion.memory.ActiveTask.NONE, null);
             data.clearOwnerContext();
         }
         data.activatePlayerBinding(owner.getUUID(), now);
-        if (!data.playerBinding(owner.getUUID()).orElseThrow().alive()) {
-            owner.sendSystemMessage(Component.literal("§d[Hollow Court] §fYour companion has fallen. "
-                    + "Use /alfheimcompanion reset to create a new binding."));
-            return;
-        }
         data.claimOrRefreshLease(owner.getUUID(), now);
         int agitation = data.recordSummon(owner.level().getGameTime());
         ElvenCompanionEntity companion = findLoaded(server, data.companionUuid().orElse(null));
@@ -87,6 +114,9 @@ public final class CompanionSummonService {
             }
             Vec3 destination = findSafeSummonPosition(owner, companion);
             companion.teleportTo(destination.x, destination.y, destination.z);
+            // On lease transfer the old equipment was saved under the previous player;
+            // restore only this player's own cached equipment to the now-accepted entity.
+            if (changingLessee) data.restoreFallenInventory(owner.getUUID(), companion);
             TeleportEffects.play(companion);
             data.bind(companion.getUUID(), owner.getUUID(),
                     owner.level().dimension().location().toString(), companion.blockPosition());
