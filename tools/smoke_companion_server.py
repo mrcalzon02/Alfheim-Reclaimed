@@ -54,6 +54,8 @@ def self_test():
     assert not eula_accepted("eula=FALSE\n")
     assert READY.search('[Server thread/INFO]: Done (31.48s)! For help, type "help"')
     assert not READY.search('Server is still loading; no Done message')
+    assert command_outputs_seen("Companion profiles: Liria\nCompanion outfits: wayfinder")
+    assert not command_outputs_seen("Done (31.48s)! For help, type \"help\"")
     with tempfile.TemporaryDirectory(prefix="alfheim-smoke-selftest-") as temp:
         jar = Path(temp) / JAR_NAME
         jar.write_bytes(b"first-party-candidate-fixture")
@@ -62,6 +64,11 @@ def self_test():
         assert observed == hashlib.sha256(jar.read_bytes()).hexdigest()
         assert observed != sha256(Path(__file__))
     print("COMPANION_SERVER_SMOKE_PREFLIGHT_PASS: EULA, readiness, hash and bounded-stage checks")
+
+
+def command_outputs_seen(messages):
+    # Actual server command responses, not the command text itself.
+    return "Companion profiles:" in messages and "Companion outfits:" in messages
 
 
 def stop_process(process):
@@ -97,10 +104,13 @@ def boot(stage, output, heap_gib, timeout):
                     report["ready"] = True
                     if process.poll() is not None:
                         break
-                    # Exercise the dedicated server's console command loop.
-                    process.stdin.write("list\n")
-                    process.stdin.flush()
-                    time.sleep(2)
+                    # Prove that the companion mod registered its real player-facing
+                    # commands. Mere Forge readiness would not establish mod loading.
+                    for command_line in ("alfheimcompanion profile list",
+                                         "alfheimcompanion outfit list", "list"):
+                        process.stdin.write(command_line + "\n")
+                        process.stdin.flush()
+                        time.sleep(1)
                     process.stdin.write("stop\n")
                     process.stdin.flush()
                     try:
@@ -122,6 +132,11 @@ def boot(stage, output, heap_gib, timeout):
         report["clean_exit"] = report["ready"] and report["exit_code"] == 0
         final = read_log(log)
         report["companion_id_in_log"] = "alfheim_companion" in final.lower()
+        report["companion_profile_command_ok"] = "Companion profiles:" in final
+        report["companion_outfit_command_ok"] = "Companion outfits:" in final
+        if report["ready"] and report["exit_code"] == 0 and not command_outputs_seen(final):
+            report["error"] = "Forge booted, but companion profile/outfit command replies were missing"
+        report["clean_exit"] = report["clean_exit"] and command_outputs_seen(final)
         report["last_log_lines"] = final.splitlines()[-35:]
         # Keep useful evidence bounded; upload no source jars or player/world files.
         if len(final.encode("utf-8")) > MAX_LOG_BYTES:
@@ -199,7 +214,7 @@ def smoke_test(args):
         (output / "smoke-report.json").write_text(
             json.dumps(report, indent=2) + "\n", encoding="utf-8")
     if report["success"]:
-        print("COMPANION_SERVER_SMOKE_PASS: exact first-party SHA-256, minimal Forge ready and clean stop")
+        print("COMPANION_SERVER_SMOKE_PASS: exact SHA-256, minimal Forge ready, companion profile/outfit commands and clean stop")
         return 0
     print("COMPANION_SERVER_SMOKE_FAIL: " + str(report.get("error", report.get("last_log_lines", [])[-5:])))
     return 1

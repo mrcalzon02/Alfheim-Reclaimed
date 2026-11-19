@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-19 — Minimal Forge candidate boots; verify companion command registration
+
+- First isolated Forge dedicated-server run passed with the exact previously
+  built companion candidate: readiness, matching staged JAR hashes and clean stop.
+- Added a stricter validation step requiring the real companion profile and outfit
+  console commands to execute successfully, not just vanilla server readiness.
+- Retained startup evidence under GitHub Actions run `44628400029`; a new
+  one-time smoke run is requested for the command-level check.
+- No shipped modpack, saves, third-party JARs, releases or tags changed.
+
 ## 2026-11-19 — First-party Forge runtime smoke harness
 
 - Added a bounded Python smoke runner for the exact previously built companion JAR,

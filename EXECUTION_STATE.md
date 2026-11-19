@@ -1,5 +1,26 @@
 # Execution State
 
+## Minimal dedicated-server smoke passed; command-level validation staged — 2026-11-19
+
+The exact pinned source candidate `alfheim_companion-0.2.0.jar` (SHA-256
+`f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246`)
+successfully booted and shut down on a localhost-only minimal Forge 1.20.1
+server. GitHub Actions run `44628400029` passed; its diagnostics artifact
+`14579768072` contains the JSON report and bounded server log. The staging
+directory was temporary, and both server/client staging copies were hash-
+verified. No installed JAR or world was modified.
+
+The next one-time smoke revision now also issues the real registered commands
+`alfheimcompanion profile list` and `alfheimcompanion outfit list`; it
+requires their console replies in addition to Java 17 Forge readiness and
+normal shutdown. This distinguishes a recognized, functional mod command
+registration from a server that merely started with a JAR present. The new
+result is pending until GitHub finishes the marked push.
+
+A minimal Forge boot (even with these commands) cannot establish the full
+85-jar modpack, graphical client, save/reload, or two-player gameplay. Those
+functional admission gates remain pending.
+
 ## Minimal first-party Forge dedicated-server smoke staging — 2026-11-19
 
 A bounded candidate smoke runner is now in `tools/smoke_companion_server.py`. It
