@@ -1,5 +1,32 @@
 # Execution State
 
+## Full-modpack first boot: readiness confirmed, shutdown gate incomplete — 2026-11-19
+
+One-time full-pack GitHub run `44631357459` staged **84 server JARs** and
+current configs/KubeJS with the exact pinned candidate SHA-256.
+It reached Forge `Done (48.267s)`, executed the real companion profile/outfit
+commands, responded from `mythicbotany:alfheim`, and loaded FTB's
+508 quests in 19 chapters. KubeJS reported FTB spawn claim ownership
+100/100 chunks. The run was **NOT a full pass**: its shutdown wait expired,
+the harness then terminated Java (exit 143). The retained log shows the stop
+was processed, Minecraft saved all dimensions, and it then began JourneyMap
+shutdown-related config handling. The old harness waited 60 seconds from
+queuing the stop command, while it took nearly 60 seconds for an overloaded
+tick thread to process the queued commands. This is not proof of a permanent
+shutdown deadlock; a longer, independently measured shutdown window is needed.
+
+The same log reported an initial deterministic Greatbole template assembly
+failure at origin, with one retry remaining. Do NOT mark the royal spawn
+construction as accepted. The following test revision records stage-by-stage
+scoreboard readbacks and hub status as diagnostics (without forcing success).
+
+Original run and diagnostic archive:
+https://github.com/mrcalzon02/Alfheim-Reclaimed/actions/runs/44631357459
+Artifact `14580918589` (expires November 26, 2026).
+The source harness now measures command latency and shutdown separately;
+the bounded recheck is pending GitHub execution. No installed JARs, player
+worlds or third-party libraries were modified.
+
 ## Complete modpack candidate startup staging — 2026-11-19
 
 The passing minimal Java 17 Forge companion smoke harness now has a separately

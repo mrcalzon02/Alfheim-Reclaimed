@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Full-pack startup observed; separate command and shutdown timing
+
+- The real 84-JAR Forge runtime reached readiness and loaded Alfheim, 508 FTB
+  quests, and 100/100 FTB spawn claims with the pinned companion candidate.
+- The first full-pack CI run failed its strict shutdown gate and returned
+  exit 143 after the harness terminated Java; do not report it as accepted.
+- Fixed the harness to wait for actual companion/dimension responses before
+  starting the separate shutdown timeout, with bounded diagnostic timings.
+- Added read-only hub status and per-stage Greatbole scoreboard probes to
+  identify the initial royal hub assembly failure reported in runtime logs.
+- No binary deployments or world mutations outside disposable CI staging.
+
 ## 2026-11-19 — Full modpack dedicated-server candidate smoke
 
 - Stage every tracked server mod, the latest root KubeJS scripts and relevant

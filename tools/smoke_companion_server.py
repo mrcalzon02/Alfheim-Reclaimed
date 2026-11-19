@@ -66,6 +66,10 @@ def self_test():
     assert not command_outputs_seen("Done (31.48s)! For help, type \"help\"")
     assert alfheim_dimension_seen("ALFHEIM_DIMENSION_OK")
     assert not alfheim_dimension_seen("Unknown dimension mythicbotany:alfheim")
+    assert requested_replies_seen("Companion profiles: X\nCompanion outfits: Y", False)
+    assert not requested_replies_seen("Companion profiles: X\nCompanion outfits: Y", True)
+    assert requested_replies_seen(
+        "Companion profiles: X\nCompanion outfits: Y\nALFHEIM_DIMENSION_OK", True)
     with tempfile.TemporaryDirectory(prefix="alfheim-fullpack-preflight-") as missing:
         try:
             validate_full_pack(Path(missing))
@@ -110,6 +114,10 @@ def validate_full_pack(pack):
     return jars
 
 
+def requested_replies_seen(messages, require_alfheim):
+    return command_outputs_seen(messages) and (not require_alfheim or alfheim_dimension_seen(messages))
+
+
 def stop_process(process):
     if process is None or process.poll() is not None:
         return
@@ -148,19 +156,43 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False):
                     checks = ["alfheimcompanion profile list",
                               "alfheimcompanion outfit list"]
                     if require_alfheim:
-                        # Require the actual registered MythicBotany Alfheim dimension.
                         checks.append("execute in mythicbotany:alfheim run say ALFHEIM_DIMENSION_OK")
+                        # These are READ-ONLY diagnostics, not a synthetic force-success.
+                        checks.append("function alfheim:hub/status")
+                        for stage_name in ("place_result", "base_result", "trunk_result",
+                                           "crown_result", "court_result", "west_result",
+                                           "east_result", "north_result", "attempts",
+                                           "created", "final"):
+                            checks.append(f"scoreboard players get #{stage_name} alfheim.hub")
                     checks.append("list")
+                    command_started = time.monotonic()
                     for command_line in checks:
                         process.stdin.write(command_line + "\n")
                         process.stdin.flush()
-                        time.sleep(1)
-                    process.stdin.write("stop\n")
-                    process.stdin.flush()
-                    try:
-                        process.wait(timeout=60)
-                    except subprocess.TimeoutExpired:
-                        report["error"] = "Server did not stop after console command"
+                        time.sleep(0.25)
+                    # Worldgen can stall the main tick thread even AFTER Forge logs Done.
+                    # Don't start the shutdown timer before the queued commands run.
+                    response_deadline = time.monotonic() + (210 if require_alfheim else 60)
+                    while time.monotonic() < response_deadline and process.poll() is None:
+                        if requested_replies_seen(read_log(log), require_alfheim):
+                            break
+                        time.sleep(2)
+                    responses = requested_replies_seen(read_log(log), require_alfheim)
+                    report["command_reply_latency_seconds"] = round(time.monotonic() - command_started, 1)
+                    if not responses:
+                        report["error"] = "Console commands were not answered within the bounded response window"
+                    if process.poll() is None:
+                        process.stdin.write("stop\n")
+                        process.stdin.flush()
+                        report["stop_command_sent"] = True
+                        shutdown_started = time.monotonic()
+                        try:
+                            # The old timeout started 60s before the saturated server
+                            # actually consumed the queued stop. Count from HERE instead.
+                            process.wait(timeout=180 if require_alfheim else 75)
+                        except subprocess.TimeoutExpired:
+                            report["error"] = "Server did not finish shutdown after the bounded stop grace period"
+                        report["shutdown_wait_seconds"] = round(time.monotonic() - shutdown_started, 1)
                     break
                 if process.poll() is not None:
                     report["error"] = "JVM terminated before server readiness"
@@ -179,7 +211,12 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False):
         report["companion_profile_command_ok"] = "Companion profiles:" in final
         report["companion_outfit_command_ok"] = "Companion outfits:" in final
         report["alfheim_dimension_command_ok"] = alfheim_dimension_seen(final)
-        replies_ok = command_outputs_seen(final) and (not require_alfheim or alfheim_dimension_seen(final))
+        report["hub_status_probed"] = "[Alfheim] --- world hub status ---" in final
+        report["hub_created_diagnostic"] = "[Alfheim] hub: created" in final
+        report["hub_initial_assembly_failed"] = "deterministic Greatbole template assembly failed" in final
+        report["stop_acknowledged"] = ("Stopping the server" in final or "Stopping server" in final)
+        report["all_dimensions_saved"] = "All dimensions are saved" in final
+        replies_ok = requested_replies_seen(final, require_alfheim)
         if report["ready"] and report["exit_code"] == 0 and not replies_ok:
             report["error"] = ("Forge booted, but companion commands or Alfheim "
                                "dimension probe did not return their required replies")
