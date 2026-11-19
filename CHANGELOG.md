@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — First full Forge candidate build succeeds
+
+- At source SHA `f1a43100`, a one-time GitHub Actions build compiled the current
+  Java 17 companion sources, reobfuscated the JAR, ran tests and completed
+  `clean test build` successfully.
+- Candidate `alfheim_companion-0.2.0.jar` SHA-256:
+  `f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246`.
+- Recorded the run, artifact identity, evidence and remaining client/server
+  runtime gates in `benchmarks/2026-11-19-companion-forge-candidate.md`.
+- No binary deployment, release/tag creation, save modification or modification
+  of third-party jars. Source build acceptance is not gameplay acceptance.
+
 ## 2026-11-19 — Commit companion identities only after successful Forge entity insertion
 
 - Added a transient UUID/owner reservation for first-party companion admission,

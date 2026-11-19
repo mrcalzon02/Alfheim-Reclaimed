@@ -1,5 +1,22 @@
 # Execution State
 
+## Clean Java 17 companion candidate built — 2026-11-19
+
+The one-time marked push at source commit `f1a43100c45ba1efb52db673f624362774fa6f4f`
+ran the complete first-party ForgeGradle `clean test build` on GitHub Actions:
+compile, reobfuscation, Java tests and packaging all passed. The candidate
+`alfheim_companion-0.2.0.jar` has SHA-256
+`f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246`.
+Workflow: https://github.com/mrcalzon02/Alfheim-Reclaimed/actions/runs/44626195977
+Artifact ID: `14580075904`, expiring November 26, 2026.
+The exact build commands, manifest evidence and outstanding runtime gates are in
+`benchmarks/2026-11-19-companion-forge-candidate.md`.
+
+**Build validated, not runtime admitted.** Neither tracked client nor server JAR
+was overwritten. Full Minecraft startup, old-save persistence, and two-player
+inventory/lease testing remain pending. The source commit, not this documentation
+commit, is the reproducible build target.
+
 ## Transactional first-party companion spawn admission — 2026-11-19
 
 A new companion UUID/owner is no longer written before Forge's addFreshEntity reports
