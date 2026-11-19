@@ -1,5 +1,32 @@
 # Execution State
 
+## Greatbole origin elevation gate widened and instrumented — 2026-11-19
+
+The first two complete 84-JAR runtime trials both loaded Forge, Alfheim,
+the companion commands and 100/100 FTB hub claims. The corrected run
+`44632836885` **passed full-pack startup/shutdown** in 140.6 seconds,
+with 42.0 seconds of post-ready command latency and 10.6 seconds of
+shutdown time. Yet its hub status reported NOT CREATED, #place_result=0,
+#attempts=1, and none of the seven assembly-stage scores was set.
+This proves assembly did not begin; it does not prove template corruption.
+
+The world-hub generator's Y64 lower gate may reject normal coastal
+heightmap surfaces, including vanilla sea-level Y63. The generated
+`alfheim:hub/ground_height` predicate is widened to Y32..200 while
+keeping the deepest authored foundation 40 blocks beneath the surface
+comfortably above the Alfheim -64 world floor. Both generator and shipped
+JSON were updated together. A Python test enforces source-to-predicate
+equality, sea-level acceptance, and safe vertical bounds.
+
+The full-pack staging smoke now records the deterministic world seed
+`alfheim`, probes origin height, explicitly checks the predicate in
+the live dimension, and gives the bounded hub retry loop up to 120
+additional seconds before its second read-only hub status. This commit
+requests a one-time `[full-pack-smoke]` validation of those changes;
+the Greatbole is **not yet runtime-accepted**. The pinned compiled
+companion JAR is unchanged. No installed world, client/server binary,
+third-party jar, release or tag is modified.
+
 ## Full-modpack first boot: readiness confirmed, shutdown gate incomplete — 2026-11-19
 
 One-time full-pack GitHub run `44631357459` staged **84 server JARs** and

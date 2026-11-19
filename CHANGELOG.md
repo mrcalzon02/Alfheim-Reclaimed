@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Relax Greatbole terrain-height gate after full-pack runtime audit
+
+- The real 84-mod Forge server booted and shut down successfully in CI,
+  but Greatbole did not enter any of its seven template assembly stages.
+- Widened the generated world-hub surface-height predicate from Y64..200
+  to Y32..200, retaining safe clearance above the -64 world floor.
+  Updated the authoritative generator and emitted JSON together.
+- Added a source-to-predicate regression, explicit in-world origin
+  height/predicate probes, deterministic seed and up to 120 seconds of
+  bounded hub-retry observation in the full-pack smoke profile.
+- New full-pack result pending; no installed binaries/worlds changed.
+
 ## 2026-11-19 — Full-pack startup observed; separate command and shutdown timing
 
 - The real 84-JAR Forge runtime reached readiness and loaded Alfheim, 508 FTB

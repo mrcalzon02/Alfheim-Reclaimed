@@ -66,6 +66,12 @@ REPLACE_AT = 6               # retry only if the explicit template assembly retu
 PROVISIONAL = 24             # ~2 min: give the world SOME spawn rather than none
 RETRIES = 60                 # ~5 min hard stop; deterministic placement should resolve at once
 COURT_ANNEX_EMBED = 5        # matches gen_spawn_hub.COURT_FLOOR_Y; deeper authored beard
+# Runtime 2026-11-19: the original Y>=64 gate rejected ordinary coastal/ocean
+# terrain before even entering hub/assemble (all seven per-piece scores were unset).
+# The deepest foundation extends 40 below the datum; Y32 keeps it above -64.
+# This includes sea-level Y63 without allowing deep-void bottom placement.
+GROUND_MIN_Y = 32
+GROUND_MAX_Y = 200
 
 AWAIT = 'alfheim_awaiting_hub'  # a player placed provisionally, owed a move to the hub
 BAKED = 'alfheim_hub_baked'  # carried inside greatbole/base.nbt by gen_spawn_hub.hub_anchor
@@ -458,7 +464,7 @@ def main():
         os.makedirs(os.path.dirname(predicate),exist_ok=True)
         with open(predicate,'w',encoding='utf-8') as f:
             json.dump({'condition':'minecraft:location_check',
-                       'predicate':{'position':{'y':{'min':64,'max':200}}}},f,indent=2)
+                       'predicate':{'position':{'y':{'min':GROUND_MIN_Y,'max':GROUND_MAX_Y}}}},f,indent=2)
         with open(os.path.join(os.path.dirname(predicate),'emergency_height.json'),'w',encoding='utf-8') as f:
             json.dump({'condition':'minecraft:location_check',
                        'predicate':{'position':{'y':{'min':64,'max':315}}}},f,indent=2)

@@ -66,6 +66,7 @@ def self_test():
     assert not command_outputs_seen("Done (31.48s)! For help, type \"help\"")
     assert alfheim_dimension_seen("ALFHEIM_DIMENSION_OK")
     assert not alfheim_dimension_seen("Unknown dimension mythicbotany:alfheim")
+    assert 0 <= 120 <= 240
     assert requested_replies_seen("Companion profiles: X\nCompanion outfits: Y", False)
     assert not requested_replies_seen("Companion profiles: X\nCompanion outfits: Y", True)
     assert requested_replies_seen(
@@ -129,7 +130,8 @@ def stop_process(process):
         process.wait(timeout=15)
 
 
-def boot(stage, output, heap_gib, timeout, require_alfheim=False):
+def boot(stage, output, heap_gib, timeout, require_alfheim=False,
+         hub_observe_seconds=0):
     log = output / "server-console.log"
     command = ["java", "-Xms512M", f"-Xmx{heap_gib}G", "-Djava.awt.headless=true",
                f"@{ARGFILE.as_posix()}", "nogui"]
@@ -157,7 +159,28 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False):
                               "alfheimcompanion outfit list"]
                     if require_alfheim:
                         checks.append("execute in mythicbotany:alfheim run say ALFHEIM_DIMENSION_OK")
-                        # These are READ-ONLY diagnostics, not a synthetic force-success.
+                        checks.append(
+                            "execute in mythicbotany:alfheim positioned 0 0 0 "
+                            "positioned over motion_blocking_no_leaves "
+                            "if predicate alfheim:hub/ground_height "
+                            "run say ALFHEIM_GROUND_HEIGHT_OK")
+                        checks.append(
+                            "execute in mythicbotany:alfheim positioned 0 0 0 "
+                            "positioned over motion_blocking_no_leaves "
+                            "unless predicate alfheim:hub/ground_height "
+                            "run say ALFHEIM_GROUND_HEIGHT_REJECTED")
+                        # Marker has no collision and is deleted after the diagnostic.
+                        checks.append(
+                            'execute in mythicbotany:alfheim positioned 0 0 0 '
+                            'positioned over motion_blocking_no_leaves '
+                            'run summon minecraft:marker ~ ~ ~ {Tags:["alfheim_origin_probe"]}')
+                        checks.append(
+                            "execute in mythicbotany:alfheim run data get entity "
+                            "@e[type=minecraft:marker,tag=alfheim_origin_probe,limit=1] Pos")
+                        checks.append(
+                            "execute in mythicbotany:alfheim run kill "
+                            "@e[type=minecraft:marker,tag=alfheim_origin_probe]")
+                        # These are read-only diagnostics, not a synthetic force-success.
                         checks.append("function alfheim:hub/status")
                         for stage_name in ("place_result", "base_result", "trunk_result",
                                            "crown_result", "court_result", "west_result",
@@ -181,6 +204,31 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False):
                     report["command_reply_latency_seconds"] = round(time.monotonic() - command_started, 1)
                     if not responses:
                         report["error"] = "Console commands were not answered within the bounded response window"
+                    if require_alfheim and hub_observe_seconds > 0 and process.poll() is None:
+                        # Give the bounded hub retry loop an actual opportunity to
+                        # finish before diagnosing an incomplete spawn on a new world.
+                        observation_started = time.monotonic()
+                        while time.monotonic() - observation_started < hub_observe_seconds:
+                            current = read_log(log)
+                            if ("world hub anchored to the Greatbole" in current
+                                    or "deterministic Greatbole and royal complex assembly succeeded"
+                                    in current):
+                                break
+                            if process.poll() is not None:
+                                break
+                            time.sleep(2)
+                        report["hub_observation_seconds"] = round(
+                            time.monotonic() - observation_started, 1)
+                        if process.poll() is None:
+                            for command_line in (
+                                "function alfheim:hub/status",
+                                "scoreboard players get #place_result alfheim.hub",
+                                "scoreboard players get #attempts alfheim.hub",
+                                "scoreboard players get #final alfheim.hub",
+                            ):
+                                process.stdin.write(command_line + "\n")
+                                process.stdin.flush()
+                            time.sleep(3)
                     if process.poll() is None:
                         process.stdin.write("stop\n")
                         process.stdin.flush()
@@ -214,6 +262,9 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False):
         report["hub_status_probed"] = "[Alfheim] --- world hub status ---" in final
         report["hub_created_diagnostic"] = "[Alfheim] hub: created" in final
         report["hub_initial_assembly_failed"] = "deterministic Greatbole template assembly failed" in final
+        report["hub_anchored"] = "world hub anchored to the Greatbole" in final
+        report["ground_height_predicate_ok"] = "ALFHEIM_GROUND_HEIGHT_OK" in final
+        report["ground_height_predicate_rejected"] = "ALFHEIM_GROUND_HEIGHT_REJECTED" in final
         report["stop_acknowledged"] = ("Stopping the server" in final or "Stopping server" in final)
         report["all_dimensions_saved"] = "All dimensions are saved" in final
         replies_ok = requested_replies_seen(final, require_alfheim)
@@ -243,6 +294,8 @@ def smoke_test(args):
         "candidate_build_run_id": 44626195977,
         "heap_gib": args.heap_gib,
         "timeout_seconds": args.timeout,
+        "seed": args.seed,
+        "hub_observe_requested_seconds": args.hub_observe_seconds,
         "success": False
     }
     try:
@@ -294,6 +347,7 @@ def smoke_test(args):
             # Bind to loopback: this validation server must never become public.
             (stage / "server.properties").write_text(
                 "level-name=ci-alfheim-companion-smoke\n"
+                f"level-seed={args.seed}\n"
                 "server-ip=127.0.0.1\n"
                 "server-port=25565\n"
                 "online-mode=false\n"
@@ -307,7 +361,8 @@ def smoke_test(args):
                 "motd=Alfheim first-party candidate CI smoke\n",
                 encoding="utf-8")
             result = boot(stage, output, args.heap_gib, args.timeout,
-                          require_alfheim=args.profile == "full")
+                          require_alfheim=args.profile == "full",
+                          hub_observe_seconds=args.hub_observe_seconds)
             report.update(result)
             report["success"] = result["ready"] and result["clean_exit"]
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
@@ -329,6 +384,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--profile", choices=("minimal", "full"), default="minimal")
+    parser.add_argument("--seed", default="alfheim")
+    parser.add_argument("--hub-observe-seconds", type=int, default=0)
     parser.add_argument("--pack-root", default="fullpack-source")
     parser.add_argument("--server-root", default="smoke-source/server")
     parser.add_argument("--candidate", default=f"smoke-candidate/{JAR_NAME}")
@@ -343,6 +400,8 @@ def main():
         return 0
     if not (1 <= args.heap_gib <= 6) or not (30 <= args.timeout <= 900):
         parser.error("heap_gib must be 1..6 and timeout must be 30..900 seconds")
+    if not (0 <= args.hub_observe_seconds <= 240):
+        parser.error("hub-observe-seconds must be 0..240")
     return smoke_test(args)
 
 
