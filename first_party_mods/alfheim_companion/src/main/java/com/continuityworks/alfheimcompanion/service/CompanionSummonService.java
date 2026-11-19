@@ -9,6 +9,8 @@ import com.continuityworks.alfheimcompanion.integration.CombatProfileBridge;
 import com.continuityworks.alfheimcompanion.registry.ModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -36,10 +38,21 @@ public final class CompanionSummonService {
                     + "Use /alfheimcompanion reset to create a new binding."));
             return;
         }
+        // Probe a destination BEFORE the handoff can save, clear, or reassign anyone's
+        // inventory. A recall from a crowded area must not strand the previous owner.
+        ElvenCompanionEntity loadedCompanion = findLoaded(server, data.companionUuid().orElse(null));
+        Vec3 loadedDestination = loadedCompanion == null
+                ? null : findSafeSummonPosition(owner, loadedCompanion);
+        if (loadedCompanion != null && loadedDestination == null) {
+            owner.sendSystemMessage(Component.literal(
+                    "Cannot recall companion: no safe, dry landing within three blocks. "
+                    + "Move to clear solid ground and try again."));
+            return;
+        }
         boolean changingLessee = data.ownerUuid().isPresent()
                 && !data.ownerUuid().get().equals(owner.getUUID());
         if (changingLessee) {
-            ElvenCompanionEntity previous = findLoaded(server, data.companionUuid().orElse(null));
+            ElvenCompanionEntity previous = loadedCompanion;
             UUID previousOwner = data.ownerUuid().orElse(null);
             boolean ownerMatches = previous != null && previousOwner != null
                     && previousOwner.equals(previous.ownerUuid());
@@ -73,7 +86,7 @@ public final class CompanionSummonService {
         data.activatePlayerBinding(owner.getUUID(), now);
         data.claimOrRefreshLease(owner.getUUID(), now);
         int agitation = data.recordSummon(owner.level().getGameTime());
-        ElvenCompanionEntity companion = findLoaded(server, data.companionUuid().orElse(null));
+        ElvenCompanionEntity companion = loadedCompanion;
 
         if (companion == null) {
             companion = ModEntities.ELVEN_COMPANION.get().create(owner.serverLevel());
@@ -84,6 +97,13 @@ public final class CompanionSummonService {
             companion.bindOwner(owner.getUUID());
             // Persisted equipment must not be consumed until Forge accepts the entity.
             Vec3 destination = findSafeSummonPosition(owner, companion);
+            if (destination == null) {
+                data.releaseLease();
+                owner.sendSystemMessage(Component.literal(
+                        "Cannot summon companion: no safe, dry landing within three blocks. "
+                        + "Move to clear solid ground and try again."));
+                return;
+            }
             companion.moveTo(destination.x, destination.y, destination.z, owner.getYRot(), 0.0F);
             data.bind(companion.getUUID(), owner.getUUID(),
                     owner.level().dimension().location().toString(), companion.blockPosition());
@@ -112,7 +132,7 @@ public final class CompanionSummonService {
                 }
                 companion = movedCompanion;
             }
-            Vec3 destination = findSafeSummonPosition(owner, companion);
+            Vec3 destination = loadedDestination;
             companion.teleportTo(destination.x, destination.y, destination.z);
             // On lease transfer the old equipment was saved under the previous player;
             // restore only this player's own cached equipment to the now-accepted entity.
@@ -147,6 +167,14 @@ public final class CompanionSummonService {
             return;
         }
         ElvenCompanionEntity companion = findLoaded(owner.server, data.companionUuid().orElse(null));
+        if (companion == null
+                && data.mode() != com.continuityworks.alfheimcompanion.memory.CompanionMode.DISMISSED) {
+            owner.sendSystemMessage(Component.literal(
+                    "Cannot dismiss: your active companion is not loaded. "
+                    + "Return to its last location or recall it before dismissing; "
+                    + "its carried items have not been altered."));
+            return;
+        }
         if (companion != null) {
             // Discard does not fire LivingDeathEvent. Preserve cargo and equipped items
             // first, otherwise every ordinary dismissal silently destroys player gear.
@@ -180,17 +208,35 @@ public final class CompanionSummonService {
     private static Vec3 findSafeSummonPosition(ServerPlayer owner, ElvenCompanionEntity companion) {
         ServerLevel level = owner.serverLevel();
         BlockPos origin = owner.blockPosition();
-        for (int attempt = 0; attempt < 24; attempt++) {
-            int dx = level.random.nextInt(11) - 5;
-            int dz = level.random.nextInt(11) - 5;
-            if (dx * dx + dz * dz > 25 || dx * dx + dz * dz < 2) continue;
-            for (int dy : new int[]{0, 1, -1, 2, -2}) {
-                BlockPos candidate = origin.offset(dx, dy, dz);
+        Vec3 original = companion.position();
+        try {
+            // Inspect each near-to-far square ring once; no random duplicates and no
+            // unchecked fallback inside walls, liquids, fire, or unsupported terrain.
+            for (CompanionLandingPlan.Offset offset : CompanionLandingPlan.candidates()) {
+                BlockPos candidate = origin.offset(offset.dx(), offset.dy(), offset.dz());
+                BlockPos floorPos = candidate.below();
+                BlockState floor = level.getBlockState(floorPos);
+                if (!floor.isFaceSturdy(level, floorPos, Direction.UP)
+                        || floor.is(Blocks.MAGMA_BLOCK)
+                        || floor.is(Blocks.CAMPFIRE)
+                        || floor.is(Blocks.SOUL_CAMPFIRE)) continue;
+                if (unsafeLandingBlock(level.getBlockState(candidate))
+                        || unsafeLandingBlock(level.getBlockState(candidate.above()))) continue;
+
                 companion.setPos(candidate.getX() + 0.5D, candidate.getY(), candidate.getZ() + 0.5D);
-                boolean floor = level.getBlockState(candidate.below()).isFaceSturdy(level, candidate.below(), Direction.UP);
-                if (floor && level.noCollision(companion)) return companion.position();
+                if (level.noCollision(companion)) return companion.position();
             }
+            // The caller must refuse to summon/recall when no viable position exists.
+            return null;
+        } finally {
+            // Probing a loaded companion must not silently move it when all checks fail.
+            companion.setPos(original.x, original.y, original.z);
         }
-        return owner.position().add(1.0D, 0.0D, 1.0D);
+    }
+
+    private static boolean unsafeLandingBlock(BlockState state) {
+        return !state.getFluidState().isEmpty()
+                || state.is(Blocks.FIRE)
+                || state.is(Blocks.SOUL_FIRE);
     }
 }

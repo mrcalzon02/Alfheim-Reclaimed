@@ -16,6 +16,9 @@ on:
       - 'tools/test_companion_dismiss_inventory.py'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRules.java'
       - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRulesSelfTest.java'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlan.java'
+      - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java'
+      - 'tools/test_companion_landing_safety.cjs'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java'
@@ -60,6 +63,9 @@ jobs:
             tools/test_companion_dismiss_inventory.py
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRules.java
             first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRulesSelfTest.java
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlan.java
+            first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java
+            tools/test_companion_landing_safety.cjs
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java
@@ -87,6 +93,8 @@ jobs:
           node tools/test_spawn_dimension_recovery.cjs
           node --check tools/test_companion_lifecycle_guards.cjs
           node tools/test_companion_lifecycle_guards.cjs
+          node --check tools/test_companion_landing_safety.cjs
+          node tools/test_companion_landing_safety.cjs
       - name: Python full-envelope command and read-back negative controls
         run: python3 tools/check_spawn_hub_claim.py --self-test
       - name: Java 17 for dependency-free wheel selection tests
@@ -103,13 +111,17 @@ jobs:
             'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDelta.java' \
             'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/ChunkTicketDeltaSelfTest.java' \
             'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRules.java' \
-            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRulesSelfTest.java'
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRulesSelfTest.java' \
+            'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlan.java' \
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java'
           java -cp "$RUNNER_TEMP/alfheim-source-tests" \
             com.continuityworks.alfheimcompanion.client.WheelSelectionSelfTest
           java -cp "$RUNNER_TEMP/alfheim-source-tests" \
             com.continuityworks.alfheimcompanion.service.ChunkTicketDeltaSelfTest
           java -cp "$RUNNER_TEMP/alfheim-source-tests" \
             com.continuityworks.alfheimcompanion.service.CompanionHandoffRulesSelfTest
+          java -cp "$RUNNER_TEMP/alfheim-source-tests" \
+            com.continuityworks.alfheimcompanion.service.CompanionLandingPlanSelfTest
       - name: Compile actual inventory-retention service against Java 17 test doubles
         run: python3 tools/test_companion_dismiss_inventory.py
       - name: Checkout companion Gradle sources and compile-only integrations (manual opt-in)

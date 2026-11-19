@@ -1,5 +1,28 @@
 # Execution State
 
+## Companion landing and unloaded-dismiss safeguards — 2026-11-19
+
+Source candidate: new summons and loaded recalls search an exhaustive, bounded
+near-first three-block square radius with five vertical offsets (240 unique
+candidates). Every candidate requires a supportive non-damaging floor, dry
+non-fire body/head space, and a no-collision result. If none is safe, the action
+aborts with player guidance instead of falling back to an unchecked coordinate.
+Probing temporarily moves the test entity but always restores its original
+position (even on early success or a thrown check). Loaded recall preflight
+occurs before cross-player inventory handoff and lease changes.
+
+The dismiss action also fails closed for an unloaded companion still recorded as
+active, rather than marking it dismissed without first saving carried items.
+The user must approach the last location or recall it before dismissing.
+
+Java 17 dependency-free CompanionLandingPlanSelfTest checks exactly 240 unique,
+immutable, near-to-far candidates across all height offsets. Node source
+regressions enforce the behavior in the real Forge service, including preflight
+ordering, absence of the former unsafe fallback, and loaded-dismiss requirements.
+The single source CI job runs these alongside the existing lifecycle and claim
+checks. Source validated only: no full ForgeGradle build, world load, or
+multiplayer acceptance; installed JARs remain unchanged.
+
 ## Multiplayer companion lease handoff inventory isolation — 2026-11-19
 
 Source candidate: leasing the singleton companion to another player now preserves

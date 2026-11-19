@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Fail-safe companion arrivals and unloaded dismissal
+
+- Replace randomized companion landing with 240 bounded, duplicate-free candidates
+  ordered from nearby to further sites, checking stable terrain, fluids, fire and
+  collision. The old unchecked wall-adjacent fallback is removed.
+- On failure, keep an already loaded companion at its original position and refuse
+  to summon rather than placing it unsafely; preflight before inventory handoffs.
+- Refuse dismissal of active companions in unloaded chunks to prevent loss of
+  carried inventory.
+- Add standalone Java 17 candidate-order tests and production-source guard tests
+  to the existing single CI job. Full Forge runtime and multiplayer still pending.
+
 ## 2026-11-19 — Prevent companion lease handoffs from exposing another player's gear
 
 - Preserve the outgoing player's companion cargo and equipment before transferring
