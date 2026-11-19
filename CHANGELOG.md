@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Full modpack dedicated-server candidate smoke
+
+- Stage every tracked server mod, the latest root KubeJS scripts and relevant
+  configuration on a loopback-only, temporary Forge dedicated server.
+- Replace only the staged companion JAR with the previously verified
+  `f1a43100` candidate and require both real companion commands and
+  MythicBotany Alfheim dimension to work before claiming startup acceptance.
+- Retain machine-readable results and bounded logs even on failure; no full
+  modpack binary redistribution or changes to installed worlds, JARs or tags.
+- Add an explicit one-time marked GitHub run and manual opt-in, without adding
+  any extra CI jobs or making full-pack tests recur automatically.
+
 ## 2026-11-19 — Minimal Forge companion startup and command registration verified
 
 - Exact Java 17 Forge candidate `f1a43100` passed minimal dedicated-server

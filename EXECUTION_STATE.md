@@ -1,5 +1,31 @@
 # Execution State
 
+## Complete modpack candidate startup staging — 2026-11-19
+
+The passing minimal Java 17 Forge companion smoke harness now has a separately
+opted-in `--profile full` that stages all 84 tracked server JARs plus the
+current top-level `config/`, `defaultconfigs/` and `kubejs/` sources in an
+isolated, temporary dedicated-server directory. It replaces ONLY the staged
+companion binary with the SHA-256-pinned candidate from `f1a43100`, keeps
+Forge dependencies identical and discards generated Connector cache files.
+Preflight fails on a partial mod list (less than 70 JARs or missing core
+Botania/MythicBotany/Ars/MineColonies/FTB/first-party registrations).
+
+A successful full smoke must prove the Forge readiness marker, both real
+companion profile/outfit command replies, successful execution in the
+`mythicbotany:alfheim` dimension, and a clean shutdown. Java heap is bounded
+at 6 GiB; startup has a finite timeout. Evidence always contains only bounded
+server logs and JSON, never packed third-party JARs or player/world files.
+
+The existing single CI job exposes `full_pack_companion` manual opt-in and
+this commit's one-time marker `[full-pack-smoke]`. Ordinary pushes remain
+source-only and do not repeat heavyweight Forge tests. No client/server
+installation or saved world is mutated.
+
+**At commit:** full-pack runtime outcome pending GitHub Actions evidence.
+Passing startup alone does not establish a graphical client, multiplayer,
+companion controls or persistent inventories.
+
 ## First dedicated-server runtime evidence — 2026-11-19
 
 The exact `f1a43100` first-party companion candidate (SHA-256

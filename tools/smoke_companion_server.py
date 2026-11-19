@@ -3,8 +3,10 @@
 
 Stages ONLY in an OS temporary directory. The tracked pack, jars, worlds and
 configs are never modified. No third-party jars are packaged as test artifacts.
-This is minimal Forge+companion boot validation, NOT full modpack/multiplayer
-acceptance.
+The default profile validates minimal Forge+companion. The opt-in full profile
+stages the tracked server mod set and current pack config/KubeJS sources in an
+OS temporary directory. Neither profile launches a graphical client or tests
+multiplayer. No staged world, third-party mod or binary is retained as evidence.
 
 python3 tools/smoke_companion_server.py --self-test
 python3 tools/smoke_companion_server.py --server-root smoke-source/server \
@@ -28,6 +30,12 @@ ARGFILE = Path("libraries/net/minecraftforge/forge/1.20.1-47.4.10/unix_args.txt"
 JAR_NAME = "alfheim_companion-0.2.0.jar"
 READY = re.compile(r'Done \([0-9.]+s\)! For help, type "help"')
 MAX_LOG_BYTES = 2_000_000
+MIN_FULLPACK_JARS = 70
+FULLPACK_REQUIRED_PREFIXES = (
+    "Botania-", "MythicBotany-", "ars_nouveau-", "Mine_and_Slash-",
+    "kubejs-forge-", "ftb-quests-forge-", "minecolonies-", "alfheim_leyworks-",
+    "alfheim_golems-", "alfheim_companion-"
+)
 
 
 def sha256(path):
@@ -56,6 +64,15 @@ def self_test():
     assert not READY.search('Server is still loading; no Done message')
     assert command_outputs_seen("Companion profiles: Liria\nCompanion outfits: wayfinder")
     assert not command_outputs_seen("Done (31.48s)! For help, type \"help\"")
+    assert alfheim_dimension_seen("ALFHEIM_DIMENSION_OK")
+    assert not alfheim_dimension_seen("Unknown dimension mythicbotany:alfheim")
+    with tempfile.TemporaryDirectory(prefix="alfheim-fullpack-preflight-") as missing:
+        try:
+            validate_full_pack(Path(missing))
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("missing full pack directory was accepted")
     with tempfile.TemporaryDirectory(prefix="alfheim-smoke-selftest-") as temp:
         jar = Path(temp) / JAR_NAME
         jar.write_bytes(b"first-party-candidate-fixture")
@@ -71,6 +88,28 @@ def command_outputs_seen(messages):
     return "Companion profiles:" in messages and "Companion outfits:" in messages
 
 
+def alfheim_dimension_seen(messages):
+    return "ALFHEIM_DIMENSION_OK" in messages
+
+
+def validate_full_pack(pack):
+    """Fail closed on a partial mod set or missing pack configuration."""
+    mod_dir = pack / "server" / "mods"
+    if not mod_dir.is_dir():
+        raise ValueError("full pack has no tracked server/mods directory")
+    for required_dir in ("config", "defaultconfigs", "kubejs"):
+        if not (pack / required_dir).is_dir():
+            raise ValueError(f"full pack missing {required_dir}/")
+    jars = sorted(mod_dir.glob("*.jar"))
+    if len(jars) < MIN_FULLPACK_JARS:
+        raise ValueError(f"Only {len(jars)} server JARs found; refusing partial-pack smoke")
+    names = {jar.name for jar in jars}
+    for prefix in FULLPACK_REQUIRED_PREFIXES:
+        if not any(name.startswith(prefix) for name in names):
+            raise ValueError(f"Required gameplay mod missing from full staging pack: {prefix}")
+    return jars
+
+
 def stop_process(process):
     if process is None or process.poll() is not None:
         return
@@ -82,7 +121,7 @@ def stop_process(process):
         process.wait(timeout=15)
 
 
-def boot(stage, output, heap_gib, timeout):
+def boot(stage, output, heap_gib, timeout, require_alfheim=False):
     log = output / "server-console.log"
     command = ["java", "-Xms512M", f"-Xmx{heap_gib}G", "-Djava.awt.headless=true",
                f"@{ARGFILE.as_posix()}", "nogui"]
@@ -106,8 +145,13 @@ def boot(stage, output, heap_gib, timeout):
                         break
                     # Prove that the companion mod registered its real player-facing
                     # commands. Mere Forge readiness would not establish mod loading.
-                    for command_line in ("alfheimcompanion profile list",
-                                         "alfheimcompanion outfit list", "list"):
+                    checks = ["alfheimcompanion profile list",
+                              "alfheimcompanion outfit list"]
+                    if require_alfheim:
+                        # Require the actual registered MythicBotany Alfheim dimension.
+                        checks.append("execute in mythicbotany:alfheim run say ALFHEIM_DIMENSION_OK")
+                    checks.append("list")
+                    for command_line in checks:
                         process.stdin.write(command_line + "\n")
                         process.stdin.flush()
                         time.sleep(1)
@@ -134,9 +178,12 @@ def boot(stage, output, heap_gib, timeout):
         report["companion_id_in_log"] = "alfheim_companion" in final.lower()
         report["companion_profile_command_ok"] = "Companion profiles:" in final
         report["companion_outfit_command_ok"] = "Companion outfits:" in final
-        if report["ready"] and report["exit_code"] == 0 and not command_outputs_seen(final):
-            report["error"] = "Forge booted, but companion profile/outfit command replies were missing"
-        report["clean_exit"] = report["clean_exit"] and command_outputs_seen(final)
+        report["alfheim_dimension_command_ok"] = alfheim_dimension_seen(final)
+        replies_ok = command_outputs_seen(final) and (not require_alfheim or alfheim_dimension_seen(final))
+        if report["ready"] and report["exit_code"] == 0 and not replies_ok:
+            report["error"] = ("Forge booted, but companion commands or Alfheim "
+                               "dimension probe did not return their required replies")
+        report["clean_exit"] = report["clean_exit"] and replies_ok
         report["last_log_lines"] = final.splitlines()[-35:]
         # Keep useful evidence bounded; upload no source jars or player/world files.
         if len(final.encode("utf-8")) > MAX_LOG_BYTES:
@@ -148,8 +195,11 @@ def smoke_test(args):
     output = Path(args.output_dir).resolve()
     output.mkdir(parents=True, exist_ok=True)
     report = {
-        "profile": "minimal-forge-companion-dedicated-server",
-        "admission": "startup-smoke-only; not full pack, save, client or multiplayer",
+        "profile": ("full-modpack-dedicated-server" if args.profile == "full"
+                    else "minimal-forge-companion-dedicated-server"),
+        "admission": ("full-pack startup and command smoke only; not graphical client, "
+                      "save/reload or multiplayer" if args.profile == "full"
+                      else "startup-smoke-only; not full pack, save, client or multiplayer"),
         "expected_candidate_sha256": args.expected_sha256,
         "source_commit": "f1a43100c45ba1efb52db673f624362774fa6f4f",
         "candidate_artifact_id": 14580075904,
@@ -180,7 +230,21 @@ def smoke_test(args):
             shutil.copy2(eula, stage / "eula.txt")
             mods = stage / "mods"
             mods.mkdir()
+            if args.profile == "full":
+                pack = Path(args.pack_root).resolve()
+                tracked = validate_full_pack(pack)
+                report["tracked_mod_count"] = len(tracked)
+                report["source_companion_sha256"] = sha256(pack / "server" / "mods" / JAR_NAME)
+                report["third_party_mods_changed"] = False
+                # Exclude old first-party JAR and generated Connector caches.
+                for jar in tracked:
+                    if jar.name != JAR_NAME:
+                        shutil.copy2(jar, mods / jar.name)
+                for folder in ("config", "defaultconfigs", "kubejs"):
+                    shutil.copytree(pack / folder, stage / folder)
+                report["pack_directories_staged"] = ["config", "defaultconfigs", "kubejs"]
             shutil.copy2(candidate, mods / JAR_NAME)
+            report["staged_mod_count"] = len(list(mods.glob("*.jar")))
             client = Path(temp) / "client-mods"
             client.mkdir()
             shutil.copy2(candidate, client / JAR_NAME)
@@ -205,7 +269,8 @@ def smoke_test(args):
                 "gamemode=creative\n"
                 "motd=Alfheim first-party candidate CI smoke\n",
                 encoding="utf-8")
-            result = boot(stage, output, args.heap_gib, args.timeout)
+            result = boot(stage, output, args.heap_gib, args.timeout,
+                          require_alfheim=args.profile == "full")
             report.update(result)
             report["success"] = result["ready"] and result["clean_exit"]
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
@@ -214,7 +279,10 @@ def smoke_test(args):
         (output / "smoke-report.json").write_text(
             json.dumps(report, indent=2) + "\n", encoding="utf-8")
     if report["success"]:
-        print("COMPANION_SERVER_SMOKE_PASS: exact SHA-256, minimal Forge ready, companion profile/outfit commands and clean stop")
+        if args.profile == "full":
+            print("COMPANION_FULLPACK_SMOKE_PASS: pinned JAR, full pack startup, Alfheim dimension, companion commands and clean stop")
+        else:
+            print("COMPANION_SERVER_SMOKE_PASS: exact SHA-256, minimal Forge ready, companion profile/outfit commands and clean stop")
         return 0
     print("COMPANION_SERVER_SMOKE_FAIL: " + str(report.get("error", report.get("last_log_lines", [])[-5:])))
     return 1
@@ -223,6 +291,8 @@ def smoke_test(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--profile", choices=("minimal", "full"), default="minimal")
+    parser.add_argument("--pack-root", default="fullpack-source")
     parser.add_argument("--server-root", default="smoke-source/server")
     parser.add_argument("--candidate", default=f"smoke-candidate/{JAR_NAME}")
     parser.add_argument("--expected-sha256",
