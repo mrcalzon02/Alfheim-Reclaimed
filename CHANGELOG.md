@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Greatbole saved-world recovery passes in complete modpack
+
+- Full 84-JAR Forge save/restart run `44640185308` succeeded: all seven
+  Greatbole parts remained, baked marker reappeared after 6s/two probes,
+  no duplicate assembly, and both servers saved/exited cleanly.
+- Companion profile/outfit commands and Alfheim dimension passed on both boots;
+  `#final`, `#created`, `#place_result`, and `#attempts` persisted.
+- Recorded immutable JAR SHA-256, source/run, timings, artifact ID and
+  exact scope in the companion restart benchmark.
+- No installed JAR, production world, release or third-party binaries changed.
+  Client, player persistence and multiplayer still require testing.
+
 ## 2026-11-19 — Bounded saved-entity readiness probing after Forge restart
 
 - The second saved-world test confirmed origin chunks now load on

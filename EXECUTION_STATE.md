@@ -1,5 +1,28 @@
 # Execution State
 
+## Full 84-JAR Greatbole saved-world restart gate PASSED — 2026-11-19
+
+GitHub Actions run `44640185308` at `3d73de84` completed SUCCESSFULLY
+with identical SHA-256-pinned companion binaries on staged sides. The first
+Forge server boot assembled all seven Greatbole/royal court parts, anchored
+the baked marker and saved. A second boot of that SAME temporary world
+recovered 7/7 stage scores, `#place_result=#created=#final=1`, and
+`#attempts=1`; no second assembly occurred. The saved marker became
+selectable after two read-only probes over 6.0 seconds. Companion commands
+and Alfheim dimension worked on both boots; both Java processes exited 0,
+saving all dimensions. The first boot took 240.2s total and the restart
+113.0s. Evidence artifact `14585578917`, expires November 26, 2026.
+
+The exact binary SHA-256 was
+`f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246`.
+Report:
+`benchmarks/2026-11-19-fullpack-restart-anchor-recovery.md`.
+
+**Dedicated-server world persistence ACCEPTED on seed `alfheim`.**
+This is not client startup, player save/reconnect, live companion control,
+multi-seed coverage, performance acceptance, or multiplayer/lease/inventory
+acceptance. Installed JARs and player worlds remain unchanged.
+
 ## Deferred marker loading distinguished from lost hub save — 2026-11-19
 
 A second full-pack two-boot test `44638990830` confirmed that the
