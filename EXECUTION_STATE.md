@@ -1,5 +1,21 @@
 # Execution State
 
+## Pre-gate returning-player login recovery — 2026-11-19
+
+Implementation candidate: players whose historical `alfheim_home_spawn_v2` flag is set
+are rechecked on login. Players already in Alfheim remain at their existing location,
+without respawn-point changes. Players found elsewhere before unlocking Midgard
+are returned to the hub and reverified. Once `alfheim_midgard_unlocked` is set,
+login handling stops before any buried or provisional hub correction, preserving
+legitimate travel. New-player and respawn handling retain their established behavior.
+
+A Node VM source-level regression now covers first login, established home players,
+stale success flags, failed delivery and next-login retry, provisional hub markers,
+unlocked travel, and bed-safe respawns. The existing sparse single-job GitHub Actions
+workflow now checks this and the starting-kit recovery test alongside its prior
+claim-readiness checks. Java 17 Forge runtime, saved player data, live multiplayer
+and complete-pack launch acceptance remain unproven by this change.
+
 ## Starter-kit recovery and hub notification usability — 2026-11-19
 
 Implementation candidate: starting-kit entries are individually marked after a nonempty item

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Repair returning-player Alfheim arrivals and expand source CI
+
+- Returning players marked previously delivered to Alfheim are now checked against
+  their **current** dimension; a player stranded outside Alfheim before the Midgard
+  unlock is sent to the hub again and reverified instead of being ignored.
+- Already-home players keep their location and respawn point. Once Midgard is
+  unlocked, no forced login or provisional-spawn collection occurs.
+- Added source-level Node VM regressions for login, failed delivery/retry,
+  dimensional progression, and existing respawns; expanded the existing single
+  sparse CI job to execute both login and starting-kit tests.
+- This is source validated only; no new compiled binaries or runtime acceptance.
+
 ## 2026-11-19 — Starting supplies recovery and Royal Court chat usability
 
 - On first login, grant tracking now records each starting-kit entry only after the item

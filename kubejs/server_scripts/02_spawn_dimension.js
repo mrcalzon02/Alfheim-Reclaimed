@@ -155,6 +155,12 @@ function verifyLater(server, player, why) {
 
 PlayerEvents.loggedIn(event => {
     const player = event.player
+
+    // Once the trade gate is open, Midgard and other travel destinations are legitimate.
+    // Apply this exemption BEFORE even the buried/awaiting-hub correction commands: a
+    // legacy provisional-spawn tag must not yank an unlocked traveler back into Alfheim.
+    if (player.persistentData.getBoolean(MIDGARD_FLAG)) return
+
     // A legacy personal spawn can still point into the buried tree. Redirect
     // only players beside that rejected anchor, not players elsewhere in Alfheim.
     event.server.runCommandSilent(
@@ -179,12 +185,23 @@ PlayerEvents.loggedIn(event => {
         console.warn('[Alfheim Reclaimed] awaiting-hub collection failed: ' + e)
     }
 
-    if (player.persistentData.getBoolean(SPAWN_FLAG)) return
-    if (player.persistentData.getBoolean(MIDGARD_FLAG)) return
+    // A successful arrival in the PAST is not proof of where this player is NOW.
+    // Older saves may have a v2 flag yet be stranded in Midgard after a bad logout,
+    // unexpected teleport, or missed respawn correction. Leave established Alfheim
+    // positions (including beds and player-built homes) completely undisturbed.
+    const wasConfirmed = player.persistentData.getBoolean(SPAWN_FLAG)
+    if (wasConfirmed && isHome(event.server, player.username)) return
 
-    // The flag is NOT set here. It is set in confirmAndAnchor, and only on success.
+    if (wasConfirmed) {
+        console.warn('[Alfheim Reclaimed] ' + player.username +
+                     ' has a home-spawn flag but is outside Alfheim before unlocking Midgard; recovering.')
+    }
+
+    // confirmAndAnchor is the ONLY place that records fresh success. If delivery fails,
+    // the existing flag is not trusted on the next login; the dimension is rechecked.
     sendHome(event.server, player.username)
-    verifyLater(event.server, player, 'first join')
+    verifyLater(event.server, player,
+                wasConfirmed ? 'recovery after out-of-home login' : 'first join')
 })
 
 // Respawn safety net. /spawnpoint should already cover it, but if the recorded spawn is obstructed
