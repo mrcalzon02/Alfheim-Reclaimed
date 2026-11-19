@@ -24,6 +24,7 @@ on:
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/CompanionEvents.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionSavedData.java'
       - 'tools/test_companion_admission_guards.cjs'
+      - 'tools/smoke_companion_server.py'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java'
@@ -41,9 +42,15 @@ on:
         required: false
         type: boolean
         default: false
+      smoke_companion:
+        description: 'Run the verified 2026-11-19 candidate on a loopback-only minimal Forge server'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   source-and-negative-controls:
@@ -76,6 +83,7 @@ jobs:
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/CompanionEvents.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionSavedData.java
             tools/test_companion_admission_guards.cjs
+            tools/smoke_companion_server.py
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java
@@ -108,7 +116,9 @@ jobs:
           node --check tools/test_companion_admission_guards.cjs
           node tools/test_companion_admission_guards.cjs
       - name: Python full-envelope command and read-back negative controls
-        run: python3 tools/check_spawn_hub_claim.py --self-test
+        run: |
+          python3 tools/check_spawn_hub_claim.py --self-test
+          python3 tools/smoke_companion_server.py --self-test
       - name: Java 17 for dependency-free wheel selection tests
         uses: actions/setup-java@v4
         with:
@@ -171,4 +181,42 @@ jobs:
           name: alfheim-companion-candidate-${{ github.sha }}
           path: forge-candidate/first_party_mods/alfheim_companion/build/libs/alfheim_companion-*.jar
           if-no-files-found: error
+          retention-days: 7
+
+      - name: Checkout isolated Forge server runtime for candidate smoke
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.smoke_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-smoke]')) }}
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          path: smoke-source
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            server/libraries/
+            server/eula.txt
+      - name: Download previously verified first-party JAR (never third-party artifacts)
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.smoke_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-smoke]')) }}
+        uses: actions/download-artifact@v4
+        with:
+          name: alfheim-companion-candidate-f1a43100c45ba1efb52db673f624362774fa6f4f
+          run-id: 44626195977
+          github-token: ${{ github.token }}
+          path: smoke-candidate
+      - name: Verify and boot minimal loopback-only Forge server with candidate
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.smoke_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-smoke]')) }}
+        timeout-minutes: 12
+        run: |
+          python3 tools/smoke_companion_server.py \
+            --server-root smoke-source/server \
+            --candidate smoke-candidate/alfheim_companion-0.2.0.jar \
+            --expected-sha256 f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246 \
+            --output-dir smoke-evidence \
+            --heap-gib 4 --timeout 480
+      - name: Retain smoke log and result only (never mod binaries or worlds)
+        if: ${{ always() && ((github.event_name == 'workflow_dispatch' && inputs.smoke_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-smoke]'))) }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: alfheim-companion-smoke-evidence-${{ github.sha }}
+          path: smoke-evidence/
+          if-no-files-found: warn
           retention-days: 7

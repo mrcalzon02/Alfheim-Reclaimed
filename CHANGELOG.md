@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — First-party Forge runtime smoke harness
+
+- Added a bounded Python smoke runner for the exact previously built companion JAR,
+  using a copied Forge server, the owner's accepted EULA and loopback-only networking.
+- Verify SHA-256 and identical temporary client/server candidate copies, wait for
+  dedicated-server readiness, exercise console shutdown, and record clean exit.
+- Integrated as a single-job, opt-in or one-time marked GitHub Actions step, retaining
+  only logs and JSON evidence, never proprietary or third-party binaries.
+- No runtime result claimed at commit time; full modpack/client/multiplayer validation
+  and installed JAR synchronization remain separate.
+
 ## 2026-11-19 — First full Forge candidate build succeeds
 
 - At source SHA `f1a43100`, a one-time GitHub Actions build compiled the current

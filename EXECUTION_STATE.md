@@ -1,5 +1,31 @@
 # Execution State
 
+## Minimal first-party Forge dedicated-server smoke staging — 2026-11-19
+
+A bounded candidate smoke runner is now in `tools/smoke_companion_server.py`. It
+accepts only the exact first-party JAR SHA-256 from the successful 2026-11-19
+build, checks the repository owner's existing EULA acceptance, mirrors Forge
+server libraries into an OS temporary directory, and copies the identical binary
+into temporary client/server mod folders for hash equality. It boots a minimal
+Forge 1.20.1 dedicated server bound to loopback at 4 GiB maximum heap, waits
+at most 480 seconds for the real Minecraft `Done` readiness marker, sends console
+commands, checks for a clean stop, and emits a JSON report and bounded log.
+No tracked modpack, saved world or installed JAR is modified.
+
+The original single-job GitHub workflow contains a manual smoke input and a
+one-time marked-push trigger `[forge-smoke]`. It downloads only the previously
+compiled first-party candidate artifact (run 44626195977, SHA-256
+`f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246`).
+All normal future pushes stay on existing source-only checks. The push introducing
+this staging test requests one smoke run; results are not yet known as of the
+source commit. GitHub evidence artifacts contain logs/JSON only and expire
+after seven days. Incomplete or failed runtime evidence must be reported
+as such and cannot become release admission.
+
+This is deliberately **minimal Forge+companion**, not a full 85-jar modpack,
+a graphical client, save/reload, player interaction or multiplayer test.
+A passing smoke run would establish only this narrower dedicated-server gate.
+
 ## Clean Java 17 companion candidate built — 2026-11-19
 
 The one-time marked push at source commit `f1a43100c45ba1efb52db673f624362774fa6f4f`
