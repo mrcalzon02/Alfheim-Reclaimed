@@ -1,5 +1,30 @@
 # Execution State
 
+## Transactional first-party companion spawn admission — 2026-11-19
+
+A new companion UUID/owner is no longer written before Forge's addFreshEntity reports
+successful insertion. CompanionAdmissionGate holds a transient in-memory reservation
+only while the synchronous entity-join event executes; it admits a matching newly
+created UUID/owner or the already committed UUID/owner used by save reload and
+cross-dimensional movement. Unreserved or mismatched entity joins fail closed.
+The reservation is cleared in a finally block even when admission throws.
+
+The summon service now defers companion lease, mode, owner name, quest-task cleanup,
+agitation, and saved-item restoration until successful spawn/transfer. A failed
+cross-dimensional transfer leaves the original entity owner intact; an old
+player's cargo is retained only after a loaded handoff has moved successfully.
+The first player binding record may still be created on an attempt; it is not a
+successful summon claim.
+
+The standalone Java 17 gate self-test and Node production source-order regressions
+are part of the existing single-job CI. This commit explicitly requests ONE full
+ForgeGradle candidate build using the commit marker [forge-build]; future ordinary
+pushes stay on lightweight source checks and manual opt-in remains available.
+Only the first-party candidate JAR may be uploaded on a successful build. No
+installed JAR, third-party dependency, world, release, or tag is replaced.
+A full Forge build alone does not establish client, save/reload, or multiplayer
+acceptance; those remain separate runtime gates.
+
 ## Prevent duplicate companions when active entities are unloaded — 2026-11-19
 
 The singleton presence guard now applies to both the current lessee and a new lessee:

@@ -43,22 +43,18 @@ public final class CompanionEvents {
                 || !(event.getEntity() instanceof ElvenCompanionEntity companion)) return;
 
         CompanionSavedData data = CompanionSavedData.get(level.getServer());
-        // The sigil service binds an owner before insertion. Reject commands, spawn eggs, other
-        // mods, or corrupted NBT attempting to create an unowned companion outside that path.
+        // Allow committed UUID/owner pairs for ordinary reload and cross-world moves.
+        // A new UUID must hold a transient admission reservation from the summon service;
+        // never persist an unverified UUID just to pass this event.
         if (companion.ownerUuid() == null) {
             AlfheimCompanion.LOGGER.warn("Rejected unbound elven companion {}", companion.getUUID());
             event.setCanceled(true);
             return;
         }
-        if (data.companionUuid().isPresent() && !data.companionUuid().get().equals(companion.getUUID())) {
-            AlfheimCompanion.LOGGER.warn("Rejected duplicate elven companion {}", companion.getUUID());
+        if (!data.allowsCompanionJoin(companion.getUUID(), companion.ownerUuid())) {
+            AlfheimCompanion.LOGGER.warn("Rejected uncommitted or mismatched elven companion {}",
+                    companion.getUUID());
             event.setCanceled(true);
-            return;
-        }
-
-        if (data.companionUuid().isEmpty()) {
-            data.bind(companion.getUUID(), companion.ownerUuid(),
-                    level.dimension().location().toString(), companion.blockPosition());
         }
     }
 

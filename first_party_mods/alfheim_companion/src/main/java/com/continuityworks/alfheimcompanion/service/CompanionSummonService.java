@@ -75,24 +75,10 @@ public final class CompanionSummonService {
                     + "Recall refused to protect inventory; operator investigation required."));
             return;
         }
-        if (changingLessee) {
-            ElvenCompanionEntity previous = loadedCompanion;
-            if (decision == CompanionHandoffRules.Decision.SAVE_LOADED_COMPANION
-                    && !CompanionDeathInventoryService.retainForDismiss(previous, data, previousOwner)) {
-                owner.sendSystemMessage(Component.literal(
-                        "Companion handoff blocked: unable to preserve previous owner's inventory."));
-                return;
-            }
-            // Previous owner's equipment is safely persisted before the new lease is granted.
-            BlueprintLifecycleService.cancel(server);
-            CompanionBrainCoordinator.deactivate();
-            data.setTask(com.continuityworks.alfheimcompanion.memory.ActiveTask.NONE, null);
-            data.clearOwnerContext();
-        }
-        data.activatePlayerBinding(owner.getUUID(), now);
-        data.claimOrRefreshLease(owner.getUUID(), now);
-        int agitation = data.recordSummon(owner.level().getGameTime());
+        // A failed admission or transfer must not alter the saved lease or the previous
+        // player's inventory and tasks. Commit those transitions only after success.
         ElvenCompanionEntity companion = loadedCompanion;
+        boolean newlyCreated = false;
 
         if (companion == null) {
             companion = ModEntities.ELVEN_COMPANION.get().create(owner.serverLevel());
@@ -104,30 +90,35 @@ public final class CompanionSummonService {
             // Persisted equipment must not be consumed until Forge accepts the entity.
             Vec3 destination = findSafeSummonPosition(owner, companion);
             if (destination == null) {
-                data.releaseLease();
                 owner.sendSystemMessage(Component.literal(
                         "Cannot summon companion: no safe, dry landing within three blocks. "
                         + "Move to clear solid ground and try again."));
                 return;
             }
             companion.moveTo(destination.x, destination.y, destination.z, owner.getYRot(), 0.0F);
-            data.bind(companion.getUUID(), owner.getUUID(),
-                    owner.level().dimension().location().toString(), companion.blockPosition());
-            companion.setCustomName(Component.literal(data.companionName()));
+            companion.setCustomName(Component.literal(
+                    data.playerBinding(owner.getUUID()).orElseThrow().name()));
             companion.setCustomNameVisible(true);
-            if (!owner.serverLevel().addFreshEntity(companion)) {
-                data.releaseLease();
-                data.dismiss();
+            UUID candidateId = companion.getUUID();
+            if (!data.beginCompanionAdmission(candidateId, owner.getUUID())) {
+                owner.sendSystemMessage(Component.literal(
+                        "Companion summon already in progress; please retry."));
+                return;
+            }
+            boolean admitted;
+            try {
+                // EntityJoinLevelEvent can inspect the reservation; no saved UUID is touched.
+                admitted = owner.serverLevel().addFreshEntity(companion);
+            } finally {
+                data.endCompanionAdmission(candidateId, owner.getUUID());
+            }
+            if (!admitted) {
                 owner.sendSystemMessage(Component.translatable("message.alfheim_companion.summon_failed"));
                 return;
             }
-            data.restoreFallenInventory(owner.getUUID(), companion);
-            TeleportEffects.play(companion);
-            data.remember(new MemoryEntry(owner.level().getGameTime(), "summon", owner.getName().getString(),
-                    "First summoned or restored to the world", 8));
+            newlyCreated = true;
         } else {
-            companion.bindOwner(owner.getUUID());
-            TeleportEffects.play(companion);
+            // Keep previous entity ownership unchanged until cross-dimensional transfer succeeds.
             if (companion.level() != owner.level()) {
                 Entity moved = companion.changeDimension(owner.serverLevel());
                 if (!(moved instanceof ElvenCompanionEntity movedCompanion)
@@ -140,15 +131,34 @@ public final class CompanionSummonService {
             }
             Vec3 destination = loadedDestination;
             companion.teleportTo(destination.x, destination.y, destination.z);
-            // On lease transfer the old equipment was saved under the previous player;
-            // restore only this player's own cached equipment to the now-accepted entity.
-            if (changingLessee) data.restoreFallenInventory(owner.getUUID(), companion);
-            TeleportEffects.play(companion);
-            data.bind(companion.getUUID(), owner.getUUID(),
-                    owner.level().dimension().location().toString(), companion.blockPosition());
-            companion.setCustomName(Component.literal(data.companionName()));
-            companion.setCustomNameVisible(true);
+            if (changingLessee && decision == CompanionHandoffRules.Decision.SAVE_LOADED_COMPANION
+                    && !CompanionDeathInventoryService.retainForDismiss(companion, data, previousOwner)) {
+                owner.sendSystemMessage(Component.literal(
+                        "Companion handoff blocked: unable to preserve previous owner's inventory."));
+                return;
+            }
+            companion.bindOwner(owner.getUUID());
         }
+
+        if (changingLessee) {
+            BlueprintLifecycleService.cancel(server);
+            CompanionBrainCoordinator.deactivate();
+            data.setTask(com.continuityworks.alfheimcompanion.memory.ActiveTask.NONE, null);
+            data.clearOwnerContext();
+        }
+        // The persistent identity, owner, and lease are recorded only after successful
+        // insertion or recall; an admission failure returns without changing them.
+        data.activatePlayerBinding(owner.getUUID(), now);
+        data.claimOrRefreshLease(owner.getUUID(), now);
+        data.bind(companion.getUUID(), owner.getUUID(),
+                owner.level().dimension().location().toString(), companion.blockPosition());
+        companion.setCustomName(Component.literal(data.companionName()));
+        companion.setCustomNameVisible(true);
+        if (newlyCreated || changingLessee) data.restoreFallenInventory(owner.getUUID(), companion);
+        TeleportEffects.play(companion);
+        int agitation = data.recordSummon(owner.level().getGameTime());
+        if (newlyCreated) data.remember(new MemoryEntry(owner.level().getGameTime(), "summon",
+                owner.getName().getString(), "First summoned or restored to the world", 8));
 
         try {
             CombatProfileBridge.synchronize(owner, companion);

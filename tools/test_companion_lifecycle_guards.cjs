@@ -16,12 +16,17 @@ const first = summon.indexOf('if (companion == null) {')
 const last = summon.indexOf('        } else {', first)
 assert.ok(first >= 0 && last > first, 'fresh summon branch not found')
 const fresh = summon.slice(first, last)
-const admission = fresh.indexOf('if (!owner.serverLevel().addFreshEntity(companion)) {')
-const restore = fresh.indexOf('data.restoreFallenInventory(owner.getUUID(), companion);')
-assert.ok(admission >= 0 && restore > admission, 'gear restored before entity admission')
-assert.match(fresh.slice(admission, restore), /return;/,
-    'failed admission must exit without consuming saved gear')
-assert.equal((fresh.match(/restoreFallenInventory/g) || []).length, 1, 'gear restored twice')
+const reservation = fresh.indexOf('data.beginCompanionAdmission(candidateId, owner.getUUID())')
+const admission = fresh.indexOf('owner.serverLevel().addFreshEntity(companion)')
+const release = fresh.indexOf('data.endCompanionAdmission(candidateId, owner.getUUID())')
+const committedName = summon.indexOf('data.activatePlayerBinding(owner.getUUID(), now)')
+const restore = summon.indexOf('if (newlyCreated || changingLessee) data.restoreFallenInventory(owner.getUUID(), companion)')
+assert.ok(reservation >= 0 && admission > reservation && release > admission,
+    'admission must be staged, attempted and cleared in that order')
+assert.ok(restore > committedName && committedName > admission,
+    'gear restoration and owner activation must follow successful entity admission')
+assert.doesNotMatch(fresh, /data\.bind\(|data\.dismiss\(|data\.releaseLease\(/,
+    'rejected spawn must not modify the committed companion identity or release a lease')
 assert.match(summon, /if \(!\(moved instanceof ElvenCompanionEntity movedCompanion\)[\s\S]*?return;\s*\}\s*companion = movedCompanion/,
     'failed cross-world recall must not report a successful new position')
 const dismiss = summon.slice(summon.indexOf('    public static void dismiss('))
@@ -45,10 +50,11 @@ assert.match(retain.slice(saved), /companion\.setItemSlot\(slot, ItemStack\.EMPT
     'equipped items must be cleared only after saving')
 const aliveCheck = summon.indexOf('if (!data.getOrCreatePlayerBinding(owner.getUUID(), now).alive())')
 const handoff = summon.indexOf('boolean changingLessee =')
-const previousStash = summon.indexOf('CompanionDeathInventoryService.retainForDismiss(previous, data, previousOwner)')
+const previousStash = summon.indexOf('CompanionDeathInventoryService.retainForDismiss(companion, data, previousOwner)')
 const activeName = summon.indexOf('data.activatePlayerBinding(owner.getUUID(), now)')
-assert.ok(aliveCheck >= 0 && handoff > aliveCheck && previousStash > handoff && activeName > previousStash,
-    'dead players must be rejected and previous cargo retained before switching owner context')
+const transferred = summon.indexOf('Entity moved = companion.changeDimension(owner.serverLevel())')
+assert.ok(aliveCheck >= 0 && handoff > aliveCheck && previousStash > transferred && activeName > previousStash,
+    'reject dead bindings and verify dimension transfers before saving old cargo or switching owners')
 const handoffBranch = summon.slice(handoff, activeName)
 const presenceDecision = handoffBranch.indexOf('CompanionHandoffRules.evaluate(')
 const missingActiveGuard = handoffBranch.indexOf('if (decision == CompanionHandoffRules.Decision.BLOCK_UNLOADED_ACTIVE)')
@@ -62,9 +68,8 @@ assert.match(handoffBranch.slice(missingActiveGuard, mismatchGuard),
     'blocked summon must give the player the last recorded coordinates and abort')
 assert.match(handoffBranch.slice(mismatchGuard, ownerChange), /operator investigation required\."\)\);\s*return;/,
     'entity-owner mismatch must refuse every request, not just transfers')
-assert.match(handoffBranch, /Decision\.SAVE_LOADED_COMPANION[\s\S]*?retainForDismiss\(/,
+assert.match(handoffBranch, /Decision\.SAVE_LOADED_COMPANION[\s\S]*?retainForDismiss\(companion, data, previousOwner\)/,
     'verified old cargo must be saved under its original owner')
-const elseBranch = summon.slice(summon.indexOf('        } else {', first), summon.indexOf('\n        try {\n            CombatProfileBridge.synchronize', first))
-assert.match(elseBranch, /if \(changingLessee\) data\.restoreFallenInventory\(owner\.getUUID\(\), companion\)/,
-    'new lessee must receive only their own stored cargo after the transfer')
-console.log('COMPANION_LIFECYCLE_GUARDS_PASS: same-owner unloaded protection, owner integrity, inventory isolation, summon admission and chunk safety')
+assert.match(summon, /if \(newlyCreated \|\| changingLessee\) data\.restoreFallenInventory\(owner\.getUUID\(\), companion\)/,
+    'only newly admitted or successfully transferred companions restore the requester cargo')
+console.log('COMPANION_LIFECYCLE_GUARDS_PASS: transient spawn admission, cross-world handoff order, owner integrity and inventory isolation')

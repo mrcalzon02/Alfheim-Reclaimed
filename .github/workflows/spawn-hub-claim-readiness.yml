@@ -19,6 +19,11 @@ on:
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlan.java'
       - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java'
       - 'tools/test_companion_landing_safety.cjs'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionAdmissionGate.java'
+      - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/memory/CompanionAdmissionGateSelfTest.java'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/CompanionEvents.java'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionSavedData.java'
+      - 'tools/test_companion_admission_guards.cjs'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java'
@@ -66,6 +71,11 @@ jobs:
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlan.java
             first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java
             tools/test_companion_landing_safety.cjs
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionAdmissionGate.java
+            first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/memory/CompanionAdmissionGateSelfTest.java
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/CompanionEvents.java
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionSavedData.java
+            tools/test_companion_admission_guards.cjs
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java
@@ -95,6 +105,8 @@ jobs:
           node tools/test_companion_lifecycle_guards.cjs
           node --check tools/test_companion_landing_safety.cjs
           node tools/test_companion_landing_safety.cjs
+          node --check tools/test_companion_admission_guards.cjs
+          node tools/test_companion_admission_guards.cjs
       - name: Python full-envelope command and read-back negative controls
         run: python3 tools/check_spawn_hub_claim.py --self-test
       - name: Java 17 for dependency-free wheel selection tests
@@ -113,7 +125,9 @@ jobs:
             'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRules.java' \
             'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionHandoffRulesSelfTest.java' \
             'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlan.java' \
-            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java'
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/service/CompanionLandingPlanSelfTest.java' \
+            'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionAdmissionGate.java' \
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/memory/CompanionAdmissionGateSelfTest.java'
           java -cp "$RUNNER_TEMP/alfheim-source-tests" \
             com.continuityworks.alfheimcompanion.client.WheelSelectionSelfTest
           java -cp "$RUNNER_TEMP/alfheim-source-tests" \
@@ -122,10 +136,12 @@ jobs:
             com.continuityworks.alfheimcompanion.service.CompanionHandoffRulesSelfTest
           java -cp "$RUNNER_TEMP/alfheim-source-tests" \
             com.continuityworks.alfheimcompanion.service.CompanionLandingPlanSelfTest
+          java -cp "$RUNNER_TEMP/alfheim-source-tests" \
+            com.continuityworks.alfheimcompanion.memory.CompanionAdmissionGateSelfTest
       - name: Compile actual inventory-retention service against Java 17 test doubles
         run: python3 tools/test_companion_dismiss_inventory.py
       - name: Checkout companion Gradle sources and compile-only integrations (manual opt-in)
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_companion }}
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.build_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-build]')) }}
         uses: actions/checkout@v4
         with:
           persist-credentials: false
@@ -142,14 +158,14 @@ jobs:
             server/mods/Mine_and_Slash-1.20.1-6.4.7.jar
             server/mods/Library_of_Exile-1.20.1-2.1.11.jar
       - name: Build and test first-party companion with ForgeGradle (manual opt-in)
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_companion }}
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.build_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-build]')) }}
         working-directory: forge-candidate/first_party_mods/alfheim_companion
         run: |
           chmod +x ./gradlew
           ./gradlew --no-daemon --stacktrace clean test build -Pinstance_mods_dir=../../server/mods
           sha256sum build/libs/alfheim_companion-*.jar
       - name: Retain only first-party candidate JAR (manual opt-in)
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_companion && success() }}
+        if: ${{ ((github.event_name == 'workflow_dispatch' && inputs.build_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[forge-build]'))) && success() }}
         uses: actions/upload-artifact@v4
         with:
           name: alfheim-companion-candidate-${{ github.sha }}

@@ -53,6 +53,8 @@ public final class CompanionSavedData extends SavedData {
     private final LinkedHashMap<String, String> facts = new LinkedHashMap<>();
     private final LinkedHashMap<UUID, PlayerCompanionBinding> playerBindings = new LinkedHashMap<>();
     private final LinkedHashMap<UUID, FallenInventory> fallenInventories = new LinkedHashMap<>();
+    // Transient admission: never written to the save; valid only inside addFreshEntity.
+    private final CompanionAdmissionGate admissionGate = new CompanionAdmissionGate();
     private final LinkedHashMap<String, ObservedChunk> observedChunks = new LinkedHashMap<>();
     private final LinkedHashMap<String, DelegatedClaim> delegatedClaims = new LinkedHashMap<>();
 
@@ -63,6 +65,19 @@ public final class CompanionSavedData extends SavedData {
 
     public Optional<UUID> companionUuid() { return Optional.ofNullable(companionUuid); }
     public Optional<UUID> ownerUuid() { return Optional.ofNullable(ownerUuid); }
+
+    /** Allow a proposed first-party entity to reach the synchronous Forge join event. */
+    public boolean beginCompanionAdmission(UUID entity, UUID owner) {
+        return admissionGate.begin(entity, owner);
+    }
+
+    public boolean allowsCompanionJoin(UUID entity, UUID owner) {
+        return admissionGate.allows(entity, owner, companionUuid, ownerUuid);
+    }
+
+    public void endCompanionAdmission(UUID entity, UUID owner) {
+        admissionGate.end(entity, owner);
+    }
     public String companionName() { return companionName.isBlank() ? "Companion" : companionName; }
     public String dimensionId() { return dimensionId; }
     public BlockPos lastPosition() { return lastPosition; }

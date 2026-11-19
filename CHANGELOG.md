@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-19 — Commit companion identities only after successful Forge entity insertion
+
+- Added a transient UUID/owner reservation for first-party companion admission,
+  decoupling the entity-join guard from premature SavedData writes.
+- Failed new summons can no longer save an unaccepted companion UUID or release
+  another player's lease; successful admission commits identity and restores gear.
+- Deferred owner and task handoff until verified summon or cross-world transfer,
+  leaving old owner identity intact if a dimension change fails.
+- Added Java 17 admission gate tests and source-order regressions to the existing
+  single CI job. A one-off marked push requests the full ForgeGradle candidate
+  build without changing the routine lightweight CI policy.
+- No installed mod JARs or releases altered; client/server/multiplayer acceptance
+  remains distinct from a successful build.
+
 ## 2026-11-19 — Refuse replacement of unloaded, still-active companions
 
 - Use the existing singleton handoff policy for both same-owner recalls and

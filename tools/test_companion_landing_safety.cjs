@@ -18,12 +18,13 @@ assert.match(loadedFail, /return;/)
 
 const fresh = summon.slice(summon.indexOf('if (companion == null) {'), summon.indexOf('        } else {', summon.indexOf('if (companion == null) {')))
 const find = fresh.indexOf('Vec3 destination = findSafeSummonPosition(owner, companion)')
-const initialBind = fresh.indexOf('data.bind(companion.getUUID(), owner.getUUID()')
+const reservation = fresh.indexOf('data.beginCompanionAdmission(candidateId, owner.getUUID())')
 const admission = fresh.indexOf('addFreshEntity(companion)')
-assert.ok(find >= 0 && find < initialBind && initialBind < admission,
-    'new summon must find a valid position before saving a new companion identity')
-assert.match(fresh.slice(find, initialBind), /if \(destination == null\)[\s\S]*?data\.releaseLease\(\);[\s\S]*?return;/,
-    'no valid new spawn must fail without creating or binding an entity')
+const savedIdentity = summon.indexOf('data.bind(companion.getUUID(), owner.getUUID()')
+assert.ok(find >= 0 && reservation > find && admission > reservation && savedIdentity > admission,
+    'new summon must establish safe landing and entity admission before saved identity')
+assert.match(fresh.slice(find, reservation), /if \(destination == null\)[\s\S]*?return;/,
+    'unsafe new spawn must fail without any lease or saved UUID change')
 
 const method = summon.slice(summon.indexOf('private static Vec3 findSafeSummonPosition('))
 assert.match(method, /CompanionLandingPlan\.candidates\(\)/, 'use tested exhaustive candidate planner')
