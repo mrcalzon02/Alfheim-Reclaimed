@@ -1,5 +1,25 @@
 # Execution State
 
+## Complete server-mirror safety regression repair — 2026-11-19
+
+The new `run_server.py` source-inventory preflight correctly rejects the
+partial two-JAR root mirror before touching the populated 84-JAR server
+folder, but GitHub Actions run `44635754647` initially FAILED in the
+existing isolated claim-readiness self-test: that AST fixture did not
+provide the new `mirror_source_check` dependency and raised NameError.
+The separately added mirror fixture also contained a dangling comma in
+an `assert`, preventing its first execution. These are CI/test wiring
+defects, not Forge runtime failures.
+
+The test now exercises both actual `run()` return paths: partial mod source
+rejected without any new manifest or world mutation, and a valid source
+preflight followed by missing Forge bootstrap leaving an incomplete
+`started` marker. The dedicated mirror test invokes the real
+`mirror_source_check` and `mirror_instance` source functions using
+synthetic directories and verifies stored JAR preservation, required mod
+checks and operation ordering. No deployment, game assets, third-party
+JARs, tracked worlds, or recipe contents changed.
+
 ## Full-modpack world and Greatbole runtime proof — 2026-11-19
 
 The full 84-JAR Forge server smoke on GitHub Actions `44634440976` PASSED.

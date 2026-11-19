@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Repair mirror-safety test isolation
+
+- Fixed the legacy claim-readiness self-test to inject the newly required
+  mirror preflight into its isolated production `run()` AST fixture.
+- Verify two distinct failure paths: incomplete source leaves the server
+  filesystem untouched; missing Forge bootstrap after a valid source
+  check retains an incomplete marker.
+- Fixed an invalid Python assertion in the new mirror-safety regression
+  before it could be executed by CI.
+- No mod or gameplay source changed; GitHub workflow must pass before
+  this safety iteration is marked verified.
+
 ## 2026-11-19 — Verify Greatbole on live full pack and protect server mirror
 
 - Full Forge runtime on seed `alfheim`: all seven Greatbole and court

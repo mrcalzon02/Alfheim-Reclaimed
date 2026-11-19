@@ -28,7 +28,8 @@ def main():
                     assignments[target.id] = ast.literal_eval(node.value)
     assert assignments["MIRROR_MIN_MOD_JARS"] >= 70
     run_body = ast.get_source_segment(code, funcs["run"])
-    assert run_body.index("mirror_source_check()") < run_body.index("os.makedirs(SERVER"),
+    assert run_body.index("mirror_source_check()") < run_body.index("os.makedirs(SERVER"), (
+        "run() must reject an incomplete source before creating any server file")
     mirror_body = ast.get_source_segment(code, funcs["mirror_instance"])
     assert mirror_body.index("mirror_source_check()") < mirror_body.index("shutil.rmtree(dst)")
     ns = {"os": os, "glob": glob, "shutil": shutil, "SERVER": "server",

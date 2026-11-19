@@ -328,7 +328,12 @@ def self_test():
     runner_fn = next(node for node in runner_tree.body
                      if isinstance(node, ast.FunctionDef) and node.name == 'run')
     with tempfile.TemporaryDirectory() as directory:
-        namespace = {'os': os, 'json': json, 'time': time, 'SERVER': directory}
+        # run() is the real production AST. Only the complete-mod-inventory
+        # dependency is replaced here so that no Forge/structure imports are
+        # required in CI's sparse checkout. The ACTUAL inventory checker is
+        # separately exercised by test_run_server_mirror_safety.py.
+        namespace = {'os': os, 'json': json, 'time': time, 'SERVER': directory,
+                     'mirror_source_check': lambda: (False, 'partial source fixture')}
         # Preserve actual module-level Forge identity while isolating this
         # preflight path from imports unavailable in the sparse source job.
         for name in ('MC', 'FORGE'):
@@ -337,8 +342,24 @@ def self_test():
                          any(isinstance(target, ast.Name) and target.id == name
                              for target in node.targets))
             namespace[name] = ast.literal_eval(value)
-        exec(compile(ast.Module(body=[runner_fn], type_ignores=[]), runner_path, 'exec'),
+        exec(compile(ast.fix_missing_locations(
+            ast.Module(body=[runner_fn], type_ignores=[])), runner_path, 'exec'),
              namespace)
+
+        # New safety contract: incomplete root mods must NOT create a manifest
+        # or touch a server world before returning an actionable failure code.
+        code = namespace['run'](1, 'test-world', 4, [], 1)
+        markers = glob.glob(os.path.join(directory, 'manifest-*.json'))
+        if code == 2 and not markers:
+            print('  OK    incomplete mod source rejected before server manifests')
+        else:
+            print('  FAIL  incomplete mod source modified server manifest')
+            bad += 1
+
+        # Historical contract: a *completed* source preflight followed by a
+        # missing Forge runtime must still leave an incomplete 'started'
+        # evidence marker. This cannot be borrowed as a successful prior run.
+        namespace['mirror_source_check'] = lambda: (True, 'complete source fixture')
         code = namespace['run'](1, 'test-world', 4, [], 1)
         markers = glob.glob(os.path.join(directory, 'manifest-*.json'))
         state = {}
@@ -346,9 +367,9 @@ def self_test():
             with open(markers[0], encoding='utf-8') as source:
                 state = json.load(source)
         if code == 2 and state.get('status') == 'started' and state.get('console'):
-            print('  OK    harness failed-preflight marker stays incomplete')
+            print('  OK    post-preflight missing Forge runtime stays incomplete')
         else:
-            print('  FAIL  harness failed-preflight marker not recorded')
+            print('  FAIL  missing Forge runtime preflight marker not recorded')
             bad += 1
     print(f'RESULT: {bad} self-test failure(s)')
     return 1 if bad else 0
