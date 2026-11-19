@@ -34,6 +34,15 @@ HUB_STAGE_SCORES = (
     "base_result", "trunk_result", "crown_result", "court_result",
     "west_result", "east_result", "north_result",
 )
+# A saved entity can become queryable several ticks after the dimension loads.
+# Preserve strict acceptance, but do not mistake one immediate lookup for loss.
+RESTART_MARKER_GRACE_SECONDS = 60
+ANCHOR_PROBE = (
+    "execute in mythicbotany:alfheim if entity "
+    "@e[type=minecraft:marker,tag=alfheim_hub_baked,"
+    "tag=!alfheim_hub_buried,limit=1] "
+    "run say ALFHEIM_BAKED_ANCHOR_PRESENT"
+)
 MIN_FULLPACK_JARS = 70
 FULLPACK_REQUIRED_PREFIXES = (
     "Botania-", "MythicBotany-", "ars_nouveau-", "Mine_and_Slash-",
@@ -86,6 +95,9 @@ def self_test():
                    "hub_baked_marker_present": True,
                    "hub_assembled_this_boot": False}
     assert hub_snapshot_accepted(hub_fixture, restarted=True)
+    assert 0 < RESTART_MARKER_GRACE_SECONDS <= 120
+    assert "tag=alfheim_hub_baked" in ANCHOR_PROBE
+    assert "ALFHEIM_BAKED_ANCHOR_PRESENT" in ANCHOR_PROBE
     assert not hub_snapshot_accepted({**hub_fixture, "hub_assembled_this_boot": True},
                                      restarted=True)
     assert not hub_snapshot_accepted({**hub_fixture, "hub_baked_marker_present": False})
@@ -168,7 +180,8 @@ def stop_process(process):
 
 
 def boot(stage, output, heap_gib, timeout, require_alfheim=False,
-         hub_observe_seconds=0, log_name="server-console.log"):
+         hub_observe_seconds=0, log_name="server-console.log",
+         marker_grace_seconds=0):
     log = output / log_name
     command = ["java", "-Xms512M", f"-Xmx{heap_gib}G", "-Djava.awt.headless=true",
                f"@{ARGFILE.as_posix()}", "nogui"]
@@ -219,11 +232,7 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
                             "@e[type=minecraft:marker,tag=alfheim_origin_probe]")
                         # These are read-only diagnostics, not a synthetic force-success.
                         checks.append("function alfheim:hub/status")
-                        checks.append(
-                            "execute in mythicbotany:alfheim if entity "
-                            "@e[type=minecraft:marker,tag=alfheim_hub_baked,"
-                            "tag=!alfheim_hub_buried,limit=1] "
-                            "run say ALFHEIM_BAKED_ANCHOR_PRESENT")
+                        checks.append(ANCHOR_PROBE)
                         for stage_name in ("place_result", "base_result", "trunk_result",
                                            "crown_result", "court_result", "west_result",
                                            "east_result", "north_result", "attempts",
@@ -271,6 +280,31 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
                                 process.stdin.write(command_line + "\n")
                                 process.stdin.flush()
                             time.sleep(3)
+                    if (require_alfheim and marker_grace_seconds > 0
+                            and process.poll() is None):
+                        # The origin may be loaded before its saved marker is
+                        # admitted to the entity selector after world restart.
+                        # Query the REAL saved marker repeatedly; never summon,
+                        # fabricate or modify it to force a test success.
+                        started_grace = time.monotonic()
+                        attempts = 0
+                        while (time.monotonic() - started_grace < marker_grace_seconds
+                               and process.poll() is None):
+                            if "ALFHEIM_BAKED_ANCHOR_PRESENT" in read_log(log):
+                                break
+                            process.stdin.write(ANCHOR_PROBE + "\n")
+                            process.stdin.flush()
+                            attempts += 1
+                            time.sleep(3)
+                        report["anchor_probe_attempts"] = attempts
+                        report["anchor_probe_wait_seconds"] = round(
+                            time.monotonic() - started_grace, 1)
+                        report["anchor_recovered_during_grace"] = (
+                            "ALFHEIM_BAKED_ANCHOR_PRESENT" in read_log(log))
+                        if not report["anchor_recovered_during_grace"]:
+                            report["error"] = (
+                                "Saved Greatbole baked marker was not selectable "
+                                "within bounded restart grace period")
                     if process.poll() is None:
                         process.stdin.write("stop\n")
                         process.stdin.flush()
@@ -429,7 +463,8 @@ def smoke_test(args):
                 # runtime. A fresh log prevents borrowing the first boot's success.
                 restart = boot(stage, output, args.heap_gib, args.timeout,
                                require_alfheim=True, hub_observe_seconds=0,
-                               log_name="server-console-restart.log")
+                               log_name="server-console-restart.log",
+                               marker_grace_seconds=RESTART_MARKER_GRACE_SECONDS)
                 report["restart"] = restart
                 report["world_level_dat_sha256_after_restart"] = (
                     sha256(level_file) if level_file.is_file() else None)

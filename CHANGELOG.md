@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-19 — Bounded saved-entity readiness probing after Forge restart
+
+- The second saved-world test confirmed origin chunks now load on
+  reboot, but the baked anchor was not immediately selectable.
+- Retained strict restart gate while adding up to 60 seconds of
+  read-only retry queries for the existing marker, with explicit
+  attempt/latency evidence and no synthetic entity creation.
+- Re-runs isolated 84-JAR Forge save/restart validation without
+  modifying installed JARs or player worlds.
+
 ## 2026-11-19 — Recover unloaded Greatbole anchor on saved-world restart
 
 - The two-boot test showed hub completion scores persisted, but its

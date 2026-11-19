@@ -26,3 +26,19 @@ clean-shutdown checks. Neither a source test nor the successful
 first boot substitutes for that evidence. Graphical client,
 two-player gameplay and actual player inventory persistence
 remain separate release gates.
+
+## Second restart result and follow-up
+
+The second run, [GitHub Actions 44638990830](https://github.com/mrcalzon02/Alfheim-Reclaimed/actions/runs/44638990830),
+also **FAILED** strict loaded-marker acceptance (artifact
+`14586200557`). The second boot again retained `#place_result=1`,
+`#created=1`, `#final=1`, `#attempts=1` and 7/7 template
+results, with no duplicate construction and clean Forge exit.
+Unlike the initial test, the origin was now **loaded**, so the
+absolute forceload change solved part of the problem. A saved
+marker still was not selectable immediately after startup.
+
+The next strictly bounded check waits for normal entity admission
+after chunk loading, issuing only repeated queries of the existing
+baked tag for up to 60 seconds. No marker is manufactured or world
+data edited to obtain a passing result. A failure remains a failure.

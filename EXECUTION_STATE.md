@@ -1,5 +1,27 @@
 # Execution State
 
+## Deferred marker loading distinguished from lost hub save — 2026-11-19
+
+A second full-pack two-boot test `44638990830` confirmed that the
+absolute origin forceload fixed the original **unloaded position** warning.
+The second Forge boot reached readiness, retained all seven assembly
+stage scores and `#final=1`, `#created=1`, `#attempts=1` and
+`level.dat`, and saved/exited 0 without duplicate generation.
+However, the baked `minecraft:marker` entity was not selectable
+during the immediate post-ready command sequence. The restart
+acceptance therefore remained **FAILED**; diagnostic artifact
+`14586200557` preserves both logs.
+
+The smoke harness now repeats only a **read-only selector query**
+for `tag=alfheim_hub_baked` for at most 60 seconds on the second
+boot. It never summons or alters a marker to make the test pass.
+It records attempts and elapsed time and continues to fail if
+the saved marker remains unavailable. All first-boot and
+scoreboard/idempotency checks are retained. The fix is being
+retested with the same 84-JAR full-pack and SHA-256-pinned
+companion candidate, while the actual release and player saves
+remain untouched.
+
 ## Restart recovery: saved Greatbole anchor needs absolute chunk loading — 2026-11-19
 
 The full-pack two-boot CI run `44637365193` failed its **anchor-loading**
