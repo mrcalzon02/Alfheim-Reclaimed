@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Require full-modpack hub persistence across a real restart
+
+- Extend the isolated 84-JAR Forge server smoke into a two-boot acceptance
+  test using the *same* temporary saved world, configs and candidate JAR.
+- Verify actual baked Greatbole anchor and all seven stage scores before
+  shutdown, persistent world level data, and stable hub completion/attempt
+  scores after a second boot without another structure assembly.
+- Retain separate first-boot/restart logs and JSON evidence; reject failures
+  without changing installed JARs, actual worlds or third-party mods.
+- CI triggers one marked run; full client and multiplayer validation remain
+  independent gates.
+
 ## 2026-11-19 — Repair mirror-safety test isolation
 
 - Fixed the legacy claim-readiness self-test to inject the newly required

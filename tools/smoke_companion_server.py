@@ -30,6 +30,10 @@ ARGFILE = Path("libraries/net/minecraftforge/forge/1.20.1-47.4.10/unix_args.txt"
 JAR_NAME = "alfheim_companion-0.2.0.jar"
 READY = re.compile(r'Done \([0-9.]+s\)! For help, type "help"')
 MAX_LOG_BYTES = 2_000_000
+HUB_STAGE_SCORES = (
+    "base_result", "trunk_result", "crown_result", "court_result",
+    "west_result", "east_result", "north_result",
+)
 MIN_FULLPACK_JARS = 70
 FULLPACK_REQUIRED_PREFIXES = (
     "Botania-", "MythicBotany-", "ars_nouveau-", "Mine_and_Slash-",
@@ -71,6 +75,20 @@ def self_test():
     assert not requested_replies_seen("Companion profiles: X\nCompanion outfits: Y", True)
     assert requested_replies_seen(
         "Companion profiles: X\nCompanion outfits: Y\nALFHEIM_DIMENSION_OK", True)
+    fixture = "\n".join(
+        f"#{key} has 1 [alfheim.hub]"
+        for key in ("place_result", "created", "final", *HUB_STAGE_SCORES))
+    assert latest_hub_score(fixture, "final") == 1
+    assert latest_hub_score(fixture + "\n#final has 2 [alfheim.hub]", "final") == 2
+    assert latest_hub_score(fixture, "attempts") is None
+    hub_fixture = {"hub_scores": {key: 1 for key in
+                   ("place_result", "created", "final", *HUB_STAGE_SCORES)},
+                   "hub_baked_marker_present": True,
+                   "hub_assembled_this_boot": False}
+    assert hub_snapshot_accepted(hub_fixture, restarted=True)
+    assert not hub_snapshot_accepted({**hub_fixture, "hub_assembled_this_boot": True},
+                                     restarted=True)
+    assert not hub_snapshot_accepted({**hub_fixture, "hub_baked_marker_present": False})
     with tempfile.TemporaryDirectory(prefix="alfheim-fullpack-preflight-") as missing:
         try:
             validate_full_pack(Path(missing))
@@ -119,6 +137,25 @@ def requested_replies_seen(messages, require_alfheim):
     return command_outputs_seen(messages) and (not require_alfheim or alfheim_dimension_seen(messages))
 
 
+def latest_hub_score(messages, name):
+    # The live dedicated server prints: #final has 1 [alfheim.hub]
+    values = re.findall(
+        rf"(?m)^.*#{re.escape(name)} has (-?\d+) \[alfheim\.hub\]\s*$", messages)
+    return int(values[-1]) if values else None
+
+
+def hub_snapshot_accepted(report, restarted=False):
+    if not all(report.get("hub_scores", {}).get(name) == 1
+               for name in ("place_result", "created", "final", *HUB_STAGE_SCORES)):
+        return False
+    if not report.get("hub_baked_marker_present"):
+        return False
+    if restarted and report.get("hub_assembled_this_boot"):
+        # A previously completed structure must not be generated again on load.
+        return False
+    return True
+
+
 def stop_process(process):
     if process is None or process.poll() is not None:
         return
@@ -131,8 +168,8 @@ def stop_process(process):
 
 
 def boot(stage, output, heap_gib, timeout, require_alfheim=False,
-         hub_observe_seconds=0):
-    log = output / "server-console.log"
+         hub_observe_seconds=0, log_name="server-console.log"):
+    log = output / log_name
     command = ["java", "-Xms512M", f"-Xmx{heap_gib}G", "-Djava.awt.headless=true",
                f"@{ARGFILE.as_posix()}", "nogui"]
     report = {"command": command, "ready": False, "clean_exit": False,
@@ -182,6 +219,11 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
                             "@e[type=minecraft:marker,tag=alfheim_origin_probe]")
                         # These are read-only diagnostics, not a synthetic force-success.
                         checks.append("function alfheim:hub/status")
+                        checks.append(
+                            "execute in mythicbotany:alfheim if entity "
+                            "@e[type=minecraft:marker,tag=alfheim_hub_baked,"
+                            "tag=!alfheim_hub_buried,limit=1] "
+                            "run say ALFHEIM_BAKED_ANCHOR_PRESENT")
                         for stage_name in ("place_result", "base_result", "trunk_result",
                                            "crown_result", "court_result", "west_result",
                                            "east_result", "north_result", "attempts",
@@ -261,6 +303,12 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
         report["alfheim_dimension_command_ok"] = alfheim_dimension_seen(final)
         report["hub_status_probed"] = "[Alfheim] --- world hub status ---" in final
         report["hub_created_diagnostic"] = "[Alfheim] hub: created" in final
+        report["hub_baked_marker_present"] = "ALFHEIM_BAKED_ANCHOR_PRESENT" in final
+        report["hub_assembled_this_boot"] = (
+            "deterministic Greatbole and royal complex assembly succeeded" in final)
+        report["hub_scores"] = {name: latest_hub_score(final, name)
+                                for name in ("place_result", "created", "final", "attempts",
+                                             *HUB_STAGE_SCORES)}
         report["hub_initial_assembly_failed"] = "deterministic Greatbole template assembly failed" in final
         report["hub_anchored"] = "world hub anchored to the Greatbole" in final
         report["ground_height_predicate_ok"] = "ALFHEIM_GROUND_HEIGHT_OK" in final
@@ -296,6 +344,7 @@ def smoke_test(args):
         "timeout_seconds": args.timeout,
         "seed": args.seed,
         "hub_observe_requested_seconds": args.hub_observe_seconds,
+        "verify_restart": args.verify_restart,
         "success": False
     }
     try:
@@ -365,13 +414,48 @@ def smoke_test(args):
                           hub_observe_seconds=args.hub_observe_seconds)
             report.update(result)
             report["success"] = result["ready"] and result["clean_exit"]
+            if args.verify_restart:
+                report["first_hub_accepted"] = hub_snapshot_accepted(result)
+                if not report["success"] or not report["first_hub_accepted"]:
+                    raise ValueError("First boot did not prove completed Greatbole and clean save")
+                world = stage / "ci-alfheim-companion-smoke"
+                level_file = world / "level.dat"
+                if not level_file.is_file():
+                    raise ValueError("First server did not persist level.dat before restart")
+                report["world_level_dat_sha256_before_restart"] = sha256(level_file)
+                if sha256(mods / JAR_NAME) != actual:
+                    raise ValueError("Staged companion JAR changed during first boot")
+                # Reuse EXACTLY the same temporary world, mods, settings and Java 17
+                # runtime. A fresh log prevents borrowing the first boot's success.
+                restart = boot(stage, output, args.heap_gib, args.timeout,
+                               require_alfheim=True, hub_observe_seconds=0,
+                               log_name="server-console-restart.log")
+                report["restart"] = restart
+                report["world_level_dat_sha256_after_restart"] = (
+                    sha256(level_file) if level_file.is_file() else None)
+                report["restart_hub_accepted"] = hub_snapshot_accepted(
+                    restart, restarted=True)
+                same_attempts = (
+                    result["hub_scores"].get("attempts") ==
+                    restart["hub_scores"].get("attempts") and
+                    result["hub_scores"].get("attempts") is not None)
+                report["hub_attempts_unchanged_after_restart"] = same_attempts
+                report["success"] = (restart["ready"] and restart["clean_exit"]
+                                     and report["restart_hub_accepted"] and same_attempts
+                                     and bool(report["world_level_dat_sha256_after_restart"])
+                                     and sha256(mods / JAR_NAME) == actual)
+                if not report["success"]:
+                    report["error"] = ("Saved-world restart failed: companion commands, "
+                                       "Greatbole marker/scores, idempotency or clean stop")
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
     finally:
         (output / "smoke-report.json").write_text(
             json.dumps(report, indent=2) + "\n", encoding="utf-8")
     if report["success"]:
-        if args.profile == "full":
+        if args.verify_restart:
+            print("COMPANION_FULLPACK_RESTART_PASS: pinned JAR, new-world creation, saved-world reload, seven Greatbole pieces, same anchor and clean stop")
+        elif args.profile == "full":
             print("COMPANION_FULLPACK_SMOKE_PASS: pinned JAR, full pack startup, Alfheim dimension, companion commands and clean stop")
         else:
             print("COMPANION_SERVER_SMOKE_PASS: exact SHA-256, minimal Forge ready, companion profile/outfit commands and clean stop")
@@ -386,6 +470,8 @@ def main():
     parser.add_argument("--profile", choices=("minimal", "full"), default="minimal")
     parser.add_argument("--seed", default="alfheim")
     parser.add_argument("--hub-observe-seconds", type=int, default=0)
+    parser.add_argument("--verify-restart", action="store_true",
+                        help="boot the same saved full-pack world twice and reject repeated hub creation")
     parser.add_argument("--pack-root", default="fullpack-source")
     parser.add_argument("--server-root", default="smoke-source/server")
     parser.add_argument("--candidate", default=f"smoke-candidate/{JAR_NAME}")
@@ -402,6 +488,8 @@ def main():
         parser.error("heap_gib must be 1..6 and timeout must be 30..900 seconds")
     if not (0 <= args.hub_observe_seconds <= 240):
         parser.error("hub-observe-seconds must be 0..240")
+    if args.verify_restart and args.profile != "full":
+        parser.error("--verify-restart requires --profile full")
     return smoke_test(args)
 
 

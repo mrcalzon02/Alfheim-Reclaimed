@@ -251,12 +251,12 @@ jobs:
             config/
             defaultconfigs/
             kubejs/
-      - name: Verify full-modpack Forge boot with candidate, commands and Alfheim dimension
+      - name: Verify full-modpack Forge boot and Greatbole persistence after restart
         if: ${{ (github.event_name == 'workflow_dispatch' && inputs.full_pack_companion) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[full-pack-smoke]')) }}
-        timeout-minutes: 25
+        timeout-minutes: 35
         run: |
           python3 tools/smoke_companion_server.py \
-            --profile full --pack-root fullpack-source --seed alfheim --hub-observe-seconds 120 \
+            --profile full --pack-root fullpack-source --seed alfheim --hub-observe-seconds 120 --verify-restart \
             --server-root smoke-source/server \
             --candidate smoke-candidate/alfheim_companion-0.2.0.jar \
             --expected-sha256 f88b8bbd746631cdbf9fb23575d335cfbe97259dde913d5840d55656cf7eb246 \

@@ -1,5 +1,32 @@
 # Execution State
 
+## Full-modpack saved-world restart and Greatbole idempotency gate — 2026-11-19
+
+GitHub run `44634440976` established full 84-JAR Forge startup and clean
+shutdown with the exact companion candidate from `f1a43100`. At seed
+`alfheim`, all seven authored Greatbole/court template stages passed and
+the hub anchored. The next unverified capability is persistence through
+a complete world save/restart, not another static template inspection.
+
+The isolated CI harness now supports `--verify-restart`: it boots a fresh
+world, requires all seven template result scores and both completion flags to
+equal 1 and verifies the actual baked marker in Alfheim. It checks that
+`level.dat` was persisted and that the companion JAR hash is unchanged.
+Then it **restarts the same temporary world** with the same 84 JARs and
+current pack data, capturing a completely separate console log. On the
+second boot the same flags, template scores and baked marker must persist,
+companion commands and Alfheim must still work, assembly must NOT run a
+second time, the attempt counter must remain unchanged, and the server
+must save and stop cleanly. A failure in either run blocks this isolated
+acceptance; logs/JSON are retained without uploading world files.
+
+This patch requests one bounded full-pack CI restart via
+`[full-pack-smoke]`, leaving regular pushes on source-only checks.
+An actual successful restart is NOT asserted until the runner completes.
+No installed client/server binary or player save is touched. Even a pass
+would not establish graphical controls, two-player lease transfer or
+actual player inventory persistence.
+
 ## Complete server-mirror safety regression repair — 2026-11-19
 
 The new `run_server.py` source-inventory preflight correctly rejects the
