@@ -36,23 +36,36 @@ PlayerEvents.loggedIn(event => {
     const player = event.player
     const data = player.persistentData
 
+    // Keep the original v2 completion key: players already issued a kit must not get duplicates.
     if (data.getBoolean(KIT_FLAG)) return
-    data.putBoolean(KIT_FLAG, true)
 
-    // Entries are either 'id' or ['id', count]. Stacks are built here rather than at script
-    // load so the item registry is certainly populated.
+    // Claim each successfully handed-off entry individually. A missing registration or failed
+    // grant must not mark the WHOLE kit complete, or duplicate earlier gifts on the next login.
+    // Changing a kit entry's ID/quantity intentionally requires a new kit version.
     let granted = 0
+    let pending = 0
     STARTING_KIT.forEach(entry => {
         const id = Array.isArray(entry) ? entry[0] : entry
         const count = Array.isArray(entry) ? entry[1] : 1
-        const stack = Item.of(id, count)
-        if (stack.isEmpty()) {
-            console.warn(`[Alfheim Reclaimed] starting kit: unknown item '${id}' — skipped`)
-            return
+        const partFlag = KIT_FLAG + '_' + id.replace(/[^a-z0-9_]/g, '_')
+        if (data.getBoolean(partFlag)) return
+
+        try {
+            const stack = Item.of(id, count)
+            if (stack.isEmpty()) {
+                console.warn(`[Alfheim Reclaimed] starting kit: unknown item '${id}' — will retry on login`)
+                pending++
+                return
+            }
+            player.give(stack)
+            data.putBoolean(partFlag, true)
+            granted++
+        } catch (error) {
+            console.warn(`[Alfheim Reclaimed] starting kit: could not give '${id}' to ${player.username}; will retry on login: ${error}`)
+            pending++
         }
-        player.give(stack)
-        granted++
     })
 
-    console.info(`[Alfheim Reclaimed] starting kit issued to ${player.username} (${granted} item(s))`)
+    if (pending === 0) data.putBoolean(KIT_FLAG, true)
+    console.info(`[Alfheim Reclaimed] starting kit for ${player.username}: ${granted} entry(s) granted, ${pending} pending`)
 })

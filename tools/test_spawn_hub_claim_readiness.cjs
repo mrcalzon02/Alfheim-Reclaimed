@@ -21,6 +21,7 @@ assert.equal(shipping, rendered, 'shipping KubeJS script must match generator te
 
 const first = Math.floor(value('HUB_MIN_X') / 16) + ',' + Math.floor(value('HUB_MIN_Z') / 16)
 function scenario(mode) {
+    let nowMs = 100000
     const messages = { info: [], warn: [], error: [] }
     const logs = Object.fromEntries(Object.keys(messages).map(kind =>
         [kind, line => messages[kind].push(String(line))]))
@@ -107,6 +108,7 @@ function scenario(mode) {
     const context = {
         global: state,
         console: logs,
+        Date: { now: () => nowMs },
         Java: { loadClass: name => {
             assert.ok(Object.hasOwn(classes, name), 'unexpected Java class ' + name)
             return classes[name]
@@ -132,7 +134,8 @@ function scenario(mode) {
         assert.ok(retries++ < 6, 'bounded retries exceeded')
         queue.shift()({})
     }
-    return { state, messages, attempts, unclaims, playerDataCalls, claims, guards }
+    return { state, messages, attempts, unclaims, playerDataCalls, claims, guards,
+             advanceTime(ms) { nowMs += ms } }
 }
 
 const happy = scenario('healthy')
@@ -154,6 +157,7 @@ function probe(kind, x, z, options = {}) {
     const event = {
         level: { dimension }, x, z, block: { x, z },
         player: options.noPlayer ? null : {
+            username: options.username || 'visitor',
             op: !!options.op,
             tell(message) { messages.push(String(message)) }
         },
@@ -173,7 +177,7 @@ const minZ = value('HUB_MIN_Z')
 const maxZ = value('HUB_MAX_Z')
 for (const kind of ['break', 'place']) {
     for (const [x, z] of [[minX, minZ], [maxX, maxZ], [0, 0]]) {
-        const denied = probe(kind, x, z)
+        const denied = probe(kind, x, z, { username: 'boundary_' + kind + '_' + x + '_' + z })
         assert.equal(denied.cancels, 1, kind + ' must reject non-op edit at ' + x + ',' + z)
         assert.match(denied.messages.join(' '), /Royal Elven Guard/)
         assert.equal(probe(kind, x, z, { op: true }).cancels, 0,
@@ -192,6 +196,25 @@ for (const [x, z] of [[minX, minZ], [maxX, maxZ]]) {
     assert.equal(probe('explosion', x, z).cancels, 1, 'in-hub explosion must be blocked')
     assert.equal(probe('spawn', x, z).cancels, 1, 'in-hub hostile spawn must be blocked')
 }
+// Repeated breaking/placing must still be cancelled, without flooding the player chat.
+const chatFirst = probe('break', 0, 0, { username: 'cooldown_player' })
+assert.equal(chatFirst.cancels, 1)
+assert.equal(chatFirst.messages.length, 1)
+assert.match(chatFirst.messages[0], /Build outside its grounds/)
+for (const kind of ['break', 'place']) {
+    const repeat = probe(kind, 0, 0, { username: 'cooldown_player' })
+    assert.equal(repeat.cancels, 1)
+    assert.equal(repeat.messages.length, 0, 'notices share a per-player cooldown across actions')
+}
+const differentPlayer = probe('break', 0, 0, { username: 'another_player' })
+assert.equal(differentPlayer.messages.length, 1, 'other players receive their own guidance')
+happy.advanceTime(9999)
+assert.equal(probe('place', 0, 0, { username: 'cooldown_player' }).messages.length, 0)
+happy.advanceTime(1)
+assert.equal(probe('place', 0, 0, { username: 'cooldown_player' }).messages.length, 1)
+assert.equal(probe('break', 0, 0, { username: 'cooldown_player', op: true }).cancels, 0)
+console.log('SPAWN_HUB_NOTICE_COOLDOWN_PASS: per-player guidance throttled without relaxing protection')
+
 assert.equal(probe('explosion', maxX + 1, 0).cancels, 0)
 assert.equal(probe('spawn', minX - 1, 0).cancels, 0)
 assert.equal(probe('explosion', 0, 0, { dimension: 'minecraft:overworld' }).cancels, 0)

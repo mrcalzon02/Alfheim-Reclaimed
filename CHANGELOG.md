@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Starting supplies recovery and Royal Court chat usability
+
+- On first login, grant tracking now records each starting-kit entry only after the item
+  handoff returns normally; missing registrations or thrown grants remain eligible for
+  retry on the next login. Existing completed v2 kits are not replayed.
+- Unauthorized edits in the protected spawn court remain rejected, but Royal Guard
+  guidance is rate-limited per player (10 seconds) to avoid chat floods, and explains
+  where building is allowed. Public NPC interactions remain unchanged.
+- Added deterministic source-level KubeJS regression tests; Forge runtime, player
+  inventory persistence and multiplayer acceptance are not claimed.
+
 ## Castle spawn repair and staged terrain affordances — 2026-10-18
 
 Natural castle verified at (1312, Y78, -1840) on New World raven seed;

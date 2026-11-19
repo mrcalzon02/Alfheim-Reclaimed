@@ -1,5 +1,19 @@
 # Execution State
 
+## Starter-kit recovery and hub notification usability — 2026-11-19
+
+Implementation candidate: starting-kit entries are individually marked after a nonempty item
+has been handed to `player.give`; unknown registrations and thrown grants are retried on next
+login without replaying previously recorded entries. The legacy v2 whole-kit completion flag
+remains authoritative for existing players. The spawn claim guard still rejects every unauthorized
+edit, but sends its actionable notice at most once per player per 10 seconds.
+
+Source-level Node VM tests exercise missing items, thrown grants, quantity, repeated login,
+existing completion, protected boundaries, operator exception and per-player notice cooldown.
+These checks do not prove inventory persistence, Forge/KubeJS runtime loading, FTB claims,
+modpack startup or multiplayer acceptance. No JARs or recipes were changed; runtime status
+remains pending.
+
 ## Recipe pyramid proposal — 2026-11-14
 
 Draft reduction design generated from the static local recipe inventory: 11,273 included

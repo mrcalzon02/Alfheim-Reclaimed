@@ -15,6 +15,9 @@ const HUB_MIN_Z = __HUB_MIN_Z__
 const HUB_MAX_Z = __HUB_MAX_Z__
 const HUB_FTB_TEAM = 'alfheim_hub'
 const PROTECT_FROM_PLAYERS = true
+// Deny every prohibited edit, but do not flood chat while the player holds a mouse button.
+const HUB_NOTICE_COOLDOWN_MS = 10000
+const hubNoticeAt = Object.create(null)
 
 function inHub(level, x, z) {
     if (!level) return false
@@ -26,13 +29,23 @@ function inHub(level, x, z) {
     return x >= HUB_MIN_X && x <= HUB_MAX_X && z >= HUB_MIN_Z && z <= HUB_MAX_Z
 }
 
+function warnHubPlayer(player) {
+    // username is a stable key across event wrappers; do not store Java player objects.
+    const key = String(player.username)
+    const now = Date.now()
+    const last = hubNoticeAt[key]
+    if (last !== undefined && now >= last && now - last < HUB_NOTICE_COOLDOWN_MS) return
+    hubNoticeAt[key] = now
+    player.tell('The Royal Elven Guard protects this court. Build outside its grounds; you can still speak to court residents.')
+}
+
 function rejectHubEdit(event) {
     if (!inHub(event.level, event.block.x, event.block.z)) return
     const p = event.player
     if (!p) { event.cancel(); return }
     if (PROTECT_FROM_PLAYERS && !p.op) {
         event.cancel()
-        p.tell('The court is under the protection of the Royal Elven Guard.')
+        warnHubPlayer(p)
     }
 }
 
