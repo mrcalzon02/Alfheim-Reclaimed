@@ -340,10 +340,12 @@ FILES['autoload'] = header(
     f'scoreboard objectives add {OBJ} dummy',
     f'execute unless score #final {OBJ} matches 1 run function {NS}:hub/create',
     '',
-    '# Re-assert the force-load every load: forceload state is per-world and an operator may',
-    '# legitimately have cleared it.',
-    f'execute if score #final {OBJ} matches 1 in {HOME} at {SELECT_BAKED} run forceload add '
-    f'~-{PLACE_LOAD_X} ~-{PLACE_LOAD_NORTH} ~{PLACE_LOAD_X} ~{PLACE_LOAD_SOUTH}',
+    '# Re-assert the hub chunks BEFORE selecting the baked marker. On a server restart',
+    '# the marker may be saved but not yet loaded, so entity-relative forceload is a',
+    '# circular dependency: missing entity -> no force-load -> missing entity forever.',
+    '# The Greatbole origin is deterministic (X=0, Z=0), not a dynamic search.',
+    f'execute if score #final {OBJ} matches 1 in {HOME} run forceload add '
+    f'-{PLACE_LOAD_X} -{PLACE_LOAD_NORTH} {PLACE_LOAD_X} {PLACE_LOAD_SOUTH}',
     f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '
     f'run scoreboard players set #foundation_attempts {OBJ} 0',
     f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '

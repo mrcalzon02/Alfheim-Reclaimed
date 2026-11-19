@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Recover unloaded Greatbole anchor on saved-world restart
+
+- The two-boot test showed hub completion scores persisted, but its
+  baked anchor did not load after restart.
+- Corrected the authoritative world-hub generator and emitted autoload
+  function: use a bounded absolute origin forceload, not a selector
+  targeting an as-yet-unloaded marker.
+- Added generator-to-shipping regression and one-time full-pack
+  save/restart retest, without modifying any deployed binary or world.
+- A passing source check is not a passing live restart until CI proves it.
+
 ## 2026-11-19 — Require full-modpack hub persistence across a real restart
 
 - Extend the isolated 84-JAR Forge server smoke into a two-boot acceptance

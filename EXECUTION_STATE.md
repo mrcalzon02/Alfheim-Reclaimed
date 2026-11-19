@@ -1,5 +1,27 @@
 # Execution State
 
+## Restart recovery: saved Greatbole anchor needs absolute chunk loading — 2026-11-19
+
+The full-pack two-boot CI run `44637365193` failed its **anchor-loading**
+gate, despite both Forge boots completing with exit code 0. All seven
+template scores, `#created=1`, `#final=1`, `#attempts=1` and
+`level.dat` survived restart, with no duplicate construction. The second
+boot reported `That position is not loaded` and `no anchor entity`.
+Evidence artifact: `14584384677`.
+
+Cause: the generated `hub/autoload.mcfunction` required selecting
+`@e[tag=alfheim_hub_baked]` before it could reassert forceload.
+Because the anchor's chunk was unloaded on restart, that command could
+never discover the anchor to load it. The generated function now
+restores the deterministic origin envelope `-80 -128 80 32` in
+`mythicbotany:alfheim` directly when `#final=1`, before any
+entity-dependent recovery. The authoritative generator and shipping
+function were edited together and a Python parity/ordering test added.
+
+This commit requests the same isolated two-boot full-modpack test.
+**Runtime recovery is pending that result.** No installed JAR, actual
+player world or third-party asset is changed.
+
 ## Full-modpack saved-world restart and Greatbole idempotency gate — 2026-11-19
 
 GitHub run `44634440976` established full 84-JAR Forge startup and clean

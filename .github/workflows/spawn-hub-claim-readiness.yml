@@ -27,6 +27,8 @@ on:
       - 'tools/smoke_companion_server.py'
       - 'tools/gen_world_hub.py'
       - 'tools/test_world_hub_height_contract.py'
+      - 'tools/test_world_hub_restart_forceload.py'
+      - 'kubejs/data/alfheim/functions/hub/autoload.mcfunction'
       - 'kubejs/data/alfheim/predicates/hub/ground_height.json'
       - 'kubejs/data/alfheim/functions/hub/place.mcfunction'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java'
@@ -96,6 +98,8 @@ jobs:
             tools/smoke_companion_server.py
             tools/gen_world_hub.py
             tools/test_world_hub_height_contract.py
+            tools/test_world_hub_restart_forceload.py
+            kubejs/data/alfheim/functions/hub/autoload.mcfunction
             kubejs/data/alfheim/predicates/hub/ground_height.json
             kubejs/data/alfheim/functions/hub/place.mcfunction
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java
@@ -135,6 +139,7 @@ jobs:
           python3 tools/check_spawn_hub_claim.py --self-test
           python3 tools/smoke_companion_server.py --self-test
           python3 tools/test_world_hub_height_contract.py
+          python3 tools/test_world_hub_restart_forceload.py
           python3 tools/test_run_server_mirror_safety.py
       - name: Java 17 for dependency-free wheel selection tests
         uses: actions/setup-java@v4
