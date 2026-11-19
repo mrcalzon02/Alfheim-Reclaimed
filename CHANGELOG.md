@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-19 — Companion command-wheel accidental-order prevention
+
+- Recompute the selected companion order from the exact mouse-release position,
+  preventing stale hover state from submitting a different command.
+- Closing from the centre dead zone or outside the visible wheel sends no command;
+  onscreen guidance explains how to release or cancel.
+- Wheel sectors scale with the number of available actions instead of assuming eight.
+- Added a standalone Java 17 geometry regression and included it in the existing
+  single-job sparse source CI. This change is not yet in a rebuilt Forge JAR.
+
 ## 2026-11-19 — Repair returning-player Alfheim arrivals and expand source CI
 
 - Returning players marked previously delivered to Alfheim are now checked against

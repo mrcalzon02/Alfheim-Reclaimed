@@ -1,5 +1,22 @@
 # Execution State
 
+## Companion command-wheel input safety — 2026-11-19
+
+Source candidate: command selection is now determined from the mouse RELEASE position,
+rather than the stale previous-render hover. Releasing within the 28 px centre dead zone
+or beyond the 130 px selection radius closes without sending a command. Sectors are
+derived from the actual action count instead of a hard-coded eight. A concise instruction
+line appears in the wheel. No network packet, lease, permission, or command execution
+semantics were changed.
+
+The pure Java `WheelSelection` class and independent `WheelSelectionSelfTest` compile
+with `javac --release 17` and pass directional, six/eight sector, dead-zone, outer-bound,
+invalid-input and changed-pointer cases. The single sparse GitHub Actions source job now
+runs this test on Java 17 alongside the existing login, starting-kit and claim checks.
+This does not build the Forge companion mod or deploy a replacement JAR.
+Current installed `alfheim_companion-0.2.0.jar` remains stale relative to source until
+a controlled Java 17 Forge build, artifact comparison, and client/server smoke test pass.
+
 ## Pre-gate returning-player login recovery — 2026-11-19
 
 Implementation candidate: players whose historical `alfheim_home_spawn_v2` flag is set

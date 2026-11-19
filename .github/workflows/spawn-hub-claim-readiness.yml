@@ -1,4 +1,4 @@
-name: Alfheim login and Greatbole source controls
+name: Alfheim player safety and companion wheel source controls
 
 on:
   push:
@@ -8,6 +8,9 @@ on:
       - 'tools/test_spawn_hub_claim_readiness.cjs'
       - 'tools/test_starting_kit_recovery.cjs'
       - 'tools/test_spawn_dimension_recovery.cjs'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java'
+      - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java'
+      - 'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java'
       - 'kubejs/server_scripts/01_starting_kit.js'
       - 'kubejs/server_scripts/02_spawn_dimension.js'
       - 'tools/templates/spawn_hub_protection.js'
@@ -34,6 +37,9 @@ jobs:
             tools/test_spawn_hub_claim_readiness.cjs
             tools/test_starting_kit_recovery.cjs
             tools/test_spawn_dimension_recovery.cjs
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java
+            first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java
+            first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java
             kubejs/server_scripts/01_starting_kit.js
             kubejs/server_scripts/02_spawn_dimension.js
             tools/templates/spawn_hub_protection.js
@@ -57,3 +63,16 @@ jobs:
           node tools/test_spawn_dimension_recovery.cjs
       - name: Python full-envelope command and read-back negative controls
         run: python3 tools/check_spawn_hub_claim.py --self-test
+      - name: Java 17 for dependency-free wheel selection tests
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile and verify wheel geometry (not the Forge mod)
+        run: |
+          mkdir -p "$RUNNER_TEMP/wheel-selection"
+          javac --release 17 -d "$RUNNER_TEMP/wheel-selection" \
+            'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java' \
+            'first_party_mods/alfheim_companion/src/test/java/com/continuityworks/alfheimcompanion/client/WheelSelectionSelfTest.java'
+          java -cp "$RUNNER_TEMP/wheel-selection" \
+            com.continuityworks.alfheimcompanion.client.WheelSelectionSelfTest
