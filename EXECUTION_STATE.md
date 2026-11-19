@@ -1,5 +1,26 @@
 # Execution State
 
+## Skip redundant saved hub claims on restart — 2026-11-19
+
+The 84-mod full-pack saved-world restart test `44640185308` passed. Its
+second-boot logs still showed roughly 100 `already_claimed` warnings:
+the FTB protection script repeated a claim operation against every
+chunk already owned by the `alfheim_hub` administrative team.
+
+The authoritative `tools/templates/spawn_hub_protection.js` and emitted
+`kubejs/server_scripts/04_spawn_hub.js` now treat an existing correct
+owner as a verified read-back without an extra claim request. Missing
+chunks are still claimed, and every written claim is re-read; foreign
+claims are never seized. READY still requires the entire 100-chunk
+envelope to be owned by the administrative team. The Node regression
+covers saved 100/100 (zero redundant claims), partial 1/100 (only 99
+new claims), fresh world, missing/foreign ownership, protected
+boundaries and per-player warning cooldowns.
+
+Source-level result only for this optimization; reloaded-world
+warnings should be rechecked in a later runtime smoke. No installed
+client/server JAR, saved world or release changed.
+
 ## Full 84-JAR Greatbole saved-world restart gate PASSED — 2026-11-19
 
 GitHub Actions run `44640185308` at `3d73de84` completed SUCCESSFULLY

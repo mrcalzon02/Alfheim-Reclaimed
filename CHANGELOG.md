@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Avoid redundant FTB spawn claims on world reload
+
+- Preserve all 100 existing hub claims by counting owner-verified chunks
+  directly, rather than issuing 100 repeated `claim` requests and warnings.
+- Still create truly missing claims and fail closed on foreign ownership;
+  final READY continues to require actual full-envelope verification.
+- Synchronize KubeJS shipping code with the template and extend source
+  tests for fresh, partially claimed and reloaded administrative ownership.
+- No installed mod binaries or worlds modified; runtime warning reduction
+  needs separate confirmation.
+
 ## 2026-11-19 — Greatbole saved-world recovery passes in complete modpack
 
 - Full 84-JAR Forge save/restart run `44640185308` succeeded: all seven

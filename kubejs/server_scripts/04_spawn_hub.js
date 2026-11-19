@@ -188,6 +188,10 @@ ServerEvents.loaded(event => {
                         console.error(`[Alfheim Reclaimed] hub claim conflict at ${chunkX},${chunkZ}: foreign owner retained`)
                         continue
                     }
+                    // A saved hub already owns this chunk. Re-claiming produces 100
+                    // already_claimed warnings on reboot; verify and leave it alone.
+                    verifiedClaims++
+                    continue
                 }
 
                 // ChunkTeamData#claim(source, pos, checkOnly): false performs the claim.

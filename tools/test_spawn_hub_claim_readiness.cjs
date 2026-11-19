@@ -42,6 +42,15 @@ function scenario(mode) {
     const player = team(playerId, false)
     const claims = new Map()
     if (mode === 'foreign') claims.set(first, foreign)
+    if (mode === 'already' || mode === 'partial') {
+        for (let x = Math.floor(value('HUB_MIN_X') / 16); x <= Math.floor(value('HUB_MAX_X') / 16); x++) {
+            for (let z = Math.floor(value('HUB_MIN_Z') / 16); z <= Math.floor(value('HUB_MAX_Z') / 16); z++) {
+                const key = x + ',' + z
+                if (mode === 'already' || key === first) claims.set(key, admin)
+            }
+        }
+    }
+    let claimInvocations = 0
     let unclaims = 0
     let playerDataCalls = 0
     let attempts = 0
@@ -59,6 +68,7 @@ function scenario(mode) {
             if (!t.isServerTeam()) playerDataCalls++
             return {
                 claim(_source, pos, checkOnly) {
+                    claimInvocations++
                     assert.equal(checkOnly, false)
                     if (mode === 'deny' && pos.key === first) {
                         return { isSuccess: () => false, getResultId: () => 'DENIED' }
@@ -135,6 +145,7 @@ function scenario(mode) {
         queue.shift()({})
     }
     return { state, messages, attempts, unclaims, playerDataCalls, claims, guards,
+             get claimInvocations() { return claimInvocations },
              advanceTime(ms) { nowMs += ms } }
 }
 
@@ -143,6 +154,28 @@ assert.equal(happy.state.alfheimHubClaimReady, true, 'only complete admin claims
 assert.equal(happy.attempts, 1)
 assert.match(happy.messages.info.join('\n'), /FTB ownership verified/)
 assert.equal(happy.unclaims, 0)
+const expectedClaims = (Math.floor(value('HUB_MAX_X') / 16) -
+                        Math.floor(value('HUB_MIN_X') / 16) + 1) *
+                       (Math.floor(value('HUB_MAX_Z') / 16) -
+                        Math.floor(value('HUB_MIN_Z') / 16) + 1)
+assert.equal(happy.claimInvocations, expectedClaims,
+    'fresh world must claim every missing hub chunk')
+const existing = scenario('already')
+assert.equal(existing.state.alfheimHubClaimReady, true,
+    'saved 100/100 administrative claims remain READY')
+assert.equal(existing.claimInvocations, 0,
+    'restart must not re-claim any already-owned chunks')
+assert.equal(existing.claims.size, expectedClaims)
+assert.equal(existing.messages.warn.filter(s => /already_claimed/.test(s)).length, 0)
+assert.equal(existing.unclaims, 0)
+const partial = scenario('partial')
+assert.equal(partial.state.alfheimHubClaimReady, true,
+    'partial recovery must reach READY')
+assert.equal(partial.claimInvocations, expectedClaims - 1,
+    'only missing claims should be mutated')
+assert.equal(partial.claims.size, expectedClaims)
+assert.equal(partial.unclaims, 0)
+console.log('SPAWN_HUB_IDEMPOTENT_CLAIMS_PASS: saved 100/100, fresh 0/100, partial 1/100')
 
 // Exercise the actual registered KubeJS protection handlers, not a reimplemented predicate.
 // Inclusive rectangle boundaries, other dimensions and operator exemptions matter as much
