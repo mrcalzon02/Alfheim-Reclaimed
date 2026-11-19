@@ -1,5 +1,22 @@
 # Execution State
 
+## Prevent duplicate companions when active entities are unloaded — 2026-11-19
+
+The singleton presence guard now applies to both the current lessee and a new lessee:
+if saved state says the companion is still active but no matching loaded entity can
+be found, summon is rejected *before* changing a lease, inventory, active task or
+saved entity identity. The player receives the last recorded dimension and position
+to load or investigate. A loaded entity with a UUID owner that disagrees with the
+saved owner is also refused, even for same-owner recall. Explicitly dismissed
+companions can still be re-summoned.
+
+The preexisting pure Java 17 CompanionHandoffRulesSelfTest now exercises these cases
+for both owners; the Node source-level guard verifies universal ordering ahead of
+any inventory handoff. The established sparse GitHub Actions source job runs these
+without changing the manual-only ForgeGradle opt-in or deployed JARs. Static/isolated
+test acceptance is distinct from a full Java 17 Forge build and live multiplayer
+recovery test.
+
 ## Companion landing and unloaded-dismiss safeguards — 2026-11-19
 
 Source candidate: new summons and loaded recalls search an exhaustive, bounded

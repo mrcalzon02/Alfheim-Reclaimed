@@ -51,26 +51,32 @@ public final class CompanionSummonService {
         }
         boolean changingLessee = data.ownerUuid().isPresent()
                 && !data.ownerUuid().get().equals(owner.getUUID());
+        UUID previousOwner = data.ownerUuid().orElse(null);
+        boolean ownerMatches = loadedCompanion != null && previousOwner != null
+                && previousOwner.equals(loadedCompanion.ownerUuid());
+        CompanionHandoffRules.Decision decision = CompanionHandoffRules.evaluate(
+                changingLessee, loadedCompanion != null,
+                data.mode() == com.continuityworks.alfheimcompanion.memory.CompanionMode.DISMISSED,
+                ownerMatches);
+        // These two protections apply to ALL players, including the current owner.
+        // Otherwise an unloaded active entity can be replaced while still carrying items.
+        if (decision == CompanionHandoffRules.Decision.BLOCK_UNLOADED_ACTIVE) {
+            BlockPos lastKnown = data.lastPosition();
+            owner.sendSystemMessage(Component.literal(
+                    "Your companion is still active but not loaded. Last recorded: "
+                    + data.dimensionId() + " at " + lastKnown.getX() + ", "
+                    + lastKnown.getY() + ", " + lastKnown.getZ()
+                    + ". Load that area or ask an operator to investigate. No replacement was created."));
+            return;
+        }
+        if (decision == CompanionHandoffRules.Decision.BLOCK_OWNER_MISMATCH) {
+            owner.sendSystemMessage(Component.literal(
+                    "Companion owner mismatch between saved lease and loaded entity. "
+                    + "Recall refused to protect inventory; operator investigation required."));
+            return;
+        }
         if (changingLessee) {
             ElvenCompanionEntity previous = loadedCompanion;
-            UUID previousOwner = data.ownerUuid().orElse(null);
-            boolean ownerMatches = previous != null && previousOwner != null
-                    && previousOwner.equals(previous.ownerUuid());
-            CompanionHandoffRules.Decision decision = CompanionHandoffRules.evaluate(
-                    true, previous != null,
-                    data.mode() == com.continuityworks.alfheimcompanion.memory.CompanionMode.DISMISSED,
-                    ownerMatches);
-            if (decision == CompanionHandoffRules.Decision.BLOCK_UNLOADED_ACTIVE) {
-                owner.sendSystemMessage(Component.literal(
-                        "Companion handoff blocked: the active companion is in unloaded chunks. "
-                        + "Load its last location or have the previous player dismiss it first."));
-                return;
-            }
-            if (decision == CompanionHandoffRules.Decision.BLOCK_OWNER_MISMATCH) {
-                owner.sendSystemMessage(Component.literal(
-                        "Companion handoff blocked: the entity's owner does not match its saved lease."));
-                return;
-            }
             if (decision == CompanionHandoffRules.Decision.SAVE_LOADED_COMPANION
                     && !CompanionDeathInventoryService.retainForDismiss(previous, data, previousOwner)) {
                 owner.sendSystemMessage(Component.literal(

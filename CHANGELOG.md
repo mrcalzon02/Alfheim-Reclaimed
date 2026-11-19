@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Refuse replacement of unloaded, still-active companions
+
+- Use the existing singleton handoff policy for both same-owner recalls and
+  multiplayer lease transfers. Neither can create a replacement if an active
+  companion is still recorded but missing from loaded chunks.
+- Show the last known companion dimension and coordinates when recovery is
+  required, rather than silently orphaning potentially valuable carried items.
+- Reject owner mismatches on loaded companions for all requesters, protecting
+  inventory from a corrupted save/entity pairing.
+- Expand Java 17 policy and source-order regressions. The source change is not
+  a deployed Forge binary; runtime and multiplayer validation are pending.
+
 ## 2026-11-19 — Fail-safe companion arrivals and unloaded dismissal
 
 - Replace randomized companion landing with 240 bounded, duplicate-free candidates

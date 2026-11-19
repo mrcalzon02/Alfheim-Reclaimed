@@ -50,13 +50,21 @@ const activeName = summon.indexOf('data.activatePlayerBinding(owner.getUUID(), n
 assert.ok(aliveCheck >= 0 && handoff > aliveCheck && previousStash > handoff && activeName > previousStash,
     'dead players must be rejected and previous cargo retained before switching owner context')
 const handoffBranch = summon.slice(handoff, activeName)
-assert.match(handoffBranch, /Decision\.BLOCK_UNLOADED_ACTIVE/,
-    'unloaded active companions must be protected from unverified transfer')
-assert.match(handoffBranch, /Decision\.BLOCK_OWNER_MISMATCH/,
-    'cross-owner cargo must not leak on an identity mismatch')
+const presenceDecision = handoffBranch.indexOf('CompanionHandoffRules.evaluate(')
+const missingActiveGuard = handoffBranch.indexOf('if (decision == CompanionHandoffRules.Decision.BLOCK_UNLOADED_ACTIVE)')
+const mismatchGuard = handoffBranch.indexOf('if (decision == CompanionHandoffRules.Decision.BLOCK_OWNER_MISMATCH)')
+const ownerChange = handoffBranch.indexOf('if (changingLessee) {')
+assert.ok(presenceDecision >= 0 && missingActiveGuard > presenceDecision
+    && mismatchGuard > missingActiveGuard && ownerChange > mismatchGuard,
+    'both presence guards must execute for same-owner and cross-owner requests before handoff')
+assert.match(handoffBranch.slice(missingActiveGuard, mismatchGuard),
+    /lastKnown\.getX\(\)[\s\S]*?lastKnown\.getY\(\)[\s\S]*?lastKnown\.getZ\(\)[\s\S]*?return;/,
+    'blocked summon must give the player the last recorded coordinates and abort')
+assert.match(handoffBranch.slice(mismatchGuard, ownerChange), /operator investigation required\."\)\);\s*return;/,
+    'entity-owner mismatch must refuse every request, not just transfers')
 assert.match(handoffBranch, /Decision\.SAVE_LOADED_COMPANION[\s\S]*?retainForDismiss\(/,
     'verified old cargo must be saved under its original owner')
 const elseBranch = summon.slice(summon.indexOf('        } else {', first), summon.indexOf('\n        try {\n            CombatProfileBridge.synchronize', first))
 assert.match(elseBranch, /if \(changingLessee\) data\.restoreFallenInventory\(owner\.getUUID\(\), companion\)/,
     'new lessee must receive only their own stored cargo after the transfer')
-console.log('COMPANION_LIFECYCLE_GUARDS_PASS: inventory retention, owner-isolated handoff, summon admission and chunk safety')
+console.log('COMPANION_LIFECYCLE_GUARDS_PASS: same-owner unloaded protection, owner integrity, inventory isolation, summon admission and chunk safety')

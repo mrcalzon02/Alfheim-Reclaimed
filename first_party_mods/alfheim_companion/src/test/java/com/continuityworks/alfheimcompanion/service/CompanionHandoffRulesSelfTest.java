@@ -16,14 +16,20 @@ public final class CompanionHandoffRulesSelfTest {
     }
 
     public static void main(String[] args) {
+        // Both current-owner and cross-player attempts must protect missing active entities.
         assertDecision(Decision.SAME_OWNER, false, true, false, true);
-        assertDecision(Decision.SAME_OWNER, false, false, false, false);
+        assertDecision(Decision.SAME_OWNER, false, true, true, true);
+        assertDecision(Decision.BLOCK_UNLOADED_ACTIVE, false, false, false, false);
+        assertDecision(Decision.BLOCK_UNLOADED_ACTIVE, false, false, false, true);
+        assertDecision(Decision.SAME_OWNER, false, false, true, false);
+        assertDecision(Decision.BLOCK_OWNER_MISMATCH, false, true, false, false);
+        assertDecision(Decision.BLOCK_OWNER_MISMATCH, false, true, true, false);
         assertDecision(Decision.SAVE_LOADED_COMPANION, true, true, false, true);
         assertDecision(Decision.SAVE_LOADED_COMPANION, true, true, true, true);
         assertDecision(Decision.BLOCK_OWNER_MISMATCH, true, true, false, false);
         assertDecision(Decision.BLOCK_OWNER_MISMATCH, true, true, true, false);
         assertDecision(Decision.BLOCK_UNLOADED_ACTIVE, true, false, false, false);
         assertDecision(Decision.TRANSFER_DISMISSED, true, false, true, false);
-        System.out.println("COMPANION_HANDOFF_RULES_PASS: same owner, loaded-owner match/mismatch, unloaded active block, dismissed handoff");
+        System.out.println("COMPANION_HANDOFF_RULES_PASS: both owners, unloaded-active refusal, entity-owner mismatch, safe dismissed replacement");
     }
 }
