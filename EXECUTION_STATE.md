@@ -1,5 +1,26 @@
 # Execution State
 
+## FTB hub claim reload idempotency confirmed in live 84-mod Forge — 2026-11-19
+
+GitHub Actions full-pack run `44651235333` **PASSED** at source commit
+`f7bb120a`, with diagnostic artifact `14590494230`.
+Actual saved-world logs show the KubeJS `already_claimed` warnings fell
+from **100 before the optimization to 0 after**, while both boots
+continued to verify the same 100/100 FTB chunks with zero foreign
+ownership conflicts. All seven Greatbole stages, saved marker,
+unchanged attempts, two clean exits, and both companion commands
+remained accepted. The pinned first-party JAR SHA-256 was unchanged.
+
+Tick-lag diagnostics: the new first boot logged a peak **35,824ms**
+behind, restart **2,094ms** behind. These are not evidence of a
+controlled performance gain; the old test reported 54,058ms/3,677ms
+on different runs. The large *first-world generation stall* remains
+a specific nonblocking profiling target. Prioritize finding synchronous
+chunk generation/placement work rather than reducing simulation ticks.
+
+Benchmark: `benchmarks/2026-11-19-ftb-claim-reload-optimization.md`.
+Client, multiplayer and player inventory persistence still pending.
+
 ## FTB reload warning reduction — runtime comparison gate — 2026-11-19
 
 Prior full-pack saved-world test `44640185308` confirmed 100/100 protected

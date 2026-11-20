@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Live full-pack verification: 100 warnings eliminated
+
+- Full 84-mod Forge dedicated-server test `44651235333` passed both
+  fresh and saved-world boots with 100/100 FTB spawn claims, zero
+  foreign claims, and **zero** redundant `already_claimed` warnings.
+- Before/after baseline: 100 warnings on the previous saved-world
+  restart, zero after the idempotent KubeJS update.
+- Greatbole seven-part completion, baked anchor, second-boot no-duplication,
+  clean exits and candidate JAR hash passed unchanged.
+- Kept tick-lag measurements as diagnostics; no unverified FPS/TPS
+  improvement is claimed and no player/client/multiplayer test took place.
+
 ## 2026-11-19 — Verify FTB claim idempotency on a real saved-world reload
 
 - Instrumented full-modpack two-boot CI to require 100/100 administrative
