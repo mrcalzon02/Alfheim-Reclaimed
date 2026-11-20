@@ -1,5 +1,42 @@
 # Execution State
 
+## Verified Minecraft 1.20.1 forced-chunk persistence repair — 2026-11-19
+
+**84-JAR full Forge dedicated-server save/restart ACCEPTED.** Run
+[44664283182](https://github.com/mrcalzon02/Alfheim-Reclaimed/actions/runs/44664283182)
+at source commit `d6ef24ae`, diagnostic artifact `14597526763`
+(7-day retention). The independent operator ticket at block (192,192)
+was first proven absent (0), added (1), and proven preserved after
+re-invoking the real `alfheim:hub/anchor` (1). On the same-world restart
+the ticket still reported **1**; the negative control (192,224) stayed
+**0**. The saved `dimensions/mythicbotany/alfheim/data/chunks.dat`
+was present before and after restart (332 bytes, SHA-256
+`28b33e8c53e75f3fb2e0ffcb0551da168731e574abee00fa270c63accabac40e`).
+
+Prior full-pack run `44662546115` at `96399f5` reproduced a
+real ticket-loss regression: the very same add/re-anchor sequence read
+0→1→1, but the ticket disappeared after restart (0). Minecraft issue
+[MC-143952](https://mojira.dev/MC-143952), affecting Java 1.20.1,
+explains the cause: a redundant/failed `/forceload add` can clear
+`chunks.dat`'s dirty bit, dropping unrelated changes at save.
+`d6ef24ae` guards repeated anchor and fallback adds and probes
+saved hub corners/origin before autoload reassertion. The repaired
+runtime passes the gate without changing any installed mod binary.
+
+Both boots: **7/7 Greatbole parts**, baked anchor recovered, attempts
+unchanged, no duplicate placement, **100/100** administrative FTB claims,
+zero foreign ownership conflicts and **zero** redundant claim warnings,
+companion console commands, clean JVM exit and dimension save.
+First/restart durations: 176.8s/102.7s. Maximum tick-lag warnings:
+37,201ms/2,499ms; diagnostics only, not comparable performance proof.
+
+**Acceptance boundaries:** dedicated server and saved-world forced-ticket
+persistence passed. Graphical client, joined-player provisional delivery,
+multiplayer and player inventory persistence remain untested. Autoload
+examines five representative chunks, not every interior chunk, and the
+prior known overlapping-foreign-ticket limitation during failed placement
+still applies. No player worlds, third-party JARs or releases modified.
+
 ## Hub provisional arrival scope — source correction, 2026-11-19
 
 The Greatbole's final player collection previously selected every online

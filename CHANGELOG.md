@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-11-19 — Full 84-mod persistence regression repaired and verified
+
+- Full Forge two-boot run `44664283182` passed on `d6ef24ae`: a
+  separately forced Alfheim chunk remained loaded after real hub
+  re-anchoring and a clean saved-world restart (0→1→1→1); nearby
+  negative control stayed 0. `chunks.dat` SHA-256 remained identical.
+- Preserved all seven Greatbole parts, unchanged placement attempts,
+  100/100 FTB administrative spawn claims, no foreign claim conflicts,
+  no duplicate assembly, zero redundant warning regressions and two
+  clean JVM saves/exits. Verified candidate binary checksum unchanged.
+- Earlier run `44662546115` reproduced ticket loss across restart
+  (0→1→1→0). Matched Minecraft 1.20.1 bug MC-143952, in which
+  repeating an already-forced `/forceload add` could clear the
+  save-data dirty flag. Guarded the anchor, autoload and fallback paths.
+- Explicit run and failure evidence recorded in
+  `benchmarks/2026-11-19-operator-ticket-coexistence.md`.
+  First-world tick-lag remains a separate profiling target.
+  Client, player and multiplayer acceptance still pending.
+
 ## 2026-11-19 — Do not recall provisional players across dimensions
 
 - Limited Greatbole's finishing-stage player teleport, respawn update,
