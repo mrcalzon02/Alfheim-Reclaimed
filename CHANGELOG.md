@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-19 — Verify FTB claim idempotency on a real saved-world reload
+
+- Instrumented full-modpack two-boot CI to require 100/100 administrative
+  spawn claims on both boots and reject any `already_claimed` warning
+  regression on restart (prior measured baseline: 100 warnings).
+- Added explicit claim-conflict counts and first/restart maximum server
+  tick-lag readings as nonblocking performance diagnostics.
+- Retained Greatbole state, marker, JAR hash, saved-world and clean-exit gates.
+  Full player/graphical/multiplayer acceptance remains separate.
+- No installed JARs, world saves, or external dependencies changed.
+
 ## 2026-11-19 — Avoid redundant FTB spawn claims on world reload
 
 - Preserve all 100 existing hub claims by counting owner-verified chunks

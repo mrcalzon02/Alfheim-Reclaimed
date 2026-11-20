@@ -1,5 +1,28 @@
 # Execution State
 
+## FTB reload warning reduction — runtime comparison gate — 2026-11-19
+
+Prior full-pack saved-world test `44640185308` confirmed 100/100 protected
+chunks both times but recorded **100** `already_claimed` warnings on
+restart, versus 0 on first boot. Source commit `cc1bee27` avoids
+redundant claims for already-owned chunks, with green source CI but
+not yet measured in full Forge runtime.
+
+The isolated two-boot harness now requires persisted FTB 100/100 owner
+verification on both boots and **zero redundant claim warnings on
+restart**, while keeping real Greatbole marker, seven-template,
+idempotent assembly and clean-shutdown checks. It records foreign
+claim conflicts, actual warning counts, and per-boot maximum
+Minecraft tick-lag milliseconds (the latter is diagnostic only).
+New fixture tests reject missing/partial ownership and warning
+regressions. Report:
+`benchmarks/2026-11-19-ftb-claim-reload-optimization.md`.
+
+This commit requests one `[full-pack-smoke]` run on the current
+KubeJS source, pinned companion JAR, and temporary 84-JAR server.
+Runtime success **not assumed** until CI and both logs confirm.
+No deployed binaries or player worlds changed.
+
 ## Skip redundant saved hub claims on restart — 2026-11-19
 
 The 84-mod full-pack saved-world restart test `44640185308` passed. Its

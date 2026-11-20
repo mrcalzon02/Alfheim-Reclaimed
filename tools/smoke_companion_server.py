@@ -30,6 +30,18 @@ ARGFILE = Path("libraries/net/minecraftforge/forge/1.20.1-47.4.10/unix_args.txt"
 JAR_NAME = "alfheim_companion-0.2.0.jar"
 READY = re.compile(r'Done \([0-9.]+s\)! For help, type "help"')
 MAX_LOG_BYTES = 2_000_000
+# The protected Royal Court is an inclusive 10x10 chunk rectangle.
+FTB_EXPECTED_SPAWN_CLAIMS = 100
+FTB_CLAIM_READY = re.compile(
+    r"\[Alfheim Reclaimed\] spawn hub FTB claim READY\b[^\n]*"
+    r"FTB ownership verified (\d+)/(\d+) chunks for alfheim_hub\."
+)
+FTB_ALREADY_CLAIMED = re.compile(
+    r"\[Alfheim Reclaimed\] spawn claim -?\d+,-?\d+ returned already_claimed\b"
+)
+TICK_LAG_REPORT = re.compile(
+    r"Can't keep up! Is the server overloaded\? Running (\d+)ms or (\d+) ticks behind"
+)
 HUB_STAGE_SCORES = (
     "base_result", "trunk_result", "crown_result", "court_result",
     "west_result", "east_result", "north_result",
@@ -101,6 +113,30 @@ def self_test():
     assert not hub_snapshot_accepted({**hub_fixture, "hub_assembled_this_boot": True},
                                      restarted=True)
     assert not hub_snapshot_accepted({**hub_fixture, "hub_baked_marker_present": False})
+    claim_ready_fixture = (
+        "[23:50:34] [Server thread/INFO] [KubeJS Server/]: 04_spawn_hub.js#210: "
+        "[Alfheim Reclaimed] spawn hub FTB claim READY (other protections require runtime checks): "
+        "no-hostile-spawns, no-explosions; FTB ownership verified 100/100 chunks for alfheim_hub.")
+    previous_warning = (
+        "[23:50:34] [Server thread/WARN] [KubeJS Server/]: 04_spawn_hub.js#196: "
+        "[Alfheim Reclaimed] spawn claim -5,-8 returned already_claimed")
+    pristine = full_pack_observations(claim_ready_fixture)
+    assert full_pack_claims_accepted(pristine, require_clean_reload=True)
+    noisy = full_pack_observations(claim_ready_fixture + "\n" + previous_warning)
+    assert noisy["ftb_redundant_claim_warnings"] == 1
+    assert not full_pack_claims_accepted(noisy, require_clean_reload=True)
+    assert full_pack_claims_accepted(noisy, require_clean_reload=False)
+    assert not full_pack_claims_accepted(
+        full_pack_observations(claim_ready_fixture.replace("100/100", "99/100")))
+    assert not full_pack_claims_accepted(
+        full_pack_observations(claim_ready_fixture.replace("100/100", "100/101")))
+    assert not full_pack_claims_accepted(full_pack_observations(""))
+    lag_example = full_pack_observations(
+        claim_ready_fixture + "\n"
+        "[23:48:04] [Server thread/WARN] [minecraft/MinecraftServer]: "
+        "Can't keep up! Is the server overloaded? Running 54058ms or 1081 ticks behind")
+    assert lag_example["server_tick_lag_max_ms"] == 54058
+    assert lag_example["server_tick_lag_events"] == 1
     with tempfile.TemporaryDirectory(prefix="alfheim-fullpack-preflight-") as missing:
         try:
             validate_full_pack(Path(missing))
@@ -125,6 +161,29 @@ def command_outputs_seen(messages):
 
 def alfheim_dimension_seen(messages):
     return "ALFHEIM_DIMENSION_OK" in messages
+
+
+def full_pack_observations(messages):
+    """Return real claim ownership and startup lag readings from one boot only."""
+    ready = FTB_CLAIM_READY.findall(messages)
+    owner_count, expected_count = (tuple(map(int, ready[-1])) if ready
+                                   else (None, None))
+    lag = [int(milliseconds) for milliseconds, _ in TICK_LAG_REPORT.findall(messages)]
+    return {
+        "ftb_claims_owned": owner_count,
+        "ftb_claims_expected": expected_count,
+        "ftb_redundant_claim_warnings": len(FTB_ALREADY_CLAIMED.findall(messages)),
+        "ftb_foreign_claim_conflicts": messages.count("[Alfheim Reclaimed] hub claim conflict at "),
+        "server_tick_lag_max_ms": max(lag, default=0),
+        "server_tick_lag_events": len(lag)
+    }
+
+
+def full_pack_claims_accepted(result, require_clean_reload=False):
+    return (result.get("ftb_claims_owned") == FTB_EXPECTED_SPAWN_CLAIMS
+            and result.get("ftb_claims_expected") == FTB_EXPECTED_SPAWN_CLAIMS
+            and result.get("ftb_foreign_claim_conflicts") == 0
+            and (not require_clean_reload or result.get("ftb_redundant_claim_warnings") == 0))
 
 
 def validate_full_pack(pack):
@@ -349,6 +408,7 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
         report["ground_height_predicate_rejected"] = "ALFHEIM_GROUND_HEIGHT_REJECTED" in final
         report["stop_acknowledged"] = ("Stopping the server" in final or "Stopping server" in final)
         report["all_dimensions_saved"] = "All dimensions are saved" in final
+        report.update(full_pack_observations(final))
         replies_ok = requested_replies_seen(final, require_alfheim)
         if report["ready"] and report["exit_code"] == 0 and not replies_ok:
             report["error"] = ("Forge booted, but companion commands or Alfheim "
@@ -447,7 +507,14 @@ def smoke_test(args):
                           require_alfheim=args.profile == "full",
                           hub_observe_seconds=args.hub_observe_seconds)
             report.update(result)
-            report["success"] = result["ready"] and result["clean_exit"]
+            report["first_ftb_claims_accepted"] = (
+                full_pack_claims_accepted(result) if args.profile == "full" else None)
+            report["success"] = (result["ready"] and result["clean_exit"]
+                                 and (args.profile != "full"
+                                      or report["first_ftb_claims_accepted"]))
+            if args.profile == "full" and not report["first_ftb_claims_accepted"]:
+                report["error"] = ("First boot did not verify all 100/100 "
+                                   "administrative spawn claims")
             if args.verify_restart:
                 report["first_hub_accepted"] = hub_snapshot_accepted(result)
                 if not report["success"] or not report["first_hub_accepted"]:
@@ -470,18 +537,23 @@ def smoke_test(args):
                     sha256(level_file) if level_file.is_file() else None)
                 report["restart_hub_accepted"] = hub_snapshot_accepted(
                     restart, restarted=True)
+                report["restart_ftb_claims_accepted"] = full_pack_claims_accepted(
+                    restart, require_clean_reload=True)
                 same_attempts = (
                     result["hub_scores"].get("attempts") ==
                     restart["hub_scores"].get("attempts") and
                     result["hub_scores"].get("attempts") is not None)
                 report["hub_attempts_unchanged_after_restart"] = same_attempts
                 report["success"] = (restart["ready"] and restart["clean_exit"]
-                                     and report["restart_hub_accepted"] and same_attempts
+                                     and report["restart_hub_accepted"]
+                                     and report["restart_ftb_claims_accepted"]
+                                     and same_attempts
                                      and bool(report["world_level_dat_sha256_after_restart"])
                                      and sha256(mods / JAR_NAME) == actual)
                 if not report["success"]:
-                    report["error"] = ("Saved-world restart failed: companion commands, "
-                                       "Greatbole marker/scores, idempotency or clean stop")
+                    report["error"] = (
+                        "Saved-world restart failed: Greatbole, companion, FTB 100/100 "
+                        "claim ownership, redundant already_claimed warnings, or clean stop")
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
     finally:
@@ -489,7 +561,7 @@ def smoke_test(args):
             json.dumps(report, indent=2) + "\n", encoding="utf-8")
     if report["success"]:
         if args.verify_restart:
-            print("COMPANION_FULLPACK_RESTART_PASS: pinned JAR, new-world creation, saved-world reload, seven Greatbole pieces, same anchor and clean stop")
+            print("COMPANION_FULLPACK_RESTART_PASS: pinned JAR, saved-world reload, seven Greatbole pieces, 100/100 claims, zero redundant claim warnings and clean stop")
         elif args.profile == "full":
             print("COMPANION_FULLPACK_SMOKE_PASS: pinned JAR, full pack startup, Alfheim dimension, companion commands and clean stop")
         else:
