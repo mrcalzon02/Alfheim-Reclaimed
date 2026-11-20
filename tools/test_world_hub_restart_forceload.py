@@ -15,12 +15,10 @@ def main():
     assert generated == shipped, "hub/autoload drifted from authoritative generator"
     assert mod["CANDIDATES"] == [(0, 0)], "hub is no longer at fixed origin"
     wanted = (f"execute if score #final {mod['OBJ']} matches 1 "
-              f"if score #hub_forceload_missing {mod['OBJ']} matches 1 "
-              f"in {mod['HOME']} run forceload add "
-              f"-{mod['PLACE_LOAD_X']} -{mod['PLACE_LOAD_NORTH']} "
-              f"{mod['PLACE_LOAD_X']} {mod['PLACE_LOAD_SOUTH']}")
+              f"if score #hub_forceload_probe {mod['OBJ']} matches 0 "
+              f"in {mod['HOME']} run forceload add 16 -16")
     commands = [s for s in shipped.splitlines() if s and not s.startswith("#")]
-    assert wanted in commands, "completed hub must force-load by absolute origin"
+    assert wanted in commands, "missing interior chunk must be repaired individually"
     assert not any("forceload add" in s and "at @e[" in s for s in commands), (
         "saved marker cannot be required to load its own chunks")
     assert shipped.index(wanted) < shipped.index(
@@ -67,8 +65,10 @@ def main():
                  f"store success score #hub_forceload_probe {mod['OBJ']} "
                  f"run forceload query {x} {z}")
         assert query in commands, "autoload missing saved-ticket probe"
-    assert any("hub_forceload_missing" in line and "scoreboard players set" in line
-               for line in commands), "autoload must condition re-add on missing tickets"
+    assert any("hub_forceload_missing" in line and "scoreboard players add" in line
+               for line in commands), "autoload must count only missing tickets"
+    assert not any("run forceload add -80 -128 80 32" in line for line in commands), (
+        "a mixed-footprint bulk re-add can lose chunks.dat changes at save")
 
     # A complete 121-chunk set is required; the old five corners and center
     # would miss a disabled interior ticket such as (16,-16).
@@ -85,9 +85,16 @@ def main():
         "autoload must query each hub chunk exactly once, including interiors")
     guard = (f"execute if score #final {mod['OBJ']} matches 1 "
              f"if score #hub_forceload_probe {mod['OBJ']} matches 0 "
-             f"run scoreboard players set #hub_forceload_missing {mod['OBJ']} 1")
+             f"run scoreboard players add #hub_forceload_missing {mod['OBJ']} 1")
     assert all(commands[i + 1] == guard for i, _ in slots), (
-        "each failed chunk query must flag guarded recovery")
+        "each missing chunk must increment the bounded missing-ticket count")
+    for i, query in slots:
+        x, z = map(int, query[len(prefix):].split())
+        add = (f"execute if score #final {mod['OBJ']} matches 1 "
+               f"if score #hub_forceload_probe {mod['OBJ']} matches 0 "
+               f"in {mod['HOME']} run forceload add {x} {z}")
+        assert commands[i + 2] == add, (
+            "only the queried missing chunk may be re-added; bulk writes are forbidden")
     interior = (16, -16)
     assert interior in expected
     forced_except_interior = expected - {interior}

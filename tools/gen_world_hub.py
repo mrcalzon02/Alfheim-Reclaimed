@@ -349,9 +349,10 @@ FILES['autoload'] = header(
     '# Re-assert the hub chunks BEFORE selecting the baked marker. On a server restart',
     '# the marker may be saved but not yet loaded, so entity-relative forceload is a',
     '# circular dependency: missing entity -> no force-load -> missing entity forever.',
-    '# Check every 16-block chunk within the 11x11 origin footprint,',
-    '# including interior holes. Re-add only if one is actually missing;',
-    '# redundant adds can clear chunks.dat dirty state in Minecraft 1.20.1.',
+    '# Check every 16-block chunk within the 11x11 origin footprint.',
+    '# Repair ONLY missing individual chunks, never a mixed already-loaded',
+    '# rectangle: a redundant part of a bulk add can prevent chunks.dat',
+    '# from persisting the repair on Minecraft 1.20.1 (MC-143952).',
     f'scoreboard players set #hub_forceload_missing {OBJ} 0',
     *[
         line for z in range(-PLACE_LOAD_NORTH, PLACE_LOAD_SOUTH + 1, 16)
@@ -361,11 +362,11 @@ FILES['autoload'] = header(
             f'#hub_forceload_probe {OBJ} run forceload query {x} {z}',
             f'execute if score #final {OBJ} matches 1 '
             f'if score #hub_forceload_probe {OBJ} matches 0 '
-            f'run scoreboard players set #hub_forceload_missing {OBJ} 1')
+            f'run scoreboard players add #hub_forceload_missing {OBJ} 1',
+            f'execute if score #final {OBJ} matches 1 '
+            f'if score #hub_forceload_probe {OBJ} matches 0 in {HOME} '
+            f'run forceload add {x} {z}')
     ],
-    f'execute if score #final {OBJ} matches 1 '
-    f'if score #hub_forceload_missing {OBJ} matches 1 in {HOME} run forceload add '
-    f'-{PLACE_LOAD_X} -{PLACE_LOAD_NORTH} {PLACE_LOAD_X} {PLACE_LOAD_SOUTH}',
     f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '
     f'run scoreboard players set #foundation_attempts {OBJ} 0',
     f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '
