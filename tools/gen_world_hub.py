@@ -264,9 +264,10 @@ FILES['anchor'] = header(
     '',
     f'execute in {HOME} at {SELECT_BAKED} run setworldspawn ~ ~1 ~',
     '',
-    '# Keep the deterministic origin footprint loaded without clearing unrelated',
-    '# force-loaded chunks belonging to operators or other mods.',
-    f'execute in {HOME} run forceload add '
+    '# Do not repeat a successful /forceload add. Minecraft 1.20.1 MC-143952',
+    '# resets chunks.dat dirty state when the latest add fails (already forced),',
+    '# losing independently added operator tickets at the next save.',
+    f'execute unless score #final {OBJ} matches 1 in {HOME} run forceload add '
     f'-{PLACE_LOAD_X} -{PLACE_LOAD_NORTH} {PLACE_LOAD_X} {PLACE_LOAD_SOUTH}',
     '',
     '',
@@ -302,7 +303,11 @@ FILES['fallback'] = header(
     'pretend they can.',
 ) + [
     f'execute in {HOME} run kill @e[type={MARKER},tag={TAG},tag=!{BAKED}]',
-    f'execute in {HOME} run forceload add -16 -16 16 16',
+    '# Do not issue a redundant /forceload add on repeated fallback delivery.',
+    f'execute in {HOME} store success score #fallback_force_probe {OBJ} '
+    'run forceload query -16 -16',
+    f'execute if score #fallback_force_probe {OBJ} matches 0 in {HOME} '
+    'run forceload add -16 -16 16 16',
     f'scoreboard players set #landing_result {OBJ} 0',
     f'execute in {HOME} positioned 0 0 0 positioned over motion_blocking_no_leaves '
     f'if predicate {NS}:hub/emergency_height run function {NS}:hub/platform',
@@ -344,8 +349,23 @@ FILES['autoload'] = header(
     '# Re-assert the hub chunks BEFORE selecting the baked marker. On a server restart',
     '# the marker may be saved but not yet loaded, so entity-relative forceload is a',
     '# circular dependency: missing entity -> no force-load -> missing entity forever.',
-    '# The Greatbole origin is deterministic (X=0, Z=0), not a dynamic search.',
-    f'execute if score #final {OBJ} matches 1 in {HOME} run forceload add '
+    '# The Greatbole origin is deterministic. Check representative saved tickets',
+    '# before re-adding; redundant adds clear chunks.dat dirty state in MC 1.20.1.',
+    f'scoreboard players set #hub_forceload_missing {OBJ} 0',
+    *[
+        line for x, z in ((-PLACE_LOAD_X, -PLACE_LOAD_NORTH),
+                          (PLACE_LOAD_X, -PLACE_LOAD_NORTH),
+                          (-PLACE_LOAD_X, PLACE_LOAD_SOUTH),
+                          (PLACE_LOAD_X, PLACE_LOAD_SOUTH), (0, 0))
+        for line in (
+            f'execute if score #final {OBJ} matches 1 in {HOME} store success score '
+            f'#hub_forceload_probe {OBJ} run forceload query {x} {z}',
+            f'execute if score #final {OBJ} matches 1 '
+            f'if score #hub_forceload_probe {OBJ} matches 0 '
+            f'run scoreboard players set #hub_forceload_missing {OBJ} 1')
+    ],
+    f'execute if score #final {OBJ} matches 1 '
+    f'if score #hub_forceload_missing {OBJ} matches 1 in {HOME} run forceload add '
     f'-{PLACE_LOAD_X} -{PLACE_LOAD_NORTH} {PLACE_LOAD_X} {PLACE_LOAD_SOUTH}',
     f'execute if score #final {OBJ} matches 1 unless score #foundation_v1 {OBJ} matches 1 '
     f'run scoreboard players set #foundation_attempts {OBJ} 0',

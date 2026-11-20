@@ -503,6 +503,13 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
     return report
 
 
+def forced_chunk_data_evidence(world):
+    """Metadata-only evidence for saved force-load tickets; never upload worlds."""
+    return [{"path": p.relative_to(world).as_posix(), "bytes": p.stat().st_size,
+             "sha256": sha256(p)}
+            for p in sorted(world.rglob("chunks.dat")) if p.is_file()][:16]
+
+
 def smoke_test(args):
     output = Path(args.output_dir).resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -613,6 +620,7 @@ def smoke_test(args):
                 if not level_file.is_file():
                     raise ValueError("First server did not persist level.dat before restart")
                 report["world_level_dat_sha256_before_restart"] = sha256(level_file)
+                report["forced_chunk_data_before_restart"] = forced_chunk_data_evidence(world)
                 if sha256(mods / JAR_NAME) != actual:
                     raise ValueError("Staged companion JAR changed during first boot")
                 # Reuse EXACTLY the same temporary world, mods, settings and Java 17
@@ -625,6 +633,7 @@ def smoke_test(args):
                 report["restart"] = restart
                 report["world_level_dat_sha256_after_restart"] = (
                     sha256(level_file) if level_file.is_file() else None)
+                report["forced_chunk_data_after_restart"] = forced_chunk_data_evidence(world)
                 report["restart_hub_accepted"] = hub_snapshot_accepted(
                     restart, restarted=True)
                 report["restart_ftb_claims_accepted"] = full_pack_claims_accepted(
@@ -644,9 +653,19 @@ def smoke_test(args):
                                      and bool(report["world_level_dat_sha256_after_restart"])
                                      and sha256(mods / JAR_NAME) == actual)
                 if not report["success"]:
-                    report["error"] = (
-                        "Saved-world restart failed: Greatbole, companion, FTB 100/100 "
-                        "claim ownership, external chunk ticket, redundant warnings, or clean stop")
+                    report["failed_restart_gates"] = [
+                        name for name, passed in (
+                            ("ready", restart["ready"]),
+                            ("clean_exit", restart["clean_exit"]),
+                            ("Greatbole", report["restart_hub_accepted"]),
+                            ("FTB_claims", report["restart_ftb_claims_accepted"]),
+                            ("operator_ticket", report["restart_operator_ticket_accepted"]),
+                            ("stable_attempts", same_attempts),
+                            ("saved_world", bool(report["world_level_dat_sha256_after_restart"])),
+                            ("pinned_candidate", sha256(mods / JAR_NAME) == actual))
+                        if not passed]
+                    report["error"] = "Restart gate failed: " + ", ".join(
+                        report["failed_restart_gates"])
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
     finally:

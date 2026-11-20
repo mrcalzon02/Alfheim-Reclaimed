@@ -15,6 +15,7 @@ def main():
     assert generated == shipped, "hub/autoload drifted from authoritative generator"
     assert mod["CANDIDATES"] == [(0, 0)], "hub is no longer at fixed origin"
     wanted = (f"execute if score #final {mod['OBJ']} matches 1 "
+              f"if score #hub_forceload_missing {mod['OBJ']} matches 1 "
               f"in {mod['HOME']} run forceload add "
               f"-{mod['PLACE_LOAD_X']} -{mod['PLACE_LOAD_NORTH']} "
               f"{mod['PLACE_LOAD_X']} {mod['PLACE_LOAD_SOUTH']}")
@@ -55,13 +56,27 @@ def main():
                       f"run forceload remove {region}")
     assert scoped_cleanup in shipping["place"], (
         "failed placement must clean up the bounded candidate, never the dimension")
-    assert f"execute in {mod['HOME']} run forceload add {region}" in shipping["anchor"], (
-        "anchoring must reassert the deterministic origin without marker-relative loading")
+    assert (f"execute unless score #final {mod['OBJ']} matches 1 "
+            f"in {mod['HOME']} run forceload add {region}") in shipping["anchor"], (
+        "repeat anchoring must never issue a failing forceload add after #final=1")
+    for x, z in ((-mod["PLACE_LOAD_X"], -mod["PLACE_LOAD_NORTH"]),
+                 (mod["PLACE_LOAD_X"], -mod["PLACE_LOAD_NORTH"]),
+                 (-mod["PLACE_LOAD_X"], mod["PLACE_LOAD_SOUTH"]),
+                 (mod["PLACE_LOAD_X"], mod["PLACE_LOAD_SOUTH"]), (0, 0)):
+        query = (f"execute if score #final {mod['OBJ']} matches 1 in {mod['HOME']} "
+                 f"store success score #hub_forceload_probe {mod['OBJ']} "
+                 f"run forceload query {x} {z}")
+        assert query in commands, "autoload missing saved-ticket probe"
+    assert any("hub_forceload_missing" in line and "scoreboard players set" in line
+               for line in commands), "autoload must condition re-add on missing tickets"
     assert not any("forceload remove" in line for line in shipping["anchor"]), (
         "successful anchoring must not remove other forced chunk tickets")
-    fallback_load = f"execute in {mod['HOME']} run forceload add -16 -16 16 16"
+    fallback_load = (f"execute if score #fallback_force_probe {mod['OBJ']} matches 0 "
+                     f"in {mod['HOME']} run forceload add -16 -16 16 16")
     assert shipping["fallback"].count(fallback_load) == 1, (
-        "fallback must retain exactly one 3x3 forced-chunk envelope")
+        "fallback must be guarded against duplicate forced-chunk writes")
+    assert (f"execute in {mod['HOME']} store success score #fallback_force_probe "
+            f"{mod['OBJ']} run forceload query -16 -16") in shipping["fallback"]
     assert not any("forceload remove" in line for line in shipping["fallback"]), (
         "provisional landing must not clear existing tickets")
 

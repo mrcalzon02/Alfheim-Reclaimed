@@ -7,7 +7,9 @@
 # Uses a tiny emergency platform at the origin. Non-player entities cannot carry a spreadplayers destination across an unloaded chunk, so the provisional path must not pretend they can.
 
 execute in mythicbotany:alfheim run kill @e[type=minecraft:marker,tag=alfheim_hub,tag=!alfheim_hub_baked]
-execute in mythicbotany:alfheim run forceload add -16 -16 16 16
+# Do not issue a redundant /forceload add on repeated fallback delivery.
+execute in mythicbotany:alfheim store success score #fallback_force_probe alfheim.hub run forceload query -16 -16
+execute if score #fallback_force_probe alfheim.hub matches 0 in mythicbotany:alfheim run forceload add -16 -16 16 16
 scoreboard players set #landing_result alfheim.hub 0
 execute in mythicbotany:alfheim positioned 0 0 0 positioned over motion_blocking_no_leaves if predicate alfheim:hub/emergency_height run function alfheim:hub/platform
 execute in mythicbotany:alfheim if score #landing_result alfheim.hub matches 0 positioned 0 315 0 run function alfheim:hub/platform

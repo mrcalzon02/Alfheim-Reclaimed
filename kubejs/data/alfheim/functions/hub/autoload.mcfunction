@@ -14,7 +14,19 @@ execute unless score #final alfheim.hub matches 1 run function alfheim:hub/creat
 # Re-assert the hub chunks BEFORE selecting the baked marker. On a server restart
 # the marker may be saved but not yet loaded, so entity-relative forceload is a
 # circular dependency: missing entity -> no force-load -> missing entity forever.
-# The Greatbole origin is deterministic (X=0, Z=0), not a dynamic search.
-execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim run forceload add -80 -128 80 32
+# The Greatbole origin is deterministic. Check representative saved tickets
+# before re-adding; redundant adds clear chunks.dat dirty state in MC 1.20.1.
+scoreboard players set #hub_forceload_missing alfheim.hub 0
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_missing alfheim.hub matches 1 in mythicbotany:alfheim run forceload add -80 -128 80 32
 execute if score #final alfheim.hub matches 1 unless score #foundation_v1 alfheim.hub matches 1 run scoreboard players set #foundation_attempts alfheim.hub 0
 execute if score #final alfheim.hub matches 1 unless score #foundation_v1 alfheim.hub matches 1 run schedule function alfheim:hub/repair_foundation 5s replace

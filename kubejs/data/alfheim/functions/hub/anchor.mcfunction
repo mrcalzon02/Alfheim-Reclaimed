@@ -12,9 +12,10 @@ execute in mythicbotany:alfheim run kill @e[type=minecraft:marker,tag=alfheim_hu
 
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run setworldspawn ~ ~1 ~
 
-# Keep the deterministic origin footprint loaded without clearing unrelated
-# force-loaded chunks belonging to operators or other mods.
-execute in mythicbotany:alfheim run forceload add -80 -128 80 32
+# Do not repeat a successful /forceload add. Minecraft 1.20.1 MC-143952
+# resets chunks.dat dirty state when the latest add fails (already forced),
+# losing independently added operator tickets at the next save.
+execute unless score #final alfheim.hub matches 1 in mythicbotany:alfheim run forceload add -80 -128 80 32
 
 
 # COLLECT THE PLAYERS WHO ARRIVED FIRST. Anyone placed provisionally while the Greatbole
