@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-11-20 — Full 121-chunk hub ticket restore persists on disk
+
+- Expanded Greatbole's saved-world forced-chunk survey from five
+  representative probes to all **121** chunks, preserving the original
+  absolute origin and no-player-dependent loading.
+- Full-pack run `44787524650` passed the live hole-repair probe, but
+  stricter NBT gate `44789431936` caught a **real persistence failure**:
+  the missing interior chunk returned in memory yet remained absent in the
+  next `chunks.dat` save (120/121).
+- Replaced mixed 121-chunk bulk re-add with a one-chunk `forceload add`
+  for each proven missing ticket. The unchanged existing chunks are
+  untouched, preventing redundant writes and the 1.20.1 dirty-state fault.
+- **84-mod Forge two-boot run `44790630724` passed** with saved NBT
+  120/121 deliberately missing → 121/121 restored; operator ticket
+  preserved, negative ticket unforced, FTB claims 100/100 on both boots,
+  Greatbole 7/7 with no duplication, no claim conflicts/warnings and clean
+  exits. Source commit `49288d7`.
+- Logged 39,362ms first-world peak tick lag as a separate diagnostic,
+  not a performance acceptance. Graphical/client, player, and multiplayer
+  gates remain open. No installed JAR, user world or release changed.
+- Evidence: `benchmarks/2026-11-20-full-hub-chunk-ticket-repair.md`.
+
 ## 2026-11-19 — Full 84-mod persistence regression repaired and verified
 
 - Full Forge two-boot run `44664283182` passed on `d6ef24ae`: a

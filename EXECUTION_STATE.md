@@ -1,5 +1,45 @@
 # Execution State
 
+## Full 121-chunk Greatbole forced-load persistence ACCEPTED — 2026-11-20
+
+**Source `49288d7`, CI run `44790630724`, artifact `14657525105`:**
+complete temporary 84-mod Forge two-boot saved-world verification PASSED.
+The canonical hub's 121 force-load chunks are now checked individually
+during autoload. When a ticket is absent, the generated function adds only
+that exact missing chunk, never a mixed rectangle of mostly already-forced
+chunks. The previously confirmed Minecraft 1.20.1 saved-data dirty-state
+regression is avoided.
+
+**Strict binary saved-NBT acceptance:** first world deliberately removed
+interior chunk [1,-1] (block 16,-16), verified absent in
+`dimensions/mythicbotany/alfheim/data/chunks.dat` (**120/121**), with
+the independent operator ticket at [12,12] intact. After restart,
+the real stored `data.Forced` long array included **all 121/121** hub
+chunks plus the unrelated ticket; the negative control remained unforced.
+First/second saved file sizes 330/336 bytes, SHA-256
+`43ba8b773cdd1fe10adcc0dfffab767e5f7e324477e5b7f9a2fc0292675dff51` →
+`de571a2667e25288eef76350a69db51d160550adf0dbb5ccc63b5a268cad9577`.
+This is actual persistence, not merely an in-memory /forceload response.
+
+Both boots also passed seven Greatbole stages, baked marker, unchanged
+assembly attempts, no duplicate structure, 100/100 FTB administrative
+claims, zero foreign ownership conflicts, zero redundant claim warnings,
+verified companion command responses and clean dimension saves/exits.
+Timing diagnostics: first 187.1s, restart 103.0s; peak logged tick
+lag 39,362ms/2,781ms. No controlled performance gain claimed.
+
+**Evidence trail:** live-only probe `44787524650` looked successful,
+but NBT-gated run `44789431936` exposed the missing saved repair:
+120/121 both saves. Per-chunk fix `49288d7` resolved that exact case.
+Full evidence in `benchmarks/2026-11-20-full-hub-chunk-ticket-repair.md`.
+
+**Remaining work:** graphical and multiplayer play, real player
+first-login/respawn and inventory persistence; isolate the first-world
+main-thread hub generation stall. Failed-placement cleanup overlap with
+other operators' forced chunks *inside* the origin footprint remains
+unproven. No installed JAR, third-party binary, production save or
+release was changed.
+
 ## Verified Minecraft 1.20.1 forced-chunk persistence repair — 2026-11-19
 
 **84-JAR full Forge dedicated-server save/restart ACCEPTED.** Run
