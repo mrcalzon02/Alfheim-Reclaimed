@@ -39,7 +39,7 @@ def main():
         "negative control failed to reject an unsafe global reset")
 
     shipping = {}
-    for name in ("place", "anchor", "fallback"):
+    for name in ("place", "anchor", "fallback", "status"):
         generated_text = "\n".join(mod["FILES"][name]) + "\n"
         actual = Path(f"kubejs/data/alfheim/functions/hub/{name}.mcfunction").read_text(
             encoding="utf-8")
@@ -81,7 +81,29 @@ def main():
     assert sum("run tellraw @s" in line for line in awaited) == 1
     assert sum("run tag " in line and " remove " in line for line in awaited) == 1
 
-    print("WORLD_HUB_RESTART_FORCELOAD_PASS: scoped chunk loads and Alfheim-only provisional player collection")
+    # This operator command is strictly observational. Reject any mutation
+    # slipped in by a future generator refactor.
+    status_lines = shipping["status"]
+    destructive = (
+        " run kill ", " run tp ", " run spawnpoint ", " run fill ",
+        " run setblock ", " run summon ", " run function ", " run tag ",
+        " run forceload add ", " run forceload remove ",
+        "scoreboard players set ", "scoreboard players reset ",
+        "scoreboard players add ", "scoreboard players remove "
+    )
+    assert not any(any(token in line for token in destructive)
+                   for line in status_lines), "status must stay read-only"
+    assert any("hub: BAKED" in line and "if score #final" in line
+               for line in status_lines), "status must distinguish completed hub"
+    assert any("hub: PROVISIONAL" in line and "unless score #final" in line
+               for line in status_lines), "status must distinguish provisional spawn"
+    assert any("retry limit reached" in line for line in status_lines)
+    assert any("tag=alfheim_hub_baked" in line and "data get entity" in line
+               for line in status_lines), "status must query real baked marker"
+    assert not any(" at @s " in line or " run tellraw @s " in line
+                   for line in status_lines), "status must work from console"
+
+    print("WORLD_HUB_RESTART_FORCELOAD_PASS: scoped chunk loads, Alfheim-only collection, read-only operator diagnostics")
 
 
 if __name__ == "__main__":

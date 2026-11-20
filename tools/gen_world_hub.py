@@ -356,23 +356,38 @@ FILES['autoload'] = header(
 # ---------------------------------------------------------------------------- status
 FILES['status'] = header(
     'report hub state to the operator',
-    "READ-ONLY. An earlier draft set the caller's spawnpoint here, which is a surprising "
-    'mutation in a command called status; a status command must be safe to run at any time.',
-    'Written for the CONSOLE as much as for a player: the server has no @s, so this reports '
-    'through `say` and `data get`, both of which print to the console log. That matters -- an '
-    'operator setting up a headless server is exactly who needs this.',
+    'READ-ONLY. Never mutate spawnpoints, markers, scores, chunks or player state.',
+    'Safe at the server console: reports placement phase, source scoreboards and '
+    'the real baked marker when it is loaded.',
 ) + [
     'say [Alfheim] --- world hub status ---',
-    f'execute unless score #created {OBJ} matches 1 run say [Alfheim] hub: NOT CREATED -- '
-    f'run /function {NS}:hub/create',
-    f'execute if score #created {OBJ} matches 1 run say [Alfheim] hub: created',
+    f'execute unless score #created {OBJ} matches 1 run say '
+    f'[Alfheim] hub: NOT CREATED -- /function {NS}:hub/create',
+    f'execute if score #created {OBJ} matches 1 unless score #final {OBJ} matches 1 '
+    f'run say [Alfheim] hub: PROVISIONAL -- waiting for baked Greatbole anchor',
+    f'execute if score #final {OBJ} matches 1 run say '
+    f'[Alfheim] hub: BAKED -- Greatbole complete; checking marker visibility',
+    f'execute if score #final {OBJ} matches 1 unless score #created {OBJ} matches 1 '
+    f'run say [Alfheim] WARNING: final flag set but created flag is missing',
+    f'execute unless score #final {OBJ} matches 1 if score #attempts {OBJ} matches {RETRIES + 1}.. '
+    f'run say [Alfheim] WARNING: hub placement retry limit reached -- '
+    f'/function {NS}:hub/reset then /function {NS}:hub/create',
     '',
-    '# Prints the anchor position straight into the console log.',
-    f'execute in {HOME} run data get entity {SELECT} Pos',
+    '# Scoreboard probes are read-only; these also work from a headless console.',
+    f'scoreboard players get #attempts {OBJ}',
+    f'scoreboard players get #place_result {OBJ}',
+    f'scoreboard players get #created {OBJ}',
+    f'scoreboard players get #final {OBJ}',
     '',
-    f'execute in {HOME} unless entity @e[type={MARKER},tag={TAG}] run say '
-    f'[Alfheim] WARNING: no anchor entity in {HOME} -- the hub flag is set but the anchor is gone',
+    '# A saved baked marker can load after the scoreboard during server startup.',
+    f'execute in {HOME} run data get entity {SELECT_BAKED} Pos',
+    f'execute if score #final {OBJ} matches 1 in {HOME} unless entity {SELECT_BAKED} '
+    'run say [Alfheim] WARNING: baked marker not selectable yet -- check loaded chunks',
+    f'execute if score #created {OBJ} matches 1 unless score #final {OBJ} matches 1 '
+    f'in {HOME} unless entity {SELECT} '
+    'run say [Alfheim] WARNING: provisional spawn marker not selectable',
 ]
+
 
 # ---------------------------------------------------------------------------- send
 FILES['send'] = header(

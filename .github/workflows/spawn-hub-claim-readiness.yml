@@ -33,6 +33,7 @@ on:
       - 'kubejs/data/alfheim/functions/hub/place.mcfunction'
       - 'kubejs/data/alfheim/functions/hub/anchor.mcfunction'
       - 'kubejs/data/alfheim/functions/hub/fallback.mcfunction'
+      - 'kubejs/data/alfheim/functions/hub/status.mcfunction'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java'
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java'
@@ -106,6 +107,7 @@ jobs:
             kubejs/data/alfheim/functions/hub/place.mcfunction
             kubejs/data/alfheim/functions/hub/anchor.mcfunction
             kubejs/data/alfheim/functions/hub/fallback.mcfunction
+            kubejs/data/alfheim/functions/hub/status.mcfunction
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/service/CompanionDeathInventoryService.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/CompanionCommandWheelScreen.java
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/client/WheelSelection.java
