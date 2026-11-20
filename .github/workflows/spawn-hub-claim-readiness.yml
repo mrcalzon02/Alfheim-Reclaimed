@@ -25,6 +25,7 @@ on:
       - 'first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionSavedData.java'
       - 'tools/test_companion_admission_guards.cjs'
       - 'tools/smoke_companion_server.py'
+      - 'tools/nbt.py'
       - 'tools/gen_world_hub.py'
       - 'tools/test_world_hub_height_contract.py'
       - 'tools/test_world_hub_restart_forceload.py'
@@ -99,6 +100,7 @@ jobs:
             first_party_mods/alfheim_companion/src/main/java/com/continuityworks/alfheimcompanion/memory/CompanionSavedData.java
             tools/test_companion_admission_guards.cjs
             tools/smoke_companion_server.py
+            tools/nbt.py
             tools/gen_world_hub.py
             tools/test_world_hub_height_contract.py
             tools/test_world_hub_restart_forceload.py

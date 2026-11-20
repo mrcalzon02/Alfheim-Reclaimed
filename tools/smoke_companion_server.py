@@ -17,6 +17,7 @@ python3 tools/smoke_companion_server.py --server-root smoke-source/server \
 import argparse
 import hashlib
 import json
+import nbt  # project-owned, dependency-free Minecraft Java NBT reader
 import os
 from pathlib import Path
 import re
@@ -189,7 +190,43 @@ def self_test():
         assert len(observed) == 64
         assert observed == hashlib.sha256(jar.read_bytes()).hexdigest()
         assert observed != sha256(Path(__file__))
-    print("COMPANION_SERVER_SMOKE_PREFLIGHT_PASS: EULA, readiness, hash and bounded-stage checks")
+
+    # Verify actual NBT membership, including signed negative-z ChunkPos longs.
+    with tempfile.TemporaryDirectory(prefix="alfheim-saved-ticket-fixture-") as tmp:
+        world = Path(tmp)
+        path = world / "dimensions/mythicbotany/alfheim/data/chunks.dat"
+        path.parent.mkdir(parents=True)
+        hub = {packed_chunk(f"{x} {z}")
+               for z in range(-128, 33, 16) for x in range(-80, 81, 16)}
+        hole = packed_chunk(HUB_REPAIR_HOLE)
+        ext = packed_chunk(OPERATOR_TICKET)
+        assert len(hub) == 121 and hole in hub and ext not in hub
+        def write_forced(values):
+            signed = [v if v < (1 << 63) else v - (1 << 64) for v in sorted(values)]
+            nbt.save(path, "", {"data": {"Forced": nbt.LongArray(signed)}})
+        write_forced((hub - {hole}) | {ext})
+        before = saved_forceload_snapshot(world)
+        assert saved_forceload_accepted(before)
+        assert not saved_forceload_accepted(before, restarted=True)
+        write_forced(hub | {ext})
+        after = saved_forceload_snapshot(world)
+        assert saved_forceload_accepted(after, restarted=True)
+        assert not saved_forceload_accepted(after)
+        assert not saved_forceload_accepted({**after, "operator_forced": False},
+                                            restarted=True)
+        assert not saved_forceload_accepted({**after, "negative_forced": True},
+                                            restarted=True)
+        assert not saved_forceload_accepted({**after, "hub_missing_chunks": 1},
+                                            restarted=True)
+        nbt.save(path, "", {"data": {"NotForced": nbt.LongArray([])}})
+        try:
+            saved_forceload_snapshot(world)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("missing saved NBT Forced array was accepted")
+
+    print("COMPANION_SERVER_SMOKE_PREFLIGHT_PASS: EULA, readiness, hash, live-ticket and saved-NBT membership checks")
 
 
 def command_outputs_seen(messages):
@@ -526,6 +563,51 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
     return report
 
 
+
+def packed_chunk(block_pos):
+    """Minecraft ChunkPos.asLong at the supplied *block* coordinates."""
+    x, z = map(int, block_pos.split())
+    return (((z // 16) & 0xffffffff) << 32) | ((x // 16) & 0xffffffff)
+
+
+def saved_forceload_snapshot(world):
+    """Inspect temporary-world chunks.dat, not just live /forceload responses.
+
+    Only scalar/count metadata is emitted; neither worlds nor NBT arrays are
+    retained as workflow artifacts. A missing/malformed file fails closed.
+    """
+    path = Path(world) / "dimensions/mythicbotany/alfheim/data/chunks.dat"
+    if not path.is_file():
+        raise ValueError("Missing saved Alfheim forced-chunk NBT: " + str(path))
+    _, root = nbt.load(path)
+    payload = root.get("data") if isinstance(root, dict) else None
+    if not isinstance(payload, dict) or not isinstance(payload.get("Forced"), nbt.LongArray):
+        raise ValueError("Saved Alfheim chunks.dat has no data.Forced long array")
+    found = {int(v) & 0xffffffffffffffff for v in payload["Forced"]}
+    hub = {packed_chunk(f"{x} {z}")
+           for z in range(-128, 33, 16) for x in range(-80, 81, 16)}
+    if len(hub) != 121:
+        raise ValueError("Unexpected Greatbole footprint while checking saved forced chunks")
+    return {
+        "total_forced_chunks": len(found),
+        "hub_forced_chunks": len(found & hub),
+        "hub_missing_chunks": len(hub - found),
+        "hole_forced": packed_chunk(HUB_REPAIR_HOLE) in found,
+        "operator_forced": packed_chunk(OPERATOR_TICKET) in found,
+        "negative_forced": packed_chunk(OPERATOR_NEGATIVE) in found,
+    }
+
+
+def saved_forceload_accepted(snapshot, restarted=False):
+    wanted = (dict(hub_forced_chunks=121, hub_missing_chunks=0,
+                   hole_forced=True, operator_forced=True,
+                   negative_forced=False) if restarted else
+              dict(hub_forced_chunks=120, hub_missing_chunks=1,
+                   hole_forced=False, operator_forced=True,
+                   negative_forced=False))
+    return all(snapshot.get(key) == value for key, value in wanted.items())
+
+
 def forced_chunk_data_evidence(world):
     """Metadata-only evidence for saved force-load tickets; never upload worlds."""
     return [{"path": p.relative_to(world).as_posix(), "bytes": p.stat().st_size,
@@ -644,6 +726,13 @@ def smoke_test(args):
                     raise ValueError("First server did not persist level.dat before restart")
                 report["world_level_dat_sha256_before_restart"] = sha256(level_file)
                 report["forced_chunk_data_before_restart"] = forced_chunk_data_evidence(world)
+                report["saved_forceload_before_restart"] = saved_forceload_snapshot(world)
+                report["saved_forceload_first_accepted"] = saved_forceload_accepted(
+                    report["saved_forceload_before_restart"])
+                if not report["saved_forceload_first_accepted"]:
+                    raise ValueError(
+                        "First saved chunks.dat did not persist the intended interior hole "
+                        "alongside the unrelated operator ticket")
                 if sha256(mods / JAR_NAME) != actual:
                     raise ValueError("Staged companion JAR changed during first boot")
                 # Reuse EXACTLY the same temporary world, mods, settings and Java 17
@@ -657,6 +746,9 @@ def smoke_test(args):
                 report["world_level_dat_sha256_after_restart"] = (
                     sha256(level_file) if level_file.is_file() else None)
                 report["forced_chunk_data_after_restart"] = forced_chunk_data_evidence(world)
+                report["saved_forceload_after_restart"] = saved_forceload_snapshot(world)
+                report["saved_forceload_restart_accepted"] = saved_forceload_accepted(
+                    report["saved_forceload_after_restart"], restarted=True)
                 report["restart_hub_accepted"] = hub_snapshot_accepted(
                     restart, restarted=True)
                 report["restart_ftb_claims_accepted"] = full_pack_claims_accepted(
@@ -672,6 +764,7 @@ def smoke_test(args):
                                      and report["restart_hub_accepted"]
                                      and report["restart_ftb_claims_accepted"]
                                      and report["restart_operator_ticket_accepted"]
+                                     and report["saved_forceload_restart_accepted"]
                                      and same_attempts
                                      and bool(report["world_level_dat_sha256_after_restart"])
                                      and sha256(mods / JAR_NAME) == actual)
@@ -683,6 +776,7 @@ def smoke_test(args):
                             ("Greatbole", report["restart_hub_accepted"]),
                             ("FTB_claims", report["restart_ftb_claims_accepted"]),
                             ("operator_ticket", report["restart_operator_ticket_accepted"]),
+                            ("saved_ticket_NBT", report["saved_forceload_restart_accepted"]),
                             ("stable_attempts", same_attempts),
                             ("saved_world", bool(report["world_level_dat_sha256_after_restart"])),
                             ("pinned_candidate", sha256(mods / JAR_NAME) == actual))
