@@ -49,6 +49,11 @@ HUB_STAGE_SCORES = (
 # A saved entity can become queryable several ticks after the dimension loads.
 # Preserve strict acceptance, but do not mistake one immediate lookup for loss.
 RESTART_MARKER_GRACE_SECONDS = 60
+# External, deliberately non-hub ticket in the disposable full-pack test world.
+OPERATOR_TICKET = "192 192"
+OPERATOR_NEGATIVE = "192 224"
+TICKET_SCORES = ("ci_ticket_baseline", "ci_ticket_first", "ci_ticket_after",
+                 "ci_ticket_restart", "ci_ticket_negative")
 ANCHOR_PROBE = (
     "execute in mythicbotany:alfheim if entity "
     "@e[type=minecraft:marker,tag=alfheim_hub_baked,"
@@ -137,6 +142,24 @@ def self_test():
         "Can't keep up! Is the server overloaded? Running 54058ms or 1081 ticks behind")
     assert lag_example["server_tick_lag_max_ms"] == 54058
     assert lag_example["server_tick_lag_events"] == 1
+    commands = ticket_probe_commands("first")
+    assert commands.index("function alfheim:hub/anchor") > commands.index(
+        ticket_query("ci_ticket_first", OPERATOR_TICKET))
+    assert commands.index("function alfheim:hub/anchor") < commands.index(
+        ticket_query("ci_ticket_after", OPERATOR_TICKET))
+    assert "forceload remove" not in " ".join(commands)
+    assert not any("hub/anchor" in cmd or "forceload add" in cmd
+                   for cmd in ticket_probe_commands("restart"))
+    good = dict(ci_ticket_baseline=0, ci_ticket_first=1, ci_ticket_after=1,
+                ci_ticket_restart=1, ci_ticket_negative=0)
+    assert ticket_accepted(good)
+    assert ticket_accepted(good, restarted=True)
+    for key in ("ci_ticket_baseline", "ci_ticket_first", "ci_ticket_after",
+                "ci_ticket_negative"):
+        wrong = dict(good)
+        wrong[key] = 1 - wrong[key]
+        assert not ticket_accepted(wrong)
+    assert not ticket_accepted({**good, "ci_ticket_restart": 0}, restarted=True)
     with tempfile.TemporaryDirectory(prefix="alfheim-fullpack-preflight-") as missing:
         try:
             validate_full_pack(Path(missing))
@@ -227,6 +250,36 @@ def hub_snapshot_accepted(report, restarted=False):
     return True
 
 
+def ticket_query(holder, pos):
+    # Vanilla /forceload query returns success=1 only for a forced chunk.
+    return (f"execute in mythicbotany:alfheim store success score "
+            f"#{holder} alfheim.hub run forceload query {pos}")
+
+
+def ticket_probe_commands(phase):
+    def read(holder, pos):
+        return [ticket_query(holder, pos),
+                f"scoreboard players get #{holder} alfheim.hub"]
+    if phase == "first":
+        return (read("ci_ticket_baseline", OPERATOR_TICKET)
+                + [f"execute in mythicbotany:alfheim run forceload add {OPERATOR_TICKET}"]
+                + read("ci_ticket_first", OPERATOR_TICKET)
+                + ["function alfheim:hub/anchor"]
+                + read("ci_ticket_after", OPERATOR_TICKET)
+                + read("ci_ticket_negative", OPERATOR_NEGATIVE))
+    if phase == "restart":
+        return (read("ci_ticket_restart", OPERATOR_TICKET)
+                + read("ci_ticket_negative", OPERATOR_NEGATIVE))
+    raise ValueError("Unrecognized operator-ticket test phase")
+
+
+def ticket_accepted(report, restarted=False):
+    required = (dict(ci_ticket_restart=1, ci_ticket_negative=0) if restarted
+                else dict(ci_ticket_baseline=0, ci_ticket_first=1,
+                          ci_ticket_after=1, ci_ticket_negative=0))
+    return all(report.get(key) == value for key, value in required.items())
+
+
 def stop_process(process):
     if process is None or process.poll() is not None:
         return
@@ -240,7 +293,7 @@ def stop_process(process):
 
 def boot(stage, output, heap_gib, timeout, require_alfheim=False,
          hub_observe_seconds=0, log_name="server-console.log",
-         marker_grace_seconds=0):
+         marker_grace_seconds=0, operator_ticket_phase=None):
     log = output / log_name
     command = ["java", "-Xms512M", f"-Xmx{heap_gib}G", "-Djava.awt.headless=true",
                f"@{ARGFILE.as_posix()}", "nogui"]
@@ -364,6 +417,33 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
                             report["error"] = (
                                 "Saved Greatbole baked marker was not selectable "
                                 "within bounded restart grace period")
+                    if require_alfheim and operator_ticket_phase and process.poll() is None:
+                        if (operator_ticket_phase == "first"
+                                and "world hub anchored to the Greatbole" not in read_log(log)):
+                            report["error"] = "External-ticket probe: Greatbole not anchored"
+                        else:
+                            names = (("ci_ticket_restart", "ci_ticket_negative")
+                                     if operator_ticket_phase == "restart" else
+                                     ("ci_ticket_baseline", "ci_ticket_first",
+                                      "ci_ticket_after", "ci_ticket_negative"))
+                            started_probe = time.monotonic()
+                            for line in ticket_probe_commands(operator_ticket_phase):
+                                process.stdin.write(line + "\n")
+                                process.stdin.flush()
+                                time.sleep(0.15)
+                            while time.monotonic() - started_probe < 120 and process.poll() is None:
+                                observed = read_log(log)
+                                if all(latest_hub_score(observed, name) is not None
+                                       for name in names):
+                                    break
+                                time.sleep(2)
+                            report["operator_ticket_probe_seconds"] = round(
+                                time.monotonic() - started_probe, 1)
+                            report["operator_ticket_probe_complete"] = all(
+                                latest_hub_score(read_log(log), name) is not None
+                                for name in names)
+                            if not report["operator_ticket_probe_complete"]:
+                                report["error"] = "External-ticket scoreboard replies timed out"
                     if process.poll() is None:
                         process.stdin.write("stop\n")
                         process.stdin.flush()
@@ -409,6 +489,8 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
         report["stop_acknowledged"] = ("Stopping the server" in final or "Stopping server" in final)
         report["all_dimensions_saved"] = "All dimensions are saved" in final
         report.update(full_pack_observations(final))
+        for key in TICKET_SCORES:
+            report[key] = latest_hub_score(final, key)
         replies_ok = requested_replies_seen(final, require_alfheim)
         if report["ready"] and report["exit_code"] == 0 and not replies_ok:
             report["error"] = ("Forge booted, but companion commands or Alfheim "
@@ -427,11 +509,14 @@ def smoke_test(args):
     report = {
         "profile": ("full-modpack-dedicated-server" if args.profile == "full"
                     else "minimal-forge-companion-dedicated-server"),
-        "admission": ("full-pack startup and command smoke only; not graphical client, "
-                      "save/reload or multiplayer" if args.profile == "full"
-                      else "startup-smoke-only; not full pack, save, client or multiplayer"),
+        "admission": (
+            "full-pack dedicated-server save/restart and external-ticket checks; "
+            "not graphical client, player login or multiplayer"
+            if args.verify_restart else
+            "dedicated-server startup/command smoke only; no client or multiplayer"),
         "expected_candidate_sha256": args.expected_sha256,
-        "source_commit": "f1a43100c45ba1efb52db673f624362774fa6f4f",
+        "source_commit": os.environ.get("GITHUB_SHA") or None,
+        "candidate_source_commit": "f1a43100c45ba1efb52db673f624362774fa6f4f",
         "candidate_artifact_id": 14580075904,
         "candidate_build_run_id": 44626195977,
         "heap_gib": args.heap_gib,
@@ -505,7 +590,8 @@ def smoke_test(args):
                 encoding="utf-8")
             result = boot(stage, output, args.heap_gib, args.timeout,
                           require_alfheim=args.profile == "full",
-                          hub_observe_seconds=args.hub_observe_seconds)
+                          hub_observe_seconds=args.hub_observe_seconds,
+                          operator_ticket_phase="first" if args.verify_restart else None)
             report.update(result)
             report["first_ftb_claims_accepted"] = (
                 full_pack_claims_accepted(result) if args.profile == "full" else None)
@@ -517,8 +603,11 @@ def smoke_test(args):
                                    "administrative spawn claims")
             if args.verify_restart:
                 report["first_hub_accepted"] = hub_snapshot_accepted(result)
-                if not report["success"] or not report["first_hub_accepted"]:
-                    raise ValueError("First boot did not prove completed Greatbole and clean save")
+                report["first_operator_ticket_accepted"] = ticket_accepted(result)
+                if (not report["success"] or not report["first_hub_accepted"]
+                        or not report["first_operator_ticket_accepted"]):
+                    raise ValueError("First boot failed Greatbole, external-ticket "
+                                     "coexistence or clean-save proof")
                 world = stage / "ci-alfheim-companion-smoke"
                 level_file = world / "level.dat"
                 if not level_file.is_file():
@@ -531,7 +620,8 @@ def smoke_test(args):
                 restart = boot(stage, output, args.heap_gib, args.timeout,
                                require_alfheim=True, hub_observe_seconds=0,
                                log_name="server-console-restart.log",
-                               marker_grace_seconds=RESTART_MARKER_GRACE_SECONDS)
+                               marker_grace_seconds=RESTART_MARKER_GRACE_SECONDS,
+                               operator_ticket_phase="restart")
                 report["restart"] = restart
                 report["world_level_dat_sha256_after_restart"] = (
                     sha256(level_file) if level_file.is_file() else None)
@@ -539,6 +629,8 @@ def smoke_test(args):
                     restart, restarted=True)
                 report["restart_ftb_claims_accepted"] = full_pack_claims_accepted(
                     restart, require_clean_reload=True)
+                report["restart_operator_ticket_accepted"] = ticket_accepted(
+                    restart, restarted=True)
                 same_attempts = (
                     result["hub_scores"].get("attempts") ==
                     restart["hub_scores"].get("attempts") and
@@ -547,13 +639,14 @@ def smoke_test(args):
                 report["success"] = (restart["ready"] and restart["clean_exit"]
                                      and report["restart_hub_accepted"]
                                      and report["restart_ftb_claims_accepted"]
+                                     and report["restart_operator_ticket_accepted"]
                                      and same_attempts
                                      and bool(report["world_level_dat_sha256_after_restart"])
                                      and sha256(mods / JAR_NAME) == actual)
                 if not report["success"]:
                     report["error"] = (
                         "Saved-world restart failed: Greatbole, companion, FTB 100/100 "
-                        "claim ownership, redundant already_claimed warnings, or clean stop")
+                        "claim ownership, external chunk ticket, redundant warnings, or clean stop")
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
     finally:
