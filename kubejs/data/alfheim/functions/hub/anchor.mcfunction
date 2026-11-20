@@ -12,10 +12,9 @@ execute in mythicbotany:alfheim run kill @e[type=minecraft:marker,tag=alfheim_hu
 
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run setworldspawn ~ ~1 ~
 
-# Release the generation force-load and keep only the hub itself loaded. Without this the
-# server pays for the placement search area permanently.
-execute in mythicbotany:alfheim run forceload remove all
-execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run forceload add ~-80 ~-128 ~80 ~32
+# Keep the deterministic origin footprint loaded without clearing unrelated
+# force-loaded chunks belonging to operators or other mods.
+execute in mythicbotany:alfheim run forceload add -80 -128 80 32
 
 
 # COLLECT THE PLAYERS WHO ARRIVED FIRST. Anyone placed provisionally while the Greatbole

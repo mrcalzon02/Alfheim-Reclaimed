@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-11-19 — Protect unrelated Alfheim force-loaded chunks during hub creation
+
+- Corrected three dimension-wide `forceload remove all` commands in the
+  authoritative Greatbole generator and its place, anchor, fallback outputs.
+- Completed anchoring keeps the deterministic -80,-128 to 80,32 hub
+  footprint loaded without clearing other mods' or operators' tickets.
+  Provisional landing no longer removes and re-adds its existing 3x3 load.
+- Failed placement releases only its own bounded candidate rectangle,
+  not every forced chunk in Alfheim. A foreign forced chunk *inside* that
+  rectangle can still be affected by vanilla's shared chunk-load mechanism.
+- Added generator/shipping parity and unsafe-reset negative controls to CI,
+  with explicit sparse checkout for the new shipping paths.
+- **Source/static validation only.** Real Forge restart and operator-ticket
+  coexistence remain runtime acceptance gates. No installed binary,
+  third-party JAR, production save, or release was touched.
+
 ## 2026-11-19 — Live full-pack verification: 100 warnings eliminated
 
 - Full 84-mod Forge dedicated-server test `44651235333` passed both

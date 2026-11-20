@@ -13,8 +13,6 @@ execute in mythicbotany:alfheim positioned 0 0 0 positioned over motion_blocking
 execute in mythicbotany:alfheim if score #landing_result alfheim.hub matches 0 positioned 0 315 0 run function alfheim:hub/platform
 execute in mythicbotany:alfheim at @e[type=minecraft:marker,tag=alfheim_hub,tag=!alfheim_hub_buried,limit=1] run setworldspawn ~ ~1 ~
 
-execute in mythicbotany:alfheim run forceload remove all
-execute in mythicbotany:alfheim run forceload add -16 -16 16 16
 
 scoreboard players set #created alfheim.hub 1
 tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; using a provisional spawn at the origin. It will move to the tree automatically once the chunks finish.","color":"yellow"}

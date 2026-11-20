@@ -27,7 +27,45 @@ def main():
         "autoload must force-load before subsequent recovery tasks")
     assert mod["PLACE_LOAD_X"] * 2 <= 256
     assert mod["PLACE_LOAD_NORTH"] + mod["PLACE_LOAD_SOUTH"] <= 256
-    print("WORLD_HUB_RESTART_FORCELOAD_PASS: generator/shipped parity, absolute saved-hub load, bounded footprint")
+
+    # Generated runtime functions may never wipe tickets belonging to other mods.
+    def bounded(lines):
+        return not any("forceload remove all" in line for line in lines
+                       if not line.lstrip().startswith("#"))
+
+    for name, generated_lines in mod["FILES"].items():
+        assert bounded(generated_lines), f"global forced-chunk wipe in generated hub/{name}"
+    assert not bounded(["execute in mythicbotany:alfheim run forceload remove all"]), (
+        "negative control failed to reject an unsafe global reset")
+
+    shipping = {}
+    for name in ("place", "anchor", "fallback"):
+        generated_text = "\n".join(mod["FILES"][name]) + "\n"
+        actual = Path(f"kubejs/data/alfheim/functions/hub/{name}.mcfunction").read_text(
+            encoding="utf-8")
+        assert actual == generated_text, f"hub/{name} drifted from the generator"
+        shipping[name] = [line for line in actual.splitlines()
+                          if line and not line.startswith("#")]
+        assert bounded(shipping[name]), f"shipped hub/{name} wipes unrelated tickets"
+
+    region = (f"-{mod['PLACE_LOAD_X']} -{mod['PLACE_LOAD_NORTH']} "
+              f"{mod['PLACE_LOAD_X']} {mod['PLACE_LOAD_SOUTH']}")
+    scoped_cleanup = (f"execute in {mod['HOME']} unless score #already {mod['OBJ']} matches 1 "
+                      f"if score #place_result {mod['OBJ']} matches 0 "
+                      f"run forceload remove {region}")
+    assert scoped_cleanup in shipping["place"], (
+        "failed placement must clean up the bounded candidate, never the dimension")
+    assert f"execute in {mod['HOME']} run forceload add {region}" in shipping["anchor"], (
+        "anchoring must reassert the deterministic origin without marker-relative loading")
+    assert not any("forceload remove" in line for line in shipping["anchor"]), (
+        "successful anchoring must not remove other forced chunk tickets")
+    fallback_load = f"execute in {mod['HOME']} run forceload add -16 -16 16 16"
+    assert shipping["fallback"].count(fallback_load) == 1, (
+        "fallback must retain exactly one 3x3 forced-chunk envelope")
+    assert not any("forceload remove" in line for line in shipping["fallback"]), (
+        "provisional landing must not clear existing tickets")
+
+    print("WORLD_HUB_RESTART_FORCELOAD_PASS: shipped parity, bounded failed-place cleanup, safe hub and provisional chunk loads")
 
 
 if __name__ == "__main__":

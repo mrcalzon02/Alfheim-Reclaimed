@@ -183,7 +183,8 @@ for x, z in CANDIDATES:
         f'positioned over motion_blocking_no_leaves if predicate {NS}:hub/ground_height '
         f'run function {NS}:hub/assemble',
         f'execute in {HOME} unless score #already {OBJ} matches 1 '
-        f'if score #place_result {OBJ} matches 0 run forceload remove all',
+        f'if score #place_result {OBJ} matches 0 '
+        f'run forceload remove {x1} {z1} {x2} {z2}',
     ]
 
 place_lines += [
@@ -263,11 +264,10 @@ FILES['anchor'] = header(
     '',
     f'execute in {HOME} at {SELECT_BAKED} run setworldspawn ~ ~1 ~',
     '',
-    '# Release the generation force-load and keep only the hub itself loaded. Without this the',
-    '# server pays for the placement search area permanently.',
-    f'execute in {HOME} run forceload remove all',
-    f'execute in {HOME} at {SELECT_BAKED} run forceload add '
-    f'~-{PLACE_LOAD_X} ~-{PLACE_LOAD_NORTH} ~{PLACE_LOAD_X} ~{PLACE_LOAD_SOUTH}',
+    '# Keep the deterministic origin footprint loaded without clearing unrelated',
+    '# force-loaded chunks belonging to operators or other mods.',
+    f'execute in {HOME} run forceload add '
+    f'-{PLACE_LOAD_X} -{PLACE_LOAD_NORTH} {PLACE_LOAD_X} {PLACE_LOAD_SOUTH}',
     '',
     '',
     '# COLLECT THE PLAYERS WHO ARRIVED FIRST. Anyone placed provisionally while the Greatbole',
@@ -308,8 +308,7 @@ FILES['fallback'] = header(
     f'run function {NS}:hub/platform',
     f'execute in {HOME} at {SELECT} run setworldspawn ~ ~1 ~',
     '',
-    f'execute in {HOME} run forceload remove all',
-    f'execute in {HOME} run forceload add -16 -16 16 16',
+
     '',
     f'scoreboard players set #created {OBJ} 1',
     'tellraw @a[tag=!alfheim_quiet] {"text":"[Alfheim] The Greatbole has not generated yet; '

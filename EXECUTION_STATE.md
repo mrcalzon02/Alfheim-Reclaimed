@@ -1,5 +1,21 @@
 # Execution State
 
+## Hub chunk-ticket preservation — source fix, 2026-11-19
+
+Changed generator and shipped Greatbole place/anchor/fallback functions to
+avoid all dimension-wide `forceload remove all` commands. The successful
+baked-anchor path keeps the fixed origin footprint loaded; provisional
+fallback keeps its 3x3 origin load without clearing other chunks. Failed
+assembly cleanup is bounded to the -80,-128 to 80,32 candidate rectangle.
+Vanilla still cannot distinguish another owner's forced chunk within that
+rectangle; do not claim overlap isolation without further work.
+
+Source parity/negative controls are wired into the existing workflow.
+**Pending:** read source CI, then full 84-mod saved-world restart and an
+operator-ticket coexistence check before calling this runtime-validated.
+This is not a graphical, multiplayer or player-inventory test. No
+installed binaries, saved worlds or third-party mods were altered.
+
 ## FTB hub claim reload idempotency confirmed in live 84-mod Forge — 2026-11-19
 
 GitHub Actions full-pack run `44651235333` **PASSED** at source commit
