@@ -21,6 +21,8 @@ public final class CompanionAdmissionGateSelfTest {
         check(!gate.begin(null, owner), "null entity reservation");
         check(!gate.begin(entity, null), "null owner reservation");
         check(gate.begin(entity, owner), "valid reservation failed");
+        check(!gate.begin(entity, owner), "duplicate identical reservation accepted");
+        check(!gate.begin(entity, otherOwner), "duplicate entity changed owner");
         check(!gate.begin(otherEntity, owner), "concurrent reservation accepted");
         check(gate.allows(entity, owner, null, null), "reserved entity rejected");
         check(!gate.allows(entity, otherOwner, null, null), "wrong owner admitted");
@@ -36,10 +38,16 @@ public final class CompanionAdmissionGateSelfTest {
         catch (IllegalStateException expected) { mismatchedEndRejected = true; }
         check(mismatchedEndRejected, "foreign caller ended reservation");
         check(gate.allows(entity, owner, null, null), "foreign end cleared reservation");
+        check(!gate.begin(entity, owner), "rejected end reopened identical reservation");
 
         gate.end(entity, owner);
         check(!gate.allows(entity, owner, null, null),
                 "failed new entity remained approved after cancellation");
+        check(gate.begin(entity, owner), "released identity could not re-reserve");
+        check(gate.allows(entity, owner, null, null), "fresh reservation not admitted");
+        check(!gate.begin(entity, owner), "retry permitted duplicate pending reservation");
+        gate.end(entity, owner);
+        check(!gate.allows(entity, owner, null, null), "released retry remained admitted");
         check(gate.allows(entity, owner, entity, owner),
                 "committed entity rejected during reload");
         check(!gate.allows(entity, otherOwner, entity, owner),
@@ -50,6 +58,6 @@ public final class CompanionAdmissionGateSelfTest {
         gate.end(otherEntity, otherOwner);
         check(!gate.allows(otherEntity, otherOwner, null, null),
                 "retry reservation remained open");
-        System.out.println("COMPANION_ADMISSION_GATE_PASS: single-use transient reservation, owner checks, rejected-spawn retry, committed reload");
+        System.out.println("COMPANION_ADMISSION_GATE_PASS: single-use transient reservation, duplicate refusal and clean retry, owner checks, rejected-spawn retry, committed reload");
     }
 }
