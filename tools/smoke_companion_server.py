@@ -52,8 +52,12 @@ RESTART_MARKER_GRACE_SECONDS = 60
 # External, deliberately non-hub ticket in the disposable full-pack test world.
 OPERATOR_TICKET = "192 192"
 OPERATOR_NEGATIVE = "192 224"
+# Interior hub ticket deliberately removed only in disposable CI staging.
+HUB_REPAIR_HOLE = "16 -16"
 TICKET_SCORES = ("ci_ticket_baseline", "ci_ticket_first", "ci_ticket_after",
-                 "ci_ticket_restart", "ci_ticket_negative")
+                 "ci_ticket_restart", "ci_ticket_negative",
+                 "ci_hub_hole_initial", "ci_hub_hole_removed",
+                 "ci_hub_hole_repaired")
 ANCHOR_PROBE = (
     "execute in mythicbotany:alfheim if entity "
     "@e[type=minecraft:marker,tag=alfheim_hub_baked,"
@@ -147,19 +151,30 @@ def self_test():
         ticket_query("ci_ticket_first", OPERATOR_TICKET))
     assert commands.index("function alfheim:hub/anchor") < commands.index(
         ticket_query("ci_ticket_after", OPERATOR_TICKET))
-    assert "forceload remove" not in " ".join(commands)
+    removal = f"execute in mythicbotany:alfheim run forceload remove {HUB_REPAIR_HOLE}"
+    assert commands.count(removal) == 1
+    assert commands.index(removal) > commands.index(
+        ticket_query("ci_hub_hole_initial", HUB_REPAIR_HOLE))
+    assert commands.index(removal) < commands.index(
+        ticket_query("ci_hub_hole_removed", HUB_REPAIR_HOLE))
+    assert not any("forceload remove all" in cmd for cmd in commands)
     assert not any("hub/anchor" in cmd or "forceload add" in cmd
+                   or "forceload remove" in cmd
                    for cmd in ticket_probe_commands("restart"))
     good = dict(ci_ticket_baseline=0, ci_ticket_first=1, ci_ticket_after=1,
-                ci_ticket_restart=1, ci_ticket_negative=0)
+                ci_ticket_restart=1, ci_ticket_negative=0,
+                ci_hub_hole_initial=1, ci_hub_hole_removed=0,
+                ci_hub_hole_repaired=1)
     assert ticket_accepted(good)
     assert ticket_accepted(good, restarted=True)
     for key in ("ci_ticket_baseline", "ci_ticket_first", "ci_ticket_after",
-                "ci_ticket_negative"):
+                "ci_ticket_negative", "ci_hub_hole_initial", "ci_hub_hole_removed"):
         wrong = dict(good)
         wrong[key] = 1 - wrong[key]
         assert not ticket_accepted(wrong)
     assert not ticket_accepted({**good, "ci_ticket_restart": 0}, restarted=True)
+    assert not ticket_accepted({**good, "ci_hub_hole_repaired": 0}, restarted=True)
+    assert not ticket_accepted({**good, "ci_hub_hole_repaired": None}, restarted=True)
     with tempfile.TemporaryDirectory(prefix="alfheim-fullpack-preflight-") as missing:
         try:
             validate_full_pack(Path(missing))
@@ -266,17 +281,23 @@ def ticket_probe_commands(phase):
                 + read("ci_ticket_first", OPERATOR_TICKET)
                 + ["function alfheim:hub/anchor"]
                 + read("ci_ticket_after", OPERATOR_TICKET)
+                + read("ci_hub_hole_initial", HUB_REPAIR_HOLE)
+                + [f"execute in mythicbotany:alfheim run forceload remove {HUB_REPAIR_HOLE}"]
+                + read("ci_hub_hole_removed", HUB_REPAIR_HOLE)
                 + read("ci_ticket_negative", OPERATOR_NEGATIVE))
     if phase == "restart":
         return (read("ci_ticket_restart", OPERATOR_TICKET)
+                + read("ci_hub_hole_repaired", HUB_REPAIR_HOLE)
                 + read("ci_ticket_negative", OPERATOR_NEGATIVE))
     raise ValueError("Unrecognized operator-ticket test phase")
 
 
 def ticket_accepted(report, restarted=False):
-    required = (dict(ci_ticket_restart=1, ci_ticket_negative=0) if restarted
+    required = (dict(ci_ticket_restart=1, ci_ticket_negative=0,
+                     ci_hub_hole_repaired=1) if restarted
                 else dict(ci_ticket_baseline=0, ci_ticket_first=1,
-                          ci_ticket_after=1, ci_ticket_negative=0))
+                          ci_ticket_after=1, ci_ticket_negative=0,
+                          ci_hub_hole_initial=1, ci_hub_hole_removed=0))
     return all(report.get(key) == value for key, value in required.items())
 
 
@@ -422,10 +443,12 @@ def boot(stage, output, heap_gib, timeout, require_alfheim=False,
                                 and "world hub anchored to the Greatbole" not in read_log(log)):
                             report["error"] = "External-ticket probe: Greatbole not anchored"
                         else:
-                            names = (("ci_ticket_restart", "ci_ticket_negative")
+                            names = (("ci_ticket_restart", "ci_ticket_negative",
+                                      "ci_hub_hole_repaired")
                                      if operator_ticket_phase == "restart" else
                                      ("ci_ticket_baseline", "ci_ticket_first",
-                                      "ci_ticket_after", "ci_ticket_negative"))
+                                      "ci_ticket_after", "ci_hub_hole_initial",
+                                      "ci_hub_hole_removed", "ci_ticket_negative"))
                             started_probe = time.monotonic()
                             for line in ticket_probe_commands(operator_ticket_phase):
                                 process.stdin.write(line + "\n")

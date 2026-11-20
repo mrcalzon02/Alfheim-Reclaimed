@@ -349,14 +349,13 @@ FILES['autoload'] = header(
     '# Re-assert the hub chunks BEFORE selecting the baked marker. On a server restart',
     '# the marker may be saved but not yet loaded, so entity-relative forceload is a',
     '# circular dependency: missing entity -> no force-load -> missing entity forever.',
-    '# The Greatbole origin is deterministic. Check representative saved tickets',
-    '# before re-adding; redundant adds clear chunks.dat dirty state in MC 1.20.1.',
+    '# Check every 16-block chunk within the 11x11 origin footprint,',
+    '# including interior holes. Re-add only if one is actually missing;',
+    '# redundant adds can clear chunks.dat dirty state in Minecraft 1.20.1.',
     f'scoreboard players set #hub_forceload_missing {OBJ} 0',
     *[
-        line for x, z in ((-PLACE_LOAD_X, -PLACE_LOAD_NORTH),
-                          (PLACE_LOAD_X, -PLACE_LOAD_NORTH),
-                          (-PLACE_LOAD_X, PLACE_LOAD_SOUTH),
-                          (PLACE_LOAD_X, PLACE_LOAD_SOUTH), (0, 0))
+        line for z in range(-PLACE_LOAD_NORTH, PLACE_LOAD_SOUTH + 1, 16)
+        for x in range(-PLACE_LOAD_X, PLACE_LOAD_X + 1, 16)
         for line in (
             f'execute if score #final {OBJ} matches 1 in {HOME} store success score '
             f'#hub_forceload_probe {OBJ} run forceload query {x} {z}',

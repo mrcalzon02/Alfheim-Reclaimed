@@ -69,6 +69,32 @@ def main():
         assert query in commands, "autoload missing saved-ticket probe"
     assert any("hub_forceload_missing" in line and "scoreboard players set" in line
                for line in commands), "autoload must condition re-add on missing tickets"
+
+    # A complete 121-chunk set is required; the old five corners and center
+    # would miss a disabled interior ticket such as (16,-16).
+    expected = {(x, z) for z in range(-mod["PLACE_LOAD_NORTH"],
+                                     mod["PLACE_LOAD_SOUTH"] + 1, 16)
+                for x in range(-mod["PLACE_LOAD_X"], mod["PLACE_LOAD_X"] + 1, 16)}
+    assert len(expected) == 121, "origin chunk envelope unexpectedly changed"
+    prefix = (f"execute if score #final {mod['OBJ']} matches 1 in {mod['HOME']} "
+              f"store success score #hub_forceload_probe {mod['OBJ']} "
+              "run forceload query ")
+    slots = [(i, s) for i, s in enumerate(commands) if s.startswith(prefix)]
+    coords = [tuple(map(int, s[len(prefix):].split())) for _, s in slots]
+    assert len(coords) == len(expected) and set(coords) == expected, (
+        "autoload must query each hub chunk exactly once, including interiors")
+    guard = (f"execute if score #final {mod['OBJ']} matches 1 "
+             f"if score #hub_forceload_probe {mod['OBJ']} matches 0 "
+             f"run scoreboard players set #hub_forceload_missing {mod['OBJ']} 1")
+    assert all(commands[i + 1] == guard for i, _ in slots), (
+        "each failed chunk query must flag guarded recovery")
+    interior = (16, -16)
+    assert interior in expected
+    forced_except_interior = expected - {interior}
+    assert len(set(coords) - forced_except_interior) == 1, (
+        "interior-loss negative control must be observable")
+
+
     assert not any("forceload remove" in line for line in shipping["anchor"]), (
         "successful anchoring must not remove other forced chunk tickets")
     fallback_load = (f"execute if score #fallback_force_probe {mod['OBJ']} matches 0 "

@@ -14,18 +14,251 @@ execute unless score #final alfheim.hub matches 1 run function alfheim:hub/creat
 # Re-assert the hub chunks BEFORE selecting the baked marker. On a server restart
 # the marker may be saved but not yet loaded, so entity-relative forceload is a
 # circular dependency: missing entity -> no force-load -> missing entity forever.
-# The Greatbole origin is deterministic. Check representative saved tickets
-# before re-adding; redundant adds clear chunks.dat dirty state in MC 1.20.1.
+# Check every 16-block chunk within the 11x11 origin footprint,
+# including interior holes. Re-add only if one is actually missing;
+# redundant adds can clear chunks.dat dirty state in Minecraft 1.20.1.
 scoreboard players set #hub_forceload_missing alfheim.hub 0
 execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -128
 execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
 execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -128
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -112
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -96
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -80
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -64
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -48
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 -16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 0
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 16
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 16
 execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
 execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -80 32
 execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
-execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 32
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -64 32
 execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
-execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 0
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -48 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -32 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query -16 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 0 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 16 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 32 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 48 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 64 32
+execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
+execute if score #final alfheim.hub matches 1 in mythicbotany:alfheim store success score #hub_forceload_probe alfheim.hub run forceload query 80 32
 execute if score #final alfheim.hub matches 1 if score #hub_forceload_probe alfheim.hub matches 0 run scoreboard players set #hub_forceload_missing alfheim.hub 1
 execute if score #final alfheim.hub matches 1 if score #hub_forceload_missing alfheim.hub matches 1 in mythicbotany:alfheim run forceload add -80 -128 80 32
 execute if score #final alfheim.hub matches 1 unless score #foundation_v1 alfheim.hub matches 1 run scoreboard players set #foundation_attempts alfheim.hub 0
