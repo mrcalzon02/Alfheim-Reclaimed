@@ -65,7 +65,23 @@ def main():
     assert not any("forceload remove" in line for line in shipping["fallback"]), (
         "provisional landing must not clear existing tickets")
 
-    print("WORLD_HUB_RESTART_FORCELOAD_PASS: shipped parity, bounded failed-place cleanup, safe hub and provisional chunk loads")
+
+    # Only provisional players actually present in Alfheim may be collected.
+    # @a includes travelers in other dimensions; a global tag removal also
+    # erased their recovery state even when they were not delivered.
+    awaited = [line for line in shipping["anchor"]
+               if mod["AWAIT"] in line]
+    selector = f"@e[type=minecraft:player,tag={mod['AWAIT']}]"
+    assert len(awaited) == 4, "two transfers, one message, one cleanup expected"
+    assert all(line.startswith(f"execute in {mod['HOME']} ") and selector in line
+               for line in awaited), (
+        "all provisional recalls and tag changes must target Alfheim players only")
+    assert sum("run tp @s" in line for line in awaited) == 1
+    assert sum("run spawnpoint @s" in line for line in awaited) == 1
+    assert sum("run tellraw @s" in line for line in awaited) == 1
+    assert sum("run tag " in line and " remove " in line for line in awaited) == 1
+
+    print("WORLD_HUB_RESTART_FORCELOAD_PASS: scoped chunk loads and Alfheim-only provisional player collection")
 
 
 if __name__ == "__main__":

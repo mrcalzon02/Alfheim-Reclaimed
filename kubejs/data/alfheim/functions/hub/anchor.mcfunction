@@ -21,10 +21,12 @@ execute in mythicbotany:alfheim run forceload add -80 -128 80 32
 # was still generating carries the await tag; now that the anchor exists, bring them in.
 # This is what makes a fast join self-healing instead of permanent -- the player joined at
 # 31 seconds and the hub resolved minutes later, and nothing moved them.
-execute in mythicbotany:alfheim as @a[tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run tp @s ~ ~1 ~
-execute in mythicbotany:alfheim as @a[tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run spawnpoint @s ~ ~1 ~
-execute as @a[tag=alfheim_awaiting_hub] run tellraw @s {"text":"[Alfheim] The Greatbole has finished generating. Welcome to the Hollow Court.","color":"green"}
-tag @a[tag=alfheim_awaiting_hub] remove alfheim_awaiting_hub
+# Select with @e in Alfheim, NOT global @a: remote players may carry a stale
+# provisional tag and must not be recalled or have that tag silently erased.
+execute in mythicbotany:alfheim as @e[type=minecraft:player,tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run tp @s ~ ~1 ~
+execute in mythicbotany:alfheim as @e[type=minecraft:player,tag=alfheim_awaiting_hub] at @e[type=minecraft:marker,tag=alfheim_hub_baked,tag=!alfheim_hub_buried,limit=1] run spawnpoint @s ~ ~1 ~
+execute in mythicbotany:alfheim as @e[type=minecraft:player,tag=alfheim_awaiting_hub] run tellraw @s {"text":"[Alfheim] The Greatbole has finished generating. Welcome to the Hollow Court.","color":"green"}
+execute in mythicbotany:alfheim run tag @e[type=minecraft:player,tag=alfheim_awaiting_hub] remove alfheim_awaiting_hub
 
 scoreboard players set #created alfheim.hub 1
 # #final is what stops hub/resolve. Only a real, structure-carried anchor sets it, so a

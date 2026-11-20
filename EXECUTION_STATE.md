@@ -1,5 +1,16 @@
 # Execution State
 
+## Hub provisional arrival scope — source correction, 2026-11-19
+
+The Greatbole's final player collection previously selected every online
+player carrying `alfheim_awaiting_hub`, regardless of dimension, then
+cleared the tag globally. Generated `hub/anchor` now scopes teleport,
+spawnpoint update, welcome message and tag removal to `@e[type=player]`
+in Alfheim. Remote Midgard players retain position and recovery state.
+The generator and shipped function are checked for equality and target scope.
+**Source CI/runtime check pending;** joined-player and cross-dimension
+acceptance are not implied by source assertions.
+
 ## Hub chunk-ticket preservation — source fix, 2026-11-19
 
 Changed generator and shipped Greatbole place/anchor/fallback functions to

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-19 — Do not recall provisional players across dimensions
+
+- Limited Greatbole's finishing-stage player teleport, respawn update,
+  welcome message and pending-tag removal to players **currently in Alfheim**.
+- Changed global `@a[tag=alfheim_awaiting_hub]` selectors to Alfheim-scoped
+  `@e[type=minecraft:player,...]` selectors; a player in Midgard can no longer
+  be pulled back or have their unfinished recovery state silently discarded
+  by unrelated hub completion.
+- Regenerated the shipping function and extended its source/shipping test.
+  This is source-only pending a real joined-player/remote-player runtime test.
+  No recipes, JARs, player saves or releases changed.
+
 ## 2026-11-19 — Protect unrelated Alfheim force-loaded chunks during hub creation
 
 - Corrected three dimension-wide `forceload remove all` commands in the

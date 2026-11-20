@@ -274,11 +274,13 @@ FILES['anchor'] = header(
     '# was still generating carries the await tag; now that the anchor exists, bring them in.',
     '# This is what makes a fast join self-healing instead of permanent -- the player joined at',
     '# 31 seconds and the hub resolved minutes later, and nothing moved them.',
-    f'execute in {HOME} as @a[tag={AWAIT}] at {SELECT_BAKED} run tp @s ~ ~1 ~',
-    f'execute in {HOME} as @a[tag={AWAIT}] at {SELECT_BAKED} run spawnpoint @s ~ ~1 ~',
-    f'execute as @a[tag={AWAIT}] run tellraw @s {{"text":"[Alfheim] The Greatbole has finished '
+    '# Select with @e in Alfheim, NOT global @a: remote players may carry a stale',
+    '# provisional tag and must not be recalled or have that tag silently erased.',
+    f'execute in {HOME} as @e[type=minecraft:player,tag={AWAIT}] at {SELECT_BAKED} run tp @s ~ ~1 ~',
+    f'execute in {HOME} as @e[type=minecraft:player,tag={AWAIT}] at {SELECT_BAKED} run spawnpoint @s ~ ~1 ~',
+    f'execute in {HOME} as @e[type=minecraft:player,tag={AWAIT}] run tellraw @s {{"text":"[Alfheim] The Greatbole has finished '
     'generating. Welcome to the Hollow Court.","color":"green"}',
-    f'tag @a[tag={AWAIT}] remove {AWAIT}',
+    f'execute in {HOME} run tag @e[type=minecraft:player,tag={AWAIT}] remove {AWAIT}',
     '',
     f'scoreboard players set #created {OBJ} 1',
     '# #final is what stops hub/resolve. Only a real, structure-carried anchor sets it, so a',
