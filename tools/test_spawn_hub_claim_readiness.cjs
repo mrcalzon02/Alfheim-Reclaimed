@@ -84,9 +84,12 @@ function scenario(mode) {
     const manager = {
         getTeamByName() {
             attempts++
-            return { orElse: () => mode === 'missing' ? null : mode === 'nonserver' ? player : admin }
+            return { orElse: () => (mode === 'missing' || (mode === 'late' && attempts < 3))
+                ? null : mode === 'nonserver' ? player : admin }
         },
-        getTeams() { return { toArray: () => (mode === 'missing' || mode === 'nonserver') ? [] : [admin] } },
+        getTeams() { return { toArray: () =>
+            (mode === 'missing' || mode === 'nonserver' ||
+             (mode === 'late' && attempts < 3)) ? [] : [admin] } },
         createServerTeam() { return null }
     }
     class ChunkDimPos {
@@ -138,15 +141,21 @@ function scenario(mode) {
         scheduleInTicks(ticks, fn) { assert.equal(ticks, 40); queue.push(fn) }
     }
     assert.ok(callback, 'server-load handler must register')
-    callback({ server })
-    let retries = 0
-    while (queue.length) {
-        assert.ok(retries++ < 6, 'bounded retries exceeded')
-        queue.shift()({})
+    function runLoad() {
+        callback({ server })
+        let retries = 0
+        while (queue.length) {
+            assert.ok(retries++ < 6, 'bounded retries exceeded')
+            queue.shift()({})
+        }
     }
-    return { state, messages, attempts, unclaims, playerDataCalls, claims, guards,
+    runLoad()
+    return { state, messages, get attempts() { return attempts },
+             unclaims, playerDataCalls, claims, guards,
              get claimInvocations() { return claimInvocations },
-             advanceTime(ms) { nowMs += ms } }
+             advanceTime(ms) { nowMs += ms },
+             reload: runLoad,
+             setForeignClaim() { claims.set(first, foreign) } }
 }
 
 const happy = scenario('healthy')
@@ -271,3 +280,30 @@ for (const mode of ['missing', 'nonserver', 'foreign', 'deny']) {
     if (mode === 'foreign') assert.equal(result.claims.get(first)?.getId().id, 'foreign')
 }
 console.log('SPAWN_HUB_CLAIM_READINESS_PASS: healthy ownership + missing admin + name collision + foreign owner + retry exhaustion')
+
+// Delayed bootstrap: the first two attempts have no administrative team.
+// The actual scheduled reconciliation must claim all chunks on attempt 3.
+const late = scenario('late')
+assert.equal(late.attempts, 3, 'late team should be found on the third attempt')
+assert.equal(late.state.alfheimHubClaimReady, true, 'valid late server team should become READY')
+assert.equal(late.claimInvocations, expectedClaims, 'late team must claim full envelope')
+assert.equal(late.claims.size, expectedClaims)
+assert.equal(late.messages.info.filter(s => /FTB ownership verified/.test(s)).length, 1)
+assert.equal(late.messages.error.filter(s => /HUB CLAIM NOT READY/.test(s)).length, 0)
+assert.equal(late.unclaims, 0)
+assert.equal(late.playerDataCalls, 0)
+
+// On a second server-load, one chunk has been claimed by another server team.
+// Reset the earlier successful readiness and refuse to seize that chunk.
+const stale = scenario('healthy')
+stale.setForeignClaim()
+stale.reload()
+assert.equal(stale.state.alfheimHubClaimReady, false,
+    'foreign claim on reload must invalidate earlier success')
+assert.equal(stale.attempts, 6, 'reload must exhaust its own bounded five attempts')
+assert.equal(stale.claimInvocations, expectedClaims,
+    'reload must not re-claim foreign or already-owned chunks')
+assert.equal(stale.claims.get(first).getId().id, 'foreign', 'foreign owner must remain')
+assert.equal(stale.unclaims, 0)
+assert.match(stale.messages.error.join('\n'), /HUB CLAIM NOT READY/)
+console.log('SPAWN_HUB_LATE_TEAM_RELOAD_PASS: delayed server team and stale READY invalidation')
