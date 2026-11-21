@@ -81,14 +81,16 @@ function scenario(mode) {
             }
         }
     }
+    // Simulate FTB team registry loss independently of persistent chunk ownership.
+    let adminVisible = true
     const manager = {
         getTeamByName() {
             attempts++
-            return { orElse: () => (mode === 'missing' || (mode === 'late' && attempts < 3))
+            return { orElse: () => (!adminVisible || mode === 'missing' || (mode === 'late' && attempts < 3))
                 ? null : mode === 'nonserver' ? player : admin }
         },
         getTeams() { return { toArray: () =>
-            (mode === 'missing' || mode === 'nonserver' ||
+            (!adminVisible || mode === 'missing' || mode === 'nonserver' ||
              (mode === 'late' && attempts < 3)) ? [] : [admin] } },
         createServerTeam() { return null }
     }
@@ -155,6 +157,8 @@ function scenario(mode) {
              get claimInvocations() { return claimInvocations },
              advanceTime(ms) { nowMs += ms },
              reload: runLoad,
+             removeAdminTeam() { adminVisible = false },
+             restoreAdminTeam() { adminVisible = true },
              setForeignClaim() { claims.set(first, foreign) } }
 }
 
@@ -307,3 +311,45 @@ assert.equal(stale.claims.get(first).getId().id, 'foreign', 'foreign owner must 
 assert.equal(stale.unclaims, 0)
 assert.match(stale.messages.error.join('\n'), /HUB CLAIM NOT READY/)
 console.log('SPAWN_HUB_LATE_TEAM_RELOAD_PASS: delayed server team and stale READY invalidation')
+
+// An earlier 100/100 claim is not permission to report READY if the FTB admin
+// team disappears from its registry before the next server-load callback.
+// Historical claims are deliberately kept intact: never seize/unclaim them.
+const vanished = scenario('healthy')
+assert.equal(vanished.claims.size, expectedClaims)
+assert.equal(vanished.state.alfheimHubClaimReady, true)
+vanished.removeAdminTeam()
+vanished.reload()
+assert.equal(vanished.state.alfheimHubClaimReady, false,
+    'team disappearance on reload must invalidate earlier READY')
+assert.equal(vanished.attempts, 6,
+    'second load must perform five bounded reconciliation attempts')
+assert.equal(vanished.claimInvocations, expectedClaims,
+    'missing admin must not try claims under a substitute team')
+assert.equal(vanished.claims.size, expectedClaims,
+    'admin absence must preserve all 100 saved ownership records')
+assert.equal(vanished.claims.get(first).getId().id, 'admin',
+    'original administrative ownership must not be reassigned')
+assert.equal(vanished.unclaims, 0, 'never unclaim historical admin territory')
+assert.equal(vanished.playerDataCalls, 0, 'never switch to player team claim data')
+assert.equal(vanished.messages.info.filter(s => /FTB ownership verified/.test(s)).length, 1,
+    'stale READY log must not be repeated on failed reconciliation')
+assert.equal(vanished.messages.error.filter(s => /HUB CLAIM NOT READY/.test(s)).length, 1,
+    'missing team must yield exactly one terminal operator diagnostic')
+assert.match(vanished.messages.error.join('\n'), /operator intervention required/)
+
+// Restoring the same legitimate administrative team must recover 100/100 by
+// ownership read-back, without issuing any new claims or losing old ones.
+vanished.restoreAdminTeam()
+vanished.reload()
+assert.equal(vanished.state.alfheimHubClaimReady, true,
+    'restored administrative team and verified old claims recover READY')
+assert.equal(vanished.attempts, 7, 'restoration requires one successful attempt')
+assert.equal(vanished.claimInvocations, expectedClaims,
+    '100/100 existing claims require no additional claim calls')
+assert.equal(vanished.claims.size, expectedClaims)
+assert.equal(vanished.unclaims, 0)
+assert.equal(vanished.playerDataCalls, 0)
+assert.equal(vanished.messages.info.filter(s => /FTB ownership verified/.test(s)).length, 2,
+    'restoration must publish readiness only after a fresh ownership read-back')
+console.log('SPAWN_HUB_REMOVED_ADMIN_RECOVERY_PASS: 100/100 retained, failed reload, safe restoration')
