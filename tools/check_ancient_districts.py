@@ -20,6 +20,7 @@ import subprocess
 import sys
 from pathlib import Path
 import nbt
+from check_ancient_district_admission import admission_errors
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "tools" / "ancient_district_manifest.json"
@@ -89,6 +90,11 @@ def main() -> int:
     stage = family.get("status")
     if stage not in STAGES:
         fail("A3", f"unknown family status {stage!r}")
+
+    # A3a — a production label cannot replace independently recorded acceptance.
+    # A6/A8 below still verify the actual generated shipping corpus and equality.
+    for evidence_problem in admission_errors(manifest):
+        fail("A3a", evidence_problem)
     if family.get("wave") != 1:
         fail("A3", "common residential quarter must remain Wave 1")
     if family.get("anchor") != "neighborhood_common_hall":
