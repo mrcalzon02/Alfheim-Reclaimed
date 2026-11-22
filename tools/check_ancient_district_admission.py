@@ -21,15 +21,28 @@ REQUIRED_ADMISSION_EVIDENCE = {
 def admission_errors(manifest: dict) -> list[str]:
     """Reject an asserted production status lacking independent acceptance fields."""
     families = manifest.get("families", [])
-    family = next(
-        (f for f in families if f.get("id") == "common_residential_quarter"), None
-    )
-    if not family or family.get("status") != "production_admitted":
-        return []
+    if not isinstance(families, list):
+        return ["families must be a list"]
+
+    problems = []
+    matches = []
+    for index, family in enumerate(families):
+        if not isinstance(family, dict):
+            problems.append(f"families[{index}] must be an object")
+        elif family.get("id") == "common_residential_quarter":
+            matches.append(family)
+
+    if len(matches) > 1:
+        problems.append("duplicate common_residential_quarter family ids are forbidden")
+
+    # Inspect *every* matching entry: a non-admitted first match must not mask
+    # a later production claim with missing or forged evidence.
+    if not any(family.get("status") == "production_admitted" for family in matches):
+        return problems
     evidence = manifest.get("generation_evidence")
     if not isinstance(evidence, dict):
-        return ["production_admitted requires generation_evidence object"]
-    problems = []
+        problems.append("production_admitted requires generation_evidence object")
+        return problems
     if evidence.get("family") != "common_residential_quarter":
         problems.append("production_admitted evidence must belong to common_residential_quarter")
     for field, required in REQUIRED_ADMISSION_EVIDENCE.items():
@@ -75,6 +88,32 @@ def self_test() -> None:
     missing_evidence = copy.deepcopy(complete)
     del missing_evidence["generation_evidence"]
     assert admission_errors(missing_evidence)
+
+    # Regression: duplicate IDs must never bypass independent admission evidence,
+    # whether the production claim comes first or second.
+    for statuses in (
+        ("runtime_validated", "production_admitted"),
+        ("production_admitted", "runtime_validated"),
+    ):
+        duplicate = copy.deepcopy(baseline)
+        duplicate["families"] = [
+            {"id": "common_residential_quarter", "status": status}
+            for status in statuses
+        ]
+        duplicate.pop("generation_evidence")
+        problems = admission_errors(duplicate)
+        assert any("duplicate" in p for p in problems), problems
+        assert any("generation_evidence" in p for p in problems), problems
+        duplicate["generation_evidence"] = complete["generation_evidence"]
+        assert any("duplicate" in p for p in admission_errors(duplicate))
+
+    # Malformed family entries produce explicit errors rather than crashing or
+    # being skipped because a valid entry appears earlier.
+    for entries in ((None, baseline["families"][0]), (baseline["families"][0], "bad")):
+        problems = admission_errors({"families": list(entries)})
+        assert any("families[" in p for p in problems), problems
+    assert any("families" in p for p in admission_errors({"families": None}))
+
 
 
 if __name__ == "__main__":
