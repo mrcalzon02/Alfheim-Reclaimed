@@ -241,9 +241,80 @@ def check(data: dict) -> list[str]:
     return problems
 
 
+def check_references(data: object, source_root: Path = ROOT) -> list[str]:
+    """Fail closed on broken first-party referenced family contracts.
+
+    The reference files are source JSON, *not* NBT or runtime/world evidence.  The
+    sacred-precinct contract is a generated numeric/layout report rather than the
+    eight authored schema/member-list manifests; keep that distinction explicit.
+    """
+    problems: list[str] = []
+    if not isinstance(data, dict) or not isinstance(data.get("families"), list):
+        return ["referenced family check requires a manifest with a families list"]
+    seen_paths: set[str] = set()
+    for index, fam in enumerate(data["families"]):
+        if not isinstance(fam, dict):
+            continue  # already rejected by check()
+        fid = fam.get("id", f"family #{index}")
+        refs = [key for key in ("contract", "implementation_contract") if key in fam]
+        if len(refs) > 1:
+            fail(problems, f"{fid}: multiple contract reference fields are ambiguous")
+        for key in refs:
+            raw = fam[key]
+            if not _contract_path(raw):
+                continue  # already rejected by check(); never open unsafe paths
+            if raw in seen_paths:
+                fail(problems, f"{fid}: duplicate contract reference {raw}")
+                continue
+            seen_paths.add(raw)
+            path = source_root / raw
+            try:
+                reference = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+                fail(problems, f"{fid}: contract {raw} cannot be read as JSON ({type(exc).__name__})")
+                continue
+            if not isinstance(reference, dict):
+                fail(problems, f"{fid}: contract {raw} must contain a JSON object")
+                continue
+            stem = path.stem.removesuffix("_manifest")
+            expected_schema = f"alfheim:{stem}/v1"
+            if stem != "sacred_precinct":
+                if reference.get("schema") != expected_schema:
+                    fail(problems, f"{fid}: contract {raw} schema must be {expected_schema}")
+                anchor = reference.get("anchor")
+                if not isinstance(reference.get("members"), list):
+                    fail(problems, f"{fid}: contract {raw} members must be a list")
+                    member_count = None
+                else:
+                    member_count = len(reference["members"])
+                wave = reference.get("wave")
+                if type(wave) is not int or wave != fam.get("wave"):
+                    fail(problems, f"{fid}: contract {raw} wave disagrees with summary")
+            else:
+                # The existing generated sacred report has no schema/wave/anchor
+                # fields, but its first layout entry names the authored anchor.
+                layout = reference.get("layout")
+                anchor = (layout[0].get("name") if isinstance(layout, list)
+                          and layout and isinstance(layout[0], dict) else None)
+                member_count = reference.get("members")
+                if not _integer(member_count, 1):
+                    fail(problems, f"{fid}: sacred contract {raw} members must be a positive integer")
+                    member_count = None
+                joins = reference.get("joins")
+                if not _integer(joins) or joins != fam.get("supported_connections"):
+                    fail(problems, f"{fid}: sacred contract {raw} joins disagree with summary")
+            if not _text(anchor) or anchor != fam.get("anchor"):
+                fail(problems, f"{fid}: contract {raw} anchor disagrees with summary")
+            summary_count = fam.get("assembled_members", fam.get("members_per_site"))
+            if not _integer(summary_count, 1) or member_count != summary_count:
+                fail(problems, f"{fid}: contract {raw} member count disagrees with summary")
+    return problems
+
+
 def self_test() -> None:
     clean = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert not check(clean), check(clean)
+    assert not check_references(clean), check_references(clean)
     bad = json.loads(json.dumps(clean))
     bad["families"][0]["members"][0]["piece_size"][0] = 49
     assert any("exceeds" in p for p in check(bad))
@@ -262,6 +333,8 @@ def main() -> int:
         return 0
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     problems = check(data)
+    if not problems:
+        problems.extend(check_references(data))
     if problems:
         for problem in problems:
             print("FAIL:", problem)
