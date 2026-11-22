@@ -24,86 +24,208 @@ def fail(problems: list[str], message: str) -> None:
     problems.append(message)
 
 
+def _integer(value: object, minimum: int = 0) -> bool:
+    """Reject booleans, strings and fractional JSON values even if int() accepts them."""
+    return type(value) is int and value >= minimum
+
+
+def _text(value: object) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _text_list(value: object, minimum: int = 0) -> bool:
+    return isinstance(value, list) and len(value) >= minimum and all(_text(v) for v in value)
+
+
+def _stages(value: object) -> bool:
+    return isinstance(value, list) and all(type(v) is int and 1 <= v <= 5 for v in value)
+
+
+def _contract_path(value: object) -> bool:
+    """Recognize already-authored first-party district manifest references; never resolve arbitrary paths."""
+    return (_text(value) and value.startswith("tools/") and value.endswith("_manifest.json")
+            and all(part not in ("", ".", "..") for part in value.split("/"))
+            and len(value.split("/")) == 2)
+
+
 def check(data: dict) -> list[str]:
     problems: list[str] = []
-    policy = data.get("generation_policy", {})
+    if not isinstance(data, dict):
+        return ["manifest must be an object"]
     if data.get("schema") != "alfheim:ancient_districts/v1":
         fail(problems, "schema must be alfheim:ancient_districts/v1")
+
+    policy = data.get("generation_policy")
+    if not isinstance(policy, dict):
+        fail(problems, "generation_policy must be an object")
+        return problems
     if policy.get("placement_model") != "district_anchor_family":
         fail(problems, "placement model must be district_anchor_family")
     if policy.get("forbid_independent_member_random_spread") is not True:
         fail(problems, "independent member random_spread must be forbidden")
-    max_axis = int(policy.get("max_piece_axis", 0))
-    if not 1 <= max_axis <= 48:
-        fail(problems, "max_piece_axis must remain within Minecraft's 48-block template boundary")
+    if policy.get("terrain_fit_required") is not True:
+        fail(problems, "terrain_fit_required must be true")
+    max_axis = policy.get("max_piece_axis")
+    if not _integer(max_axis, 1) or max_axis > 48:
+        fail(problems, "max_piece_axis must be an integer within Minecraft's 1–48-block template boundary")
+        # A missing/invalid limit cannot safely be compared against member dimensions.
+        return problems
+    min_stages = {}
+    for key, default in (("minimum_decline_stages_hero", 3), ("minimum_decline_stages_member", 2)):
+        value = policy.get(key, default)
+        if not _integer(value, 1) or value > 5:
+            fail(problems, f"{key} must be an integer between 1 and 5")
+            value = default
+        min_stages[key] = value
 
-    families = data.get("families", [])
+    families = data.get("families")
+    if not isinstance(families, list):
+        fail(problems, "families must be a list")
+        return problems
     if not families:
         fail(problems, "at least one district family is required")
         return problems
 
-    seen = set()
-    for fam in families:
-        fid = fam.get("id", "<missing>")
-        if fid in seen:
+    seen: set[str] = set()
+    for index, fam in enumerate(families):
+        if not isinstance(fam, dict):
+            fail(problems, f"family #{index}: family must be an object")
+            continue
+        fid = fam.get("id")
+        if not _text(fid):
+            fail(problems, f"family #{index}: family id must be nonempty text")
+            fid = f"<family #{index}>"
+        elif fid in seen:
             fail(problems, f"{fid}: duplicate family id")
         seen.add(fid)
-        extent = fam.get("intended_extent", [0, 0, 0])
-        if len(extent) != 3 or max(extent[0], extent[2]) < 160:
+        if not _text(fam.get("anchor")):
+            fail(problems, f"{fid}: anchor must be nonempty text")
+
+        # Newer district families store their detailed chronology/geometry in a
+        # separate original manifest; the top-level entry is only a summary.
+        # Do not mistake a summary for a fully inlined member declaration.
+        refs = [key for key in ("contract", "implementation_contract") if key in fam]
+        for key in refs:
+            if not _contract_path(fam[key]):
+                fail(problems, f"{fid}: {key} must be a tools/*_manifest.json contract path")
+        if "members" not in fam and refs:
+            if "decline_stages" in fam:
+                stages = fam["decline_stages"]
+                if not _stages(stages) or not {1, 3, 4, 5}.issubset(stages):
+                    fail(problems, f"{fid}: decline_stages must preserve healthy/emergency/collapse/long-decay chronology")
+            continue
+        if "members" not in fam:
+            fail(problems, f"{fid}: members or a referenced implementation contract is required")
+            continue
+
+        extent = fam.get("intended_extent")
+        if not (isinstance(extent, list) and len(extent) == 3
+                and all(_integer(v, 1) for v in extent)):
+            fail(problems, f"{fid}: intended_extent must have three positive integer axes")
+        elif max(extent[0], extent[2]) < 160:
             fail(problems, f"{fid}: district must span at least 160 blocks horizontally")
-        stages = set(fam.get("decline_stages", []))
-        if not {1, 3, 4, 5}.issubset(stages):
+        stages = fam.get("decline_stages")
+        if not _stages(stages):
+            fail(problems, f"{fid}: decline_stages must be a list of integer stages 1 through 5")
+        elif not {1, 3, 4, 5}.issubset(stages):
             fail(problems, f"{fid}: family must carry healthy/emergency/collapse/long-decay chronology")
-        if len(fam.get("advanced_systems", [])) < 2:
-            fail(problems, f"{fid}: advanced elven infrastructure is under-specified")
+        advanced = fam.get("advanced_systems")
+        if not _text_list(advanced, 2):
+            fail(problems, f"{fid}: advanced_systems must contain at least two named systems")
 
-        circulation = fam.get("circulation", {})
-        if circulation.get("must_connect_every_inhabited_member") is not True:
-            fail(problems, f"{fid}: inhabited members must share real circulation")
-        if circulation.get("must_connect_burial_edge") is not True:
-            fail(problems, f"{fid}: district must physically connect to its burial edge")
+        circulation = fam.get("circulation")
+        if not isinstance(circulation, dict):
+            fail(problems, f"{fid}: circulation must be an object")
+        else:
+            if circulation.get("must_connect_every_inhabited_member") is not True:
+                fail(problems, f"{fid}: inhabited members must share real circulation")
+            if circulation.get("must_connect_burial_edge") is not True:
+                fail(problems, f"{fid}: district must physically connect to its burial edge")
+            if circulation.get("must_show_blocked_or_failed_routes") is not True:
+                fail(problems, f"{fid}: circulation must show blocked or failed routes")
+        terrain = fam.get("terrain")
+        if not isinstance(terrain, dict):
+            fail(problems, f"{fid}: terrain must be an object")
+        elif (terrain.get("reject_naked_cantilever") is not True
+              or terrain.get("severe_relief_requires_authored_substructure") is not True):
+            fail(problems, f"{fid}: terrain must prohibit cantilevers and require severe-relief substructure")
 
-        members = fam.get("members", [])
+        members = fam.get("members")
+        if not isinstance(members, list):
+            fail(problems, f"{fid}: members must be a list")
+            continue
         if len(members) < 8:
             fail(problems, f"{fid}: district vocabulary too small ({len(members)} members)")
-        member_ids = set()
-        evidence = set()
+        member_ids: set[str] = set()
+        evidence: set[str] = set()
         minimum_count = 0
         inhabited_min = 0
-        archetypes = set()
-        roles = set()
-        for member in members:
-            mid = member.get("id", "<missing>")
-            if mid in member_ids:
+        archetypes: set[str] = set()
+        roles: set[str] = set()
+        for mi, member in enumerate(members):
+            if not isinstance(member, dict):
+                fail(problems, f"{fid}: member #{mi} must be an object")
+                continue
+            mid = member.get("id")
+            if not _text(mid):
+                fail(problems, f"{fid}: member id at #{mi} must be nonempty text")
+                mid = f"<member #{mi}>"
+            elif mid in member_ids:
                 fail(problems, f"{fid}: duplicate member id {mid}")
             member_ids.add(mid)
-            roles.add(member.get("role"))
-            archetypes.add(member.get("archetype"))
-            size = member.get("piece_size", [999, 999, 999])
-            if len(size) != 3 or any(int(v) > max_axis for v in size):
-                fail(problems, f"{fid}/{mid}: piece exceeds {max_axis}-block axis boundary: {size}")
-            count = member.get("count", [0, 0])
-            if len(count) != 2 or count[0] < 0 or count[1] < count[0]:
+            role = member.get("role")
+            if not _text(role):
+                fail(problems, f"{fid}/{mid}: role must be nonempty text")
+            else:
+                roles.add(role)
+            archetype = member.get("archetype")
+            if not _text(archetype):
+                fail(problems, f"{fid}/{mid}: archetype must be nonempty text")
+            else:
+                archetypes.add(archetype)
+            size = member.get("piece_size")
+            if not (isinstance(size, list) and len(size) == 3
+                    and all(_integer(v, 1) for v in size)):
+                fail(problems, f"{fid}/{mid}: piece_size requires three positive integer axes")
+            elif any(v > max_axis for v in size):
+                fail(problems, f"{fid}/{mid}: piece_size exceeds {max_axis}-block axis boundary: {size}")
+            count = member.get("count")
+            if not (isinstance(count, list) and len(count) == 2
+                    and all(_integer(v) for v in count) and count[1] >= count[0]):
                 fail(problems, f"{fid}/{mid}: invalid count range {count}")
-                continue
-            minimum_count += int(count[0])
-            if member.get("role") in {"hero_anchor", "residential_member", "economic_member"}:
-                inhabited_min += int(count[0])
-            member_stages = set(member.get("decline_stages", []))
-            min_member_stages = policy.get("minimum_decline_stages_hero", 3) if member.get("role") == "hero_anchor" else policy.get("minimum_decline_stages_member", 2)
-            if len(member_stages) < int(min_member_stages):
-                fail(problems, f"{fid}/{mid}: insufficient decline chronology")
-            evidence.update(member.get("evidence", []))
+            else:
+                minimum_count += count[0]
+                if _text(role) and role in {"hero_anchor", "residential_member", "economic_member"}:
+                    inhabited_min += count[0]
+            member_stages = member.get("decline_stages")
+            if not _stages(member_stages):
+                fail(problems, f"{fid}/{mid}: decline_stages must be integer stages 1–5")
+            else:
+                required = min_stages["minimum_decline_stages_hero"] if role == "hero_anchor" else min_stages["minimum_decline_stages_member"]
+                if len(set(member_stages)) < required:
+                    fail(problems, f"{fid}/{mid}: insufficient decline chronology")
+            member_evidence = member.get("evidence")
+            if not _text_list(member_evidence):
+                fail(problems, f"{fid}/{mid}: evidence must be a list of named clues")
+            else:
+                evidence.update(member_evidence)
 
-        if "hero_anchor" not in roles or "mortuary_edge_member" not in roles or "circulation_member" not in roles:
+        if not {"hero_anchor", "mortuary_edge_member", "circulation_member"}.issubset(roles):
             fail(problems, f"{fid}: requires hero anchor, circulation, and mortuary-edge members")
-        acc = fam.get("acceptance", {})
-        if minimum_count < int(acc.get("minimum_members_per_site", 0)):
-            fail(problems, f"{fid}: minimum generated member count {minimum_count} below acceptance floor")
-        if inhabited_min < int(acc.get("minimum_inhabited_members", 0)):
-            fail(problems, f"{fid}: inhabited minimum {inhabited_min} below acceptance floor")
-        if len(archetypes) < int(acc.get("minimum_distinct_archetypes", 0)):
-            fail(problems, f"{fid}: insufficient archetype diversity")
+        acc = fam.get("acceptance")
+        if not isinstance(acc, dict):
+            fail(problems, f"{fid}: acceptance must be an object")
+            continue
+        for key, actual, explanation in (
+            ("minimum_members_per_site", minimum_count, "minimum generated member count"),
+            ("minimum_inhabited_members", inhabited_min, "inhabited minimum"),
+            ("minimum_distinct_archetypes", len(archetypes), "archetype diversity"),
+        ):
+            floor = acc.get(key)
+            if not _integer(floor):
+                fail(problems, f"{fid}: acceptance {key} must be a nonnegative integer")
+            elif actual < floor:
+                fail(problems, f"{fid}: {explanation} {actual} below acceptance floor {floor}")
         for band, options in REQUIRED_EVIDENCE.items():
             if not evidence.intersection(options):
                 fail(problems, f"{fid}: no evidence covers {band} chronology")
