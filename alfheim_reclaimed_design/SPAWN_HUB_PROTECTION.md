@@ -1,7 +1,7 @@
 # Spawn Hub Protection — claim and anti-grief acceptance
 
 **Role:** protection subrecord for `SPAWN_HUB.md` §4. It owns the runtime acceptance criteria for the Greatbole/Hollow Court protected zone, its FTB Chunks administrative claim, and player-edit protection.
-**Status:** `static claim/edit repair implemented; runtime validation pending; fire-spread hook open` 2026-09-05 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub attempts a server-team claim and independently rejects non-op breaking and placement. Post-reconciliation review confirmed that the current shipping script has **no fire-spread handler**, and the installed KubeJS event surface does not expose a cancellable regional fire-spread event. Fire protection therefore remains an open implementation item rather than an accepted capability.
+**Status:** `origin-fixed 100-chunk FTB claim verified in full Forge two-boot saved-world test 2026-11-20; non-op player-edit and fire-spread acceptance still open` — current source/evidence reconciliation 2026-11-22 — the stale assumption that FTB Chunks was absent has been corrected in the authoritative generator and shipping script. The hub attempts a server-team claim and independently rejects non-op breaking and placement. Post-reconciliation review confirmed that the current shipping script has **no fire-spread handler**, and the installed KubeJS event surface does not expose a cancellable regional fire-spread event. Fire protection therefore remains an open implementation item rather than an accepted capability.
 **Authority:** subordinate to `INSTRUCTIONS.md`; extends `SPAWN_HUB.md`. `SPAWN_HUB.md` §4 was reconciled to the automatic FTB claim flow on 2026-09-05; this file remains the authority for protection acceptance. Where the parent record's summary table conflicts with the implementation-specific state here, this record controls until that row is corrected.
 
 ## 2026-09-07 claim implementation reconciliation
@@ -11,9 +11,7 @@ Inspection of the working Infinite Domain implementation established the actual 
 pattern, now generator-owned in `tools/templates/spawn_hub_protection.js`: resolve or create the
 server team, configure FTB properties, call `ChunkTeamData.claim(..., false)` for every chunk,
 read each claim back by team UUID, `saveNow()`, sync, and retry an incomplete reconciliation.
-The dimension key is `mythicbotany:alfheim`; the deterministic complex and 128-block envelope are
-both centered at X=0/Z=0. Runtime FTB-map ownership and restart persistence still require a fresh
-world and therefore remain unclaimed.
+The dimension key is `mythicbotany:alfheim`. This paragraph preserves the 2026-09-07 implementation history; the later fixed-origin, precisely bounded claim and its Forge restart evidence are reconciled below.
 
 ---
 
@@ -74,15 +72,19 @@ The checker fails on a missing probe, an unclaimed probe, or a different owner. 
 
 ## 3. Claim lifecycle must follow the actual Greatbole
 
-The Greatbole may relocate from the origin when the origin biome is unsuitable. Protection therefore cannot be based on a hard-coded assumption that the structure sits at 0,0.
+**Current shipped placement is fixed at X=0, Z=0, not relocatable.** `tools/gen_world_hub.py` has `CANDIDATES = [(0, 0)]`, and the generated hub placement vertically adapts the origin complex. The former relocated Greatbole acceptance scenario is not executable against this implementation and must not be counted as an unperformed runtime test of an active placement mode.
 
-The current static repair claims the complete 192-block relocation envelope already used by the hub protection logic. That envelope deliberately contains every allowed Greatbole relocation plus the structure footprint, so it does not leave a relocated hub outside protection. This is broader than resolving and claiming only the final marker-relative footprint; runtime validation must confirm that the resulting FTB claim is acceptable and persists correctly.
+The generator-owned claim envelope is the exact chunk-snapped union of the seven placed structures: **X -80..79, Z -128..31 = 10 × 10 = 100 chunks**, not a 128-block-radius or 192-block relocation square. `tools/check_spawn_hub.py` S9 cross-checks it against the actual assembly template offsets. The separately maintained **121 forced-load chunk** lifecycle is not the 100-chunk FTB ownership claim.
+
+**Runtime evidence, distinct from this documentation edit:** `EXECUTION_STATE.md` records the 2026-11-20 full 84-mod Forge two-boot saved-world run (`44790630724` at source `49288d7`) showing **100/100 administrative claims on each boot**, no foreign claims or redundant reclaim warnings, and 121/121 forced chunks recovered after an intentionally removed ticket. That validates the fixed-origin owner/restart path in that tested world, **not** non-op break/place denial, regional fire suppression, visual acceptance, or relocation.
+
+If relocation is deliberately reintroduced later, placement, template-anchored claim bounds, FTB owner read-back probes, and non-op protection must be updated and exercised together before a relocated hub can be called ready. Do not invent an alternate-anchor fixture while `CANDIDATES` remains origin-only.
 
 The desired lifecycle is:
 
 1. Generate/resolve the Greatbole and obtain the authoritative hub anchor.
 2. Resolve the intended administrative/server FTB team.
-3. Reconcile the team's claimed area against the actual Greatbole/Hollow Court footprint, including the processional approach and any allowed relocation envelope.
+3. Reconcile the team's claimed area against the fixed-origin Greatbole/Hollow Court seven-piece footprint and its processional approach; any future relocation requires a separate, implemented anchor/claim contract.
 4. Observe that the required chunks are claimed before reporting the hub as protection-ready.
 5. Re-check or reconcile protection on subsequent server/world loads so a missing, released or stale claim cannot silently persist.
 
@@ -101,7 +103,7 @@ The finished hub must pass all of the following in a fresh test world:
 - the intended admin/server team owns the FTB Chunks claim covering the full Greatbole, Court and protected approach;
 - a non-op survival player cannot break a Greatbole, gate, amphitheatre or protected-zone block;
 - the same player cannot place arbitrary blocks inside the protected zone unless the final design explicitly grants a build area;
-- the protection follows a Greatbole that relocated away from 0,0 rather than protecting empty origin chunks;
+- the fixed-origin 100-chunk ownership envelope covers every placed hub piece, with no unclaimed or foreign-owned interior chunk; a relocated Greatbole is an additional acceptance case **only if** relocation is reintroduced;
 - the claim survives a player relog and server/world restart;
 - protection status can be inspected/read back rather than inferred from a command return code;
 - explosion damage, **fire spread**, mob griefing and hostile spawning are tested separately and remain prevented as designed.
